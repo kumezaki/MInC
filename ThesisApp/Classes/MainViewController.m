@@ -3,7 +3,7 @@
 //  ThesisApp
 //
 //  Created by Chris Lavender on 10/30/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright 2010 Gnarly Dog Music. All rights reserved.
 //
 
 #import "MainViewController.h"
@@ -48,12 +48,13 @@
 
 
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+	mAQPlayer = [AQPlayer new];
 	[super viewDidLoad];
 }
-*/
+
 
 
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller {
@@ -74,32 +75,57 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc. that aren't in use.
-}
-
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
-
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations.
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
-
 
 - (void)dealloc {
+	
+	[mAQPlayer release];
     [super dealloc];
 }
+
+-(IBAction) startSound:(UIButton *)sender 
+{
+	if ([sender.titleLabel.text isEqual:@"1"]) {
+		mAQPlayer.mFreq = 196;
+	}else if ([sender.titleLabel.text isEqual:@"2"]) {
+		mAQPlayer.mFreq = 220;
+
+	}else if ([sender.titleLabel.text isEqual:@"3"]) {
+		mAQPlayer.mFreq = 233;
+
+	}else if ([sender.titleLabel.text isEqual:@"4"]) {
+		mAQPlayer.mFreq = 262;
+
+	}else if ([sender.titleLabel.text isEqual:@"5"]) {
+		mAQPlayer.mFreq = 294;
+
+	}else if ([sender.titleLabel.text isEqual:@"6"]) {
+		mAQPlayer.mFreq = 349;
+
+	}else if ([sender.titleLabel.text isEqual:@"7"]) {
+		mAQPlayer.mFreq = 392;
+
+	}else if ([sender.titleLabel.text isEqual:@"8"]) {
+		mAQPlayer.mFreq = 440;
+
+	}
+	[mAQPlayer Start];
+}
+
+-(IBAction) stopSound:(UIButton *)sender 
+{
+	[mAQPlayer Stop];
+}
+
+//-(IBAction) doAmp:(id)sender
+//{
+//	[mAQPlayer setMAmp:mAmpSlider.value];
+//}
+//
+//-(IBAction) doFreq:(id)sender
+//{
+//	[mAQPlayer setMFreq:mFreqSlider.value*1000];
+//	
+//}
 
 
 @end
