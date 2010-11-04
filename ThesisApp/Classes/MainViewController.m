@@ -84,6 +84,7 @@
 
 -(IBAction) startSound:(UIButton *)sender 
 {
+#if 0
 	if ([sender.titleLabel.text isEqual:@"1"]) {
 		mAQPlayer.mFreq = 196;
 	}else if ([sender.titleLabel.text isEqual:@"2"]) {
@@ -109,6 +110,7 @@
 
 	}
 	[mAQPlayer Start];
+#endif
 }
 
 -(IBAction) stopSound:(UIButton *)sender 

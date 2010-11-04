@@ -40,10 +40,10 @@
 		32CA4F630368D1EE00C91783 /* ThesisApp_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThesisApp_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ThesisApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ThesisApp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		B4653FDD127E66CC00DA1F26 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		B4DC0CF7127E4A2500D9D146 /* WaveFormTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveFormTable.h; sourceTree = "<group>"; };
-		B4DC0CF8127E4A2500D9D146 /* WaveFormTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveFormTable.m; sourceTree = "<group>"; };
-		B4DC0CF9127E4A2500D9D146 /* AQPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQPlayer.h; sourceTree = "<group>"; };
-		B4DC0CFA127E4A2500D9D146 /* AQPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQPlayer.m; sourceTree = "<group>"; };
+		B4DC0CF7127E4A2500D9D146 /* WaveFormTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaveFormTable.h; path = Classes/WaveFormTable.h; sourceTree = "<group>"; };
+		B4DC0CF8127E4A2500D9D146 /* WaveFormTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaveFormTable.m; path = Classes/WaveFormTable.m; sourceTree = "<group>"; };
+		B4DC0CF9127E4A2500D9D146 /* AQPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AQPlayer.h; path = Classes/AQPlayer.h; sourceTree = "<group>"; };
+		B4DC0CFA127E4A2500D9D146 /* AQPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AQPlayer.m; path = Classes/AQPlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
