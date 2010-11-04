@@ -8,7 +8,7 @@
 	};
 	289233A80DB2D0DB0083E9F9 /* MainViewController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {938, 514}}";
+			sepNavIntBoundsRect = "{{0, 0}, {938, 688}}";
 			sepNavSelRange = "{484, 0}";
 			sepNavVisRange = "{0, 619}";
 		};
@@ -17,7 +17,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {938, 1716}}";
 			sepNavSelRange = "{2965, 0}";
-			sepNavVisRange = "{0, 1125}";
+			sepNavVisRange = "{0, 1532}";
 			sepNavWindowFrame = "{{15, 126}, {877, 747}}";
 		};
 	};
@@ -38,6 +38,7 @@
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeBuildConfigurationName = Debug;
 		activeExecutable = B4290FB5127CF90E009192CD /* ThesisApp */;
+		activeSDKPreference = iphonesimulator4.1;
 		activeTarget = 1D6058900D05DD3D006BFB54 /* ThesisApp */;
 		addToTargets = (
 			1D6058900D05DD3D006BFB54 /* ThesisApp */,
@@ -71,20 +72,30 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 310319535;
-			PBXWorkspaceStateSaveDate = 310319535;
+			PBXConfiguration.PBXFileTableDataSource3.PBXFindDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFindDataSource_LocationID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					200,
+					774,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFindDataSource_MessageID,
+					PBXFindDataSource_LocationID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 310590078;
+			PBXWorkspaceStateSaveDate = 310590078;
 		};
 		perUserProjectItems = {
 			B465403A127E72B000DA1F26 /* PBXTextBookmark */ = B465403A127E72B000DA1F26 /* PBXTextBookmark */;
 			B465403C127E72B000DA1F26 /* PBXTextBookmark */ = B465403C127E72B000DA1F26 /* PBXTextBookmark */;
 			B465403D127E72B000DA1F26 /* PBXTextBookmark */ = B465403D127E72B000DA1F26 /* PBXTextBookmark */;
-			B465403E127E72B000DA1F26 /* PBXTextBookmark */ = B465403E127E72B000DA1F26 /* PBXTextBookmark */;
-			B465403F127E72B000DA1F26 /* PBXTextBookmark */ = B465403F127E72B000DA1F26 /* PBXTextBookmark */;
-			B4654040127E72B000DA1F26 /* PBXTextBookmark */ = B4654040127E72B000DA1F26 /* PBXTextBookmark */;
-			B4654041127E72B000DA1F26 /* PBXTextBookmark */ = B4654041127E72B000DA1F26 /* PBXTextBookmark */;
-			B4654042127E72B000DA1F26 /* PBXTextBookmark */ = B4654042127E72B000DA1F26 /* PBXTextBookmark */;
-			B4B3E14E127F3829000E2B9A /* PBXTextBookmark */ = B4B3E14E127F3829000E2B9A /* PBXTextBookmark */;
-			B4B3E14F127F3829000E2B9A /* PBXTextBookmark */ = B4B3E14F127F3829000E2B9A /* PBXTextBookmark */;
+			B47D114A12828B24004A3B79 /* PBXTextBookmark */ = B47D114A12828B24004A3B79 /* PBXTextBookmark */;
+			B47D114B12828B24004A3B79 /* PBXTextBookmark */ = B47D114B12828B24004A3B79 /* PBXTextBookmark */;
+			B47D114C12828B24004A3B79 /* PBXTextBookmark */ = B47D114C12828B24004A3B79 /* PBXTextBookmark */;
+			B47D114D12828B24004A3B79 /* PBXTextBookmark */ = B47D114D12828B24004A3B79 /* PBXTextBookmark */;
+			B47D114F12828B24004A3B79 /* PBXTextBookmark */ = B47D114F12828B24004A3B79 /* PBXTextBookmark */;
 		};
 		sourceControlManager = B4290FB9127CF92C009192CD /* Source Control */;
 		userBuildSettings = {
@@ -169,7 +180,37 @@
 		vrLen = 775;
 		vrLoc = 0;
 	};
-	B465403E127E72B000DA1F26 /* PBXTextBookmark */ = {
+	B47D114A12828B24004A3B79 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B4EC2A4E1282855600AD2DA1 /* AQPlayer.h */;
+		name = "AQPlayer.h: 9";
+		rLen = 0;
+		rLoc = 171;
+		rType = 0;
+		vrLen = 788;
+		vrLoc = 0;
+	};
+	B47D114B12828B24004A3B79 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B4EC2A4B1282851A00AD2DA1 /* WaveFormTable.h */;
+		name = "WaveFormTable.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 376;
+		vrLoc = 0;
+	};
+	B47D114C12828B24004A3B79 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B4EC2A4C1282854000AD2DA1 /* WaveFormTable.m */;
+		name = "WaveFormTable.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 639;
+		vrLoc = 0;
+	};
+	B47D114D12828B24004A3B79 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 289233A80DB2D0DB0083E9F9 /* MainViewController.h */;
 		name = "MainViewController.h: 24";
@@ -179,92 +220,42 @@
 		vrLen = 619;
 		vrLoc = 0;
 	};
-	B465403F127E72B000DA1F26 /* PBXTextBookmark */ = {
+	B47D114F12828B24004A3B79 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 289233A90DB2D0DB0083E9F9 /* MainViewController.m */;
 		name = "MainViewController.m: 121";
 		rLen = 0;
 		rLoc = 2965;
 		rType = 0;
-		vrLen = 1125;
+		vrLen = 1532;
 		vrLoc = 0;
-	};
-	B4654040127E72B000DA1F26 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = B4DC0CF7127E4A2500D9D146 /* WaveFormTable.h */;
-		name = "WaveFormTable.h: 6";
-		rLen = 0;
-		rLoc = 117;
-		rType = 0;
-		vrLen = 376;
-		vrLoc = 0;
-	};
-	B4654041127E72B000DA1F26 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = B4DC0CF8127E4A2500D9D146 /* WaveFormTable.m */;
-		name = "WaveFormTable.m: 6";
-		rLen = 16;
-		rLoc = 101;
-		rType = 0;
-		vrLen = 639;
-		vrLoc = 0;
-	};
-	B4654042127E72B000DA1F26 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = B4DC0CF9127E4A2500D9D146 /* AQPlayer.h */;
-		name = "AQPlayer.h: 6";
-		rLen = 0;
-		rLoc = 111;
-		rType = 0;
-		vrLen = 785;
-		vrLoc = 3;
-	};
-	B4B3E14E127F3829000E2B9A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = B4DC0CFA127E4A2500D9D146 /* AQPlayer.m */;
-		name = "AQPlayer.m: 6";
-		rLen = 0;
-		rLoc = 111;
-		rType = 0;
-		vrLen = 862;
-		vrLoc = 0;
-	};
-	B4B3E14F127F3829000E2B9A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 289233A80DB2D0DB0083E9F9 /* MainViewController.h */;
-		name = "MainViewController.h: 24";
-		rLen = 0;
-		rLoc = 484;
-		rType = 0;
-		vrLen = 619;
-		vrLoc = 0;
-	};
-	B4DC0CF7127E4A2500D9D146 /* WaveFormTable.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {938, 526}}";
-			sepNavSelRange = "{117, 0}";
-			sepNavVisRange = "{0, 376}";
-		};
-	};
-	B4DC0CF8127E4A2500D9D146 /* WaveFormTable.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {938, 526}}";
-			sepNavSelRange = "{101, 16}";
-			sepNavVisRange = "{0, 639}";
-		};
-	};
-	B4DC0CF9127E4A2500D9D146 /* AQPlayer.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {938, 572}}";
-			sepNavSelRange = "{111, 0}";
-			sepNavVisRange = "{3, 785}";
-		};
 	};
 	B4DC0CFA127E4A2500D9D146 /* AQPlayer.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {938, 1677}}";
 			sepNavSelRange = "{111, 0}";
 			sepNavVisRange = "{0, 862}";
+		};
+	};
+	B4EC2A4B1282851A00AD2DA1 /* WaveFormTable.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {938, 688}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 376}";
+		};
+	};
+	B4EC2A4C1282854000AD2DA1 /* WaveFormTable.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {938, 688}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 639}";
+		};
+	};
+	B4EC2A4E1282855600AD2DA1 /* AQPlayer.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {938, 688}}";
+			sepNavSelRange = "{171, 0}";
+			sepNavVisRange = "{0, 788}";
 		};
 	};
 }
