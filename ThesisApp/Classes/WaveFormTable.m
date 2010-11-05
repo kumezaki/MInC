@@ -17,12 +17,14 @@
 
 	for (int i = 0; i < kWaveformTableSize; i++)
 	{
-//populate the table with a sine wave		mTable[i] = sin((double)i / kWaveformTableSize * 2. * 3.1415926353);
+#if 1
+		mTable[i] = sin((double)i / kWaveformTableSize * 2. * 3.1415926353);
+#else
 		if (i < (kWaveformTableSize / 2))
 			mTable[i] = 1;
 		else
 			mTable[i] = -1;
-
+#endif
 		printf("%f\n",mTable[i]);
 	}
 	
