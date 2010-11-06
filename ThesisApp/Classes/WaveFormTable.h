@@ -10,11 +10,11 @@
 
 #define kWaveformTableSize 512
 
-@interface WaveFormTable : NSObject //NSObject is the subclass (child) of a parent class
+@interface WaveFormTable : NSObject
 {
 	double mTable[kWaveformTableSize];
 }
 
--(double) Get:(double)index;
+-(double) get:(double)index;
 
 @end

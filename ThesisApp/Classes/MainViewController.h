@@ -7,9 +7,11 @@
 //
 
 #import "FlipsideViewController.h"
+
 #import "AQPlayer.h"
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate> {
+@interface MainViewController : UIViewController <FlipsideViewControllerDelegate>
+{
 
 	UIStatusBarStyle oldStatusBarStyle;
 	

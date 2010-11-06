@@ -7,20 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import <AudioToolbox/AudioToolbox.h>
 
 #import "WaveFormTable.h"
 
 #define kNumberBuffers 3
 
-@interface AQPlayer : NSObject {
+@interface AQPlayer : NSObject
+{
+
+	AudioStreamBasicDescription		mDataFormat;
+	AudioQueueRef					mQueue;
+	AudioQueueBufferRef				mBuffers[kNumberBuffers];
 
 @public
-	AudioQueueRef mQueue;
-	AudioQueueBufferRef mBuffers[kNumberBuffers];
-	AudioStreamBasicDescription mDataFormat;
-
+	
 	double mSR;
 	double mFreq;
 	double mAmp;

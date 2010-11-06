@@ -31,7 +31,7 @@
 	return self;
 }
 
--(double) Get:(double)index
+-(double) get:(double)index
 {
 	int i = index * kWaveformTableSize;
 	i %= kWaveformTableSize;

@@ -50,20 +50,23 @@
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
 	mAQPlayer = [AQPlayer new];
 	[super viewDidLoad];
 }
 
 
 
-- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller {
+- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
+{
     
 	[self dismissModalViewControllerAnimated:YES];
 }
 
 
-- (IBAction)showInfo:(id)sender {    
+- (IBAction)showInfo:(id)sender
+{    
 	
 	FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
 	controller.delegate = self;
@@ -76,7 +79,8 @@
 
 
 
-- (void)dealloc {
+- (void)dealloc
+{
 	
 	[mAQPlayer release];
     [super dealloc];
@@ -85,29 +89,30 @@
 -(IBAction) startSound:(UIButton *)sender 
 {
 	if ([sender.titleLabel.text isEqual:@"1"]) {
-		mAQPlayer.mFreq = 196;
+		mAQPlayer.mFreq = 262;//C4
 	}else if ([sender.titleLabel.text isEqual:@"2"]) {
-		mAQPlayer.mFreq = 220;
+		mAQPlayer.mFreq = 330;//E4
 
 	}else if ([sender.titleLabel.text isEqual:@"3"]) {
-		mAQPlayer.mFreq = 233;
+		mAQPlayer.mFreq = 349;//F4
 
 	}else if ([sender.titleLabel.text isEqual:@"4"]) {
-		mAQPlayer.mFreq = 262;
+		mAQPlayer.mFreq = 392;//G4
 
 	}else if ([sender.titleLabel.text isEqual:@"5"]) {
-		mAQPlayer.mFreq = 294;
+		mAQPlayer.mFreq = 466;//Bb4
 
 	}else if ([sender.titleLabel.text isEqual:@"6"]) {
-		mAQPlayer.mFreq = 349;
+		mAQPlayer.mFreq = 523;//C5
 
 	}else if ([sender.titleLabel.text isEqual:@"7"]) {
-		mAQPlayer.mFreq = 392;
+		mAQPlayer.mFreq = 659;//E5
 
 	}else if ([sender.titleLabel.text isEqual:@"8"]) {
-		mAQPlayer.mFreq = 440;
+		mAQPlayer.mFreq = 699;//F5
 
 	}
+
 	[mAQPlayer Start];
 }
 
