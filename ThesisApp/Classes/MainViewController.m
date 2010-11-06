@@ -53,6 +53,7 @@
 - (void)viewDidLoad
 {
 	mAQPlayer = [AQPlayer new];
+	[mAQPlayer start];
 	[super viewDidLoad];
 }
 
@@ -81,7 +82,7 @@
 
 - (void)dealloc
 {
-	
+	[mAQPlayer stop];
 	[mAQPlayer release];
     [super dealloc];
 }
@@ -113,13 +114,10 @@
 		mAQPlayer.mFreq = 699;//F5
 
 	}
-
-	[mAQPlayer start];
 }
 
 -(IBAction) stopSound:(UIButton *)sender 
 {
-	[mAQPlayer stop];
 }
 
 //-(IBAction) doAmp:(id)sender

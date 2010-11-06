@@ -7,7 +7,6 @@
 //
 
 #import "AQPlayer.h"
-#import "WaveFormTable.h"
 
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
 {	
@@ -15,23 +14,22 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 	
-	double delta_theta = aqp->mFreq / aqp->mSR; //!!!not sure how to deal with mFreq here now that it is an array.
+	double delta_theta = aqp->mFreq[0] / aqp->mSR; //!!!not sure how to deal with mFreq here now that it is an array.
 	
 	for (int i = 0; i < numFrames; i++)
 	{	
 		double sample = 0.;
 		
-		for (int j = 0; j < 2; j++)
+		for (int j = 0; j < 1; j++)
 		{
 			sample += aqp->mAmp * [aqp->mWaveTable get:aqp->mTheta[j]] * (SInt16)0x7FFF;
+			aqp->mTheta[j] += delta_theta;
 		}
 		
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample;
-		
-		aqp->mTheta += delta_theta;
 	}
 	
-	inAQBuffer->mAudioDataByteSize = 512;
+	inAQBuffer->mAudioDataByteSize = 1024;
 	inAQBuffer->mPacketDescriptionCount = 0;
 	
 	AudioQueueEnqueueBuffer(inAQ, inAQBuffer, 0, nil);
@@ -46,11 +44,11 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 //	}
 
 //@synthesize mFreq;
--(void) setFreq:(double)mFreq[]
+-(void) setFreq:(double)mFreq
 	{
 		for (int i = 0; i < 2; ++i) //loading the array via the setter? I'm not sure where the optimum place would be to load the array.
 		{
-		mFreq[i] = val;
+//		mFreq[i] = val;
 		}
 	}
 
@@ -69,11 +67,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	return self;
 }
 
--(void) New
-{
-	mTheta[0] = 0.;//I'm guessing here.
-	mAmp = 1.;
-	mFreq[0] = 440.;//I'm also guessing here.
+-(void) New{
+
+	mTheta[0] = 0.;
+	mTheta[1] = 0.;
+	mAmp = 1.0;
+	mFreq[0] = 0.;
+	mFreq[1] = 0.;
 	mSR = 22050.;
 		
 	mDataFormat.mSampleRate = mSR;
@@ -83,22 +83,28 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	mDataFormat.mFramesPerPacket = 1;
 	mDataFormat.mBytesPerFrame = sizeof(SInt16);
 	mDataFormat.mChannelsPerFrame = 1;
+	mDataFormat.mSampleRate = 22050.;
 	mDataFormat.mBitsPerChannel = 16;
 
-	OSStatus result = AudioQueueNewOutput(&mDataFormat, AQBufferCallback, self, nil, nil, 0, &mQueue);
+	OSStatus result = AudioQueueNewOutput(&mDataFormat,
+										  AQBufferCallback,
+										  self,
+										  nil,
+										  nil,
+										  0,
+										  &mQueue);
 
 	if (result != noErr)
 		printf("AudioQueueNewOutput \n",result);
 	
 	for (int i = 0; i < kNumberBuffers; ++i)
 	{
-		result = AudioQueueAllocateBuffer(mQueue, 512, &mBuffers[i]);
-		
+		result = AudioQueueAllocateBuffer(mQueue,
+										  1024,//hexidecimal numbers are also possible.
+										  &mBuffers[i]);
 		if (result != noErr)
 			printf("AudioQueueAllocateBuffer \n",result);
 	}
-	
-	
 }
 
 
