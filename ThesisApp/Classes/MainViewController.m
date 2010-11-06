@@ -90,6 +90,7 @@
 {
 	if ([sender.titleLabel.text isEqual:@"1"]) {
 		mAQPlayer.mFreq = 262;//C4
+   	
 	}else if ([sender.titleLabel.text isEqual:@"2"]) {
 		mAQPlayer.mFreq = 330;//E4
 
@@ -113,12 +114,12 @@
 
 	}
 
-	[mAQPlayer Start];
+	[mAQPlayer start];
 }
 
 -(IBAction) stopSound:(UIButton *)sender 
 {
-	[mAQPlayer Stop];
+	[mAQPlayer stop];
 }
 
 //-(IBAction) doAmp:(id)sender

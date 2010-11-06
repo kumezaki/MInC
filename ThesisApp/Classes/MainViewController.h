@@ -17,8 +17,8 @@
 	
 	AQPlayer *mAQPlayer;
 	
-	IBOutlet UISlider *mAmpSlider;
-	IBOutlet UISlider *mFreqSlider;
+	BOOL mNewMod;
+
 	
 }
 

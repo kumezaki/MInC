@@ -15,11 +15,19 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 	
-	double delta_theta = aqp->mFreq / aqp->mSR;
+	double delta_theta = aqp->mFreq / aqp->mSR; //!!!not sure how to deal with mFreq here now that it is an array.
 	
 	for (int i = 0; i < numFrames; i++)
 	{	
-		((SInt16*)inAQBuffer->mAudioData)[i] = aqp->mAmp * [aqp->mWaveTable get:aqp->mTheta] * (SInt16)0x7FFF;
+		double sample = 0.;
+		
+		for (int j = 0; j < 2; j++)
+		{
+			sample += aqp->mAmp * [aqp->mWaveTable get:aqp->mTheta[j]] * (SInt16)0x7FFF;
+		}
+		
+		((SInt16*)inAQBuffer->mAudioData)[i] = sample;
+		
 		aqp->mTheta += delta_theta;
 	}
 	
@@ -32,17 +40,19 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 @implementation AQPlayer
 
 @synthesize mAmp;
-@synthesize mFreq;
-//the following is no longer needed since we're using @property & @synthesize
-//-(void) SetAmp:(double)val
-//{
-//mAmp = val;
-//}
+//-(void) setAmp:(double)val
+//	{
+//		mAmp = val;
+//	}
 
-//-(void) SetFreq:(double)val
-//{
-//mFreq = val;
-//}
+//@synthesize mFreq;
+-(void) setFreq:(double)mFreq[]
+	{
+		for (int i = 0; i < 2; ++i) //loading the array via the setter? I'm not sure where the optimum place would be to load the array.
+		{
+		mFreq[i] = val;
+		}
+	}
 
 - (void)dealoc
 {
@@ -61,9 +71,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void) New
 {
-	mTheta = 0.;
+	mTheta[0] = 0.;//I'm guessing here.
 	mAmp = 1.;
-	mFreq = 440.;
+	mFreq[0] = 440.;//I'm also guessing here.
 	mSR = 22050.;
 		
 	mDataFormat.mSampleRate = mSR;
@@ -77,7 +87,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 	OSStatus result = AudioQueueNewOutput(&mDataFormat, AQBufferCallback, self, nil, nil, 0, &mQueue);
 
-	if (result != noErr) //the following two "if-print"s produce 2 warnings
+	if (result != noErr)
 		printf("AudioQueueNewOutput \n",result);
 	
 	for (int i = 0; i < kNumberBuffers; ++i)
@@ -93,7 +103,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 
 
--(OSStatus) Start;
+-(OSStatus) start;
 { 
 	printf("start\n");
 	OSStatus result = noErr;
@@ -101,7 +111,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	if (mQueue == nil)
 		[self New];
 	
-	// prime the queue with some data before starting
+	// MUS147: prime the queue with some data before starting
 	for (int i = 0; i < kNumberBuffers; ++i)
 		AQBufferCallback(self, mQueue, mBuffers[i]);
 	
@@ -111,7 +121,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 }
 
 
--(OSStatus) Stop;
+-(OSStatus) stop;
 {
 	printf("stop\n");
 	OSStatus result = noErr;

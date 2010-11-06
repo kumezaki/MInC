@@ -23,20 +23,20 @@
 @public
 	
 	double mSR;
-	double mFreq;
+	double mFreq[2];
 	double mAmp;
-	double mTheta;
+	double mTheta[2];
 	
 	WaveFormTable *mWaveTable;
 }
 
 -(void) New;
 
--(OSStatus) Start;
--(OSStatus) Stop;
+-(OSStatus) start;
+-(OSStatus) stop;
 
-//-(void) SetAmp:(double)val;
-//-(void) SetFreq:(double)val;//these 2 lines are replaced by the following...
+//-(void) setAmp:(double)val;
+-(void) setFreq:(double)val;//these 2 lines are replaced by the following...
 
 @property (readwrite, nonatomic) double mAmp;//why nonatomic?
 @property (readwrite, nonatomic) double mFreq;
