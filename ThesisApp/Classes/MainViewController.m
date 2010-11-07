@@ -91,60 +91,27 @@
 -(IBAction) startSound:(UIButton *)sender 
 {
 	if ([sender.titleLabel.text isEqual:@"1"]) {
-<<<<<<< .mine
 		[mAQPlayer setFreq:262 withNotePos:0]; //C4
-=======
-		[mMode getNote];
->>>>>>> .r15
    	
 	}else if ([sender.titleLabel.text isEqual:@"2"]) {
-<<<<<<< .mine
 		[mAQPlayer setFreq:330 withNotePos:1];//E4
-=======
-		[mMode getNote];
->>>>>>> .r15
 
 	}else if ([sender.titleLabel.text isEqual:@"3"]) {
-<<<<<<< .mine
 //		[mAQPlayer setFreq:349];//F4
-=======
-		[mMode getNote];
->>>>>>> .r15
 
 	}else if ([sender.titleLabel.text isEqual:@"4"]) {
-<<<<<<< .mine
 //		[mAQPlayer setFreq:392];//G4
-=======
-		[mMode getNote];
->>>>>>> .r15
 
 	}else if ([sender.titleLabel.text isEqual:@"5"]) {
-<<<<<<< .mine
 //		[mAQPlayer setFreq:466];//Bb4
-=======
-		[mMode getNote];
->>>>>>> .r15
 
 	}else if ([sender.titleLabel.text isEqual:@"6"]) {
-<<<<<<< .mine
 //		[mAQPlayer setFreq:523];//C5
-=======
-		[mMode getNote];
->>>>>>> .r15
-
 	}else if ([sender.titleLabel.text isEqual:@"7"]) {
-<<<<<<< .mine
 //		[mAQPlayer setFreq:659];//E5
-=======
-		[mMode getNote];
->>>>>>> .r15
 
 	}else if ([sender.titleLabel.text isEqual:@"8"]) {
-<<<<<<< .mine
 //		[mAQPlayer setFreq:699];//F5
-=======
-		[mMode getNote];
->>>>>>> .r15
 	}
 	
 	[mAQPlayer start];

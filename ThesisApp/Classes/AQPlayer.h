@@ -29,17 +29,14 @@
 @public
 	
 	double mSR;
-<<<<<<< .mine
 	double mFreq[kNumberNotes];
 	double mAmp;
 	double mTheta[kNumberNotes];
-=======
->>>>>>> .r15
 	
 	Mode	*mNote_Pri;
 	Mode	*mNote_Sec;
 	
-	Mode *mNotes[kNumNotes];
+	WaveFormTable *mWaveTable;
 	
 }
 
@@ -49,10 +46,7 @@
 -(OSStatus) stop;
 
 
-<<<<<<< .mine
 -(void) setFreq:(double)val withNotePos:(int)note_pos;
-//@property (readwrite, nonatomic) double mFreq;
+@property (readwrite, nonatomic) double mAmp;
 
-=======
->>>>>>> .r15
 @end

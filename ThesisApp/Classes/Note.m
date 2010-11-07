@@ -68,7 +68,7 @@
 	
 	if (mADSR == nil ? mOn : [mADSR IsOn])
 	{
-		double sample = [mWaveTable Get:mTheta] * (mADSR == nil ? 1. : [mADSR Get]) * mAmp;
+		double sample = [mWaveTable get:mTheta] * (mADSR == nil ? 1. : [mADSR Get]) * mAmp;
 		
 		mTheta += mFreq / mSR;
 		
