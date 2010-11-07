@@ -13,9 +13,7 @@
 #import "WaveFormTable.h"
 
 #define kNumberBuffers 3
-#define kNumNotes 8
-
-#define kNumberNotes 2
+#define kNumberNotes 8
 
 @interface AQPlayer : NSObject
 {

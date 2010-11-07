@@ -97,21 +97,22 @@
 		[mAQPlayer setFreq:330 withNotePos:1];//E4
 
 	}else if ([sender.titleLabel.text isEqual:@"3"]) {
-//		[mAQPlayer setFreq:349];//F4
+		[mAQPlayer setFreq:349 withNotePos:2];//F4
 
 	}else if ([sender.titleLabel.text isEqual:@"4"]) {
-//		[mAQPlayer setFreq:392];//G4
+		[mAQPlayer setFreq:392 withNotePos:3];//G4
 
 	}else if ([sender.titleLabel.text isEqual:@"5"]) {
-//		[mAQPlayer setFreq:466];//Bb4
+		[mAQPlayer setFreq:466 withNotePos:4];//Bb4
 
 	}else if ([sender.titleLabel.text isEqual:@"6"]) {
-//		[mAQPlayer setFreq:523];//C5
+		[mAQPlayer setFreq:523 withNotePos:5];//C5
+		
 	}else if ([sender.titleLabel.text isEqual:@"7"]) {
-//		[mAQPlayer setFreq:659];//E5
+		[mAQPlayer setFreq:659 withNotePos:6];//E5
 
 	}else if ([sender.titleLabel.text isEqual:@"8"]) {
-//		[mAQPlayer setFreq:699];//F5
+		[mAQPlayer setFreq:699 withNotePos:7];//F5
 	}
 	
 	[mAQPlayer start];

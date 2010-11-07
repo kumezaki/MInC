@@ -16,7 +16,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	double delta_theta[kNumberNotes];
 	for (int j = 0; j < kNumberNotes; j++)
-		delta_theta[j] = aqp->mFreq[j] / aqp->mSR; //don't I need to calculate in all the mFreq's?
+		delta_theta[j] = aqp->mFreq[j] / aqp->mSR; //I understand how this works.  I don't understand WHY it works. There are a lot of j's!
 
 	for (int i = 0; i < numFrames; i++)
 	{	
@@ -24,8 +24,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		
 		for (int j = 0; j < kNumberNotes; j++)
 		{
-			sample += aqp->mAmp * [aqp->mWaveTable get:aqp->mTheta[j]] * (SInt16)0x7FFF;
-			aqp->mTheta[j] += delta_theta[j];
+			//I have a suspicion that the distortion is from the mAmp doubling (or more) with every added note. Could that be happening here?
+			sample += aqp->mAmp * [aqp->mWaveTable get:aqp->mTheta[j]] * (SInt16)0x7FFF;			
+			aqp->mTheta[j] += delta_theta[j]; 
 		}
 		
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample;
@@ -68,11 +69,26 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void) New{
 
-	mTheta[0] = 0.;
+	mTheta[0] = 0.; //there's probably a more elequent way of doing this?
 	mTheta[1] = 0.;
-	mAmp = .5;
+	mTheta[2] = 0.;
+	mTheta[3] = 0.;
+	mTheta[4] = 0.;
+	mTheta[5] = 0.;
+	mTheta[6] = 0.;
+	mTheta[7] = 0.;
+	
+	mAmp = .2;
+	
 	mFreq[0] = 0.;
 	mFreq[1] = 0.;
+	mFreq[2] = 0.;
+	mFreq[3] = 0.;
+	mFreq[4] = 0.;
+	mFreq[5] = 0.;
+	mFreq[6] = 0.;
+	mFreq[7] = 0.;
+	
 	mSR = 22050.;	
 	
 	mDataFormat.mSampleRate = mSR;
@@ -107,7 +123,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	if (mQueue == nil)
 		[self New];
 	
-	// MUS147: prime the queue with some data before starting
+	// from MUS147: prime the queue with some data before starting
 	for (int i = 0; i < kNumberBuffers; ++i)
 		AQBufferCallback(self, mQueue, mBuffers[i]);
 	
@@ -119,7 +135,26 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(OSStatus) stop;
 {
-		
+	mTheta[0] = 0.; //Seems like there should be a way to reinitilize the entire array all at once.
+	mTheta[1] = 0.;
+	mTheta[2] = 0.;
+	mTheta[3] = 0.;
+	mTheta[4] = 0.;
+	mTheta[5] = 0.;
+	mTheta[6] = 0.;
+	mTheta[7] = 0.;
+	
+	
+	mFreq[0] = 0.;
+	mFreq[1] = 0.;
+	mFreq[2] = 0.;
+	mFreq[3] = 0.;
+	mFreq[4] = 0.;
+	mFreq[5] = 0.;
+	mFreq[6] = 0.;
+	mFreq[7] = 0.;
+	
+	
 	printf("stop\n");
 	OSStatus result = noErr;
 	
