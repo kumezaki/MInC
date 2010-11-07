@@ -197,48 +197,7 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>B458DCC312867CE70041E0B3</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>Mode.m</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>B458DCC412867CE70041E0B3</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>Mode.m</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>B458DCE31286814D0041E0B3</string>
-						<key>history</key>
-						<array>
-							<string>B458DCC512867CE70041E0B3</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {859, 419}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>-1030 329 859 460 -1280 -64 1280 1024 </string>
-			</dict>
-		</dict>
-	</array>
+	<array/>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>-1</integer>
@@ -315,8 +274,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>11</integer>
-									<integer>1</integer>
+									<integer>23</integer>
+									<integer>21</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -370,7 +329,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>B458DCE21286814D0041E0B3</string>
+										<string>B4C4DE9C12874ADB005C76B7</string>
 										<key>history</key>
 										<array>
 											<string>B465403A127E72B000DA1F26</string>
@@ -385,8 +344,8 @@
 											<string>B458DCBD12867CE70041E0B3</string>
 											<string>B458DCBF12867CE70041E0B3</string>
 											<string>B458DCCB12867D200041E0B3</string>
-											<string>B458DCDD128681470041E0B3</string>
-											<string>B458DCDE128681470041E0B3</string>
+											<string>B4C4DE9A12874ADB005C76B7</string>
+											<string>B4C4DE9B12874ADB005C76B7</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -398,14 +357,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1055, 703}}</string>
+								<string>{{0, 0}, {1055, 701}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 59 1334 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>703pt</string>
+							<string>701pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -418,14 +377,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 708}, {1055, 70}}</string>
+								<string>{{0, 706}, {1055, 72}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 59 1334 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>70pt</string>
+							<string>72pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -444,9 +403,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>B458DCAC12867AA60041E0B3</string>
+				<string>B4C4DE9D12874ADB005C76B7</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>B458DCAD12867AA60041E0B3</string>
+				<string>B4C4DE9E12874ADB005C76B7</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -584,12 +543,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>B458DCC712867CE70041E0B3</string>
-		<string>B458DCC812867CE70041E0B3</string>
+		<string>B4C4DEA612874ADB005C76B7</string>
+		<string>B4C4DEA712874ADB005C76B7</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>B4290FEC127D01C2009192CD</string>
-		<string>B458DCC312867CE70041E0B3</string>
 		<string>/Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -614,7 +572,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Mode.m</string>
+								<string>AQPlayer.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -672,7 +630,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>B4290FEC127D01C2009192CD</string>
-				<string>B458DC9F12867A9A0041E0B3</string>
+				<string>B4C4DE7C128746F8005C76B7</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -794,13 +752,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>B458DCA012867A9A0041E0B3</string>
+				<string>B4C4DE9F12874ADB005C76B7</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>B458DCA112867A9A0041E0B3</string>
-				<string>B458DCA212867A9A0041E0B3</string>
-				<string>B458DCA312867A9A0041E0B3</string>
-				<string>B458DCA412867A9A0041E0B3</string>
-				<string>B458DCA512867A9A0041E0B3</string>
+				<string>B4C4DEA012874ADB005C76B7</string>
+				<string>B4C4DEA112874ADB005C76B7</string>
+				<string>B4C4DEA212874ADB005C76B7</string>
+				<string>B4C4DEA312874ADB005C76B7</string>
+				<string>B4C4DEA412874ADB005C76B7</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -954,7 +912,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>B458DCA612867A9A0041E0B3</string>
+				<string>B4C4DEA512874ADB005C76B7</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>

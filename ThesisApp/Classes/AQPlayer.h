@@ -28,7 +28,7 @@
 	
 	double mSR;
 	double mFreq[kNumberNotes];
-	double mAmp;	// mAmp should be an array as well; your start and stop should actually set this between zero and non-zero
+	double mAmp [kNumberNotes];	// mAmp should be an array as well; your start and stop should actually set this between zero and non-zero
 	double mTheta[kNumberNotes];
 	
 	Mode	*mNote_Pri;
@@ -45,6 +45,6 @@
 
 
 -(void) setFreq:(double)val withNotePos:(int)note_pos;
-@property (readwrite, nonatomic) double mAmp;
+//@property (readwrite, nonatomic) double mAmp;
 
 @end

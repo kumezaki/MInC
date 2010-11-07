@@ -21,28 +21,29 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		//KU: delta_theta is essentially the same as frequecy; instead of cycles/second (Hz) it is radians/sample period
 		//CL: so in the below are we essentially connecting each instance of mFreq data w/ it's corresponding mTheta?		
 		//KU: more or less, yes.  delta_theta IS frequency.  delta_theta is the rate at which mTheta changes, therefore it is frequency
+		//CL: I understand that delta_theta IS frequencey but I'm assuming the compiler doesn't know this which is why we need the following statement?...
+		
 		delta_theta[j] = aqp->mFreq[j] / aqp->mSR;
 
 	for (int i = 0; i < numFrames; i++)
 	{	
 		double sample = 0.;
-		double sampleAmp = 0.;
 		
 		for (int j = 0; j < kNumberNotes; j++)
 		{
-			sample += [aqp->mWaveTable get:aqp->mTheta[j]] * (SInt16)0x7FFF;
+			sample += aqp->mAmp[j] * [aqp->mWaveTable get:aqp->mTheta[j]] * (SInt16)0x7FFF;
 			
 			aqp->mTheta[j] += delta_theta[j]; 
 		}
 		
 		//CL: this is markedly better but I'm still getting an increase in amplitude when adding notes.
-		//CL: I feel like the solution is to use an if else to decrease mAmp accordingly... maybe I can test to see
+		//CL: I feel like the solution is to use an "if else" to decrease mAmp accordingly... maybe I can test to see
 		//CL: if delta_theta is 0. or not? If delta_theta is not zero than that means a note is being played. If two notes
 		//CL: than mAmp/2. If three notes than mAmp/3. So on an so forth...
 		//KU: I suggest you create an array of mAmps (like you do for frequency) instead, and access them in the for loop above (aqp->mAmp[j])
-		sampleAmp += aqp->mAmp * sample; 
+		//CL: okay, per your email I won't worry about equaliztion just yet.
 		
-		((SInt16*)inAQBuffer->mAudioData)[i] = sampleAmp;
+		((SInt16*)inAQBuffer->mAudioData)[i] = sample;
 	}
 	
 	inAQBuffer->mAudioDataByteSize = 1024;
@@ -53,7 +54,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 @implementation AQPlayer
 
-@synthesize mAmp;
+//@synthesize mAmp;
 
 //@synthesize mFreq;
 -(void) setFreq:(double)val withNotePos:(int)note_pos;
@@ -80,26 +81,12 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void) New{
 
-	mTheta[0] = 0.; //there's probably a more elequent way of doing this? // KU: yes, a for loop
-	mTheta[1] = 0.;
-	mTheta[2] = 0.;
-	mTheta[3] = 0.;
-	mTheta[4] = 0.;
-	mTheta[5] = 0.;
-	mTheta[6] = 0.;
-	mTheta[7] = 0.;
+	for (int h = 0; h < kNumberNotes; h++) mTheta[h] = 0.;
 	
-	mAmp = .2;
+	for (int i = 0; i < kNumberNotes; i++) mAmp[i] = .125;
 	
-	mFreq[0] = 0.;
-	mFreq[1] = 0.;
-	mFreq[2] = 0.;
-	mFreq[3] = 0.;
-	mFreq[4] = 0.;
-	mFreq[5] = 0.;
-	mFreq[6] = 0.;
-	mFreq[7] = 0.;
-	
+	for (int j = 0; j < kNumberNotes; j++) mFreq[j] = 0.;
+		
 	mSR = 22050.;	
 	
 	mDataFormat.mSampleRate = mSR;
@@ -128,6 +115,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(OSStatus) start;
 { 
+	for (int j = 0; j < kNumberNotes; j++) mAmp[j] = .25;
+	
+	
 	printf("start\n");
 	OSStatus result = noErr;
 	
@@ -135,6 +125,10 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		[self New];
 	
 	// from MUS147: prime the queue with some data before starting
+	// CL: the above comment is from the MUS147 class. I'm currently getting distortions on some attacks.
+	// CL: especially if multiple notes are played. If they are played at precisely the same time its fine.
+	// CL: could these distortions have something to do with the preloading of the buffers?
+	
 	for (int i = 0; i < kNumberBuffers; ++i)
 		AQBufferCallback(self, mQueue, mBuffers[i]);
 	
@@ -146,26 +140,15 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(OSStatus) stop;
 {
-	mTheta[0] = 0.; //CL:I'm going to implement for loops where I can but this process may move to MainViewController.
-	mTheta[1] = 0.; //CL: Problem is that if two notes are held and one is lifted, currently all are turned off.
-	mTheta[2] = 0.;
-	mTheta[3] = 0.;
-	mTheta[4] = 0.;
-	mTheta[5] = 0.;
-	mTheta[6] = 0.;
-	mTheta[7] = 0.;
-	
-	
-	mFreq[0] = 0.;
-	mFreq[1] = 0.;
-	mFreq[2] = 0.;
-	mFreq[3] = 0.;
-	mFreq[4] = 0.;
-	mFreq[5] = 0.;
-	mFreq[6] = 0.;
-	mFreq[7] = 0.;
+			
+	for (int j = 0; j < kNumberNotes; j++) mAmp[j] = 0.;
+	for (int k = 0; k < kNumberNotes; k++) mFreq[k] = 0.;
+	for (int l = 0; l < kNumberNotes; l++) mTheta[l] = 0.;
 	
 	// KU: I suggest that you don't set frequencies to 0. (unlike what we've been talking about) and set mAmp[n] to 0. instead.
+	// CL: If I don't reset the mFreq & mTheta arrays than previously loaded values persist.
+	// CL: I'm thinking that the (OSStatus) start/stop should be tied to the start and stop of the App. So the buttons are actually
+	// CL: simply turning the amplitude up and down. This would help with latency... no?
 	
 	
 	printf("stop\n");
