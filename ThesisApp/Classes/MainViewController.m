@@ -90,34 +90,37 @@
 -(IBAction) startSound:(UIButton *)sender 
 {
 	if ([sender.titleLabel.text isEqual:@"1"]) {
-		mAQPlayer.mFreq = 262;//C4
+		[mAQPlayer setFreq:262];//C4
    	
 	}else if ([sender.titleLabel.text isEqual:@"2"]) {
-		mAQPlayer.mFreq = 330;//E4
+		[mAQPlayer setFreq:330];//E4
 
 	}else if ([sender.titleLabel.text isEqual:@"3"]) {
-		mAQPlayer.mFreq = 349;//F4
+		[mAQPlayer setFreq:349];//F4
 
 	}else if ([sender.titleLabel.text isEqual:@"4"]) {
-		mAQPlayer.mFreq = 392;//G4
+		[mAQPlayer setFreq:392];//G4
 
 	}else if ([sender.titleLabel.text isEqual:@"5"]) {
-		mAQPlayer.mFreq = 466;//Bb4
+		[mAQPlayer setFreq:466];//Bb4
 
 	}else if ([sender.titleLabel.text isEqual:@"6"]) {
-		mAQPlayer.mFreq = 523;//C5
+		[mAQPlayer setFreq:523];//C5
 
 	}else if ([sender.titleLabel.text isEqual:@"7"]) {
-		mAQPlayer.mFreq = 659;//E5
+		[mAQPlayer setFreq:659];//E5
 
 	}else if ([sender.titleLabel.text isEqual:@"8"]) {
-		mAQPlayer.mFreq = 699;//F5
-
+		[mAQPlayer setFreq:699];//F5
 	}
+	
+	[mAQPlayer start];
+
 }
 
 -(IBAction) stopSound:(UIButton *)sender 
 {
+	[mAQPlayer stop];
 }
 
 //-(IBAction) doAmp:(id)sender

@@ -14,13 +14,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 	
-	double delta_theta = aqp->mFreq[0] / aqp->mSR; //!!!not sure how to deal with mFreq here now that it is an array.
-	
+	double delta_theta = aqp->mFreq[0] / aqp->mSR; //don't I need to calculate in all the mFreq's?
+
 	for (int i = 0; i < numFrames; i++)
 	{	
 		double sample = 0.;
 		
-		for (int j = 0; j < 1; j++)
+		for (int j = 0; j < 2; j++)
 		{
 			sample += aqp->mAmp * [aqp->mWaveTable get:aqp->mTheta[j]] * (SInt16)0x7FFF;
 			aqp->mTheta[j] += delta_theta;
@@ -44,13 +44,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 //	}
 
 //@synthesize mFreq;
--(void) setFreq:(double)mFreq
+-(void) setFreq:(double)val
+{
+	for (int i = 0; i < 2; i++)
 	{
-		for (int i = 0; i < 2; ++i) //loading the array via the setter? I'm not sure where the optimum place would be to load the array.
-		{
-//		mFreq[i] = val;
-		}
-	}
+		mFreq[i]=val;
+	}	
+}
 
 - (void)dealoc
 {
@@ -71,7 +71,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 	mTheta[0] = 0.;
 	mTheta[1] = 0.;
-	mAmp = 1.0;
+	mAmp = .8;
 	mFreq[0] = 0.;
 	mFreq[1] = 0.;
 	mSR = 22050.;
@@ -83,7 +83,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	mDataFormat.mFramesPerPacket = 1;
 	mDataFormat.mBytesPerFrame = sizeof(SInt16);
 	mDataFormat.mChannelsPerFrame = 1;
-	mDataFormat.mSampleRate = 22050.;
 	mDataFormat.mBitsPerChannel = 16;
 
 	OSStatus result = AudioQueueNewOutput(&mDataFormat,
@@ -100,7 +99,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	for (int i = 0; i < kNumberBuffers; ++i)
 	{
 		result = AudioQueueAllocateBuffer(mQueue,
-										  1024,//hexidecimal numbers are also possible.
+										  1024,
 										  &mBuffers[i]);
 		if (result != noErr)
 			printf("AudioQueueAllocateBuffer \n",result);
@@ -129,6 +128,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(OSStatus) stop;
 {
+		
 	printf("stop\n");
 	OSStatus result = noErr;
 	

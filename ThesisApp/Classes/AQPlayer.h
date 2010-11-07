@@ -19,7 +19,9 @@
 	AudioStreamBasicDescription		mDataFormat;
 	AudioQueueRef					mQueue;
 	AudioQueueBufferRef				mBuffers[kNumberBuffers];
-
+	
+	NSArray *noteArray;
+	
 @public
 	
 	double mSR;
@@ -36,9 +38,9 @@
 -(OSStatus) stop;
 
 //-(void) setAmp:(double)val;
--(void) setFreq:(double)val;//these 2 lines are replaced by the following...
-
 @property (readwrite, nonatomic) double mAmp;//why nonatomic?
-@property (readwrite, nonatomic) double mFreq;
+
+-(void) setFreq:(double)val;
+//@property (readwrite, nonatomic) double mFreq;
 
 @end
