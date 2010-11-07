@@ -20,6 +20,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		//CL: I understand how this works.  I don't understand WHY it works. There are a lot of j's!
 		//KU: delta_theta is essentially the same as frequecy; instead of cycles/second (Hz) it is radians/sample period
 		//CL: so in the below are we essentially connecting each instance of mFreq data w/ it's corresponding mTheta?		
+		//KU: more or less, yes.  delta_theta IS frequency.  delta_theta is the rate at which mTheta changes, therefore it is frequency
 		delta_theta[j] = aqp->mFreq[j] / aqp->mSR;
 
 	for (int i = 0; i < numFrames; i++)
@@ -37,7 +38,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		//CL: this is markedly better but I'm still getting an increase in amplitude when adding notes.
 		//CL: I feel like the solution is to use an if else to decrease mAmp accordingly... maybe I can test to see
 		//CL: if delta_theta is 0. or not? If delta_theta is not zero than that means a note is being played. If two notes
-		//CL: than mAmp/2. If three notes than mAmp/3. So on an so forth...				
+		//CL: than mAmp/2. If three notes than mAmp/3. So on an so forth...
+		//KU: I suggest you create an array of mAmps (like you do for frequency) instead, and access them in the for loop above (aqp->mAmp[j])
 		sampleAmp += aqp->mAmp * sample; 
 		
 		((SInt16*)inAQBuffer->mAudioData)[i] = sampleAmp;
@@ -162,6 +164,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	mFreq[5] = 0.;
 	mFreq[6] = 0.;
 	mFreq[7] = 0.;
+	
+	// KU: I suggest that you don't set frequencies to 0. (unlike what we've been talking about) and set mAmp[n] to 0. instead.
 	
 	
 	printf("stop\n");
