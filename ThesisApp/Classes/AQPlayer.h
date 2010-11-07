@@ -28,7 +28,7 @@
 	
 	double mSR;
 	double mFreq[kNumberNotes];
-	double mAmp;
+	double mAmp;	// mAmp should be an array as well; your start and stop should actually set this between zero and non-zero
 	double mTheta[kNumberNotes];
 	
 	Mode	*mNote_Pri;

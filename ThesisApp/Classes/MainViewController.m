@@ -90,6 +90,8 @@
 //trying to send an arguement to Mode* in order to select a pitch... 
 -(IBAction) startSound:(UIButton *)sender 
 {
+	// KU: this looks good...now also set amplitude
+
 	if ([sender.titleLabel.text isEqual:@"1"]) {
 		[mAQPlayer setFreq:262 withNotePos:0]; //C4
    	
@@ -121,6 +123,8 @@
 
 -(IBAction) stopSound:(UIButton *)sender 
 {
+	// KU: this should have contents much like startSound above
+	// However, it should set amplitude and not frequency
 	[mAQPlayer stop];
 }
 

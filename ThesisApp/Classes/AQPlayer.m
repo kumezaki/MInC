@@ -16,7 +16,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	double delta_theta[kNumberNotes];
 	for (int j = 0; j < kNumberNotes; j++)
-		delta_theta[j] = aqp->mFreq[j] / aqp->mSR; //I understand how this works.  I don't understand WHY it works. There are a lot of j's!
+		//I understand how this works.  I don't understand WHY it works. There are a lot of j's!
+		//KU: delta_theta is essentially the same as frequecy; instead of cycles/second (Hz) it is radians/sample period
+		delta_theta[j] = aqp->mFreq[j] / aqp->mSR;
 
 	for (int i = 0; i < numFrames; i++)
 	{	
@@ -25,6 +27,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		for (int j = 0; j < kNumberNotes; j++)
 		{
 			//I have a suspicion that the distortion is from the mAmp doubling (or more) with every added note. Could that be happening here?
+			//KU: yes
 			sample += aqp->mAmp * [aqp->mWaveTable get:aqp->mTheta[j]] * (SInt16)0x7FFF;			
 			aqp->mTheta[j] += delta_theta[j]; 
 		}
@@ -69,7 +72,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void) New{
 
-	mTheta[0] = 0.; //there's probably a more elequent way of doing this?
+	mTheta[0] = 0.; //there's probably a more elequent way of doing this? // KU: yes, a for loop
 	mTheta[1] = 0.;
 	mTheta[2] = 0.;
 	mTheta[3] = 0.;
@@ -135,7 +138,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(OSStatus) stop;
 {
-	mTheta[0] = 0.; //Seems like there should be a way to reinitilize the entire array all at once.
+	mTheta[0] = 0.; //Seems like there should be a way to reinitilize the entire array all at once. // KU: for loop
 	mTheta[1] = 0.;
 	mTheta[2] = 0.;
 	mTheta[3] = 0.;
