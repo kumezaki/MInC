@@ -55,6 +55,11 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 @implementation AQPlayer
 
 //@synthesize mAmp;
+-(void) setAmp:(double)val withNotePos:(int)note_pos;
+{
+	mAmp[note_pos]=val;
+}
+
 
 //@synthesize mFreq;
 -(void) setFreq:(double)val withNotePos:(int)note_pos;
@@ -83,7 +88,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 	for (int h = 0; h < kNumberNotes; h++) mTheta[h] = 0.;
 	
-	for (int i = 0; i < kNumberNotes; i++) mAmp[i] = .125;
+	for (int i = 0; i < kNumberNotes; i++) mAmp[i] = 0.;
 	
 	for (int j = 0; j < kNumberNotes; j++) mFreq[j] = 0.;
 		
@@ -115,8 +120,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(OSStatus) start;
 { 
-	for (int j = 0; j < kNumberNotes; j++) mAmp[j] = .25;	// KU: why is this (.25) different from the setting in New above?
-	
 	printf("start\n");
 	OSStatus result = noErr;
 	
@@ -149,6 +152,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	// CL: simply turning the amplitude up and down. This would help with latency... no?
 	// KU: I'm not sure what you're getting at here, but I'd still suggest not using these start and stop methods to turn notes on and off
 	// KU: Instead, do it with the setFreq method
+	// CL: orginally in addition to setFreq (& now setAmp), when you push a button [mAQPlayer start] was also called. When a button was released [mAQPlayer stop] was called.
+	// CL: I now changed this so mAQPlayer is started during viewDidLoad and stopped during the dealoc
+	// CL: this seems to have had a very positive effect ;-)
 	
 	
 	printf("stop\n");

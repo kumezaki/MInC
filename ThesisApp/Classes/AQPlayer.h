@@ -28,11 +28,11 @@
 	
 	double mSR;
 	double mFreq[kNumberNotes];
-	double mAmp [kNumberNotes];	// mAmp should be an array as well; your start and stop should actually set this between zero and non-zero
+	double mAmp [kNumberNotes];
 	double mTheta[kNumberNotes];
 	
-	Mode	*mNote_Pri;
-	Mode	*mNote_Sec;
+	//Mode	*mNote_Pri;
+	//Mode	*mNote_Sec;
 	
 	WaveFormTable *mWaveTable;
 	
@@ -45,6 +45,6 @@
 
 
 -(void) setFreq:(double)val withNotePos:(int)note_pos;
-//@property (readwrite, nonatomic) double mAmp;
+-(void) setAmp:(double)val withNotePos:(int)note_pos;
 
 @end
