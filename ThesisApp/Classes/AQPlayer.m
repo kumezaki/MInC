@@ -115,8 +115,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(OSStatus) start;
 { 
-	for (int j = 0; j < kNumberNotes; j++) mAmp[j] = .25;
-	
+	for (int j = 0; j < kNumberNotes; j++) mAmp[j] = .25;	// KU: why is this (.25) different from the setting in New above?
 	
 	printf("start\n");
 	OSStatus result = noErr;
@@ -140,7 +139,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(OSStatus) stop;
 {
-			
 	for (int j = 0; j < kNumberNotes; j++) mAmp[j] = 0.;
 	for (int k = 0; k < kNumberNotes; k++) mFreq[k] = 0.;
 	for (int l = 0; l < kNumberNotes; l++) mTheta[l] = 0.;
@@ -149,6 +147,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	// CL: If I don't reset the mFreq & mTheta arrays than previously loaded values persist.
 	// CL: I'm thinking that the (OSStatus) start/stop should be tied to the start and stop of the App. So the buttons are actually
 	// CL: simply turning the amplitude up and down. This would help with latency... no?
+	// KU: I'm not sure what you're getting at here, but I'd still suggest not using these start and stop methods to turn notes on and off
+	// KU: Instead, do it with the setFreq method
 	
 	
 	printf("stop\n");
