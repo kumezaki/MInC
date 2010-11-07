@@ -16,23 +16,31 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	double delta_theta[kNumberNotes];
 	for (int j = 0; j < kNumberNotes; j++)
-		//I understand how this works.  I don't understand WHY it works. There are a lot of j's!
+		
+		//CL: I understand how this works.  I don't understand WHY it works. There are a lot of j's!
 		//KU: delta_theta is essentially the same as frequecy; instead of cycles/second (Hz) it is radians/sample period
+		//CL: so in the below are we essentially connecting each instance of mFreq data w/ it's corresponding mTheta?		
 		delta_theta[j] = aqp->mFreq[j] / aqp->mSR;
 
 	for (int i = 0; i < numFrames; i++)
 	{	
 		double sample = 0.;
+		double sampleAmp = 0.;
 		
 		for (int j = 0; j < kNumberNotes; j++)
 		{
-			//I have a suspicion that the distortion is from the mAmp doubling (or more) with every added note. Could that be happening here?
-			//KU: yes
-			sample += aqp->mAmp * [aqp->mWaveTable get:aqp->mTheta[j]] * (SInt16)0x7FFF;			
+			sample += [aqp->mWaveTable get:aqp->mTheta[j]] * (SInt16)0x7FFF;
+			
 			aqp->mTheta[j] += delta_theta[j]; 
 		}
 		
-		((SInt16*)inAQBuffer->mAudioData)[i] = sample;
+		//CL: this is markedly better but I'm still getting an increase in amplitude when adding notes.
+		//CL: I feel like the solution is to use an if else to decrease mAmp accordingly... maybe I can test to see
+		//CL: if delta_theta is 0. or not? If delta_theta is not zero than that means a note is being played. If two notes
+		//CL: than mAmp/2. If three notes than mAmp/3. So on an so forth...				
+		sampleAmp += aqp->mAmp * sample; 
+		
+		((SInt16*)inAQBuffer->mAudioData)[i] = sampleAmp;
 	}
 	
 	inAQBuffer->mAudioDataByteSize = 1024;
@@ -44,16 +52,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 @implementation AQPlayer
 
 @synthesize mAmp;
-//-(void) setAmp:(double)val
-//	{
-//		mAmp = val;
-//	}
 
 //@synthesize mFreq;
 -(void) setFreq:(double)val withNotePos:(int)note_pos;
 {
 		mFreq[note_pos]=val;
 }
+
+
 
 - (void)dealloc
 {
@@ -138,8 +144,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(OSStatus) stop;
 {
-	mTheta[0] = 0.; //Seems like there should be a way to reinitilize the entire array all at once. // KU: for loop
-	mTheta[1] = 0.;
+	mTheta[0] = 0.; //CL:I'm going to implement for loops where I can but this process may move to MainViewController.
+	mTheta[1] = 0.; //CL: Problem is that if two notes are held and one is lifted, currently all are turned off.
 	mTheta[2] = 0.;
 	mTheta[3] = 0.;
 	mTheta[4] = 0.;
