@@ -15,6 +15,8 @@
 #define kNumberBuffers 3
 #define kNumNotes 8
 
+#define kNumberNotes 2
+
 @interface AQPlayer : NSObject
 {
 
@@ -27,6 +29,12 @@
 @public
 	
 	double mSR;
+<<<<<<< .mine
+	double mFreq[kNumberNotes];
+	double mAmp;
+	double mTheta[kNumberNotes];
+=======
+>>>>>>> .r15
 	
 	Mode	*mNote_Pri;
 	Mode	*mNote_Sec;
@@ -41,4 +49,10 @@
 -(OSStatus) stop;
 
 
+<<<<<<< .mine
+-(void) setFreq:(double)val withNotePos:(int)note_pos;
+//@property (readwrite, nonatomic) double mFreq;
+
+=======
+>>>>>>> .r15
 @end

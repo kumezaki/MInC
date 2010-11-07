@@ -14,6 +14,24 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 	
+<<<<<<< .mine
+	double delta_theta[kNumberNotes];
+	for (int j = 0; j < kNumberNotes; j++)
+		delta_theta[j] = aqp->mFreq[j] / aqp->mSR; //don't I need to calculate in all the mFreq's?
+
+	for (int i = 0; i < numFrames; i++)
+	{	
+		double sample = 0.;
+		
+		for (int j = 0; j < kNumberNotes; j++)
+		{
+			sample += aqp->mAmp * [aqp->mWaveTable get:aqp->mTheta[j]] * (SInt16)0x7FFF;
+			aqp->mTheta[j] += delta_theta[j];
+		}
+		
+		((SInt16*)inAQBuffer->mAudioData)[i] = sample;
+	}
+=======
 	Note* note_pri = [aqp->mNote_Pri getNote];
 	Note* note_sec = [aqp->mNote_Sec getNote];
 	if ((note_pri == nil) && (note_sec == nil))
@@ -26,6 +44,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 													 [note_sec GetSample] * aqp->mNote_Sec
 													 )
 			* (SInt16)0x7FFF;
+>>>>>>> .r15
 	
 	
 	
@@ -37,6 +56,21 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 @implementation AQPlayer
 
+<<<<<<< .mine
+@synthesize mAmp;
+//-(void) setAmp:(double)val
+//	{
+//		mAmp = val;
+//	}
+
+//@synthesize mFreq;
+-(void) setFreq:(double)val withNotePos:(int)note_pos;
+{
+		mFreq[note_pos]=val;
+}
+
+=======
+>>>>>>> .r15
 - (void)dealoc
 {
 	[super dealloc];
