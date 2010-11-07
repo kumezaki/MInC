@@ -31,7 +31,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		
 		for (int j = 0; j < kNumberNotes; j++)
 		{
-			sample += aqp->mAmp[j] * [aqp->mWaveTable get:aqp->mTheta[j]] * (SInt16)0x7FFF;
+			sample += aqp->mAmp[j] * [aqp->mWaveTable get:aqp->mTheta[j]];
 			
 			aqp->mTheta[j] += delta_theta[j]; 
 		}
@@ -43,7 +43,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		//KU: I suggest you create an array of mAmps (like you do for frequency) instead, and access them in the for loop above (aqp->mAmp[j])
 		//CL: okay, per your email I won't worry about equaliztion just yet.
 		
-		((SInt16*)inAQBuffer->mAudioData)[i] = sample;
+		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;	// KU: moved scaling to 16-bit PCM (saves a bunch multiplication operations)
 	}
 	
 	inAQBuffer->mAudioDataByteSize = 1024;
