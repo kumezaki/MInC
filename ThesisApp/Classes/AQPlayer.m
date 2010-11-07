@@ -14,20 +14,20 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 	
-	double delta_theta = aqp->mFreq[0] / aqp->mSR; //don't I need to calculate in all the mFreq's?
-
-	for (int i = 0; i < numFrames; i++)
-	{	
-		double sample = 0.;
-		
-		for (int j = 0; j < 2; j++)
-		{
-			sample += aqp->mAmp * [aqp->mWaveTable get:aqp->mTheta[j]] * (SInt16)0x7FFF;
-			aqp->mTheta[j] += delta_theta;
-		}
-		
-		((SInt16*)inAQBuffer->mAudioData)[i] = sample;
-	}
+	Note* note_pri = [aqp->mNote_Pri getNote];
+	Note* note_sec = [aqp->mNote_Sec getNote];
+	if ((note_pri == nil) && (note_sec == nil))
+		for (int i = 0; i < numFrames; i++)
+			((SInt16 *)inAQBuffer->mAudioData)[i] = 0;
+	else
+		for (int i = 0; i < numFrames; i++)
+			((SInt16 *)inAQBuffer->mAudioData)[i] = (
+													 [note_pri GetSample] * aqp->mNote_Pri +
+													 [note_sec GetSample] * aqp->mNote_Sec
+													 )
+			* (SInt16)0x7FFF;
+	
+	
 	
 	inAQBuffer->mAudioDataByteSize = 1024;
 	inAQBuffer->mPacketDescriptionCount = 0;
@@ -37,45 +37,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 @implementation AQPlayer
 
-@synthesize mAmp;
-//-(void) setAmp:(double)val
-//	{
-//		mAmp = val;
-//	}
-
-//@synthesize mFreq;
--(void) setFreq:(double)val
-{
-	for (int i = 0; i < 2; i++)
-	{
-		mFreq[i]=val;
-	}	
-}
-
 - (void)dealoc
 {
 	[super dealloc];
-	[mWaveTable release];
 }
 
--(id)init
-{
-	[super init];
-	
-	mWaveTable = [WaveFormTable new];
-	
-	return self;
-}
 
 -(void) New{
 
-	mTheta[0] = 0.;
-	mTheta[1] = 0.;
-	mAmp = .8;
-	mFreq[0] = 0.;
-	mFreq[1] = 0.;
-	mSR = 22050.;
-		
 	mDataFormat.mSampleRate = mSR;
 	mDataFormat.mFormatID = kAudioFormatLinearPCM;
 	mDataFormat.mFormatFlags = kAudioFormatFlagIsSignedInteger;
@@ -85,22 +54,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	mDataFormat.mChannelsPerFrame = 1;
 	mDataFormat.mBitsPerChannel = 16;
 
-	OSStatus result = AudioQueueNewOutput(&mDataFormat,
-										  AQBufferCallback,
-										  self,
-										  nil,
-										  nil,
-										  0,
-										  &mQueue);
+	OSStatus result = AudioQueueNewOutput(&mDataFormat, AQBufferCallback, self, nil, nil, 0, &mQueue);
 
 	if (result != noErr)
 		printf("AudioQueueNewOutput \n",result);
 	
 	for (int i = 0; i < kNumberBuffers; ++i)
 	{
-		result = AudioQueueAllocateBuffer(mQueue,
-										  1024,
-										  &mBuffers[i]);
+		result = AudioQueueAllocateBuffer(mQueue, 1024, &mBuffers[i]);
 		if (result != noErr)
 			printf("AudioQueueAllocateBuffer \n",result);
 	}

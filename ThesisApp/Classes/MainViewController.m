@@ -87,31 +87,32 @@
     [super dealloc];
 }
 
+//trying to send an arguement to Mode* in order to select a pitch... 
 -(IBAction) startSound:(UIButton *)sender 
 {
 	if ([sender.titleLabel.text isEqual:@"1"]) {
-		[mAQPlayer setFreq:262];//C4
+		[mMode getNote];
    	
 	}else if ([sender.titleLabel.text isEqual:@"2"]) {
-		[mAQPlayer setFreq:330];//E4
+		[mMode getNote];
 
 	}else if ([sender.titleLabel.text isEqual:@"3"]) {
-		[mAQPlayer setFreq:349];//F4
+		[mMode getNote];
 
 	}else if ([sender.titleLabel.text isEqual:@"4"]) {
-		[mAQPlayer setFreq:392];//G4
+		[mMode getNote];
 
 	}else if ([sender.titleLabel.text isEqual:@"5"]) {
-		[mAQPlayer setFreq:466];//Bb4
+		[mMode getNote];
 
 	}else if ([sender.titleLabel.text isEqual:@"6"]) {
-		[mAQPlayer setFreq:523];//C5
+		[mMode getNote];
 
 	}else if ([sender.titleLabel.text isEqual:@"7"]) {
-		[mAQPlayer setFreq:659];//E5
+		[mMode getNote];
 
 	}else if ([sender.titleLabel.text isEqual:@"8"]) {
-		[mAQPlayer setFreq:699];//F5
+		[mMode getNote];
 	}
 	
 	[mAQPlayer start];
