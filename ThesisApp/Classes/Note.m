@@ -1,99 +1,47 @@
 //
 //  Note.m
-//  MInC
+//  ThesisApp
 //
-//  Created by Kojiro Umezaki on 5/5/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Created by Chris Lavender on 11/13/10.
+//  Copyright 2010 Gnarly Dog Music. All rights reserved.
 //
 
 #import "Note.h"
 
 
+
 @implementation Note
-@synthesize mAmp;
-@synthesize mFreq;
+
+//CL: Implementation of setAmp and setFreq methods
+
+-(void) setAmp:(double)val withNotePos:(int)note_pos;
+{
+	mAmp[note_pos]=val;
+}
+
+
+-(void) setFreq:(double)val withNotePos:(int)note_pos;
+{
+	mFreq[note_pos]=val;
+}
+
+//CL: if we indeed do use the mWaveFormTable we'll need the init and dealloc methods no?
+
+- (void)dealloc
+{
+	[mWaveTable release];
+ 	[super dealloc];
+}
+
 
 -(id)init
 {
 	[super init];
-
-	mDuration = 0.;
 	
-	mWaveTable = nil;
-	mADSR = nil;
-	
-	mSR = 22050.;
-	mFreq = 0.0;
-	mAmp = 0.2;
-	mTheta = 0.;
-
-	mSamplesPlayed = 0;
-	mNumPlaySamples = 0;
+	mWaveTable = [WaveFormTable new];
 	
 	return self;
 }
 
--(void)dealloc
-{
-	[super dealloc];
-}
-
-+(double) mtof:(double)midi_note
-{
-	return 440. * pow(2., (midi_note - 69) / 12.);
-}
-
--(void) On:(WaveFormTable*)wavetable:(ADSR*)adsr;
-{
-	mWaveTable = wavetable;
-	mADSR = adsr;
-	
-	if (mADSR != nil) [mADSR On];
-
-	mOn = true;
-
-	mSamplesPlayed = 0;
-}
-
--(void) Off
-{
-	if (mADSR != nil) [mADSR Off];
-	
-	mOn = false;
-}
-
--(double) GetSample
-{
-	if (mWaveTable == nil) return 0.;
-	
-	if (mADSR == nil ? mOn : [mADSR IsOn])
-	{
-		double sample = [mWaveTable get:mTheta] * (mADSR == nil ? 1. : [mADSR Get]) * mAmp;
-		
-		mTheta += mFreq / mSR;
-		
-		if (++mSamplesPlayed == mNumPlaySamples) [self Off];
-		
-		return sample;
-	}
-	
-	return 0.;
-}
-
--(double) GetDuration
-{
-	return mDuration;
-}
-	
--(void) SetDuration:(double)duration
-{
-	mDuration = duration;
-	mNumPlaySamples = mDuration * mSR;
-}
-
--(void)	SetPercentOn:(double)percent
-{
-	mNumPlaySamples = mDuration * mSR * percent;
-}
 
 @end

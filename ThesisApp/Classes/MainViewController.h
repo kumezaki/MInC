@@ -16,7 +16,6 @@
 	UIStatusBarStyle oldStatusBarStyle;
 	
 	AQPlayer *mAQPlayer;
-	Mode *mMode;
 	
 }
 

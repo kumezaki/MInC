@@ -1,50 +1,35 @@
 //
 //  Note.h
-//		
+//  ThesisApp
 //
-//  Created by Kojiro Umezaki on 5/5/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Created by Chris Lavender on 11/13/10.
+//  Copyright 2010 Gnarly Dog Music. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-#import "ADSR.h"
 #import "WaveFormTable.h"
 
+#define kNumberNotes 8
+
 @interface Note : NSObject {
-
-	double mDuration;
-
-	WaveFormTable	*mWaveTable;
-	ADSR			*mADSR;
-
+	
 @public
-	bool mOn;
-
+	
+	//CL: per your instructions I moved the ivars over to here. I'm not clear on whether I need them all over here though. mSR? mTheta?
+	
 	double mSR;
+	double mFreq[kNumberNotes];
+	double mAmp [kNumberNotes];
+	double mTheta[kNumberNotes];
+	
+	//CL: if we're "getting a note" what are we getting? Do we need the mWaveFormTable?
+	
+	WaveFormTable *mWaveTable;
 
-	double mFreq;
-	double mAmp;
-
-	double mTheta;
-
-	SInt32 mSamplesPlayed;
-	SInt32 mNumPlaySamples;
 }
 
-@property (readwrite, nonatomic) double mFreq;
-@property (readwrite, nonatomic) double mAmp;
-
-+(double) mtof:(double)midi_note;
-
--(void)	On:(WaveFormTable*)wavetable:(ADSR*)adsr;
--(void) Off;
-
--(double) GetSample;
-
--(double)	GetDuration;
--(void)		SetDuration:(double)duration;
-
--(void)		SetPercentOn:(double)percent;
+-(void) setFreq:(double)val withNotePos:(int)note_pos;
+-(void) setAmp:(double)val withNotePos:(int)note_pos;
 
 @end

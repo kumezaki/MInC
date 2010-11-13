@@ -58,7 +58,6 @@
 }
 
 
-
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
 {
     
@@ -79,7 +78,6 @@
 }
 
 
-
 - (void)dealloc
 {
 	[mAQPlayer stop];
@@ -87,42 +85,41 @@
     [super dealloc];
 }
 
-//trying to send an arguement to Mode* in order to select a pitch... 
 -(IBAction) startSound:(UIButton *)sender 
 {
 	// KU: this looks good...now also set amplitude
 
 	if ([sender.titleLabel.text isEqual:@"1"]) {
 		[mAQPlayer setFreq:262 withNotePos:0]; //C4
-		[mAQPlayer setAmp:.125 withNotePos:0];
+		[mAQPlayer setAmp:.25 withNotePos:0];
 		
 	}else if ([sender.titleLabel.text isEqual:@"2"]) {
 		[mAQPlayer setFreq:330 withNotePos:1];//E4
-		[mAQPlayer setAmp:.125 withNotePos:1];
+		[mAQPlayer setAmp:.25 withNotePos:1];
 		
 	}else if ([sender.titleLabel.text isEqual:@"3"]) {
 		[mAQPlayer setFreq:349 withNotePos:2];//F4
-		[mAQPlayer setAmp:.125 withNotePos:2];
+		[mAQPlayer setAmp:.25 withNotePos:2];
 		
 	}else if ([sender.titleLabel.text isEqual:@"4"]) {
 		[mAQPlayer setFreq:392 withNotePos:3];//G4
-		[mAQPlayer setAmp:.125 withNotePos:3];
+		[mAQPlayer setAmp:.25 withNotePos:3];
 		
 	}else if ([sender.titleLabel.text isEqual:@"5"]) {
 		[mAQPlayer setFreq:466 withNotePos:4];//Bb4
-		[mAQPlayer setAmp:.125 withNotePos:4];
+		[mAQPlayer setAmp:.25 withNotePos:4];
 		
 	}else if ([sender.titleLabel.text isEqual:@"6"]) {
 		[mAQPlayer setFreq:523 withNotePos:5];//C5
-		[mAQPlayer setAmp:.125 withNotePos:5];
+		[mAQPlayer setAmp:.25 withNotePos:5];
 		
 	}else if ([sender.titleLabel.text isEqual:@"7"]) {
 		[mAQPlayer setFreq:659 withNotePos:6];//E5
-		[mAQPlayer setAmp:.125 withNotePos:6];
+		[mAQPlayer setAmp:.25 withNotePos:6];
 		
 	}else if ([sender.titleLabel.text isEqual:@"8"]) {
 		[mAQPlayer setFreq:699 withNotePos:7];//F5
-		[mAQPlayer setAmp:.125 withNotePos:7];
+		[mAQPlayer setAmp:.25 withNotePos:7];
 	}
 	
 
@@ -158,17 +155,6 @@
 	}
 	
 }
-
-//-(IBAction) doAmp:(id)sender
-//{
-//	[mAQPlayer setMAmp:mAmpSlider.value];
-//}
-//
-//-(IBAction) doFreq:(id)sender
-//{
-//	[mAQPlayer setMFreq:mFreqSlider.value*1000];
-//	
-//}
 
 
 @end

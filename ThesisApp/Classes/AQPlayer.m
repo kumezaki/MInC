@@ -8,6 +8,7 @@
 
 #import "AQPlayer.h"
 
+
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
 {	
 	AQPlayer *aqp = (AQPlayer *)inUserData;
@@ -41,7 +42,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		//CL: if delta_theta is 0. or not? If delta_theta is not zero than that means a note is being played. If two notes
 		//CL: than mAmp/2. If three notes than mAmp/3. So on an so forth...
 		//KU: I suggest you create an array of mAmps (like you do for frequency) instead, and access them in the for loop above (aqp->mAmp[j])
-		//CL: okay, per your email I won't worry about equaliztion just yet.
+		//CL: okay, per your email I won't worry about normalization just yet.
 		
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;	// KU: moved scaling to 16-bit PCM (saves a bunch multiplication operations)
 	}
@@ -51,6 +52,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	AudioQueueEnqueueBuffer(inAQ, inAQBuffer, 0, nil);
 }
+
+
 
 @implementation AQPlayer
 
@@ -68,12 +71,12 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 }
 
 
-
 - (void)dealloc
 {
 	[mWaveTable release];
  	[super dealloc];
 }
+
 
 -(id)init
 {
@@ -83,6 +86,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	return self;
 }
+
 
 -(void) New{
 
@@ -117,7 +121,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 }
 
 
-
 -(OSStatus) start;
 { 
 	printf("start\n");
@@ -127,10 +130,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		[self New];
 	
 	// from MUS147: prime the queue with some data before starting
-	// CL: the above comment is from the MUS147 class. I'm currently getting distortions on some attacks.
-	// CL: especially if multiple notes are played. If they are played at precisely the same time its fine.
-	// CL: could these distortions have something to do with the preloading of the buffers?
-	
 	for (int i = 0; i < kNumberBuffers; ++i)
 		AQBufferCallback(self, mQueue, mBuffers[i]);
 	
@@ -155,8 +154,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	// CL: orginally in addition to setFreq (& now setAmp), when you push a button [mAQPlayer start] was also called. When a button was released [mAQPlayer stop] was called.
 	// CL: I now changed this so mAQPlayer is started during viewDidLoad and stopped during the dealoc
 	// CL: this seems to have had a very positive effect ;-)
-	
-	
+		
 	printf("stop\n");
 	OSStatus result = noErr;
 	

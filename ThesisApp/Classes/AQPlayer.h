@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-#import "Mode.h"
 #import "WaveFormTable.h"
 
 #define kNumberBuffers 3
 #define kNumberNotes 8
+
 
 @interface AQPlayer : NSObject
 {
@@ -21,9 +21,7 @@
 	AudioStreamBasicDescription		mDataFormat;
 	AudioQueueRef					mQueue;
 	AudioQueueBufferRef				mBuffers[kNumberBuffers];
-	
-	NSArray *noteArray;
-	
+		
 @public
 	
 	double mSR;
@@ -31,12 +29,10 @@
 	double mAmp [kNumberNotes];
 	double mTheta[kNumberNotes];
 	
-	//Mode	*mNote_Pri;
-	//Mode	*mNote_Sec;
-	
 	WaveFormTable *mWaveTable;
 	
 }
+
 
 -(void) New;
 
