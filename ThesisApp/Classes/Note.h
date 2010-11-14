@@ -28,6 +28,8 @@
 
 }
 
+// KU: you might want a method here to assign the mWaveTable member variable to the WaveFormTable object created in AQPlayer
+
 -(double)getSample:(double)sample;
 
 @property double mFreq;
