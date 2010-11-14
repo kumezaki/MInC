@@ -16,36 +16,12 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 	
 	double delta_theta[kNumberNotes];
-	for (int j = 0; j < kNumberNotes; j++)
-		
-		//CL: I understand how this works.  I don't understand WHY it works. There are a lot of j's!
-		//KU: delta_theta is essentially the same as frequecy; instead of cycles/second (Hz) it is radians/sample period
-		//CL: so in the below are we essentially connecting each instance of mFreq data w/ it's corresponding mTheta?		
-		//KU: more or less, yes.  delta_theta IS frequency.  delta_theta is the rate at which mTheta changes, therefore it is frequency
-		//CL: I understand that delta_theta IS frequencey but I'm assuming the compiler doesn't know this which is why we need the following statement?...
-		
-		delta_theta[j] = aqp->mNotes[j].mFreq / aqp->mSR;
+	for (int j = 0; j < kNumberNotes; j++)  delta_theta[j] = aqp->mNotes[j].mFreq / aqp->mSR;
 
 	for (int i = 0; i < numFrames; i++)
 	{	
 		double sample = 0.;
-		
-		for (int j = 0; j < kNumberNotes; j++)
-		{
-			sample += aqp->mNotes[j].mAmp * [aqp->mWaveTable get:aqp->mNotes[j].mTheta];
-			
-			aqp->mNotes[j].mTheta += delta_theta[j]; 
-		}
-		
-		//CL: this is markedly better but I'm still getting an increase in amplitude when adding notes.
-		//CL: I feel like the solution is to use an "if else" to decrease mAmp accordingly... maybe I can test to see
-		//CL: if delta_theta is 0. or not? If delta_theta is not zero than that means a note is being played. If two notes
-		//CL: than mAmp/2. If three notes than mAmp/3. So on an so forth...
-		//KU: I suggest you create an array of mAmps (like you do for frequency) instead, and access them in the for loop above (aqp->mAmp[j])
-		//CL: okay, per your email I won't worry about normalization just yet.
-		
-		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;	// KU: moved scaling to 16-bit PCM (saves a bunch multiplication operations)
-	}
+		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;	}
 	
 	inAQBuffer->mAudioDataByteSize = 1024;
 	inAQBuffer->mPacketDescriptionCount = 0;
@@ -57,14 +33,12 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 @implementation AQPlayer
 
-//@synthesize mAmp;
 -(void) setAmp:(double)val withNotePos:(int)note_pos;
 {
 	mNotes[note_pos].mAmp=val;
 }
 
 
-//@synthesize mFreq;
 -(void) setFreq:(double)val withNotePos:(int)note_pos;
 {
 	mNotes[note_pos].mFreq=val;

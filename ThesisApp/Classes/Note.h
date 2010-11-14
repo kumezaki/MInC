@@ -13,20 +13,25 @@
 #define kNumberNotes 8
 
 @interface Note : NSObject {
+
+@private
 	
-@public
+	WaveFormTable *mWaveTable;
 	
-	//CL: per your instructions I moved the ivars over to here. I'm not clear on whether I need them all over here though. mSR? mTheta?
+	double sample;
 	
 	double mFreq;
 	double mAmp;
 	double mTheta;
+
 	
-	//CL: if we're "getting a note" what are we getting? Do we need the mWaveFormTable?
-	//KU: should probably leave the wavetable out for now
-	
-//	WaveFormTable *mWaveTable;
 
 }
+
+-(double)getSample:(double)sample;
+
+@property double mFreq;
+@property double mAmp;
+@property double mTheta;
 
 @end

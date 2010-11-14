@@ -27,7 +27,12 @@
 
 	
 	double mSR;
-	Note	mNotes[kNumberNotes];
+	
+	//CL: turns out that if mNotes is NOT a pointer it produces a hard build error. I guess no static allocating of objects?
+	
+	Note *mNotes[kNumberNotes];
+	
+	
 //	double mFreq[kNumberNotes];
 //	double mAmp [kNumberNotes];
 //	double mTheta[kNumberNotes];

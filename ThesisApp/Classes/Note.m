@@ -12,13 +12,25 @@
 
 @implementation Note
 
-//CL: Implementation of setAmp and setFreq methods
+@synthesize mFreq;
+@synthesize mAmp;
+@synthesize mTheta;
 
-//CL: if we indeed do use the mWaveFormTable we'll need the init and dealloc methods no?
-
-- (void)dealloc
+-(double)getSample:(double)sample
 {
-//	[mWaveTable release];
+	for (int j = 0; j < kNumberNotes; j++)
+	{
+		sample += aqp->mNotes[j].mAmp * [aqp->mWaveTable get:aqp->mNotes[j].mTheta];
+		
+		aqp->mNotes[j].mTheta += delta_theta[j]; 
+	}
+}
+
+
+
+-(void)dealloc
+{
+	[mWaveTable release];
  	[super dealloc];
 }
 
@@ -27,7 +39,7 @@
 {
 	[super init];
 	
-//	mWaveTable = [WaveFormTable new];
+	mWaveTable = [WaveFormTable new];
 	
 	return self;
 }
