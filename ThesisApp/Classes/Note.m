@@ -14,22 +14,11 @@
 
 //CL: Implementation of setAmp and setFreq methods
 
--(void) setAmp:(double)val withNotePos:(int)note_pos;
-{
-	mAmp[note_pos]=val;
-}
-
-
--(void) setFreq:(double)val withNotePos:(int)note_pos;
-{
-	mFreq[note_pos]=val;
-}
-
 //CL: if we indeed do use the mWaveFormTable we'll need the init and dealloc methods no?
 
 - (void)dealloc
 {
-	[mWaveTable release];
+//	[mWaveTable release];
  	[super dealloc];
 }
 
@@ -38,7 +27,7 @@
 {
 	[super init];
 	
-	mWaveTable = [WaveFormTable new];
+//	mWaveTable = [WaveFormTable new];
 	
 	return self;
 }

@@ -10,6 +10,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 
 #import "WaveFormTable.h"
+#import "Note.h"
 
 #define kNumberBuffers 3
 #define kNumberNotes 8
@@ -23,11 +24,13 @@
 	AudioQueueBufferRef				mBuffers[kNumberBuffers];
 		
 @public
+
 	
 	double mSR;
-	double mFreq[kNumberNotes];
-	double mAmp [kNumberNotes];
-	double mTheta[kNumberNotes];
+	Note	mNotes[kNumberNotes];
+//	double mFreq[kNumberNotes];
+//	double mAmp [kNumberNotes];
+//	double mTheta[kNumberNotes];
 	
 	WaveFormTable *mWaveTable;
 	

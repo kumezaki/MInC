@@ -18,18 +18,15 @@
 	
 	//CL: per your instructions I moved the ivars over to here. I'm not clear on whether I need them all over here though. mSR? mTheta?
 	
-	double mSR;
-	double mFreq[kNumberNotes];
-	double mAmp [kNumberNotes];
-	double mTheta[kNumberNotes];
+	double mFreq;
+	double mAmp;
+	double mTheta;
 	
 	//CL: if we're "getting a note" what are we getting? Do we need the mWaveFormTable?
+	//KU: should probably leave the wavetable out for now
 	
-	WaveFormTable *mWaveTable;
+//	WaveFormTable *mWaveTable;
 
 }
-
--(void) setFreq:(double)val withNotePos:(int)note_pos;
--(void) setAmp:(double)val withNotePos:(int)note_pos;
 
 @end

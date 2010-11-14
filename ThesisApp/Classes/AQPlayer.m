@@ -24,7 +24,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		//KU: more or less, yes.  delta_theta IS frequency.  delta_theta is the rate at which mTheta changes, therefore it is frequency
 		//CL: I understand that delta_theta IS frequencey but I'm assuming the compiler doesn't know this which is why we need the following statement?...
 		
-		delta_theta[j] = aqp->mFreq[j] / aqp->mSR;
+		delta_theta[j] = aqp->mNotes[j].mFreq / aqp->mSR;
 
 	for (int i = 0; i < numFrames; i++)
 	{	
@@ -32,9 +32,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		
 		for (int j = 0; j < kNumberNotes; j++)
 		{
-			sample += aqp->mAmp[j] * [aqp->mWaveTable get:aqp->mTheta[j]];
+			sample += aqp->mNotes[j].mAmp * [aqp->mWaveTable get:aqp->mNotes[j].mTheta];
 			
-			aqp->mTheta[j] += delta_theta[j]; 
+			aqp->mNotes[j].mTheta += delta_theta[j]; 
 		}
 		
 		//CL: this is markedly better but I'm still getting an increase in amplitude when adding notes.
@@ -60,14 +60,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 //@synthesize mAmp;
 -(void) setAmp:(double)val withNotePos:(int)note_pos;
 {
-	mAmp[note_pos]=val;
+	mNotes[note_pos].mAmp=val;
 }
 
 
 //@synthesize mFreq;
 -(void) setFreq:(double)val withNotePos:(int)note_pos;
 {
-		mFreq[note_pos]=val;
+	mNotes[note_pos].mFreq=val;
 }
 
 
@@ -90,11 +90,11 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void) New{
 
-	for (int h = 0; h < kNumberNotes; h++) mTheta[h] = 0.;
+	for (int h = 0; h < kNumberNotes; h++) mNotes[h].mTheta = 0.;
 	
-	for (int i = 0; i < kNumberNotes; i++) mAmp[i] = 0.;
+	for (int i = 0; i < kNumberNotes; i++) mNotes[i].mAmp = 0.;
 	
-	for (int j = 0; j < kNumberNotes; j++) mFreq[j] = 0.;
+	for (int j = 0; j < kNumberNotes; j++) mNotes[j].mFreq = 0.;
 		
 	mSR = 22050.;	
 	
@@ -141,9 +141,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(OSStatus) stop;
 {
-	for (int j = 0; j < kNumberNotes; j++) mAmp[j] = 0.;
-	for (int k = 0; k < kNumberNotes; k++) mFreq[k] = 0.;
-	for (int l = 0; l < kNumberNotes; l++) mTheta[l] = 0.;
+	for (int j = 0; j < kNumberNotes; j++) mNotes[j].mAmp = 0.;
+	for (int k = 0; k < kNumberNotes; k++) mNotes[k].mFreq = 0.;
+	for (int l = 0; l < kNumberNotes; l++) mNotes[l].mTheta = 0.;
 	
 	// KU: I suggest that you don't set frequencies to 0. (unlike what we've been talking about) and set mAmp[n] to 0. instead.
 	// CL: If I don't reset the mFreq & mTheta arrays than previously loaded values persist.
