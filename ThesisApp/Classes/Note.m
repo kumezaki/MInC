@@ -23,31 +23,10 @@
 	// you don't need the sample argument for this method, just make it a local variable in the method
 	// you need to return something in the method, e.g. return sample;
 	
-	for (int j = 0; j < kNumberNotes; j++)
-	{
-		sample += aqp->mNotes[j].mAmp * [aqp->mWaveTable get:aqp->mNotes[j].mTheta];
-		
-		aqp->mNotes[j].mTheta += delta_theta[j]; 
-	}
-}
-
-
-
--(void)dealloc
-{
-	[mWaveTable release];
- 	[super dealloc];
-}
-
-
--(id)init
-{
-	[super init];
+	double noteSample = 0.;
+		noteSample = mAmp * [mWaveTable get:mTheta]; //CL: I'm not clear on the specifics of what is suppose to happen here. More an issue of synthesis than programming.
 	
-	mWaveTable = [WaveFormTable new];
-	
-	return self;
+	return noteSample;
 }
-
 
 @end

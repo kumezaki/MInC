@@ -21,6 +21,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	for (int i = 0; i < numFrames; i++)
 	{	
 		double sample = 0.;
+		
+		for (int j = 0; j < kNumberNotes; j++)
+		{
+			[Note getSample:sample];
+			aqp->mNotes[j].mTheta += delta_theta[j];
+		}
+		
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;	}
 	
 	inAQBuffer->mAudioDataByteSize = 1024;

@@ -28,7 +28,7 @@
 	
 	double mSR;
 	
-	//CL: turns out that if mNotes is NOT a pointer it produces a hard build error. I guess no static allocating of objects?
+	//CL: turns out that if mNotes is NOT a pointer it produces a build error. I guess no static allocating of objects?
 	
 	Note *mNotes[kNumberNotes];
 	
