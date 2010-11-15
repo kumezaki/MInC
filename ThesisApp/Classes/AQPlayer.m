@@ -8,6 +8,7 @@
 
 #import "AQPlayer.h"
 
+#define MAX_AMP	0.8
 
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
 {	
@@ -22,10 +23,10 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		for (int j = 0; j < kNumberNotes; j++)
 		{
 			sample += [aqp->mNotes[j] getSample];
-			if (sample > .8 || sample < -.8) {
-				sample = .8;
-			}
 		}
+		
+		sample = sample > MAX_AMP ? MAX_AMP : sample < -MAX_AMP ? -MAX_AMP : sample;
+
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;
 	}
 	
