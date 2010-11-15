@@ -14,10 +14,12 @@
 
 @synthesize mSR;
 
-@synthesize mFreq;
--(void) setFreq:(double)val;	// KU: I don't think you declared this in the .h file
-{
-	if (mFreq > 0.) mDeltaTheta = mFreq / mSR;	// KU: Why do you need to check for mFreq > 0.?
+@synthesize mFreq;//CL: using @synthesize for the getter and setMFreq for the setter
+-(void) setMFreq:(double)val;	// KU: I don't think you declared this in the .h file
+{								// CL: as I understand it @property in .h set's the getter and setter 	
+								// CL: but you can still implement one or the other in the .m
+	mFreq = val;
+	mDeltaTheta = mFreq / mSR;
 }
 
 @synthesize mAmp;
