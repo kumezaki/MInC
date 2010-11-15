@@ -24,8 +24,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		
 		for (int j = 0; j < kNumberNotes; j++)
 		{
-			[Note getSample:sample];
-			aqp->mNotes[j].mTheta += delta_theta[j];
+			sample += [aqp->mNotes[j] getSample];
+
+			aqp->mNotes[j].mTheta += delta_theta[j];	// KU: you need to figure out how to get this computation into the Note class (in addition to the delta_theta stuff above)
 		}
 		
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;	}
