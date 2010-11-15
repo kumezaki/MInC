@@ -15,9 +15,9 @@
 @synthesize mSR;
 
 @synthesize mFreq;
--(void) setFreq:(double)val;
+-(void) setFreq:(double)val;	// KU: I don't think you declared this in the .h file
 {
-	if (mFreq > 0.) mDeltaTheta = mFreq / mSR;
+	if (mFreq > 0.) mDeltaTheta = mFreq / mSR;	// KU: Why do you need to check for mFreq > 0.?
 }
 
 @synthesize mAmp;

@@ -20,7 +20,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		double sample = 0.;
 		
 		for (int j = 0; j < kNumberNotes; j++)
-			
 			sample += [aqp->mNotes[j] getSample];
 		
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;
@@ -44,7 +43,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void) setFreq:(double)val withNotePos:(int)note_pos;
 {
-	mNotes[note_pos].mFreq=val;
+	mNotes[note_pos].mFreq=val;	//KU: the idea would be to call the Note class setFreq here, no?
 }
 
 -(id)init
