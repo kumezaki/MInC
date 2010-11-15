@@ -21,7 +21,11 @@
 {
 	//CL: Just an FYI... I have absolutey no idea if this is right or wrong or why it would be right or wrong. It builds though.
 	
+	// KU: I'm thinking that delta_theta can become a member variable.
+	// KU: It's basically the same as frequency (mFreq scaled by mSR), so it only needs to be computed when mFreq changes.
+	// KU: To do this, you might create a new method called SetFreq.  In that method you set mFreq but also compute mDeltaTheta.
 	double delta_theta;
+	
 	double sample = 0.;
 		 
 	delta_theta = mFreq / mSR;

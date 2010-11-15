@@ -70,6 +70,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		mNotes[i] = [Note new];
 	}
 
+	// KU: you might allocate this before the for-loop above.
+	// KU: then, after you allocate a note, call setWaveTable on the note with mWaveTable as the argument
 	mWaveTable = [WaveFormTable new];
 	
 	return self;
