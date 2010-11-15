@@ -47,6 +47,26 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	mNotes[note_pos].mFreq=val;
 }
 
+-(id)init
+{
+	[super init];
+	
+	// KU: you might allocate this before the for-loop above.
+	// KU: then, after you allocate a note, call setWaveTable on the note with mWaveTable as the argument
+	mWaveTable = [WaveFormTable new];
+	
+	for (int i = 0; i < kNumberNotes; i++)
+	{
+		mNotes[i] = [Note new];
+		[mNotes[i] setWaveTable:mWaveTable];
+	}
+	
+	
+	
+	return self;
+}
+
+
 - (void)dealloc
 {
 	for (int i = 0; i < kNumberNotes; i++)
@@ -59,24 +79,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	 	[super dealloc];
 }
-
-
--(id)init
-{
-	[super init];
-	
-	for (int i = 0; i < kNumberNotes; i++)
-	{
-		mNotes[i] = [Note new];
-	}
-
-	// KU: you might allocate this before the for-loop above.
-	// KU: then, after you allocate a note, call setWaveTable on the note with mWaveTable as the argument
-	mWaveTable = [WaveFormTable new];
-	
-	return self;
-}
-
 
 -(void) New{
 	

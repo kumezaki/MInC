@@ -22,6 +22,8 @@
 	double mFreq;
 	double mAmp;
 	double mTheta;
+	double mDeltaTheta;
+
 
 	
 
@@ -30,8 +32,6 @@
 -(double)getSample;
 
 -(void)setWaveTable:(WaveFormTable *)wave_table;
-//CL: how does this point to the WaveFormTable created by AQPlayer?
-//KU: see my comments in the init method for AQPlayer
 
 @property double mSR;
 @property double mFreq;
