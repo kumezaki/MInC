@@ -20,11 +20,13 @@
 -(double)getSample
 {
 	//CL: Just an FYI... I have absolutey no idea if this is right or wrong or why it would be right or wrong. It builds though.
+	//KU: no need for creating arrays here...you should now be dealing with arrays of Notes.
+	//KU: do only the delta_theta computation for this note based on the mFreq and mSR values
 	
 	double delta_theta[kNumberNotes];
 	double sample = 0.;
 	
-	
+	// KU: for loop is unnecessary here
 	for (int j = 0; j < kNumberNotes; j++)  
 	{
 		delta_theta[j] = mFreq / mSR;

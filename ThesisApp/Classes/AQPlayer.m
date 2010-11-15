@@ -15,18 +15,15 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 	
-	
 	for (int i = 0; i < numFrames; i++)
 	{	
 		double sample = 0.;
 		
 		for (int j = 0; j < kNumberNotes; j++)
-		{
 			sample += [aqp->mNotes[j] getSample];
-			// KU: you need to figure out how to get this computation into the Note class (in addition to the delta_theta stuff above)
-		}
 		
-		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;	}
+		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;
+	}
 	
 	inAQBuffer->mAudioDataByteSize = 1024;
 	inAQBuffer->mPacketDescriptionCount = 0;
