@@ -35,16 +35,16 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 @implementation AQPlayer
 
--(void) setAmp:(double)val withNotePos:(int)note_pos;
-{
+
+-(void) setMAmp:(double)val withNotePos:(int)note_pos{
 	mNotes[note_pos].mAmp=val;
 }
 
 
--(void) setFreq:(double)val withNotePos:(int)note_pos;
-{
+-(void) setMFreq:(double)val withNotePos:(int)note_pos{
 	mNotes[note_pos].mFreq=val;	//KU: the idea would be to call the Note class setFreq here, no?
 }
+
 
 -(id)init
 {
@@ -59,30 +59,20 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		mNotes[i] = [Note new];
 		[mNotes[i] setWaveTable:mWaveTable];
 	}
-	
-	
-	
 	return self;
 }
 
 
 - (void)dealloc
 {
-	for (int i = 0; i < kNumberNotes; i++)
-	{
-		[mNotes[i] release];
-	}
-	
-	
+	for (int i = 0; i < kNumberNotes; i++) [mNotes[i] release];	
 	[mWaveTable release];
-	
-	 	[super dealloc];
+	[super dealloc];
 }
 
+
 -(void) New{
-	
-	mSR = 22050.;	
-	
+		
 	mDataFormat.mSampleRate = mSR;
 	mDataFormat.mFormatID = kAudioFormatLinearPCM;
 	mDataFormat.mFormatFlags = kAudioFormatFlagIsSignedInteger;

@@ -90,36 +90,36 @@
 	// KU: this looks good...now also set amplitude
 
 	if ([sender.titleLabel.text isEqual:@"1"]) {
-		[mAQPlayer setFreq:262 withNotePos:0]; //C4
-		[mAQPlayer setAmp:.25 withNotePos:0];
+		[mAQPlayer setMFreq:262 withNotePos:0]; //C4
+		[mAQPlayer setMAmp:.25 withNotePos:0];
 		
 	}else if ([sender.titleLabel.text isEqual:@"2"]) {
-		[mAQPlayer setFreq:330 withNotePos:1];//E4
-		[mAQPlayer setAmp:.25 withNotePos:1];
+		[mAQPlayer setMFreq:330 withNotePos:1];//E4
+		[mAQPlayer setMAmp:.25 withNotePos:1];
 		
 	}else if ([sender.titleLabel.text isEqual:@"3"]) {
-		[mAQPlayer setFreq:349 withNotePos:2];//F4
-		[mAQPlayer setAmp:.25 withNotePos:2];
+		[mAQPlayer setMFreq:349 withNotePos:2];//F4
+		[mAQPlayer setMAmp:.25 withNotePos:2];
 		
 	}else if ([sender.titleLabel.text isEqual:@"4"]) {
-		[mAQPlayer setFreq:392 withNotePos:3];//G4
-		[mAQPlayer setAmp:.25 withNotePos:3];
+		[mAQPlayer setMFreq:392 withNotePos:3];//G4
+		[mAQPlayer setMAmp:.25 withNotePos:3];
 		
 	}else if ([sender.titleLabel.text isEqual:@"5"]) {
-		[mAQPlayer setFreq:466 withNotePos:4];//Bb4
-		[mAQPlayer setAmp:.25 withNotePos:4];
+		[mAQPlayer setMFreq:466 withNotePos:4];//Bb4
+		[mAQPlayer setMAmp:.25 withNotePos:4];
 		
 	}else if ([sender.titleLabel.text isEqual:@"6"]) {
-		[mAQPlayer setFreq:523 withNotePos:5];//C5
-		[mAQPlayer setAmp:.25 withNotePos:5];
+		[mAQPlayer setMFreq:523 withNotePos:5];//C5
+		[mAQPlayer setMAmp:.25 withNotePos:5];
 		
 	}else if ([sender.titleLabel.text isEqual:@"7"]) {
-		[mAQPlayer setFreq:659 withNotePos:6];//E5
-		[mAQPlayer setAmp:.25 withNotePos:6];
+		[mAQPlayer setMFreq:659 withNotePos:6];//E5
+		[mAQPlayer setMAmp:.25 withNotePos:6];
 		
 	}else if ([sender.titleLabel.text isEqual:@"8"]) {
-		[mAQPlayer setFreq:699 withNotePos:7];//F5
-		[mAQPlayer setAmp:.25 withNotePos:7];
+		[mAQPlayer setMFreq:699 withNotePos:7];//F5
+		[mAQPlayer setMAmp:.25 withNotePos:7];
 	}
 	
 
@@ -130,28 +130,28 @@
 	// KU: this should have contents much like startSound above
 	// However, it should set amplitude and not frequency
 	if ([sender.titleLabel.text isEqual:@"1"]) {
-		[mAQPlayer setAmp:0. withNotePos:0];
+		[mAQPlayer setMAmp:0. withNotePos:0];
 		
 	}else if ([sender.titleLabel.text isEqual:@"2"]) {
-		[mAQPlayer setAmp:0. withNotePos:1];
+		[mAQPlayer setMAmp:0. withNotePos:1];
 		
 	}else if ([sender.titleLabel.text isEqual:@"3"]) {
-		[mAQPlayer setAmp:0. withNotePos:2];
+		[mAQPlayer setMAmp:0. withNotePos:2];
 		
 	}else if ([sender.titleLabel.text isEqual:@"4"]) {
-		[mAQPlayer setAmp:0. withNotePos:3];
+		[mAQPlayer setMAmp:0. withNotePos:3];
 		
 	}else if ([sender.titleLabel.text isEqual:@"5"]) {
-		[mAQPlayer setAmp:0. withNotePos:4];
+		[mAQPlayer setMAmp:0. withNotePos:4];
 		
 	}else if ([sender.titleLabel.text isEqual:@"6"]) {
-		[mAQPlayer setAmp:0. withNotePos:5];
+		[mAQPlayer setMAmp:0. withNotePos:5];
 		
 	}else if ([sender.titleLabel.text isEqual:@"7"]) {
-		[mAQPlayer setAmp:0. withNotePos:6];
+		[mAQPlayer setMAmp:0. withNotePos:6];
 		
 	}else if ([sender.titleLabel.text isEqual:@"8"]) {
-		[mAQPlayer setAmp:0. withNotePos:7];
+		[mAQPlayer setMAmp:0. withNotePos:7];
 	}
 	
 }

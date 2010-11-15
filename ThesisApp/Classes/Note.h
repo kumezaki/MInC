@@ -11,6 +11,7 @@
 #import "WaveFormTable.h"
 
 #define kNumberNotes 8
+#define mSR 22050
 
 @interface Note : NSObject {
 
@@ -18,7 +19,6 @@
 	
 	WaveFormTable *mWaveTable;
 	
-	double mSR;
 	double mFreq;
 	double mAmp;
 	double mTheta;
@@ -30,10 +30,8 @@
 }
 
 -(double)getSample;
-
 -(void)setWaveTable:(WaveFormTable *)wave_table;
 
-@property double mSR;
 @property double mFreq;
 @property double mAmp;
 @property double mTheta;

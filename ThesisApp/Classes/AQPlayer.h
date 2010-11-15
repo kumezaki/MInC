@@ -13,8 +13,6 @@
 #import "Note.h"
 
 #define kNumberBuffers 3
-#define kNumberNotes 8
-
 
 @interface AQPlayer : NSObject
 {
@@ -23,15 +21,16 @@
 	AudioQueueRef					mQueue;
 	AudioQueueBufferRef				mBuffers[kNumberBuffers];
 		
-@public
 
+@private
 	
-	double mSR;
+	double mAmp;
+	double mFreq;
 	
 	//CL: turns out that if mNotes is NOT a pointer it produces a build error. I guess no static allocating of objects?
+@public
 	
-	Note *mNotes[kNumberNotes];
-	
+	Note *mNotes[kNumberNotes];	
 	WaveFormTable *mWaveTable;
 	
 }
@@ -42,8 +41,7 @@
 -(OSStatus) start;
 -(OSStatus) stop;
 
-
--(void) setFreq:(double)val withNotePos:(int)note_pos;
--(void) setAmp:(double)val withNotePos:(int)note_pos;
+-(void) setMFreq:(double)val withNotePos:(int)note_pos;
+-(void) setMAmp:(double)val withNotePos:(int)note_pos;
 
 @end

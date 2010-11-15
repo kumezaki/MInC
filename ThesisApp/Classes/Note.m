@@ -8,18 +8,19 @@
 
 #import "Note.h"
 
-
-
 @implementation Note
-
-@synthesize mSR;
 
 @synthesize mFreq;//CL: using @synthesize for the getter and setMFreq for the setter
 -(void) setMFreq:(double)val;	// KU: I don't think you declared this in the .h file
 {								// CL: as I understand it @property in .h set's the getter and setter 	
 								// CL: but you can still implement one or the other in the .m
 	mFreq = val;
+	
+	NSLog(@"Note mFreq is: %f", mFreq);
+	NSLog(@"Note mSR is: %i", mSR);
+	
 	mDeltaTheta = mFreq / mSR;
+
 }
 
 @synthesize mAmp;
