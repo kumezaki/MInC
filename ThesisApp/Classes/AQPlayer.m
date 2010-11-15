@@ -20,8 +20,12 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		double sample = 0.;
 		
 		for (int j = 0; j < kNumberNotes; j++)
+		{
 			sample += [aqp->mNotes[j] getSample];
-		
+			if (sample > .8 || sample < -.8) {
+				sample = .8;
+			}
+		}
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;
 	}
 	
