@@ -32,11 +32,6 @@
 	
 	Note *mNotes[kNumberNotes];
 	
-	
-//	double mFreq[kNumberNotes];
-//	double mAmp [kNumberNotes];
-//	double mTheta[kNumberNotes];
-	
 	WaveFormTable *mWaveTable;
 	
 }

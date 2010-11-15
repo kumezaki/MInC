@@ -20,6 +20,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		double sample = 0.;
 		
 		for (int j = 0; j < kNumberNotes; j++)
+			
 			sample += [aqp->mNotes[j] getSample];
 		
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;
@@ -48,14 +49,26 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 - (void)dealloc
 {
+	for (int i = 0; i < kNumberNotes; i++)
+	{
+		[mNotes[i] release];
+	}
+	
+	
 	[mWaveTable release];
- 	[super dealloc];
+	
+	 	[super dealloc];
 }
 
 
 -(id)init
 {
 	[super init];
+	
+	for (int i = 0; i < kNumberNotes; i++)
+	{
+		mNotes[i] = [Note new];
+	}
 
 	mWaveTable = [WaveFormTable new];
 	
@@ -64,13 +77,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 
 -(void) New{
-
-	for (int h = 0; h < kNumberNotes; h++) mNotes[h].mTheta = 0.;
 	
-	for (int i = 0; i < kNumberNotes; i++) mNotes[i].mAmp = 0.;
-	
-	for (int j = 0; j < kNumberNotes; j++) mNotes[j].mFreq = 0.;
-		
 	mSR = 22050.;	
 	
 	mDataFormat.mSampleRate = mSR;
@@ -116,19 +123,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(OSStatus) stop;
 {
-	for (int j = 0; j < kNumberNotes; j++) mNotes[j].mAmp = 0.;
-	for (int k = 0; k < kNumberNotes; k++) mNotes[k].mFreq = 0.;
-	for (int l = 0; l < kNumberNotes; l++) mNotes[l].mTheta = 0.;
-	
-	// KU: I suggest that you don't set frequencies to 0. (unlike what we've been talking about) and set mAmp[n] to 0. instead.
-	// CL: If I don't reset the mFreq & mTheta arrays than previously loaded values persist.
-	// CL: I'm thinking that the (OSStatus) start/stop should be tied to the start and stop of the App. So the buttons are actually
-	// CL: simply turning the amplitude up and down. This would help with latency... no?
-	// KU: I'm not sure what you're getting at here, but I'd still suggest not using these start and stop methods to turn notes on and off
-	// KU: Instead, do it with the setFreq method
-	// CL: orginally in addition to setFreq (& now setAmp), when you push a button [mAQPlayer start] was also called. When a button was released [mAQPlayer stop] was called.
-	// CL: I now changed this so mAQPlayer is started during viewDidLoad and stopped during the dealoc
-	// CL: this seems to have had a very positive effect ;-)
 		
 	printf("stop\n");
 	OSStatus result = noErr;
