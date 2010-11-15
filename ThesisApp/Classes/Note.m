@@ -12,27 +12,32 @@
 
 @implementation Note
 
+@synthesize mSR;
 @synthesize mFreq;
 @synthesize mAmp;
 @synthesize mTheta;
 
 -(double)getSample
 {
-	// KU: you don't need the for-loop here, it should stay in the callback routine
-	// you nolonger need to aqp->mNotes[j]. becaue mAmp, mFreq, mTheta are all member variables
-	// you don't need the sample argument for this method, just make it a local variable in the method
-	// you need to return something in the method, e.g. return sample;
+	//CL: Just an FYI... I have absolutey no idea if this is right or wrong or why it would be right or wrong. It builds though.
 	
-	double sample = mAmp * [mWaveTable get:mTheta]; //CL: I'm not clear on the specifics of what is suppose to happen here. More an issue of synthesis than programming.
-
-	// KU: you would need to advance/update mTheta here based on mFreq and the sample rate
+	double delta_theta[kNumberNotes];
+	double sample = 0.;
+	
+	
+	for (int j = 0; j < kNumberNotes; j++)  
+	{
+		delta_theta[j] = mFreq / mSR;
+		sample = mAmp * [mWaveTable get:mTheta];
+		mTheta += delta_theta[j];
+	}
 	
 	return sample;
 }
 
 -(void)setWaveTable:(WaveFormTable *)wave_table
 {
-	mWaveTable = wave_table;
+	mWaveTable = wave_table; //CL: again... how is this referencing the WaveFromTable init from AQPlayer?
 }
 
 @end

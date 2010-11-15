@@ -15,9 +15,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 	
-	double delta_theta[kNumberNotes];
-	for (int j = 0; j < kNumberNotes; j++)  delta_theta[j] = aqp->mNotes[j].mFreq / aqp->mSR;
-
+	
 	for (int i = 0; i < numFrames; i++)
 	{	
 		double sample = 0.;
@@ -25,8 +23,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		for (int j = 0; j < kNumberNotes; j++)
 		{
 			sample += [aqp->mNotes[j] getSample];
-
-			aqp->mNotes[j].mTheta += delta_theta[j];	// KU: you need to figure out how to get this computation into the Note class (in addition to the delta_theta stuff above)
+			// KU: you need to figure out how to get this computation into the Note class (in addition to the delta_theta stuff above)
 		}
 		
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;	}
@@ -51,7 +48,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	mNotes[note_pos].mFreq=val;
 }
-
 
 - (void)dealloc
 {

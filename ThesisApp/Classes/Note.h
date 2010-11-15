@@ -18,6 +18,7 @@
 	
 	WaveFormTable *mWaveTable;
 	
+	double mSR;
 	double mFreq;
 	double mAmp;
 	double mTheta;
@@ -27,12 +28,12 @@
 }
 
 // KU: you might want a method here to assign the mWaveTable member variable to the WaveFormTable object created in AQPlayer
-// CL: I'm totally guessing on how to do this. I have no idea.
 
 -(double)getSample;
 
--(void)setWaveTable:(WaveFormTable *)wave_table;
+-(void)setWaveTable:(WaveFormTable *)wave_table; //CL: how does this point to the WaveFormTable created by AQPlayer?
 
+@property double mSR;
 @property double mFreq;
 @property double mAmp;
 @property double mTheta;
