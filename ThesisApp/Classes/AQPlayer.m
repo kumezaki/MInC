@@ -40,14 +40,19 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 @implementation AQPlayer
 
+-(void) setMode:(int)val
+{
+	currentMode = val;
+}
 
 -(void) setMAmp:(double)val withNotePos:(int)note_pos{
 	mNotes[note_pos].mAmp=val;
 }
 
 
--(void) setMFreq:(double)val withNotePos:(int)note_pos{
-	mNotes[note_pos].mFreq=val;
+-(void) playNote:(BOOL)noteOn withNotePos:(int)note_pos{
+	
+	mNotes[note_pos].mFreq = [mModes[currentMode] getNoteFreq:note_pos];
 }
 
 
@@ -63,8 +68,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	for (int j = 0; j < kNumberModes; j++) mModes[j] = [Mode new];
 	
-	modeArray = [NSArray arrayWithObjects:mModes count:kNumberModes];
-
 	return self;
 }
 
@@ -74,13 +77,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	for (int i = 0; i < kNumberNotes; i++) [mNotes[i] release];
 	for (int j = 0; j < kNumberModes; j++) [mModes[j] release];	
 	[mWaveTable release];
-	[modeArray release];
 	[super dealloc];
 }
 
 
 -(void) New{
 		
+	
+	
 	mDataFormat.mSampleRate = mSR;
 	mDataFormat.mFormatID = kAudioFormatLinearPCM;
 	mDataFormat.mFormatFlags = kAudioFormatFlagIsSignedInteger;

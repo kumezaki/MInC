@@ -14,10 +14,12 @@
 
 @interface Mode : NSObject {
 	
-	double modeFreqs[kNumberNotes];
+	double modeFreq[kNumberNotes];
+	double mFreq;
 	
 }
 
-@property int noteNums;
+-(double) getNoteFreq:(int)val;
+
 
 @end

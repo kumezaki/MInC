@@ -90,35 +90,35 @@
 	// KU: this looks good...now also set amplitude
 
 	if ([sender.titleLabel.text isEqual:@"1"]) {
-		[mAQPlayer setMFreq:440 withNotePos:0]; //A4
+		[mAQPlayer playNote:YES withNotePos:1]; //A4
 		[mAQPlayer setMAmp:.95 withNotePos:0];
 		
 	}else if ([sender.titleLabel.text isEqual:@"2"]) {
-		[mAQPlayer setMFreq:466 withNotePos:1];//A#4
+		[mAQPlayer playNote:YES withNotePos:1];//A#4
 		[mAQPlayer setMAmp:.95 withNotePos:1];
 		
 	}else if ([sender.titleLabel.text isEqual:@"3"]) {
-		[mAQPlayer setMFreq:587 withNotePos:2];//D5
+		[mAQPlayer playNote:YES withNotePos:2];//D5
 		[mAQPlayer setMAmp:.95 withNotePos:2];
 		
 	}else if ([sender.titleLabel.text isEqual:@"4"]) {
-		[mAQPlayer setMFreq:659 withNotePos:3];//E5
+		[mAQPlayer playNote:YES withNotePos:3];//E5
 		[mAQPlayer setMAmp:.95 withNotePos:3];
 		
 	}else if ([sender.titleLabel.text isEqual:@"5"]) {
-		[mAQPlayer setMFreq:698 withNotePos:4];//F5
+		[mAQPlayer playNote:YES withNotePos:4];//F5
 		[mAQPlayer setMAmp:.95 withNotePos:4];
 		
 	}else if ([sender.titleLabel.text isEqual:@"6"]) {
-		[mAQPlayer setMFreq:880 withNotePos:5];//A5
+		[mAQPlayer playNote:YES withNotePos:5];//A5
 		[mAQPlayer setMAmp:.95 withNotePos:5];
 		
 	}else if ([sender.titleLabel.text isEqual:@"7"]) {
-		[mAQPlayer setMFreq:932 withNotePos:6];//A#5
+		[mAQPlayer playNote:YES withNotePos:6];//A#5
 		[mAQPlayer setMAmp:.95 withNotePos:6];
 		
 	}else if ([sender.titleLabel.text isEqual:@"8"]) {
-		[mAQPlayer setMFreq:1175 withNotePos:7];//D6
+		[mAQPlayer playNote:YES withNotePos:7];//D6
 		[mAQPlayer setMAmp:.95 withNotePos:7];
 	}
 	
