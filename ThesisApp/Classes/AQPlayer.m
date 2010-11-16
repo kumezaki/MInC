@@ -50,7 +50,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 }
 
 
--(void) playNote:(BOOL)noteOn withNotePos:(int)note_pos{
+-(void) playNote:(int)note_pos{
 	
 	mNotes[note_pos].mFreq = [mModes[currentMode] getNoteFreq:note_pos];
 }
