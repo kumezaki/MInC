@@ -8,6 +8,8 @@
 
 #import "AQPlayer.h"
 
+#define MAX_AMP	0.95
+
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
 {	
 	AQPlayer *aqp = (AQPlayer *)inUserData;
@@ -45,23 +47,23 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 
 -(void) setMFreq:(double)val withNotePos:(int)note_pos{
-	mNotes[note_pos].mFreq=val;	//KU: the idea would be to call the Note class setFreq here, no?
+	mNotes[note_pos].mFreq=val;
 }
 
 
 -(id)init
 {
 	[super init];
+	mWaveTable = [WaveFormTable new];	
 	
-	// KU: you might allocate this before the for-loop above.
-	// KU: then, after you allocate a note, call setWaveTable on the note with mWaveTable as the argument
-	mWaveTable = [WaveFormTable new];
-	
-	for (int i = 0; i < kNumberNotes; i++)
+		for (int i = 0; i < kNumberNotes; i++)
 	{
 		mNotes[i] = [Note new];
 		[mNotes[i] setWaveTable:mWaveTable];
 	}
+	modeArray = [NSArray arrayWithObjects:Mode.modeFreqs[0],Mode.modeFreqs[1],Mode.modeFreqs[2], nil];
+	
+
 	return self;
 }
 
@@ -70,6 +72,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	for (int i = 0; i < kNumberNotes; i++) [mNotes[i] release];	
 	[mWaveTable release];
+	[modeArray release];
 	[super dealloc];
 }
 

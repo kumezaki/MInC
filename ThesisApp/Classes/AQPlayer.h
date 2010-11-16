@@ -11,6 +11,7 @@
 
 #import "WaveFormTable.h"
 #import "Note.h"
+#import "Mode.h"
 
 #define kNumberBuffers 3
 
@@ -31,10 +32,10 @@
 
 @public
 	
+	NSArray *modeArray;
 	Note *mNotes[kNumberNotes];	
 	WaveFormTable *mWaveTable;	
 }
-
 
 -(void) New;
 

@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Note.h"
+
 @interface Mode : NSObject {
 	
-	NSArray *mModeNotes;
+	double modeFreqs[kNumberNotes];
 	
 }
 
