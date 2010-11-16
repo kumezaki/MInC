@@ -32,8 +32,9 @@
 
 @public
 	
+	Mode *mModes[kNumberModes];
+	Note *mNotes[kNumberNotes];
 	NSArray *modeArray;
-	Note *mNotes[kNumberNotes];	
 	WaveFormTable *mWaveTable;	
 }
 

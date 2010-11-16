@@ -10,6 +10,8 @@
 
 #import "Note.h"
 
+#define kNumberModes 4
+
 @interface Mode : NSObject {
 	
 	double modeFreqs[kNumberNotes];

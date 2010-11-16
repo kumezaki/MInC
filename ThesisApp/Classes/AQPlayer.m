@@ -56,13 +56,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	[super init];
 	mWaveTable = [WaveFormTable new];	
 	
-		for (int i = 0; i < kNumberNotes; i++)
-	{
+	for (int i = 0; i < kNumberNotes; i++){
 		mNotes[i] = [Note new];
 		[mNotes[i] setWaveTable:mWaveTable];
 	}
-	modeArray = [NSArray arrayWithObjects:Mode.modeFreqs[0],Mode.modeFreqs[1],Mode.modeFreqs[2], nil];
 	
+	for (int j = 0; j < kNumberModes; j++) mModes[j] = [Mode new];
+	
+	modeArray = [NSArray arrayWithObjects:mModes count:kNumberModes];
 
 	return self;
 }
@@ -70,7 +71,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 - (void)dealloc
 {
-	for (int i = 0; i < kNumberNotes; i++) [mNotes[i] release];	
+	for (int i = 0; i < kNumberNotes; i++) [mNotes[i] release];
+	for (int j = 0; j < kNumberModes; j++) [mModes[j] release];	
 	[mWaveTable release];
 	[modeArray release];
 	[super dealloc];
