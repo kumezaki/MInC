@@ -21,6 +21,8 @@
 		B4653FDE127E66CC00DA1F26 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4653FDD127E66CC00DA1F26 /* AudioToolbox.framework */; };
 		B46C41FE12860403002E1B34 /* WaveFormTable.m in Sources */ = {isa = PBXBuildFile; fileRef = B46C41FB12860403002E1B34 /* WaveFormTable.m */; };
 		B46C420312860417002E1B34 /* AQPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B46C420012860417002E1B34 /* AQPlayer.m */; };
+		B4F6F5941291FF05008BB207 /* Envelope.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F6F5931291FF05008BB207 /* Envelope.m */; };
+		B4F6F5991291FF30008BB207 /* Mode.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F6F5981291FF30008BB207 /* Mode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,10 @@
 		B46C41FB12860403002E1B34 /* WaveFormTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaveFormTable.m; path = Classes/WaveFormTable.m; sourceTree = "<group>"; };
 		B46C41FF12860417002E1B34 /* AQPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AQPlayer.h; path = Classes/AQPlayer.h; sourceTree = "<group>"; };
 		B46C420012860417002E1B34 /* AQPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AQPlayer.m; path = Classes/AQPlayer.m; sourceTree = "<group>"; };
+		B4F6F5921291FF05008BB207 /* Envelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Envelope.h; path = Classes/Envelope.h; sourceTree = "<group>"; };
+		B4F6F5931291FF05008BB207 /* Envelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Envelope.m; path = Classes/Envelope.m; sourceTree = "<group>"; };
+		B4F6F5971291FF30008BB207 /* Mode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mode.h; path = Classes/Mode.h; sourceTree = "<group>"; };
+		B4F6F5981291FF30008BB207 /* Mode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Mode.m; path = Classes/Mode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,10 @@
 				B46C41FB12860403002E1B34 /* WaveFormTable.m */,
 				B43EB796128F216D000FD8EE /* Note.h */,
 				B43EB797128F216D000FD8EE /* Note.m */,
+				B4F6F5921291FF05008BB207 /* Envelope.h */,
+				B4F6F5931291FF05008BB207 /* Envelope.m */,
+				B4F6F5971291FF30008BB207 /* Mode.h */,
+				B4F6F5981291FF30008BB207 /* Mode.m */,
 			);
 			name = "Main View";
 			sourceTree = "<group>";
@@ -221,6 +231,8 @@
 				B46C41FE12860403002E1B34 /* WaveFormTable.m in Sources */,
 				B46C420312860417002E1B34 /* AQPlayer.m in Sources */,
 				B43EB798128F216D000FD8EE /* Note.m in Sources */,
+				B4F6F5941291FF05008BB207 /* Envelope.m in Sources */,
+				B4F6F5991291FF30008BB207 /* Mode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

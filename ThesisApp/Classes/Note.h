@@ -12,21 +12,17 @@
 
 #define kNumberNotes 8
 #define mSR 22050
+#define MAX_AMP	0.95
 
 @interface Note : NSObject {
 
-@private
-	
+@private	
 	WaveFormTable *mWaveTable;
 	
 	double mFreq;
 	double mAmp;
 	double mTheta;
-	double mDeltaTheta;
-
-
-	
-
+	double mDeltaTheta;	
 }
 
 -(double)getSample;

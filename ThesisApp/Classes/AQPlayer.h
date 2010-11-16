@@ -28,11 +28,11 @@
 	double mFreq;
 	
 	//CL: turns out that if mNotes is NOT a pointer it produces a build error. I guess no static allocating of objects?
+
 @public
 	
 	Note *mNotes[kNumberNotes];	
-	WaveFormTable *mWaveTable;
-	
+	WaveFormTable *mWaveTable;	
 }
 
 

@@ -8,8 +8,6 @@
 
 #import "AQPlayer.h"
 
-#define MAX_AMP	0.8
-
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
 {	
 	AQPlayer *aqp = (AQPlayer *)inUserData;
