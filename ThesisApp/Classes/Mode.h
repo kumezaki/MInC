@@ -10,16 +10,18 @@
 
 #import "Note.h"
 
-#define kNumberModes 4
+#define kNumberModes 6
 
 @interface Mode : NSObject {
 	
-	double modeFreq[kNumberNotes];
-	double mFreq;
+	double modeNotes[kNumberNotes];
+	int mNumNotes;
 	
 }
 
 -(double) getNoteFreq:(int)val;
+
+-(void) assignMode:(double*)notes;
 
 
 @end

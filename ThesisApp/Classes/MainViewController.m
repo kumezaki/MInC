@@ -85,9 +85,16 @@
     [super dealloc];
 }
 
+
+- (IBAction)changeMode:(UIButton *)sender
+{
+	NSString *buttNum = sender.titleLabel.text;
+	[mAQPlayer setMode:([buttNum intValue]-1)];
+}
+
+
 -(IBAction) startSound:(UIButton *)sender 
 {
-	// KU: this looks good...now also set amplitude
 
 	if ([sender.titleLabel.text isEqual:@"1"]) {
 		[mAQPlayer playNote:1];
@@ -127,9 +134,7 @@
 
 -(IBAction) stopSound:(UIButton *)sender 
 {
-	// KU: this should have contents much like startSound above
-	// However, it should set amplitude and not frequency
-	if ([sender.titleLabel.text isEqual:@"1"]) {
+		if ([sender.titleLabel.text isEqual:@"1"]) {
 		[mAQPlayer setMAmp:0. withNotePos:0];
 		
 	}else if ([sender.titleLabel.text isEqual:@"2"]) {

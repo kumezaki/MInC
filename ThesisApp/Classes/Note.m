@@ -19,6 +19,11 @@
 @synthesize mAmp;
 @synthesize mTheta;
 
++(double) mtof:(double)midiNote
+{
+	return 440. * pow(2., (midiNote - 69) / 12.);
+}
+
 
 -(double)getSample
 {

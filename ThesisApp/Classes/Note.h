@@ -25,11 +25,14 @@
 	double mDeltaTheta;	
 }
 
--(double)getSample;
--(void)setWaveTable:(WaveFormTable *)wave_table;
-
 @property double mFreq;
 @property double mAmp;
 @property double mTheta;
+
++(double) mtof:(double)midiNote;
+
+-(double)getSample;
+-(void)setWaveTable:(WaveFormTable *)wave_table;
+
 
 @end

@@ -8,6 +8,8 @@
 
 #import "AQPlayer.h"
 
+#import "Content.h"
+
 #define MAX_AMP	0.95
 
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
@@ -40,19 +42,22 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 @implementation AQPlayer
 
--(void) setMode:(int)val
-{
-	currentMode = val;
+
+-(void) setMode:(int)val{
+	
+	for (int i = 0; i < kNumberNotes; i++) mNotes[i].mFreq = [mModes[val] getNoteFreq:i];
 }
 
+
 -(void) setMAmp:(double)val withNotePos:(int)note_pos{
+	
 	mNotes[note_pos].mAmp=val;
 }
 
 
 -(void) playNote:(int)note_pos{
 	
-	mNotes[note_pos].mFreq = [mModes[currentMode] getNoteFreq:note_pos];
+	mNotes[note_pos].mFreq;
 }
 
 
@@ -66,8 +71,19 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		[mNotes[i] setWaveTable:mWaveTable];
 	}
 	
-	for (int j = 0; j < kNumberModes; j++) mModes[j] = [Mode new];
-	
+	for (int j = 0; j < kNumberModes; j++){
+		mModes[j] = [Mode new];
+		switch (j)
+		{
+			case 0: [mModes[j] assignMode:pitchSet01]; break;
+			case 1: [mModes[j] assignMode:pitchSet02]; break;
+			case 2: [mModes[j] assignMode:pitchSet03]; break;
+			case 3: [mModes[j] assignMode:pitchSet04]; break;
+			case 4: [mModes[j] assignMode:pitchSet05]; break;
+			case 5: [mModes[j] assignMode:pitchSet06]; break;
+			default: break;
+		}
+	}
 	return self;
 }
 

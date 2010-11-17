@@ -19,11 +19,10 @@
 	
 }
 
-- (IBAction) startSound:(UIButton *)sender;
-- (IBAction) stopSound:(UIButton *)sender;
+- (IBAction)startSound:(UIButton *)sender;
+- (IBAction)stopSound:(UIButton *)sender;
 
-//- (IBAction)doAmp:(id)sender;
-//- (IBAction)doFreq:(id)sender;
+- (IBAction)changeMode:(UIButton *)sender;
 
 - (IBAction)showInfo:(id)sender;
 
