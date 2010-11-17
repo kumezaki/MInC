@@ -18,7 +18,7 @@ double pitchSet02[kNumberNotes] = {
 
 /*** a phrygian ***/
 double pitchSet03[kNumberNotes] = {
-	69,70,74,76,78,79,83,84
+	69,70,74,76,77,81,82,86
 };
 
 /*** Bb Lydian ***/
@@ -28,7 +28,7 @@ double pitchSet04[kNumberNotes] = {
 
 /*** C Mixolydian ***/ 
 double pitchSet05[kNumberNotes] = {
-	60,64,65,67,70,72,74,76
+	60,64,65,67,70,72,76,77
 };
 
 /*** d aolean ***/
