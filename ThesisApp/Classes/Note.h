@@ -32,6 +32,7 @@
 +(double) mtof:(double)midiNote;
 
 -(double)getSample;
+-(void)getSamples:(double*)buffer:(int)num_samples;
 -(void)setWaveTable:(WaveFormTable *)wave_table;
 
 

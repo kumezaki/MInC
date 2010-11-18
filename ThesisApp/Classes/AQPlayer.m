@@ -23,9 +23,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		double sample = 0.;
 		
 		for (int j = 0; j < kNumberNotes; j++)
-		{
 			sample += [aqp->mNotes[j] getSample];
-		}
 		
 		sample = sample > MAX_AMP ? MAX_AMP : sample < -MAX_AMP ? -MAX_AMP : sample;
 

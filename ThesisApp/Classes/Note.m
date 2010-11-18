@@ -37,6 +37,12 @@
 	return sample;
 }
 
+-(void)getSamples:(double*)buffer:(int)num_samples;
+{
+	for (int i = 0; i < num_samples; i++)
+		buffer[i] += /* do the computation here */ 0.;
+}
+
 -(void)setWaveTable:(WaveFormTable *)wave_table
 {
 	mWaveTable = wave_table;
