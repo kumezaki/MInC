@@ -16,13 +16,16 @@
 
 @interface Note : NSObject {
 
+	int numFrames;
+	
 @private	
 	WaveFormTable *mWaveTable;
 	
 	double mFreq;
 	double mAmp;
 	double mTheta;
-	double mDeltaTheta;	
+	double mDeltaTheta;
+	double mBuffer;
 }
 
 @property double mFreq;

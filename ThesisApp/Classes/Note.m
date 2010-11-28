@@ -37,10 +37,10 @@
 	return sample;
 }
 
--(void)getSamples:(double*)buffer:(int)num_samples;
+-(void)getSamples:(double*)buffer:(int)num_samples;//CL: Not super clear on the purpose/function of passing buffer or num_samples
 {
 	for (int i = 0; i < num_samples; i++)
-		buffer[i] += /* do the computation here */ 0.;
+		mBuffer += buffer[i] = self.getSample;
 }
 
 -(void)setWaveTable:(WaveFormTable *)wave_table

@@ -21,10 +21,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	// KU: Instead of getting one sample at a time, get entire buffers of samples
 	for (int i = 0; i < numFrames; i++)
 	{	
-		double sample = 0.;
-		
+		double sample = 0.;		
 		for (int j = 0; j < kNumberNotes; j++)
-			sample += [aqp->mNotes[j] getSample]; // KU: Here's where things need to change: get a buffer of samples instead of a single sample
+			sample += [aqp->mNotes[j] getSamples:(double*)buffer:numFrames]; // KU: Here's where things need to change: get a buffer of samples instead of a single sample
 		
 		sample = sample > MAX_AMP ? MAX_AMP : sample < -MAX_AMP ? -MAX_AMP : sample;
 
