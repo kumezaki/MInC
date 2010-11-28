@@ -17,11 +17,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	AQPlayer *aqp = (AQPlayer *)inUserData;
 	
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
-	
+
+#if 1
 	// KU: Instead of getting one sample at a time, get entire buffers of samples
 	for (int i = 0; i < numFrames; i++)
 	{	
-		double sample = 0.;		
+		// KU: ask yourself: where is buffer? why "sample +="
+		double sample = 0.;	// KU: basically this becomes buffer
 		for (int j = 0; j < kNumberNotes; j++)
 			sample += [aqp->mNotes[j] getSamples:(double*)buffer:numFrames]; // KU: Here's where things need to change: get a buffer of samples instead of a single sample
 		
@@ -29,6 +31,22 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;
 	}
+#else
+	// KU: basically here's how it should look
+	double buffer[NUM_FRAMES];	// KU: you'll have to define NUM_FRAMES somehow, or allocate memory dynamically
+
+	for (int j = 0; j < kNumberNotes; j++)
+		sample += [aqp->mNotes[j] getSamples:(double*)buffer:numFrames];
+	
+	// KU: now that the buffer is filled with samples with all notes, apply limiter and scale to 16-bit linear PCM
+	double sample;
+	for (int i = 0; i < numFrames; i++)
+	{	
+		sample = buffer[i];
+		sample = sample > MAX_AMP ? MAX_AMP : sample < -MAX_AMP ? -MAX_AMP : sample;
+		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;
+	}
+#endif
 	
 	inAQBuffer->mAudioDataByteSize = 1024;
 	inAQBuffer->mPacketDescriptionCount = 0;
