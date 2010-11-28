@@ -18,6 +18,7 @@
 
 @synthesize mAmp;
 @synthesize mTheta;
+@synthesize mBuffer;
 
 +(double) mtof:(double)midiNote
 {
@@ -37,10 +38,11 @@
 	return sample;
 }
 
--(void)getSamples:(double*)buffer:(int)num_samples;//CL: Not super clear on the purpose/function of passing buffer or num_samples
+-(double)getSamples:(double*)buffer:(int)num_samples;
 {
 	for (int i = 0; i < num_samples; i++)
-		mBuffer += buffer[i] = self.getSample;
+		mBuffer += (buffer[i] = self.getSample);
+	return mBuffer;
 }
 
 -(void)setWaveTable:(WaveFormTable *)wave_table

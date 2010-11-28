@@ -15,8 +15,6 @@
 #define MAX_AMP	0.95
 
 @interface Note : NSObject {
-
-	int numFrames;
 	
 @private	
 	WaveFormTable *mWaveTable;
@@ -31,11 +29,12 @@
 @property double mFreq;
 @property double mAmp;
 @property double mTheta;
+@property double mBuffer;
 
 +(double) mtof:(double)midiNote;
 
 -(double)getSample;
--(void)getSamples:(double*)buffer:(int)num_samples;
+-(double)getSamples:(double*)buffer:(int)num_samples;
 -(void)setWaveTable:(WaveFormTable *)wave_table;
 
 

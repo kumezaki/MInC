@@ -95,7 +95,7 @@
 
 -(IBAction) startSound:(UIButton *)sender
 {		
-	[mAQPlayer playNote:([sender.titleLabel.text intValue]-1)];
+	//[mAQPlayer playNote:([sender.titleLabel.text intValue]-1)];
 	[mAQPlayer setMAmp:.95 withNotePos:([sender.titleLabel.text intValue]-1)];
 }
 
