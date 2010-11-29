@@ -19,15 +19,20 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 	double buffer[numFrames];
 	
-	for (int i = 0; i < numFrames; i++){		
+	for (int i = 0; i < numFrames; i++){ // KU: this outer loop is no longer needed
 		for (int j = 0; j < kNumberNotes; j++){			
 			buffer[i] += [aqp->mNotes[j] getSamples:(double*)buffer:numFrames];
 			//CL: clearly I'm confused on what is suppose to happen here
 			//CL: Why send a "buffer" arguement to getSamples? What is that argument suppose to be?
+			//KU: buffer contains the entire...well...buffer of samples
 			//CL: the two arguements for getSamples are from your sample code the last time we met but I can't remember their purpose.
+			//KU: buffer I just explained, numFrames is the number of samples in the buffer (at least for mono audio streams)
 			//CL: the way numFrames is defined is taken from your original code. Will it still work?
+			//KU: not sure but we can try
 			//CL: originally getSamples was a void method but I changed it to return a double. Yes/No?
+			//KU: no need for returning a type, because the getSamples method will populate the buffer directly
 			//CL: If the buffer is preloaded with sample info for all the notes, should button pushes only increase the amplitude?
+			//KU: the idea behind getSamples is to call a method once to get a group of samples, not just one
 		}
 	}
 	
