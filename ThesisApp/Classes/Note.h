@@ -18,23 +18,21 @@
 	
 @private	
 	WaveFormTable *mWaveTable;
-	
+	NSNumber *aSample;
 	double mFreq;
 	double mAmp;
 	double mTheta;
 	double mDeltaTheta;
-	double mBuffer;
 }
 
 @property double mFreq;
 @property double mAmp;
 @property double mTheta;
-@property double mBuffer;
 
 +(double) mtof:(double)midiNote;
 
 -(double)getSample;
--(double)getSamples:(double*)buffer:(int)num_samples;
+-(void)getSamples:(NSMutableArray *)buffer:(int)num_samples;
 -(void)setWaveTable:(WaveFormTable *)wave_table;
 
 

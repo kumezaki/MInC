@@ -27,14 +27,18 @@
 	
 	double mAmp;
 	double mFreq;
+	
+	NSMutableArray *mBuffer;
 
+	
 @public
 	
 	int currentMode;
 
 	Mode *mModes[kNumberModes];
 	Note *mNotes[kNumberNotes];
-	WaveFormTable *mWaveTable;	
+	WaveFormTable *mWaveTable;
+	
 }
 
 -(void) New;
@@ -42,7 +46,7 @@
 -(OSStatus) start;
 -(OSStatus) stop;
 
--(void) playNote:(int)note_pos;
+//-(void) playNote:(int)note_pos;
 -(void) setMAmp:(double)val withNotePos:(int)note_pos;
 -(void) setMode:(int)val;
 
