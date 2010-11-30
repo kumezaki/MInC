@@ -35,9 +35,19 @@
 
 -(void)getSamples:(NSMutableArray *)buffer:(int)num_samples
 {
-	for (int i = 0; i < num_samples; i++){		
-		[buffer replaceObjectAtIndex:i withObject:[aSample initWithDouble:self.getSample]];	// KU: you need to add to the buffer, not replace
+	double sample = 0.;
+
+#if 1
+	for (NSNumber *bufferElement in buffer) {//CL: I'm trying to use "Fast Enumeration" which is reccomended by the dev docs.
+		sample = [bufferElement doubleValue] + self.getSample;//CL: extracting the current value and adding this Note's sample value to it
+		bufferElement = [aSample initWithDouble:sample]; //CL: reassigning the array element to the new value
 	}
+
+#else
+	for (int i = 0; i < num_samples; i++){		
+		[buffer insertObject:[aSample initWithDouble:self.getSample] atIndex:i];	// KU: you need to add to the buffer, not replace
+	}
+#endif
 }
 
 -(void)setWaveTable:(WaveFormTable *)wave_table

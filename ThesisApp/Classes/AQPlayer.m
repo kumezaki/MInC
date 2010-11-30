@@ -14,23 +14,28 @@
 
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
 {	
+	
 	AQPlayer *aqp = (AQPlayer *)inUserData;
 	
-	NSMutableArray *mBuffer;	// KU: this is just a pointer to an array.  Where is the memory actually allocated?
-	
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
-		
+	
+	NSMutableArray *sampleBuffer = [(NSMutableArray *)sampleBuffer initWithCapacity:numFrames];
+	// KU: this is just a pointer to an array.  Where is the memory actually allocated?
+	// CL: I currently have "sampleBuffer = [NSMutableArray new];" in the init metod thinking that it would allocate the memory
+	// CL: I then tried moving that here to AQBuffer Callback and also no go.
+	// CL: Then I tried the above
+	// CL: Where/how should the memory be allocated?
+
 	for (int i = 0; i < kNumberNotes; i++) {
-		[aqp->mNotes[i] getSamples:mBuffer:numFrames];
+		[aqp->mNotes[i] getSamples:sampleBuffer:numFrames];
 	}
 	
 	// KU: now that the buffer is filled with samples with all notes, apply limiter and scale to 16-bit linear PCM
 	
-	double sample = 0.;
-	
+	double sample = 0.;	
 	for (int i = 0; i < numFrames; i++)
 	{	
-		sample += [[mBuffer objectAtIndex:i]doubleValue];  // KU: why is this +=?  Doesn't that just accumulate the sample value?
+		sample = [[sampleBuffer objectAtIndex:i]doubleValue];
 		sample = sample > MAX_AMP ? MAX_AMP : sample < -MAX_AMP ? -MAX_AMP : sample;
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;
 	}
@@ -58,10 +63,10 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 }
 
 
-//-(void) playNote:(int)note_pos{
-//	
-//	mNotes[note_pos].mFreq;
-//}
+-(void) playNote:(int)note_pos{
+	
+	mNotes[note_pos].mFreq;
+}
 
 
 -(id)init
@@ -69,7 +74,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	[super init];
 	mWaveTable = [WaveFormTable new];
 	
-	mBuffer = [NSMutableArray new];
+	sampleBuffer = [NSMutableArray new];
 	
 	for (int i = 0; i < kNumberNotes; i++){
 		mNotes[i] = [Note new];
@@ -98,7 +103,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	for (int i = 0; i < kNumberNotes; i++) [mNotes[i] release];
 	for (int j = 0; j < kNumberModes; j++) [mModes[j] release];	
-	[mBuffer release];
+	[sampleBuffer release];
 	[mWaveTable release];
 	[super dealloc];
 }
