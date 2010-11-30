@@ -16,7 +16,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {	
 	AQPlayer *aqp = (AQPlayer *)inUserData;
 	
-	NSMutableArray *mBuffer;
+	NSMutableArray *mBuffer;	// KU: this is just a pointer to an array.  Where is the memory actually allocated?
 	
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 		
@@ -30,7 +30,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	for (int i = 0; i < numFrames; i++)
 	{	
-		sample += [[mBuffer objectAtIndex:i]doubleValue];
+		sample += [[mBuffer objectAtIndex:i]doubleValue];  // KU: why is this +=?  Doesn't that just accumulate the sample value?
 		sample = sample > MAX_AMP ? MAX_AMP : sample < -MAX_AMP ? -MAX_AMP : sample;
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;
 	}

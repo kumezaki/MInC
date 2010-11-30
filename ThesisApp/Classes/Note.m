@@ -36,7 +36,7 @@
 -(void)getSamples:(NSMutableArray *)buffer:(int)num_samples
 {
 	for (int i = 0; i < num_samples; i++){		
-		[buffer replaceObjectAtIndex:i withObject:[aSample initWithDouble:self.getSample]];
+		[buffer replaceObjectAtIndex:i withObject:[aSample initWithDouble:self.getSample]];	// KU: you need to add to the buffer, not replace
 	}
 }
 
