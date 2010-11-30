@@ -25,7 +25,15 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	// CL: I then tried moving that here to AQBuffer Callback and also no go.
 	// CL: Then I tried the above
 	// CL: Where/how should the memory be allocated?
-
+	// KU: I think it can be allocated in this routine, yes.
+	// KU: However, it needs to be deallocated in this routine as well.
+	// KU: Otherwise, you'll have a huge memory leak.
+	// KU: I have to admit that I don't use the NS*Array structures. Does initWithCapacity allocate new memory?
+	// KU: More importantly, look at the following to see what is wrong with the statement above.  Below is more correct.
+#if 0
+	[aqp->sampleBuffer initWithCapacity:numFrames];
+#endif
+	
 	for (int i = 0; i < kNumberNotes; i++) {
 		[aqp->mNotes[i] getSamples:sampleBuffer:numFrames];
 	}
