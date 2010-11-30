@@ -7,10 +7,10 @@
 //
 
 #import "AQPlayer.h"
-
 #import "Content.h"
 
 #define MAX_AMP	0.95
+
 
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
 {	
@@ -18,8 +18,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	AQPlayer *aqp = (AQPlayer *)inUserData;
 	
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
-	
-	NSMutableArray *sampleBuffer = [(NSMutableArray *)sampleBuffer initWithCapacity:numFrames];
+
 	// KU: this is just a pointer to an array.  Where is the memory actually allocated?
 	// CL: I currently have "sampleBuffer = [NSMutableArray new];" in the init metod thinking that it would allocate the memory
 	// CL: I then tried moving that here to AQBuffer Callback and also no go.
@@ -30,9 +29,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	// KU: Otherwise, you'll have a huge memory leak.
 	// KU: I have to admit that I don't use the NS*Array structures. Does initWithCapacity allocate new memory?
 	// KU: More importantly, look at the following to see what is wrong with the statement above.  Below is more correct.
-#if 0
-	[aqp->sampleBuffer initWithCapacity:numFrames];
-#endif
+
+	NSMutableArray *sampleBuffer = [aqp->sampleBuffer initWithCapacity:numFrames];
 	
 	for (int i = 0; i < kNumberNotes; i++) {
 		[aqp->mNotes[i] getSamples:sampleBuffer:numFrames];
@@ -50,6 +48,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 	inAQBuffer->mAudioDataByteSize = 1024;
 	inAQBuffer->mPacketDescriptionCount = 0;
+	
 	
 	AudioQueueEnqueueBuffer(inAQ, inAQBuffer, 0, nil);
 }
@@ -76,14 +75,11 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	mNotes[note_pos].mFreq;
 }
 
-
 -(id)init
 {
 	[super init];
 	mWaveTable = [WaveFormTable new];
-	
-	sampleBuffer = [NSMutableArray new];
-	
+		
 	for (int i = 0; i < kNumberNotes; i++){
 		mNotes[i] = [Note new];
 		[mNotes[i] setWaveTable:mWaveTable];

@@ -28,7 +28,6 @@
 	double mAmp;
 	double mFreq;
 	
-	NSMutableArray *sampleBuffer;
 
 	
 @public
@@ -38,6 +37,9 @@
 	Mode *mModes[kNumberModes];
 	Note *mNotes[kNumberNotes];
 	WaveFormTable *mWaveTable;
+	
+	NSMutableArray *sampleBuffer;
+
 	
 }
 
