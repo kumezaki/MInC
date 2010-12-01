@@ -33,9 +33,9 @@
 	return sample;
 }
 
--(void)getSamples:(NSMutableArray *)bufferPointer:(int)numFrames
+-(void)getSamples:(double *)bufferPointer:(int)numFrames
 {
-	double sample = 0.;
+	//double sample = 0.;
 
 #if 0 // CL: the below doesn't work. I need to work on my understanding of Fast Enumeration.
 	for (NSNumber *bufferElement in bufferPointer) {//CL: I'm trying to use "Fast Enumeration" which is reccomended by the dev docs.
@@ -47,11 +47,11 @@
 #if 0
 	for (int i = 0; i < numFrames; i++){
 		sample = self getSample + [[bufferPointer objectAtIndex:i]doubleValue];	// KU: you need to add to the buffer, not replace
-		[bufferPointer insertObject:[aSample initWithDouble:sample]atIndex:i];
+		[bufferPointer addObject:[aSample initWithDouble:sample]];
 	}
 #endif
 
-#if 1
+#if 0
 	for (int i = 0; i < numFrames; i++)
 	{
 		sample = [self getSample] + [[bufferPointer objectAtIndex:i]doubleValue];	// KU: the array is still empty at this point, perhaps you need to populate the array with objects when you create the array in AQPlayer

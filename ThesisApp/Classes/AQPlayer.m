@@ -18,8 +18,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	AQPlayer *aqp = (AQPlayer *)inUserData;
 	
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
-
-	NSMutableArray *bufferPointer = aqp->sampleBuffer;
+	
+	double sampleBuffer[numFrames];
+	double (*bufferPointer)[numFrames];
+	
+	bufferPointer = &sampleBuffer[numFrames];
+	
+	//NSMutableArray *bufferPointer = aqp->sampleBuffer;
 	
 	for (int i = 0; i < kNumberNotes; i++) {
 		[aqp->mNotes[i] getSamples:bufferPointer:numFrames];
@@ -30,7 +35,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	double sample = 0.;	
 	for (int i = 0; i < numFrames; i++)
 	{	
-		sample = [[bufferPointer objectAtIndex:i]doubleValue];
+		sample = *bufferPointer[i];
 		sample = sample > MAX_AMP ? MAX_AMP : sample < -MAX_AMP ? -MAX_AMP : sample;
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;
 	}
@@ -71,7 +76,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	mWaveTable = [WaveFormTable new];
 	
 	sampleBuffer = [NSMutableArray arrayWithCapacity:512];	// KU: 2 bytes per 1 sample, not 1 byte per 2 samples
-		
+	
 	for (int i = 0; i < kNumberNotes; i++){
 		mNotes[i] = [Note new];
 		[mNotes[i] setWaveTable:mWaveTable];
