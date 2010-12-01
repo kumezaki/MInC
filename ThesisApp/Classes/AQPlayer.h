@@ -21,13 +21,12 @@
 	AudioStreamBasicDescription		mDataFormat;
 	AudioQueueRef					mQueue;
 	AudioQueueBufferRef				mBuffers[kNumberBuffers];
-		
+	
 
 @private
 	
 	double mAmp;
 	double mFreq;
-	
 
 	
 @public
@@ -37,11 +36,12 @@
 	Mode *mModes[kNumberModes];
 	Note *mNotes[kNumberNotes];
 	WaveFormTable *mWaveTable;
-	
-	NSMutableArray *sampleBuffer;
 
+	NSMutableArray *sampleBuffer;
 	
 }
+
+@property (nonatomic, retain) NSMutableArray *sampleBuffer;
 
 -(void) New;
 
