@@ -20,6 +20,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 
 	NSMutableArray *bufferPointer = aqp->sampleBuffer;
+	bufferPointer = nil;
 	
 	for (int i = 0; i < kNumberNotes; i++) {
 		[aqp->mNotes[i] getSamples:bufferPointer:numFrames];
@@ -46,9 +47,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 @implementation AQPlayer
 
-@synthesize sampleBuffer;
-
-
 
 -(void) setMode:(int)val{
 	
@@ -72,13 +70,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	[super init];
 	mWaveTable = [WaveFormTable new];
 	
-	OSStatus AudioQueueGetProperty(AudioQueueRef inAQ, kAudioQueueProperty_MaximumOutputPacketSize, void *outData, UInt32 *ioDataSize);
-	
-	sampleBuffer = [NSMutableArray arrayWithCapacity:theBigMystery];
-					
-	// KU: 1024 bytes is the size of the audio buffer (see uses of that value in this file)
-	// KU: understand, however, that one sample can be and is most often comprised of more than one byte
-	// CL: no... I don't understand.
+	sampleBuffer = [NSMutableArray arrayWithCapacity:2048];
 		
 	for (int i = 0; i < kNumberNotes; i++){
 		mNotes[i] = [Note new];

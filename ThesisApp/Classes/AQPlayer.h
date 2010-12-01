@@ -41,8 +41,6 @@
 	
 }
 
-@property (nonatomic, retain) NSMutableArray *sampleBuffer;
-
 -(void) New;
 
 -(OSStatus) start;

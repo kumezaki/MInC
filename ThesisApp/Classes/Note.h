@@ -32,7 +32,7 @@
 +(double) mtof:(double)midiNote;
 
 -(double)getSample;
--(void)getSamples:(NSMutableArray *)buffer:(int)num_samples;
+-(void)getSamples:(NSMutableArray *)bufferPointer:(int)numFrames;
 -(void)setWaveTable:(WaveFormTable *)wave_table;
 
 

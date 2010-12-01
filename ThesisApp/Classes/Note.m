@@ -33,19 +33,20 @@
 	return sample;
 }
 
--(void)getSamples:(NSMutableArray *)buffer:(int)num_samples
+-(void)getSamples:(NSMutableArray *)bufferPointer:(int)numFrames
 {
 	double sample = 0.;
 
-#if 1
-	for (NSNumber *bufferElement in buffer) {//CL: I'm trying to use "Fast Enumeration" which is reccomended by the dev docs.
+#if 0 // CL: the below doesn't work. I need to work on my understanding of Fast Enumeration.
+	for (NSNumber *bufferElement in bufferPointer) {//CL: I'm trying to use "Fast Enumeration" which is reccomended by the dev docs.
 		sample = [bufferElement doubleValue] + self.getSample;//CL: extracting the current value and adding this Note's sample value to it
 		bufferElement = [aSample initWithDouble:sample]; //CL: reassigning the array element to the new value
 	}
 
 #else
-	for (int i = 0; i < num_samples; i++){		
-		[buffer insertObject:[aSample initWithDouble:self.getSample] atIndex:i];	// KU: you need to add to the buffer, not replace
+	for (int i = 0; i < numFrames; i++){
+		sample = (self.getSample + [[bufferPointer objectAtIndex:i]doubleValue]);	// KU: you need to add to the buffer, not replace
+		[bufferPointer replaceObjectAtIndex:i withObject:[aSample initWithDouble:sample]];
 	}
 #endif
 }
