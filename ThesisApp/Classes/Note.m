@@ -45,8 +45,8 @@
 
 #else
 	for (int i = 0; i < numFrames; i++){
-		sample = (self.getSample + [[bufferPointer objectAtIndex:i]doubleValue]);	// KU: you need to add to the buffer, not replace
-		[bufferPointer replaceObjectAtIndex:i withObject:[aSample initWithDouble:sample]];
+		sample = self.getSample + [[bufferPointer objectAtIndex:i]doubleValue];	// KU: you need to add to the buffer, not replace
+		[bufferPointer insertObject:[aSample initWithDouble:sample]atIndex:i];
 	}
 #endif
 }
