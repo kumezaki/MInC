@@ -20,14 +20,18 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 	
 	double sampleBuffer[numFrames];
-	double (*bufferPointer)[numFrames];
 	
-	bufferPointer = &sampleBuffer[numFrames];
+	// KU: initialize all sampleBuffer elements to 0. here.
+
+//	double (*bufferPointer)[numFrames];
+	
+//	bufferPointer = &sampleBuffer[numFrames];
 	
 	//NSMutableArray *bufferPointer = aqp->sampleBuffer;
 	
 	for (int i = 0; i < kNumberNotes; i++) {
-		[aqp->mNotes[i] getSamples:bufferPointer:numFrames];
+//		[aqp->mNotes[i] getSamples:bufferPointer:numFrames];
+		[aqp->mNotes[i] getSamples:sampleBuffer:numFrames];
 	}
 	
 	// KU: now that the buffer is filled with samples with all notes, apply limiter and scale to 16-bit linear PCM
@@ -35,7 +39,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	double sample = 0.;	
 	for (int i = 0; i < numFrames; i++)
 	{	
-		sample = *bufferPointer[i];
+//		sample = *bufferPointer[i];
+		sample = sampleBuffer[i];
 		sample = sample > MAX_AMP ? MAX_AMP : sample < -MAX_AMP ? -MAX_AMP : sample;
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;
 	}
