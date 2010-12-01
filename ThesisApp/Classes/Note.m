@@ -42,11 +42,20 @@
 		sample = [bufferElement doubleValue] + self.getSample;//CL: extracting the current value and adding this Note's sample value to it
 		bufferElement = [aSample initWithDouble:sample]; //CL: reassigning the array element to the new value
 	}
+#endif
 
-#else
+#if 0
 	for (int i = 0; i < numFrames; i++){
-		sample = self.getSample + [[bufferPointer objectAtIndex:i]doubleValue];	// KU: you need to add to the buffer, not replace
+		sample = self getSample + [[bufferPointer objectAtIndex:i]doubleValue];	// KU: you need to add to the buffer, not replace
 		[bufferPointer insertObject:[aSample initWithDouble:sample]atIndex:i];
+	}
+#endif
+
+#if 1
+	for (int i = 0; i < numFrames; i++)
+	{
+		sample = [self getSample] + [[bufferPointer objectAtIndex:i]doubleValue];	// KU: the array is still empty at this point, perhaps you need to populate the array with objects when you create the array in AQPlayer
+		[bufferPointer replaceObjectAtIndex:i withObject:[aSample initWithDouble:sample]];
 	}
 #endif
 }
