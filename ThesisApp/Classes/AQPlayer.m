@@ -20,7 +20,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 
 	NSMutableArray *bufferPointer = aqp->sampleBuffer;
-	bufferPointer = nil;
+	bufferPointer = nil;	// KU: why do you assign this to nil?  That would mean you have a pointer to nothing.
 	
 	for (int i = 0; i < kNumberNotes; i++) {
 		[aqp->mNotes[i] getSamples:bufferPointer:numFrames];
@@ -70,7 +70,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	[super init];
 	mWaveTable = [WaveFormTable new];
 	
-	sampleBuffer = [NSMutableArray arrayWithCapacity:2048];
+	sampleBuffer = [NSMutableArray arrayWithCapacity:2048];	// KU: 2 bytes per 1 sample, not 1 byte per 2 samples
 		
 	for (int i = 0; i < kNumberNotes; i++){
 		mNotes[i] = [Note new];
