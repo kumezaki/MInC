@@ -73,6 +73,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	mWaveTable = [WaveFormTable new];
 	
 	sampleBuffer = [NSMutableArray arrayWithCapacity:numFrames];
+	// KU: 1024 bytes is the size of the audio buffer (see uses of that value in this file)
+	// KU: understand, however, that one sample can be and is most often comprised of more than one byte
 		
 	for (int i = 0; i < kNumberNotes; i++){
 		mNotes[i] = [Note new];
