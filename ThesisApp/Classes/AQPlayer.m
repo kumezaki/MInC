@@ -65,9 +65,19 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 }
 
 
--(void) playNote:(int)note_pos{
+-(void) startNote:(int)note_pos{
 	
-	mNotes[note_pos].mFreq;
+	[mNotes[note_pos] on];
+}
+
+-(void) stopNote:(int)note_pos{
+	
+	[mNotes[note_pos] off];
+}
+
+-(Note*) getNote:(int)note_pos{
+	
+	return mNotes[note_pos];
 }
 
 -(id)init

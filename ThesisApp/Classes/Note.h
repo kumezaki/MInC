@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Envelope.h"
 #import "WaveFormTable.h"
 
 #define kNumberNotes 8
@@ -18,6 +19,7 @@
 	
 @private	
 	WaveFormTable *mWaveTable;
+	Envelope	*mEnv;
 
 	double mFreq;
 	double mAmp;
@@ -34,6 +36,9 @@
 -(double)getSample;
 -(void)getSamples:(double *)bufferPointer:(int)numFrames;
 -(void)setWaveTable:(WaveFormTable *)wave_table;
+
+-(void)on;
+-(void)off;
 
 
 @end

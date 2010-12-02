@@ -24,6 +24,21 @@
 	return 440. * pow(2., (midiNote - 69) / 12.);
 }
 
+-(id)init
+{
+	mAmp = MAX_AMP;
+	mEnv = [[Envelope alloc] init];
+
+	return self;
+}
+
+-(void)dealloc
+{
+	[mEnv release];
+	
+	[super dealloc];
+}
+
 -(double)getSample
 {
 	double sample = 0.;
@@ -36,13 +51,24 @@
 -(void)getSamples:(double *)bufferPointer:(int)numFrames
 {
 	for (int i = 0; i < numFrames; i++) {
-		bufferPointer[i] += [self getSample];
+		bufferPointer[i] += mAmp * [mWaveTable get:mTheta] * [mEnv get];
+		mTheta += mDeltaTheta;
 	}
 }
 
 -(void)setWaveTable:(WaveFormTable *)wave_table
 {
 	mWaveTable = wave_table;
+}
+
+-(void)on
+{
+	[mEnv on];
+}
+
+-(void)off
+{
+	[mEnv off];
 }
 
 @end

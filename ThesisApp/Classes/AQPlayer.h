@@ -44,7 +44,9 @@
 -(OSStatus) start;
 -(OSStatus) stop;
 
--(void) playNote:(int)note_pos;
+-(void) startNote:(int)note_pos;
+-(void) stopNote:(int)note_pos;
+
 -(void) setMAmp:(double)val withNotePos:(int)note_pos;
 -(void) setMode:(int)val;
 

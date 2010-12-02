@@ -95,13 +95,17 @@
 
 -(IBAction) startSound:(UIButton *)sender
 {		
-	[mAQPlayer playNote:([sender.titleLabel.text intValue]-1)];
-	[mAQPlayer setMAmp:.95 withNotePos:([sender.titleLabel.text intValue]-1)];
+//	[mAQPlayer playNote:([sender.titleLabel.text intValue]-1)];
+//	[mAQPlayer setMAmp:.95 withNotePos:([sender.titleLabel.text intValue]-1)];
+	
+	[mAQPlayer startNote:([sender.titleLabel.text intValue]-1)];
 }
 
 -(IBAction) stopSound:(UIButton *)sender
 {		
-	[mAQPlayer setMAmp:0. withNotePos:([sender.titleLabel.text intValue]-1)];
+//	[mAQPlayer setMAmp:0. withNotePos:([sender.titleLabel.text intValue]-1)];
+
+	[mAQPlayer stopNote:([sender.titleLabel.text intValue]-1)];
 }
 
 
