@@ -18,7 +18,7 @@
 	
 @private	
 	WaveFormTable *mWaveTable;
-	NSNumber *aSample;
+
 	double mFreq;
 	double mAmp;
 	double mTheta;

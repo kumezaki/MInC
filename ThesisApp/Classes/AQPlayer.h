@@ -36,8 +36,6 @@
 	Mode *mModes[kNumberModes];
 	Note *mNotes[kNumberNotes];
 	WaveFormTable *mWaveTable;
-
-	NSMutableArray *sampleBuffer;
 	
 }
 
