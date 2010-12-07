@@ -12,8 +12,6 @@
 #import "WaveFormTable.h"
 
 #define kNumberNotes 8
-#define mSR 22050
-#define MAX_AMP	0.95
 
 @interface Note : NSObject {
 	
@@ -21,12 +19,14 @@
 	WaveFormTable *mWaveTable;
 	Envelope	*mEnv;
 
+	int mTableOffset;
 	double mFreq;
 	double mAmp;
 	double mTheta;
 	double mDeltaTheta;
 }
 
+@property int mTableOffset;
 @property double mFreq;
 @property double mAmp;
 @property double mTheta;

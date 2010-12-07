@@ -10,10 +10,12 @@
 
 @implementation Note
 
+@synthesize mTableOffset;
+
 @synthesize mFreq;
 -(void) setMFreq:(double)val;{	
 	mFreq = val;					
-	mDeltaTheta = mFreq / mSR;	
+	mDeltaTheta = mFreq / kSR;	
 }
 
 @synthesize mAmp;
@@ -51,7 +53,7 @@
 -(void)getSamples:(double *)bufferPointer:(int)numFrames
 {
 	for (int i = 0; i < numFrames; i++) {
-		bufferPointer[i] += mAmp * [mWaveTable get:mTheta] * [mEnv get];
+		bufferPointer[i] += mAmp * [mWaveTable get:mTheta+mTableOffset] * [mEnv get];//CL: trying to read the table from an offset Theta position
 		mTheta += mDeltaTheta;
 	}
 }

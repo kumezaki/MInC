@@ -9,7 +9,6 @@
 #import "AQPlayer.h"
 #import "Content.h"
 
-#define MAX_AMP	0.95
 
 
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
@@ -75,11 +74,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	[mNotes[note_pos] off];
 }
 
--(Note*) getNote:(int)note_pos{
-	
-	return mNotes[note_pos];
-}
-
 -(id)init
 {
 	[super init];
@@ -88,6 +82,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	for (int i = 0; i < kNumberNotes; i++){
 		mNotes[i] = [Note new];
 		[mNotes[i] setWaveTable:mWaveTable];
+		mNotes[i].mTableOffset = i*57;//CL: setting an offset variable for each Note*
 	}
 	
 	for (int j = 0; j < kNumberModes; j++){
@@ -121,7 +116,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		
 	
 	
-	mDataFormat.mSampleRate = mSR;
+	mDataFormat.mSampleRate = kSR;
 	mDataFormat.mFormatID = kAudioFormatLinearPCM;
 	mDataFormat.mFormatFlags = kAudioFormatFlagIsSignedInteger;
 	mDataFormat.mBytesPerPacket = sizeof(SInt16);

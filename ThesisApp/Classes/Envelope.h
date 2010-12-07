@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-#define SR	22050.
-#define RAMP_TIME	(SR * 0.05)
+#define kSR 22050.
+#define MAX_AMP	0.95
+#define RAMP_TIME	(kSR * 0.05)
 
 @interface Envelope : NSObject {
 	
