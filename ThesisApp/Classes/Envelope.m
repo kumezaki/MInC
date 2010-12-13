@@ -32,7 +32,7 @@
 {
 	mAmp += mDelta;
 	
-	if (mAmp >= 1.0) {mAmp = .7; mDelta = 0.;}
+	if (mAmp >= 1.0) {mAmp = 1.; mDelta = 0.;}
 	else if (mAmp <= 0.0) {mAmp = 0.; mDelta = 0.;}
 	return mAmp;
 }

@@ -229,6 +229,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -274,8 +276,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>10</integer>
-									<integer>1</integer>
+									<integer>24</integer>
+									<integer>22</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -310,8 +312,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -329,7 +329,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>B464B55E12ADB07B00C27068</string>
+										<string>B41D3F8512B5D0DA009BB9DF</string>
 										<key>history</key>
 										<array>
 											<string>B465403A127E72B000DA1F26</string>
@@ -343,10 +343,10 @@
 											<string>B450E9FB12A9B88E002C7CEF</string>
 											<string>B464B55812ADB07B00C27068</string>
 											<string>B464B55912ADB07B00C27068</string>
-											<string>B464B55A12ADB07B00C27068</string>
 											<string>B464B55B12ADB07B00C27068</string>
 											<string>B464B55C12ADB07B00C27068</string>
-											<string>B464B55D12ADB07B00C27068</string>
+											<string>B47F40D912AF583600249DFA</string>
+											<string>B47F40DB12AF583600249DFA</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -358,14 +358,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1208, 577}}</string>
+								<string>{{0, 0}, {1208, 567}}</string>
 								<key>RubberWindowFrame</key>
 								<string>2 59 1431 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>577pt</string>
+							<string>567pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -378,14 +378,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 582}, {1208, 196}}</string>
+								<string>{{0, 572}, {1208, 206}}</string>
 								<key>RubberWindowFrame</key>
 								<string>2 59 1431 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>196pt</string>
+							<string>206pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -404,9 +404,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>B464B55F12ADB07B00C27068</string>
+				<string>B41D3F8612B5D0DA009BB9DF</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>B464B56012ADB07B00C27068</string>
+				<string>B41D3F8712B5D0DA009BB9DF</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -544,10 +544,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>B464B56912ADB07B00C27068</string>
-		<string>B464B56A12ADB07B00C27068</string>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>B4290FEC127D01C2009192CD</string>
 		<string>/Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp.xcodeproj</string>
 	</array>
@@ -629,7 +625,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>B4290FEC127D01C2009192CD</string>
-				<string>B464B56112ADB07B00C27068</string>
+				<string>B41D3F8812B5D0DA009BB9DF</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

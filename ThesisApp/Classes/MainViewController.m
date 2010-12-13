@@ -55,6 +55,9 @@
 	mAQPlayer = [AQPlayer new];
 	[mAQPlayer start];
 	[mAQPlayer setMode:0];
+	accelerometer = [UIAccelerometer sharedAccelerometer];
+	accelerometer.updateInterval = .5;
+	accelerometer.delegate = self;
 	[super viewDidLoad];
 }
 
@@ -81,15 +84,31 @@
 
 - (void)dealloc
 {
+	accelerometer.delegate = nil;
+	[accelerometer release];
 	[mAQPlayer stop];
 	[mAQPlayer release];
     [super dealloc];
 }
 
 
-- (IBAction)changeMode:(UIButton *)sender
+- (IBAction)changeMode:(int)anInt
 {
-	[mAQPlayer setMode:([sender.titleLabel.text intValue]-1)];
+	if (modeIndex == 0 && anInt == -1) modeIndex = 5;
+	else if (modeIndex == 5 && anInt == 1) modeIndex = 0;
+	else modeIndex += anInt;
+	
+	[mAQPlayer setMode:modeIndex];
+	
+	switch (modeIndex){
+		case 0:	modeLabel.text = @"Mode 1"; break;
+		case 1: modeLabel.text = @"Mode 2"; break;
+		case 2: modeLabel.text = @"Mode 3"; break;
+		case 3: modeLabel.text = @"Mode 4"; break;
+		case 4: modeLabel.text = @"Mode 5"; break;
+		case 5: modeLabel.text = @"Mode 6"; break;
+		default: break;
+	}
 }
 
 
@@ -103,5 +122,15 @@
 	[mAQPlayer stopNote:([sender.titleLabel.text intValue]-1)];
 }
 
+- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
+{
+#define LIMIT_ACC_VAL(n)	n < -1. ? -1. : n > 1. ? 1. : n
+
+	double y = acceleration.y;
+	
+	int k = y < -0.25 ? 1 : y > 0.25 ? -1 : 0;
+
+	[self changeMode:k];
+}
 
 @end

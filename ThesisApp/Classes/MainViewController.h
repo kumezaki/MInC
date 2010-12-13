@@ -10,21 +10,22 @@
 
 #import "AQPlayer.h"
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate>
+@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIAccelerometerDelegate>
 {
-
+	IBOutlet UILabel *modeLabel;
+	
 	UIStatusBarStyle oldStatusBarStyle;
+	UIAccelerometer *accelerometer;
 	
 	AQPlayer *mAQPlayer;
+	
+	int modeIndex;
 	
 }
 
 - (IBAction)startSound:(UIButton *)sender;
 - (IBAction)stopSound:(UIButton *)sender;
-
-- (IBAction)changeMode:(UIButton *)sender;
-
+- (IBAction)changeMode:(int)anInt;
 - (IBAction)showInfo:(id)sender;
-
 
 @end
