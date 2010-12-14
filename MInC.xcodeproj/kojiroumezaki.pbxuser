@@ -22,6 +22,16 @@
 			216201C311B38ACE00E93E07 /* MInC */,
 		);
 	};
+	2117F8A712B707B500AB5E9C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2195D37411B6B6C3002E46FD /* SoundFile.m */;
+		name = "SoundFile.m: 78";
+		rLen = 0;
+		rLoc = 1435;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
 	211AB3C611B8098D00B41C09 /* ADSR.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1124, 588}}";
@@ -154,7 +164,7 @@
 			sepNavVisRange = "{0, 177}";
 		};
 	};
-	215FC4121282847C0005709C /* PBXTextBookmark */ = {
+	2130F64D12B6B0D400A83901 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 2195D37411B6B6C3002E46FD /* SoundFile.m */;
 		name = "SoundFile.m: 78";
@@ -175,6 +185,9 @@
 		configStateDict = {
 		};
 		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
 		debuggerPlugin = GDBDebugging;
 		disassemblyDisplayState = 0;
 		dylibVariantSuffix = "";
@@ -187,6 +200,7 @@
 		name = MInC;
 		savedGlobals = {
 		};
+		showTypeColumn = 0;
 		sourceDirectories = (
 		);
 	};
@@ -195,21 +209,14 @@
 		fallbackIsa = XCSourceControlManager;
 		isSCMEnabled = 0;
 		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
 		};
 	};
 	216201CE11B38AED00E93E07 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
-	};
-	216F52E9128335B700B8F704 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2195D37411B6B6C3002E46FD /* SoundFile.m */;
-		name = "SoundFile.m: 78";
-		rLen = 0;
-		rLoc = 1435;
-		rType = 0;
-		vrLen = 0;
-		vrLoc = 0;
 	};
 	2195D37311B6B6C3002E46FD /* SoundFile.h */ = {
 		uiCtxt = {
@@ -221,31 +228,11 @@
 	};
 	2195D37411B6B6C3002E46FD /* SoundFile.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1149, 1162}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1149, 1079}}";
 			sepNavSelRange = "{1435, 0}";
 			sepNavVisRange = "{0, 0}";
 			sepNavWindowFrame = "{{154, 4}, {1121, 874}}";
 		};
-	};
-	2195D44511B704EE002E46FD /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2195D37311B6B6C3002E46FD /* SoundFile.h */;
-		name = "SoundFile.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 213;
-		vrLoc = 0;
-	};
-	2195D44711B704EE002E46FD /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2195D37411B6B6C3002E46FD /* SoundFile.m */;
-		name = "SoundFile.m: 46";
-		rLen = 0;
-		rLoc = 1429;
-		rType = 0;
-		vrLen = 401;
-		vrLoc = 0;
 	};
 	21B8AC9511B4208200C88C2D /* SecondView.h */ = {
 		uiCtxt = {
@@ -282,7 +269,7 @@
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeBuildConfigurationName = Debug;
 		activeExecutable = 216201C311B38ACE00E93E07 /* MInC */;
-		activeSDKPreference = iphonesimulator3.1.3;
+		activeSDKPreference = iphoneos4.2;
 		activeTarget = 1D6058900D05DD3D006BFB54 /* MInC */;
 		addToTargets = (
 		);
@@ -363,15 +350,13 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 310588838;
-			PBXWorkspaceStateSaveDate = 310588838;
+			PBXPerProjectTemplateStateSaveDate = 313984890;
+			PBXWorkspaceStateSaveDate = 313984890;
 		};
 		perUserProjectItems = {
+			2117F8A712B707B500AB5E9C /* PBXTextBookmark */ = 2117F8A712B707B500AB5E9C /* PBXTextBookmark */;
 			211AB3DF11B80A2600B41C09 /* PBXTextBookmark */ = 211AB3DF11B80A2600B41C09 /* PBXTextBookmark */;
-			215FC4121282847C0005709C /* PBXTextBookmark */ = 215FC4121282847C0005709C /* PBXTextBookmark */;
-			216F52E9128335B700B8F704 /* PBXTextBookmark */ = 216F52E9128335B700B8F704 /* PBXTextBookmark */;
-			2195D44511B704EE002E46FD /* PBXTextBookmark */ = 2195D44511B704EE002E46FD /* PBXTextBookmark */;
-			2195D44711B704EE002E46FD /* PBXTextBookmark */ = 2195D44711B704EE002E46FD /* PBXTextBookmark */;
+			2130F64D12B6B0D400A83901 /* PBXTextBookmark */ = 2130F64D12B6B0D400A83901 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 216201CD11B38AED00E93E07 /* Source Control */;
 		userBuildSettings = {
