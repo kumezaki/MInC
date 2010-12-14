@@ -19,14 +19,12 @@
 	WaveFormTable *mWaveTable;
 	Envelope	*mEnv;
 
-	int mTableOffset;
 	double mFreq;
 	double mAmp;
 	double mTheta;
 	double mDeltaTheta;
 }
 
-@property int mTableOffset;
 @property double mFreq;
 @property double mAmp;
 @property double mTheta;

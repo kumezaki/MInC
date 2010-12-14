@@ -11,24 +11,29 @@
 
 @implementation WaveFormTable
 
+
 -(id)init
 {
 	[super init];
-
-	for (int i = 0; i < kWaveformTableSize; i++)
-	{
-#if 1
-		mTable[i] = sin((double)i / kWaveformTableSize * 2. * 3.1415926353);
-#else
-		if (i < (kWaveformTableSize / 2))
-			mTable[i] = 1;
-		else
-			mTable[i] = -1;
-#endif
-		printf("%f\n",mTable[i]);
-	}
-	
 	return self;
+}
+
+-(void) createWaveType:(NSString *)waveType
+{
+	mWaveType = waveType;
+	if ([mWaveType isEqual:@"sine wave"]) {
+		for (int i = 0; i < kWaveformTableSize; i++)
+		{
+			mTable[i] = sin((double)i / kWaveformTableSize * 2. * 3.1415926353);
+		}
+	}
+	else if ([mWaveType isEqual:@"triangle wave"]){
+		for (int i = 0; i < kWaveformTableSize; i++)
+		{
+			if (i < (kWaveformTableSize / 2)) mTable[i] = 1;
+			else mTable[i] = -1;
+		}
+	}		
 }
 
 -(double) get:(double)index

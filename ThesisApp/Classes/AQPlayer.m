@@ -51,38 +51,40 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 @implementation AQPlayer
 
-
--(void) setMode:(int)val{
-	
+-(void) setMode:(int)val{	
 	for (int i = 0; i < kNumberNotes; i++) mNotes[i].mFreq = [mModes[val] getNoteFreq:i];
 }
+-(void) setWaveType:(NSString *)waveType{
+	mWaveType = waveType;
+	[mWaveTable createWaveType:mWaveType];
+}
+-(NSString *) getWaveType
+{
+	return mWaveType;
+}
 
-
--(void) setMAmp:(double)val withNotePos:(int)note_pos{
-	
+-(void) setMAmp:(double)val withNotePos:(int)note_pos{	
 	mNotes[note_pos].mAmp=val;
 }
-
-
--(void) startNote:(int)note_pos{
-	
+-(void) startNote:(int)note_pos{	
 	[mNotes[note_pos] on];
 }
-
--(void) stopNote:(int)note_pos{
-	
+-(void) stopNote:(int)note_pos{	
 	[mNotes[note_pos] off];
 }
+
 
 -(id)init
 {
 	[super init];
+	
 	mWaveTable = [WaveFormTable new];
-		
+	mWaveType = [NSString new];
+	[self setWaveType: @"sine wave"];
+	
 	for (int i = 0; i < kNumberNotes; i++){
 		mNotes[i] = [Note new];
 		[mNotes[i] setWaveTable:mWaveTable];
-		mNotes[i].mTableOffset = i*57;//CL: setting an offset variable for each Note*
 	}
 	
 	for (int j = 0; j < kNumberModes; j++){
@@ -98,7 +100,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 			default: break;
 		}
 	}
-	
 	return self;
 }
 
@@ -107,6 +108,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	for (int i = 0; i < kNumberNotes; i++) [mNotes[i] release];
 	for (int j = 0; j < kNumberModes; j++) [mModes[j] release];	
+	[mWaveType release];
 	[mWaveTable release];
 	[super dealloc];
 }

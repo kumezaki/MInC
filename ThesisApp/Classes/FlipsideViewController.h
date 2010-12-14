@@ -8,15 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AQPlayer.h"
+
 @protocol FlipsideViewControllerDelegate;
 
 
 @interface FlipsideViewController : UIViewController {
 	id <FlipsideViewControllerDelegate> delegate;
+		
+	AQPlayer *mAQPlayer;
+
 }
 
 @property (nonatomic, assign) id <FlipsideViewControllerDelegate> delegate;
+
+-(void) setAQPlayer:(AQPlayer*) AQPlayer;
 - (IBAction)done:(id)sender;
+- (IBAction)changeWaveType:(UIButton *)sender;
+
 @end
 
 

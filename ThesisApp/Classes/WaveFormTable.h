@@ -12,9 +12,14 @@
 
 @interface WaveFormTable : NSObject
 {
+	@private
+	
+	NSString *mWaveType;
 	double mTable[kWaveformTableSize];
 }
 
+
+-(void) createWaveType:(NSString *)waveType;
 -(double) get:(double)index;
 
 @end

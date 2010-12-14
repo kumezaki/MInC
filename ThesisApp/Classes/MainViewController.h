@@ -12,6 +12,7 @@
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIAccelerometerDelegate>
 {
+	IBOutlet UILabel *waveFormLabel;
 	IBOutlet UILabel *modeLabel;
 	
 	UIStatusBarStyle oldStatusBarStyle;
@@ -20,12 +21,15 @@
 	AQPlayer *mAQPlayer;
 	
 	int modeIndex;
-	
+
 }
+
+- (void) setWaveFormLabel;
+
+- (IBAction)showInfo:(id)sender;
+- (IBAction)changeMode:(int)anInt;
 
 - (IBAction)startSound:(UIButton *)sender;
 - (IBAction)stopSound:(UIButton *)sender;
-- (IBAction)changeMode:(int)anInt;
-- (IBAction)showInfo:(id)sender;
 
 @end

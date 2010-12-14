@@ -24,11 +24,10 @@
 	
 
 @private
-	
+	NSString *mWaveType;
 	double mAmp;
 	double mFreq;
 
-	
 @public
 	
 	int currentMode;
@@ -49,5 +48,8 @@
 
 -(void) setMAmp:(double)val withNotePos:(int)note_pos;
 -(void) setMode:(int)val;
+-(void) setWaveType:(NSString *)waveType;
+-(NSString *) getWaveType;
+
 
 @end

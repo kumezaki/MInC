@@ -13,10 +13,13 @@
 
 @synthesize delegate;
 
+- (void) setAQPlayer:(AQPlayer *)AQPlayer{
+	mAQPlayer = AQPlayer;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor viewFlipsideBackgroundColor];      
+    self.view.backgroundColor = [UIColor viewFlipsideBackgroundColor];
 }
 
 
@@ -39,17 +42,23 @@
 }
 
 
-/*
+
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	// Return YES for supported orientations
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
-*/
+
 
 
 - (void)dealloc {
     [super dealloc];
+}
+
+- (IBAction)changeWaveType:(UIButton *)sender
+{
+	NSString *label = sender.titleLabel.text;
+	[mAQPlayer setWaveType:label];
 }
 
 

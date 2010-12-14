@@ -11,6 +11,7 @@
 
 @implementation MainViewController
 
+
 // the designated initializer. Override to perform setup that is required before the view is loaded.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,6 +56,7 @@
 	mAQPlayer = [AQPlayer new];
 	[mAQPlayer start];
 	[mAQPlayer setMode:0];
+	[self setWaveFormLabel];
 	accelerometer = [UIAccelerometer sharedAccelerometer];
 	accelerometer.updateInterval = .5;
 	accelerometer.delegate = self;
@@ -63,9 +65,9 @@
 
 
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
-{
-    
+{	
 	[self dismissModalViewControllerAnimated:YES];
+	[self setWaveFormLabel];
 }
 
 
@@ -74,6 +76,8 @@
 	
 	FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
 	controller.delegate = self;
+	
+	[controller setAQPlayer:mAQPlayer];
 	
 	controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 	[self presentModalViewController:controller animated:YES];
@@ -91,6 +95,11 @@
     [super dealloc];
 }
 
+-(void) setWaveFormLabel
+{
+	NSString *waveType = [mAQPlayer getWaveType];
+	waveFormLabel.text = [NSString stringWithFormat:@"Sound: %@",waveType];
+}
 
 - (IBAction)changeMode:(int)anInt
 {
@@ -99,18 +108,17 @@
 	else modeIndex += anInt;
 	
 	[mAQPlayer setMode:modeIndex];
-	
+
 	switch (modeIndex){
-		case 0:	modeLabel.text = @"Mode 1"; break;
-		case 1: modeLabel.text = @"Mode 2"; break;
-		case 2: modeLabel.text = @"Mode 3"; break;
-		case 3: modeLabel.text = @"Mode 4"; break;
-		case 4: modeLabel.text = @"Mode 5"; break;
-		case 5: modeLabel.text = @"Mode 6"; break;
+		case 0:	modeLabel.text = @"Mode: 1"; break;
+		case 1: modeLabel.text = @"Mode: 2"; break;
+		case 2: modeLabel.text = @"Mode: 3"; break;
+		case 3: modeLabel.text = @"Mode: 4"; break;
+		case 4: modeLabel.text = @"Mode: 5"; break;
+		case 5: modeLabel.text = @"Mode: 6"; break;
 		default: break;
 	}
 }
-
 
 -(IBAction) startSound:(UIButton *)sender
 {			
