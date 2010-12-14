@@ -87,7 +87,7 @@ extern AQPlayer *gAQP;
 		}
 		appDelegate->mSendIPAddress = ip_add;
 		[appDelegate writeDataFile];
-		printf("IPAddressChanged to %08x\n",appDelegate->mSendIPAddress);
+		printf("IPAddressChanged to %08lx\n",appDelegate->mSendIPAddress);
 	}
 }
 

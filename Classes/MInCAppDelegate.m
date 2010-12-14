@@ -12,6 +12,7 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <fcntl.h>
+#include <unistd.h>
 
 #include <ifaddrs.h>
 #include <arpa/inet.h>
@@ -337,7 +338,7 @@
 
 - (void)parse_osc
 {
-	printf("mInBufferLength: %d\n",mInBufferLength);
+	printf("mInBufferLength: %ld\n",mInBufferLength);
 
 	ssize_t pos = 0;
 	int msg_type = 0;
@@ -348,7 +349,7 @@
 		{
 			case 0:
 			{
-				NSString* buf_str = [NSString stringWithCString:mInBuffer+pos];
+				NSString* buf_str = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
 				if ([buf_str isEqualToString:@"/MInC/interstitial"]) add_type = 1;
 				else if ([buf_str isEqualToString:@"/MInC/mod"]) add_type = 2;
 				[buf_str release];
@@ -464,7 +465,7 @@
 -(void)readDataFile
 {
 	NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithContentsOfFile:[MInCAppDelegate dataFilePath]];
-	NSLog([MInCAppDelegate dataFilePath]);
+	NSLog(@"%s",[MInCAppDelegate dataFilePath]);
 	mSendIPAddress = [[dict valueForKey:@"server_ip_address"] unsignedIntValue];
 	mSendPortNum = [[dict valueForKey:@"server_port_num"] unsignedIntValue];
 	NSLog(@"%d %d",mSendIPAddress,mSendPortNum);

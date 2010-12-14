@@ -18,7 +18,7 @@
 	
 	OSStatus result = noErr;
 	result = AudioFileOpenURL(mSoundFileURLRef,kAudioFileReadPermission,0,&mFileID);
-	printf("AudioFileOpenURL %d\n",result);
+	printf("AudioFileOpenURL %ld\n",result);
 	
 	return self;
 }
@@ -27,7 +27,7 @@
 {
 	OSStatus result = noErr;
 	result = AudioFileClose(mFileID);
-	printf("AudioFileClose %d\n",result);
+	printf("AudioFileClose %ld\n",result);
 	
 	[super dealloc];
 }

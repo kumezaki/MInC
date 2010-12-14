@@ -111,13 +111,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     OSStatus result = AudioQueueNewOutput(&mDataFormat, AQBufferCallback, self, nil, nil, 0, &mQueue);
 	
 	if (result != noErr)
-		printf("AudioQueueNewOutput %d\n",result);
+		printf("AudioQueueNewOutput %ld\n",result);
 	
     for (int i = 0; i < kNumberBuffers; ++i)
 	{
 		result = AudioQueueAllocateBuffer(mQueue, 512, &mBuffers[i]);
 		if (result != noErr)
-			printf("AudioQueueAllocateBuffer %d\n",result);
+			printf("AudioQueueAllocateBuffer %ld\n",result);
 	}
 }
 
