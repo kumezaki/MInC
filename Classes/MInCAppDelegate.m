@@ -103,6 +103,7 @@
 
 	mInterstitialString = nil;
 	mNewMod = NO;
+	mServerIPAddString = nil;
 	
 	[self checkIncomingMessages];
 
@@ -352,6 +353,7 @@
 				NSString* buf_str = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
 				if ([buf_str isEqualToString:@"/MInC/interstitial"]) add_type = 1;
 				else if ([buf_str isEqualToString:@"/MInC/mod"]) add_type = 2;
+				else if ([buf_str isEqualToString:@"/MInC/hb"]) add_type = 3;
 				[buf_str release];
 				break;
 			}
@@ -371,6 +373,13 @@
 						[mAQP SetSequence:int_val];
 						mNewMod = YES;
 						break;
+					}
+					case 3:
+					{
+						mServerIPAddString = [[NSString alloc] initWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
+//						char buf[32];
+//						strcpy(buf,mInBuffer+pos);
+//						printf("server heartbeat IP address %s\n",buf);
 					}
 				}
 				break;
@@ -426,6 +435,45 @@
 	return address;
 }
 
+-(void)SetServerIPAddress:(NSString *)str
+{
+	NSArray* ip_add_array = [str componentsSeparatedByString:@"."];
+	
+	if ([ip_add_array count] != 4)
+	{
+		NSLog(@"IP address must have 4 components");
+		return;
+	}
+	else
+	{
+		int i = 0;
+		UInt32 ip_add = 0;
+		for (NSString* s in ip_add_array)
+		{
+#if 0
+			NSLog([NSString stringWithFormat:@"s=%@", s]);
+#endif
+			ip_add |= [s intValue] << (8 * (4 - ++i));
+		}
+		mSendIPAddress = ip_add;
+		[self writeDataFile];
+		printf("IPAddressChanged to %08lx\n",mSendIPAddress);
+	}
+	
+}
+
+-(void)SetServerPortNum:(NSString *)str
+{
+#if 0
+	char buffer[16];
+	[mPortNumTextField.text getCString:buffer maxLength:16 encoding:NSASCIIStringEncoding];
+#endif
+	
+	mSendPortNum = [str intValue];
+	[self writeDataFile];
+	printf("PortNumChanged to %d\n",mSendPortNum);
+}
+
 -(void)checkIncomingMessages
 {
 	if (mInterstitialString != nil)
@@ -441,6 +489,13 @@
 		mNewMod = NO;
 	}
 
+	if (mServerIPAddString != nil)
+	{
+		[self SetServerIPAddress:mServerIPAddString];
+		[mServerIPAddString release];
+		mServerIPAddString = nil;
+	}
+	
 	[NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkIncomingMessages) userInfo:nil repeats:NO];  
 }
 

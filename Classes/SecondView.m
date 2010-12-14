@@ -65,44 +65,16 @@ extern AQPlayer *gAQP;
 
 -(IBAction)IPAddressChanged:(id)sender
 {
-	NSArray* ip_add_array = [mIPAddressTextField.text componentsSeparatedByString:@"."];
-	
-	if ([ip_add_array count] != 4)
-	{
-		NSLog(@"IP address must have 4 components");
-		mIPAddressTextField.text = @"";
-	}
-	else
-	{
-		MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
+	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
 
-		int i = 0;
-		UInt32 ip_add = 0;
-		for (NSString* s in ip_add_array)
-		{
-#if 0
-			NSLog([NSString stringWithFormat:@"s=%@", s]);
-#endif
-			ip_add |= [s intValue] << (8 * (4 - ++i));
-		}
-		appDelegate->mSendIPAddress = ip_add;
-		[appDelegate writeDataFile];
-		printf("IPAddressChanged to %08lx\n",appDelegate->mSendIPAddress);
-	}
+	[appDelegate SetServerIPAddress:mIPAddressTextField.text];
 }
 
 -(IBAction)PortNumChanged:(id)sender
 {
 	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
-
-#if 0
-	char buffer[16];
-	[mPortNumTextField.text getCString:buffer maxLength:16 encoding:NSASCIIStringEncoding];
-#endif
 	
-	appDelegate->mSendPortNum = [mPortNumTextField.text intValue];
-	[appDelegate writeDataFile];
-	printf("PortNumChanged to %d\n",appDelegate->mSendPortNum);
+	[appDelegate SetServerPortNum:mPortNumTextField.text];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {

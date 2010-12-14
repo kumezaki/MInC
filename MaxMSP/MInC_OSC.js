@@ -40,6 +40,9 @@ var gWidgetIDArray = [];
 var gAutoSenseTask = new Task(autosense_func);
 var gAutoSenseTaskPeriod = 3000;
 
+var gHeartBeatTask = new Task(heartbeat_func);
+var gHeartBeatTaskPeriod = 1000;
+
 var gMsgIDArray = [];
 
 function autosense_func()
@@ -67,6 +70,13 @@ function autosense_func()
     gAutoSenseTask.schedule(gAutoSenseTaskPeriod);
 }
 
+function heartbeat_func()
+{
+	messnamed("heartbeat_msg","bang");
+
+	gHeartBeatTask.schedule(gHeartBeatTaskPeriod);
+}
+
 function loading_start(dev_pos)
 {
 	gDeviceArray[dev_pos].loading = true;
@@ -84,6 +94,14 @@ function autosense(enable)
 		gAutoSenseTask.schedule(2000);
 	else
 		gAutoSenseTask.cancel();
+}
+
+function heartbeat(enable)
+{
+	if (enable)
+		gHeartBeatTask.schedule(0);
+	else
+		gHeartBeatTask.cancel();
 }
 
 function loadbang()
@@ -117,6 +135,8 @@ function loadbang()
     gMsgIDArray["accZ"] = i++;
 
     messnamed("InC_in1_msg","voices",gNumVoices);
+    
+    heartbeat(true);
 }    
 
 function bang()

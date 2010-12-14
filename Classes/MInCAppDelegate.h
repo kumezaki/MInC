@@ -28,7 +28,7 @@
 	IBOutlet UIButton			*m2xFastButton;
 	IBOutlet UIButton			*mHintButton;
 	IBOutlet UIButton			*mStatusButton;
-
+	
 	NSArray					*mImageArray;
 	
 	AQPlayer				*mAQP;
@@ -50,6 +50,7 @@
 
 	NSString				*mInterstitialString;
 	BOOL					mNewMod;
+	NSString				*mServerIPAddString;
 
 @public
 	UInt32					mSendIPAddress;
@@ -99,6 +100,8 @@
 -(void)parse_osc;
 
 -(NSString *)getIPAddress;
+-(void)SetServerIPAddress:(NSString *)str;
+-(void)SetServerPortNum:(NSString *)str;
 
 -(void)checkIncomingMessages;
 
