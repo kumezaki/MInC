@@ -21,6 +21,7 @@
 
 @synthesize window;
 @synthesize tabBarController;
+@synthesize mSecondView;
 
 #define OSC_START mOutBufferLength = 0;
 #define OSC_END [self send_udp];
@@ -104,6 +105,8 @@
 	mInterstitialString = nil;
 	mNewMod = NO;
 	mServerIPAddString = nil;
+	
+	mSecondView = nil;
 	
 	[self checkIncomingMessages];
 
@@ -492,6 +495,10 @@
 	if (mServerIPAddString != nil)
 	{
 		[self SetServerIPAddress:mServerIPAddString];
+		
+		if ((mSecondView != nil) && ![mSecondView IsEditing])
+			[mSecondView SetIPAddress];
+		
 		[mServerIPAddString release];
 		mServerIPAddString = nil;
 	}

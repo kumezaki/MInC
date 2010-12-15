@@ -21,11 +21,12 @@ extern AQPlayer *gAQP;
 	mPortNumTextField.delegate = self;
 	
 	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
-	mIPAddressTextField.text = [NSString stringWithFormat:@"%d.%d.%d.%d",(appDelegate->mSendIPAddress&0xFF000000)>>24
-																		,(appDelegate->mSendIPAddress&0x00FF0000)>>16
-																		,(appDelegate->mSendIPAddress&0x0000FF00)>>8
-																		,(appDelegate->mSendIPAddress&0x000000FF)>>0];
-	mPortNumTextField.text = [NSString stringWithFormat:@"%d",appDelegate->mSendPortNum];
+	appDelegate.mSecondView = self;
+	
+	mEditing = NO;
+
+	[self SetIPAddress];
+	
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -77,7 +78,20 @@ extern AQPlayer *gAQP;
 	[appDelegate SetServerPortNum:mPortNumTextField.text];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+	NSLog(@"textFieldDidBeginEditing");
+	mEditing = YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+	NSLog(@"textFieldDidEndEditing");
+	mEditing = NO;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField
+{
 	[theTextField resignFirstResponder];
 	return YES;
 }
@@ -94,6 +108,21 @@ extern AQPlayer *gAQP;
 		[gAQP->mSequencer_Sec Start];
 	else
 		[gAQP->mSequencer_Sec Stop];
+}
+
+-(void)SetIPAddress;
+{
+	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
+	mIPAddressTextField.text = [NSString stringWithFormat:@"%d.%d.%d.%d",(appDelegate->mSendIPAddress&0xFF000000)>>24
+								,(appDelegate->mSendIPAddress&0x00FF0000)>>16
+								,(appDelegate->mSendIPAddress&0x0000FF00)>>8
+								,(appDelegate->mSendIPAddress&0x000000FF)>>0];
+	mPortNumTextField.text = [NSString stringWithFormat:@"%d",appDelegate->mSendPortNum];
+}
+
+-(BOOL)IsEditing
+{
+	return mEditing;
 }
 
 @end

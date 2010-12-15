@@ -17,6 +17,8 @@
 	IBOutlet UITextField	*mPortNumTextField;
 	IBOutlet UISwitch		*mWithServerSwitch;
 	IBOutlet UISwitch		*mPulseSwitch;
+
+	BOOL	mEditing;
 }
 
 -(IBAction)SetTempoSensitivity:(id)sender;
@@ -28,5 +30,9 @@
 -(IBAction)WithServerToggle:(id)sender;
 
 -(IBAction)PulseToggle:(id)sender;
+
+-(void)SetIPAddress;
+
+-(BOOL)IsEditing;
 
 @end

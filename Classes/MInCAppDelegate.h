@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "AQPlayer.h"
+#import "SecondView.h"
 
 @interface MInCAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, UIAccelerometerDelegate> {
 
@@ -28,7 +29,7 @@
 	IBOutlet UIButton			*m2xFastButton;
 	IBOutlet UIButton			*mHintButton;
 	IBOutlet UIButton			*mStatusButton;
-	
+		
 	NSArray					*mImageArray;
 	
 	AQPlayer				*mAQP;
@@ -55,10 +56,13 @@
 @public
 	UInt32					mSendIPAddress;
 	SInt16					mSendPortNum;
+
+	SecondView				*mSecondView;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+@property (nonatomic, retain) SecondView *mSecondView;
 
 -(void)SetWithServer:(BOOL)on;
 
