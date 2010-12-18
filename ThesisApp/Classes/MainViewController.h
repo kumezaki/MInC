@@ -14,6 +14,9 @@
 {
 	IBOutlet UILabel *waveFormLabel;
 	IBOutlet UILabel *modeLabel;
+	IBOutlet UILabel *accelDataX;
+	IBOutlet UILabel *accelDataY;
+	IBOutlet UILabel *accelDataZ;
 	
 	UIStatusBarStyle oldStatusBarStyle;
 	UIAccelerometer *accelerometer;

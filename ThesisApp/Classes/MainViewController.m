@@ -58,7 +58,7 @@
 	[mAQPlayer setMode:0];
 	[self setWaveFormLabel];
 	accelerometer = [UIAccelerometer sharedAccelerometer];
-	accelerometer.updateInterval = .5;
+	accelerometer.updateInterval = .1;
 	accelerometer.delegate = self;
 	[super viewDidLoad];
 }
@@ -132,13 +132,14 @@
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
-#define LIMIT_ACC_VAL(n)	n < -1. ? -1. : n > 1. ? 1. : n
-
 	double y = acceleration.y;
 	
-	int k = y < -0.25 ? 1 : y > 0.25 ? -1 : 0;
-
+	accelDataY.text = [NSString stringWithFormat:@"%f", y];
+	
+	int k = y < -0.2 ? 1 : y > 0.2 ? -1 : 0;	
+	
 	[self changeMode:k];
+
 }
 
 @end
