@@ -16,24 +16,33 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
     AQPlayer *aqp = (AQPlayer *)inUserData;
 	
-	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
+	const int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 	
-	Note* note_pri = [aqp->mSequencer_Pri GetNote];
-	Note* note_sec = [aqp->mSequencer_Sec GetNote];
-	if ((note_pri == nil) && (note_sec == nil))
-		for (int i = 0; i < numFrames; i++)
-			((SInt16 *)inAQBuffer->mAudioData)[i] = 0;
-	else
-		for (int i = 0; i < numFrames; i++)
-			((SInt16 *)inAQBuffer->mAudioData)[i] = (
-													 [note_pri GetSample] * aqp->mSequencer_Pri->mAmpMultiplier +
-													 [note_sec GetSample] * aqp->mSequencer_Sec->mAmpMultiplier
-													)
-													* (SInt16)0x7FFF;
+	double buffer[numFrames];
+	memset(buffer,0,sizeof(double)*numFrames);
+
+	Sequencer* seqr_pri = aqp->mSequencer_Pri;
+	Sequencer* seqr_sec = aqp->mSequencer_Sec;
+	Note* note_pri = [seqr_pri GetNote];
+	Note* note_sec = [seqr_sec GetNote];
 	
+	if ((note_pri != nil) || (note_sec != nil))
+	{
+		seqr_pri->mTheta = [note_pri AddSamples:buffer:numFrames:seqr_pri->mAmpMultiplier:seqr_pri->mTheta];
+		seqr_sec->mTheta = [note_sec AddSamples:buffer:numFrames:seqr_sec->mAmpMultiplier:seqr_sec->mTheta];
+	}
+	
+	double max = 0.;
+	for (int i = 0; i < numFrames; i++)
+	{
+		max = fabs(buffer[i]) > max ? fabs(buffer[i]) : max;
+		((SInt16 *)inAQBuffer->mAudioData)[i] = buffer[i] * (SInt16)0x7FFF;
+	}
+//	printf("%f\n",max);
+
 	double elapsed_time = numFrames / aqp->mSR;
-	[aqp->mSequencer_Pri Update:elapsed_time];
-	[aqp->mSequencer_Sec Update:elapsed_time];
+	[seqr_pri Update:elapsed_time];
+	[seqr_sec Update:elapsed_time];
 
 	inAQBuffer->mAudioDataByteSize = 512;
 	inAQBuffer->mPacketDescriptionCount = 0;
@@ -77,13 +86,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 			default: break;
 		}
 	}
-	mSequencer_Pri->mAmpMultiplier = 0.2;
+	mSequencer_Pri->mAmpMultiplier = 0.5;
 	mSequencer_Pri->mDurMultiplier = 0.5;
 	
 	mSequencer_Sec = [Sequencer new];
-	mSequencer_Sec->mSequence = [Sequence new];
-	[mSequencer_Sec->mSequence AssignNotes:num_notes_pulse:note_sequence_pulse:dur_sequence_pulse];
-	mSequencer_Sec->mAmpMultiplier = 0.2;
+	mSequencer_Sec->mSeq_Cur = [Sequence new];
+	[mSequencer_Sec->mSeq_Cur AssignNotes:num_notes_pulse:note_sequence_pulse:dur_sequence_pulse];
+	mSequencer_Sec->mAmpMultiplier = 0.5;
 	mSequencer_Sec->mDurMultiplier = 0.5;
 
 	mSR = 22050.;
@@ -151,9 +160,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	if (seq_num >= 0 && seq_num <= kNumSequences)
 	{
-		[mSequencer_Pri Rewind];
 		mSeqNum = seq_num;
-		mSequencer_Pri->mSequence = mSequences[mSeqNum-1];
+		[mSequencer_Pri SetNextSequence:mSequences[mSeqNum-1]];
 	}
 }
 

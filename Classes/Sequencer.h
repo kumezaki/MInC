@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Envelope.h"
 #import "Sequence.h"
 #import "WaveFormTable.h"
 
@@ -16,7 +17,8 @@
 	BOOL	mPlaying;
 	
 @public
-	Sequence *mSequence;
+	Sequence		*mSeq_Cur;
+	Sequence		*mSeq_Next;
 	
 	double	mCurTime;
 	double	mNextEventTime;
@@ -28,9 +30,11 @@
 	double	mTempoSensitivity;
 	
 	WaveFormTable	*mWaveTable;
-	ADSR			*mADSR;
+	double			mTheta;
+
+	Envelope		*mEnv;
 	
-	NSSet*	mNoteSet;
+	NSSet			*mNoteSet;
 }
 
 -(void)Start;
@@ -42,5 +46,7 @@
 -(void)Update:(double)elapsed_time;
 
 -(Note*)GetNote;
+
+-(void)SetNextSequence:(Sequence*)seq;
 
 @end

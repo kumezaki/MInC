@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "ADSR.h"
+#import "Envelope.h"
 #import "WaveFormTable.h"
 
 @interface Note : NSObject {
@@ -16,17 +16,13 @@
 	double mDuration;
 
 	WaveFormTable	*mWaveTable;
-	ADSR			*mADSR;
+	Envelope		*mEnv;
 
 @public
-	bool mOn;
-
 	double mSR;
 
 	double mFreq;
 	double mAmp;
-
-	double mTheta;
 
 	SInt32 mSamplesPlayed;
 	SInt32 mNumPlaySamples;
@@ -37,10 +33,10 @@
 
 +(double) mtof:(double)midi_note;
 
--(void)	On:(WaveFormTable*)wavetable:(ADSR*)adsr;
+-(void)	On:(WaveFormTable*)wavetable:(Envelope*)env;
 -(void) Off;
 
--(double) GetSample;
+-(double) AddSamples:(double*)buffer:(const int)num_frames:(double)scale:(double)theta;
 
 -(double)	GetDuration;
 -(void)		SetDuration:(double)duration;

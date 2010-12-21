@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-#define kwaveFormTableSize (512 * 16)
+#define kWaveFormTableSize (512 * 1)
 
 @interface WaveFormTable : NSObject {
 	
-	double mTable[kwaveFormTableSize];
+	double mTable[kWaveFormTableSize];
 
 }
 

@@ -66,7 +66,7 @@
 		default: return 0.;
 	}
 	
-	return mVal;
+	return mVal > 1. ? 1. : mVal < 0. ? 0. : mVal;
 }
 
 @end

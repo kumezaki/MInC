@@ -14,7 +14,7 @@
 {
 	mPlaying = NO;
 	
-	mSequence = nil;
+	mSeq_Cur = nil;
 	mCurTime = 0.;
 	mNextEventTime = 0.;
 	mTempoMultiplier = 1.;
@@ -24,9 +24,13 @@
 	mTempoSensitivity = 0.5;
 
 	mWaveTable = [WaveFormTable new];
-	mADSR = [[ADSR alloc] initWithADSR:22050. a:0.01 d:0.01 s:1.0 r:0.1];
+	mTheta = 0.;
+	
+	mEnv = [[Envelope alloc] init];
 	
 	mNoteSet = [NSSet new];
+	
+	mSeq_Next = nil;
 
 	return self;
 }
@@ -34,7 +38,6 @@
 - (void) dealloc
 {
  	[mWaveTable release];
-	[mADSR release];
 	[mNoteSet release];
 
 	[super dealloc];
@@ -67,13 +70,26 @@
 	if (!mPlaying) return;
 	
 	mCurTime += (elapsed_time * mTempoMultiplier);
+
+	if (mSeq_Next != nil)
+	{
+		mSeq_Cur = mSeq_Next;
+		[self Rewind];
+		mSeq_Next = nil;
+	}
+	
 	if (mCurTime >= mNextEventTime)
 	{
-		[[mSequence GetNote] Off];
-		[mSequence AdvancePos];
-		[[mSequence GetNote] SetPercentOn:mDurMultiplier];
-		[[mSequence GetNote] On:mWaveTable:mADSR];
-		mNextEventTime += [[mSequence GetNote] GetDuration];
+		/* advance the sequencer postion */
+		[mSeq_Cur AdvancePos];
+
+		/* get the new note */
+		Note* note = [mSeq_Cur GetNote];
+		[note SetPercentOn:mDurMultiplier];
+		[note On:mWaveTable:mEnv];
+
+		/* recompute the next event time */
+		mNextEventTime += [note GetDuration];
 	}
 }
 
@@ -81,9 +97,14 @@
 {
 	if (!mPlaying) return nil;
 
-	if (mSequence == nil) return nil;
+	if (mSeq_Cur == nil) return nil;
 	
-	return [mSequence GetNote];
+	return [mSeq_Cur GetNote];
+}
+
+-(void)SetNextSequence:(Sequence*)seq
+{
+	mSeq_Next = seq;
 }
 
 @end

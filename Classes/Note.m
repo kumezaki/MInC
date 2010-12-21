@@ -20,12 +20,12 @@
 	mDuration = 0.;
 	
 	mWaveTable = nil;
-	mADSR = nil;
+
+	mEnv = nil;
 	
 	mSR = 22050.;
 	mFreq = 0.0;
-	mAmp = 0.2;
-	mTheta = 0.;
+	mAmp = 1.0;
 
 	mSamplesPlayed = 0;
 	mNumPlaySamples = 0;
@@ -35,6 +35,8 @@
 
 -(void)dealloc
 {
+	[mEnv release];
+
 	[super dealloc];
 }
 
@@ -43,41 +45,35 @@
 	return 440. * pow(2., (midi_note - 69) / 12.);
 }
 
--(void) On:(WaveFormTable*)wavetable:(ADSR*)adsr;
+-(void)	On:(WaveFormTable*)wavetable:(Envelope*)env;
 {
 	mWaveTable = wavetable;
-	mADSR = adsr;
+	mEnv = env;
 	
-	if (mADSR != nil) [mADSR On];
-
-	mOn = true;
-
 	mSamplesPlayed = 0;
+	
+	[mEnv on];
 }
 
 -(void) Off
 {
-	if (mADSR != nil) [mADSR Off];
-	
-	mOn = false;
+	[mEnv off];
 }
 
--(double) GetSample
+-(double) AddSamples:(double*)buffer:(const int)num_frames:(double)scale:(double)theta
 {
-	if (mWaveTable == nil) return 0.;
+	if (mFreq == 0.) return theta;
 	
-	if (mADSR == nil ? mOn : [mADSR IsOn])
+	double delta_theta = mFreq / mSR;
+	for (int i = 0; i < num_frames; i++)
 	{
-		double sample = [mWaveTable Get:mTheta] * (mADSR == nil ? 1. : [mADSR Get]) * mAmp;
+		buffer[i] += scale * mAmp * [mWaveTable Get:theta] * [mEnv get];
+		theta += delta_theta;
 		
-		mTheta += mFreq / mSR;
-		
-		if (++mSamplesPlayed == mNumPlaySamples) [self Off];
-		
-		return sample;
+		if (++mSamplesPlayed >= mNumPlaySamples) [self Off];
 	}
 	
-	return 0.;
+	return theta;
 }
 
 -(double) GetDuration
@@ -88,7 +84,6 @@
 -(void) SetDuration:(double)duration
 {
 	mDuration = duration;
-	mNumPlaySamples = mDuration * mSR;
 }
 
 -(void)	SetPercentOn:(double)percent

@@ -21,6 +21,7 @@
 		2162021B11B396E000E93E07 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2162021A11B396E000E93E07 /* AudioToolbox.framework */; };
 		2195D37511B6B6C3002E46FD /* SoundFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2195D37411B6B6C3002E46FD /* SoundFile.m */; };
 		21B8AC9711B4208200C88C2D /* SecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B8AC9611B4208200C88C2D /* SecondView.m */; };
+		21C208EC12BBA90B0030FDA0 /* Envelope.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C208EB12BBA90B0030FDA0 /* Envelope.m */; };
 		21D9F8D211DA45E600D2C266 /* InCCover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21D9F8CB11DA45E600D2C266 /* InCCover.jpg */; };
 		21D9F8D311DA45E600D2C266 /* InC04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21D9F8CC11DA45E600D2C266 /* InC04.jpg */; };
 		21D9F8D411DA45E600D2C266 /* InC05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21D9F8CD11DA45E600D2C266 /* InC05.jpg */; };
@@ -61,6 +62,8 @@
 		2195D37411B6B6C3002E46FD /* SoundFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundFile.m; sourceTree = "<group>"; };
 		21B8AC9511B4208200C88C2D /* SecondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondView.h; sourceTree = "<group>"; };
 		21B8AC9611B4208200C88C2D /* SecondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondView.m; sourceTree = "<group>"; };
+		21C208EA12BBA90B0030FDA0 /* Envelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Envelope.h; sourceTree = "<group>"; };
+		21C208EB12BBA90B0030FDA0 /* Envelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Envelope.m; sourceTree = "<group>"; };
 		21D9F8CB11DA45E600D2C266 /* InCCover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InCCover.jpg; path = Images/InCCover.jpg; sourceTree = "<group>"; };
 		21D9F8CC11DA45E600D2C266 /* InC04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InC04.jpg; path = Images/InC04.jpg; sourceTree = "<group>"; };
 		21D9F8CD11DA45E600D2C266 /* InC05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InC05.jpg; path = Images/InC05.jpg; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				21C208EA12BBA90B0030FDA0 /* Envelope.h */,
+				21C208EB12BBA90B0030FDA0 /* Envelope.m */,
 				211AB3C611B8098D00B41C09 /* ADSR.h */,
 				211AB3C711B8098D00B41C09 /* ADSR.m */,
 				211AB3C811B8098D00B41C09 /* AQPlayer.h */,
@@ -257,6 +262,7 @@
 				211AB3D911B8098D00B41C09 /* Sequencer.m in Sources */,
 				211AB3DA11B8098D00B41C09 /* TouchView.m in Sources */,
 				211AB3DB11B8098D00B41C09 /* WaveFormTable.m in Sources */,
+				21C208EC12BBA90B0030FDA0 /* Envelope.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
