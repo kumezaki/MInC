@@ -48,7 +48,7 @@
 	return sample;
 }
 
--(void)getSamples:(double *)bufferPointer:(int)numFrames
+-(void)getSamples:(double *)bufferPointer:(const int)numFrames
 {
 	for (int i = 0; i < numFrames; i++) {
 		bufferPointer[i] += mAmp * [mWaveTable get:mTheta] * [mEnv get];//CL: trying to read the table from an offset Theta position

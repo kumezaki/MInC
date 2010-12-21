@@ -16,7 +16,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	AQPlayer *aqp = (AQPlayer *)inUserData;
 	
-	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
+	const int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 	
 	double sampleBuffer[numFrames];
 	
@@ -39,7 +39,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;
 	}
 
-	inAQBuffer->mAudioDataByteSize = 1024;
+	inAQBuffer->mAudioDataByteSize = 512;
 	inAQBuffer->mPacketDescriptionCount = 0;
 	
 
@@ -135,7 +135,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	for (int i = 0; i < kNumberBuffers; ++i)
 	{
-		result = AudioQueueAllocateBuffer(mQueue, 1024, &mBuffers[i]);
+		result = AudioQueueAllocateBuffer(mQueue, 512, &mBuffers[i]);
 		if (result != noErr)
 			printf("AudioQueueAllocateBuffer \n",result);
 	}
