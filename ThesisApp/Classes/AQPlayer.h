@@ -35,7 +35,7 @@
 	Mode *mModes[kNumberModes];
 	Note *mNotes[kNumberNotes];
 	WaveFormTable *mWaveTable;
-	
+		
 }
 
 -(void) New;

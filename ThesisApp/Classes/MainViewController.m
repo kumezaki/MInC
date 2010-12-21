@@ -102,21 +102,25 @@
 }
 
 - (IBAction)changeMode:(int)anInt
-{
-	if (modeIndex == 0 && anInt == -1) modeIndex = 5;
-	else if (modeIndex == 5 && anInt == 1) modeIndex = 0;
-	else modeIndex += anInt;
-	
-	[mAQPlayer setMode:modeIndex];
-
-	switch (modeIndex){
-		case 0:	modeLabel.text = @"Mode: 1"; break;
-		case 1: modeLabel.text = @"Mode: 2"; break;
-		case 2: modeLabel.text = @"Mode: 3"; break;
-		case 3: modeLabel.text = @"Mode: 4"; break;
-		case 4: modeLabel.text = @"Mode: 5"; break;
-		case 5: modeLabel.text = @"Mode: 6"; break;
-		default: break;
+{	
+		if (anInt != 0 && !modeDidChange) {
+		
+		if (modeIndex == 0 && anInt == -1) modeIndex = 5;
+		else if (modeIndex == 5 && anInt == 1) modeIndex = 0;
+		else modeIndex += anInt;
+		
+		[mAQPlayer setMode:modeIndex];
+		modeDidChange = YES;
+		
+		switch (modeIndex){
+			case 0:	modeLabel.text = @"Mode: 1"; break;
+			case 1: modeLabel.text = @"Mode: 2"; break;
+			case 2: modeLabel.text = @"Mode: 3"; break;
+			case 3: modeLabel.text = @"Mode: 4"; break;
+			case 4: modeLabel.text = @"Mode: 5"; break;
+			case 5: modeLabel.text = @"Mode: 6"; break;
+			default: break;
+		}
 	}
 }
 
@@ -132,12 +136,16 @@
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
-	double y = acceleration.y;
+	double yAxis = acceleration.y;
 	
-	accelDataY.text = [NSString stringWithFormat:@"%f", y];
-	
-	int k = y < -0.2 ? 1 : y > 0.2 ? -1 : 0;	
-	
+	accelDataY.text = [NSString stringWithFormat:@"%f", yAxis];
+
+	//if (yAxis > -0.5 && yAxis < 0.5) modeDidChange = NO;
+
+	int k = yAxis < -0.55 ? 1 : yAxis > 0.55 ? -1 : 0;
+	if (k == 0) modeDidChange = NO;
+		
+
 	[self changeMode:k];
 
 }

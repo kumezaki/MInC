@@ -47,6 +47,10 @@
 						<int key="NSvFlags">265</int>
 						<string key="NSFrame">{{447, -1}, {29, 31}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
+						<object class="NSColor" key="IBUIBackgroundColor" id="17381927">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MCAwAA</bytes>
+						</object>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<float key="IBUIAlpha">0.5</float>
@@ -67,7 +71,7 @@
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
-						<object class="NSColor" key="IBUINormalTitleShadowColor">
+						<object class="NSColor" key="IBUINormalTitleShadowColor" id="743010000">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MAA</bytes>
 						</object>
@@ -77,10 +81,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{0, 30}, {120, 145}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
-						<object class="NSColor" key="IBUIBackgroundColor" id="789022707">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MQA</bytes>
-						</object>
+						<reference key="IBUIBackgroundColor" ref="17381927"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<float key="IBUIAlpha">0.80000001192092896</float>
 						<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
@@ -91,7 +92,10 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="969161777"/>
 						<string key="IBUINormalTitle">5</string>
-						<reference key="IBUIHighlightedTitleColor" ref="789022707"/>
+						<object class="NSColor" key="IBUIHighlightedTitleColor" id="789022707">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MQA</bytes>
+						</object>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
@@ -118,7 +122,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{120, 30}, {120, 145}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
-						<reference key="IBUIBackgroundColor" ref="789022707"/>
+						<reference key="IBUIBackgroundColor" ref="17381927"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<float key="IBUIAlpha">0.80000001192092896</float>
 						<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
@@ -149,7 +153,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{240, 30}, {120, 145}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
-						<reference key="IBUIBackgroundColor" ref="789022707"/>
+						<reference key="IBUIBackgroundColor" ref="17381927"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<float key="IBUIAlpha">0.80000001192092896</float>
 						<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
@@ -180,7 +184,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{360, 30}, {120, 145}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
-						<reference key="IBUIBackgroundColor" ref="789022707"/>
+						<reference key="IBUIBackgroundColor" ref="17381927"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<float key="IBUIAlpha">0.80000001192092896</float>
 						<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
@@ -209,7 +213,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{360, 175}, {120, 145}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
-						<reference key="IBUIBackgroundColor" ref="789022707"/>
+						<reference key="IBUIBackgroundColor" ref="17381927"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<float key="IBUIAlpha">0.80000001192092896</float>
 						<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
@@ -240,7 +244,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{240, 175}, {120, 145}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
-						<reference key="IBUIBackgroundColor" ref="789022707"/>
+						<reference key="IBUIBackgroundColor" ref="17381927"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<float key="IBUIAlpha">0.80000001192092896</float>
 						<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
@@ -271,7 +275,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{120, 175}, {120, 145}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
-						<reference key="IBUIBackgroundColor" ref="789022707"/>
+						<reference key="IBUIBackgroundColor" ref="17381927"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<float key="IBUIAlpha">0.80000001192092896</float>
 						<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
@@ -302,7 +306,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{0, 175}, {120, 145}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
-						<reference key="IBUIBackgroundColor" ref="789022707"/>
+						<reference key="IBUIBackgroundColor" ref="17381927"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<float key="IBUIAlpha">0.80000001192092896</float>
 						<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
@@ -333,6 +337,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 0}, {110, 30}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
+						<reference key="IBUIBackgroundColor" ref="17381927"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -355,8 +360,9 @@
 					<object class="IBUILabel" id="505509949">
 						<reference key="NSNextResponder" ref="883825266"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{185, 0}, {214, 30}}</string>
+						<string key="NSFrame">{{185, 0}, {175, 30}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
+						<reference key="IBUIBackgroundColor" ref="17381927"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -377,6 +383,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{345, 4}, {94, 21}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
+						<reference key="IBUIBackgroundColor" ref="17381927"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -385,7 +392,7 @@
 						<string key="IBUIText">Label</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MCAwIDAAA</bytes>
+							<bytes key="NSRGB">MSAwLjUwMTk2MDgxNCAwAA</bytes>
 						</object>
 						<reference key="IBUIHighlightedColor" ref="789022707"/>
 						<int key="IBUIBaselineAdjustment">1</int>
@@ -394,13 +401,7 @@
 				</object>
 				<string key="NSFrameSize">{480, 320}</string>
 				<reference key="NSSuperview"/>
-				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">3</int>
-					<bytes key="NSWhite">MC4yNQA</bytes>
-					<object class="NSColorSpace" key="NSCustomColorSpace">
-						<int key="NSID">2</int>
-					</object>
-				</object>
+				<reference key="IBUIBackgroundColor" ref="743010000"/>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 					<int key="interfaceOrientation">3</int>
@@ -816,7 +817,7 @@
 						<bytes key="NSTransformStruct">P4AAAL+AAABDOQAAwfAAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{501, 185}, {480, 320}}</string>
+					<string>{{555, 342}, {480, 320}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">

@@ -51,6 +51,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 @implementation AQPlayer
 
+
 -(void) setMode:(int)val{	
 	for (int i = 0; i < kNumberNotes; i++) mNotes[i].mFreq = [mModes[val] getNoteFreq:i];
 }

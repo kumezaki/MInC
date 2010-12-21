@@ -24,7 +24,7 @@
 	AQPlayer *mAQPlayer;
 	
 	int modeIndex;
-
+	BOOL modeDidChange;
 }
 
 - (void) setWaveFormLabel;
