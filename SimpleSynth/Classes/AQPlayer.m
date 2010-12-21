@@ -130,23 +130,35 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	[super init];
 	
-	mTheta = 0.;
-	mDeltaTheta = 440. / kSR;
+	for (int i = 0; i < kNumNotes; i++)
+	{
+		mTheta[i] = 0.;
+
+		double ratio = 1.;
+		switch (i)
+		{
+			case 1: ratio = (3. / 2.);
+		}
+		mDeltaTheta[i] = (ratio) * 440. / kSR;
+	}
 	
 	return self;
 }
 
 -(void)FillAudioBuffer:(double*)buffer:(const int)num_frames
 {
-	for (int i = 0; i < num_frames; i++)
-	{
+	double amp = 0.5;
+	memset(buffer,0,num_frames*sizeof(double));
+	for (int j = 0; j < kNumNotes; j++)
+		for (int i = 0; i < num_frames; i++)
+		{
 #if 0
-		buffer[i] = sinf(mTheta * 2 * M_PI);				/* sine */
+			buffer[i] += amp * sinf(mTheta[j] * 2 * M_PI);					/* sine */
 #elif 1
-		buffer[i] = 2 * (mTheta - floor(mTheta + 0.5));		/* sawtooth */
+			buffer[i] += amp * 2 * (mTheta[j] - floor(mTheta[j] + 0.5));	/* sawtooth */
 #endif
-		mTheta += mDeltaTheta;
-	}
+			mTheta[j] += mDeltaTheta[j];
+		}
 }
 
 @end

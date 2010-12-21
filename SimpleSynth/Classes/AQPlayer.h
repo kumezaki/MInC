@@ -34,10 +34,11 @@
 
 @end
 
+#define kNumNotes	2
 @interface AQPlayer_SimpleSynth : AQPlayer {
 
-	double	mTheta;
-	double	mDeltaTheta;
+	double	mTheta[kNumNotes];
+	double	mDeltaTheta[kNumNotes];
 }
 
 -(void)FillAudioBuffer:(double*)buffer:(const int)num_frames;
