@@ -151,17 +151,19 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	memset(buffer,0,num_frames*sizeof(double));	/* sets buffer to all zeros */
 
-	double amp = 0.5;
+	double amp = 1. / kNumNotes;
 
 	for (int j = 0; j < kNumNotes; j++)
 		for (int i = 0; i < num_frames; i++)
 		{
-#if 1
-			buffer[i] += amp * sinf(mTheta[j] * 2 * M_PI);					/* sine */
+#if 0
+			buffer[i] += amp * sinf(mTheta[j] * 2 * M_PI);									/* sine */
 #elif 0
-			buffer[i] += amp * 2 * (mTheta[j] - floor(mTheta[j] + 0.5));	/* sawtooth */
+			buffer[i] += amp * 2 * (mTheta[j] - floor(mTheta[j] + 0.5));					/* sawtooth */
 #elif 0
-			buffer[i] += amp * SIGN(sinf(mTheta[j] * 2 * M_PI));			/* square */
+			buffer[i] += amp * SIGN(sinf(mTheta[j] * 2 * M_PI));							/* square */
+#elif 1
+			buffer[i] += amp * (fabs(2 * (mTheta[j] - floor(mTheta[j] + 0.5))) * 2 - 1.);	/* triangle */
 #endif
 			mTheta[j] += mDeltaTheta[j];
 

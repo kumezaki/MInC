@@ -202,24 +202,24 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
-				<string>2164C7CC12C253D000B7BB3E</string>
+				<string>2149FA4812C29F770069C958</string>
 				<key>PBXProjectModuleLabel</key>
-				<string>AppDelegate_iPad.m</string>
+				<string>AQPlayer.m</string>
 				<key>PBXSplitModuleInNavigatorKey</key>
 				<dict>
 					<key>Split0</key>
 					<dict>
 						<key>PBXProjectModuleGUID</key>
-						<string>2164C7CD12C253D000B7BB3E</string>
+						<string>2149FA4912C29F770069C958</string>
 						<key>PBXProjectModuleLabel</key>
-						<string>AppDelegate_iPad.m</string>
+						<string>AQPlayer.m</string>
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>21FD9A4412C257DE009B5199</string>
+						<string>21FF7C8112C2A4FA0038F27B</string>
 						<key>history</key>
 						<array>
-							<string>21FD9A3612C2579D009B5199</string>
+							<string>21FF7C8012C2A4FA0038F27B</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -242,24 +242,24 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
-				<string>2164C7B412C2533800B7BB3E</string>
+				<string>2149FA4B12C29F770069C958</string>
 				<key>PBXProjectModuleLabel</key>
-				<string>AppDelegate_iPhone.m</string>
+				<string>AQPlayer.h</string>
 				<key>PBXSplitModuleInNavigatorKey</key>
 				<dict>
 					<key>Split0</key>
 					<dict>
 						<key>PBXProjectModuleGUID</key>
-						<string>2164C7B512C2533800B7BB3E</string>
+						<string>2149FA4C12C29F770069C958</string>
 						<key>PBXProjectModuleLabel</key>
-						<string>AppDelegate_iPhone.m</string>
+						<string>AQPlayer.h</string>
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>21FD9A4512C257DE009B5199</string>
+						<string>21FF7C8212C2A4FA0038F27B</string>
 						<key>history</key>
 						<array>
-							<string>21FD9A3712C2579D009B5199</string>
+							<string>21FF7C6812C2A39C0038F27B</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -359,7 +359,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>12</integer>
+									<integer>11</integer>
 									<integer>9</integer>
 									<integer>0</integer>
 								</array>
@@ -400,7 +400,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SimpleSynth-Info.plist</string>
+								<string>AppDelegate_iPad.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -408,16 +408,16 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>SimpleSynth-Info.plist</string>
+										<string>AppDelegate_iPad.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>21FD9A4112C257DE009B5199</string>
+										<string>21FF7C7F12C2A4FA0038F27B</string>
 										<key>history</key>
 										<array>
 											<string>21FD9A3212C2579D009B5199</string>
 											<string>21FD9A3312C2579D009B5199</string>
-											<string>21FD9A4012C257DE009B5199</string>
+											<string>2149FA4712C29F770069C958</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -429,14 +429,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1232, 600}}</string>
+								<string>{{0, 0}, {1232, 585}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 59 1440 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>600pt</string>
+							<string>585pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -449,14 +449,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 605}, {1232, 173}}</string>
+								<string>{{0, 590}, {1232, 188}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 59 1440 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>173pt</string>
+							<string>188pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -475,9 +475,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>21FD9A4212C257DE009B5199</string>
+				<string>21FF7C4812C2A2820038F27B</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>21FD9A4312C257DE009B5199</string>
+				<string>21FF7C4912C2A2820038F27B</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -615,10 +615,14 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>21FF7C8312C2A4FA0038F27B</string>
+		<string>21FF7C8412C2A4FA0038F27B</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>2164C76E12C2520900B7BB3E</string>
-		<string>2164C7B412C2533800B7BB3E</string>
-		<string>2164C7CC12C253D000B7BB3E</string>
 		<string>/Users/kojiroumezaki/Docs/Music/Mobile_In_C/minc_unfuddle/SimpleSynth/SimpleSynth.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
+		<string>2149FA4B12C29F770069C958</string>
+		<string>2149FA4812C29F770069C958</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 59 1440 819 0 0 1440 878 </string>
@@ -698,7 +702,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>2164C76E12C2520900B7BB3E</string>
-				<string>21FD9A4612C257DE009B5199</string>
+				<string>21FF7C4C12C2A2820038F27B</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -742,8 +746,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {316, 194}}</string>
-											<string>{{316, 0}, {378, 194}}</string>
+											<string>{{0, 0}, {316, 202}}</string>
+											<string>{{316, 0}, {378, 202}}</string>
 										</array>
 									</dict>
 									<key>VerticalSplitView</key>
@@ -758,8 +762,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {694, 194}}</string>
-											<string>{{0, 194}, {694, 187}}</string>
+											<string>{{0, 0}, {694, 202}}</string>
+											<string>{{0, 202}, {694, 179}}</string>
 										</array>
 									</dict>
 								</dict>
@@ -792,7 +796,7 @@
 										<real>148</real>
 									</array>
 									<key>Frame</key>
-									<string>{{316, 0}, {378, 194}}</string>
+									<string>{{316, 0}, {378, 202}}</string>
 									<key>RubberWindowFrame</key>
 									<string>21 433 694 422 0 0 1440 878 </string>
 								</dict>
@@ -820,13 +824,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>21FD9A1B12C256C9009B5199</string>
+				<string>21FF7C5A12C2A3890038F27B</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>21FD9A1C12C256C9009B5199</string>
-				<string>21FD9A1D12C256C9009B5199</string>
-				<string>21FD9A1E12C256C9009B5199</string>
-				<string>21FD9A1F12C256C9009B5199</string>
-				<string>21FD9A2012C256C9009B5199</string>
+				<string>21FF7C5B12C2A3890038F27B</string>
+				<string>21FF7C5C12C2A3890038F27B</string>
+				<string>21FF7C5D12C2A3890038F27B</string>
+				<string>21FF7C5E12C2A3890038F27B</string>
+				<string>21FF7C5F12C2A3890038F27B</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -990,7 +994,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>2164C7B812C2533800B7BB3E</string>
+				<string>21FF7C6012C2A3890038F27B</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>

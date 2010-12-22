@@ -12,7 +12,6 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2164C78812C2527D00B7BB3E /* AQPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2164C78712C2527D00B7BB3E /* AQPlayer.m */; };
 		2164C78C12C2528F00B7BB3E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2164C78B12C2528F00B7BB3E /* AudioToolbox.framework */; };
-		21FD9A2712C256FC009B5199 /* SimpleSynth-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21FD9A2612C256FC009B5199 /* SimpleSynth-Info.plist */; };
 		2860E328111B887F00E27156 /* AppDelegate_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 2860E326111B887F00E27156 /* AppDelegate_iPhone.m */; };
 		2860E329111B887F00E27156 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2860E327111B887F00E27156 /* MainWindow_iPhone.xib */; };
 		2860E32E111B888700E27156 /* AppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2860E32C111B888700E27156 /* AppDelegate_iPad.m */; };
@@ -28,7 +27,6 @@
 		2164C78712C2527D00B7BB3E /* AQPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AQPlayer.m; path = Shared/AQPlayer.m; sourceTree = "<group>"; };
 		2164C78B12C2528F00B7BB3E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		21FD9A2312C256EC009B5199 /* SimpleSynth_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleSynth_Prefix.pch; sourceTree = "<group>"; };
-		21FD9A2612C256FC009B5199 /* SimpleSynth-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SimpleSynth-Info.plist"; sourceTree = "<group>"; };
 		2860E325111B887F00E27156 /* AppDelegate_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate_iPhone.h; sourceTree = "<group>"; };
 		2860E326111B887F00E27156 /* AppDelegate_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate_iPhone.m; sourceTree = "<group>"; };
 		2860E327111B887F00E27156 /* MainWindow_iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow_iPhone.xib; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 			children = (
 				2164C78612C2527D00B7BB3E /* AQPlayer.h */,
 				2164C78712C2527D00B7BB3E /* AQPlayer.m */,
-				21FD9A2612C256FC009B5199 /* SimpleSynth-Info.plist */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -176,7 +173,6 @@
 			files = (
 				2860E329111B887F00E27156 /* MainWindow_iPhone.xib in Resources */,
 				2860E32F111B888700E27156 /* MainWindow_iPad.xib in Resources */,
-				21FD9A2712C256FC009B5199 /* SimpleSynth-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
