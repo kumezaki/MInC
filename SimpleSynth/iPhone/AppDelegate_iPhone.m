@@ -1,18 +1,18 @@
 //
-//  SimpleSynthAppDelegate.m
-//  SimpleSynth
+//  AppDelegate_iPhone.m
+//  SimpleSynth_Universal
 //
-//  Created by Kojiro Umezaki on 12/19/10.
+//  Created by Kojiro Umezaki on 12/22/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "SimpleSynthAppDelegate.h"
+#import "AppDelegate_iPhone.h"
 
 #import "AQPlayer.h"
 
 extern AQPlayer* gAQP;
 
-@implementation SimpleSynthAppDelegate
+@implementation AppDelegate_iPhone
 
 @synthesize window;
 
@@ -76,6 +76,7 @@ extern AQPlayer* gAQP;
      Free up as much memory as possible by purging cached data objects that can be recreated (or reloaded from disk) later.
      */
 }
+
 
 - (id)init {
 	gAQP = [[AQPlayer_SimpleSynth alloc] init];

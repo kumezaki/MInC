@@ -109,17 +109,17 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void)FillAudioBuffer:(double*)buffer:(const int)num_frames
 {
-	NSLog(@"AQPlayer FillAudioBuffer %d",num_frames);
+//	NSLog(@"AQPlayer FillAudioBuffer %d",num_frames);
 }
 
 -(void)ReportMaxAmplitude:(double)max_amp
 {
-	NSLog(@"AQPlayer ReportMaxAmplitude %lf",max_amp);
+//	NSLog(@"AQPlayer ReportMaxAmplitude %lf",max_amp);
 }
 
 -(void)ReportElapsedTime:(double)elapsed_time
 {
-	NSLog(@"AQPlayer ReportElapsedTime %lf",elapsed_time);
+//	NSLog(@"AQPlayer ReportElapsedTime %lf",elapsed_time);
 }
 
 @end
@@ -146,6 +146,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 }
 
 #define SIGN(x)	(x < 0. ? -1. : x > 0. ? +1. : 0.)
+
 -(void)FillAudioBuffer:(double*)buffer:(const int)num_frames
 {
 	memset(buffer,0,num_frames*sizeof(double));	/* sets buffer to all zeros */
@@ -163,6 +164,11 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 			buffer[i] += amp * SIGN(sinf(mTheta[j] * 2 * M_PI));			/* square */
 #endif
 			mTheta[j] += mDeltaTheta[j];
+
+#if 0
+			if (j == kNumNotes - 1)
+				printf("%d%s",(SInt16)(buffer[i] * (SInt16)0x7FFF),i<num_frames-1?" ":"\n\n");
+#endif
 		}
 }
 
