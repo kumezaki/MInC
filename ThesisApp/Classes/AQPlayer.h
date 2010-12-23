@@ -27,16 +27,18 @@
 	NSString *mWaveType;
 	double mAmp;
 	double mFreq;
+	
+	int mCurrentMode;
 
 @public
 	
-	int currentMode;
-
 	Mode *mModes[kNumberModes];
 	Note *mNotes[kNumberNotes];
 	WaveFormTable *mWaveTable;
 		
 }
+@property int mCurrentMode;
+@property (nonatomic, retain) NSString *mWaveType;
 
 -(void) New;
 
@@ -49,7 +51,6 @@
 -(void) setMAmp:(double)val withNotePos:(int)note_pos;
 -(void) setMode:(int)val;
 -(void) setWaveType:(NSString *)waveType;
--(NSString *) getWaveType;
 
 
 @end

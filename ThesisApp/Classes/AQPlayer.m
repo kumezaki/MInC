@@ -51,17 +51,17 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 @implementation AQPlayer
 
+@synthesize mWaveType;
+@synthesize mCurrentMode;
 
--(void) setMode:(int)val{	
-	for (int i = 0; i < kNumberNotes; i++) mNotes[i].mFreq = [mModes[val] getNoteFreq:i];
+
+-(void) setMode:(int)val{
+	mCurrentMode = val;
+	for (int i = 0; i < kNumberNotes; i++) mNotes[i].mFreq = [mModes[mCurrentMode] getNoteFreq:i];
 }
 -(void) setWaveType:(NSString *)waveType{
 	mWaveType = waveType;
 	[mWaveTable createWaveType:mWaveType];
-}
--(NSString *) getWaveType
-{
-	return mWaveType;
 }
 
 -(void) setMAmp:(double)val withNotePos:(int)note_pos{	
@@ -81,7 +81,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	mWaveTable = [WaveFormTable new];
 	mWaveType = [NSString new];
-	[self setWaveType: @"sine wave"];
 	
 	for (int i = 0; i < kNumberNotes; i++){
 		mNotes[i] = [Note new];
@@ -101,6 +100,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 			default: break;
 		}
 	}
+	[self setWaveType: @"sine wave"];
+	[self setMode:0];
 	return self;
 }
 

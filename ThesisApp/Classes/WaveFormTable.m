@@ -47,8 +47,7 @@
 		for (int i = 0; i < kWaveformTableSize; i++)
 		{
 			double mTheta = (double)i / kWaveformTableSize;
-			if (i < (kWaveformTableSize / 2)) mTable[i] = 2 * (mTheta - floor(mTheta + 0.5));
-			else mTable[i] = -2 * (mTheta - floor(mTheta + 0.5));
+			mTable[i] = (fabs(2 * (mTheta - floor(mTheta + 0.5))) * 2 - 1.);
 		}
 	}
 }

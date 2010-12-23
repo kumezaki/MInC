@@ -53,36 +53,41 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+	//Create AQPlayer, alloc/init, and start it
 	mAQPlayer = [AQPlayer new];
 	[mAQPlayer start];
-	[mAQPlayer setMode:0];
-	[self setWaveFormLabel];
+	
+	//Turn on the accelerometer, set update interval & assign delegate
 	accelerometer = [UIAccelerometer sharedAccelerometer];
 	accelerometer.updateInterval = .1;
 	accelerometer.delegate = self;
+	
+	//Create 2nd view controller, alloc/init, assign delegate, call setAQPlayer method
+	controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
+	controller.delegate = self;
+	[controller setAQPlayer:mAQPlayer];
+	
+	//Call labeling methods
+	[self setModeLabel];
+	[self setWaveFormLabel];
+	
+	//give out the all clear
 	[super viewDidLoad];
 }
 
 
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
 {	
-	[self dismissModalViewControllerAnimated:YES];
 	[self setWaveFormLabel];
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 
 - (IBAction)showInfo:(id)sender
-{    
-	
-	FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
-	controller.delegate = self;
-	
-	[controller setAQPlayer:mAQPlayer];
-	
+{    		
 	controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 	[self presentModalViewController:controller animated:YES];
-	
-	[controller release];
+
 }
 
 
@@ -92,36 +97,32 @@
 	[accelerometer release];
 	[mAQPlayer stop];
 	[mAQPlayer release];
+	[controller release];
     [super dealloc];
-}
-
--(void) setWaveFormLabel
-{
-	NSString *waveType = [mAQPlayer getWaveType];
-	waveFormLabel.text = [NSString stringWithFormat:@"Sound: %@",waveType];
 }
 
 - (IBAction)changeMode:(int)anInt
 {	
-		if (anInt != 0 && !modeDidChange) {
+	if (anInt != 0 && !modeDidChange) {
 		
 		if (modeIndex == 0 && anInt == -1) modeIndex = 5;
 		else if (modeIndex == 5 && anInt == 1) modeIndex = 0;
 		else modeIndex += anInt;
 		
 		[mAQPlayer setMode:modeIndex];
+		[self setModeLabel];
 		modeDidChange = YES;
-		
-		switch (modeIndex){
-			case 0:	modeLabel.text = @"Mode: 1"; break;
-			case 1: modeLabel.text = @"Mode: 2"; break;
-			case 2: modeLabel.text = @"Mode: 3"; break;
-			case 3: modeLabel.text = @"Mode: 4"; break;
-			case 4: modeLabel.text = @"Mode: 5"; break;
-			case 5: modeLabel.text = @"Mode: 6"; break;
-			default: break;
-		}
 	}
+}
+
+-(IBAction)setModeLabel
+{	
+	modeLabel.text = [NSString stringWithFormat:@"Note Set: %i", mAQPlayer.mCurrentMode+1];
+}
+
+-(void) setWaveFormLabel
+{
+	waveFormLabel.text = [NSString stringWithFormat:@"Sound: %@",mAQPlayer.mWaveType];
 }
 
 -(IBAction) startSound:(UIButton *)sender

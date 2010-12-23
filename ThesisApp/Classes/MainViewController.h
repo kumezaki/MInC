@@ -22,12 +22,15 @@
 	UIAccelerometer *accelerometer;
 	
 	AQPlayer *mAQPlayer;
+	FlipsideViewController *controller;
 	
 	int modeIndex;
 	BOOL modeDidChange;
 }
 
 - (void) setWaveFormLabel;
+- (void) setModeLabel;
+
 
 - (IBAction)showInfo:(id)sender;
 - (IBAction)changeMode:(int)anInt;
