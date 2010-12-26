@@ -34,7 +34,7 @@
 
 @end
 
-#define kNumNotes	2
+#define kNumNotes	1
 @interface AQPlayer_SimpleSynth : AQPlayer {
 
 	double	mTheta[kNumNotes];

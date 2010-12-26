@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'SimpleSynth_Universal' target in the 'SimpleSynth_Universal' project
+// Prefix header for all source files of the 'SimpleSynth' target in the 'SimpleSynth' project
 //
 
 #ifdef __OBJC__

@@ -17,7 +17,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     AQPlayer *aqp = (AQPlayer *)inUserData;
 	
 	const int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
-	
+
 	double buffer[numFrames];
 	memset(buffer,0,sizeof(double)*numFrames);
 	
@@ -149,20 +149,18 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void)FillAudioBuffer:(double*)buffer:(const int)num_frames
 {
-	memset(buffer,0,num_frames*sizeof(double));	/* sets buffer to all zeros */
-
 	double amp = 1. / kNumNotes;
 
 	for (int j = 0; j < kNumNotes; j++)
 		for (int i = 0; i < num_frames; i++)
 		{
-#if 0
+#if 1
 			buffer[i] += amp * sinf(mTheta[j] * 2 * M_PI);									/* sine */
 #elif 0
 			buffer[i] += amp * 2 * (mTheta[j] - floor(mTheta[j] + 0.5));					/* sawtooth */
 #elif 0
 			buffer[i] += amp * SIGN(sinf(mTheta[j] * 2 * M_PI));							/* square */
-#elif 1
+#elif 0
 			buffer[i] += amp * (fabs(2 * (mTheta[j] - floor(mTheta[j] + 0.5))) * 2 - 1.);	/* triangle */
 #endif
 			mTheta[j] += mDeltaTheta[j];

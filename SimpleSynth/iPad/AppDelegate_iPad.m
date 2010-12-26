@@ -1,6 +1,6 @@
 //
 //  AppDelegate_iPad.m
-//  SimpleSynth_Universal
+//  SimpleSynth
 //
 //  Created by Kojiro Umezaki on 12/22/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
@@ -63,12 +63,12 @@ extern AQPlayer* gAQP;
 
 
 - (id)init {
-//	gAQP = [[AQPlayer_SimpleSynth alloc] init];
+	gAQP = [[AQPlayer_SimpleSynth alloc] init];
 	return self;
 }
 
 - (void)dealloc {
-//	[gAQP release];
+	[gAQP release];
     [window release];
     [super dealloc];
 }
