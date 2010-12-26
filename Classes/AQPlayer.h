@@ -14,7 +14,7 @@
 
 #define kNumberBuffers	3
 
-#define kNumSequences	6
+#define kNumSequences	53
 
 @interface AQPlayer : NSObject {
 
