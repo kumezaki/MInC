@@ -27,7 +27,7 @@
 -(OSStatus)	Start;
 -(OSStatus)	Stop;
 
--(void)FillAudioBuffer:(double*)buffer:(const int)num_frames;
+-(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples;
 
 -(void)ReportMaxAmplitude:(double)max_amp;
 -(void)ReportElapsedTime:(double)elapsed_time;
@@ -41,6 +41,16 @@
 	double	mDeltaTheta[kNumNotes];
 }
 
--(void)FillAudioBuffer:(double*)buffer:(const int)num_frames;
+-(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples;
+
+@end
+
+#import "SoundFile.h"
+@interface AQPlayer_SimpleSF : AQPlayer {
+	
+	SoundFile*	mSoundFile;
+}
+
+-(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples;
 
 @end

@@ -79,7 +79,7 @@ extern AQPlayer* gAQP;
 
 
 - (id)init {
-	gAQP = [[AQPlayer_SimpleSynth alloc] init];
+	gAQP = [[AQPlayer_SimpleSF alloc] init];
 	return self;
 }
 

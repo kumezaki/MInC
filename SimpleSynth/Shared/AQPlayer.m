@@ -107,9 +107,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	return result;
 }
 
--(void)FillAudioBuffer:(double*)buffer:(const int)num_frames
+-(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples
 {
-//	NSLog(@"AQPlayer FillAudioBuffer %d",num_frames);
+//	NSLog(@"AQPlayer FillAudioBuffer %d",num_samples);
 }
 
 -(void)ReportMaxAmplitude:(double)max_amp
@@ -125,6 +125,11 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 @end
 
 @implementation AQPlayer_SimpleSynth
+
+- (void)dealloc {
+	
+	[super dealloc];
+}
 
 -(id)init
 {
@@ -147,12 +152,12 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 #define SIGN(x)	(x < 0. ? -1. : x > 0. ? +1. : 0.)
 
--(void)FillAudioBuffer:(double*)buffer:(const int)num_frames
+-(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples
 {
 	double amp = 1. / kNumNotes;
 
 	for (int j = 0; j < kNumNotes; j++)
-		for (int i = 0; i < num_frames; i++)
+		for (int i = 0; i < num_samples; i++)
 		{
 #if 1
 			buffer[i] += amp * sinf(mTheta[j] * 2 * M_PI);									/* sine */
@@ -167,9 +172,34 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 #if 0
 			if (j == kNumNotes - 1)
-				printf("%d%s",(SInt16)(buffer[i] * (SInt16)0x7FFF),i<num_frames-1?" ":"\n\n");
+				printf("%d%s",(SInt16)(buffer[i] * (SInt16)0x7FFF),i<num_samples-1?" ":"\n\n");
 #endif
 		}
+}
+
+@end
+
+@implementation AQPlayer_SimpleSF
+
+- (void)dealloc {
+	
+	[mSoundFile release];
+	
+	[super dealloc];
+}
+
+-(id)init
+{
+	[super init];
+	
+	mSoundFile = [[SoundFile alloc] init];
+	
+	return self;
+}
+
+-(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples
+{
+	[mSoundFile GetSamples:buffer:num_samples];
 }
 
 @end
