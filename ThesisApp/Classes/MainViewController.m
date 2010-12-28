@@ -77,12 +77,13 @@
 		slideButton[i] = [[CLSlipperyButton alloc]initWithFrame:buttonRect];
 		[slideButton[i] setTitle:nIndex forState:0] ;
 		[slideButton[i] setHidden:NO];
-		[slideButton[i] addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventAllEvents];
+		[slideButton[i] addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
+		[slideButton[i] addTarget:self action:@selector(startSound:) forControlEvents:UIControlEventTouchDown];
+		[slideButton[i] addTarget:self action:@selector(stopSound:) forControlEvents:UIControlEventTouchUpInside];
 		[self.view addSubview:slideButton[i]];
+		
 		x+=120;
-		
-		NSLog(@"buttonArray[%i] #%i", i, [slideButton[i].titleLabel.text intValue]);
-		
+				
 		if (i == 3) {
 			x = 0;
 			y = 30;
@@ -193,6 +194,7 @@
 
 -(IBAction) startSound:(id)sender
 {	
+	NSLog(@"currentbutton %@", currentButton.titleLabel.text);
 	[mAQPlayer startNote:[currentButton.titleLabel.text intValue]];
 }
 
@@ -213,7 +215,18 @@
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{			
+{		
+	CGPoint touchPoint = [[touches anyObject] locationInView:self.view];
+	
+	for (int i = 0; i < kNumberNotes ; i++) 
+	{
+		if (CGRectContainsPoint(slideButton[i].frame, touchPoint))
+		{
+			[slideButton[i] sendActionsForControlEvents: UIControlEventTouchDown];
+			slideButton[i].highlighted=YES;
+			break;
+		}
+	}
 }
 
 -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -221,18 +234,17 @@
 	CGPoint touchPoint = [[touches anyObject] locationInView:self.view];
 	
 	if (!CGRectContainsPoint(currentButton.frame, touchPoint)) {
-		NSLog(@"currentbutton %@", currentButton.titleLabel.text);
-		[currentButton touchesEnded:touches withEvent:event];
+		[self stopSound:currentButton];
+		currentButton.highlighted=NO;
 		
 		for (int i = 0; i < kNumberNotes ; i++) 
 		{
-			NSLog(@"buttonArray[%i] #%@", i, slideButton[i].titleLabel.text);
-
 			if (CGRectContainsPoint(slideButton[i].frame, touchPoint))
 			{
-			currentButton = slideButton[i];
-			[currentButton touchesBegan:touches withEvent:event];
-			break;
+				currentButton = slideButton[i];
+				[self startSound:currentButton];
+				currentButton.highlighted=YES;
+				break;
 			}
 		}
 	}
@@ -240,6 +252,8 @@
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {		
+	[currentButton sendActionsForControlEvents: UIControlEventTouchUpInside];
+	currentButton.highlighted=NO;
 }
 
 

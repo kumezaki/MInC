@@ -19,9 +19,6 @@
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	NSLog(@"touches");
-	[self sendActionsForControlEvents: UIControlEventTouchDown];
-	self.highlighted=YES;
 	[self.nextResponder touchesBegan:touches withEvent:event];
 }
 
@@ -32,8 +29,6 @@
 
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	[self sendActionsForControlEvents: UIControlEventTouchUpInside];
-	self.highlighted=NO;
 	[self.nextResponder touchesEnded:touches withEvent:event];
 }
 
