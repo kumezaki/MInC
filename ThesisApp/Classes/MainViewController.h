@@ -7,34 +7,38 @@
 //
 
 #import "FlipsideViewController.h"
-
 #import "AQPlayer.h"
+#import "CLSlipperyButton.h"
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIAccelerometerDelegate>
 {
 	IBOutlet UILabel *waveFormLabel;
 	IBOutlet UILabel *modeLabel;
-	IBOutlet UILabel *accelDataX;
-	IBOutlet UILabel *accelDataY;
-	IBOutlet UILabel *accelDataZ;
-	
+		
 	UIStatusBarStyle oldStatusBarStyle;
 	UIAccelerometer *accelerometer;
 	
+	CLSlipperyButton *buttonArray[kNumberNotes];
+	UIButton *currentButton;
+	
 	AQPlayer *mAQPlayer;
 	FlipsideViewController *controller;
-	
+		
 	int modeIndex;
 	BOOL modeDidChange;
 }
+@property(retain) IBOutlet UILabel *waveFormLabel;
+@property(retain) IBOutlet UILabel *modeLabel;
+@property(retain) IBOutlet AQPlayer *mAQPlayer;
 
-- (void) setWaveFormLabel;
-- (void) setModeLabel;
 
 
 - (IBAction)showInfo:(id)sender;
-- (IBAction)changeMode:(int)anInt;
 
+- (void)changeMode:(int)anInt;
+- (IBAction)buttonPressed: (id)sender;
+- (IBAction)setModeLabel;
+- (IBAction)setWaveFormLabel;
 - (IBAction)startSound:(UIButton *)sender;
 - (IBAction)stopSound:(UIButton *)sender;
 

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "Note.h"
 
 #define kNumberModes 6

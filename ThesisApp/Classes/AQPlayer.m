@@ -10,7 +10,6 @@
 #import "Content.h"
 
 
-
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
 {	
 	
@@ -22,11 +21,11 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	// KU: initialize all sampleBuffer elements to 0. here.
 	for (int i = 0; i < numFrames; i++) { //CL: Like this?
-		sampleBuffer[i]=0;
+		sampleBuffer[i] = 0;
 	}
 		
 	for (int i = 0; i < kNumberNotes; i++) {
-		[aqp->mNotes[i] getSamples:sampleBuffer:numFrames];
+		[aqp->mNotes[i] FillAudioBuffer:sampleBuffer :numFrames];
 	}
 	
 	// KU: now that the buffer is filled with samples with all notes, apply limiter and scale to 16-bit linear PCM
@@ -55,22 +54,25 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 @synthesize mCurrentMode;
 
 
--(void) setMode:(int)val{
+-(void) setMode:(int)val
+{
 	mCurrentMode = val;
 	for (int i = 0; i < kNumberNotes; i++) mNotes[i].mFreq = [mModes[mCurrentMode] getNoteFreq:i];
 }
--(void) setWaveType:(NSString *)waveType{
+
+-(void) setWaveType:(NSString *)waveType
+{
 	mWaveType = waveType;
 	[mWaveTable createWaveType:mWaveType];
 }
 
--(void) setMAmp:(double)val withNotePos:(int)note_pos{	
-	mNotes[note_pos].mAmp=val;
-}
--(void) startNote:(int)note_pos{	
+-(void) startNote:(int)note_pos
+{	
 	[mNotes[note_pos] on];
 }
--(void) stopNote:(int)note_pos{	
+
+-(void) stopNote:(int)note_pos
+{	
 	[mNotes[note_pos] off];
 }
 
@@ -116,10 +118,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 }
 
 
--(void) New{
-		
-	
-	
+-(void) New
+{
 	mDataFormat.mSampleRate = kSR;
 	mDataFormat.mFormatID = kAudioFormatLinearPCM;
 	mDataFormat.mFormatFlags = kAudioFormatFlagIsSignedInteger;
@@ -142,16 +142,15 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	}
 }
 
-
 -(OSStatus) start;
 { 
-	printf("start\n");
 	OSStatus result = noErr;
-	
+    
+	// if we have no queue, create one now
 	if (mQueue == nil)
 		[self New];
 	
-	// from MUS147: prime the queue with some data before starting
+	// prime the queue with some data before starting
 	for (int i = 0; i < kNumberBuffers; ++i)
 		AQBufferCallback(self, mQueue, mBuffers[i]);
 	
@@ -163,8 +162,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(OSStatus) stop;
 {
-		
-	printf("stop\n");
 	OSStatus result = noErr;
 	
 	result = AudioQueueStop(mQueue, true);

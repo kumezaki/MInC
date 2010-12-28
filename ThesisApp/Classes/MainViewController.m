@@ -11,6 +11,9 @@
 
 @implementation MainViewController
 
+@synthesize waveFormLabel;
+@synthesize modeLabel;
+@synthesize mAQPlayer;
 
 // the designated initializer. Override to perform setup that is required before the view is loaded.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -44,44 +47,54 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // return YES for supported orientations
-    return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
-
-
-
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
-	//Create AQPlayer, alloc/init, and start it
-	mAQPlayer = [AQPlayer new];
+//Create AQPlayer, alloc/init, and start it
+	mAQPlayer = [[AQPlayer alloc]init];
 	[mAQPlayer start];
 	
-	//Turn on the accelerometer, set update interval & assign delegate
+//Turn on the accelerometer, set update interval & assign delegate
 	accelerometer = [UIAccelerometer sharedAccelerometer];
-	accelerometer.updateInterval = .1;
+	accelerometer.updateInterval = .09;
 	accelerometer.delegate = self;
 	
-	//Create 2nd view controller, alloc/init, assign delegate, call setAQPlayer method
+//Create 2nd view controller, alloc/init, assign delegate, call setAQPlayer method
 	controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
 	controller.delegate = self;
 	[controller setAQPlayer:mAQPlayer];
 	
-	//Call labeling methods
+//Create *button array??? How do I tie this to the buttons in IB?
+	int x = 0;
+	int y = 175;
+	
+	for (int i = 0; i < kNumberNotes; i++) {
+		CGRect frame = CGRectMake(x, y, 120, 145);
+		buttonArray[i] = [[CLSlipperyButton alloc]initWithFrame:frame];
+		x +=120;
+		if (i == 3) {
+			x = 0;
+			y = 30;
+		}
+		else if (i > 3) y = 30;
+	}
+	
+		
+//Call labeling methods
 	[self setModeLabel];
 	[self setWaveFormLabel];
 	
-	//give out the all clear
 	[super viewDidLoad];
 }
-
 
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
 {	
 	[self setWaveFormLabel];
 	[self dismissModalViewControllerAnimated:YES];
 }
-
 
 - (IBAction)showInfo:(id)sender
 {    		
@@ -90,7 +103,6 @@
 
 }
 
-
 - (void)dealloc
 {
 	accelerometer.delegate = nil;
@@ -98,10 +110,18 @@
 	[mAQPlayer stop];
 	[mAQPlayer release];
 	[controller release];
+	for (int i = 0; i < kNumberNotes; i++) [buttonArray[i] release];
+	self.waveFormLabel=nil;
+	self.modeLabel=nil;
     [super dealloc];
 }
 
-- (IBAction)changeMode:(int)anInt
+- (IBAction)buttonPressed: (id)sender
+{
+	currentButton = sender;
+}
+
+- (void)changeMode:(int)anInt
 {	
 	if (anInt != 0 && !modeDidChange) {
 		
@@ -120,7 +140,7 @@
 	modeLabel.text = [NSString stringWithFormat:@"Note Set: %i", mAQPlayer.mCurrentMode+1];
 }
 
--(void) setWaveFormLabel
+-(IBAction) setWaveFormLabel
 {
 	waveFormLabel.text = [NSString stringWithFormat:@"Sound: %@",mAQPlayer.mWaveType];
 }
@@ -138,17 +158,29 @@
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
 	double yAxis = acceleration.y;
-	
-	accelDataY.text = [NSString stringWithFormat:@"%f", yAxis];
-
-	//if (yAxis > -0.5 && yAxis < 0.5) modeDidChange = NO;
-
-	int k = yAxis < -0.55 ? 1 : yAxis > 0.55 ? -1 : 0;
-	if (k == 0) modeDidChange = NO;
-		
+	if (yAxis > -0.15 && yAxis < 0.15) modeDidChange = NO;
+	int k = yAxis < -0.3 ? 1 : yAxis > 0.3 ? -1 : 0;
+	//if (k == 0) modeDidChange = NO;		
 
 	[self changeMode:k];
+}
 
+-(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{	
+	CGPoint touchPoint = [[touches anyObject] locationInView:self.view];
+	
+	if (!CGRectContainsPoint(currentButton.frame, touchPoint)) {
+		NSLog(@"currentbutton %@", currentButton.titleLabel.text);
+
+		[currentButton touchesEnded:touches withEvent:event];
+		for (int i = 0; i < kNumberNotes ; i++) 
+		{
+			NSLog(@"buttonArray[%i] #%@", i, buttonArray[i].titleLabel.text);
+
+			if (CGRectContainsPoint(buttonArray[i].frame, touchPoint)) currentButton = buttonArray[i];
+			[currentButton touchesBegan:touches withEvent:event];
+		}
+	}
 }
 
 @end

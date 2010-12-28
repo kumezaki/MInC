@@ -8,14 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
-
 #import "WaveFormTable.h"
 #import "Note.h"
 #import "Mode.h"
 
 #define kNumberBuffers 3
 
-@interface AQPlayer : NSObject
+@interface AQPlayer : NSObject 
 {
 
 	AudioStreamBasicDescription		mDataFormat;
@@ -24,19 +23,19 @@
 	
 
 @private
-	NSString *mWaveType;
-	double mAmp;
-	double mFreq;
 	
+	NSString *mWaveType;
+	
+	double mFreq;
 	int mCurrentMode;
 
 @public
 	
 	Mode *mModes[kNumberModes];
 	Note *mNotes[kNumberNotes];
-	WaveFormTable *mWaveTable;
-		
+	WaveFormTable *mWaveTable;		
 }
+
 @property int mCurrentMode;
 @property (nonatomic, retain) NSString *mWaveType;
 
@@ -48,7 +47,6 @@
 -(void) startNote:(int)note_pos;
 -(void) stopNote:(int)note_pos;
 
--(void) setMAmp:(double)val withNotePos:(int)note_pos;
 -(void) setMode:(int)val;
 -(void) setWaveType:(NSString *)waveType;
 

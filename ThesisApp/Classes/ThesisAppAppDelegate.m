@@ -24,7 +24,7 @@
     // Override point for customization after application launch.  
 
     // Add the main view controller's view to the window and display.
-    [window addSubview:mainViewController.view];
+    [window addSubview:mainViewController.view];	
     [window makeKeyAndVisible];
 
     return YES;

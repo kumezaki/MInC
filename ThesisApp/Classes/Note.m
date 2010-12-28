@@ -8,50 +8,40 @@
 
 #import "Note.h"
 
+
 @implementation Note
-
-@synthesize mFreq;
--(void) setMFreq:(double)val;{	
-	mFreq = val;					
-	mDeltaTheta = mFreq / kSR;	
-}
-
-@synthesize mAmp;
-@synthesize mTheta;
 
 +(double) mtof:(double)midiNote
 {
 	return 440. * pow(2., (midiNote - 69) / 12.);
 }
 
+@synthesize mAmp;
+@synthesize mTheta;
+@synthesize mFreq;
+-(void) setMFreq:(double)val;{	
+	mFreq = val;					
+	mDeltaTheta = mFreq / kSR;	
+}
+
+
 -(id)init
 {
 	mAmp = MAX_AMP;
 	mEnv = [[Envelope alloc] init];
-
 	return self;
 }
 
 -(void)dealloc
 {
-	[mEnv release];
-	
+	[mEnv release];	
 	[super dealloc];
 }
 
--(double)getSample
-{
-	double sample = 0.;
-	sample = mAmp * [mWaveTable get:mTheta];
-	mTheta += mDeltaTheta;
-	
-	return sample;
-}
-
--(void)getSamples:(double *)bufferPointer:(const int)numFrames
+-(void)FillAudioBuffer:(double*)bufferPointer:(const int)numFrames
 {
 	for (int i = 0; i < numFrames; i++) {
-		bufferPointer[i] += mAmp * [mWaveTable get:mTheta] * [mEnv get];//CL: trying to read the table from an offset Theta position
+		bufferPointer[i] += mAmp * [mWaveTable get:mTheta] * [mEnv get];
 		mTheta += mDeltaTheta;
 	}
 }

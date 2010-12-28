@@ -13,7 +13,6 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		280E754D0DD40C5E005A515E /* FlipsideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280E754A0DD40C5E005A515E /* FlipsideView.xib */; };
 		280E754E0DD40C5E005A515E /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280E754B0DD40C5E005A515E /* MainView.xib */; };
-		280E754F0DD40C5E005A515E /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280E754C0DD40C5E005A515E /* MainWindow.xib */; };
 		288765590DF743DE002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765580DF743DE002DB57D /* CoreGraphics.framework */; };
 		289233AE0DB2D0DB0083E9F9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289233A90DB2D0DB0083E9F9 /* MainViewController.m */; };
 		289233B00DB2D0DB0083E9F9 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289233AD0DB2D0DB0083E9F9 /* FlipsideViewController.m */; };
@@ -21,6 +20,8 @@
 		B4653FDE127E66CC00DA1F26 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4653FDD127E66CC00DA1F26 /* AudioToolbox.framework */; };
 		B46C41FE12860403002E1B34 /* WaveFormTable.m in Sources */ = {isa = PBXBuildFile; fileRef = B46C41FB12860403002E1B34 /* WaveFormTable.m */; };
 		B46C420312860417002E1B34 /* AQPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B46C420012860417002E1B34 /* AQPlayer.m */; };
+		B4C03E1012C5A2780037E3B5 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280E754C0DD40C5E005A515E /* MainWindow.xib */; };
+		B4C1234112C945570017918B /* CLSlipperyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C1234012C945570017918B /* CLSlipperyButton.m */; };
 		B4C15B3612BC301E00A56C77 /* aqua1.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C15B2E12BC301E00A56C77 /* aqua1.png */; };
 		B4C15B3712BC301E00A56C77 /* blue1.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C15B2F12BC301E00A56C77 /* blue1.png */; };
 		B4C15B3812BC301E00A56C77 /* yellow1.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C15B3012BC301E00A56C77 /* yellow1.png */; };
@@ -67,6 +68,8 @@
 		B46C41FB12860403002E1B34 /* WaveFormTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaveFormTable.m; path = Classes/WaveFormTable.m; sourceTree = "<group>"; };
 		B46C41FF12860417002E1B34 /* AQPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AQPlayer.h; path = Classes/AQPlayer.h; sourceTree = "<group>"; };
 		B46C420012860417002E1B34 /* AQPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AQPlayer.m; path = Classes/AQPlayer.m; sourceTree = "<group>"; };
+		B4C1233F12C945570017918B /* CLSlipperyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLSlipperyButton.h; path = Classes/CLSlipperyButton.h; sourceTree = "<group>"; };
+		B4C1234012C945570017918B /* CLSlipperyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLSlipperyButton.m; path = Classes/CLSlipperyButton.m; sourceTree = "<group>"; };
 		B4C15B2E12BC301E00A56C77 /* aqua1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aqua1.png; sourceTree = "<group>"; };
 		B4C15B2F12BC301E00A56C77 /* blue1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue1.png; sourceTree = "<group>"; };
 		B4C15B3012BC301E00A56C77 /* yellow1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow1.png; sourceTree = "<group>"; };
@@ -142,14 +145,16 @@
 				289233A90DB2D0DB0083E9F9 /* MainViewController.m */,
 				B46C41FF12860417002E1B34 /* AQPlayer.h */,
 				B46C420012860417002E1B34 /* AQPlayer.m */,
-				B46C41FA12860403002E1B34 /* WaveFormTable.h */,
-				B46C41FB12860403002E1B34 /* WaveFormTable.m */,
 				B43EB796128F216D000FD8EE /* Note.h */,
 				B43EB797128F216D000FD8EE /* Note.m */,
-				B4F6F5921291FF05008BB207 /* Envelope.h */,
-				B4F6F5931291FF05008BB207 /* Envelope.m */,
 				B4F6F5971291FF30008BB207 /* Mode.h */,
 				B4F6F5981291FF30008BB207 /* Mode.m */,
+				B46C41FA12860403002E1B34 /* WaveFormTable.h */,
+				B46C41FB12860403002E1B34 /* WaveFormTable.m */,
+				B4F6F5921291FF05008BB207 /* Envelope.h */,
+				B4F6F5931291FF05008BB207 /* Envelope.m */,
+				B4C1233F12C945570017918B /* CLSlipperyButton.h */,
+				B4C1234012C945570017918B /* CLSlipperyButton.m */,
 			);
 			name = "Main View";
 			sourceTree = "<group>";
@@ -277,7 +282,6 @@
 			files = (
 				280E754D0DD40C5E005A515E /* FlipsideView.xib in Resources */,
 				280E754E0DD40C5E005A515E /* MainView.xib in Resources */,
-				280E754F0DD40C5E005A515E /* MainWindow.xib in Resources */,
 				B4C15B3612BC301E00A56C77 /* aqua1.png in Resources */,
 				B4C15B3712BC301E00A56C77 /* blue1.png in Resources */,
 				B4C15B3812BC301E00A56C77 /* yellow1.png in Resources */,
@@ -296,6 +300,7 @@
 				B4C15B5D12BC470900A56C77 /* red2.png in Resources */,
 				B4C15B6512BC529600A56C77 /* Default.png in Resources */,
 				B4C15B6912BC533600A56C77 /* Icon.png in Resources */,
+				B4C03E1012C5A2780037E3B5 /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +320,7 @@
 				B43EB798128F216D000FD8EE /* Note.m in Sources */,
 				B4F6F5941291FF05008BB207 /* Envelope.m in Sources */,
 				B4F6F5991291FF30008BB207 /* Mode.m in Sources */,
+				B4C1234112C945570017918B /* CLSlipperyButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
