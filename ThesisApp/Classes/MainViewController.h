@@ -14,12 +14,12 @@
 {
 	IBOutlet UILabel *waveFormLabel;
 	IBOutlet UILabel *modeLabel;
-		
+
 	UIStatusBarStyle oldStatusBarStyle;
 	UIAccelerometer *accelerometer;
 	
-	CLSlipperyButton *buttonArray[kNumberNotes];
-	UIButton *currentButton;
+	CLSlipperyButton *currentButton;
+	CLSlipperyButton *slideButton[kNumberNotes];
 	
 	AQPlayer *mAQPlayer;
 	FlipsideViewController *controller;
@@ -33,10 +33,11 @@
 
 
 
+
 - (IBAction)showInfo:(id)sender;
 
 - (void)changeMode:(int)anInt;
-- (IBAction)buttonPressed: (id)sender;
+- (IBAction)buttonPressed: (CLSlipperyButton *)sender;
 - (IBAction)setModeLabel;
 - (IBAction)setWaveFormLabel;
 - (IBAction)startSound:(UIButton *)sender;

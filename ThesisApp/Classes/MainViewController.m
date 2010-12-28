@@ -73,7 +73,7 @@
 	
 	for (int i = 0; i < kNumberNotes; i++) {
 		CGRect frame = CGRectMake(x, y, 120, 145);
-		buttonArray[i] = [[CLSlipperyButton alloc]initWithFrame:frame];
+		slideButton[i] = [[CLSlipperyButton alloc]initWithFrame:frame];
 		x +=120;
 		if (i == 3) {
 			x = 0;
@@ -81,7 +81,6 @@
 		}
 		else if (i > 3) y = 30;
 	}
-	
 		
 //Call labeling methods
 	[self setModeLabel];
@@ -110,15 +109,17 @@
 	[mAQPlayer stop];
 	[mAQPlayer release];
 	[controller release];
-	for (int i = 0; i < kNumberNotes; i++) [buttonArray[i] release];
+	for (int i = 0; i < kNumberNotes; i++) [slideButton[i] release];
 	self.waveFormLabel=nil;
 	self.modeLabel=nil;
     [super dealloc];
 }
 
-- (IBAction)buttonPressed: (id)sender
+- (IBAction)buttonPressed: (CLSlipperyButton *)sender
 {
 	currentButton = sender;
+	slideButton[[currentButton.titleLabel.text intValue]-1]=currentButton;
+
 }
 
 - (void)changeMode:(int)anInt
@@ -147,13 +148,12 @@
 
 -(IBAction) startSound:(UIButton *)sender
 {			
-	[mAQPlayer startNote:([sender.titleLabel.text intValue]-1)];
 }
 
 -(IBAction) stopSound:(UIButton *)sender
 {		
-	[mAQPlayer stopNote:([sender.titleLabel.text intValue]-1)];
 }
+
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
@@ -165,22 +165,35 @@
 	[self changeMode:k];
 }
 
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{			
+	[mAQPlayer startNote:([currentButton.titleLabel.text intValue]-1)];
+}
 -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {	
 	CGPoint touchPoint = [[touches anyObject] locationInView:self.view];
 	
 	if (!CGRectContainsPoint(currentButton.frame, touchPoint)) {
 		NSLog(@"currentbutton %@", currentButton.titleLabel.text);
-
 		[currentButton touchesEnded:touches withEvent:event];
+		
 		for (int i = 0; i < kNumberNotes ; i++) 
 		{
-			NSLog(@"buttonArray[%i] #%@", i, buttonArray[i].titleLabel.text);
+			NSLog(@"buttonArray[%i] #%@", i, slideButton[i].titleLabel.text);
 
-			if (CGRectContainsPoint(buttonArray[i].frame, touchPoint)) currentButton = buttonArray[i];
+			if (CGRectContainsPoint(slideButton[i].frame, touchPoint))
+			{
+			currentButton = slideButton[i];
 			[currentButton touchesBegan:touches withEvent:event];
+			break;
+			}
 		}
 	}
 }
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{		
+	[mAQPlayer stopNote:([currentButton.titleLabel.text intValue]-1)];
+}
+
 
 @end
