@@ -23,7 +23,7 @@ extern AQPlayer *gAQP;
 		mFreq = mFreq_Default;
 		mFreq_Delta = 0.;
 		
-		mX = 0.5;
+		mX = 0.0;
 		
 		mTouchX_Start = -1.;
 		mTouchY_Start = -1.;
@@ -99,11 +99,10 @@ extern AQPlayer *gAQP;
 	if (mFreq_Delta < 0. && mFreq < mFreq_Default) { mFreq = mFreq_Default; mFreq_Delta = 0.; }
 	if (mFreq_Delta > 0. && mFreq > mFreq_Default) { mFreq = mFreq_Default; mFreq_Delta = 0.; }
 
-	[gAQP SetSpeed:mSFPos:mFreq/mFreq_Default];
+	/* should find a way to eliminate type casting for these */
+	[(AQPlayer_SimpleSF*)gAQP SetSpeed:mSFPos:mFreq/mFreq_Default];
+	mX = [(AQPlayer_SimpleSF*)gAQP GetSFPos:mSFPos];
 	
-	mX += mFreq / 30.;
-	mX -= mX > 1. ? 1. : 0.;
-
 	[self setNeedsDisplay];
 
 	[NSTimer scheduledTimerWithTimeInterval:1./30. target:self selector:@selector(UpdatePosition) userInfo:nil repeats:NO];

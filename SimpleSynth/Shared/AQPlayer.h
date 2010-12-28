@@ -55,6 +55,9 @@
 }
 
 -(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples;
+
 -(void)SetSpeed:(UInt16)sf_pos:(Float64)speed;
+
+-(Float64)GetSFPos:(UInt16)sf_pos;
 
 @end

@@ -24,9 +24,10 @@
 	
 	Float64			mPos;
 	
-	UInt32			mNumFileSamples;
+	UInt64			mNumFileSamples;
 }
 
 -(void) GetSamples:(double*)buffer:(UInt32)num_buf_samples:(Float64)speed;
+-(double) GetCurPos;
 
 @end

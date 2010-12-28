@@ -14,15 +14,27 @@
 {
 	[super init];
 	
+	mPos = 0.;
+	
 	CFURLRef mSoundFileURLRef = CFBundleCopyResourceURL(CFBundleGetMainBundle(),CFSTR(kFileName),CFSTR(kFileExtension),NULL);
 	
 	OSStatus result = noErr;
 	result = AudioFileOpenURL(mSoundFileURLRef,kAudioFileReadPermission,0,&mFileID);
-	NSLog(@"AudioFileOpenURL exception %ld",result);
+	if (result != noErr)
+		NSLog(@"AudioFileOpenURL exception %ld",result);
 	
-	mPos = 0.;
+	UInt32 outDataSize = 0;
+	UInt32 isWritable = 0;
+	result = AudioFileGetPropertyInfo(mFileID,kAudioFilePropertyAudioDataPacketCount,&outDataSize,&isWritable);
+	NSLog(@"%ld %ld %ld",result,outDataSize,isWritable);
+
 	
-	mNumFileSamples = 0;
+	UInt32 ioDataSize = 8;
+	UInt64 outPropertyType = 0;
+	result = AudioFileGetProperty(mFileID,kAudioFilePropertyAudioDataPacketCount,&ioDataSize,&outPropertyType);
+	NSLog(@"%ld %ld %ld",result,ioDataSize,outPropertyType);
+
+	mNumFileSamples = outPropertyType;
 	
 	return self;
 }
@@ -78,6 +90,11 @@
 	}
 	
 	mPos = f1 + (file_buf_pos - 1);
+}
+
+-(double) GetCurPos
+{
+	return mPos / mNumFileSamples;
 }
 
 @end

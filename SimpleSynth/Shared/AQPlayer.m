@@ -220,4 +220,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		NSLog(@"SetSpeed sf_pos out of range");
 }
 
+-(Float64)GetSFPos:(UInt16)sf_pos
+{
+	return [mSoundFile[sf_pos] GetCurPos];
+}
+
 @end
