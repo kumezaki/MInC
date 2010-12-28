@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TouchView.h"
+
+#define kNumViews	4
+
 @interface AppDelegate_iPhone : NSObject <UIApplicationDelegate> {
     UIWindow *window;
+	TouchView*	mView[kNumViews];
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

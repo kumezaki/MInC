@@ -46,13 +46,15 @@
 @end
 
 #import "SoundFile.h"
+
+#define kNumSFs		4
 @interface AQPlayer_SimpleSF : AQPlayer {
 	
-	SoundFile*	mSoundFile;
-	Float64		mSpeed;
+	SoundFile*	mSoundFile[kNumSFs];
+	Float64		mSpeed[kNumSFs];
 }
 
 -(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples;
--(void)SetSpeed:(Float64)speed;
+-(void)SetSpeed:(UInt16)sf_pos:(Float64)speed;
 
 @end

@@ -26,6 +26,16 @@ extern AQPlayer* gAQP;
     
     [self.window makeKeyAndVisible];
     
+	for (int i = 0; i < kNumViews; i++)
+	{
+		CGRect viewRect = CGRectMake(10,30+(i*110),300,100);
+		mView[i] = [[TouchView alloc] initWithFrame:viewRect];
+		[mView[i] setBackgroundColor:[UIColor darkGrayColor]];
+		[mView[i] setHidden:NO];
+		[mView[i] SetSoundFilePos:i];
+		[window addSubview:mView[i]];
+	}
+
     return YES;
 }
 

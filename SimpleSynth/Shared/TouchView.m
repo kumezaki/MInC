@@ -15,25 +15,22 @@ extern AQPlayer *gAQP;
 @implementation TouchView
 
 
-- (void)awakeFromNib {
-
-	mFreq_Default = 0.5;
-	mFreq = mFreq_Default;
-	mFreq_Delta = 0.;
-
-	mX = 0.5;
-
-	mTouchX_Start = -1.;
-	mTouchY_Start = -1.;
-
-	[self UpdatePosition];
-}
-	
 - (id)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code.
+		mFreq_Default = 0.5;
+		mFreq = mFreq_Default;
+		mFreq_Delta = 0.;
+		
+		mX = 0.5;
+		
+		mTouchX_Start = -1.;
+		mTouchY_Start = -1.;
+		
+		mSFPos = 0;
+		
+		[self UpdatePosition];
     }
     return self;
 }
@@ -102,7 +99,7 @@ extern AQPlayer *gAQP;
 	if (mFreq_Delta < 0. && mFreq < mFreq_Default) { mFreq = mFreq_Default; mFreq_Delta = 0.; }
 	if (mFreq_Delta > 0. && mFreq > mFreq_Default) { mFreq = mFreq_Default; mFreq_Delta = 0.; }
 
-	[gAQP SetSpeed:mFreq/mFreq_Default];
+	[gAQP SetSpeed:mSFPos:mFreq/mFreq_Default];
 	
 	mX += mFreq / 30.;
 	mX -= mX > 1. ? 1. : 0.;
@@ -110,6 +107,11 @@ extern AQPlayer *gAQP;
 	[self setNeedsDisplay];
 
 	[NSTimer scheduledTimerWithTimeInterval:1./30. target:self selector:@selector(UpdatePosition) userInfo:nil repeats:NO];
+}
+
+-(void)SetSoundFilePos:(UInt16)pos
+{
+	mSFPos = pos;
 }
 
 @end

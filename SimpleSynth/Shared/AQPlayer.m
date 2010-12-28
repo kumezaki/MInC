@@ -183,7 +183,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 - (void)dealloc {
 	
-	[mSoundFile release];
+	for (int i = 0; i < kNumSFs; i++)
+		[mSoundFile[i] release];
 	
 	[super dealloc];
 }
@@ -192,20 +193,31 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	[super init];
 	
-	mSoundFile = [[SoundFile alloc] init];
+	for (int i = 0; i < kNumSFs; i++)
+	{
+		mSoundFile[i] = [[SoundFile alloc] init];
+		mSpeed[i] = 1.0;
+	}
 	
 	return self;
 }
 
 -(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples
 {
-	if (mSpeed > 0.)
-		[mSoundFile GetSamples:buffer:num_samples:mSpeed];
+	for (int i = 0; i < kNumSFs; i++)
+		if (mSpeed[i] > 0.)
+			[mSoundFile[i] GetSamples:buffer:num_samples:mSpeed[i]];
+
+	for (int i = 0; i < num_samples; i++)
+		buffer[i] *= 1. / kNumSFs;
 }
 
--(void)SetSpeed:(Float64)speed
+-(void)SetSpeed:(UInt16)sf_pos:(Float64)speed
 {
-	mSpeed = speed;
+	if (sf_pos < kNumSFs)
+		mSpeed[sf_pos] = speed;
+	else
+		NSLog(@"SetSpeed sf_pos out of range");
 }
 
 @end

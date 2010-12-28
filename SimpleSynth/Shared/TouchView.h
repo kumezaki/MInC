@@ -10,7 +10,7 @@
 
 
 @interface TouchView : UIView {
-	
+
 	Float64 mFreq_Default;
 	Float64 mFreq;
 	Float64 mFreq_Delta;
@@ -20,8 +20,11 @@
 	Float64 mTouchX_Start;
 	Float64 mTouchY_Start;
 	
+	UInt16	mSFPos;
 }
 
 -(void)UpdatePosition;
+
+-(void)SetSoundFilePos:(UInt16)pos;
 
 @end

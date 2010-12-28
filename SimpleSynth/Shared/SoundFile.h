@@ -11,6 +11,9 @@
 
 #define kMaxIOBufferSamples	1024
 
+#define kFileName		"audacity"
+#define kFileExtension	"aif"
+
 @interface SoundFile : NSObject {
 
 	AudioFileID		mFileID;
