@@ -15,6 +15,7 @@
 @interface AppDelegate_iPhone : NSObject <UIApplicationDelegate> {
     UIWindow *window;
 	TouchView*	mView[kNumViews];
+	UIButton*	mButtons[kNumViews];
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

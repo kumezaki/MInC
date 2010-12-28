@@ -28,12 +28,18 @@ extern AQPlayer* gAQP;
     
 	for (int i = 0; i < kNumViews; i++)
 	{
-		CGRect viewRect = CGRectMake(10,30+(i*110),300,100);
+		CGRect viewRect = CGRectMake(10+50,30+(i*110),300-50,100);
 		mView[i] = [[TouchView alloc] initWithFrame:viewRect];
 		[mView[i] setBackgroundColor:[UIColor darkGrayColor]];
 		[mView[i] setHidden:NO];
-		[mView[i] SetSoundFilePos:i];
 		[window addSubview:mView[i]];
+		[mView[i] SetSoundFilePos:i];
+		
+		CGRect buttonRect = CGRectMake(10,30+(i*110),40,100);
+		mButtons[i] = [UIButton buttonWithType:UIButtonTypeRoundedRect]; 
+		mButtons[i].frame = buttonRect;
+		[mButtons[i] setHidden:NO];
+		[window addSubview:mButtons[i]];
 	}
 
     return YES;
@@ -94,6 +100,13 @@ extern AQPlayer* gAQP;
 }
 
 - (void)dealloc {
+
+	for (int i = 0; i < kNumViews; i++)
+	{
+		[mView[i] release];
+		[mButtons[i] release];
+	}
+
 	[gAQP release];
     [window release];
     [super dealloc];
