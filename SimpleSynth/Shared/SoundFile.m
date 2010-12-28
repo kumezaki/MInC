@@ -18,9 +18,11 @@
 	
 	OSStatus result = noErr;
 	result = AudioFileOpenURL(mSoundFileURLRef,kAudioFileReadPermission,0,&mFileID);
-	printf("AudioFileOpenURL %ld\n",result);
+	NSLog(@"AudioFileOpenURL exception %ld",result);
 	
-	mOutBufferPos = 0;
+	mPos = 0.;
+	
+	mNumFileSamples = 0;
 	
 	return self;
 }
@@ -29,42 +31,45 @@
 {
 	OSStatus result = noErr;
 	result = AudioFileClose(mFileID);
-	printf("AudioFileClose %ld\n",result);
+	NSLog(@"AudioFileClose %ld",result);
 	
 	[super dealloc];
 }
 
--(void) GetSamples:(double*)buffer:(UInt32)num_buf_samples;
+#define FLOAT_OFFSET(f) (f - floor(f))
+
+-(void) GetSamples:(double*)buffer:(UInt32)num_buf_samples:(Float64)speed
 {
-	UInt32 numSamplesRead = 0;
-
-	while (numSamplesRead < num_buf_samples)
+	Float64 f_num_read_samples = num_buf_samples * speed;
+	UInt32 i_num_read_samples = (UInt32)f_num_read_samples + 1;
+	
+	Float64 f0 = FLOAT_OFFSET(mPos);	
+	Float64 f1 = FLOAT_OFFSET(mPos + f_num_read_samples);
+	
+	UInt32 file_buf_pos = (UInt32)mPos;
+	UInt32 read_buf_pos = 0;
+	while (read_buf_pos < i_num_read_samples)
 	{
-		SInt64 inStartingPacket = mOutBufferPos;
-
-		UInt32 ioNumPackets = num_buf_samples - numSamplesRead;
-		
+		UInt32 ioNumPackets = i_num_read_samples - read_buf_pos;
+		SInt64 inStartingPacket = file_buf_pos;
 		UInt32 outNumBytes = 0;
-
-		OSStatus result = AudioFileReadPackets(mFileID,NO,&outNumBytes,NULL,inStartingPacket,&ioNumPackets,mOutBuffer);
+		
+		OSStatus result = AudioFileReadPackets(mFileID,NO,&outNumBytes,NULL,inStartingPacket,&ioNumPackets,&mBuffer[read_buf_pos]);
 		if (result != noErr)
-			NSLog(@"AudioFileReadPackets exception %ld",result);
+			NSLog(@"AudioFileReadPackets exception %ld speed:%lf num_buf_samples:%ld ioNumPackets:%ld",result,speed,num_buf_samples,ioNumPackets);
 
-		UInt32 outNumSamples = outNumBytes / sizeof(SInt16);
-
-		numSamplesRead += outNumSamples;
-
-		if (outNumSamples == num_buf_samples)
-		{
-			mOutBufferPos += numSamplesRead;
-			break;
-		}
-
-		mOutBufferPos = 0;
+		read_buf_pos += ioNumPackets;
+		
+		if (read_buf_pos < i_num_read_samples)
+			file_buf_pos = 0;
+		else
+			file_buf_pos += ioNumPackets;
 	}
-
-	for (int i = 0; i < num_buf_samples; i++)
-		buffer[i] = (double)CFSwapInt16BigToHost(mOutBuffer[i]) / (SInt16)0x7FFF;
+	
+	for (int buf_pos = 0; buf_pos < num_buf_samples; buf_pos++, f0 += speed)
+		buffer[buf_pos] = (double)CFSwapInt16BigToHost(mBuffer[(UInt32)(f0+0.5)]) / (SInt16)0x7FFF;
+	
+	mPos = f1 + (file_buf_pos - 1);
 }
 
 @end

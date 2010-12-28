@@ -9,22 +9,21 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-#define kIOBufferSamples	1024
+#define kMaxIOBufferSamples	1024
 
 @interface SoundFile : NSObject {
 
 	AudioFileID		mFileID;
 
-	SInt16			mOutBuffer[kIOBufferSamples];
+	SInt16			mBuffer[kMaxIOBufferSamples];
 
 @public
-	bool mOn;
 	
-	double mSR;
+	Float64			mPos;
 	
-	UInt32 mOutBufferPos;
+	UInt32			mNumFileSamples;
 }
 
--(void) GetSamples:(double*)buffer:(UInt32)num_buf_samples;
+-(void) GetSamples:(double*)buffer:(UInt32)num_buf_samples:(Float64)speed;
 
 @end

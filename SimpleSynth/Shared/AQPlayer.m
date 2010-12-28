@@ -199,7 +199,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples
 {
-	[mSoundFile GetSamples:buffer:num_samples];
+	if (mSpeed > 0.)
+		[mSoundFile GetSamples:buffer:num_samples:mSpeed];
+}
+
+-(void)SetSpeed:(Float64)speed
+{
+	mSpeed = speed;
 }
 
 @end

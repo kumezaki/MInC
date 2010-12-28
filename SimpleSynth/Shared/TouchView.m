@@ -8,6 +8,9 @@
 
 #import "TouchView.h"
 
+#import "AQPlayer.h"
+
+extern AQPlayer *gAQP;
 
 @implementation TouchView
 
@@ -95,8 +98,11 @@
 -(void)UpdatePosition
 {
 	mFreq += mFreq_Delta;
+
 	if (mFreq_Delta < 0. && mFreq < mFreq_Default) { mFreq = mFreq_Default; mFreq_Delta = 0.; }
 	if (mFreq_Delta > 0. && mFreq > mFreq_Default) { mFreq = mFreq_Default; mFreq_Delta = 0.; }
+
+	[gAQP SetSpeed:mFreq/mFreq_Default];
 	
 	mX += mFreq / 30.;
 	mX -= mX > 1. ? 1. : 0.;
