@@ -11,6 +11,7 @@
 @interface CLSlipperyButton : UIButton 
 {	
 }
+@property(nonatomic, readwrite) UIButtonType buttonType;
 
 @end
 

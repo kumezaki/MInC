@@ -9,6 +9,8 @@
 
 @implementation CLSlipperyButton
 
+@synthesize buttonType;
+
 - (id)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
@@ -17,6 +19,7 @@
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+	NSLog(@"touches");
 	[self sendActionsForControlEvents: UIControlEventTouchDown];
 	self.highlighted=YES;
 	[self.nextResponder touchesBegan:touches withEvent:event];

@@ -14,7 +14,7 @@
 {
 	IBOutlet UILabel *waveFormLabel;
 	IBOutlet UILabel *modeLabel;
-
+	
 	UIStatusBarStyle oldStatusBarStyle;
 	UIAccelerometer *accelerometer;
 	
@@ -37,10 +37,10 @@
 - (IBAction)showInfo:(id)sender;
 
 - (void)changeMode:(int)anInt;
-- (IBAction)buttonPressed: (CLSlipperyButton *)sender;
+- (IBAction)buttonPressed: (id)sender;
 - (IBAction)setModeLabel;
 - (IBAction)setWaveFormLabel;
-- (IBAction)startSound:(UIButton *)sender;
-- (IBAction)stopSound:(UIButton *)sender;
+- (IBAction)startSound:(id)sender;
+- (IBAction)stopSound:(id)sender;
 
 @end
