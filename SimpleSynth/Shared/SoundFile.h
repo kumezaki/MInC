@@ -20,11 +20,14 @@
 
 	SInt16			mBuffer[kMaxIOBufferSamples];
 
-@public
-	
 	Float64			mPos;
 	
 	UInt64			mNumFileSamples;
+	
+	Float64			mPrevSpeed;
+	
+@public
+	
 }
 
 -(void) GetSamples:(double*)buffer:(UInt32)num_buf_samples:(Float64)speed;
