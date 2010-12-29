@@ -12,12 +12,12 @@
 
 
 
--(void) assignMode:(double*)notes{
+-(void) assignMode:(double*)notes {
 	
 	for (int i = 0; i < kNumberNotes; i++) modeNotes[i] = [Note mtof:notes[i]];
 }
 
--(double) getNoteFreq:(int)val{
+-(double) getNoteFreq:(int)val {
 	
 	return modeNotes[val];	
 }

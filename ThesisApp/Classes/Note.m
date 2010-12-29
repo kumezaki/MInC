@@ -11,53 +11,47 @@
 
 @implementation Note
 
-+(double) mtof:(double)midiNote
-{
++(double) mtof:(double)midiNote {
 	return 440. * pow(2., (midiNote - 69) / 12.);
 }
 
 @synthesize mAmp;
 @synthesize mTheta;
 @synthesize mFreq;
+
 -(void) setMFreq:(double)val;{	
 	mFreq = val;					
 	mDeltaTheta = mFreq / kSR;	
 }
 
 
--(id)init
-{
+-(id)init {
 	mAmp = MAX_AMP;
 	mEnv = [[Envelope alloc] init];
 	return self;
 }
 
--(void)dealloc
-{
+-(void)dealloc {
 	[mEnv release];	
 	[super dealloc];
 }
 
--(void)FillAudioBuffer:(double*)bufferPointer:(const int)numFrames
-{
+-(void)FillAudioBuffer:(double*)bufferPointer:(const int)numFrames {
 	for (int i = 0; i < numFrames; i++) {
 		bufferPointer[i] += mAmp * [mWaveTable get:mTheta] * [mEnv get];
 		mTheta += mDeltaTheta;
 	}
 }
 
--(void)setWaveTable:(WaveFormTable *)wave_table
-{
+-(void)setWaveTable:(WaveFormTable *)wave_table {
 	mWaveTable = wave_table;
 }
 
--(void)on
-{
+-(void)on {
 	[mEnv on];
 }
 
--(void)off
-{
+-(void)off {
 	[mEnv off];
 }
 

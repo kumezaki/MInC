@@ -10,8 +10,7 @@
 
 #define kWaveformTableSize 512
 
-@interface WaveFormTable : NSObject
-{
+@interface WaveFormTable : NSObject {
 	@private
 	
 	NSString *mWaveType;

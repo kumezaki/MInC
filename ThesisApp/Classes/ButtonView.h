@@ -12,14 +12,14 @@
 
 @interface ButtonView : UIView {
 	
-	AQPlayer				*mAQPlayer;
+	AQPlayer		*mAQPlayer;
 
-	CLSlipperyButton		*currentButton;
-	CLSlipperyButton		*slideButton[kNumberNotes];
+	CLSlipperyButton*currentButton;
+	CLSlipperyButton*slideButton[kNumberNotes];
 
 }
 
--(void) setAQPlayer:(AQPlayer*) AQPlayer;
+- (void)setAQPlayer:(AQPlayer*) AQPlayer;
 
 - (IBAction)buttonPressed: (id)sender;
 - (IBAction)startSound:(id)sender;

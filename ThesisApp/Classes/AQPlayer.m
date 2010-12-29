@@ -10,8 +10,7 @@
 #import "Content.h"
 
 
-void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
-{	
+void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) {	
 	
 	AQPlayer *aqp = (AQPlayer *)inUserData;
 	
@@ -31,8 +30,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	// KU: now that the buffer is filled with samples with all notes, apply limiter and scale to 16-bit linear PCM
 	
 	double sample = 0.;	
-	for (int i = 0; i < numFrames; i++)
-	{	
+	for (int i = 0; i < numFrames; i++) {	
 		sample = sampleBuffer[i];
 		sample = sample > MAX_AMP ? MAX_AMP : sample < -MAX_AMP ? -MAX_AMP : sample;
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;
@@ -54,45 +52,39 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 @synthesize mCurrentMode;
 
 
--(void) setMode:(int)val
-{
+-(void) setMode:(int)val {
 	mCurrentMode = val;
 	for (int i = 0; i < kNumberNotes; i++) mNotes[i].mFreq = [mModes[mCurrentMode] getNoteFreq:i];
 }
 
--(void) setWaveType:(NSString *)waveType
-{
+-(void) setWaveType:(NSString *)waveType {
 	mWaveType = waveType;
 	[mWaveTable createWaveType:mWaveType];
 }
 
--(void) startNote:(int)note_pos
-{	
+-(void) startNote:(int)note_pos {	
 	[mNotes[note_pos] on];
 }
 
--(void) stopNote:(int)note_pos
-{	
+-(void) stopNote:(int)note_pos {	
 	[mNotes[note_pos] off];
 }
 
 
--(id)init
-{
+-(id)init {
 	[super init];
 	
 	mWaveTable = [WaveFormTable new];
 	mWaveType = [NSString new];
 	
-	for (int i = 0; i < kNumberNotes; i++){
+	for (int i = 0; i < kNumberNotes; i++) {
 		mNotes[i] = [Note new];
 		[mNotes[i] setWaveTable:mWaveTable];
 	}
 	
-	for (int j = 0; j < kNumberModes; j++){
+	for (int j = 0; j < kNumberModes; j++) {
 		mModes[j] = [Mode new];
-		switch (j)
-		{
+		switch (j) {
 			case 0: [mModes[j] assignMode:pitchSet01]; break;
 			case 1: [mModes[j] assignMode:pitchSet02]; break;
 			case 2: [mModes[j] assignMode:pitchSet03]; break;
@@ -108,8 +100,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 }
 
 
-- (void)dealloc
-{
+- (void)dealloc {
 	for (int i = 0; i < kNumberNotes; i++) [mNotes[i] release];
 	for (int j = 0; j < kNumberModes; j++) [mModes[j] release];	
 	[mWaveType release];
@@ -118,8 +109,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 }
 
 
--(void) New
-{
+-(void) New {
 	mDataFormat.mSampleRate = kSR;
 	mDataFormat.mFormatID = kAudioFormatLinearPCM;
 	mDataFormat.mFormatFlags = kAudioFormatFlagIsSignedInteger;
@@ -134,16 +124,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	if (result != noErr)
 		printf("AudioQueueNewOutput \n",result);
 	
-	for (int i = 0; i < kNumberBuffers; ++i)
-	{
+	for (int i = 0; i < kNumberBuffers; ++i) {
 		result = AudioQueueAllocateBuffer(mQueue, 512, &mBuffers[i]);
 		if (result != noErr)
 			printf("AudioQueueAllocateBuffer \n",result);
 	}
 }
 
--(OSStatus) start;
-{ 
+-(OSStatus) start; { 
 	OSStatus result = noErr;
     
 	// if we have no queue, create one now
@@ -160,8 +148,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 }
 
 
--(OSStatus) stop;
-{
+-(OSStatus) stop; {
 	OSStatus result = noErr;
 	
 	result = AudioQueueStop(mQueue, true);

@@ -11,7 +11,6 @@
 
 @implementation ButtonView
 
-
 - (id)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
@@ -21,17 +20,12 @@
     return self;
 }
 
-- (void) setAQPlayer:(AQPlayer *)AQPlayer{
+- (void) setAQPlayer:(AQPlayer *)AQPlayer {
 	mAQPlayer = AQPlayer;
 }
 
-
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code.
-	
-	//Create slideButton array
+- (void)drawRect:(CGRect)rect {	
+// Create slideButton array
 	int x = 0;
 	int y = 145;
 	
@@ -44,10 +38,9 @@
 		[slideButton[i] addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
 		[slideButton[i] addTarget:self action:@selector(startSound:) forControlEvents:UIControlEventTouchDown];
 		[slideButton[i] addTarget:self action:@selector(stopSound:) forControlEvents:UIControlEventTouchUpInside];
-		[self addSubview:slideButton[i]];
+		[self addSubview:slideButton[i]];		
 		
 		x+=120;
-		
 		if (i == 3) {
 			x = 0;
 			y = 0;
@@ -93,39 +86,28 @@
 	}
 }
 
-
-- (void)dealloc {
-	
+- (void)dealloc {	
 	for (int i = 0; i < kNumberNotes; i++) [slideButton[i] release];
     [super dealloc];
 }
 
-- (IBAction)buttonPressed: (id)sender
-{
+- (IBAction)buttonPressed: (id)sender {
 	currentButton = sender;
-	//slideButton[[currentButton.titleLabel.text intValue]-1]=currentButton;
-	
 }
--(IBAction) startSound:(id)sender
-{	
+
+- (IBAction)startSound:(id)sender {	
 	[mAQPlayer startNote:[currentButton.titleLabel.text intValue]];
 }
 
--(IBAction) stopSound:(id)sender
-{
+- (IBAction)stopSound:(id)sender {
 	[mAQPlayer stopNote:[currentButton.titleLabel.text intValue]];
 }
 
-
--(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{	
-	
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {		
 	CGPoint touchPoint = [[touches anyObject] locationInView:self];
 	
-	for (int i = 0; i < kNumberNotes ; i++) 
-	{
-		if (CGRectContainsPoint(slideButton[i].frame, touchPoint))
-		{
+	for (int i = 0; i < kNumberNotes ; i++) {
+		if (CGRectContainsPoint(slideButton[i].frame, touchPoint)) {
 			[slideButton[i] sendActionsForControlEvents: UIControlEventTouchDown];
 			slideButton[i].highlighted=YES;
 			break;
@@ -133,19 +115,15 @@
 	}
 }
 
--(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{	
-
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {	
 	CGPoint touchPoint = [[touches anyObject] locationInView:self];
 	
 	if (!CGRectContainsPoint(currentButton.frame, touchPoint)) {
 		[self stopSound:currentButton];
 		currentButton.highlighted=NO;
 		
-		for (int i = 0; i < kNumberNotes ; i++) 
-		{
-			if (CGRectContainsPoint(slideButton[i].frame, touchPoint))
-			{
+		for (int i = 0; i < kNumberNotes ; i++) {
+			if (CGRectContainsPoint(slideButton[i].frame, touchPoint)) {
 				currentButton = slideButton[i];
 				[self startSound:currentButton];
 				currentButton.highlighted=YES;
@@ -155,13 +133,12 @@
 	}
 }
 
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{		
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {		
 	[currentButton sendActionsForControlEvents: UIControlEventTouchUpInside];
 	currentButton.highlighted=NO;
 }
 
--(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
 }
 

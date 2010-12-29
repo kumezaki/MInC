@@ -14,8 +14,7 @@
 
 #define kNumberBuffers 3
 
-@interface AQPlayer : NSObject 
-{
+@interface AQPlayer : NSObject {
 
 	AudioStreamBasicDescription		mDataFormat;
 	AudioQueueRef					mQueue;

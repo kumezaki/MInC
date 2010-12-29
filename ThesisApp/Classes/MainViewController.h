@@ -6,13 +6,11 @@
 //  Copyright 2010 Gnarly Dog Music. All rights reserved.
 //
 
-#import "FlipsideViewController.h"
 #import "AQPlayer.h"
-//#import "CLSlipperyButton.h"
+#import "FlipsideViewController.h"
 #import "ButtonView.h"
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIAccelerometerDelegate>
-{
+@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIAccelerometerDelegate> {
 	IBOutlet UILabel		*waveFormLabel;
 	IBOutlet UILabel		*modeLabel;
 	

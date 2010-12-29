@@ -11,29 +11,31 @@
 
 @implementation Envelope
 
--(id)init
-{
+-(id)init {
 	mAmp = 0.;
 	mDelta = 0.;
 	return self;
 }
 
--(void)on
-{
+-(void)on {
 	mDelta = 1. / RAMP_TIME;
 }
 
--(void)off
-{
+-(void)off {
 	mDelta = -1. / RAMP_TIME;
 }
 
--(double)get
-{
+-(double)get {
 	mAmp += mDelta;
 	
-	if (mAmp >= 1.0) {mAmp = 1.; mDelta = 0.;}
-	else if (mAmp <= 0.0) {mAmp = 0.; mDelta = 0.;}
+	if (mAmp >= 1.0) {
+		mAmp = 1.; 
+		mDelta = 0.;
+	}
+	else if (mAmp <= 0.0) {
+		mAmp = 0.; 
+		mDelta = 0.;
+	}
 	return mAmp;
 }
 
