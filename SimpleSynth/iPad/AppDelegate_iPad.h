@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SimpleSynth_Singleton.h"
+
 @interface AppDelegate_iPad : NSObject <UIApplicationDelegate> {
     UIWindow *window;
+	SimpleSynth_Singleton*	mSingleton;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

@@ -8,17 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-#import "TouchView.h"
-
-#define kNumViews	4
+#import "SimpleSynth_Singleton.h"
 
 @interface AppDelegate_iPhone : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-	TouchView*	mView[kNumViews];
-	UIButton*	mButtons[kNumViews];
+	SimpleSynth_Singleton*	mSingleton;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
 @end
-

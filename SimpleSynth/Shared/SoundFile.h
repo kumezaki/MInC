@@ -30,7 +30,7 @@
 	
 }
 
--(void) GetSamples:(double*)buffer:(UInt32)num_buf_samples:(Float64)speed;
+-(void) GetSamples:(double*)buffer:(UInt32)num_buf_samples:(Float64)speed:(Float64)amp;
 -(double) GetCurPos;
 
 @end

@@ -8,10 +8,6 @@
 
 #import "AppDelegate_iPad.h"
 
-#import "AQPlayer.h"
-
-extern AQPlayer* gAQP;
-
 @implementation AppDelegate_iPad
 
 @synthesize window;
@@ -26,6 +22,8 @@ extern AQPlayer* gAQP;
     
     [self.window makeKeyAndVisible];
     
+	mSingleton = [[SimpleSynth_Singleton_iPad alloc] init];
+
     return YES;
 }
 
@@ -63,12 +61,10 @@ extern AQPlayer* gAQP;
 
 
 - (id)init {
-	gAQP = [[AQPlayer_SimpleSynth alloc] init];
 	return self;
 }
 
 - (void)dealloc {
-	[gAQP release];
     [window release];
     [super dealloc];
 }

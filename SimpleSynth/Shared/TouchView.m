@@ -43,12 +43,24 @@ extern AQPlayer *gAQP;
 	[rectColor set];
 	
 	double x = self.bounds.size.width * mX;
-	double y = self.bounds.size.height * 0.0;
+	double y = 0.;
 	double w = 5.;
 	double h = self.bounds.size.height;
 
 	CGContextRef contextRef = UIGraphicsGetCurrentContext();
 	CGContextFillRect(contextRef, CGRectMake(x,y,w,h));
+
+	rectColor = [UIColor grayColor];
+	[rectColor set];
+
+	for (int i = 1; i < 4; i++)
+	{
+		x = mX + (Float64)i/4;
+		x += x > 1.0 ? -1. : 0.;
+		x *= self.bounds.size.width;
+		w = i == 2 ? 2. : 1.;
+		CGContextFillRect(contextRef, CGRectMake(x,y,w,h));
+	}
 }
 
 - (void)dealloc {

@@ -197,6 +197,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	{
 		mSoundFile[i] = [[SoundFile alloc] init];
 		mSpeed[i] = 1.0;
+		mMute[i] = YES;
 	}
 	
 	return self;
@@ -206,7 +207,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	for (int i = 0; i < kNumSFs; i++)
 		if (mSpeed[i] > 0.)
-			[mSoundFile[i] GetSamples:buffer:num_samples:mSpeed[i]];
+			[mSoundFile[i] GetSamples:buffer:num_samples:mSpeed[i]:mMute[i]?0.:1.];
 
 	for (int i = 0; i < num_samples; i++)
 		buffer[i] *= 1. / kNumSFs;
@@ -216,13 +217,25 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	if (sf_pos < kNumSFs)
 		mSpeed[sf_pos] = speed;
-	else
-		NSLog(@"SetSpeed sf_pos out of range");
+}
+
+-(BOOL)GetMute:(UInt16)sf_pos
+{
+	return mMute[sf_pos];
+}
+
+-(void)SetMute:(UInt16)sf_pos:(BOOL)enable
+{
+	if (sf_pos < kNumSFs)
+		mMute[sf_pos] = enable;
 }
 
 -(Float64)GetSFPos:(UInt16)sf_pos
 {
-	return [mSoundFile[sf_pos] GetCurPos];
+	if (sf_pos < kNumSFs)
+		return [mSoundFile[sf_pos] GetCurPos];
+	
+	return 0.;
 }
 
 @end

@@ -52,7 +52,7 @@
 
 #define TWEEN_OFFSET(f) (f - floor(f))
 
--(void) GetSamples:(double*)buffer:(UInt32)num_buf_samples:(Float64)speed
+-(void) GetSamples:(double*)buffer:(UInt32)num_buf_samples:(Float64)speed:(Float64)amp
 {
 	const Float64 speed_end = speed;
 	const Float64 speed_avg = (speed + mPrevSpeed) / 2.;
@@ -90,7 +90,7 @@
 		Float64 k = f - floor(f);
 		Float64 s = (s1 - s0) * k + s0;
 		
-		buffer[buf_pos] += s / (SInt16)0x7FFF;
+		buffer[buf_pos] += amp * s / (SInt16)0x7FFF;
 
 //		NSLog(@"%lf %lf %lf %lf",s,s0,s1,buffer[buf_pos]);
 	}

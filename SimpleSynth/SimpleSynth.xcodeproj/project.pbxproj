@@ -12,6 +12,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		210FA40E12C8F963006FD4C7 /* click.aif in Resources */ = {isa = PBXBuildFile; fileRef = 210FA40D12C8F963006FD4C7 /* click.aif */; };
 		210FA42212C8FB94006FD4C7 /* audacity.aif in Resources */ = {isa = PBXBuildFile; fileRef = 210FA42112C8FB94006FD4C7 /* audacity.aif */; };
+		2112CFE312CACD2E0021C494 /* SimpleSynth_Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2112CFE212CACD2E0021C494 /* SimpleSynth_Singleton.m */; };
 		2164C78812C2527D00B7BB3E /* AQPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2164C78712C2527D00B7BB3E /* AQPlayer.m */; };
 		2164C78C12C2528F00B7BB3E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2164C78B12C2528F00B7BB3E /* AudioToolbox.framework */; };
 		21D969C512C8E1150091C35C /* SoundFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D969C412C8E1150091C35C /* SoundFile.m */; };
@@ -29,6 +30,8 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		210FA40D12C8F963006FD4C7 /* click.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = click.aif; path = Shared/click.aif; sourceTree = "<group>"; };
 		210FA42112C8FB94006FD4C7 /* audacity.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = audacity.aif; path = Shared/audacity.aif; sourceTree = "<group>"; };
+		2112CFE112CACD2E0021C494 /* SimpleSynth_Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleSynth_Singleton.h; path = Shared/SimpleSynth_Singleton.h; sourceTree = "<group>"; };
+		2112CFE212CACD2E0021C494 /* SimpleSynth_Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SimpleSynth_Singleton.m; path = Shared/SimpleSynth_Singleton.m; sourceTree = "<group>"; };
 		2164C78612C2527D00B7BB3E /* AQPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AQPlayer.h; path = Shared/AQPlayer.h; sourceTree = "<group>"; };
 		2164C78712C2527D00B7BB3E /* AQPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AQPlayer.m; path = Shared/AQPlayer.m; sourceTree = "<group>"; };
 		2164C78B12C2528F00B7BB3E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -93,6 +96,8 @@
 		28EEBF621118D79A00187D67 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2112CFE112CACD2E0021C494 /* SimpleSynth_Singleton.h */,
+				2112CFE212CACD2E0021C494 /* SimpleSynth_Singleton.m */,
 				2164C78612C2527D00B7BB3E /* AQPlayer.h */,
 				2164C78712C2527D00B7BB3E /* AQPlayer.m */,
 				21D969C312C8E1150091C35C /* SoundFile.h */,
@@ -207,6 +212,7 @@
 				2164C78812C2527D00B7BB3E /* AQPlayer.m in Sources */,
 				21D969C512C8E1150091C35C /* SoundFile.m in Sources */,
 				21D969CF12C8E1630091C35C /* TouchView.m in Sources */,
+				2112CFE312CACD2E0021C494 /* SimpleSynth_Singleton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,10 +8,6 @@
 
 #import "AppDelegate_iPhone.h"
 
-#import "AQPlayer.h"
-
-extern AQPlayer* gAQP;
-
 @implementation AppDelegate_iPhone
 
 @synthesize window;
@@ -25,23 +21,9 @@ extern AQPlayer* gAQP;
     // Override point for customization after application launch.
     
     [self.window makeKeyAndVisible];
+	
+	mSingleton = [[SimpleSynth_Singleton_iPhone alloc] init];
     
-	for (int i = 0; i < kNumViews; i++)
-	{
-		CGRect viewRect = CGRectMake(10+50,30+(i*110),300-50,100);
-		mView[i] = [[TouchView alloc] initWithFrame:viewRect];
-		[mView[i] setBackgroundColor:[UIColor darkGrayColor]];
-		[mView[i] setHidden:NO];
-		[window addSubview:mView[i]];
-		[mView[i] SetSoundFilePos:i];
-		
-		CGRect buttonRect = CGRectMake(10,30+(i*110),40,100);
-		mButtons[i] = [UIButton buttonWithType:UIButtonTypeRoundedRect]; 
-		mButtons[i].frame = buttonRect;
-		[mButtons[i] setHidden:NO];
-		[window addSubview:mButtons[i]];
-	}
-
     return YES;
 }
 
@@ -95,19 +77,11 @@ extern AQPlayer* gAQP;
 
 
 - (id)init {
-	gAQP = [[AQPlayer_SimpleSF alloc] init];
 	return self;
 }
 
 - (void)dealloc {
-
-	for (int i = 0; i < kNumViews; i++)
-	{
-		[mView[i] release];
-		[mButtons[i] release];
-	}
-
-	[gAQP release];
+	[mSingleton release];
     [window release];
     [super dealloc];
 }
