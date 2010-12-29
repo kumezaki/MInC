@@ -195,7 +195,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	for (int i = 0; i < kNumSFs; i++)
 	{
-		mSoundFile[i] = [[SoundFile alloc] init];
+		mSoundFile[i] = [[SoundFile alloc] initWithSFID:i];
 		mSpeed[i] = 1.0;
 		mMute[i] = YES;
 	}

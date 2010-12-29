@@ -111,9 +111,12 @@ extern AQPlayer *gAQP;
 	if (mFreq_Delta < 0. && mFreq < mFreq_Default) { mFreq = mFreq_Default; mFreq_Delta = 0.; }
 	if (mFreq_Delta > 0. && mFreq > mFreq_Default) { mFreq = mFreq_Default; mFreq_Delta = 0.; }
 
-	/* should find a way to eliminate type casting for these */
-	[(AQPlayer_SimpleSF*)gAQP SetSpeed:mSFPos:mFreq/mFreq_Default];
-	mX = [(AQPlayer_SimpleSF*)gAQP GetSFPos:mSFPos];
+	if (strcmp(object_getClassName(gAQP),"AQPlayer_SimpleSF")==0)
+	{
+		AQPlayer_SimpleSF *aqp = (AQPlayer_SimpleSF*)gAQP;
+		[aqp SetSpeed:mSFPos:mFreq/mFreq_Default];
+		mX = [aqp GetSFPos:mSFPos];
+	}
 	
 	[self setNeedsDisplay];
 

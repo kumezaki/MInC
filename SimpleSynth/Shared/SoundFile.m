@@ -10,13 +10,30 @@
 
 @implementation SoundFile
 
+-(id) initWithSFID:(int)sf_id
+{
+	mSFID = sf_id;
+	return [self init];
+}
+
 -(id)init
 {
 	[super init];
 	
 	mPos = 0.;
 	
-	CFURLRef mSoundFileURLRef = CFBundleCopyResourceURL(CFBundleGetMainBundle(),CFSTR(kFileName),CFSTR(kFileExtension),NULL);
+	CFStringRef filename;
+	switch (mSFID)
+	{
+		case 0: filename = CFSTR(kFileName_0); break;
+		case 1: filename = CFSTR(kFileName_1); break;
+		case 2: filename = CFSTR(kFileName_2); break;
+		case 3: filename = CFSTR(kFileName_3); break;
+		default: filename = CFSTR(kFileName_0); break;
+	}
+	NSLog(@"%d",mSFID);
+	
+	CFURLRef mSoundFileURLRef = CFBundleCopyResourceURL(CFBundleGetMainBundle(),filename,CFSTR(kFileExtension),NULL);
 	
 	OSStatus result = noErr;
 	result = AudioFileOpenURL(mSoundFileURLRef,kAudioFileReadPermission,0,&mFileID);
