@@ -26,6 +26,8 @@
     // Add the main view controller's view to the window and display.
     [window addSubview:mainViewController.view];	
     [window makeKeyAndVisible];
+	
+	[mainViewController.view setMultipleTouchEnabled:YES];
 
     return YES;
 }
