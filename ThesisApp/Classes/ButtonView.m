@@ -15,7 +15,9 @@
     
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code.
+		self.userInteractionEnabled = YES;
+		self.multipleTouchEnabled = YES;
+		touchDic = [[NSMutableDictionary alloc] initWithCapacity:5];
     }
     return self;
 }
@@ -35,7 +37,6 @@
 		slideButton[i] = [[CLSlipperyButton alloc]initWithFrame:buttonRect];
 		[slideButton[i] setTitle:nIndex forState:0] ;
 		[slideButton[i] setHidden:NO];
-		[slideButton[i] addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
 		[slideButton[i] addTarget:self action:@selector(startSound:) forControlEvents:UIControlEventTouchDown];
 		[slideButton[i] addTarget:self action:@selector(stopSound:) forControlEvents:UIControlEventTouchUpInside];
 		[self addSubview:slideButton[i]];		
@@ -83,64 +84,76 @@
 			default:
 				break;
 		}
+		[slideButton[i] release];
 	}
 }
 
 - (void)dealloc {	
-	for (int i = 0; i < kNumberNotes; i++) [slideButton[i] release];
-    [super dealloc];
+    for (int i = 0; i < kNumberNotes; i++) [slideButton[i] release];
+	[touchDic release];
+	[super dealloc];
 }
 
-- (IBAction)buttonPressed: (id)sender {
-	currentButton = sender;
+#pragma mark -
+
+- (IBAction)startSound:(CLSlipperyButton *)sender {	
+	[mAQPlayer startNote:[sender.titleLabel.text intValue]];
 }
 
-- (IBAction)startSound:(id)sender {	
-	[mAQPlayer startNote:[currentButton.titleLabel.text intValue]];
-}
+- (IBAction)stopSound:(CLSlipperyButton *)sender {
+	[mAQPlayer stopNote:[sender.titleLabel.text intValue]];
+}	
 
-- (IBAction)stopSound:(id)sender {
-	[mAQPlayer stopNote:[currentButton.titleLabel.text intValue]];
-}
+#pragma mark -
+#pragma mark UIGestureRecognizer methodology
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {		
-	CGPoint touchPoint = [[touches anyObject] locationInView:self];
-	
-	for (int i = 0; i < kNumberNotes ; i++) {
-		if (CGRectContainsPoint(slideButton[i].frame, touchPoint)) {
-			[slideButton[i] sendActionsForControlEvents: UIControlEventTouchDown];
-			slideButton[i].highlighted=YES;
-			break;
-		}
-	}
-}
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {	
-	CGPoint touchPoint = [[touches anyObject] locationInView:self];
-	
-	if (!CGRectContainsPoint(currentButton.frame, touchPoint)) {
-		[self stopSound:currentButton];
-		currentButton.highlighted=NO;
-		
-		for (int i = 0; i < kNumberNotes ; i++) {
-			if (CGRectContainsPoint(slideButton[i].frame, touchPoint)) {
-				currentButton = slideButton[i];
-				[self startSound:currentButton];
-				currentButton.highlighted=YES;
-				break;
+- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
+	for (UITouch * touch in touches) {
+		CGPoint touchPoint = [touch locationInView:self];
+		for (int i = 0; i < kNumberNotes; i++) {
+			if(CGRectContainsPoint(slideButton[i].frame, touchPoint)) {
+				if (!slideButton[i].highlighted) {
+					[self startSound:slideButton[i]];
+					slideButton[i].highlighted = YES;
+					[touchDic setObject:slideButton[i] forKey:[NSValue valueWithPointer:touch]];
+					break;
+				}
 			}
 		}
 	}
 }
 
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {	
+	for (UITouch * touch in touches) {
+		
+		CLSlipperyButton *movedButton = [touchDic objectForKey:[NSValue valueWithPointer:touch]];
+		CGPoint touchPoint = [touch locationInView:self];
+		
+		if (!CGRectContainsPoint(movedButton.frame, touchPoint)) {
+			[self stopSound:movedButton];
+			movedButton.highlighted = NO;
+		}
+		for (int i = 0; i < kNumberNotes; i++) {
+			if(CGRectContainsPoint(slideButton[i].frame, touchPoint)) {
+				[self startSound:slideButton[i]];
+				slideButton[i].highlighted = YES;
+				[touchDic setObject:slideButton[i] forKey:[NSValue valueWithPointer:touch]];
+				break;
+			}
+		}
+	}
+}		
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {		
-	[currentButton sendActionsForControlEvents: UIControlEventTouchUpInside];
-	currentButton.highlighted=NO;
+	for (UITouch * touch in touches) {
+		CLSlipperyButton *endedButton = [touchDic objectForKey:[NSValue valueWithPointer:touch]];
+		CGPoint touchPoint = [touch locationInView:self];
+		if (CGRectContainsPoint(endedButton.frame, touchPoint)) {
+			[self stopSound:endedButton];
+			endedButton.highlighted = NO;
+			[touchDic removeObjectForKey:[NSValue valueWithPointer:touch]];
+		}
+	}
 }
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-{
-}
-
 
 @end

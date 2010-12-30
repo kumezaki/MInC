@@ -19,7 +19,7 @@
 		
 	AQPlayer				*mAQPlayer;
 	FlipsideViewController	*controller;
-	ButtonView				*mView;
+	ButtonView				*buttonView;
 		
 	int modeIndex;
 	BOOL modeDidChange;

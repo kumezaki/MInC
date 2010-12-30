@@ -63,10 +63,10 @@
 	
 //Create ButtonView	
 	CGRect viewRect = CGRectMake(0,30,480,290);
-	mView = [[ButtonView alloc] initWithFrame:viewRect];
-	[mView setHidden:NO];
-	[self.view addSubview:mView];
-	[mView setAQPlayer:mAQPlayer];
+	buttonView = [[ButtonView alloc] initWithFrame:viewRect];
+	[buttonView setHidden:NO];
+	[self.view addSubview:buttonView];
+	[buttonView setAQPlayer:mAQPlayer];
 
 	[super viewDidLoad];
 }
@@ -83,13 +83,13 @@
 
 - (void)dealloc {
 	[mAQPlayer stop];
-	[mAQPlayer release];
 	accelerometer.delegate = nil;
 	self.waveFormLabel=nil;
 	self.modeLabel=nil;
+	[mAQPlayer release];
 	[accelerometer release];
 	[controller release];
-	[mView release];	
+	[buttonView release];	
     [super dealloc];
 }
 

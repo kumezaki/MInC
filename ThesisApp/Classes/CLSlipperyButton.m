@@ -29,8 +29,4 @@
 	[self.nextResponder touchesEnded:touches withEvent:event];
 }
 
--(void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-	[self.nextResponder touchesCancelled:touches withEvent:event];
-}
-
 @end

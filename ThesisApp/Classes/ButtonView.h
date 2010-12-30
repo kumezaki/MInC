@@ -14,16 +14,15 @@
 	
 	AQPlayer		*mAQPlayer;
 
-	CLSlipperyButton*currentButton;
 	CLSlipperyButton*slideButton[kNumberNotes];
+	NSMutableDictionary	*touchDic;
 
 }
 
 - (void)setAQPlayer:(AQPlayer*) AQPlayer;
 
-- (IBAction)buttonPressed: (id)sender;
-- (IBAction)startSound:(id)sender;
-- (IBAction)stopSound:(id)sender;
+- (IBAction)startSound:(CLSlipperyButton *)sender;
+- (IBAction)stopSound:(CLSlipperyButton *)sender;
 
 
 
