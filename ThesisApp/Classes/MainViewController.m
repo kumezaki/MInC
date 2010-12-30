@@ -67,6 +67,7 @@
 	[buttonView setHidden:NO];
 	[self.view addSubview:buttonView];
 	[buttonView setAQPlayer:mAQPlayer];
+	[buttonView release];	
 
 	[super viewDidLoad];
 }
@@ -78,7 +79,6 @@
 - (IBAction)showInfo:(id)sender {    		
 	controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 	[self presentModalViewController:controller animated:YES];
-
 }
 
 - (void)dealloc {
@@ -89,7 +89,6 @@
 	[mAQPlayer release];
 	[accelerometer release];
 	[controller release];
-	[buttonView release];	
     [super dealloc];
 }
 

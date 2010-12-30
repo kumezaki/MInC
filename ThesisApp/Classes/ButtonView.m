@@ -89,7 +89,7 @@
 }
 
 - (void)dealloc {	
-    for (int i = 0; i < kNumberNotes; i++) [slideButton[i] release];
+    //for (int i = 0; i < kNumberNotes; i++) [slideButton[i] release];
 	[touchDic release];
 	[super dealloc];
 }
@@ -113,8 +113,8 @@
 		for (int i = 0; i < kNumberNotes; i++) {
 			if(CGRectContainsPoint(slideButton[i].frame, touchPoint)) {
 				if (!slideButton[i].highlighted) {
-					[self startSound:slideButton[i]];
 					slideButton[i].highlighted = YES;
+					[self startSound:slideButton[i]];
 					[touchDic setObject:slideButton[i] forKey:[NSValue valueWithPointer:touch]];
 					break;
 				}
@@ -125,18 +125,16 @@
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {	
 	for (UITouch * touch in touches) {
-		
 		CLSlipperyButton *movedButton = [touchDic objectForKey:[NSValue valueWithPointer:touch]];
-		CGPoint touchPoint = [touch locationInView:self];
-		
+		CGPoint touchPoint = [touch locationInView:self];		
 		if (!CGRectContainsPoint(movedButton.frame, touchPoint)) {
-			[self stopSound:movedButton];
 			movedButton.highlighted = NO;
+			[self stopSound:movedButton];
 		}
 		for (int i = 0; i < kNumberNotes; i++) {
 			if(CGRectContainsPoint(slideButton[i].frame, touchPoint)) {
-				[self startSound:slideButton[i]];
 				slideButton[i].highlighted = YES;
+				[self startSound:slideButton[i]];
 				[touchDic setObject:slideButton[i] forKey:[NSValue valueWithPointer:touch]];
 				break;
 			}
@@ -144,15 +142,12 @@
 	}
 }		
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {		
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {	
 	for (UITouch * touch in touches) {
 		CLSlipperyButton *endedButton = [touchDic objectForKey:[NSValue valueWithPointer:touch]];
-		CGPoint touchPoint = [touch locationInView:self];
-		if (CGRectContainsPoint(endedButton.frame, touchPoint)) {
-			[self stopSound:endedButton];
-			endedButton.highlighted = NO;
-			[touchDic removeObjectForKey:[NSValue valueWithPointer:touch]];
-		}
+		endedButton.highlighted = NO;
+		[self stopSound:endedButton];
+		[touchDic removeObjectForKey:[NSValue valueWithPointer:touch]];
 	}
 }
 

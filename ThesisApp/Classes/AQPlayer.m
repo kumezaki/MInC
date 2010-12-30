@@ -55,6 +55,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 -(void) setMode:(int)val {
 	mCurrentMode = val;
 	for (int i = 0; i < kNumberNotes; i++) mNotes[i].mFreq = [mModes[mCurrentMode] getNoteFreq:i];
+	AudioServicesPlaySystemSound (kSystemSoundID_Vibrate);
 }
 
 -(void) setWaveType:(NSString *)waveType {
