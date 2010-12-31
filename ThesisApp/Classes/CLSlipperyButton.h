@@ -9,10 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface CLSlipperyButton : UIButton {	
-
+	
 }
-
-@property(nonatomic, readwrite) UIButtonType buttonType;
 
 @end
 

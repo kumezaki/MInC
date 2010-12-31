@@ -16,7 +16,8 @@
 
 	CLSlipperyButton*slideButton[kNumberNotes];
 	NSMutableDictionary	*touchDic;
-
+	
+	BOOL maxTouches;
 }
 
 - (void)setAQPlayer:(AQPlayer*) AQPlayer;
