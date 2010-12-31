@@ -110,7 +110,6 @@
 	}
 	NSArray *cancelledTouches = [touchDic allKeys];
 	[touchDic removeObjectsForKeys:cancelledTouches];
-	if ([touchDic count] == 0) maxTouches = NO;
 }
 
 #pragma mark -
