@@ -27,10 +27,9 @@
 @property(retain) IBOutlet UILabel	*waveFormLabel;
 @property(retain) IBOutlet UILabel	*modeLabel;
 
-- (IBAction)showInfo:(id)sender;
-
 - (void)changeMode:(int)anInt;
 
+- (IBAction)showInfo:(id)sender;
 - (IBAction)setModeLabel;
 - (IBAction)setWaveFormLabel;
 

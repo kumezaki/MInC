@@ -9,11 +9,11 @@
 
 @implementation CLSlipperyButton
 
+@synthesize buttonType;
 
 - (id)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
-	self.multipleTouchEnabled = NO;
 	return self;
 }
 
@@ -25,7 +25,11 @@
 	[self.nextResponder touchesMoved:touches withEvent:event];
 }
 
--(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {	
+-(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	[self.nextResponder touchesEnded:touches withEvent:event];
+}
+
+-(void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
 	[self.nextResponder touchesEnded:touches withEvent:event];
 }
 
