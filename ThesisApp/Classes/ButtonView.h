@@ -14,7 +14,7 @@
 	
 	AQPlayer		*mAQPlayer;
 
-	CLSlipperyButton*slideButton[kNumberNotes];
+	CLSlipperyButton*slickButton[kNumberNotes];
 	NSMutableDictionary	*touchDic;
 
 }

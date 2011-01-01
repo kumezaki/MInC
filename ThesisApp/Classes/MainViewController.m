@@ -113,11 +113,13 @@
 	waveFormLabel.text = [NSString stringWithFormat:@"Sound: %@",mAQPlayer.mWaveType];
 }
 
+#define kFilteringFactor 0.75
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
-	double yAxis = acceleration.y;
-	if (yAxis > -0.15 && yAxis < 0.15) modeDidChange = NO;
-	int k = yAxis < -0.3 ? 1 : yAxis > 0.3 ? -1 : 0;
-	//if (k == 0) modeDidChange = NO;		
+	//LowPass Filter
+	double yAxis = acceleration.y * kFilteringFactor + yAxis * (1.0 - kFilteringFactor);
+	
+	if (yAxis > -0.18 && yAxis < 0.18) modeDidChange = NO;
+	int k = yAxis < -0.25 ? 1 : yAxis > 0.25 ? -1 : 0;
 
 	[self changeMode:k];
 }
