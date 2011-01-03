@@ -14,11 +14,9 @@
 @synthesize waveFormLabel;
 @synthesize modeLabel;
 
-// the designated initializer. Override to perform setup that is required before the view is loaded.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        self.wantsFullScreenLayout = YES; // we want to overlap the status bar.        
-        // when presented, we want to display using a cross dissolve
+        self.wantsFullScreenLayout = YES;       
         self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     }
     return self;
@@ -26,7 +24,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     StatusBarStyle = [[UIApplication sharedApplication] statusBarStyle];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 	
@@ -40,16 +37,13 @@
     [[UIApplication sharedApplication] setStatusBarHidden:YES];    
 }
 
-// override to allow orientations other than the default portrait orientation
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-	mAQPlayer = [[AQPlayer alloc]init];
-	[mAQPlayer start];
+	mAppBrain = [[AppBrain alloc]init];
 	
 //Turn on the accelerometer, set update interval & assign delegate
 	accelerometer = [UIAccelerometer sharedAccelerometer];
@@ -59,14 +53,14 @@
 //Create 2nd view controller, alloc/init, assign delegate, call setAQPlayer method
 	controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
 	controller.delegate = self;
-	[controller setAQPlayer:mAQPlayer];
+	[controller setAppBrain:mAppBrain];
 	
 //Create ButtonView	
 	CGRect viewRect = CGRectMake(0,30,480,290);
 	buttonView = [[ButtonView alloc] initWithFrame:viewRect];
 	[buttonView setHidden:NO];
 	[self.view addSubview:buttonView];
-	[buttonView setAQPlayer:mAQPlayer];
+	[buttonView setAppBrain:mAppBrain];
 	[buttonView release];	
 
 	[super viewDidLoad];
@@ -82,11 +76,10 @@
 }
 
 - (void)dealloc {
-	[mAQPlayer stop];
 	accelerometer.delegate = nil;
 	self.waveFormLabel=nil;
 	self.modeLabel=nil;
-	[mAQPlayer release];
+	[mAppBrain release];
 	[accelerometer release];
 	[controller release];
     [super dealloc];
@@ -99,18 +92,18 @@
 		else if (modeIndex == 5 && anInt == 1) modeIndex = 0;
 		else modeIndex += anInt;
 		
-		[mAQPlayer setMode:modeIndex];
+		[mAppBrain setMode:modeIndex];
 		[self setModeLabel];
 		modeDidChange = YES;
 	}
 }
 
 - (IBAction)setModeLabel {	
-	modeLabel.text = [NSString stringWithFormat:@"Note Set: %i", mAQPlayer.mCurrentMode+1];
+	modeLabel.text = [NSString stringWithFormat:@"Note Set: %i", mAppBrain.mCurrentMode+1];
 }
 
 - (IBAction)setWaveFormLabel {
-	waveFormLabel.text = [NSString stringWithFormat:@"Sound: %@",mAQPlayer.mWaveType];
+	waveFormLabel.text = [NSString stringWithFormat:@"Sound: %@",mAppBrain.mWaveType];
 }
 
 #define kFilteringFactor 0.75
@@ -118,7 +111,7 @@
 	//LowPass Filter
 	double yAxis = acceleration.y * kFilteringFactor + yAxis * (1.0 - kFilteringFactor);
 	
-	if (yAxis > -0.18 && yAxis < 0.18) modeDidChange = NO;
+	if (yAxis > -0.12 && yAxis < 0.12) modeDidChange = NO;
 	int k = yAxis < -0.25 ? 1 : yAxis > 0.25 ? -1 : 0;
 
 	[self changeMode:k];

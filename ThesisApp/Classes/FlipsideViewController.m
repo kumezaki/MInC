@@ -13,8 +13,8 @@
 
 @synthesize delegate;
 
-- (void) setAQPlayer:(AQPlayer *)AQPlayer{
-	mAQPlayer = AQPlayer;
+- (void) setAppBrain:(AppBrain *)AppBrain{
+	mAppBrain = AppBrain;
 }
 
 - (void)viewDidLoad {
@@ -58,7 +58,7 @@
 - (IBAction)changeWaveType:(UIButton *)sender
 {
 	NSString *label = sender.titleLabel.text;
-	[mAQPlayer setWaveType:label];
+	[mAppBrain setWaveType:label];
 }
 
 

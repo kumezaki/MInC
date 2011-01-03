@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "AQPlayer.h"
+#import "AppBrain.h"
 
 @protocol FlipsideViewControllerDelegate;
 
@@ -16,13 +16,13 @@
 @interface FlipsideViewController : UIViewController {
 	id <FlipsideViewControllerDelegate> delegate;
 		
-	AQPlayer *mAQPlayer;
+	AppBrain	*mAppBrain;
 
 }
 
 @property (nonatomic, assign) id <FlipsideViewControllerDelegate> delegate;
 
--(void) setAQPlayer:(AQPlayer*) AQPlayer;
+-(void) setAppBrain:(AppBrain*) AppBrain;
 - (IBAction)done:(id)sender;
 - (IBAction)changeWaveType:(UIButton *)sender;
 

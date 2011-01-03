@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AQPlayer.h"//for kSR setting only
 
-#define kSR 22050.
 #define MAX_AMP	0.95
 #define RAMP_TIME	(kSR * 0.05)
 

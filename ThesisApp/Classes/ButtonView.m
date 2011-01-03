@@ -22,8 +22,8 @@
     return self;
 }
 
-- (void) setAQPlayer:(AQPlayer *)AQPlayer {
-	mAQPlayer = AQPlayer;
+- (void) setAppBrain:(AppBrain *)AppBrain {
+	mAppBrain = AppBrain;
 }
 
 - (void)drawRect:(CGRect)rect {	
@@ -94,12 +94,15 @@
 #pragma mark -
 
 - (IBAction)startSound:(CLSlipperyButton *)sender {	
-	[mAQPlayer startNote:[sender.titleLabel.text intValue]];
+	[mAppBrain startNote:[sender.titleLabel.text intValue]];
 }
 
 - (IBAction)stopSound:(CLSlipperyButton *)sender {
-	[mAQPlayer stopNote:[sender.titleLabel.text intValue]];
-}	
+	[mAppBrain stopNote:[sender.titleLabel.text intValue]];
+}
+
+- (void)cancelTouches {
+}
 
 #pragma mark -
 #pragma mark UIGestureRecognizer methodology

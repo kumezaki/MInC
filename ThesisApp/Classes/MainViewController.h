@@ -6,7 +6,8 @@
 //  Copyright 2010 Gnarly Dog Music. All rights reserved.
 //
 
-#import "AQPlayer.h"
+#import "AppBrain.h"
+#import "AppBrain.h"
 #import "FlipsideViewController.h"
 #import "ButtonView.h"
 
@@ -17,7 +18,7 @@
 	UIStatusBarStyle		StatusBarStyle;
 	UIAccelerometer			*accelerometer;
 		
-	AQPlayer				*mAQPlayer;
+	AppBrain				*mAppBrain;
 	FlipsideViewController	*controller;
 	ButtonView				*buttonView;
 		

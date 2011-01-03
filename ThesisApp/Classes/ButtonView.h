@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "CLSlipperyButton.h"
-#import "AQPlayer.h"
+#import "AppBrain.h"
 
 @interface ButtonView : UIView {
 	
-	AQPlayer		*mAQPlayer;
+	AppBrain		*mAppBrain;
 
 	CLSlipperyButton*slickButton[kNumberNotes];
 	NSMutableDictionary	*touchDic;
 
 }
 
-- (void)setAQPlayer:(AQPlayer*) AQPlayer;
+- (void)setAppBrain:(AppBrain*) AppBrain;
 
 - (IBAction)startSound:(CLSlipperyButton *)sender;
 - (IBAction)stopSound:(CLSlipperyButton *)sender;

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Envelope.h"
 #import "WaveFormTable.h"
+
 #define kNumberNotes 8
 
 @interface Note : NSObject {
@@ -29,7 +30,7 @@
 
 +(double) mtof:(double)midiNote;
 
--(void)FillAudioBuffer:(double*)bufferPointer:(const int)numFrames;
+-(void)fillAudioBuffer:(double*)bufferPointer:(UInt32)numFrames;
 -(void)setWaveTable:(WaveFormTable *)wave_table;
 
 -(void)on;

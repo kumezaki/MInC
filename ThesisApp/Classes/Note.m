@@ -36,7 +36,7 @@
 	[super dealloc];
 }
 
--(void)FillAudioBuffer:(double*)bufferPointer:(const int)numFrames {
+-(void)fillAudioBuffer:(double*)bufferPointer:(UInt32)numFrames {
 	for (int i = 0; i < numFrames; i++) {
 		bufferPointer[i] += mAmp * [mWaveTable get:mTheta] * [mEnv get];
 		mTheta += mDeltaTheta;
