@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "AQPlayer.h"//for kSR setting only
 
-#define MAX_AMP	0.95
 #define RAMP_TIME	(kSR * 0.05)
 
 @interface Envelope : NSObject {

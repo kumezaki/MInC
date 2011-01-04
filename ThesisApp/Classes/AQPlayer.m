@@ -24,13 +24,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	[aqp fillAudioBuffer:sampleBuffer:numFrames];
 	
 	// KU: now that the buffer is filled with samples with all notes, apply limiter and scale to 16-bit linear PCM	
-	double maxAmp = 0.;	
+	double sample = 0.;	
 	for (int i = 0; i < numFrames; i++) {	
-		maxAmp = fabs(sampleBuffer[i]) > maxAmp ? fabs(sampleBuffer[i]) : maxAmp;
-		((SInt16 *)inAQBuffer->mAudioData)[i] = sampleBuffer[i] * (SInt16)0x7FFF;
+		sample = sampleBuffer[i];
+		sample = sample > MAX_AMP ? MAX_AMP : sample < -MAX_AMP ? -MAX_AMP : sample;
+		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;
 	}
-
-	inAQBuffer->mAudioDataByteSize = 1024;
+	
+	inAQBuffer->mAudioDataByteSize = 2048;
 	inAQBuffer->mPacketDescriptionCount = 0;
 		
 	AudioQueueEnqueueBuffer(inAQ, inAQBuffer, 0, nil);
@@ -65,7 +66,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		printf("AudioQueueNewOutput \n",result);
 	
 	for (int i = 0; i < kNumberBuffers; ++i) {
-		result = AudioQueueAllocateBuffer(mQueue, 1024, &mBuffers[i]);
+		result = AudioQueueAllocateBuffer(mQueue, 2048, &mBuffers[i]);
 		if (result != noErr)
 			printf("AudioQueueAllocateBuffer \n",result);
 	}
