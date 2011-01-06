@@ -22,6 +22,7 @@
 	
 	double mFreq;
 	int mCurrentMode;
+	int numTouches;
 	
 @public
 	
@@ -30,6 +31,7 @@
 	WaveFormTable *mWaveTable;		
 }
 
+@property int numTouches;
 @property int mCurrentMode;
 @property (nonatomic, retain) NSString *mWaveType;
 
@@ -39,6 +41,6 @@
 -(void) setMode:(int)val;
 -(void) setWaveType:(NSString *)waveType;
 
-- (void)fillAudioBuffer:(double*)buffer:(UInt32)numFrames;
+- (void)fillAudioBuffer:(double*)sampleBuffer:(UInt32)numFrames;
 
 @end

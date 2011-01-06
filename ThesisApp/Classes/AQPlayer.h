@@ -10,22 +10,28 @@
 #import <AudioToolbox/AudioToolbox.h>
 
 #define kNumberBuffers 3
-#define kSR 44100.
-#define MAX_AMP	0.95
+#define kSR 22050.
+#define kAudioDataByteSize 512
+#define MAX_AMP	1.
 
 @interface AQPlayer : NSObject {
 
 	AudioStreamBasicDescription		mDataFormat;
 	AudioQueueRef					mQueue;
 	AudioQueueBufferRef				mBuffers[kNumberBuffers];
-	
+
 }
 
--(void) newAQ;
+@property int numTouches;
 
--(OSStatus) start;
--(OSStatus) stop;
+- (void) newAQ;
 
-- (void)fillAudioBuffer:(double*)buffer:(UInt32)numFrames;
+- (OSStatus) start;
+- (OSStatus) stop;
+
+- (void)fillAudioBuffer:(double*)sampleBuffer:(UInt32)numFrames;
+
+- (void)ReportMaxAmplitude:(double)mMaxAmp;
+- (void)ReportElapsedTime:(double)elapsedTime;
 
 @end

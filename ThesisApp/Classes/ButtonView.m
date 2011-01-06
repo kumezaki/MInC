@@ -17,7 +17,7 @@
     if (self) {
 		self.userInteractionEnabled = YES;
 		self.multipleTouchEnabled = YES;
-		touchDic = [[NSMutableDictionary alloc] initWithCapacity:5];
+		touchDict = [[NSMutableDictionary alloc] initWithCapacity:5];
     }
     return self;
 }
@@ -87,7 +87,7 @@
 }
 
 - (void)dealloc {	
-	[touchDic release];
+	[touchDict release];
 	[super dealloc];
 }
 
@@ -115,17 +115,18 @@
 			if (!slickButton[i].highlighted) {
 				slickButton[i].highlighted = YES;
 				[self startSound:slickButton[i]];
-				[touchDic setObject:slickButton[i] forKey:[NSValue valueWithPointer:touch]];
+				[touchDict setObject:slickButton[i] forKey:[NSValue valueWithPointer:touch]];
 				break;
 			}
 		}
 	}
-	//NSLog(@"touchDic BEGAN %i",[touchDic count]);
+	mAppBrain.numTouches = [touchDict count];
+	//NSLog(@"touchDict BEGAN %i",[touchDict count]);
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {	
 	UITouch *touch = [touches anyObject];
-	CLSlipperyButton *movedButton = [touchDic objectForKey:[NSValue valueWithPointer:touch]];
+	CLSlipperyButton *movedButton = [touchDict objectForKey:[NSValue valueWithPointer:touch]];
 	CGPoint touchPoint = [touch locationInView:self];		
 	if (movedButton.highlighted && !CGRectContainsPoint(movedButton.frame, touchPoint)) {
 		movedButton.highlighted = NO;
@@ -135,7 +136,7 @@
 		if(!movedButton.highlighted && CGRectContainsPoint(slickButton[i].frame, touchPoint)) {
 			slickButton[i].highlighted = YES;
 			[self startSound:slickButton[i]];
-			[touchDic setObject:slickButton[i] forKey:[NSValue valueWithPointer:touch]];
+			[touchDict setObject:slickButton[i] forKey:[NSValue valueWithPointer:touch]];
 			break;
 		}
 	}
@@ -143,11 +144,12 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
-	CLSlipperyButton *endedButton = [touchDic objectForKey:[NSValue valueWithPointer:touch]];
+	CLSlipperyButton *endedButton = [touchDict objectForKey:[NSValue valueWithPointer:touch]];
 	endedButton.highlighted = NO;
 	[self stopSound:endedButton];
-	[touchDic removeObjectForKey:[NSValue valueWithPointer:touch]];
-	//NSLog(@"touchDic END %i",[touchDic count]);
+	[touchDict removeObjectForKey:[NSValue valueWithPointer:touch]];
+	mAppBrain.numTouches = [touchDict count];
+	//NSLog(@"touchDict END %i",[touchDict count]);
 }
 
 -(void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {

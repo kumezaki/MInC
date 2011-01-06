@@ -15,8 +15,8 @@
 	AppBrain		*mAppBrain;
 
 	CLSlipperyButton*slickButton[kNumberNotes];
-	NSMutableDictionary	*touchDic;
-
+	NSMutableDictionary	*touchDict;
+	
 }
 
 - (void)setAppBrain:(AppBrain*) AppBrain;

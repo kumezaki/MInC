@@ -38,6 +38,7 @@
 
 -(void)fillAudioBuffer:(double*)bufferPointer:(UInt32)numFrames {
 	for (int i = 0; i < numFrames; i++) {
+		//bufferPointer[i] += [mWaveTable get:mTheta] * [mEnv get];
 		bufferPointer[i] += mAmp * [mWaveTable get:mTheta] * [mEnv get];
 		mTheta += mDeltaTheta;
 	}

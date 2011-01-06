@@ -11,6 +11,7 @@
 
 @implementation AppBrain
 
+@synthesize numTouches;
 @synthesize mWaveType;
 @synthesize mCurrentMode;
 
@@ -71,11 +72,11 @@
 }
 
 - (void)fillAudioBuffer:(double*)sampleBuffer:(UInt32)numFrames{
-	
+
 	for (int i = 0; i < kNumberNotes; i++) {
+		mNotes[i].mAmp = 1.0/numTouches;
 		[mNotes[i] fillAudioBuffer:sampleBuffer :numFrames];
 	}
-	
 }
 
 @end

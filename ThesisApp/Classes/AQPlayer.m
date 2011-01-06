@@ -12,6 +12,8 @@ AQPlayer *gAQP = nil;
 
 @implementation AQPlayer
 
+@synthesize numTouches;
+
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) {	
 	
 	AQPlayer *aqp = (AQPlayer *)inUserData;
@@ -24,14 +26,24 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	[aqp fillAudioBuffer:sampleBuffer:numFrames];
 	
 	// KU: now that the buffer is filled with samples with all notes, apply limiter and scale to 16-bit linear PCM	
+	double mMaxAmp = 0.;
 	double sample = 0.;	
 	for (int i = 0; i < numFrames; i++) {	
+		//raw mMaxAmp
+		//mMaxAmp = fabs(sampleBuffer[i]) > mMaxAmp ? fabs(sampleBuffer[i]) : mMaxAmp;
+		
 		sample = sampleBuffer[i];
-		sample = sample > MAX_AMP ? MAX_AMP : sample < -MAX_AMP ? -MAX_AMP : sample;
+		//sample = sample/aqp.numTouches;
+		
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;
 	}
 	
-	inAQBuffer->mAudioDataByteSize = 2048;
+	double elapsedTime = numFrames / kSR;
+	
+	[aqp ReportMaxAmplitude:mMaxAmp];
+	[aqp ReportElapsedTime:elapsedTime];
+	
+	inAQBuffer->mAudioDataByteSize = kAudioDataByteSize;
 	inAQBuffer->mPacketDescriptionCount = 0;
 		
 	AudioQueueEnqueueBuffer(inAQ, inAQBuffer, 0, nil);
@@ -66,7 +78,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		printf("AudioQueueNewOutput \n",result);
 	
 	for (int i = 0; i < kNumberBuffers; ++i) {
-		result = AudioQueueAllocateBuffer(mQueue, 2048, &mBuffers[i]);
+		result = AudioQueueAllocateBuffer(mQueue, kAudioDataByteSize, &mBuffers[i]);
 		if (result != noErr)
 			printf("AudioQueueAllocateBuffer \n",result);
 	}
@@ -99,4 +111,17 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 - (void)fillAudioBuffer:(double*)buffer:(UInt32)numFrames {
 }
+
+-(void)ReportMaxAmplitude:(double)mMaxAmp
+{
+	if (mMaxAmp > 0) {
+		//NSLog(@"AQPlayer ReportmMaxAmplitude %lf",mMaxAmp);
+	}
+}
+
+-(void)ReportElapsedTime:(double)elapsedTime
+{
+	//NSLog(@"AQPlayer ReportElapsedTime %lf",elapsedTime);
+}
+
 @end
