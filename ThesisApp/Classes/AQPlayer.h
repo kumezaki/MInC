@@ -22,7 +22,7 @@
 
 }
 
-@property int numTouches;
+@property int numTouches;//temp
 
 - (void) newAQ;
 

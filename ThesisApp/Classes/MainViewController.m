@@ -55,9 +55,9 @@
 	controller.delegate = self;
 	[controller setAppBrain:mAppBrain];
 	
-//Create ButtonView	
+//Create buttonViewController	
 	CGRect viewRect = CGRectMake(0,30,480,290);
-	buttonView = [[ButtonView alloc] initWithFrame:viewRect];
+	buttonView = [[ButtonViewController alloc] initWithFrame:viewRect];
 	[buttonView setHidden:NO];
 	[self.view addSubview:buttonView];
 	[buttonView setAppBrain:mAppBrain];

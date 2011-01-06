@@ -22,7 +22,7 @@
 	
 	double mFreq;
 	int mCurrentMode;
-	int numTouches;
+	int numTouches;//temp
 	
 @public
 	
@@ -31,7 +31,7 @@
 	WaveFormTable *mWaveTable;		
 }
 
-@property int numTouches;
+@property int numTouches;//temp
 @property int mCurrentMode;
 @property (nonatomic, retain) NSString *mWaveType;
 

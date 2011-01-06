@@ -12,7 +12,7 @@ AQPlayer *gAQP = nil;
 
 @implementation AQPlayer
 
-@synthesize numTouches;
+@synthesize numTouches;//temp
 
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) {	
 	

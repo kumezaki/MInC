@@ -9,7 +9,7 @@
 #import "AppBrain.h"
 #import "AppBrain.h"
 #import "FlipsideViewController.h"
-#import "ButtonView.h"
+#import "ButtonViewController.h"
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIAccelerometerDelegate> {
 	IBOutlet UILabel		*waveFormLabel;
@@ -20,7 +20,7 @@
 		
 	AppBrain				*mAppBrain;
 	FlipsideViewController	*controller;
-	ButtonView				*buttonView;
+	ButtonViewController	*buttonView;
 		
 	int modeIndex;
 	BOOL modeDidChange;
