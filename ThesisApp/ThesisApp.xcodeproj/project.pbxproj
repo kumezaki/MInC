@@ -16,7 +16,7 @@
 		288765590DF743DE002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765580DF743DE002DB57D /* CoreGraphics.framework */; };
 		289233AE0DB2D0DB0083E9F9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289233A90DB2D0DB0083E9F9 /* MainViewController.m */; };
 		289233B00DB2D0DB0083E9F9 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289233AD0DB2D0DB0083E9F9 /* FlipsideViewController.m */; };
-		B427AC3A12CADC0F00EDDE3D /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B427AC3912CADC0F00EDDE3D /* ButtonView.m */; };
+		B427AC3A12CADC0F00EDDE3D /* ButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B427AC3912CADC0F00EDDE3D /* ButtonViewController.m */; };
 		B43EB798128F216D000FD8EE /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EB797128F216D000FD8EE /* Note.m */; };
 		B449ABCD12D26E3400001888 /* AppBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = B449ABCC12D26E3400001888 /* AppBrain.m */; };
 		B4653FDE127E66CC00DA1F26 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4653FDD127E66CC00DA1F26 /* AudioToolbox.framework */; };
@@ -63,8 +63,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* ThesisApp_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThesisApp_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ThesisApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ThesisApp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		B427AC3812CADC0F00EDDE3D /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ButtonView.h; path = Classes/ButtonView.h; sourceTree = "<group>"; };
-		B427AC3912CADC0F00EDDE3D /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ButtonView.m; path = Classes/ButtonView.m; sourceTree = "<group>"; };
+		B427AC3812CADC0F00EDDE3D /* ButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ButtonViewController.h; path = Classes/ButtonViewController.h; sourceTree = "<group>"; };
+		B427AC3912CADC0F00EDDE3D /* ButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ButtonViewController.m; path = Classes/ButtonViewController.m; sourceTree = "<group>"; };
 		B43EB796128F216D000FD8EE /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Note.h; path = Classes/Note.h; sourceTree = "<group>"; };
 		B43EB797128F216D000FD8EE /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Note.m; path = Classes/Note.m; sourceTree = "<group>"; };
 		B449ABCB12D26E3400001888 /* AppBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppBrain.h; path = Classes/AppBrain.h; sourceTree = "<group>"; };
@@ -149,8 +149,8 @@
 				B4F3439212937A5B001A83D3 /* Content.h */,
 				289233A80DB2D0DB0083E9F9 /* MainViewController.h */,
 				289233A90DB2D0DB0083E9F9 /* MainViewController.m */,
-				B427AC3812CADC0F00EDDE3D /* ButtonView.h */,
-				B427AC3912CADC0F00EDDE3D /* ButtonView.m */,
+				B427AC3812CADC0F00EDDE3D /* ButtonViewController.h */,
+				B427AC3912CADC0F00EDDE3D /* ButtonViewController.m */,
 				B46C41FF12860417002E1B34 /* AQPlayer.h */,
 				B46C420012860417002E1B34 /* AQPlayer.m */,
 				B449ABCB12D26E3400001888 /* AppBrain.h */,
@@ -331,7 +331,7 @@
 				B4F6F5941291FF05008BB207 /* Envelope.m in Sources */,
 				B4F6F5991291FF30008BB207 /* Mode.m in Sources */,
 				B4C1234112C945570017918B /* CLSlipperyButton.m in Sources */,
-				B427AC3A12CADC0F00EDDE3D /* ButtonView.m in Sources */,
+				B427AC3A12CADC0F00EDDE3D /* ButtonViewController.m in Sources */,
 				B449ABCD12D26E3400001888 /* AppBrain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
