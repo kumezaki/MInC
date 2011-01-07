@@ -1,0 +1,1964 @@
+TThesisApp
+v7
+r0
+t314332513.882717
+cCheck dependencies
+cCpResource build/Debug-iphoneos/ThesisApp.app/ResourceRules.plist /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist
+cProcessInfoPlistFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/Info.plist ThesisApp-Info.plist
+cCompileXIB /Users/main_brain/minc_unfuddl/ThesisApp/FlipsideView.xib
+cCompileXIB /Users/main_brain/minc_unfuddl/ThesisApp/MainView.xib
+cCompileXIB /Users/main_brain/minc_unfuddl/ThesisApp/MainWindow.xib
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/aqua1.png buttons/aqua1.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/blue1.png buttons/blue1.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/yellow1.png buttons/yellow1.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/green1.png buttons/green1.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/pink1.png buttons/pink1.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/purple1.png buttons/purple1.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/red1.png buttons/red1.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/seafoam1.png buttons/seafoam1.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/aqua2.png buttons/aqua2.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/seafoam2.png buttons/seafoam2.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/green2.png buttons/green2.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/yellow2.png buttons/yellow2.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/blue2.png buttons/blue2.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/pink2.png buttons/pink2.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/purple2.png buttons/purple2.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/red2.png buttons/red2.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/Default.png Default.png
+cCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ppIcon.png ppIcon.png
+cProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-btwlonadszajsteqqiqiweqrksje/ThesisApp_Prefix.pch.gch ThesisApp_Prefix.pch normal armv6 objective-c com.apple.compilers.gcc.4_2
+cProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkusphvdpshalfavsxyukxzmzjrt/ThesisApp_Prefix.pch.gch ThesisApp_Prefix.pch normal armv7 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/main.o /Users/main_brain/minc_unfuddl/ThesisApp/main.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisAppAppDelegate.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/MainViewController.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/FlipsideViewController.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/WaveFormTable.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/AQPlayer.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Note.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Envelope.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Mode.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/main.o /Users/main_brain/minc_unfuddl/ThesisApp/main.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+cLd /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisApp normal armv6
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisAppAppDelegate.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/MainViewController.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/FlipsideViewController.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/WaveFormTable.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/AQPlayer.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Note.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Envelope.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Mode.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+cLd /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisApp normal armv7
+cCreateUniversalBinary /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ThesisApp normal "armv6 armv7"
+cGenerateDSYMFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app.dSYM /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ThesisApp
+cProcessProductPackaging "/Users/main_brain/Library/MobileDevice/Provisioning Profiles/C788A4EC-E229-44B4-9736-DD6CE4153BFB.mobileprovision" /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/embedded.mobileprovision
+cTouch /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app
+cProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent
+cCodeSign /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk
+c000000004CBA33A90000000000000110
+t1287271337
+s272
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/Entitlements.plist
+c000000004C06E99F00000000000001A7
+t1275521439
+s423
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/ResourceRules.plist
+c000000004C06E99F00000000000001E5
+t1275521439
+s485
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
+c000000004C0059B600000000002DE3B0
+t1275091382
+s3007408
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.h
+c000000004C0059880000000000000A22
+t1275091336
+s2594
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004C005A1C00000000003B4B70
+t1275091484
+s3885936
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004C005A45000000000036A640
+t1275091525
+s3581504
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004C005A310000000000001355
+t1275091505
+s4949
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004C00642C000000000000098F
+t1275094060
+s2447
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004C0064A60000000002703220
+t1275094182
+s40907296
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/usr/include/Availability.h
+c000000004B9F27C60000000000001A1A
+t1268721606
+s6682
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk
+c000000004CBA33AC0000000000000110
+t1287271340
+s272
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/Entitlements.plist
+c000000004C578FA900000000000001A7
+t1280806825
+s423
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/ResourceRules.plist
+c000000004C578FA900000000000001E5
+t1280806825
+s485
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
+c000000004C5A51EA000000000039EF90
+t1280987626
+s3796880
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.h
+c000000004C5A51980000000000000A23
+t1280987544
+s2595
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004C5A51050000000000345F00
+t1280987397
+s3432192
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004C5A52B100000000003E1EF0
+t1280987825
+s4071152
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004C5A527F0000000000001466
+t1280987775
+s5222
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004C62427000000000000009CD
+t1281507952
+s2509
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004C62430F0000000002EBC2B0
+t1281508111
+s49005232
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include/Availability.h
+c000000004C57A57A0000000000001A5C
+t1280812410
+s6748
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk
+c000000004CC7DC9E0000000000000110
+t1288166558
+s272
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist
+c000000004CB3DFCF00000000000001A7
+t1286856655
+s423
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist
+c000000004CB3DFCF00000000000001E5
+t1286856655
+s485
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
+c000000004CC10EF400000000003B8CB0
+t1287720692
+s3902640
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.h
+c000000004CC10EB60000000000000A23
+t1287720630
+s2595
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004CC10EF500000000003532B0
+t1287720693
+s3486384
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004CC10F4700000000003E1F20
+t1287720775
+s4071200
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004CC10F1C0000000000001466
+t1287720732
+s5222
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004CC11AE60000000000000AA1
+t1287723750
+s2721
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004CC11B750000000000C769F0
+t1287723893
+s13068784
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/Availability.h
+c000000004CB3FBB80000000000001ADD
+t1286863800
+s6877
+
+N/Users/main_brain/Library/MobileDevice/Provisioning Profiles/C788A4EC-E229-44B4-9736-DD6CE4153BFB.mobileprovision
+c000000004CD305DF0000000000001CD5
+t1288898015
+s7381
+
+N/Users/main_brain/Library/MobileDevice/Provisioning Profiles/F513F6DA-0538-4904-BCD0-6EE431565A95.mobileprovision
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/4thWall_Icon.png
+c000000004D0B01C40000000000001C38
+t1292566980
+s7224
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/ADSR.h
+c000000004CCCCD3F0000000000000281
+t1288490303
+s641
+i<Foundation/Foundation.h>
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/ADSR.m
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.h
+c000000004CCCCD3F00000000000002E4
+t1288490303
+s740
+i<AudioToolbox/AudioToolbox.h>
+i<Foundation/Foundation.h>
+i"Sequencer.h"
+i"SoundFile.h"
+i"WaveFormTable.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ADSR.h
+c000000004CD642530000000000000281
+t1289110099
+s641
+i<Foundation/Foundation.h>
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ADSR.m
+c000000004CD6425300000000000004CF
+t1289110099
+s1231
+i"ADSR.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.h
+c000000004D06BC77000000000000038F
+t1292287095
+s911
+i<Foundation/Foundation.h>
+i<AudioToolbox/AudioToolbox.h>
+i"WaveFormTable.h"
+i"Note.h"
+i"Mode.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m
+c000000004D06C35E0000000000000EA9
+t1292288862
+s3753
+i"AQPlayer.h"
+i"Content.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Content.h
+c000000004CE35FAD0000000000000289
+t1289969581
+s649
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.h
+c000000004D05C0C40000000000000167
+t1292222660
+s359
+i<Foundation/Foundation.h>
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m
+c000000004D05C0DA00000000000001DD
+t1292222682
+s477
+i"Envelope.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.h
+c000000004D06B13C00000000000002C1
+t1292284220
+s705
+i<UIKit/UIKit.h>
+i"AQPlayer.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m
+c000000004D06B17B0000000000000515
+t1292284283
+s1301
+i"FlipsideViewController.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.h
+c000000004D0A89A2000000000000030C
+t1292536226
+s780
+i"FlipsideViewController.h"
+i"AQPlayer.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m
+c000000004D0A9F9D0000000000000E2D
+t1292541853
+s3629
+i"MainViewController.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.h
+c000000004CE3512E0000000000000175
+t1289965870
+s373
+i<Foundation/Foundation.h>
+i"Note.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m
+c000000004CE3513B000000000000016B
+t1289965883
+s363
+i"Mode.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.h
+c000000004D06917F0000000000000298
+t1292276095
+s664
+i<Foundation/Foundation.h>
+i"Envelope.h"
+i"WaveFormTable.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m
+c000000004D0691880000000000000427
+t1292276104
+s1063
+i"Note.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Sequence.h
+c000000004CD6232A00000000000001A4
+t1289102122
+s420
+i<Foundation/Foundation.h>
+i"Note.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Sequence.m
+c000000004CD624A700000000000003BD
+t1289102503
+s957
+i"Sequence.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.h
+c000000004CCCC18E00000000000001E7
+t1288487310
+s487
+i<UIKit/UIKit.h>
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m
+c000000004CCCC18E0000000000000AA6
+t1288487310
+s2726
+i"ThesisAppAppDelegate.h"
+i"MainViewController.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.h
+c000000004D06AB450000000000000193
+t1292282693
+s403
+i<Foundation/Foundation.h>
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m
+c000000004D06AB2F000000000000031C
+t1292282671
+s796
+i"WaveFormTable.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.h
+c000000004D068F45000000000000018D
+t1292275525
+s397
+i<Foundation/Foundation.h>
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m
+c000000004D068F5E000000000000037F
+t1292275550
+s895
+i"WaveTableBrain.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Content.h
+c000000004CCCCD3F00000000000004D1
+t1288490303
+s1233
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Default.png
+c000000004D0C1AED00000000000063D2
+t1292638957
+s25554
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/FlipsideView.xib
+c000000004D06AE0700000000000073EA
+t1292283399
+s29674
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Icon.png
+c000000004D0B01C40000000000001C38
+t1292566980
+s7224
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/MainView.xib
+c000000004D0C1075000000000000D66D
+t1292636277
+s54893
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/MainWindow.xib
+c000000004CCCC27A00000000000050AB
+t1288487546
+s20651
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Note.h
+c00000000000000000000000000000000
+t2
+s0
+i<Foundation/Foundation.h>
+i"ADSR.h"
+i"WaveFormTable.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Note.m
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Sequence.h
+c000000004CCCCD3F00000000000001A5
+t1288490303
+s421
+i<Foundation/Foundation.h>
+i"Note.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Sequence.m
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Sequencer.h
+c000000004CCCCD3F0000000000000294
+t1288490303
+s660
+i<Foundation/Foundation.h>
+i"Sequence.h"
+i"WaveFormTable.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/Sequencer.m
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.h
+c000000004CCCCD3F0000000000000287
+t1288490303
+s647
+i<Foundation/Foundation.h>
+i<AudioToolbox/AudioToolbox.h>
+i"ADSR.h"
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp_Prefix.pch
+c000000004CCCC18E0000000000000144
+t1288487310
+s324
+i<Availability.h>
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/WaveFormTable.h
+c000000004CCCCD3F0000000000000148
+t1288490303
+s328
+i<Foundation/Foundation.h>
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/WaveFormTable.m
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app
+t1292639713
+s1020
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app.dSYM
+t1292639713
+s102
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/4thWall_Icon.png
+t1292567048
+s9304
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/Default.png
+t1292639711
+s29956
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/FlipsideView.nib
+t1292639710
+s2490
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/Icon.png
+t1292636235
+s12116
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/Info.plist
+t1292639710
+s819
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/MainView.nib
+t1292639710
+s5404
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/MainWindow.nib
+t1292639711
+s1151
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/PkgInfo
+t1292639710
+s8
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ResourceRules.plist
+t1292639710
+s485
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ThesisApp
+t1292639713
+s99684
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/aqua1.png
+t1292639710
+s2298
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/aqua2.png
+t1292639711
+s2173
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/blue1.png
+t1292639710
+s4855
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/blue2.png
+t1292639711
+s4770
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/embedded.mobileprovision
+t1292639713
+s7381
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/gold1.png
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/green1.png
+t1292639710
+s2117
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/green2.png
+t1292639711
+s1860
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/pink1.png
+t1292639710
+s4709
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/pink2.png
+t1292639711
+s4714
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/poopIcon.png
+t1292639328
+s9304
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ppIcon.png
+t1292639711
+s9304
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/purple1.png
+t1292639710
+s4686
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/purple2.png
+t1292639711
+s4484
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/red1.png
+t1292639711
+s4711
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/red2.png
+t1292639711
+s4524
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/seafoam1.png
+t1292639711
+s2147
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/seafoam2.png
+t1292639711
+s2094
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/seefoam2.png
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/yellow1.png
+t1292639710
+s4730
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/yellow2.png
+t1292639711
+s4449
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ADSR-FCD66C9852276E63.o
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ADSR.o
+t1289110528
+s12468
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/AQPlayer.o
+t1292639712
+s24264
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Envelope.o
+t1292639712
+s8400
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/FlipsideViewController-7091ECE42534511D.o
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/FlipsideViewController.o
+t1292639712
+s44508
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/MainViewController.o
+t1292639712
+s57980
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Mode.o
+t1292639712
+s8328
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Note-D8EBD2CE1D42394F.o
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Note-DDB1F679B46A1461.o
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Note.o
+t1292639712
+s15128
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Sequence.o
+t1289078679
+s11368
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Sequencer.o
+t1289078679
+s15284
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/SoundFile.o
+t1289078679
+s14312
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisApp
+t1292639713
+s46988
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisApp.LinkFileList
+c000000004D0C1DDE000000000000048B
+t1292639710
+s1163
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisAppAppDelegate-BD47A630A600FC34.o
+t1289079977
+s49492
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisAppAppDelegate.o
+t1292639712
+s53388
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/WaveFormTable.o
+t1292639712
+s9592
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/WaveTableBrain.o
+t1292275539
+s9704
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/main.o
+t1292639712
+s6452
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ADSR-FCD66C9852276E63.o
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ADSR.o
+t1289110528
+s11260
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/AQPlayer.o
+t1292639713
+s23172
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Envelope.o
+t1292639713
+s7976
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/FlipsideViewController-7091ECE42534511D.o
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/FlipsideViewController.o
+t1292639713
+s44424
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/MainViewController.o
+t1292639713
+s57240
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Mode.o
+t1292639713
+s8304
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Note-D8EBD2CE1D42394F.o
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Note-DDB1F679B46A1461.o
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Note.o
+t1292639713
+s14504
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Sequence.o
+t1289078680
+s11280
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Sequencer.o
+t1289078680
+s14828
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/SoundFile.o
+t1289078680
+s13780
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisApp
+t1292639713
+s46436
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisApp.LinkFileList
+c000000004D0C1DDE000000000000048B
+t1292639710
+s1163
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisAppAppDelegate-BD47A630A600FC34.o
+t1289079977
+s49412
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisAppAppDelegate.o
+t1292639712
+s53308
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/WaveFormTable.o
+t1292639713
+s9024
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/WaveTableBrain.o
+t1292275540
+s9132
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/main.o
+t1292639712
+s6436
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent
+t1292639713
+s430
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/aqua1.png
+c000000004D0C094B0000000000000794
+t1292634443
+s1940
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/aqua2.png
+c000000004D0C09BC00000000000007A8
+t1292634556
+s1960
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/blue1.png
+c000000004D0C0C9C00000000000011E3
+t1292635292
+s4579
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/blue2.png
+c000000004D0C0C8D00000000000011D0
+t1292635277
+s4560
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/gold1.png
+c000000004D0BF81B000000000000028C
+t1292630043
+s652
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/green1.png
+c000000004D0C07DC000000000000072D
+t1292634076
+s1837
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/green2.png
+c000000004D0C0878000000000000064E
+t1292634232
+s1614
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/pink1.png
+c000000004D0C0EC700000000000010DF
+t1292635847
+s4319
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/pink2.png
+c000000004D0C0EFD00000000000011D5
+t1292635901
+s4565
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/purple1.png
+c000000004D0C0F3E0000000000001177
+t1292635966
+s4471
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/purple2.png
+c000000004D0C0F6F00000000000010EE
+t1292636015
+s4334
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/red1.png
+c000000004D0C0D9900000000000010F7
+t1292635545
+s4343
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/red2.png
+c000000004D0C0E7E000000000000110D
+t1292635774
+s4365
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/seafoam1.png
+c000000004D0C066100000000000006B0
+t1292633697
+s1712
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/seafoam2.png
+c000000004D0C0BD3000000000000076D
+t1292635091
+s1901
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/seefoam2.png
+c000000004D0C00F10000000000000564
+t1292632305
+s1380
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/yellow1.png
+c000000004D0C03D2000000000000113F
+t1292633042
+s4415
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/yellow2.png
+c000000004D0C041200000000000010A6
+t1292633106
+s4262
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/main.m
+c000000004CCCC18E000000000000016E
+t1288487310
+s366
+i<UIKit/UIKit.h>
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/poopIcon.png
+c000000004D0B01C40000000000001C38
+t1292566980
+s7224
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/ppIcon.png
+c000000004D0B01C40000000000001C38
+t1292566980
+s7224
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/yellow1.png
+c000000004D0BEF9A00000000000002C9
+t1292627866
+s713
+
+N/Users/main_brain/minc_unfuddl/ThesisApp/yellow2.png
+c000000004D0BEFB900000000000002B7
+t1292627897
+s695
+
+N/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-btwlonadszajsteqqiqiweqrksje/ThesisApp_Prefix.pch.gch
+t1292639712
+s9983704
+
+N/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-czouxnzjkcximubdbjguvsjwalvy/ThesisApp_Prefix.pch.gch
+t1288897810
+s10294832
+
+N/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dvvodeubhngfehbmmdleisshtqnx/ThesisApp_Prefix.pch.gch
+t1288897856
+s9421460
+
+N/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-ecpbyxxhrrsetebyubzhcglaylbu/ThesisApp_Prefix.pch.gch
+t1288897856
+s8958612
+
+N/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkdjhnxpeldclpafiqwhrpqnhkrk/ThesisApp_Prefix.pch.gch
+t1288897810
+s9831984
+
+N/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkusphvdpshalfavsxyukxzmzjrt/ThesisApp_Prefix.pch.gch
+t1292639712
+s10446552
+
+NThesisApp-Info.plist
+c000000004D0C1DC9000000000000036F
+t1292639689
+s879
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies314332510#314332510#0(0"0(0#1#0"8611192192#0"0#
+
+CCodeSign /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app
+s314332513.701961
+e314332513.882681
+r1
+xCodeSign
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app
+lSLF07#2@43"CodeSign build/Debug-iphoneos/ThesisApp.app314332513#314332513#0(0"0(0#0#75"/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app8611084544#674"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv _CODESIGN_ALLOCATE_ /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate    /usr/bin/codesign -f -s "iPhone Developer: Christopher Lavender (79AJUVQ2SX)" --resource-rules=/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ResourceRules.plist --entitlements /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ADSR-FCD66C9852276E63.o /Users/main_brain/minc_unfuddl/ThesisApp/ADSR.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ADSR.o /Users/main_brain/minc_unfuddl/ThesisApp/ADSR.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s310760559.357753
+e310760559.495801
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ADSR.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/ADSR.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@55"Compile /Users/main_brain/minc_unfuddl/ThesisApp/ADSR.m310760559#310760559#0(0"0(0#0#47"/Users/main_brain/minc_unfuddl/ThesisApp/ADSR.m8652113504#1786"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkdjhnxpeldclpafiqwhrpqnhkrk/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/ADSR.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ADSR.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ADSR.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ADSR.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s310803328.616495
+e310803328.685363
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ADSR.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ADSR.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@63"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ADSR.m310803328#310803328#0(0"0(0#0#55"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ADSR.m8603238080#1794"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkdjhnxpeldclpafiqwhrpqnhkrk/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ADSR.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ADSR.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/AQPlayer.o /Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s310772021.285533
+e310772021.409446
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/AQPlayer.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m: In function '-[AQPlayer New]':
+o/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m:114: warning: format '%d' expects type 'int', but argument 2 has type 'OSStatus'
+o/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m:120: warning: format '%d' expects type 'int', but argument 2 has type 'OSStatus'
+lSLF07#2@59"Compile /Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m310772021#310772021#0(350"/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m: In function '-[AQPlayer New]':/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m:114: warning: format '%d' expects type 'int', but argument 2 has type 'OSStatus'/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m:120: warning: format '%d' expects type 'int', but argument 2 has type 'OSStatus'2(22@66"Format '%d' expects type 'int', but argument 2 has type 'OSStatus'310772021#84#133#0(6@51"/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m310772018#114#0#114#0#56"format '*' expects type '*', but argument * has type '*'0(22@66"Format '%d' expects type 'int', but argument 2 has type 'OSStatus'310772021#217#133#0(6@51"/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m310772018#120#0#120#0#56"format '*' expects type '*', but argument * has type '*'0(0#0#51"/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m8640454272#1794"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkdjhnxpeldclpafiqwhrpqnhkrk/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/AQPlayer.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/AQPlayer.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s314332512.696646
+e314332512.811262
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/AQPlayer.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@67"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m314332512#314332512#0(0"0(0#0#59"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m8615276288#1802"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-btwlonadszajsteqqiqiweqrksje/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/AQPlayer.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Envelope.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s314332512.778323
+e314332512.837428
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Envelope.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@67"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m314332512#314332512#0(0"0(0#0#59"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m8612332768#1802"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-btwlonadszajsteqqiqiweqrksje/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Envelope.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/FlipsideViewController-7091ECE42534511D.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/FlipsideViewController.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s314332512.602514
+e314332512.696548
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/FlipsideViewController.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@81"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m314332512#314332512#0(0"0(0#0#73"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m8611491488#1830"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-btwlonadszajsteqqiqiweqrksje/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/FlipsideViewController.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/MainViewController.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s314332512.536082
+e314332512.638269
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/MainViewController.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@77"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m314332512#314332512#0(0"0(0#0#69"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m8611705344#1822"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-btwlonadszajsteqqiqiweqrksje/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/MainViewController.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Mode.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s314332512.811352
+e314332512.860362
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Mode.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@63"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m314332512#314332512#0(0"0(0#0#55"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m8611727648#1794"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-btwlonadszajsteqqiqiweqrksje/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Mode.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Note-D8EBD2CE1D42394F.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Note-DDB1F679B46A1461.o /Users/main_brain/minc_unfuddl/ThesisApp/Note.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Note.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s314332512.703001
+e314332512.778227
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Note.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@63"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m314332512#314332512#0(0"0(0#0#55"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m8614490976#1794"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-btwlonadszajsteqqiqiweqrksje/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Note.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Note.o /Users/main_brain/minc_unfuddl/ThesisApp/Note.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s310771479.713742
+e310771479.787221
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Note.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Note.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@55"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Note.m310771479#310771479#0(0"0(0#0#47"/Users/main_brain/minc_unfuddl/ThesisApp/Note.m8609173312#1786"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkdjhnxpeldclpafiqwhrpqnhkrk/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Note.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Note.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Sequence.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Sequence.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Sequence.o /Users/main_brain/minc_unfuddl/ThesisApp/Sequence.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s310771479.787312
+e310771479.842885
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Sequence.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Sequence.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@59"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Sequence.m310771479#310771479#0(0"0(0#0#51"/Users/main_brain/minc_unfuddl/ThesisApp/Sequence.m8653421984#1794"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkdjhnxpeldclpafiqwhrpqnhkrk/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Sequence.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Sequence.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Sequencer.o /Users/main_brain/minc_unfuddl/ThesisApp/Sequencer.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s310771479.842992
+e310771479.919247
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Sequencer.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Sequencer.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@60"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Sequencer.m310771479#310771479#0(0"0(0#0#52"/Users/main_brain/minc_unfuddl/ThesisApp/Sequencer.m8644348448#1796"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkdjhnxpeldclpafiqwhrpqnhkrk/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Sequencer.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/Sequencer.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/SoundFile.o /Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s310771479.889593
+e310771479.960979
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/SoundFile.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m: In function '-[SoundFile init]':
+o/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m:21: warning: format '%d' expects type 'int', but argument 2 has type 'OSStatus'
+o/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m: In function '-[SoundFile dealloc]':
+o/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m:30: warning: format '%d' expects type 'int', but argument 2 has type 'OSStatus'
+lSLF07#2@60"Compile /Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m310771479#310771479#0(443"/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m: In function '-[SoundFile init]':/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m:21: warning: format '%d' expects type 'int', but argument 2 has type 'OSStatus'/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m: In function '-[SoundFile dealloc]':/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m:30: warning: format '%d' expects type 'int', but argument 2 has type 'OSStatus'2(22@66"Format '%d' expects type 'int', but argument 2 has type 'OSStatus'310771479#87#133#0(6@52"/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m310183103#21#0#21#0#56"format '*' expects type '*', but argument * has type '*'0(22@66"Format '%d' expects type 'int', but argument 2 has type 'OSStatus'310771479#310#133#0(6@52"/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m310183103#30#0#30#0#56"format '*' expects type '*', but argument * has type '*'0(0#0#52"/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m8638329376#1796"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkdjhnxpeldclpafiqwhrpqnhkrk/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/SoundFile.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisAppAppDelegate-BD47A630A600FC34.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s310772777.103448
+e310772777.185092
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisAppAppDelegate-BD47A630A600FC34.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@79"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m310772777#310772777#0(0"0(0#0#71"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m8599358880#1843"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkdjhnxpeldclpafiqwhrpqnhkrk/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisAppAppDelegate-BD47A630A600FC34.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisAppAppDelegate.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s314332512.163862
+e314332512.602418
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisAppAppDelegate.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@79"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m314332512#314332512#0(0"0(0#0#71"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m8612184224#1826"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-btwlonadszajsteqqiqiweqrksje/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisAppAppDelegate.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/WaveFormTable.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s314332512.638371
+e314332512.702914
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/WaveFormTable.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@72"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m314332512#314332512#0(0"0(0#0#64"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m8611436800#1812"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-btwlonadszajsteqqiqiweqrksje/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/WaveFormTable.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/WaveFormTable.o /Users/main_brain/minc_unfuddl/ThesisApp/WaveFormTable.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s310771479.844503
+e310771479.889490
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/WaveFormTable.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/WaveFormTable.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@64"Compile /Users/main_brain/minc_unfuddl/ThesisApp/WaveFormTable.m310771479#310771479#0(0"0(0#0#56"/Users/main_brain/minc_unfuddl/ThesisApp/WaveFormTable.m8641311808#1804"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkdjhnxpeldclpafiqwhrpqnhkrk/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/WaveFormTable.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/WaveFormTable.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/WaveTableBrain.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s313968339.663598
+e313968339.712967
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/WaveTableBrain.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m: In function '-[WaveTableBrain setWaveType:]':
+o/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m:47: warning: 'return' with no value, in function returning non-void
+lSLF07#2@73"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m313968339#313968339#0(247"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m: In function '-[WaveTableBrain setWaveType:]':/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m:47: warning: 'return' with no value, in function returning non-void1(22@54"'return' with no value, in function returning non-void313968339#113#134#0(6@65"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m313968302#47#0#47#0#54"'return' with no value, in function returning non-void0(0#0#65"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m8627480032#1814"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkdjhnxpeldclpafiqwhrpqnhkrk/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/WaveTableBrain.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/main.o /Users/main_brain/minc_unfuddl/ThesisApp/main.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s314332512.163036
+e314332512.535992
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/main.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/main.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@55"Compile /Users/main_brain/minc_unfuddl/ThesisApp/main.m314332512#314332512#0(0"0(0#0#47"/Users/main_brain/minc_unfuddl/ThesisApp/main.m8612590144#1786"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-btwlonadszajsteqqiqiweqrksje/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/main.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/main.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ADSR-FCD66C9852276E63.o /Users/main_brain/minc_unfuddl/ThesisApp/ADSR.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ADSR.o /Users/main_brain/minc_unfuddl/ThesisApp/ADSR.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s310760559.484492
+e310760559.533463
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ADSR.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/ADSR.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@55"Compile /Users/main_brain/minc_unfuddl/ThesisApp/ADSR.m310760559#310760559#0(0"0(0#0#47"/Users/main_brain/minc_unfuddl/ThesisApp/ADSR.m8644409760#1786"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-czouxnzjkcximubdbjguvsjwalvy/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/ADSR.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ADSR.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ADSR.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ADSR.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s310803328.886182
+e310803328.965436
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ADSR.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ADSR.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@63"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ADSR.m310803328#310803328#0(0"0(0#0#55"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ADSR.m8604504320#1794"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-czouxnzjkcximubdbjguvsjwalvy/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ADSR.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ADSR.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/AQPlayer.o /Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s310772021.319780
+e310772021.410254
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/AQPlayer.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m: In function '-[AQPlayer New]':
+o/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m:114: warning: format '%d' expects type 'int', but argument 2 has type 'OSStatus'
+o/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m:120: warning: format '%d' expects type 'int', but argument 2 has type 'OSStatus'
+lSLF07#2@59"Compile /Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m310772021#310772021#0(350"/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m: In function '-[AQPlayer New]':/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m:114: warning: format '%d' expects type 'int', but argument 2 has type 'OSStatus'/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m:120: warning: format '%d' expects type 'int', but argument 2 has type 'OSStatus'2(22@66"Format '%d' expects type 'int', but argument 2 has type 'OSStatus'310772021#84#133#0(6@51"/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m310772018#114#0#114#0#56"format '*' expects type '*', but argument * has type '*'0(22@66"Format '%d' expects type 'int', but argument 2 has type 'OSStatus'310772021#217#133#0(6@51"/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m310772018#120#0#120#0#56"format '*' expects type '*', but argument * has type '*'0(0#0#51"/Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m8656837056#1794"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-czouxnzjkcximubdbjguvsjwalvy/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/AQPlayer.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/AQPlayer.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/AQPlayer.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s314332513.176415
+e314332513.259302
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/AQPlayer.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@67"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m314332513#314332513#0(0"0(0#0#59"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m8615620608#1802"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkusphvdpshalfavsxyukxzmzjrt/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/AQPlayer.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Envelope.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s314332513.261096
+e314332513.316726
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Envelope.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@67"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m314332513#314332513#0(0"0(0#0#59"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m8615970144#1802"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkusphvdpshalfavsxyukxzmzjrt/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Envelope.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/FlipsideViewController-7091ECE42534511D.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/FlipsideViewController.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s314332513.061079
+e314332513.131461
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/FlipsideViewController.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@81"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m314332513#314332513#0(0"0(0#0#73"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m8617265024#1830"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkusphvdpshalfavsxyukxzmzjrt/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/FlipsideViewController.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/MainViewController.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s314332512.960124
+e314332513.060987
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/MainViewController.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@77"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m314332512#314332513#0(0"0(0#0#69"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m8611356512#1822"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkusphvdpshalfavsxyukxzmzjrt/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/MainViewController.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Mode.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s314332513.316813
+e314332513.362092
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Mode.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@63"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m314332513#314332513#0(0"0(0#0#55"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m8615281280#1794"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkusphvdpshalfavsxyukxzmzjrt/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Mode.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Note-D8EBD2CE1D42394F.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Note-DDB1F679B46A1461.o /Users/main_brain/minc_unfuddl/ThesisApp/Note.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Note.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s314332513.259406
+e314332513.323729
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Note.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@63"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m314332513#314332513#0(0"0(0#0#55"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m8617847264#1794"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkusphvdpshalfavsxyukxzmzjrt/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Note.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Note.o /Users/main_brain/minc_unfuddl/ThesisApp/Note.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s310771479.987481
+e310771480.053203
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Note.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Note.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@55"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Note.m310771479#310771480#0(0"0(0#0#47"/Users/main_brain/minc_unfuddl/ThesisApp/Note.m8632440832#1786"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-czouxnzjkcximubdbjguvsjwalvy/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Note.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Note.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Sequence.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Sequence.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Sequence.o /Users/main_brain/minc_unfuddl/ThesisApp/Sequence.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s310771480.041046
+e310771480.100543
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Sequence.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Sequence.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@59"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Sequence.m310771480#310771480#0(0"0(0#0#51"/Users/main_brain/minc_unfuddl/ThesisApp/Sequence.m8655347872#1794"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-czouxnzjkcximubdbjguvsjwalvy/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Sequence.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Sequence.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Sequencer.o /Users/main_brain/minc_unfuddl/ThesisApp/Sequencer.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s310771480.053305
+e310771480.117696
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Sequencer.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Sequencer.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@60"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Sequencer.m310771480#310771480#0(0"0(0#0#52"/Users/main_brain/minc_unfuddl/ThesisApp/Sequencer.m8644569024#1796"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-czouxnzjkcximubdbjguvsjwalvy/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Sequencer.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/Sequencer.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/SoundFile.o /Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s310771480.117817
+e310771480.193422
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/SoundFile.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m: In function '-[SoundFile init]':
+o/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m:21: warning: format '%d' expects type 'int', but argument 2 has type 'OSStatus'
+o/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m: In function '-[SoundFile dealloc]':
+o/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m:30: warning: format '%d' expects type 'int', but argument 2 has type 'OSStatus'
+lSLF07#2@60"Compile /Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m310771480#310771480#0(443"/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m: In function '-[SoundFile init]':/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m:21: warning: format '%d' expects type 'int', but argument 2 has type 'OSStatus'/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m: In function '-[SoundFile dealloc]':/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m:30: warning: format '%d' expects type 'int', but argument 2 has type 'OSStatus'2(22@66"Format '%d' expects type 'int', but argument 2 has type 'OSStatus'310771480#87#133#0(6@52"/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m310183103#21#0#21#0#56"format '*' expects type '*', but argument * has type '*'0(22@66"Format '%d' expects type 'int', but argument 2 has type 'OSStatus'310771480#310#133#0(6@52"/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m310183103#30#0#30#0#56"format '*' expects type '*', but argument * has type '*'0(0#0#52"/Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m8637961216#1796"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-czouxnzjkcximubdbjguvsjwalvy/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/SoundFile.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/SoundFile.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisAppAppDelegate-BD47A630A600FC34.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s310772777.347077
+e310772777.453714
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisAppAppDelegate-BD47A630A600FC34.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@79"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m310772777#310772777#0(0"0(0#0#71"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m8606527616#1843"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-czouxnzjkcximubdbjguvsjwalvy/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisAppAppDelegate-BD47A630A600FC34.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisAppAppDelegate.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s314332512.885796
+e314332512.960030
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisAppAppDelegate.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@79"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m314332512#314332512#0(0"0(0#0#71"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m8610117088#1826"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkusphvdpshalfavsxyukxzmzjrt/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisAppAppDelegate.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/WaveFormTable.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s314332513.131555
+e314332513.176311
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/WaveFormTable.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@72"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m314332513#314332513#0(0"0(0#0#64"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m8615802368#1812"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkusphvdpshalfavsxyukxzmzjrt/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/WaveFormTable.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/WaveFormTable.o /Users/main_brain/minc_unfuddl/ThesisApp/WaveFormTable.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s310771480.100649
+e310771480.153090
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/WaveFormTable.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/WaveFormTable.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@64"Compile /Users/main_brain/minc_unfuddl/ThesisApp/WaveFormTable.m310771480#310771480#0(0"0(0#0#56"/Users/main_brain/minc_unfuddl/ThesisApp/WaveFormTable.m8639061312#1804"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-czouxnzjkcximubdbjguvsjwalvy/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/WaveFormTable.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/WaveFormTable.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/WaveTableBrain.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s313968339.988400
+e313968340.054383
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/WaveTableBrain.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m: In function '-[WaveTableBrain setWaveType:]':
+o/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m:47: warning: 'return' with no value, in function returning non-void
+lSLF07#2@73"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m313968339#313968340#0(247"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m: In function '-[WaveTableBrain setWaveType:]':/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m:47: warning: 'return' with no value, in function returning non-void1(22@54"'return' with no value, in function returning non-void313968340#113#134#0(6@65"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m313968302#47#0#47#0#54"'return' with no value, in function returning non-void0(0#0#65"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m8624186880#1814"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-czouxnzjkcximubdbjguvsjwalvy/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveTableBrain.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/WaveTableBrain.o0#
+
+CCompileC build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/main.o /Users/main_brain/minc_unfuddl/ThesisApp/main.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s314332512.837524
+e314332512.885641
+r1
+xCompileC
+xbuild/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/main.o
+x/Users/main_brain/minc_unfuddl/ThesisApp/main.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@55"Compile /Users/main_brain/minc_unfuddl/ThesisApp/main.m314332512#314332512#0(0"0(0#0#47"/Users/main_brain/minc_unfuddl/ThesisApp/main.m8611290848#1786"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkusphvdpshalfavsxyukxzmzjrt/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/main.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/main.o0#
+
+CCompileXIB /Users/main_brain/minc_unfuddl/ThesisApp/FlipsideView.xib
+s314332510.243499
+e314332510.689612
+r1
+xCompileXIB
+x/Users/main_brain/minc_unfuddl/ThesisApp/FlipsideView.xib
+oCouldn't open shared capabilities memory GSCapabilities (No such file or directory)
+oCouldn't open shared capabilities memory GSCapabilities (No such file or directory)
+oCouldn't open shared capabilities memory GSCapabilities (No such file or directory)
+lSLF07#2@27"CompileXIB FlipsideView.xib314332510#314332510#0(252"Couldn't open shared capabilities memory GSCapabilities (No such file or directory)Couldn't open shared capabilities memory GSCapabilities (No such file or directory)Couldn't open shared capabilities memory GSCapabilities (No such file or directory)0(0#0#57"/Users/main_brain/minc_unfuddl/ThesisApp/FlipsideView.xib8616138368#554"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/FlipsideView.nib /Users/main_brain/minc_unfuddl/ThesisApp/FlipsideView.xib --sdk /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk0#
+
+CCompileXIB /Users/main_brain/minc_unfuddl/ThesisApp/MainView.xib
+s314332510.244140
+e314332510.824995
+r1
+xCompileXIB
+x/Users/main_brain/minc_unfuddl/ThesisApp/MainView.xib
+oCouldn't open shared capabilities memory GSCapabilities (No such file or directory)
+lSLF07#2@23"CompileXIB MainView.xib314332510#314332510#0(84"Couldn't open shared capabilities memory GSCapabilities (No such file or directory)0(0#0#53"/Users/main_brain/minc_unfuddl/ThesisApp/MainView.xib8615369280#546"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/MainView.nib /Users/main_brain/minc_unfuddl/ThesisApp/MainView.xib --sdk /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk0#
+
+CCompileXIB /Users/main_brain/minc_unfuddl/ThesisApp/MainWindow.xib
+s314332510.689702
+e314332511.036140
+r1
+xCompileXIB
+x/Users/main_brain/minc_unfuddl/ThesisApp/MainWindow.xib
+lSLF07#2@25"CompileXIB MainWindow.xib314332510#314332511#0(0"0(0#0#55"/Users/main_brain/minc_unfuddl/ThesisApp/MainWindow.xib8610669920#550"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/MainWindow.nib /Users/main_brain/minc_unfuddl/ThesisApp/MainWindow.xib --sdk /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/4thWall_Icon.png 4thWall_Icon.png
+s314259848.585893
+e314259848.869678
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/4thWall_Icon.png
+x4thWall_Icon.png
+lSLF07#2@80"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/4thWall_Icon.png 4thWall_Icon.png314259848#314259848#0(0"0(0#0#57"/Users/main_brain/minc_unfuddl/ThesisApp/4thWall_Icon.png29273758358241396#580"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/4thWall_Icon.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/4thWall_Icon.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/Default.png Default.png
+s314332511.213040
+e314332511.343549
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/Default.png
+xDefault.png
+lSLF07#2@70"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/Default.png Default.png314332511#314332511#0(0"0(0#0#52"/Users/main_brain/minc_unfuddl/ThesisApp/Default.png8612055872#570"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/Default.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/Default.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/Icon.png Icon.png
+s314329035.301048
+e314329035.334238
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/Icon.png
+xIcon.png
+lSLF07#2@64"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/Icon.png Icon.png314329035#314329035#0(0"0(0#0#49"/Users/main_brain/minc_unfuddl/ThesisApp/Icon.png8611224192#564"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/Icon.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/Icon.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/aqua1.png buttons/aqua1.png
+s314332510.825079
+e314332510.858852
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/aqua1.png
+xbuttons/aqua1.png
+lSLF07#2@74"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/aqua1.png buttons/aqua1.png314332510#314332510#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/aqua1.png8610520192#574"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/buttons/aqua1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/aqua1.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/aqua2.png buttons/aqua2.png
+s314332511.036226
+e314332511.069080
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/aqua2.png
+xbuttons/aqua2.png
+lSLF07#2@74"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/aqua2.png buttons/aqua2.png314332511#314332511#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/aqua2.png8611705632#574"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/buttons/aqua2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/aqua2.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/blue1.png buttons/blue1.png
+s314332510.858932
+e314332510.887239
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/blue1.png
+xbuttons/blue1.png
+lSLF07#2@74"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/blue1.png buttons/blue1.png314332510#314332510#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/blue1.png8617432768#574"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/buttons/blue1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/blue1.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/blue2.png buttons/blue2.png
+s314332511.099518
+e314332511.135029
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/blue2.png
+xbuttons/blue2.png
+lSLF07#2@74"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/blue2.png buttons/blue2.png314332511#314332511#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/blue2.png8610655520#574"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/buttons/blue2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/blue2.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/gold1.png buttons/gold1.png
+r0
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/green1.png buttons/green1.png
+s314332510.913361
+e314332510.941789
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/green1.png
+xbuttons/green1.png
+lSLF07#2@76"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/green1.png buttons/green1.png314332510#314332510#0(0"0(0#0#59"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/green1.png8615682240#576"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/buttons/green1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/green1.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/green2.png buttons/green2.png
+s314332511.069156
+e314332511.099435
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/green2.png
+xbuttons/green2.png
+lSLF07#2@76"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/green2.png buttons/green2.png314332511#314332511#0(0"0(0#0#59"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/green2.png8611053792#576"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/buttons/green2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/green2.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/pink1.png buttons/pink1.png
+s314332510.941872
+e314332510.969275
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/pink1.png
+xbuttons/pink1.png
+lSLF07#2@74"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/pink1.png buttons/pink1.png314332510#314332510#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/pink1.png8615490272#574"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/buttons/pink1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/pink1.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/pink2.png buttons/pink2.png
+s314332511.123381
+e314332511.210549
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/pink2.png
+xbuttons/pink2.png
+lSLF07#2@74"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/pink2.png buttons/pink2.png314332511#314332511#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/pink2.png8610553184#574"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/buttons/pink2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/pink2.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/poopIcon.png poopIcon.png
+s314332128.968391
+e314332128.995264
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/poopIcon.png
+xpoopIcon.png
+lSLF07#2@72"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/poopIcon.png poopIcon.png314332128#314332128#0(0"0(0#0#53"/Users/main_brain/minc_unfuddl/ThesisApp/poopIcon.png8607825920#572"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/poopIcon.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/poopIcon.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ppIcon.png ppIcon.png
+s314332511.249089
+e314332511.269234
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ppIcon.png
+xppIcon.png
+lSLF07#2@68"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/ppIcon.png ppIcon.png314332511#314332511#0(0"0(0#0#51"/Users/main_brain/minc_unfuddl/ThesisApp/ppIcon.png8610678432#568"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/ppIcon.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ppIcon.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/purple1.png buttons/purple1.png
+s314332510.969382
+e314332510.995943
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/purple1.png
+xbuttons/purple1.png
+lSLF07#2@78"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/purple1.png buttons/purple1.png314332510#314332510#0(0"0(0#0#60"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/purple1.png8615292768#578"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/buttons/purple1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/purple1.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/purple2.png buttons/purple2.png
+s314332511.135104
+e314332511.212979
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/purple2.png
+xbuttons/purple2.png
+lSLF07#2@78"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/purple2.png buttons/purple2.png314332511#314332511#0(0"0(0#0#60"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/purple2.png8609994944#578"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/buttons/purple2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/purple2.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/red1.png buttons/red1.png
+s314332510.996025
+e314332511.022134
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/red1.png
+xbuttons/red1.png
+lSLF07#2@72"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/red1.png buttons/red1.png314332510#314332511#0(0"0(0#0#57"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/red1.png8615030464#572"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/buttons/red1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/red1.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/red2.png buttons/red2.png
+s314332511.210623
+e314332511.249017
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/red2.png
+xbuttons/red2.png
+lSLF07#2@72"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/red2.png buttons/red2.png314332511#314332511#0(0"0(0#0#57"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/red2.png8617860832#572"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/buttons/red2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/red2.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/seafoam1.png buttons/seafoam1.png
+s314332511.022222
+e314332511.052091
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/seafoam1.png
+xbuttons/seafoam1.png
+lSLF07#2@80"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/seafoam1.png buttons/seafoam1.png314332511#314332511#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/seafoam1.png8612240832#580"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/buttons/seafoam1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/seafoam1.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/seafoam2.png buttons/seafoam2.png
+s314332511.052177
+e314332511.083328
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/seafoam2.png
+xbuttons/seafoam2.png
+lSLF07#2@80"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/seafoam2.png buttons/seafoam2.png314332511#314332511#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/seafoam2.png8611488672#580"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/buttons/seafoam2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/seafoam2.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/seefoam2.png buttons/seefoam2.png
+r0
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/yellow1.png buttons/yellow1.png
+s314332510.887360
+e314332510.913269
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/yellow1.png
+xbuttons/yellow1.png
+lSLF07#2@78"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/yellow1.png buttons/yellow1.png314332510#314332510#0(0"0(0#0#60"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/yellow1.png8615833280#578"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/buttons/yellow1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/yellow1.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/yellow1.png yellow1.png
+s314320807.485456
+e314320807.618617
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/yellow1.png
+xyellow1.png
+lSLF07#2@70"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/yellow1.png yellow1.png314320807#314320807#0(0"0(0#0#52"/Users/main_brain/minc_unfuddl/ThesisApp/yellow1.png8611380128#570"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/yellow1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/yellow1.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/yellow2.png buttons/yellow2.png
+s314332511.083409
+e314332511.123303
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/yellow2.png
+xbuttons/yellow2.png
+lSLF07#2@78"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/yellow2.png buttons/yellow2.png314332511#314332511#0(0"0(0#0#60"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/yellow2.png8610777056#578"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/buttons/yellow2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/yellow2.png0#
+
+CCopyPNGFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/yellow2.png yellow2.png
+s314320807.618720
+e314320807.642119
+r1
+xCopyPNGFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/yellow2.png
+xyellow2.png
+lSLF07#2@70"CopyPNGFile build/Debug-iphoneos/ThesisApp.app/yellow2.png yellow2.png314320807#314320807#0(0"0(0#0#52"/Users/main_brain/minc_unfuddl/ThesisApp/yellow2.png8609353376#570"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/main_brain/minc_unfuddl/ThesisApp/yellow2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/yellow2.png0#
+
+CCpResource build/Debug-iphoneos/ThesisApp.app/ResourceRules.plist /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/ResourceRules.plist
+s310590654.823719
+e310590654.863435
+r1
+xCpResource
+xbuild/Debug-iphoneos/ThesisApp.app/ResourceRules.plist
+x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/ResourceRules.plist
+lSLF07#2@94"Copy /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/ResourceRules.plist310590654#310590654#0(0"0(0#0#89"/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/ResourceRules.plist8307809061684012032#486"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/ResourceRules.plist /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app0#
+
+CCpResource build/Debug-iphoneos/ThesisApp.app/ResourceRules.plist /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/ResourceRules.plist
+s310590885.254198
+e310590885.262459
+r1
+xCpResource
+xbuild/Debug-iphoneos/ThesisApp.app/ResourceRules.plist
+x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/ResourceRules.plist
+lSLF07#2@94"Copy /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/ResourceRules.plist310590885#310590885#0(0"0(0#0#89"/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/ResourceRules.plist8611519584#486"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/ResourceRules.plist /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app0#
+
+CCpResource build/Debug-iphoneos/ThesisApp.app/ResourceRules.plist /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist
+s314332510.189140
+e314332510.243431
+r1
+xCpResource
+xbuild/Debug-iphoneos/ThesisApp.app/ResourceRules.plist
+x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist
+lSLF07#2@94"Copy /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist314332510#314332510#0(0"0(0#0#89"/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist8608502336#500"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app0#
+
+CCreateUniversalBinary /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ThesisApp normal "armv6 armv7"
+s314332513.522928
+e314332513.558843
+r1
+xCreateUniversalBinary
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ThesisApp
+xnormal
+xarmv6 armv7
+lSLF07#2@87"CreateUniversalBinary build/Debug-iphoneos/ThesisApp.app/ThesisApp normal "armv6 armv7"314332513#314332513#0(0"0(0#0#52"/Users/main_brain/minc_unfuddl/ThesisApp/armv6 armv78612058144#542"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/lipo -create /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisApp /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisApp -output /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ThesisApp0#
+
+CGenerateDSYMFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app.dSYM /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ThesisApp
+s314332513.558908
+e314332513.668445
+r1
+xGenerateDSYMFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app.dSYM
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ThesisApp
+lSLF07#2@101"GenerateDSYMFile build/Debug-iphoneos/ThesisApp.app.dSYM build/Debug-iphoneos/ThesisApp.app/ThesisApp314332513#314332513#0(0"0(0#0#85"/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ThesisApp8611493984#374"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ThesisApp -o /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app.dSYM0#
+
+CLd /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisApp normal armv6
+s314332512.860454
+e314332513.261036
+r1
+xLd
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisApp
+xnormal
+xarmv6
+lSLF07#2@129"Link /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisApp314332512#314332513#0(0"0(0#0#0"8610499104#905"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv IPHONEOS_DEPLOYMENT_TARGET 4.2    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -arch armv6 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -L/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -filelist /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisApp.LinkFileList -dead_strip -miphoneos-version-min=4.2 -framework Foundation -framework UIKit -framework CoreGraphics -framework AudioToolbox -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv6/ThesisApp0#
+
+CLd /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisApp normal armv7
+s314332513.362178
+e314332513.522840
+r1
+xLd
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisApp
+xnormal
+xarmv7
+lSLF07#2@129"Link /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisApp314332513#314332513#0(0"0(0#0#0"8614489568#905"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv IPHONEOS_DEPLOYMENT_TARGET 4.2    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -arch armv7 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -L/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -filelist /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisApp.LinkFileList -dead_strip -miphoneos-version-min=4.2 -framework Foundation -framework UIKit -framework CoreGraphics -framework AudioToolbox -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/Objects-normal/armv7/ThesisApp0#
+
+CProcessInfoPlistFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/Info.plist ThesisApp-Info.plist
+s314332510.190089
+e314332510.227293
+r1
+xProcessInfoPlistFile
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/Info.plist
+xThesisApp-Info.plist
+lSLF07#2@28"Process ThesisApp-Info.plist314332510#314332510#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp-Info.plist8605330656#578"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility ThesisApp-Info.plist -genpkginfo /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -resourcerulesfile /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/ResourceRules.plist -o /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/Info.plist0#
+
+CProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-btwlonadszajsteqqiqiweqrksje/ThesisApp_Prefix.pch.gch ThesisApp_Prefix.pch normal armv6 objective-c com.apple.compilers.gcc.4_2
+s314332511.343656
+e314332512.071923
+r1
+xProcessPCH
+x/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-btwlonadszajsteqqiqiweqrksje/ThesisApp_Prefix.pch.gch
+xThesisApp_Prefix.pch
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@31"Precompile ThesisApp_Prefix.pch314332511#314332512#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp_Prefix.pch8610149376#1680"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -c /Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp_Prefix.pch -o /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-btwlonadszajsteqqiqiweqrksje/ThesisApp_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-czouxnzjkcximubdbjguvsjwalvy/ThesisApp_Prefix.pch.gch ThesisApp_Prefix.pch normal armv7 objective-c com.apple.compilers.gcc.4_2
+s310590609.955270
+e310590610.740139
+r1
+xProcessPCH
+x/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-czouxnzjkcximubdbjguvsjwalvy/ThesisApp_Prefix.pch.gch
+xThesisApp_Prefix.pch
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@31"Precompile ThesisApp_Prefix.pch310590609#310590610#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp_Prefix.pch8606253152#1680"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -c /Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp_Prefix.pch -o /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-czouxnzjkcximubdbjguvsjwalvy/ThesisApp_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dvvodeubhngfehbmmdleisshtqnx/ThesisApp_Prefix.pch.gch ThesisApp_Prefix.pch normal armv7 objective-c com.apple.compilers.gcc.4_2
+s310590655.625459
+e310590656.398096
+r1
+xProcessPCH
+x/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dvvodeubhngfehbmmdleisshtqnx/ThesisApp_Prefix.pch.gch
+xThesisApp_Prefix.pch
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@31"Precompile ThesisApp_Prefix.pch310590655#310590656#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp_Prefix.pch8602468032#1680"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -c /Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp_Prefix.pch -o /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dvvodeubhngfehbmmdleisshtqnx/ThesisApp_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-ecpbyxxhrrsetebyubzhcglaylbu/ThesisApp_Prefix.pch.gch ThesisApp_Prefix.pch normal armv6 objective-c com.apple.compilers.gcc.4_2
+s310590655.624609
+e310590656.309858
+r1
+xProcessPCH
+x/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-ecpbyxxhrrsetebyubzhcglaylbu/ThesisApp_Prefix.pch.gch
+xThesisApp_Prefix.pch
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@31"Precompile ThesisApp_Prefix.pch310590655#310590656#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp_Prefix.pch8602844544#1680"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -c /Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp_Prefix.pch -o /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-ecpbyxxhrrsetebyubzhcglaylbu/ThesisApp_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkdjhnxpeldclpafiqwhrpqnhkrk/ThesisApp_Prefix.pch.gch ThesisApp_Prefix.pch normal armv6 objective-c com.apple.compilers.gcc.4_2
+s310590609.954526
+e310590610.660245
+r1
+xProcessPCH
+x/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkdjhnxpeldclpafiqwhrpqnhkrk/ThesisApp_Prefix.pch.gch
+xThesisApp_Prefix.pch
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@31"Precompile ThesisApp_Prefix.pch310590609#310590610#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp_Prefix.pch8606335840#1680"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv6 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -c /Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp_Prefix.pch -o /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkdjhnxpeldclpafiqwhrpqnhkrk/ThesisApp_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkusphvdpshalfavsxyukxzmzjrt/ThesisApp_Prefix.pch.gch ThesisApp_Prefix.pch normal armv7 objective-c com.apple.compilers.gcc.4_2
+s314332511.344633
+e314332512.162934
+r1
+xProcessPCH
+x/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkusphvdpshalfavsxyukxzmzjrt/ThesisApp_Prefix.pch.gch
+xThesisApp_Prefix.pch
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@31"Precompile ThesisApp_Prefix.pch314332511#314332512#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp_Prefix.pch8610111104#1680"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources/armv7 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/DerivedSources -c /Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp_Prefix.pch -o /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-gkusphvdpshalfavsxyukxzmzjrt/ThesisApp_Prefix.pch.gch0#
+
+CProcessProductPackaging "/Users/main_brain/Library/MobileDevice/Provisioning Profiles/C788A4EC-E229-44B4-9736-DD6CE4153BFB.mobileprovision" /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/embedded.mobileprovision
+s314332513.668588
+e314332513.671157
+r1
+xProcessProductPackaging
+x/Users/main_brain/Library/MobileDevice/Provisioning Profiles/C788A4EC-E229-44B4-9736-DD6CE4153BFB.mobileprovision
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/embedded.mobileprovision
+lSLF07#2@199"ProcessProductPackaging "/Users/main_brain/Library/MobileDevice/Provisioning Profiles/C788A4EC-E229-44B4-9736-DD6CE4153BFB.mobileprovision" build/Debug-iphoneos/ThesisApp.app/embedded.mobileprovision314332513#314332513#0(0"0(0#0#100"/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/embedded.mobileprovision8617349472#434"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> "/Users/main_brain/Library/MobileDevice/Provisioning Profiles/C788A4EC-E229-44B4-9736-DD6CE4153BFB.mobileprovision" -o /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/embedded.mobileprovision0#
+
+CProcessProductPackaging "/Users/main_brain/Library/MobileDevice/Provisioning Profiles/F513F6DA-0538-4904-BCD0-6EE431565A95.mobileprovision" /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/embedded.mobileprovision
+s310590840.245485
+e310590840.246426
+r0
+xProcessProductPackaging
+x/Users/main_brain/Library/MobileDevice/Provisioning Profiles/F513F6DA-0538-4904-BCD0-6EE431565A95.mobileprovision
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/embedded.mobileprovision
+lSLF07#2@199"ProcessProductPackaging "/Users/main_brain/Library/MobileDevice/Provisioning Profiles/F513F6DA-0538-4904-BCD0-6EE431565A95.mobileprovision" build/Debug-iphoneos/ThesisApp.app/embedded.mobileprovision310590840#310590840#0(165"<com.apple.tools.product-pkg-utility>: error: class '(null)' of input object does not respond to either selector writeToFile:options:error: or writeToFile:atomically1(4@165"<com.apple.tools.product-pkg-utility>: error: class '(null)' of input object does not respond to either selector writeToFile:options:error: or writeToFile:atomically310590840#18446744073709551615#0#0(6@0"310590840#0#0#0#0#0"0(0#0#100"/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/embedded.mobileprovision8608740800#434"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> "/Users/main_brain/Library/MobileDevice/Provisioning Profiles/F513F6DA-0538-4904-BCD0-6EE431565A95.mobileprovision" -o /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app/embedded.mobileprovision1#
+
+CProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/Entitlements.plist /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent
+s310590657.366915
+e310590657.378629
+r1
+xProcessProductPackaging
+x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/Entitlements.plist
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent
+lSLF07#2@181"ProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/Entitlements.plist build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent310590657#310590657#0(0"0(0#0#109"/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent8608526848#442"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/Entitlements.plist -entitlements -format xml -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent0#
+
+CProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/Entitlements.plist /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent
+s310590886.586939
+e310590886.598331
+r1
+xProcessProductPackaging
+x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/Entitlements.plist
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent
+lSLF07#2@181"ProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/Entitlements.plist build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent310590886#310590886#0(0"0(0#0#109"/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent8609785408#442"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/Entitlements.plist -entitlements -format xml -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent0#
+
+CProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent
+s314332513.674258
+e314332513.701904
+r1
+xProcessProductPackaging
+x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent
+lSLF07#2@181"ProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent314332513#314332513#0(0"0(0#0#109"/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent8611441664#442"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist -entitlements -format xml -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Debug-iphoneos/ThesisApp.build/ThesisApp.xcent0#
+
+CTouch /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app
+s314332513.671216
+e314332513.674197
+r1
+xTouch
+x/Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app
+lSLF07#2@81"Touch /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app314332513#314332513#0(0"0(0#0#0"8615731040#270"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/main_brain/minc_unfuddl/ThesisApp/build/Debug-iphoneos/ThesisApp.app0#
+
