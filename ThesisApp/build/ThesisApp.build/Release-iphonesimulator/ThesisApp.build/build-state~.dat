@@ -1,859 +1,0 @@
-TThesisApp
-v7
-r0
-t315233548.805215
-cCheck dependencies
-cProcessInfoPlistFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/Info.plist ThesisApp-Info.plist
-cCompileXIB /Users/main_brain/minc_unfuddl/ThesisApp/FlipsideView.xib
-cCompileXIB /Users/main_brain/minc_unfuddl/ThesisApp/MainView.xib
-cCpResource build/Release-iphonesimulator/ThesisApp.app/aqua1.png buttons/aqua1.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/blue1.png buttons/blue1.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/yellow1.png buttons/yellow1.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/green1.png buttons/green1.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/pink1.png buttons/pink1.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/purple1.png buttons/purple1.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/red1.png buttons/red1.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/seafoam1.png buttons/seafoam1.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/aqua2.png buttons/aqua2.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/seafoam2.png buttons/seafoam2.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/green2.png buttons/green2.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/yellow2.png buttons/yellow2.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/blue2.png buttons/blue2.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/pink2.png buttons/pink2.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/purple2.png buttons/purple2.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/red2.png buttons/red2.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/Default.png Default.png
-cCpResource build/Release-iphonesimulator/ThesisApp.app/Icon.png Icon.png
-cCompileXIB /Users/main_brain/minc_unfuddl/ThesisApp/MainWindow.xib
-cProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dalbdwrhimcakahirreizlrvzkhq/ThesisApp_Prefix.pch.gch ThesisApp_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/main.o /Users/main_brain/minc_unfuddl/ThesisApp/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/ThesisAppAppDelegate.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/MainViewController.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/FlipsideViewController.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/WaveFormTable.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/AQPlayer.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/Note.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/Envelope.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/Mode.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/CLSlipperyButton.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/CLSlipperyButton.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cLd /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/ThesisApp normal i386
-cGenerateDSYMFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app.dSYM /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/ThesisApp
-cTouch /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk
-c000000004CC128950000000000000110
-t1287727253
-s272
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
-c000000004CC1224600000000001EA9C0
-t1287725638
-s2009536
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.h
-c000000004CC1222F0000000000000A23
-t1287725615
-s2595
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
-c000000004CC12246000000000029B310
-t1287725638
-s2732816
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-c000000004CC1226D000000000029D5D0
-t1287725677
-s2741712
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
-c000000004CC1225F0000000000001466
-t1287725663
-s5222
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
-c000000004CC1281F0000000000000AA1
-t1287727135
-s2721
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-c000000004CC12883000000000074D7B0
-t1287727235
-s7657392
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/Availability.h
-c000000004CB3FA080000000000001ADD
-t1286863368
-s6877
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.h
-c000000004D13122C0000000000000383
-t1293095468
-s899
-i<Foundation/Foundation.h>
-i<AudioToolbox/AudioToolbox.h>
-i"WaveFormTable.h"
-i"Note.h"
-i"Mode.h"
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m
-c000000004D1312250000000000000E83
-t1293095461
-s3715
-i"AQPlayer.h"
-i"Content.h"
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/CLSlipperyButton.h
-c000000004D19820500000000000000F6
-t1293517317
-s246
-i<UIKit/UIKit.h>
-i<Foundation/Foundation.h>
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/CLSlipperyButton.m
-c000000004D19DB4D000000000000037D
-t1293540173
-s893
-i"CLSlipperyButton.h"
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Content.h
-c000000004CE35FAD0000000000000289
-t1289969581
-s649
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.h
-c000000004D05C0C40000000000000167
-t1292222660
-s359
-i<Foundation/Foundation.h>
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m
-c000000004D05C0DA00000000000001DD
-t1292222682
-s477
-i"Envelope.h"
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.h
-c000000004D1299A800000000000002C1
-t1293064616
-s705
-i<UIKit/UIKit.h>
-i"AQPlayer.h"
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m
-c000000004D19102E0000000000000515
-t1293488174
-s1301
-i"FlipsideViewController.h"
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.h
-c000000004D19DA2A000000000000043A
-t1293539882
-s1082
-i"FlipsideViewController.h"
-i"AQPlayer.h"
-i"CLSlipperyButton.h"
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m
-c000000004D19DBE600000000000013B7
-t1293540326
-s5047
-i"MainViewController.h"
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.h
-c000000004D1312700000000000000174
-t1293095536
-s372
-i<Foundation/Foundation.h>
-i"Note.h"
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m
-c000000004D131273000000000000016A
-t1293095539
-s362
-i"Mode.h"
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.h
-c000000004D131247000000000000028C
-t1293095495
-s652
-i<Foundation/Foundation.h>
-i"Envelope.h"
-i"WaveFormTable.h"
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m
-c000000004D13124E0000000000000373
-t1293095502
-s883
-i"Note.h"
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.h
-c000000004D12DA7C00000000000001E7
-t1293081212
-s487
-i<UIKit/UIKit.h>
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m
-c000000004D19962A0000000000000AA7
-t1293522474
-s2727
-i"ThesisAppAppDelegate.h"
-i"MainViewController.h"
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.h
-c000000004D06AB450000000000000193
-t1292282693
-s403
-i<Foundation/Foundation.h>
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m
-c000000004D1311B6000000000000050C
-t1293095350
-s1292
-i"WaveFormTable.h"
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Default.png
-c000000004D0C1AED00000000000063D2
-t1292638957
-s25554
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/FlipsideView.xib
-c000000004D129C9A0000000000007E02
-t1293065370
-s32258
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/Icon.png
-c000000004D0B01C40000000000001C38
-t1292566980
-s7224
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/MainView.xib
-c000000004D19D903000000000000F9FC
-t1293539587
-s63996
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/MainWindow.xib
-c000000004D157F950000000000006255
-t1293254549
-s25173
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp_Prefix.pch
-c000000004CCCC18E0000000000000144
-t1288487310
-s324
-i<Availability.h>
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app
-t1293540748
-s884
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app.dSYM
-t1293540748
-s102
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/Default.png
-t1293540747
-s25554
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/FlipsideView.nib
-t1293540746
-s2905
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/Icon.png
-t1293540747
-s7224
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/Info.plist
-t1293540746
-s656
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/MainView.nib
-t1293540747
-s6233
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/MainWindow.nib
-t1293540747
-s1151
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/PkgInfo
-t1293540746
-s8
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/ThesisApp
-t1293540748
-s49260
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/aqua1.png
-t1293540746
-s1940
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/aqua2.png
-t1293540746
-s1960
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/blue1.png
-t1293540746
-s4579
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/blue2.png
-t1293540747
-s4560
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/green1.png
-t1293540746
-s1837
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/green2.png
-t1293540747
-s1614
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/pink1.png
-t1293540746
-s4319
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/pink2.png
-t1293540747
-s4565
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/purple1.png
-t1293540746
-s4471
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/purple2.png
-t1293540747
-s4334
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/red1.png
-t1293540746
-s4343
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/red2.png
-t1293540747
-s4365
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/seafoam1.png
-t1293540746
-s1712
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/seafoam2.png
-t1293540746
-s1901
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/yellow1.png
-t1293540746
-s4415
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/yellow2.png
-t1293540747
-s4262
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/AQPlayer.o
-t1293540748
-s23460
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/CLSlipperyButton.o
-t1293540748
-s37216
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/Envelope.o
-t1293540748
-s7368
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/FlipsideViewController.o
-t1293540748
-s44536
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/MainViewController.o
-t1293540748
-s64152
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/Mode.o
-t1293540748
-s8100
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/Note.o
-t1293540748
-s13340
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/ThesisApp.LinkFileList
-c000000004D19DD8A0000000000000561
-t1293540746
-s1377
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/ThesisAppAppDelegate.o
-t1293540748
-s53700
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/WaveFormTable.o
-t1293540748
-s9780
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/main.o
-t1293540748
-s6292
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/aqua1.png
-c000000004D0C094B0000000000000794
-t1292634443
-s1940
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/aqua2.png
-c000000004D0C09BC00000000000007A8
-t1292634556
-s1960
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/blue1.png
-c000000004D0C0C9C00000000000011E3
-t1292635292
-s4579
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/blue2.png
-c000000004D0C0C8D00000000000011D0
-t1292635277
-s4560
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/green1.png
-c000000004D0C07DC000000000000072D
-t1292634076
-s1837
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/green2.png
-c000000004D0C0878000000000000064E
-t1292634232
-s1614
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/pink1.png
-c000000004D0C0EC700000000000010DF
-t1292635847
-s4319
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/pink2.png
-c000000004D0C0EFD00000000000011D5
-t1292635901
-s4565
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/purple1.png
-c000000004D0C0F3E0000000000001177
-t1292635966
-s4471
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/purple2.png
-c000000004D0C0F6F00000000000010EE
-t1292636015
-s4334
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/red1.png
-c000000004D0C0D9900000000000010F7
-t1292635545
-s4343
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/red2.png
-c000000004D0C0E7E000000000000110D
-t1292635774
-s4365
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/seafoam1.png
-c000000004D0C066100000000000006B0
-t1292633697
-s1712
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/seafoam2.png
-c000000004D0C0BD3000000000000076D
-t1292635091
-s1901
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/yellow1.png
-c000000004D0C03D2000000000000113F
-t1292633042
-s4415
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/buttons/yellow2.png
-c000000004D0C041200000000000010A6
-t1292633106
-s4262
-
-N/Users/main_brain/minc_unfuddl/ThesisApp/main.m
-c000000004CCCC18E000000000000016E
-t1288487310
-s366
-i<UIKit/UIKit.h>
-
-N/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dalbdwrhimcakahirreizlrvzkhq/ThesisApp_Prefix.pch.gch
-t1293540748
-s15113424
-
-NThesisApp-Info.plist
-c000000004D0C62C80000000000000396
-t1292657352
-s918
-
-CCheck dependencies
-r0
-lSLF07#2@18"Check dependencies315233546#315233546#0(0"0(0#1#0"8644982464#0"0#
-
-CCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/AQPlayer.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s315233548.503019
-e315233548.680436
-r1
-xCompileC
-xbuild/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/AQPlayer.o
-x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@67"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m315233548#315233548#0(0"0(0#0#59"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m8648924032#2051"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dalbdwrhimcakahirreizlrvzkhq/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/AQPlayer.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/AQPlayer.o0#
-
-CCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/CLSlipperyButton.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/CLSlipperyButton.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s315233548.680527
-e315233548.759467
-r1
-xCompileC
-xbuild/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/CLSlipperyButton.o
-x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/CLSlipperyButton.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@75"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/CLSlipperyButton.m315233548#315233548#0(0"0(0#0#67"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/CLSlipperyButton.m8645648832#2067"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dalbdwrhimcakahirreizlrvzkhq/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/CLSlipperyButton.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/CLSlipperyButton.o0#
-
-CCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/Envelope.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s315233548.616460
-e315233548.667153
-r1
-xCompileC
-xbuild/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/Envelope.o
-x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@67"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m315233548#315233548#0(0"0(0#0#59"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m8646282272#2051"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dalbdwrhimcakahirreizlrvzkhq/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Envelope.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/Envelope.o0#
-
-CCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/FlipsideViewController.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s315233548.284117
-e315233548.439189
-r1
-xCompileC
-xbuild/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/FlipsideViewController.o
-x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@81"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m315233548#315233548#0(0"0(0#0#73"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m8644630272#2079"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dalbdwrhimcakahirreizlrvzkhq/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/FlipsideViewController.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/FlipsideViewController.o0#
-
-CCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/MainViewController.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s315233548.232020
-e315233548.533776
-r1
-xCompileC
-xbuild/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/MainViewController.o
-x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@77"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m315233548#315233548#0(0"0(0#0#69"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m8644863744#2071"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dalbdwrhimcakahirreizlrvzkhq/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/MainViewController.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/MainViewController.o0#
-
-CCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/Mode.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s315233548.667240
-e315233548.734504
-r1
-xCompileC
-xbuild/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/Mode.o
-x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@63"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m315233548#315233548#0(0"0(0#0#55"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m8645947808#2043"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dalbdwrhimcakahirreizlrvzkhq/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Mode.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/Mode.o0#
-
-CCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/Note.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s315233548.533863
-e315233548.616369
-r1
-xCompileC
-xbuild/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/Note.o
-x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@63"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m315233548#315233548#0(0"0(0#0#55"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m8647258528#2043"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dalbdwrhimcakahirreizlrvzkhq/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/Note.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/Note.o0#
-
-CCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/ThesisAppAppDelegate.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s315233548.178524
-e315233548.284015
-r1
-xCompileC
-xbuild/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/ThesisAppAppDelegate.o
-x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@79"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m315233548#315233548#0(0"0(0#0#71"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m8645552480#2075"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dalbdwrhimcakahirreizlrvzkhq/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/ThesisAppAppDelegate.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/ThesisAppAppDelegate.o0#
-
-CCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/WaveFormTable.o /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s315233548.439265
-e315233548.502928
-r1
-xCompileC
-xbuild/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/WaveFormTable.o
-x/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@72"Compile /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m315233548#315233548#0(0"0(0#0#64"/Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m8649222304#2061"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dalbdwrhimcakahirreizlrvzkhq/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/Classes/WaveFormTable.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/WaveFormTable.o0#
-
-CCompileC build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/main.o /Users/main_brain/minc_unfuddl/ThesisApp/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s315233548.177396
-e315233548.231921
-r1
-xCompileC
-xbuild/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/main.o
-x/Users/main_brain/minc_unfuddl/ThesisApp/main.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@55"Compile /Users/main_brain/minc_unfuddl/ThesisApp/main.m315233548#315233548#0(0"0(0#0#47"/Users/main_brain/minc_unfuddl/ThesisApp/main.m8645980608#2035"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dalbdwrhimcakahirreizlrvzkhq/ThesisApp_Prefix.pch -c /Users/main_brain/minc_unfuddl/ThesisApp/main.m -o /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/main.o0#
-
-CCompileXIB /Users/main_brain/minc_unfuddl/ThesisApp/FlipsideView.xib
-s315233546.544565
-e315233546.971949
-r1
-xCompileXIB
-x/Users/main_brain/minc_unfuddl/ThesisApp/FlipsideView.xib
-lSLF07#2@27"CompileXIB FlipsideView.xib315233546#315233546#0(0"0(0#0#57"/Users/main_brain/minc_unfuddl/ThesisApp/FlipsideView.xib30399726988034164#584"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/FlipsideView.nib /Users/main_brain/minc_unfuddl/ThesisApp/FlipsideView.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
-
-CCompileXIB /Users/main_brain/minc_unfuddl/ThesisApp/MainView.xib
-s315233546.545126
-e315233547.156933
-r1
-xCompileXIB
-x/Users/main_brain/minc_unfuddl/ThesisApp/MainView.xib
-lSLF07#2@23"CompileXIB MainView.xib315233546#315233547#0(0"0(0#0#53"/Users/main_brain/minc_unfuddl/ThesisApp/MainView.xib8645817984#576"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/MainView.nib /Users/main_brain/minc_unfuddl/ThesisApp/MainView.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
-
-CCompileXIB /Users/main_brain/minc_unfuddl/ThesisApp/MainWindow.xib
-s315233547.019828
-e315233547.391105
-r1
-xCompileXIB
-x/Users/main_brain/minc_unfuddl/ThesisApp/MainWindow.xib
-lSLF07#2@25"CompileXIB MainWindow.xib315233547#315233547#0(0"0(0#0#55"/Users/main_brain/minc_unfuddl/ThesisApp/MainWindow.xib8633206080#580"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/MainWindow.nib /Users/main_brain/minc_unfuddl/ThesisApp/MainWindow.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/Default.png Default.png
-s315233547.014826
-e315233547.021534
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/Default.png
-xDefault.png
-lSLF07#2@16"Copy Default.png315233547#315233547#0(0"0(0#0#52"/Users/main_brain/minc_unfuddl/ThesisApp/Default.png8640540096#500"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/Default.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/Icon.png Icon.png
-s315233547.018313
-e315233547.025797
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/Icon.png
-xIcon.png
-lSLF07#2@13"Copy Icon.png315233547#315233547#0(0"0(0#0#49"/Users/main_brain/minc_unfuddl/ThesisApp/Icon.png8640023904#497"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/Icon.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/aqua1.png buttons/aqua1.png
-s315233546.972027
-e315233546.992376
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/aqua1.png
-xbuttons/aqua1.png
-lSLF07#2@22"Copy buttons/aqua1.png315233546#315233546#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/aqua1.png8649176096#506"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/buttons/aqua1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/aqua2.png buttons/aqua2.png
-s315233546.991587
-e315233547.014768
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/aqua2.png
-xbuttons/aqua2.png
-lSLF07#2@22"Copy buttons/aqua2.png315233546#315233547#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/aqua2.png8645472064#506"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/buttons/aqua2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/blue1.png buttons/blue1.png
-s315233546.972767
-e315233546.992466
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/blue1.png
-xbuttons/blue1.png
-lSLF07#2@22"Copy buttons/blue1.png315233546#315233546#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/blue1.png8649056352#506"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/buttons/blue1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/blue2.png buttons/blue2.png
-s315233547.000982
-e315233547.014434
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/blue2.png
-xbuttons/blue2.png
-lSLF07#2@22"Copy buttons/blue2.png315233547#315233547#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/blue2.png8643816416#506"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/buttons/blue2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/green1.png buttons/green1.png
-s315233546.976184
-e315233546.992630
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/green1.png
-xbuttons/green1.png
-lSLF07#2@23"Copy buttons/green1.png315233546#315233546#0(0"0(0#0#59"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/green1.png8647545632#507"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/buttons/green1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/green2.png buttons/green2.png
-s315233546.996648
-e315233547.014267
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/green2.png
-xbuttons/green2.png
-lSLF07#2@23"Copy buttons/green2.png315233546#315233547#0(0"0(0#0#59"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/green2.png8644674880#507"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/buttons/green2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/pink1.png buttons/pink1.png
-s315233546.979927
-e315233546.992710
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/pink1.png
-xbuttons/pink1.png
-lSLF07#2@22"Copy buttons/pink1.png315233546#315233546#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/pink1.png8647241568#506"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/buttons/pink1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/pink2.png buttons/pink2.png
-s315233547.004433
-e315233547.014517
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/pink2.png
-xbuttons/pink2.png
-lSLF07#2@22"Copy buttons/pink2.png315233547#315233547#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/pink2.png8643595424#506"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/buttons/pink2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/purple1.png buttons/purple1.png
-s315233546.983413
-e315233546.992790
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/purple1.png
-xbuttons/purple1.png
-lSLF07#2@24"Copy buttons/purple1.png315233546#315233546#0(0"0(0#0#60"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/purple1.png8646846880#508"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/buttons/purple1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/purple2.png buttons/purple2.png
-s315233547.007870
-e315233547.014597
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/purple2.png
-xbuttons/purple2.png
-lSLF07#2@24"Copy buttons/purple2.png315233547#315233547#0(0"0(0#0#60"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/purple2.png8641095488#508"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/buttons/purple2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/red1.png buttons/red1.png
-s315233546.984978
-e315233546.992870
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/red1.png
-xbuttons/red1.png
-lSLF07#2@21"Copy buttons/red1.png315233546#315233546#0(0"0(0#0#57"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/red1.png8646500448#505"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/buttons/red1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/red2.png buttons/red2.png
-s315233547.009422
-e315233547.021623
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/red2.png
-xbuttons/red2.png
-lSLF07#2@21"Copy buttons/red2.png315233547#315233547#0(0"0(0#0#57"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/red2.png8640860000#505"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/buttons/red2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/seafoam1.png buttons/seafoam1.png
-s315233546.990297
-e315233547.014683
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/seafoam1.png
-xbuttons/seafoam1.png
-lSLF07#2@25"Copy buttons/seafoam1.png315233546#315233547#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/seafoam1.png8646187584#509"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/buttons/seafoam1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/seafoam2.png buttons/seafoam2.png
-s315233546.992914
-e315233547.014166
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/seafoam2.png
-xbuttons/seafoam2.png
-lSLF07#2@25"Copy buttons/seafoam2.png315233546#315233547#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/seafoam2.png8644803904#509"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/buttons/seafoam2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/yellow1.png buttons/yellow1.png
-s315233546.974244
-e315233546.992548
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/yellow1.png
-xbuttons/yellow1.png
-lSLF07#2@24"Copy buttons/yellow1.png315233546#315233546#0(0"0(0#0#60"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/yellow1.png8648925504#508"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/buttons/yellow1.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CCpResource build/Release-iphonesimulator/ThesisApp.app/yellow2.png buttons/yellow2.png
-s315233546.997812
-e315233547.014351
-r1
-xCpResource
-xbuild/Release-iphonesimulator/ThesisApp.app/yellow2.png
-xbuttons/yellow2.png
-lSLF07#2@24"Copy buttons/yellow2.png315233546#315233547#0(0"0(0#0#60"/Users/main_brain/minc_unfuddl/ThesisApp/buttons/yellow2.png8644313024#508"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/ThesisApp/buttons/yellow2.png /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
-CGenerateDSYMFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app.dSYM /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/ThesisApp
-s315233548.785038
-e315233548.802392
-r1
-xGenerateDSYMFile
-x/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app.dSYM
-x/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/ThesisApp
-lSLF07#2@119"GenerateDSYMFile build/Release-iphonesimulator/ThesisApp.app.dSYM build/Release-iphonesimulator/ThesisApp.app/ThesisApp315233548#315233548#0(0"0(0#0#94"/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/ThesisApp8648809088#399"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/ThesisApp -o /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app.dSYM0#
-
-CLd /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/ThesisApp normal i386
-s315233548.759550
-e315233548.784951
-r1
-xLd
-x/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/ThesisApp
-xnormal
-xi386
-lSLF07#2@99"Link /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/ThesisApp315233548#315233548#0(0"0(0#0#0"8645029888#952"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -L/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator -filelist /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/Objects-normal/i386/ThesisApp.LinkFileList -mmacosx-version-min=10.6 -Xlinker -objc_abi_version -Xlinker 2 -framework Foundation -framework UIKit -framework CoreGraphics -framework AudioToolbox -o /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/ThesisApp0#
-
-CProcessInfoPlistFile /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/Info.plist ThesisApp-Info.plist
-s315233546.517442
-e315233546.544503
-r1
-xProcessInfoPlistFile
-x/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/Info.plist
-xThesisApp-Info.plist
-lSLF07#2@28"Process ThesisApp-Info.plist315233546#315233546#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp-Info.plist8647532736#495"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility ThesisApp-Info.plist -genpkginfo /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app/Info.plist0#
-
-CProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dalbdwrhimcakahirreizlrvzkhq/ThesisApp_Prefix.pch.gch ThesisApp_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-s315233547.391214
-e315233548.177127
-r1
-xProcessPCH
-x/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dalbdwrhimcakahirreizlrvzkhq/ThesisApp_Prefix.pch.gch
-xThesisApp_Prefix.pch
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@31"Precompile ThesisApp_Prefix.pch315233547#315233548#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp_Prefix.pch8649230976#1921"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-generated-files.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/ThesisApp-project-headers.hmap -F/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/ThesisApp/build/ThesisApp.build/Release-iphonesimulator/ThesisApp.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -c /Users/main_brain/minc_unfuddl/ThesisApp/ThesisApp_Prefix.pch -o /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/ThesisApp_Prefix-dalbdwrhimcakahirreizlrvzkhq/ThesisApp_Prefix.pch.gch0#
-
-CTouch /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app
-s315233548.802462
-e315233548.805192
-r1
-xTouch
-x/Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app
-lSLF07#2@90"Touch /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app315233548#315233548#0(0"0(0#0#0"8647387072#286"    cd /Users/main_brain/minc_unfuddl/ThesisApp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/main_brain/minc_unfuddl/ThesisApp/build/Release-iphonesimulator/ThesisApp.app0#
-
