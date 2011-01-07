@@ -101,11 +101,8 @@
 	[mAppBrain stopNote:[sender.titleLabel.text intValue]];
 }
 
-- (void)cancelTouches {
-}
-
 #pragma mark -
-#pragma mark UIGestureRecognizer methodology
+#pragma mark UIResponder methodology
 
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
 	UITouch *touch = [touches anyObject];
@@ -120,7 +117,6 @@
 			}
 		}
 	}
-	mAppBrain.numTouches = [touchDict count];
 	//NSLog(@"touchDict BEGAN %i",[touchDict count]);
 }
 
@@ -131,6 +127,14 @@
 	if (movedButton.highlighted && !CGRectContainsPoint(movedButton.frame, touchPoint)) {
 		movedButton.highlighted = NO;
 		[self stopSound:movedButton];
+	}
+	//this is for potential volume swells...
+	else if (movedButton.highlighted && CGRectContainsPoint(movedButton.frame, touchPoint)) {
+		CGPoint buttonTouch = [touch locationInView:touch.view];
+		double yVal = 1/buttonTouch.y;
+		yVal = yVal > 0.8 ? 0.8 : yVal < 0.4 ? 0.4 : yVal;
+		[mAppBrain ampAdjust:yVal];
+		//NSLog(@"buttonTouch.x = %f, buttonTouch.y = %f", buttonTouch.x, buttonTouch.y);
 	}
 	for (int i = 0; i < kNumberNotes; i++) {
 		if(!movedButton.highlighted && CGRectContainsPoint(slickButton[i].frame, touchPoint)) {
@@ -148,12 +152,18 @@
 	endedButton.highlighted = NO;
 	[self stopSound:endedButton];
 	[touchDict removeObjectForKey:[NSValue valueWithPointer:touch]];
-	mAppBrain.numTouches = [touchDict count];
 	//NSLog(@"touchDict END %i",[touchDict count]);
 }
 
 -(void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
 }
 
+//Shake Gesture gets sent up the chain to MainViewController
+-(BOOL)canBecomeFirstResponder {
+    return YES;
+}
 
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+	[self.nextResponder motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event];
+}
 @end

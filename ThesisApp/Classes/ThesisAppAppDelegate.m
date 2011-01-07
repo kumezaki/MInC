@@ -21,7 +21,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
-    // Override point for customization after application launch.  
+    // Override point for customization after application launch.
+	//for shake gesture
+	application.applicationSupportsShakeToEdit = YES;
 
     // Add the main view controller's view to the window and display.
     [window addSubview:mainViewController.view];	

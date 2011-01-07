@@ -12,8 +12,6 @@ AQPlayer *gAQP = nil;
 
 @implementation AQPlayer
 
-@synthesize numTouches;//temp
-
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) {	
 	
 	AQPlayer *aqp = (AQPlayer *)inUserData;
@@ -31,8 +29,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	for (int i = 0; i < numFrames; i++) {	
 		//raw mMaxAmp
 		//mMaxAmp = fabs(sampleBuffer[i]) > mMaxAmp ? fabs(sampleBuffer[i]) : mMaxAmp;
-		
 		sample = sampleBuffer[i];
+		sample = sample > MAX_AMP ? MAX_AMP : sample < -MAX_AMP ? -MAX_AMP : sample;
 		//sample = sample/aqp.numTouches;
 		
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;

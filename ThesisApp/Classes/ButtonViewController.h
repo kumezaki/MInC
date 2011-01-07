@@ -10,6 +10,8 @@
 #import "CLSlipperyButton.h"
 #import "AppBrain.h"
 
+@class MainViewController;
+
 @interface ButtonViewController : UIView {
 	
 	AppBrain			*mAppBrain;

@@ -11,31 +11,32 @@
 
 @implementation AppBrain
 
-@synthesize numTouches;
 @synthesize mWaveType;
 @synthesize mCurrentMode;
 
--(void) setMode:(int)val {
+- (void)setMode:(int)val {
 	mCurrentMode = val;
+	NSLog(@"current val = %i",val);
 	for (int i = 0; i < kNumberNotes; i++) mNotes[i].mFreq = [mModes[mCurrentMode] getNoteFreq:i];
-	AudioServicesPlaySystemSound (kSystemSoundID_Vibrate);
 }
 
--(void) setWaveType:(NSString *)waveType {
+- (void)setWaveType:(NSString *)waveType {
 	mWaveType = waveType;
 	[mWaveTable createWaveType:mWaveType];
 }
 
--(void) startNote:(int)note_pos {	
+- (void)startNote:(int)note_pos {	
 	[mNotes[note_pos] on];
 }
 
--(void) stopNote:(int)note_pos {	
+- (void)stopNote:(int)note_pos {	
 	[mNotes[note_pos] off];
 }
 
+- (void)ampAdjust:(double)uiData {
+}
 
--(id)init {
+- (id)init {
 	[super init];
 	
 	mWaveTable = [WaveFormTable new];
@@ -74,7 +75,6 @@
 - (void)fillAudioBuffer:(double*)sampleBuffer:(UInt32)numFrames{
 
 	for (int i = 0; i < kNumberNotes; i++) {
-		mNotes[i].mAmp = 1.0/numTouches;
 		[mNotes[i] fillAudioBuffer:sampleBuffer :numFrames];
 	}
 }

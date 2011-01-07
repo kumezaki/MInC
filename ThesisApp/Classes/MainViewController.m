@@ -23,7 +23,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+	[super viewWillAppear:animated];
+	[buttonView becomeFirstResponder];
     StatusBarStyle = [[UIApplication sharedApplication] statusBarStyle];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 	
@@ -32,8 +33,8 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
+	[buttonView resignFirstResponder];
+	[super viewWillDisappear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];    
 }
 
@@ -85,17 +86,10 @@
     [super dealloc];
 }
 
-- (void)changeMode:(int)anInt {	
-	if (anInt != 0 && !modeDidChange) {
-		
-		if (modeIndex == 0 && anInt == -1) modeIndex = 5;
-		else if (modeIndex == 5 && anInt == 1) modeIndex = 0;
-		else modeIndex += anInt;
-		
-		[mAppBrain setMode:modeIndex];
-		[self setModeLabel];
-		modeDidChange = YES;
-	}
+- (void)changeMode {	
+	if (mAppBrain.mCurrentMode == 5) [mAppBrain setMode:0];
+	else [mAppBrain setMode:mAppBrain.mCurrentMode + 1];
+	[self setModeLabel];
 }
 
 - (IBAction)setModeLabel {	
@@ -106,15 +100,23 @@
 	waveFormLabel.text = [NSString stringWithFormat:@"Sound: %@",mAppBrain.mWaveType];
 }
 
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+	if (motion == UIEventSubtypeMotionShake) {
+		[self changeMode];
+		AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+		NSLog(@"SHAKE SHAKE SHAKE!!!");
+	}
+}
+
 #define kFilteringFactor 0.75
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
 	//LowPass Filter
-	double yAxis = acceleration.y * kFilteringFactor + yAxis * (1.0 - kFilteringFactor);
+	//double yAxis = acceleration.y * kFilteringFactor + yAxis * (1.0 - kFilteringFactor);
 	
-	if (yAxis > -0.12 && yAxis < 0.12) modeDidChange = NO;
-	int k = yAxis < -0.25 ? 1 : yAxis > 0.25 ? -1 : 0;
+	//if (yAxis > -0.12 && yAxis < 0.12) modeDidChange = NO;
+	//int k = yAxis < -0.25 ? 1 : yAxis > 0.25 ? -1 : 0;
 
-	[self changeMode:k];
+	//[self changeMode:k];
 }
 
 @end

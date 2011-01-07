@@ -17,16 +17,15 @@
 
 @synthesize mAmp;
 @synthesize mTheta;
-@synthesize mFreq;
 
+@synthesize mFreq;
 -(void) setMFreq:(double)val;{	
 	mFreq = val;					
 	mDeltaTheta = mFreq / kSR;	
 }
 
-
 -(id)init {
-	mAmp = MAX_AMP;
+	mAmp = .5;
 	mEnv = [[Envelope alloc] init];
 	return self;
 }

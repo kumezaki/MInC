@@ -22,8 +22,6 @@
 
 }
 
-@property int numTouches;//temp
-
 - (void) newAQ;
 
 - (OSStatus) start;

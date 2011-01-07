@@ -19,10 +19,7 @@
 @private
 	
 	NSString *mWaveType;
-	
-	double mFreq;
 	int mCurrentMode;
-	int numTouches;//temp
 	
 @public
 	
@@ -31,15 +28,16 @@
 	WaveFormTable *mWaveTable;		
 }
 
-@property int numTouches;//temp
 @property int mCurrentMode;
 @property (nonatomic, retain) NSString *mWaveType;
 
--(void) startNote:(int)note_pos;
--(void) stopNote:(int)note_pos;
+- (void)startNote:(int)note_pos;
+- (void)stopNote:(int)note_pos;
 
--(void) setMode:(int)val;
--(void) setWaveType:(NSString *)waveType;
+- (void)setMode:(int)val;
+- (void)setWaveType:(NSString *)waveType;
+
+- (void)ampAdjust:(double)uiData;
 
 - (void)fillAudioBuffer:(double*)sampleBuffer:(UInt32)numFrames;
 

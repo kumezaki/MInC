@@ -22,13 +22,11 @@
 	FlipsideViewController	*controller;
 	ButtonViewController	*buttonView;
 		
-	int modeIndex;
-	BOOL modeDidChange;
 }
 @property(retain) IBOutlet UILabel	*waveFormLabel;
 @property(retain) IBOutlet UILabel	*modeLabel;
 
-- (void)changeMode:(int)anInt;
+- (void)changeMode;
 
 - (IBAction)showInfo:(id)sender;
 - (IBAction)setModeLabel;
