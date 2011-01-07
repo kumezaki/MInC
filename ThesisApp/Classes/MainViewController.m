@@ -50,12 +50,12 @@
 	accelerometer.updateInterval = .09;
 	accelerometer.delegate = self;
 	
-//Create 2nd view controller, alloc/init, assign delegate, call setAQPlayer method
+//Create 2nd view, alloc/init, assign delegate, call setAQPlayer method
 	controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
 	controller.delegate = self;
 	[controller setAppBrain:mAppBrain];
 	
-//Create buttonViewController	
+//Create buttonView	
 	CGRect viewRect = CGRectMake(0,30,480,290);
 	buttonView = [[ButtonViewController alloc] initWithFrame:viewRect];
 	[buttonView setHidden:NO];

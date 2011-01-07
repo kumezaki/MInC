@@ -10,8 +10,8 @@
 #import <AudioToolbox/AudioToolbox.h>
 
 #define kNumberBuffers 3
-#define kSR 22050.
-#define kAudioDataByteSize 512
+#define kSR 44100.
+#define kAudioDataByteSize 1024
 #define MAX_AMP	1.
 
 @interface AQPlayer : NSObject {
