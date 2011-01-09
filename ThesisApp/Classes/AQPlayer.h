@@ -11,8 +11,11 @@
 
 #define kNumberBuffers 3
 #define kSR 44100.
-#define kAudioDataByteSize 1024
-#define MAX_AMP	1.
+#define kAudioDataByteSize 1024 //used for WaveFormTable size
+#define MAX_AMP	0.95
+
+#define kNumberModes 6
+#define kNumberNotes 8
 
 @interface AQPlayer : NSObject {
 
@@ -29,7 +32,7 @@
 
 - (void)fillAudioBuffer:(double*)sampleBuffer:(UInt32)numFrames;
 
-- (void)ReportMaxAmplitude:(double)mMaxAmp;
-- (void)ReportElapsedTime:(double)elapsedTime;
+- (void)reportMaxAmplitude:(double)mMaxAmp;
+- (void)reportElapsedTime:(double)elapsedTime;
 
 @end

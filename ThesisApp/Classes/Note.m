@@ -7,7 +7,9 @@
 //
 
 #import "Note.h"
-
+#import "AQPlayer.h" //for kSR only
+#import "Envelope.h"
+#import "WaveFormTable.h"
 
 @implementation Note
 
@@ -25,7 +27,7 @@
 }
 
 -(id)init {
-	mAmp = .5;
+	mAmp = MAX_AMP*.5;
 	mEnv = [[Envelope alloc] init];
 	return self;
 }

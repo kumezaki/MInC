@@ -128,7 +128,7 @@
 		movedButton.highlighted = NO;
 		[self stopSound:movedButton];
 	}
-	//this is for potential volume swells...
+	//the following tracks where in each button the touches are located
 	else if (movedButton.highlighted && CGRectContainsPoint(movedButton.frame, touchPoint)) {
 		CGPoint buttonTouch = [touch locationInView:touch.view];
 		double yVal = 1/buttonTouch.y;

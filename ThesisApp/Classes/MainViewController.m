@@ -39,7 +39,7 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -104,7 +104,7 @@
 	if (motion == UIEventSubtypeMotionShake) {
 		[self changeMode];
 		AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-		NSLog(@"SHAKE SHAKE SHAKE!!!");
+		//NSLog(@"SHAKE SHAKE SHAKE!!!");
 	}
 }
 

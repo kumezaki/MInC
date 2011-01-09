@@ -17,10 +17,10 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	AQPlayer *aqp = (AQPlayer *)inUserData;
 	
 	const int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
-	
 	double sampleBuffer[numFrames];
-	memset(sampleBuffer,0,sizeof(double)*numFrames); // KU: initialize all sampleBuffer elements to 0. here.
 	
+	// KU: initialize all sampleBuffer elements to 0. here.
+	memset(sampleBuffer,0,sizeof(double)*numFrames);
 	[aqp fillAudioBuffer:sampleBuffer:numFrames];
 	
 	// KU: now that the buffer is filled with samples with all notes, apply limiter and scale to 16-bit linear PCM	
@@ -31,15 +31,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		//mMaxAmp = fabs(sampleBuffer[i]) > mMaxAmp ? fabs(sampleBuffer[i]) : mMaxAmp;
 		sample = sampleBuffer[i];
 		sample = sample > MAX_AMP ? MAX_AMP : sample < -MAX_AMP ? -MAX_AMP : sample;
-		//sample = sample/aqp.numTouches;
-		
 		((SInt16*)inAQBuffer->mAudioData)[i] = sample * (SInt16)0x7FFF;
 	}
 	
 	double elapsedTime = numFrames / kSR;
 	
-	[aqp ReportMaxAmplitude:mMaxAmp];
-	[aqp ReportElapsedTime:elapsedTime];
+	[aqp reportMaxAmplitude:mMaxAmp];
+	[aqp reportElapsedTime:elapsedTime];
 	
 	inAQBuffer->mAudioDataByteSize = kAudioDataByteSize;
 	inAQBuffer->mPacketDescriptionCount = 0;
@@ -110,14 +108,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 - (void)fillAudioBuffer:(double*)buffer:(UInt32)numFrames {
 }
 
--(void)ReportMaxAmplitude:(double)mMaxAmp
+-(void)reportMaxAmplitude:(double)mMaxAmp
 {
 	if (mMaxAmp > 0) {
 		//NSLog(@"AQPlayer ReportmMaxAmplitude %lf",mMaxAmp);
 	}
 }
 
--(void)ReportElapsedTime:(double)elapsedTime
+-(void)reportElapsedTime:(double)elapsedTime
 {
 	//NSLog(@"AQPlayer ReportElapsedTime %lf",elapsedTime);
 }

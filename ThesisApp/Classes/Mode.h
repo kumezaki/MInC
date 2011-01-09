@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Note.h"
 
-#define kNumberModes 6
+#import "AQPlayer.h" //for kNumberNotes only
 
 @interface Mode : NSObject {
 	

@@ -7,12 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "AQPlayer.h"
-#import "Envelope.h"
-#import "Mode.h"
-#import "Note.h"
-#import "WaveFormTable.h"
+
+@class Mode, Note, WaveFormTable;
 
 @interface AppBrain : AQPlayer {
 

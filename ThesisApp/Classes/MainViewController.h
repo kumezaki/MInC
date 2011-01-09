@@ -7,7 +7,6 @@
 //
 
 #import "AppBrain.h"
-#import "AppBrain.h"
 #import "FlipsideViewController.h"
 #import "ButtonViewController.h"
 

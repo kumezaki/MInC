@@ -21,33 +21,33 @@
 -(void) createWaveType:(NSString *)waveType {
 	mWaveType = waveType;
 	if ([mWaveType isEqual:@"sine wave"]) {
-		for (int i = 0; i < kWaveformTableSize; i++) {
-			mTable[i] = sinf((double)i / kWaveformTableSize * 2. * M_PI);
+		for (int i = 0; i < kAudioDataByteSize; i++) {
+			mTable[i] = sinf((double)i / kAudioDataByteSize * 2. * M_PI);
 		}
 	}
 	else if ([mWaveType isEqual:@"square wave"]) {
-		for (int i = 0; i < kWaveformTableSize; i++) {
-			double mTheta = (double)i / kWaveformTableSize;
+		for (int i = 0; i < kAudioDataByteSize; i++) {
+			double mTheta = (double)i / kAudioDataByteSize;
 			mTable[i] = SIGN(sinf(mTheta * 2 * M_PI));
 		}
 	}
 	else if ([mWaveType isEqual:@"sawtooth wave"]) {
-		for (int i = 0; i < kWaveformTableSize; i++) {
-			double mTheta = (double)i / kWaveformTableSize;
+		for (int i = 0; i < kAudioDataByteSize; i++) {
+			double mTheta = (double)i / kAudioDataByteSize;
 			mTable[i] = 2 * (mTheta - floor(mTheta + 0.5));
 		}
 	}
 	else if ([mWaveType isEqual:@"triangle wave"]) {
-		for (int i = 0; i < kWaveformTableSize; i++) {
-			double mTheta = (double)i / kWaveformTableSize;
+		for (int i = 0; i < kAudioDataByteSize; i++) {
+			double mTheta = (double)i / kAudioDataByteSize;
 			mTable[i] = (fabs(2 * (mTheta - floor(mTheta + 0.5))) * 2 - 1.);
 		}
 	}
 }
 
 -(double) get:(double)index {
-	int i = index * kWaveformTableSize;
-	i %= kWaveformTableSize;
+	int i = index * kAudioDataByteSize;
+	i %= kAudioDataByteSize;
 	return mTable[i];
 }
 

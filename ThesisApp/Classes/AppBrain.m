@@ -7,6 +7,10 @@
 //
 
 #import "AppBrain.h"
+
+#import "Mode.h"
+#import "Note.h"
+#import "WaveFormTable.h"
 #import "Content.h"
 
 @implementation AppBrain
@@ -16,7 +20,7 @@
 
 - (void)setMode:(int)val {
 	mCurrentMode = val;
-	NSLog(@"current val = %i",val);
+	//NSLog(@"current val = %i",val);
 	for (int i = 0; i < kNumberNotes; i++) mNotes[i].mFreq = [mModes[mCurrentMode] getNoteFreq:i];
 }
 

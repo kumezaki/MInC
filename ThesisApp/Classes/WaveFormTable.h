@@ -7,14 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#define kWaveformTableSize 512
+#import "AQPlayer.h"
 
 @interface WaveFormTable : NSObject {
 	@private
 	
 	NSString *mWaveType;
-	double mTable[kWaveformTableSize];
+	double mTable[kAudioDataByteSize];
 }
 
 

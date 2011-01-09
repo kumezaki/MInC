@@ -8,6 +8,8 @@
 
 #import "Envelope.h"
 
+#import "AQPlayer.h"//for kSR setting only
+#define RAMP_TIME	(kSR * 0.05)
 
 @implementation Envelope
 

@@ -15,8 +15,8 @@
 @interface ButtonViewController : UIView {
 	
 	AppBrain			*mAppBrain;
-
 	CLSlipperyButton	*slickButton[kNumberNotes];
+	
 	NSMutableDictionary	*touchDict;
 	
 }

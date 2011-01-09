@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AQPlayer.h"//for kSR setting only
 
-#define RAMP_TIME	(kSR * 0.05)
+@class AQPlayer;
 
 @interface Envelope : NSObject {
 	

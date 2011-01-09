@@ -7,10 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Envelope.h"
-#import "WaveFormTable.h"
 
-#define kNumberNotes 8
+@class WaveFormTable, Envelope, AQPlayer;
 
 @interface Note : NSObject {
 	

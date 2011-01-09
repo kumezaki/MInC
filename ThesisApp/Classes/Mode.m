@@ -7,10 +7,9 @@
 //
 
 #import "Mode.h"
+#import "Note.h"
 
 @implementation Mode
-
-
 
 -(void) assignMode:(double*)notes {
 	
