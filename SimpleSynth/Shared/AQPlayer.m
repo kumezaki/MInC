@@ -152,6 +152,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 #define SIGN(x)	(x < 0. ? -1. : x > 0. ? +1. : 0.)
 
+//CL: why is this FillAudioBuffer not called?
+
 -(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples
 {
 	double amp = 1. / kNumNotes;
@@ -202,6 +204,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	return self;
 }
+
+//CL: This FillAudioBuffer is called but the AQPlayer_SimpleSynth one is not. Why?
 
 -(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples
 {

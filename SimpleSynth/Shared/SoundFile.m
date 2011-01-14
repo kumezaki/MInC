@@ -71,35 +71,43 @@
 
 -(void) GetSamples:(double*)buffer:(UInt32)num_buf_samples:(Float64)speed:(Float64)amp
 {
+	//CL: What is the difference between speed_end, speed_avg, & speed_delta?
 	const Float64 speed_end = speed;
 	const Float64 speed_avg = (speed + mPrevSpeed) / 2.;
 	const Float64 speed_delta = (speed - mPrevSpeed) / num_buf_samples;
-
+	
+	//CL: what is the difference between num_buf_samples, f_num_read_samples, & i_num_read_samples?
 	Float64 f_num_read_samples = num_buf_samples * speed_avg;
 	UInt32 i_num_read_samples = (UInt32)f_num_read_samples + 1;
 	
+	//CL: I know we talked about this formula but just so I'm really clear, what is the TWEEN_OFFSET?
 	Float64 f = TWEEN_OFFSET(mPos);	
 	
 	UInt32 file_buf_pos = (UInt32)mPos;
 	UInt32 read_buf_pos = 0;
+	
+	//CL: I think this loop is reading through the sample file. I don't understand how it's doing it. 
 	while (read_buf_pos < i_num_read_samples)
 	{
-		UInt32 ioNumPackets = i_num_read_samples - read_buf_pos;
-		SInt64 inStartingPacket = file_buf_pos;
-		UInt32 outNumBytes = 0;
+		
+		UInt32 ioNumPackets = i_num_read_samples - read_buf_pos;//CL: ?
+		SInt64 inStartingPacket = file_buf_pos;//CL: ?
+		UInt32 outNumBytes = 0;//CL: ?
 		
 		OSStatus result = AudioFileReadPackets(mFileID,NO,&outNumBytes,NULL,inStartingPacket,&ioNumPackets,&mBuffer[read_buf_pos]);
 		if (result != noErr)
 			NSLog(@"AudioFileReadPackets exception %ld speed:%lf num_buf_samples:%ld ioNumPackets:%ld",result,speed,num_buf_samples,ioNumPackets);
 
-		read_buf_pos += ioNumPackets;
+		read_buf_pos += ioNumPackets;//CL: ?
 		
-		file_buf_pos += read_buf_pos < i_num_read_samples ? - file_buf_pos : ioNumPackets;
+		file_buf_pos += read_buf_pos < i_num_read_samples ? - file_buf_pos : ioNumPackets;//CL: ?
 	}
 	
 //	NSLog(@"%ld %ld",num_buf_samples,i_num_read_samples);
+	
+		//CL: is the below calculating the speed acceleration/deacceleration?
 	speed = mPrevSpeed;
-	for (int buf_pos = 0; buf_pos < num_buf_samples; buf_pos++, f += (speed += speed_delta))
+	for (int buf_pos = 0; buf_pos < num_buf_samples; buf_pos++, f += (speed += speed_delta))//CL: f += (speed += speed_delta)?
 	{
 		Float64 s0 = (SInt16)CFSwapInt16BigToHost(mBuffer[(UInt32)f]);
 		Float64 s1 = (SInt16)CFSwapInt16BigToHost(mBuffer[(UInt32)f+1]);
@@ -112,6 +120,7 @@
 //		NSLog(@"%lf %lf %lf %lf",s,s0,s1,buffer[buf_pos]);
 	}
 	
+	//CL: presumably if I had a better understanding of everything prior I would probably understand the rest of this...
 	mPos += f_num_read_samples;
 	mPos -= mPos > mNumFileSamples ? mNumFileSamples : 0;
 	
