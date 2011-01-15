@@ -30,7 +30,7 @@
 	Float64			mPrevSpeed;
 	
 	int				mSFID;
-	
+
 @public
 	
 }
@@ -39,5 +39,13 @@
 
 -(void) GetSamples:(double*)buffer:(UInt32)num_buf_samples:(Float64)speed:(Float64)amp;
 -(double) GetCurPos;
+
+@end
+
+
+@interface SoundFile_Simple : SoundFile {
+}
+
+-(void) GetSamples:(double*)buffer:(UInt32)num_buf_samples:(Float64)speed:(Float64)amp;
 
 @end

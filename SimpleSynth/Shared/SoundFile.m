@@ -112,6 +112,7 @@
 		Float64 s0 = (SInt16)CFSwapInt16BigToHost(mBuffer[(UInt32)f]);
 		Float64 s1 = (SInt16)CFSwapInt16BigToHost(mBuffer[(UInt32)f+1]);
 		
+		/* these calculations are correct Chris */
 		Float64 k = f - floor(f);
 		Float64 s = (s1 - s0) * k + s0;
 		
@@ -130,6 +131,56 @@
 -(double) GetCurPos
 {
 	return mPos / mNumFileSamples;
+}
+
+@end
+
+@implementation SoundFile_Simple
+
+-(void) GetSamples:(double*)buffer:(UInt32)num_buf_samples:(Float64)speed:(Float64)amp
+{
+	//KU: assume speed is always 1.0 for this class (force it to be so)
+	speed = 1.;
+	
+	UInt32 i_num_read_samples = num_buf_samples;
+	
+	UInt32 file_buf_pos = (UInt32)mPos;
+	UInt32 read_buf_pos = 0;
+	
+	//KU: This loop reads data from the sound file.
+	//KU: When reaching the end of the file, we may not get a full buffer of samples, so we will loop.
+	while (read_buf_pos < i_num_read_samples)
+	{
+		UInt32 ioNumPackets = i_num_read_samples - read_buf_pos;//KU: computes how many packets (samples) to read
+		SInt64 inStartingPacket = file_buf_pos;//KU: sets the read position into the file
+		UInt32 outNumBytes = 0;//KU: where the number of bytes actually read will go
+		
+		OSStatus result = AudioFileReadPackets(mFileID,NO,&outNumBytes,NULL,inStartingPacket,&ioNumPackets,&mBuffer[read_buf_pos]);
+		if (result != noErr)
+			NSLog(@"AudioFileReadPackets exception %ld speed:%lf num_buf_samples:%ld ioNumPackets:%ld",result,speed,num_buf_samples,ioNumPackets);
+		
+		read_buf_pos += ioNumPackets;//KU: advance the read position into the file
+		
+		file_buf_pos += read_buf_pos < i_num_read_samples ? - file_buf_pos : ioNumPackets;//KU: if we didn't read a full buffer of samples, we've reached the end so rewind if necessary
+	}
+	
+	//NSLog(@"%ld %ld",num_buf_samples,i_num_read_samples);
+	
+	//KU: speed is 1.0 so no need to calculate interpolation of samples
+	speed = mPrevSpeed;
+	for (int buf_pos = 0; buf_pos < num_buf_samples; buf_pos++)
+	{
+		Float64 s = (SInt16)CFSwapInt16BigToHost(mBuffer[buf_pos]);
+		buffer[buf_pos] += amp * s / (SInt16)0x7FFF;
+		
+		//NSLog(@"%lf %lf %lf %lf",s,s0,s1,buffer[buf_pos]);
+	}
+	
+	//KU: advance mPos by the number of buffer samples requested and rewind if necessary
+	mPos += i_num_read_samples;
+	mPos -= mPos > mNumFileSamples ? mNumFileSamples : 0;
+	
+	mPrevSpeed = speed;
 }
 
 @end
