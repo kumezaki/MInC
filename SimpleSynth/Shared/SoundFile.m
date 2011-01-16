@@ -141,17 +141,15 @@
 {
 	//KU: assume speed is always 1.0 for this class (force it to be so)
 	speed = 1.;
-	
-	UInt32 i_num_read_samples = num_buf_samples;
-	
-	UInt32 file_buf_pos = (UInt32)mPos;
-	UInt32 read_buf_pos = 0;
+		
+	UInt32 file_buf_pos = (UInt32)mPos;//mPos "position in file"
+	UInt32 read_buf_pos = 0;//where in the buffer
 	
 	//KU: This loop reads data from the sound file.
 	//KU: When reaching the end of the file, we may not get a full buffer of samples, so we will loop.
-	while (read_buf_pos < i_num_read_samples)
+	while (read_buf_pos < num_buf_samples)
 	{
-		UInt32 ioNumPackets = i_num_read_samples - read_buf_pos;//KU: computes how many packets (samples) to read
+		UInt32 ioNumPackets = num_buf_samples - read_buf_pos;//KU: computes how many packets (samples) to read
 		SInt64 inStartingPacket = file_buf_pos;//KU: sets the read position into the file
 		UInt32 outNumBytes = 0;//KU: where the number of bytes actually read will go
 		
@@ -161,7 +159,7 @@
 		
 		read_buf_pos += ioNumPackets;//KU: advance the read position into the file
 		
-		file_buf_pos += read_buf_pos < i_num_read_samples ? - file_buf_pos : ioNumPackets;//KU: if we didn't read a full buffer of samples, we've reached the end so rewind if necessary
+		file_buf_pos += read_buf_pos < num_buf_samples ? - file_buf_pos : ioNumPackets;//KU: if we didn't read a full buffer of samples, we've reached the end so rewind if necessary
 	}
 	
 	//NSLog(@"%ld %ld",num_buf_samples,i_num_read_samples);
@@ -177,7 +175,7 @@
 	}
 	
 	//KU: advance mPos by the number of buffer samples requested and rewind if necessary
-	mPos += i_num_read_samples;
+	mPos += num_buf_samples;
 	mPos -= mPos > mNumFileSamples ? mNumFileSamples : 0;
 	
 	mPrevSpeed = speed;

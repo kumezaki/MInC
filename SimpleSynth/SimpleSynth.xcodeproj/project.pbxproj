@@ -24,6 +24,10 @@
 		2860E32E111B888700E27156 /* AppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2860E32C111B888700E27156 /* AppDelegate_iPad.m */; };
 		2860E32F111B888700E27156 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2860E32D111B888700E27156 /* MainWindow_iPad.xib */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		B459142912E27B8200BB3384 /* ePiano.aif in Resources */ = {isa = PBXBuildFile; fileRef = B459142512E27B8200BB3384 /* ePiano.aif */; };
+		B459142A12E27B8200BB3384 /* flute.aif in Resources */ = {isa = PBXBuildFile; fileRef = B459142612E27B8200BB3384 /* flute.aif */; };
+		B459142B12E27B8200BB3384 /* marimba.aif in Resources */ = {isa = PBXBuildFile; fileRef = B459142712E27B8200BB3384 /* marimba.aif */; };
+		B459142C12E27B8200BB3384 /* trumpet.aif in Resources */ = {isa = PBXBuildFile; fileRef = B459142812E27B8200BB3384 /* trumpet.aif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,10 @@
 		2860E32D111B888700E27156 /* MainWindow_iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow_iPad.xib; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Shared/main.m; sourceTree = "<group>"; };
+		B459142512E27B8200BB3384 /* ePiano.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = ePiano.aif; sourceTree = "<group>"; };
+		B459142612E27B8200BB3384 /* flute.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = flute.aif; sourceTree = "<group>"; };
+		B459142712E27B8200BB3384 /* marimba.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = marimba.aif; sourceTree = "<group>"; };
+		B459142812E27B8200BB3384 /* trumpet.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = trumpet.aif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +136,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B459142412E27B8200BB3384 /* samples */,
 				2113CFDF12CB9EF600D85682 /* audacity_0.aif */,
 				21208F5012CBD6840075A01F /* audacity_1.aif */,
 				21208EDF12CBD4EC0075A01F /* audacity_2.aif */,
@@ -147,6 +156,17 @@
 				2164C78B12C2528F00B7BB3E /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B459142412E27B8200BB3384 /* samples */ = {
+			isa = PBXGroup;
+			children = (
+				B459142512E27B8200BB3384 /* ePiano.aif */,
+				B459142612E27B8200BB3384 /* flute.aif */,
+				B459142712E27B8200BB3384 /* marimba.aif */,
+				B459142812E27B8200BB3384 /* trumpet.aif */,
+			);
+			path = samples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +224,10 @@
 				2113CFE112CB9EF600D85682 /* audacity_0.aif in Resources */,
 				21208EE112CBD4EC0075A01F /* audacity_2.aif in Resources */,
 				21208F5112CBD6840075A01F /* audacity_1.aif in Resources */,
+				B459142912E27B8200BB3384 /* ePiano.aif in Resources */,
+				B459142A12E27B8200BB3384 /* flute.aif in Resources */,
+				B459142B12E27B8200BB3384 /* marimba.aif in Resources */,
+				B459142C12E27B8200BB3384 /* trumpet.aif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
