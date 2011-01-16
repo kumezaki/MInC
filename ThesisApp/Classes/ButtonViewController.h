@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CLSlipperyButton.h"
 #import "AppBrain.h"
 
-@class MainViewController;
+@class MainViewController, CLSlipperyButton;
 
 @interface ButtonViewController : UIView {
 	

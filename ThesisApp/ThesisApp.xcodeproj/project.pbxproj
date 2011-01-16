@@ -17,6 +17,7 @@
 		289233AE0DB2D0DB0083E9F9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289233A90DB2D0DB0083E9F9 /* MainViewController.m */; };
 		289233B00DB2D0DB0083E9F9 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289233AD0DB2D0DB0083E9F9 /* FlipsideViewController.m */; };
 		B427AC3A12CADC0F00EDDE3D /* ButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B427AC3912CADC0F00EDDE3D /* ButtonViewController.m */; };
+		B437E58012E28C5800702DD1 /* SoundFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B437E57F12E28C5800702DD1 /* SoundFile.m */; };
 		B43EB798128F216D000FD8EE /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EB797128F216D000FD8EE /* Note.m */; };
 		B449ABCD12D26E3400001888 /* AppBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = B449ABCC12D26E3400001888 /* AppBrain.m */; };
 		B4653FDE127E66CC00DA1F26 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4653FDD127E66CC00DA1F26 /* AudioToolbox.framework */; };
@@ -44,7 +45,10 @@
 		B4C15B6912BC533600A56C77 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C15B6812BC533600A56C77 /* Icon.png */; };
 		B4F6F5941291FF05008BB207 /* Envelope.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F6F5931291FF05008BB207 /* Envelope.m */; };
 		B4F6F5991291FF30008BB207 /* Mode.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F6F5981291FF30008BB207 /* Mode.m */; };
-		B4FC8D3E12DA54BA00832A2F /* marimba.aif in Resources */ = {isa = PBXBuildFile; fileRef = B4FC8D3D12DA54BA00832A2F /* marimba.aif */; };
+		B4FC8D9712DA6BE100832A2F /* ePiano.aif in Resources */ = {isa = PBXBuildFile; fileRef = B4FC8D9312DA6BE100832A2F /* ePiano.aif */; };
+		B4FC8D9812DA6BE100832A2F /* flute.aif in Resources */ = {isa = PBXBuildFile; fileRef = B4FC8D9412DA6BE100832A2F /* flute.aif */; };
+		B4FC8D9912DA6BE100832A2F /* marimba.aif in Resources */ = {isa = PBXBuildFile; fileRef = B4FC8D9512DA6BE100832A2F /* marimba.aif */; };
+		B4FC8D9A12DA6BE100832A2F /* trumpet.aif in Resources */ = {isa = PBXBuildFile; fileRef = B4FC8D9612DA6BE100832A2F /* trumpet.aif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +70,8 @@
 		8D1107310486CEB800E47090 /* ThesisApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ThesisApp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		B427AC3812CADC0F00EDDE3D /* ButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ButtonViewController.h; path = Classes/ButtonViewController.h; sourceTree = "<group>"; };
 		B427AC3912CADC0F00EDDE3D /* ButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ButtonViewController.m; path = Classes/ButtonViewController.m; sourceTree = "<group>"; };
+		B437E57E12E28C5800702DD1 /* SoundFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundFile.h; sourceTree = "<group>"; };
+		B437E57F12E28C5800702DD1 /* SoundFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundFile.m; sourceTree = "<group>"; };
 		B43EB796128F216D000FD8EE /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Note.h; path = Classes/Note.h; sourceTree = "<group>"; };
 		B43EB797128F216D000FD8EE /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Note.m; path = Classes/Note.m; sourceTree = "<group>"; };
 		B449ABCB12D26E3400001888 /* AppBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppBrain.h; path = Classes/AppBrain.h; sourceTree = "<group>"; };
@@ -100,7 +106,10 @@
 		B4F6F5931291FF05008BB207 /* Envelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Envelope.m; path = Classes/Envelope.m; sourceTree = "<group>"; };
 		B4F6F5971291FF30008BB207 /* Mode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mode.h; path = Classes/Mode.h; sourceTree = "<group>"; };
 		B4F6F5981291FF30008BB207 /* Mode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Mode.m; path = Classes/Mode.m; sourceTree = "<group>"; };
-		B4FC8D3D12DA54BA00832A2F /* marimba.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = marimba.aif; sourceTree = "<group>"; };
+		B4FC8D9312DA6BE100832A2F /* ePiano.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = ePiano.aif; sourceTree = "<group>"; };
+		B4FC8D9412DA6BE100832A2F /* flute.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = flute.aif; sourceTree = "<group>"; };
+		B4FC8D9512DA6BE100832A2F /* marimba.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = marimba.aif; sourceTree = "<group>"; };
+		B4FC8D9612DA6BE100832A2F /* trumpet.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = trumpet.aif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +162,8 @@
 				289233A90DB2D0DB0083E9F9 /* MainViewController.m */,
 				B427AC3812CADC0F00EDDE3D /* ButtonViewController.h */,
 				B427AC3912CADC0F00EDDE3D /* ButtonViewController.m */,
+				B4C1233F12C945570017918B /* CLSlipperyButton.h */,
+				B4C1234012C945570017918B /* CLSlipperyButton.m */,
 				B46C41FF12860417002E1B34 /* AQPlayer.h */,
 				B46C420012860417002E1B34 /* AQPlayer.m */,
 				B449ABCB12D26E3400001888 /* AppBrain.h */,
@@ -165,8 +176,8 @@
 				B46C41FB12860403002E1B34 /* WaveFormTable.m */,
 				B4F6F5921291FF05008BB207 /* Envelope.h */,
 				B4F6F5931291FF05008BB207 /* Envelope.m */,
-				B4C1233F12C945570017918B /* CLSlipperyButton.h */,
-				B4C1234012C945570017918B /* CLSlipperyButton.m */,
+				B437E57E12E28C5800702DD1 /* SoundFile.h */,
+				B437E57F12E28C5800702DD1 /* SoundFile.m */,
 			);
 			name = "Main View";
 			sourceTree = "<group>";
@@ -197,7 +208,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B4FC8D3D12DA54BA00832A2F /* marimba.aif */,
+				B4FC8D9212DA6BE100832A2F /* samples */,
 				B4C15B6812BC533600A56C77 /* Icon.png */,
 				B4C15B6412BC529600A56C77 /* Default.png */,
 				B4C15B2D12BC301E00A56C77 /* buttons */,
@@ -241,6 +252,17 @@
 				B4C15B3512BC301E00A56C77 /* seafoam1.png */,
 			);
 			path = buttons;
+			sourceTree = "<group>";
+		};
+		B4FC8D9212DA6BE100832A2F /* samples */ = {
+			isa = PBXGroup;
+			children = (
+				B4FC8D9312DA6BE100832A2F /* ePiano.aif */,
+				B4FC8D9412DA6BE100832A2F /* flute.aif */,
+				B4FC8D9512DA6BE100832A2F /* marimba.aif */,
+				B4FC8D9612DA6BE100832A2F /* trumpet.aif */,
+			);
+			path = samples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,7 +336,10 @@
 				B4C15B6512BC529600A56C77 /* Default.png in Resources */,
 				B4C15B6912BC533600A56C77 /* Icon.png in Resources */,
 				B4C03E1012C5A2780037E3B5 /* MainWindow.xib in Resources */,
-				B4FC8D3E12DA54BA00832A2F /* marimba.aif in Resources */,
+				B4FC8D9712DA6BE100832A2F /* ePiano.aif in Resources */,
+				B4FC8D9812DA6BE100832A2F /* flute.aif in Resources */,
+				B4FC8D9912DA6BE100832A2F /* marimba.aif in Resources */,
+				B4FC8D9A12DA6BE100832A2F /* trumpet.aif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +362,7 @@
 				B4C1234112C945570017918B /* CLSlipperyButton.m in Sources */,
 				B427AC3A12CADC0F00EDDE3D /* ButtonViewController.m in Sources */,
 				B449ABCD12D26E3400001888 /* AppBrain.m in Sources */,
+				B437E58012E28C5800702DD1 /* SoundFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

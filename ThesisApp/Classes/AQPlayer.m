@@ -8,7 +8,7 @@
 
 #import "AQPlayer.h"
 
-AQPlayer *gAQP = nil;
+AQPlayer *gAQP = nil; //CL: I still don't understand the purpose of this
 
 @implementation AQPlayer
 
@@ -27,7 +27,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	double mMaxAmp = 0.;
 	double sample = 0.;	
 	for (int i = 0; i < numFrames; i++) {	
-		//raw mMaxAmp
 		//mMaxAmp = fabs(sampleBuffer[i]) > mMaxAmp ? fabs(sampleBuffer[i]) : mMaxAmp;
 		sample = sampleBuffer[i];
 		sample = sample > MAX_AMP ? MAX_AMP : sample < -MAX_AMP ? -MAX_AMP : sample;

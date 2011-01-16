@@ -18,6 +18,6 @@
 
 
 -(void) createWaveType:(NSString *)waveType;
--(double) get:(double)index;
+-(double) getSamples:(double)index;
 
 @end
