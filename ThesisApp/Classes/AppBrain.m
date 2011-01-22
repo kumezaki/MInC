@@ -11,7 +11,6 @@
 #import "Mode.h"
 #import "Note.h"
 #import "WaveFormTable.h"
-#import "SoundFile.h"
 #import "Content.h"
 
 @implementation AppBrain
@@ -45,14 +44,11 @@
 	[super init];
 	
 	mWaveTable = [WaveFormTable new];
-	mWaveType = [NSString new]; //try to do this with out alloc/init-ing
+	mWaveType = [NSString new];
 	
-	mSoundFile = [[SoundFile_Simple alloc]init];
-		
 	for (int i = 0; i < kNumberNotes; i++) {
 		mNotes[i] = [Note new];
-		//[mNotes[i] setWaveTable:mWaveTable];
-		[mNotes[i] setSoundFile:mSoundFile];
+		[mNotes[i] setWaveTable:mWaveTable];
 	}
 	
 	for (int j = 0; j < kNumberModes; j++) {
@@ -77,7 +73,6 @@
 	for (int j = 0; j < kNumberModes; j++) [mModes[j] release];	
 	[mWaveType release];
 	[mWaveTable release];
-	[mSoundFile release];
 	[super dealloc];
 }
 

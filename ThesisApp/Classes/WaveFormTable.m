@@ -11,14 +11,14 @@
 @implementation WaveFormTable
 
 
-- (id)init {
+-(id)init {
 	[super init];
 	return self;
 }
 
 #define SIGN(x)	(x < 0. ? -1. : x > 0. ? +1. : 0.)
 
-- (void)createWaveType:(NSString *)waveType {
+-(void) createWaveType:(NSString *)waveType {
 	mWaveType = waveType;
 	if ([mWaveType isEqual:@"sine wave"]) {
 		for (int i = 0; i < kAudioDataByteSize; i++) {
@@ -45,7 +45,7 @@
 	}
 }
 
-- (double)getSamples:(double)index {
+-(double) get:(double)index {
 	int i = index * kAudioDataByteSize;
 	i %= kAudioDataByteSize;
 	return mTable[i];

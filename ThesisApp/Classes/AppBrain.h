@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AQPlayer.h"
 
-@class Mode, Note, WaveFormTable, SoundFile;
+@class Mode, Note, WaveFormTable;
 
 @interface AppBrain : AQPlayer {
 
@@ -20,10 +20,9 @@
 	
 @public
 	
-	Mode			*mModes[kNumberModes];
-	Note			*mNotes[kNumberNotes];
-	WaveFormTable	*mWaveTable;
-	SoundFile		*mSoundFile;
+	Mode *mModes[kNumberModes];
+	Note *mNotes[kNumberNotes];
+	WaveFormTable *mWaveTable;		
 }
 
 @property int mCurrentMode;

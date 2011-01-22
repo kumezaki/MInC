@@ -14,7 +14,6 @@
 - (id)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
-	self.multipleTouchEnabled = NO;
 	return self;
 }
 

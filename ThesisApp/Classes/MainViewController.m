@@ -108,15 +108,15 @@
 	}
 }
 
-//#define kFilteringFactor 0.75
-//- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
-//	//LowPass Filter
-//	double yAxis = acceleration.y * kFilteringFactor + yAxis * (1.0 - kFilteringFactor);
-//	
-//	if (yAxis > -0.12 && yAxis < 0.12) modeDidChange = NO;
-//	int k = yAxis < -0.25 ? 1 : yAxis > 0.25 ? -1 : 0;
-//
-//	[self changeMode:k];
-//}
+#define kFilteringFactor 0.75
+- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
+	//LowPass Filter
+	//double yAxis = acceleration.y * kFilteringFactor + yAxis * (1.0 - kFilteringFactor);
+	
+	//if (yAxis > -0.12 && yAxis < 0.12) modeDidChange = NO;
+	//int k = yAxis < -0.25 ? 1 : yAxis > 0.25 ? -1 : 0;
+
+	//[self changeMode:k];
+}
 
 @end

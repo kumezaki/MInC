@@ -10,7 +10,6 @@
 #import "AQPlayer.h" //for kSR only
 #import "Envelope.h"
 #import "WaveFormTable.h"
-#import "SoundFile.h"
 
 @implementation Note
 
@@ -28,7 +27,7 @@
 }
 
 -(id)init {
-	mAmp = MAX_AMP / kNumberNotes;
+	mAmp = MAX_AMP*.5;
 	mEnv = [[Envelope alloc] init];
 	return self;
 }
@@ -39,19 +38,15 @@
 }
 
 -(void)fillAudioBuffer:(double*)bufferPointer:(UInt32)numFrames {
-	//for (int i = 0; i < numFrames; i++) {
-//		bufferPointer[i] += mAmp * [mWaveTable getSamples:mTheta] * [mEnv get];
-//		mTheta += mDeltaTheta;
-//	}
-	[mSoundFile getSamples:bufferPointer :numFrames :mDeltaTheta :mAmp];
+	for (int i = 0; i < numFrames; i++) {
+		//bufferPointer[i] += [mWaveTable get:mTheta] * [mEnv get];
+		bufferPointer[i] += mAmp * [mWaveTable get:mTheta] * [mEnv get];
+		mTheta += mDeltaTheta;
+	}
 }
 
 -(void)setWaveTable:(WaveFormTable *)wave_table {
 	mWaveTable = wave_table;
-}
-
--(void)setSoundFile:(SoundFile *)sound_file {
-	mSoundFile = sound_file;
 }
 
 -(void)on {

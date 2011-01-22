@@ -8,15 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class WaveFormTable, Envelope, SoundFile, AQPlayer;
+@class WaveFormTable, Envelope, AQPlayer;
 
 @interface Note : NSObject {
 	
 @private	
 	WaveFormTable *mWaveTable;
 	Envelope	*mEnv;
-	
-	SoundFile *mSoundFile;
 
 	double mFreq;
 	double mAmp;
@@ -32,7 +30,6 @@
 
 -(void)fillAudioBuffer:(double*)bufferPointer:(UInt32)numFrames;
 -(void)setWaveTable:(WaveFormTable *)wave_table;
--(void)setSoundFile:(SoundFile *)sound_file;
 
 -(void)on;
 -(void)off;

@@ -151,8 +151,6 @@
 				289233A90DB2D0DB0083E9F9 /* MainViewController.m */,
 				B427AC3812CADC0F00EDDE3D /* ButtonViewController.h */,
 				B427AC3912CADC0F00EDDE3D /* ButtonViewController.m */,
-				B4C1233F12C945570017918B /* CLSlipperyButton.h */,
-				B4C1234012C945570017918B /* CLSlipperyButton.m */,
 				B46C41FF12860417002E1B34 /* AQPlayer.h */,
 				B46C420012860417002E1B34 /* AQPlayer.m */,
 				B449ABCB12D26E3400001888 /* AppBrain.h */,
@@ -165,6 +163,8 @@
 				B46C41FB12860403002E1B34 /* WaveFormTable.m */,
 				B4F6F5921291FF05008BB207 /* Envelope.h */,
 				B4F6F5931291FF05008BB207 /* Envelope.m */,
+				B4C1233F12C945570017918B /* CLSlipperyButton.h */,
+				B4C1234012C945570017918B /* CLSlipperyButton.m */,
 			);
 			name = "Main View";
 			sourceTree = "<group>";
