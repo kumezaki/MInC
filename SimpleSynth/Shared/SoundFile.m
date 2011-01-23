@@ -162,7 +162,7 @@
 		file_buf_pos += read_buf_pos < num_buf_samples ? - file_buf_pos : ioNumPackets;//KU: if we didn't read a full buffer of samples, we've reached the end so rewind if necessary
 	}
 	
-	//NSLog(@"%ld %ld",num_buf_samples,i_num_read_samples);
+	//NSLog(@"%ld %ld",num_buf_samples,num_buf_samples);
 	
 	//KU: speed is 1.0 so no need to calculate interpolation of samples
 	speed = mPrevSpeed;

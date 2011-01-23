@@ -52,6 +52,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	[super init];
 	
+	for (int i = 0; i < kNumVoices; i++)
+		mMute[i] = YES;
+
 	[self Start];
 
 	return self;
@@ -122,6 +125,17 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 //	NSLog(@"AQPlayer ReportElapsedTime %lf",elapsed_time);
 }
 
+-(BOOL)GetMute:(UInt16)pos
+{
+	return mMute[pos];
+}
+
+-(void)SetMute:(UInt16)pos:(BOOL)enable
+{
+	if (pos < kNumVoices)
+		mMute[pos] = enable;
+}
+
 @end
 
 @implementation AQPlayer_SimpleSynth
@@ -135,14 +149,17 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	[super init];
 	
-	for (int i = 0; i < kNumNotes; i++)
+	for (int i = 0; i < kNumVoices; i++)
 	{
 		mTheta[i] = 0.;
 
 		double ratio = 1.;
 		switch (i)
 		{
-			case 1: ratio = (3. / 2.);
+			case 0: ratio = (1. / 1.); break;
+			case 1: ratio = (9. / 8.); break;
+			case 2: ratio = (5. / 4.); break;
+			case 3: ratio = (3. / 2.); break;
 		}
 		mDeltaTheta[i] = (ratio) * 440. / kSR;
 	}
@@ -156,27 +173,28 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples
 {
-	double amp = 1. / kNumNotes;
+	double amp = 1. / kNumVoices;
 
-	for (int j = 0; j < kNumNotes; j++)
-		for (int i = 0; i < num_samples; i++)
-		{
+	for (int j = 0; j < kNumVoices; j++)
+		if (!mMute[j])
+			for (int i = 0; i < num_samples; i++)
+			{
 #if 1
-			buffer[i] += amp * sinf(mTheta[j] * 2 * M_PI);									/* sine */
+				buffer[i] += amp * sinf(mTheta[j] * 2 * M_PI);									/* sine */
 #elif 0
-			buffer[i] += amp * 2 * (mTheta[j] - floor(mTheta[j] + 0.5));					/* sawtooth */
+				buffer[i] += amp * 2 * (mTheta[j] - floor(mTheta[j] + 0.5));					/* sawtooth */
 #elif 0
-			buffer[i] += amp * SIGN(sinf(mTheta[j] * 2 * M_PI));							/* square */
+				buffer[i] += amp * SIGN(sinf(mTheta[j] * 2 * M_PI));							/* square */
 #elif 0
-			buffer[i] += amp * (fabs(2 * (mTheta[j] - floor(mTheta[j] + 0.5))) * 2 - 1.);	/* triangle */
+				buffer[i] += amp * (fabs(2 * (mTheta[j] - floor(mTheta[j] + 0.5))) * 2 - 1.);	/* triangle */
 #endif
-			mTheta[j] += mDeltaTheta[j];
+				mTheta[j] += mDeltaTheta[j];
 
 #if 0
-			if (j == kNumNotes - 1)
-				printf("%d%s",(SInt16)(buffer[i] * (SInt16)0x7FFF),i<num_samples-1?" ":"\n\n");
+				if (j == kNumVoices - 1)
+					printf("%d%s",(SInt16)(buffer[i] * (SInt16)0x7FFF),i<num_samples-1?" ":"\n\n");
 #endif
-		}
+			}
 }
 
 @end
@@ -185,7 +203,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 - (void)dealloc {
 	
-	for (int i = 0; i < kNumSFs; i++)
+	for (int i = 0; i < kNumVoices; i++)
 		[mSoundFile[i] release];
 	
 	[super dealloc];
@@ -195,11 +213,10 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	[super init];
 	
-	for (int i = 0; i < kNumSFs; i++)
+	for (int i = 0; i < kNumVoices; i++)
 	{
 		mSoundFile[i] = [[SoundFile_Simple alloc] initWithSFID:i];
 		mSpeed[i] = 1.0;
-		mMute[i] = YES;
 	}
 	
 	return self;
@@ -209,35 +226,24 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples
 {
-	for (int i = 0; i < kNumSFs; i++)
+	for (int i = 0; i < kNumVoices; i++)
 		if (mSpeed[i] > 0.)
 			[mSoundFile[i] GetSamples:buffer:num_samples:mSpeed[i]:mMute[i]?0.:1.];
 
 	for (int i = 0; i < num_samples; i++)
-		buffer[i] *= 1. / kNumSFs;
+		buffer[i] *= 1. / kNumVoices;
 }
 
--(void)SetSpeed:(UInt16)sf_pos:(Float64)speed
+-(void)SetSpeed:(UInt16)pos:(Float64)speed
 {
-	if (sf_pos < kNumSFs)
-		mSpeed[sf_pos] = speed;
+	if (pos < kNumVoices)
+		mSpeed[pos] = speed;
 }
 
--(BOOL)GetMute:(UInt16)sf_pos
+-(Float64)GetSFPos:(UInt16)pos
 {
-	return mMute[sf_pos];
-}
-
--(void)SetMute:(UInt16)sf_pos:(BOOL)enable
-{
-	if (sf_pos < kNumSFs)
-		mMute[sf_pos] = enable;
-}
-
--(Float64)GetSFPos:(UInt16)sf_pos
-{
-	if (sf_pos < kNumSFs)
-		return [mSoundFile[sf_pos] GetCurPos];
+	if (pos < kNumVoices)
+		return [mSoundFile[pos] GetCurPos];
 	
 	return 0.;
 }

@@ -18,7 +18,7 @@ AQPlayer* gAQP;
 {
 	[super init];
 
-	gAQP = [[AQPlayer_SimpleSF alloc] init];
+	gAQP = [[AQPlayer_SimpleSynth alloc] init];
 
 	UIWindow* window = [self GetAppWindow];
 
@@ -34,7 +34,8 @@ AQPlayer* gAQP;
 		CGRect buttonRect = CGRectMake(10,30+(i*110),40,100);
 		mButtons[i] = [UIButton buttonWithType:UIButtonTypeRoundedRect]; 
 		mButtons[i].frame = buttonRect;
-		[mButtons[i] setTitle:@"Mute" forState:UIControlStateNormal];
+//		[mButtons[i] setTitle:@"Mute" forState:UIControlStateNormal];
+		[mButtons[i] setImage:[UIImage imageNamed:@"32px-Speaker_Off.png"] forState:UIControlStateNormal];
 		[mButtons[i] setHidden:NO];
 		[mButtons[i] addTarget:self action:@selector(doButton:) forControlEvents:UIControlEventTouchDown];
 		[window addSubview:mButtons[i]];
@@ -63,12 +64,18 @@ AQPlayer* gAQP;
 	for (int i = 0; i < kNumViews; i++)
 		if (mButtons[i] == sender)
 		{
+#if 0
 			if (strcmp(object_getClassName(gAQP),"AQPlayer_SimpleSF")==0)
 			{
 				AQPlayer_SimpleSF *aqp = (AQPlayer_SimpleSF*)gAQP;
 				[aqp SetMute:i:![aqp GetMute:i]];
 				[mButtons[i] setTitle:([aqp GetMute:i]?@"Mute":@"") forState:UIControlStateNormal];
 			}
+#else
+			[gAQP SetMute:i:![gAQP GetMute:i]];
+//			[mButtons[i] setTitle:([gAQP GetMute:i]?@"Mute":@"") forState:UIControlStateNormal];
+			[mButtons[i] setImage:[UIImage imageNamed:([gAQP GetMute:i]?@"32px-Speaker_Off.png":@"32px-Speaker_On.png")] forState:UIControlStateNormal];
+#endif
 		}
 }
 

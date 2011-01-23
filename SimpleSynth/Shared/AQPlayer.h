@@ -13,13 +13,14 @@
 
 #define kSR				22050.
 
+#define kNumVoices		4
 @interface AQPlayer : NSObject {
 
 	AudioQueueRef				mQueue;
 	AudioQueueBufferRef			mBuffers[kNumberBuffers];
 	AudioStreamBasicDescription	mDataFormat;
 	
-@public
+	UInt16		mMute[kNumVoices];
 }
 
 -(void)	New;
@@ -32,13 +33,15 @@
 -(void)ReportMaxAmplitude:(double)max_amp;
 -(void)ReportElapsedTime:(double)elapsed_time;
 
+-(BOOL)GetMute:(UInt16)pos;
+-(void)SetMute:(UInt16)pos:(BOOL)enable;
+
 @end
 
-#define kNumNotes	1
 @interface AQPlayer_SimpleSynth : AQPlayer {
 
-	double	mTheta[kNumNotes];
-	double	mDeltaTheta[kNumNotes];
+	double	mTheta[kNumVoices];
+	double	mDeltaTheta[kNumVoices];
 }
 
 -(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples;
@@ -47,21 +50,16 @@
 
 #import "SoundFile.h"
 
-#define kNumSFs		4
 @interface AQPlayer_SimpleSF : AQPlayer {
 	
-	SoundFile*	mSoundFile[kNumSFs];
-	Float64		mSpeed[kNumSFs];
-	UInt16		mMute[kNumSFs];
+	SoundFile*	mSoundFile[kNumVoices];
+	Float64		mSpeed[kNumVoices];
 }
 
 -(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples;
 
--(void)SetSpeed:(UInt16)sf_pos:(Float64)speed;
+-(void)SetSpeed:(UInt16)pos:(Float64)speed;
 
--(BOOL)GetMute:(UInt16)sf_pos;
--(void)SetMute:(UInt16)sf_pos:(BOOL)enable;
-
--(Float64)GetSFPos:(UInt16)sf_pos;
+-(Float64)GetSFPos:(UInt16)pos;
 
 @end
