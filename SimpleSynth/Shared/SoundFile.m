@@ -71,22 +71,18 @@
 
 -(void) GetSamples:(double*)buffer:(UInt32)num_buf_samples:(Float64)speed:(Float64)amp
 {
-	//CL: What is the difference between speed_end, speed_avg, & speed_delta?
 	const Float64 speed_end = speed;
 	const Float64 speed_avg = (speed + mPrevSpeed) / 2.;
 	const Float64 speed_delta = (speed - mPrevSpeed) / num_buf_samples;
 	
-	//CL: what is the difference between num_buf_samples, f_num_read_samples, & i_num_read_samples?
 	Float64 f_num_read_samples = num_buf_samples * speed_avg;
 	UInt32 i_num_read_samples = (UInt32)f_num_read_samples + 1;
 	
-	//CL: I know we talked about this formula but just so I'm really clear, what is the TWEEN_OFFSET?
 	Float64 f = TWEEN_OFFSET(mPos);	
 	
 	UInt32 file_buf_pos = (UInt32)mPos;
 	UInt32 read_buf_pos = 0;
 	
-	//CL: I think this loop is reading through the sample file. I don't understand how it's doing it. 
 	while (read_buf_pos < i_num_read_samples)
 	{
 		
@@ -105,7 +101,6 @@
 	
 //	NSLog(@"%ld %ld",num_buf_samples,i_num_read_samples);
 	
-		//CL: is the below calculating the speed acceleration/deacceleration?
 	speed = mPrevSpeed;
 	for (int buf_pos = 0; buf_pos < num_buf_samples; buf_pos++, f += (speed += speed_delta))//CL: f += (speed += speed_delta)?
 	{
@@ -121,7 +116,6 @@
 //		NSLog(@"%lf %lf %lf %lf",s,s0,s1,buffer[buf_pos]);
 	}
 	
-	//CL: presumably if I had a better understanding of everything prior I would probably understand the rest of this...
 	mPos += f_num_read_samples;
 	mPos -= mPos > mNumFileSamples ? mNumFileSamples : 0;
 	
