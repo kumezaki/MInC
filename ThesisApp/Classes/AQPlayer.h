@@ -10,8 +10,8 @@
 #import <AudioToolbox/AudioToolbox.h>
 
 #define kNumberBuffers 3
-#define kSR 44100.
-#define kAudioDataByteSize 1024 //used for WaveFormTable size
+#define kSR 22050.
+#define kAudioDataByteSize 512 //used for WaveFormTable size
 #define MAX_AMP	0.95
 
 #define kNumberModes 6

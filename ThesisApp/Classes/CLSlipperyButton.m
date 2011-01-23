@@ -14,6 +14,8 @@
 - (id)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
+	self.userInteractionEnabled = YES;
+	self.multipleTouchEnabled = YES;
 	return self;
 }
 

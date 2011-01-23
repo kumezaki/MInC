@@ -105,14 +105,14 @@
 #pragma mark UIResponder methodology
 
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
-	UITouch *touch = [touches anyObject];
-	CGPoint touchPoint = [touch locationInView:self];
-	for (int i = 0; i < kNumberNotes; i++) {
+	UITouch *touch = [touches anyObject];//grab the touch
+	CGPoint touchPoint = [touch locationInView:self];//figure out where on the screen the touch is
+	for (int i = 0; i < kNumberNotes; i++) {//figure out which button the touch is in
 		if(CGRectContainsPoint(slickButton[i].frame, touchPoint)) {
 			if (!slickButton[i].highlighted) {
 				slickButton[i].highlighted = YES;
-				[self startSound:slickButton[i]];
-				[touchDict setObject:slickButton[i] forKey:[NSValue valueWithPointer:touch]];
+				[self startSound:slickButton[i]];//turn on the button and start sound
+				[touchDict setObject:slickButton[i] forKey:[NSValue valueWithPointer:touch]];//set the button in the dictionary keyed by touch
 				break;
 			}
 		}
@@ -121,8 +121,8 @@
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {	
-	UITouch *touch = [touches anyObject];
-	CLSlipperyButton *movedButton = [touchDict objectForKey:[NSValue valueWithPointer:touch]];
+	UITouch *touch = [touches anyObject];// grab moved touches
+	CLSlipperyButton *movedButton = [touchDict objectForKey:[NSValue valueWithPointer:touch]];// setting a *movedbutton object by touch key
 	CGPoint touchPoint = [touch locationInView:self];		
 	if (movedButton.highlighted && !CGRectContainsPoint(movedButton.frame, touchPoint)) {
 		movedButton.highlighted = NO;
