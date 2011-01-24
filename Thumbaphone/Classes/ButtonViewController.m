@@ -14,20 +14,8 @@
 - (id)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
-    if (self) {
-		self.userInteractionEnabled = YES;
-		self.multipleTouchEnabled = YES;
-		touchDict = [[NSMutableDictionary alloc] initWithCapacity:5];
-    }
-    return self;
-}
-
-- (void) setAppBrain:(AppBrain *)AppBrain {
-	mAppBrain = AppBrain;
-}
-
-- (void)drawRect:(CGRect)rect {	
-// Create slickButton array
+	
+	// Create slickButton array
 	int x = 0;
 	int y = 145;
 	
@@ -84,7 +72,22 @@
 		}
 		[slickButton[i] release];
 	}
+	
+	
+    if (self) {
+		self.userInteractionEnabled = YES;
+		self.multipleTouchEnabled = YES;
+		touchDict = [[NSMutableDictionary alloc] initWithCapacity:5];
+    }
+    return self;
 }
+
+- (void) setAppBrain:(AppBrain *)AppBrain {
+	mAppBrain = AppBrain;
+}
+
+//- (void)drawRect:(CGRect)rect {
+//}
 
 - (void)dealloc {	
 	[touchDict release];

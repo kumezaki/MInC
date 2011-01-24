@@ -50,7 +50,6 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* ThumbaphoneAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbaphoneAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* ThumbaphoneAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbaphoneAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* Thumbaphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thumbaphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		280E754A0DD40C5E005A515E /* FlipsideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlipsideView.xib; sourceTree = "<group>"; };
 		280E754B0DD40C5E005A515E /* MainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		B4C15B5A12BC470900A56C77 /* red2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red2.png; sourceTree = "<group>"; };
 		B4C15B6412BC529600A56C77 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		B4C15B6812BC533600A56C77 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		B4F188E412ED59B800930236 /* ThumbaPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThumbaPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F3439212937A5B001A83D3 /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Content.h; path = Classes/Content.h; sourceTree = "<group>"; };
 		B4F6F5921291FF05008BB207 /* Envelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Envelope.h; path = Classes/Envelope.h; sourceTree = "<group>"; };
 		B4F6F5931291FF05008BB207 /* Envelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Envelope.m; path = Classes/Envelope.m; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* Thumbaphone.app */,
+				B4F188E412ED59B800930236 /* ThumbaPhone.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -257,7 +257,7 @@
 			);
 			name = Thumbaphone;
 			productName = Thumbaphone;
-			productReference = 1D6058910D05DD3D006BFB54 /* Thumbaphone.app */;
+			productReference = B4F188E412ED59B800930236 /* ThumbaPhone.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -349,7 +349,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Thumbaphone_Prefix.pch;
 				INFOPLIST_FILE = "Thumbaphone-Info.plist";
-				PRODUCT_NAME = Thumbaphone;
+				PRODUCT_NAME = ThumbaPhone;
 			};
 			name = Debug;
 		};
@@ -361,7 +361,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Thumbaphone_Prefix.pch;
 				INFOPLIST_FILE = "Thumbaphone-Info.plist";
-				PRODUCT_NAME = Thumbaphone;
+				PRODUCT_NAME = ThumbaPhone;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

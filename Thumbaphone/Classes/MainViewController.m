@@ -39,7 +39,8 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
+    //return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
+	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -63,7 +64,6 @@
 	[self.view addSubview:buttonView];
 	[buttonView setAppBrain:mAppBrain];
 	[buttonView release];	
-
 	[super viewDidLoad];
 }
 
@@ -81,6 +81,7 @@
 	self.waveFormLabel=nil;
 	self.modeLabel=nil;
 	[mAppBrain release];
+
 	[accelerometer release];
 	[controller release];
     [super dealloc];
