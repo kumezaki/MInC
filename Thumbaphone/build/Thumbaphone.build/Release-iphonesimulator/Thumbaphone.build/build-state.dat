@@ -1,943 +1,0 @@
-TThumbaphone
-v7
-r0
-t317525321.493679
-cCheck dependencies
-cProcessInfoPlistFile /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Info.plist Thumbaphone-Info.plist
-cCompileXIB /Users/main_brain/Desktop/Thumbaphone/FlipsideView.xib
-cCompileXIB /Users/main_brain/Desktop/Thumbaphone/MainView.xib
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/aqua1.png buttons/aqua1.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/blue1.png buttons/blue1.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/yellow1.png buttons/yellow1.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/green1.png buttons/green1.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/pink1.png buttons/pink1.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/purple1.png buttons/purple1.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/red1.png buttons/red1.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/seafoam1.png buttons/seafoam1.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/aqua2.png buttons/aqua2.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/seafoam2.png buttons/seafoam2.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/green2.png buttons/green2.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/yellow2.png buttons/yellow2.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/blue2.png buttons/blue2.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/pink2.png buttons/pink2.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/purple2.png buttons/purple2.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/red2.png buttons/red2.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/Default.png Default.png
-cCpResource build/Release-iphonesimulator/Thumbaphone.app/Icon.png Icon.png
-cCompileXIB /Users/main_brain/Desktop/Thumbaphone/MainWindow.xib
-cProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch.gch Thumbaphone_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/main.o /Users/main_brain/Desktop/Thumbaphone/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/ThumbaphoneAppDelegate.o /Users/main_brain/Desktop/Thumbaphone/Classes/ThumbaphoneAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/MainViewController.o /Users/main_brain/Desktop/Thumbaphone/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/FlipsideViewController.o /Users/main_brain/Desktop/Thumbaphone/Classes/FlipsideViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/WaveFormTable.o /Users/main_brain/Desktop/Thumbaphone/Classes/WaveFormTable.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/AQPlayer.o /Users/main_brain/Desktop/Thumbaphone/Classes/AQPlayer.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Note.o /Users/main_brain/Desktop/Thumbaphone/Classes/Note.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Envelope.o /Users/main_brain/Desktop/Thumbaphone/Classes/Envelope.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Mode.o /Users/main_brain/Desktop/Thumbaphone/Classes/Mode.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/CLSlipperyButton.o /Users/main_brain/Desktop/Thumbaphone/Classes/CLSlipperyButton.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/ButtonViewController.o /Users/main_brain/Desktop/Thumbaphone/Classes/ButtonViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/AppBrain.o /Users/main_brain/Desktop/Thumbaphone/Classes/AppBrain.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cLd /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Thumbaphone normal i386
-cGenerateDSYMFile /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app.dSYM /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Thumbaphone
-cTouch /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk
-c000000004CC128950000000000000110
-t1287727253
-s272
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
-c000000004CC1224600000000001EA9C0
-t1287725638
-s2009536
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.h
-c000000004CC1222F0000000000000A23
-t1287725615
-s2595
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
-c000000004CC12246000000000029B310
-t1287725638
-s2732816
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-c000000004CC1226D000000000029D5D0
-t1287725677
-s2741712
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
-c000000004CC1225F0000000000001466
-t1287725663
-s5222
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
-c000000004CC1281F0000000000000AA1
-t1287727135
-s2721
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-c000000004CC12883000000000074D7B0
-t1287727235
-s7657392
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/Availability.h
-c000000004CB3FA080000000000001ADD
-t1286863368
-s6877
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/AQPlayer.h
-c000000004D3CD4D000000000000002FC
-t1295832272
-s764
-i<Foundation/Foundation.h>
-i<AudioToolbox/AudioToolbox.h>
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/AQPlayer.m
-c000000004D3CD4D00000000000000B75
-t1295832272
-s2933
-i"AQPlayer.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/AppBrain.h
-c000000004D3CD4D000000000000002E4
-t1295832272
-s740
-i<Foundation/Foundation.h>
-i"AQPlayer.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/AppBrain.m
-c000000004D3CD4D00000000000000742
-t1295832272
-s1858
-i"AppBrain.h"
-i"Mode.h"
-i"Note.h"
-i"WaveFormTable.h"
-i"Content.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/ButtonViewController.h
-c000000004D3CD4D00000000000000234
-t1295832272
-s564
-i<UIKit/UIKit.h>
-i"CLSlipperyButton.h"
-i"AppBrain.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/ButtonViewController.m
-c000000004D3CD4D0000000000000170B
-t1295832272
-s5899
-i"ButtonViewController.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/CLSlipperyButton.h
-c000000004D3CD4D00000000000000105
-t1295832272
-s261
-i<UIKit/UIKit.h>
-i<Foundation/Foundation.h>
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/CLSlipperyButton.m
-c000000004D3CD49B00000000000003AC
-t1295832219
-s940
-i"CLSlipperyButton.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/Content.h
-c000000004D3CD4D0000000000000028B
-t1295832272
-s651
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/Envelope.h
-c000000004D3CD4D00000000000000133
-t1295832272
-s307
-i<Foundation/Foundation.h>
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/Envelope.m
-c000000004D3CD4D00000000000000239
-t1295832272
-s569
-i"Envelope.h"
-i"AQPlayer.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/FlipsideViewController.h
-c000000004D3CD4D000000000000002C2
-t1295832272
-s706
-i<UIKit/UIKit.h>
-i"AppBrain.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/FlipsideViewController.m
-c000000004D3CD4D00000000000000516
-t1295832272
-s1302
-i"FlipsideViewController.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/MainViewController.h
-c000000004D3CD4D00000000000000329
-t1295832272
-s809
-i"AppBrain.h"
-i"FlipsideViewController.h"
-i"ButtonViewController.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/MainViewController.m
-c000000004D3CD4D00000000000000E21
-t1295832272
-s3617
-i"MainViewController.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/Mode.h
-c000000004D3CD4D0000000000000017B
-t1295832272
-s379
-i<Foundation/Foundation.h>
-i"AQPlayer.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/Mode.m
-c000000004D3CD4D0000000000000017D
-t1295832272
-s381
-i"Mode.h"
-i"Note.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/Note.h
-c000000004D3CD4D00000000000000270
-t1295832272
-s624
-i<Foundation/Foundation.h>
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/Note.m
-c000000004D3CD4D00000000000000405
-t1295832272
-s1029
-i"Note.h"
-i"AQPlayer.h"
-i"Envelope.h"
-i"WaveFormTable.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/ThumbaphoneAppDelegate.h
-c000000004D3CD4D000000000000001EC
-t1295832272
-s492
-i<UIKit/UIKit.h>
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/ThumbaphoneAppDelegate.m
-c000000004D3CD4D00000000000000AF5
-t1295832272
-s2805
-i"ThumbaphoneAppDelegate.h"
-i"MainViewController.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/WaveFormTable.h
-c000000004D3CD4D0000000000000018A
-t1295832272
-s394
-i<Foundation/Foundation.h>
-i"AQPlayer.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Classes/WaveFormTable.m
-c000000004D3CD4D00000000000000509
-t1295832272
-s1289
-i"WaveFormTable.h"
-
-N/Users/main_brain/Desktop/Thumbaphone/Default.png
-c000000004D3CCA610000000000007302
-t1295829601
-s29442
-
-N/Users/main_brain/Desktop/Thumbaphone/FlipsideView.xib
-c000000004D3CD5C90000000000007E04
-t1295832521
-s32260
-
-N/Users/main_brain/Desktop/Thumbaphone/Icon.png
-c000000004D3B0C460000000000001C38
-t1295715398
-s7224
-
-N/Users/main_brain/Desktop/Thumbaphone/MainView.xib
-c000000004D3CD54C00000000000063FC
-t1295832396
-s25596
-
-N/Users/main_brain/Desktop/Thumbaphone/MainWindow.xib
-c000000004D3CD54C000000000000625D
-t1295832396
-s25181
-
-N/Users/main_brain/Desktop/Thumbaphone/Thumbaphone_Prefix.pch
-c000000004D3CD4D00000000000000148
-t1295832272
-s328
-i<Availability.h>
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app
-t1295832521
-s884
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app.dSYM
-t1295832295
-s102
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Default.png
-t1295832293
-s29442
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/FlipsideView.nib
-t1295832521
-s2900
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Icon.png
-t1295832293
-s7224
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Info.plist
-t1295832293
-s662
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/MainView.nib
-t1295832397
-s2098
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/MainWindow.nib
-t1295832397
-s1153
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/PkgInfo
-t1295832293
-s8
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Thumbaphone
-t1295832295
-s57300
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/aqua1.png
-t1295832293
-s1940
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/aqua2.png
-t1295832293
-s1960
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/blue1.png
-t1295832293
-s4579
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/blue2.png
-t1295832293
-s4560
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/green1.png
-t1295832293
-s1837
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/green2.png
-t1295832293
-s1614
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/pink1.png
-t1295832293
-s4319
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/pink2.png
-t1295832293
-s4565
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/purple1.png
-t1295832293
-s4471
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/purple2.png
-t1295832293
-s4334
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/red1.png
-t1295832293
-s4343
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/red2.png
-t1295832293
-s4383
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/seafoam1.png
-t1295832293
-s1712
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/seafoam2.png
-t1295832293
-s1901
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/yellow1.png
-t1295832293
-s4415
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/yellow2.png
-t1295832293
-s4262
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/AQPlayer.o
-t1295832294
-s16424
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/AppBrain.o
-t1295832295
-s18308
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/ButtonViewController.o
-t1295832295
-s57112
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/CLSlipperyButton.o
-t1295832295
-s40100
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Envelope.o
-t1295832295
-s7368
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/FlipsideViewController.o
-t1295832294
-s44116
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/MainViewController.o
-t1295832294
-s59184
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Mode.o
-t1295832295
-s7828
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Note.o
-t1295832295
-s13364
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Thumbaphone.LinkFileList
-c000000004D3CD4E50000000000000687
-t1295832293
-s1671
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/ThumbaphoneAppDelegate.o
-t1295832294
-s53564
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/WaveFormTable.o
-t1295832294
-s9780
-
-N/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/main.o
-t1295832294
-s6288
-
-N/Users/main_brain/Desktop/Thumbaphone/buttons/aqua1.png
-c000000004D3B0C460000000000000794
-t1295715398
-s1940
-
-N/Users/main_brain/Desktop/Thumbaphone/buttons/aqua2.png
-c000000004D3B0C4600000000000007A8
-t1295715398
-s1960
-
-N/Users/main_brain/Desktop/Thumbaphone/buttons/blue1.png
-c000000004D3B0C4600000000000011E3
-t1295715398
-s4579
-
-N/Users/main_brain/Desktop/Thumbaphone/buttons/blue2.png
-c000000004D3B0C4600000000000011D0
-t1295715398
-s4560
-
-N/Users/main_brain/Desktop/Thumbaphone/buttons/green1.png
-c000000004D3B0C46000000000000072D
-t1295715398
-s1837
-
-N/Users/main_brain/Desktop/Thumbaphone/buttons/green2.png
-c000000004D3B0C46000000000000064E
-t1295715398
-s1614
-
-N/Users/main_brain/Desktop/Thumbaphone/buttons/pink1.png
-c000000004D3B0C4600000000000010DF
-t1295715398
-s4319
-
-N/Users/main_brain/Desktop/Thumbaphone/buttons/pink2.png
-c000000004D3B0C4600000000000011D5
-t1295715398
-s4565
-
-N/Users/main_brain/Desktop/Thumbaphone/buttons/purple1.png
-c000000004D3B0C460000000000001177
-t1295715398
-s4471
-
-N/Users/main_brain/Desktop/Thumbaphone/buttons/purple2.png
-c000000004D3B0C4600000000000010EE
-t1295715398
-s4334
-
-N/Users/main_brain/Desktop/Thumbaphone/buttons/red1.png
-c000000004D3B0C4600000000000010F7
-t1295715398
-s4343
-
-N/Users/main_brain/Desktop/Thumbaphone/buttons/red2.png
-c000000004D3B0C46000000000000111F
-t1295715398
-s4383
-
-N/Users/main_brain/Desktop/Thumbaphone/buttons/seafoam1.png
-c000000004D3B0C4600000000000006B0
-t1295715398
-s1712
-
-N/Users/main_brain/Desktop/Thumbaphone/buttons/seafoam2.png
-c000000004D3B0C46000000000000076D
-t1295715398
-s1901
-
-N/Users/main_brain/Desktop/Thumbaphone/buttons/yellow1.png
-c000000004D3B0C46000000000000113F
-t1295715398
-s4415
-
-N/Users/main_brain/Desktop/Thumbaphone/buttons/yellow2.png
-c000000004D3B0C4600000000000010A6
-t1295715398
-s4262
-
-N/Users/main_brain/Desktop/Thumbaphone/main.m
-c000000004D3CD4D00000000000000170
-t1295832272
-s368
-i<UIKit/UIKit.h>
-
-N/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-abmhtjwyqtlqpmcrzbfcbdkokphu/Thumbaphone_Prefix.pch.gch
-t1295832272
-s15113424
-
-N/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch.gch
-t1295832294
-s15113424
-
-NThumbaphone-Info.plist
-c000000004D3B0C460000000000000396
-t1295715398
-s918
-
-CCheck dependencies
-r0
-lSLF07#2@18"Check dependencies317525321#317525321#0(0"0(0#1#0"8618798624#0"0#
-
-CCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/AQPlayer.o /Users/main_brain/Desktop/Thumbaphone/Classes/AQPlayer.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s317525094.823607
-e317525094.980358
-r1
-xCompileC
-xbuild/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/AQPlayer.o
-x/Users/main_brain/Desktop/Thumbaphone/Classes/AQPlayer.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@64"Compile /Users/main_brain/Desktop/Thumbaphone/Classes/AQPlayer.m317525094#317525094#0(0"0(0#0#56"/Users/main_brain/Desktop/Thumbaphone/Classes/AQPlayer.m8619508000#2058"    cd /Users/main_brain/Desktop/Thumbaphone    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-generated-files.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-own-target-headers.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-all-target-headers.hmap -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-project-headers.hmap -F/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator -I/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/include -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources/i386 -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch -c /Users/main_brain/Desktop/Thumbaphone/Classes/AQPlayer.m -o /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/AQPlayer.o0#
-
-CCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/AppBrain.o /Users/main_brain/Desktop/Thumbaphone/Classes/AppBrain.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s317525095.134330
-e317525095.247421
-r1
-xCompileC
-xbuild/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/AppBrain.o
-x/Users/main_brain/Desktop/Thumbaphone/Classes/AppBrain.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@64"Compile /Users/main_brain/Desktop/Thumbaphone/Classes/AppBrain.m317525095#317525095#0(0"0(0#0#56"/Users/main_brain/Desktop/Thumbaphone/Classes/AppBrain.m8619849696#2058"    cd /Users/main_brain/Desktop/Thumbaphone    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-generated-files.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-own-target-headers.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-all-target-headers.hmap -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-project-headers.hmap -F/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator -I/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/include -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources/i386 -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch -c /Users/main_brain/Desktop/Thumbaphone/Classes/AppBrain.m -o /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/AppBrain.o0#
-
-CCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/ButtonViewController.o /Users/main_brain/Desktop/Thumbaphone/Classes/ButtonViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s317525095.086340
-e317525095.277431
-r1
-xCompileC
-xbuild/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/ButtonViewController.o
-x/Users/main_brain/Desktop/Thumbaphone/Classes/ButtonViewController.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@76"Compile /Users/main_brain/Desktop/Thumbaphone/Classes/ButtonViewController.m317525095#317525095#0(0"0(0#0#68"/Users/main_brain/Desktop/Thumbaphone/Classes/ButtonViewController.m8620443872#2082"    cd /Users/main_brain/Desktop/Thumbaphone    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-generated-files.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-own-target-headers.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-all-target-headers.hmap -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-project-headers.hmap -F/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator -I/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/include -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources/i386 -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch -c /Users/main_brain/Desktop/Thumbaphone/Classes/ButtonViewController.m -o /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/ButtonViewController.o0#
-
-CCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/CLSlipperyButton.o /Users/main_brain/Desktop/Thumbaphone/Classes/CLSlipperyButton.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s317525095.052759
-e317525095.134231
-r1
-xCompileC
-xbuild/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/CLSlipperyButton.o
-x/Users/main_brain/Desktop/Thumbaphone/Classes/CLSlipperyButton.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@72"Compile /Users/main_brain/Desktop/Thumbaphone/Classes/CLSlipperyButton.m317525095#317525095#0(0"0(0#0#64"/Users/main_brain/Desktop/Thumbaphone/Classes/CLSlipperyButton.m8620778016#2074"    cd /Users/main_brain/Desktop/Thumbaphone    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-generated-files.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-own-target-headers.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-all-target-headers.hmap -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-project-headers.hmap -F/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator -I/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/include -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources/i386 -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch -c /Users/main_brain/Desktop/Thumbaphone/Classes/CLSlipperyButton.m -o /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/CLSlipperyButton.o0#
-
-CCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Envelope.o /Users/main_brain/Desktop/Thumbaphone/Classes/Envelope.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s317525094.980441
-e317525095.052660
-r1
-xCompileC
-xbuild/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Envelope.o
-x/Users/main_brain/Desktop/Thumbaphone/Classes/Envelope.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@64"Compile /Users/main_brain/Desktop/Thumbaphone/Classes/Envelope.m317525094#317525095#0(0"0(0#0#56"/Users/main_brain/Desktop/Thumbaphone/Classes/Envelope.m8619787904#2058"    cd /Users/main_brain/Desktop/Thumbaphone    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-generated-files.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-own-target-headers.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-all-target-headers.hmap -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-project-headers.hmap -F/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator -I/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/include -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources/i386 -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch -c /Users/main_brain/Desktop/Thumbaphone/Classes/Envelope.m -o /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Envelope.o0#
-
-CCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/FlipsideViewController.o /Users/main_brain/Desktop/Thumbaphone/Classes/FlipsideViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s317525094.657151
-e317525094.758196
-r1
-xCompileC
-xbuild/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/FlipsideViewController.o
-x/Users/main_brain/Desktop/Thumbaphone/Classes/FlipsideViewController.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@78"Compile /Users/main_brain/Desktop/Thumbaphone/Classes/FlipsideViewController.m317525094#317525094#0(0"0(0#0#70"/Users/main_brain/Desktop/Thumbaphone/Classes/FlipsideViewController.m8620304448#2086"    cd /Users/main_brain/Desktop/Thumbaphone    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-generated-files.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-own-target-headers.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-all-target-headers.hmap -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-project-headers.hmap -F/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator -I/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/include -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources/i386 -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch -c /Users/main_brain/Desktop/Thumbaphone/Classes/FlipsideViewController.m -o /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/FlipsideViewController.o0#
-
-CCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/MainViewController.o /Users/main_brain/Desktop/Thumbaphone/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s317525094.610660
-e317525094.823530
-r1
-xCompileC
-xbuild/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/MainViewController.o
-x/Users/main_brain/Desktop/Thumbaphone/Classes/MainViewController.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@74"Compile /Users/main_brain/Desktop/Thumbaphone/Classes/MainViewController.m317525094#317525094#0(0"0(0#0#66"/Users/main_brain/Desktop/Thumbaphone/Classes/MainViewController.m8620758528#2078"    cd /Users/main_brain/Desktop/Thumbaphone    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-generated-files.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-own-target-headers.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-all-target-headers.hmap -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-project-headers.hmap -F/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator -I/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/include -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources/i386 -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch -c /Users/main_brain/Desktop/Thumbaphone/Classes/MainViewController.m -o /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/MainViewController.o0#
-
-CCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Mode.o /Users/main_brain/Desktop/Thumbaphone/Classes/Mode.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s317525095.011070
-e317525095.086244
-r1
-xCompileC
-xbuild/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Mode.o
-x/Users/main_brain/Desktop/Thumbaphone/Classes/Mode.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@60"Compile /Users/main_brain/Desktop/Thumbaphone/Classes/Mode.m317525095#317525095#0(0"0(0#0#52"/Users/main_brain/Desktop/Thumbaphone/Classes/Mode.m8619448288#2050"    cd /Users/main_brain/Desktop/Thumbaphone    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-generated-files.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-own-target-headers.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-all-target-headers.hmap -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-project-headers.hmap -F/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator -I/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/include -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources/i386 -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch -c /Users/main_brain/Desktop/Thumbaphone/Classes/Mode.m -o /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Mode.o0#
-
-CCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Note.o /Users/main_brain/Desktop/Thumbaphone/Classes/Note.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s317525094.866579
-e317525095.010983
-r1
-xCompileC
-xbuild/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Note.o
-x/Users/main_brain/Desktop/Thumbaphone/Classes/Note.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@60"Compile /Users/main_brain/Desktop/Thumbaphone/Classes/Note.m317525094#317525095#0(0"0(0#0#52"/Users/main_brain/Desktop/Thumbaphone/Classes/Note.m8621105248#2050"    cd /Users/main_brain/Desktop/Thumbaphone    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-generated-files.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-own-target-headers.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-all-target-headers.hmap -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-project-headers.hmap -F/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator -I/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/include -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources/i386 -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch -c /Users/main_brain/Desktop/Thumbaphone/Classes/Note.m -o /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Note.o0#
-
-CCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/ThumbaphoneAppDelegate.o /Users/main_brain/Desktop/Thumbaphone/Classes/ThumbaphoneAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s317525094.549601
-e317525094.657058
-r1
-xCompileC
-xbuild/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/ThumbaphoneAppDelegate.o
-x/Users/main_brain/Desktop/Thumbaphone/Classes/ThumbaphoneAppDelegate.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@78"Compile /Users/main_brain/Desktop/Thumbaphone/Classes/ThumbaphoneAppDelegate.m317525094#317525094#0(0"0(0#0#70"/Users/main_brain/Desktop/Thumbaphone/Classes/ThumbaphoneAppDelegate.m8619382016#2086"    cd /Users/main_brain/Desktop/Thumbaphone    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-generated-files.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-own-target-headers.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-all-target-headers.hmap -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-project-headers.hmap -F/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator -I/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/include -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources/i386 -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch -c /Users/main_brain/Desktop/Thumbaphone/Classes/ThumbaphoneAppDelegate.m -o /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/ThumbaphoneAppDelegate.o0#
-
-CCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/WaveFormTable.o /Users/main_brain/Desktop/Thumbaphone/Classes/WaveFormTable.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s317525094.758288
-e317525094.866496
-r1
-xCompileC
-xbuild/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/WaveFormTable.o
-x/Users/main_brain/Desktop/Thumbaphone/Classes/WaveFormTable.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@69"Compile /Users/main_brain/Desktop/Thumbaphone/Classes/WaveFormTable.m317525094#317525094#0(0"0(0#0#61"/Users/main_brain/Desktop/Thumbaphone/Classes/WaveFormTable.m8619889728#2068"    cd /Users/main_brain/Desktop/Thumbaphone    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-generated-files.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-own-target-headers.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-all-target-headers.hmap -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-project-headers.hmap -F/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator -I/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/include -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources/i386 -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch -c /Users/main_brain/Desktop/Thumbaphone/Classes/WaveFormTable.m -o /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/WaveFormTable.o0#
-
-CCompileC build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/main.o /Users/main_brain/Desktop/Thumbaphone/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s317525094.548304
-e317525094.610318
-r1
-xCompileC
-xbuild/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/main.o
-x/Users/main_brain/Desktop/Thumbaphone/main.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@52"Compile /Users/main_brain/Desktop/Thumbaphone/main.m317525094#317525094#0(0"0(0#0#44"/Users/main_brain/Desktop/Thumbaphone/main.m8619559680#2042"    cd /Users/main_brain/Desktop/Thumbaphone    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-generated-files.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-own-target-headers.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-all-target-headers.hmap -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-project-headers.hmap -F/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator -I/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/include -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources/i386 -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch -c /Users/main_brain/Desktop/Thumbaphone/main.m -o /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/main.o0#
-
-CCompileXIB /Users/main_brain/Desktop/Thumbaphone/FlipsideView.xib
-s317525321.046719
-e317525321.490642
-r1
-xCompileXIB
-x/Users/main_brain/Desktop/Thumbaphone/FlipsideView.xib
-lSLF07#2@27"CompileXIB FlipsideView.xib317525321#317525321#0(0"0(0#0#54"/Users/main_brain/Desktop/Thumbaphone/FlipsideView.xib8616407136#577"    cd /Users/main_brain/Desktop/Thumbaphone    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/FlipsideView.nib /Users/main_brain/Desktop/Thumbaphone/FlipsideView.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
-
-CCompileXIB /Users/main_brain/Desktop/Thumbaphone/MainView.xib
-s317525196.798481
-e317525197.212186
-r1
-xCompileXIB
-x/Users/main_brain/Desktop/Thumbaphone/MainView.xib
-lSLF07#2@23"CompileXIB MainView.xib317525196#317525197#0(0"0(0#0#50"/Users/main_brain/Desktop/Thumbaphone/MainView.xib8619980896#569"    cd /Users/main_brain/Desktop/Thumbaphone    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/MainView.nib /Users/main_brain/Desktop/Thumbaphone/MainView.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
-
-CCompileXIB /Users/main_brain/Desktop/Thumbaphone/MainWindow.xib
-s317525196.939011
-e317525197.308633
-r1
-xCompileXIB
-x/Users/main_brain/Desktop/Thumbaphone/MainWindow.xib
-lSLF07#2@25"CompileXIB MainWindow.xib317525196#317525197#0(0"0(0#0#52"/Users/main_brain/Desktop/Thumbaphone/MainWindow.xib8619137344#573"    cd /Users/main_brain/Desktop/Thumbaphone    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/MainWindow.nib /Users/main_brain/Desktop/Thumbaphone/MainWindow.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/Default.png Default.png
-s317525093.513837
-e317525093.521892
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/Default.png
-xDefault.png
-lSLF07#2@16"Copy Default.png317525093#317525093#0(0"0(0#0#49"/Users/main_brain/Desktop/Thumbaphone/Default.png8618970048#493"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/Default.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/Icon.png Icon.png
-s317525093.515445
-e317525093.523253
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/Icon.png
-xIcon.png
-lSLF07#2@13"Copy Icon.png317525093#317525093#0(0"0(0#0#46"/Users/main_brain/Desktop/Thumbaphone/Icon.png8614878496#490"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/Icon.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/aqua1.png buttons/aqua1.png
-s317525093.480569
-e317525093.501322
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/aqua1.png
-xbuttons/aqua1.png
-lSLF07#2@22"Copy buttons/aqua1.png317525093#317525093#0(0"0(0#0#55"/Users/main_brain/Desktop/Thumbaphone/buttons/aqua1.png8620207456#499"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/buttons/aqua1.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/aqua2.png buttons/aqua2.png
-s317525093.499699
-e317525093.508891
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/aqua2.png
-xbuttons/aqua2.png
-lSLF07#2@22"Copy buttons/aqua2.png317525093#317525093#0(0"0(0#0#55"/Users/main_brain/Desktop/Thumbaphone/buttons/aqua2.png8620668544#499"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/buttons/aqua2.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/blue1.png buttons/blue1.png
-s317525093.481696
-e317525093.501413
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/blue1.png
-xbuttons/blue1.png
-lSLF07#2@22"Copy buttons/blue1.png317525093#317525093#0(0"0(0#0#55"/Users/main_brain/Desktop/Thumbaphone/buttons/blue1.png8620060896#499"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/buttons/blue1.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/blue2.png buttons/blue2.png
-s317525093.506685
-e317525093.518815
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/blue2.png
-xbuttons/blue2.png
-lSLF07#2@22"Copy buttons/blue2.png317525093#317525093#0(0"0(0#0#55"/Users/main_brain/Desktop/Thumbaphone/buttons/blue2.png8620190912#499"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/buttons/blue2.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/green1.png buttons/green1.png
-s317525093.484804
-e317525093.501581
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/green1.png
-xbuttons/green1.png
-lSLF07#2@23"Copy buttons/green1.png317525093#317525093#0(0"0(0#0#56"/Users/main_brain/Desktop/Thumbaphone/buttons/green1.png8615078560#500"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/buttons/green1.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/green2.png buttons/green2.png
-s317525093.503067
-e317525093.517446
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/green2.png
-xbuttons/green2.png
-lSLF07#2@23"Copy buttons/green2.png317525093#317525093#0(0"0(0#0#56"/Users/main_brain/Desktop/Thumbaphone/buttons/green2.png8620431936#500"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/buttons/green2.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/pink1.png buttons/pink1.png
-s317525093.486242
-e317525093.508556
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/pink1.png
-xbuttons/pink1.png
-lSLF07#2@22"Copy buttons/pink1.png317525093#317525093#0(0"0(0#0#55"/Users/main_brain/Desktop/Thumbaphone/buttons/pink1.png8612092288#499"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/buttons/pink1.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/pink2.png buttons/pink2.png
-s317525093.508952
-e317525093.517609
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/pink2.png
-xbuttons/pink2.png
-lSLF07#2@22"Copy buttons/pink2.png317525093#317525093#0(0"0(0#0#55"/Users/main_brain/Desktop/Thumbaphone/buttons/pink2.png8620082112#499"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/buttons/pink2.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/purple1.png buttons/purple1.png
-s317525093.487696
-e317525093.508646
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/purple1.png
-xbuttons/purple1.png
-lSLF07#2@24"Copy buttons/purple1.png317525093#317525093#0(0"0(0#0#57"/Users/main_brain/Desktop/Thumbaphone/buttons/purple1.png8608026912#501"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/buttons/purple1.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/purple2.png buttons/purple2.png
-s317525093.510492
-e317525093.517724
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/purple2.png
-xbuttons/purple2.png
-lSLF07#2@24"Copy buttons/purple2.png317525093#317525093#0(0"0(0#0#57"/Users/main_brain/Desktop/Thumbaphone/buttons/purple2.png8619966880#501"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/buttons/purple2.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/red1.png buttons/red1.png
-s317525093.490358
-e317525093.508729
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/red1.png
-xbuttons/red1.png
-lSLF07#2@21"Copy buttons/red1.png317525093#317525093#0(0"0(0#0#54"/Users/main_brain/Desktop/Thumbaphone/buttons/red1.png8621275680#498"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/buttons/red1.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/red2.png buttons/red2.png
-s317525093.512248
-e317525093.518903
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/red2.png
-xbuttons/red2.png
-lSLF07#2@21"Copy buttons/red2.png317525093#317525093#0(0"0(0#0#54"/Users/main_brain/Desktop/Thumbaphone/buttons/red2.png8619677344#498"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/buttons/red2.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/seafoam1.png buttons/seafoam1.png
-s317525093.498205
-e317525093.508811
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/seafoam1.png
-xbuttons/seafoam1.png
-lSLF07#2@25"Copy buttons/seafoam1.png317525093#317525093#0(0"0(0#0#58"/Users/main_brain/Desktop/Thumbaphone/buttons/seafoam1.png8620779104#502"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/buttons/seafoam1.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/seafoam2.png buttons/seafoam2.png
-s317525093.501627
-e317525093.517356
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/seafoam2.png
-xbuttons/seafoam2.png
-lSLF07#2@25"Copy buttons/seafoam2.png317525093#317525093#0(0"0(0#0#58"/Users/main_brain/Desktop/Thumbaphone/buttons/seafoam2.png8620528416#502"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/buttons/seafoam2.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/yellow1.png buttons/yellow1.png
-s317525093.483160
-e317525093.501497
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/yellow1.png
-xbuttons/yellow1.png
-lSLF07#2@24"Copy buttons/yellow1.png317525093#317525093#0(0"0(0#0#57"/Users/main_brain/Desktop/Thumbaphone/buttons/yellow1.png8619137536#501"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/buttons/yellow1.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CCpResource build/Release-iphonesimulator/Thumbaphone.app/yellow2.png buttons/yellow2.png
-s317525093.504586
-e317525093.517528
-r1
-xCpResource
-xbuild/Release-iphonesimulator/Thumbaphone.app/yellow2.png
-xbuttons/yellow2.png
-lSLF07#2@24"Copy buttons/yellow2.png317525093#317525093#0(0"0(0#0#57"/Users/main_brain/Desktop/Thumbaphone/buttons/yellow2.png8620271360#501"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/Desktop/Thumbaphone/buttons/yellow2.png /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
-CGenerateDSYMFile /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app.dSYM /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Thumbaphone
-s317525095.300362
-e317525095.319638
-r1
-xGenerateDSYMFile
-x/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app.dSYM
-x/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Thumbaphone
-lSLF07#2@125"GenerateDSYMFile build/Release-iphonesimulator/Thumbaphone.app.dSYM build/Release-iphonesimulator/Thumbaphone.app/Thumbaphone317525095#317525095#0(0"0(0#0#95"/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Thumbaphone8619830432#396"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Thumbaphone -o /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app.dSYM0#
-
-CLd /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Thumbaphone normal i386
-s317525095.277504
-e317525095.300269
-r1
-xLd
-x/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Thumbaphone
-xnormal
-xi386
-lSLF07#2@100"Link /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Thumbaphone317525095#317525095#0(0"0(0#0#0"8620597376#947"    cd /Users/main_brain/Desktop/Thumbaphone    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -L/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator -F/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator -filelist /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Objects-normal/i386/Thumbaphone.LinkFileList -mmacosx-version-min=10.6 -Xlinker -objc_abi_version -Xlinker 2 -framework Foundation -framework UIKit -framework CoreGraphics -framework AudioToolbox -o /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Thumbaphone0#
-
-CProcessInfoPlistFile /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Info.plist Thumbaphone-Info.plist
-s317525093.066673
-e317525093.070345
-r1
-xProcessInfoPlistFile
-x/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Info.plist
-xThumbaphone-Info.plist
-lSLF07#2@30"Process Thumbaphone-Info.plist317525093#317525093#0(0"0(0#0#60"/Users/main_brain/Desktop/Thumbaphone/Thumbaphone-Info.plist8620035136#492"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility Thumbaphone-Info.plist -genpkginfo /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app/Info.plist0#
-
-CProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-abmhtjwyqtlqpmcrzbfcbdkokphu/Thumbaphone_Prefix.pch.gch Thumbaphone_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-s317525072.302073
-e317525073.045164
-r1
-xProcessPCH
-x/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-abmhtjwyqtlqpmcrzbfcbdkokphu/Thumbaphone_Prefix.pch.gch
-xThumbaphone_Prefix.pch
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@33"Precompile Thumbaphone_Prefix.pch317525072#317525073#0(0"0(0#0#60"/Users/main_brain/Desktop/Thumbaphone/Thumbaphone_Prefix.pch8618814944#1929"    cd /Users/main_brain/Desktop/Thumbaphone    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-generated-files.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-own-target-headers.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-all-target-headers.hmap -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-project-headers.hmap -F/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator -I/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/include -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources/i386 -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -c /Users/main_brain/Desktop/Thumbaphone/Thumbaphone_Prefix.pch -o /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-abmhtjwyqtlqpmcrzbfcbdkokphu/Thumbaphone_Prefix.pch.gch0#
-
-CProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch.gch Thumbaphone_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-s317525093.865572
-e317525094.548167
-r1
-xProcessPCH
-x/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch.gch
-xThumbaphone_Prefix.pch
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@33"Precompile Thumbaphone_Prefix.pch317525093#317525094#0(0"0(0#0#60"/Users/main_brain/Desktop/Thumbaphone/Thumbaphone_Prefix.pch8619901216#1929"    cd /Users/main_brain/Desktop/Thumbaphone    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-generated-files.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-own-target-headers.hmap -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-all-target-headers.hmap -iquote /Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/Thumbaphone-project-headers.hmap -F/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator -I/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/include -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources/i386 -I/Users/main_brain/Desktop/Thumbaphone/build/Thumbaphone.build/Release-iphonesimulator/Thumbaphone.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -c /Users/main_brain/Desktop/Thumbaphone/Thumbaphone_Prefix.pch -o /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbaphone_Prefix-brnpfwcripwxmsfcdeqnpawlamlv/Thumbaphone_Prefix.pch.gch0#
-
-CTouch /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app
-s317525321.491657
-e317525321.493655
-r1
-xTouch
-x/Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app
-lSLF07#2@89"Touch /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app317525321#317525321#0(0"0(0#0#0"8618815040#282"    cd /Users/main_brain/Desktop/Thumbaphone    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/main_brain/Desktop/Thumbaphone/build/Release-iphonesimulator/Thumbaphone.app0#
-
