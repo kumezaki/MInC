@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "AppBrain.h"
+#import "MoreInfoViewController.h"
 
 @protocol FlipsideViewControllerDelegate;
 
@@ -17,14 +18,16 @@
 	id <FlipsideViewControllerDelegate> delegate;
 		
 	AppBrain	*mAppBrain;
+	MoreInfoViewController *mMoreInfo;
 
 }
 
 @property (nonatomic, assign) id <FlipsideViewControllerDelegate> delegate;
 
 -(void) setAppBrain:(AppBrain*) AppBrain;
-- (IBAction)done:(id)sender;
-- (IBAction)changeWaveType:(UIButton *)sender;
+-(IBAction) done:(id)sender;
+-(IBAction) changeWaveType:(UIButton *)sender;
+- (IBAction)openMoreInfo:(id)sender;
 
 @end
 

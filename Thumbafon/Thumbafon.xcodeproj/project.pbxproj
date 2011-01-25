@@ -22,6 +22,13 @@
 		B4653FDE127E66CC00DA1F26 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4653FDD127E66CC00DA1F26 /* AudioToolbox.framework */; };
 		B46C41FE12860403002E1B34 /* WaveFormTable.m in Sources */ = {isa = PBXBuildFile; fileRef = B46C41FB12860403002E1B34 /* WaveFormTable.m */; };
 		B46C420312860417002E1B34 /* AQPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B46C420012860417002E1B34 /* AQPlayer.m */; };
+		B48A9CB312EF296F00936506 /* allpass.c in Sources */ = {isa = PBXBuildFile; fileRef = B48A9CA912EF296F00936506 /* allpass.c */; };
+		B48A9CB412EF296F00936506 /* comb.c in Sources */ = {isa = PBXBuildFile; fileRef = B48A9CAB12EF296F00936506 /* comb.c */; };
+		B48A9CB512EF296F00936506 /* freeverb.c in Sources */ = {isa = PBXBuildFile; fileRef = B48A9CAE12EF296F00936506 /* freeverb.c */; };
+		B48A9CB612EF296F00936506 /* revmodel.c in Sources */ = {isa = PBXBuildFile; fileRef = B48A9CB012EF296F00936506 /* revmodel.c */; };
+		B4BE1C6512EE39390085248E /* InfoScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BE1C6412EE39390085248E /* InfoScreen.png */; };
+		B4BE1CB712EE479D0085248E /* MoreInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BE1CB512EE479D0085248E /* MoreInfoViewController.m */; };
+		B4BE1CB812EE479D0085248E /* MoreInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4BE1CB612EE479D0085248E /* MoreInfoView.xib */; };
 		B4C03E1012C5A2780037E3B5 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280E754C0DD40C5E005A515E /* MainWindow.xib */; };
 		B4C1234112C945570017918B /* CLSlipperyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C1234012C945570017918B /* CLSlipperyButton.m */; };
 		B4C15B3612BC301E00A56C77 /* aqua1.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C15B2E12BC301E00A56C77 /* aqua1.png */; };
@@ -73,6 +80,20 @@
 		B46C41FB12860403002E1B34 /* WaveFormTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaveFormTable.m; path = Classes/WaveFormTable.m; sourceTree = "<group>"; };
 		B46C41FF12860417002E1B34 /* AQPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AQPlayer.h; path = Classes/AQPlayer.h; sourceTree = "<group>"; };
 		B46C420012860417002E1B34 /* AQPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AQPlayer.m; path = Classes/AQPlayer.m; sourceTree = "<group>"; };
+		B48A9CA912EF296F00936506 /* allpass.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = allpass.c; sourceTree = "<group>"; };
+		B48A9CAA12EF296F00936506 /* allpass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allpass.h; sourceTree = "<group>"; };
+		B48A9CAB12EF296F00936506 /* comb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = comb.c; sourceTree = "<group>"; };
+		B48A9CAC12EF296F00936506 /* comb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comb.h; sourceTree = "<group>"; };
+		B48A9CAD12EF296F00936506 /* denormals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = denormals.h; sourceTree = "<group>"; };
+		B48A9CAE12EF296F00936506 /* freeverb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = freeverb.c; sourceTree = "<group>"; };
+		B48A9CAF12EF296F00936506 /* freeverb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = freeverb.h; sourceTree = "<group>"; };
+		B48A9CB012EF296F00936506 /* revmodel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = revmodel.c; sourceTree = "<group>"; };
+		B48A9CB112EF296F00936506 /* revmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = revmodel.h; sourceTree = "<group>"; };
+		B48A9CB212EF296F00936506 /* tuning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tuning.h; sourceTree = "<group>"; };
+		B4BE1C6412EE39390085248E /* InfoScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InfoScreen.png; sourceTree = "<group>"; };
+		B4BE1CB412EE479D0085248E /* MoreInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoreInfoViewController.h; path = Classes/MoreInfoViewController.h; sourceTree = "<group>"; };
+		B4BE1CB512EE479D0085248E /* MoreInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoreInfoViewController.m; path = Classes/MoreInfoViewController.m; sourceTree = "<group>"; };
+		B4BE1CB612EE479D0085248E /* MoreInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MoreInfoView.xib; path = Classes/MoreInfoView.xib; sourceTree = "<group>"; };
 		B4C1233F12C945570017918B /* CLSlipperyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLSlipperyButton.h; path = Classes/CLSlipperyButton.h; sourceTree = "<group>"; };
 		B4C1234012C945570017918B /* CLSlipperyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLSlipperyButton.m; path = Classes/CLSlipperyButton.m; sourceTree = "<group>"; };
 		B4C15B2E12BC301E00A56C77 /* aqua1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aqua1.png; sourceTree = "<group>"; };
@@ -139,6 +160,8 @@
 			children = (
 				289233AC0DB2D0DB0083E9F9 /* FlipsideViewController.h */,
 				289233AD0DB2D0DB0083E9F9 /* FlipsideViewController.m */,
+				B4BE1CB412EE479D0085248E /* MoreInfoViewController.h */,
+				B4BE1CB512EE479D0085248E /* MoreInfoViewController.m */,
 			);
 			name = "Flipside View";
 			sourceTree = "<group>";
@@ -175,6 +198,7 @@
 				289233A00DB2D0730083E9F9 /* Main View */,
 				281C6CD70DB2D82200F60ACC /* Flipside View */,
 				080E96DDFE201D6D7F000001 /* Application Delegate */,
+				B48A9CA812EF296F00936506 /* freeverb */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -197,11 +221,13 @@
 			children = (
 				B4C15B6812BC533600A56C77 /* Icon.png */,
 				B4C15B6412BC529600A56C77 /* Default.png */,
+				B4BE1C6412EE39390085248E /* InfoScreen.png */,
 				B4C15B2D12BC301E00A56C77 /* buttons */,
-				280E754A0DD40C5E005A515E /* FlipsideView.xib */,
-				280E754B0DD40C5E005A515E /* MainView.xib */,
-				280E754C0DD40C5E005A515E /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Thumbafon-Info.plist */,
+				280E754C0DD40C5E005A515E /* MainWindow.xib */,
+				280E754B0DD40C5E005A515E /* MainView.xib */,
+				280E754A0DD40C5E005A515E /* FlipsideView.xib */,
+				B4BE1CB612EE479D0085248E /* MoreInfoView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -215,6 +241,24 @@
 				B4653FDD127E66CC00DA1F26 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B48A9CA812EF296F00936506 /* freeverb */ = {
+			isa = PBXGroup;
+			children = (
+				B48A9CA912EF296F00936506 /* allpass.c */,
+				B48A9CAA12EF296F00936506 /* allpass.h */,
+				B48A9CAB12EF296F00936506 /* comb.c */,
+				B48A9CAC12EF296F00936506 /* comb.h */,
+				B48A9CAD12EF296F00936506 /* denormals.h */,
+				B48A9CAE12EF296F00936506 /* freeverb.c */,
+				B48A9CAF12EF296F00936506 /* freeverb.h */,
+				B48A9CB012EF296F00936506 /* revmodel.c */,
+				B48A9CB112EF296F00936506 /* revmodel.h */,
+				B48A9CB212EF296F00936506 /* tuning.h */,
+			);
+			name = freeverb;
+			path = Classes/freeverb;
 			sourceTree = "<group>";
 		};
 		B4C15B2D12BC301E00A56C77 /* buttons */ = {
@@ -311,6 +355,8 @@
 				B4C15B6512BC529600A56C77 /* Default.png in Resources */,
 				B4C15B6912BC533600A56C77 /* Icon.png in Resources */,
 				B4C03E1012C5A2780037E3B5 /* MainWindow.xib in Resources */,
+				B4BE1C6512EE39390085248E /* InfoScreen.png in Resources */,
+				B4BE1CB812EE479D0085248E /* MoreInfoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +379,11 @@
 				B4C1234112C945570017918B /* CLSlipperyButton.m in Sources */,
 				B427AC3A12CADC0F00EDDE3D /* ButtonViewController.m in Sources */,
 				B449ABCD12D26E3400001888 /* AppBrain.m in Sources */,
+				B4BE1CB712EE479D0085248E /* MoreInfoViewController.m in Sources */,
+				B48A9CB312EF296F00936506 /* allpass.c in Sources */,
+				B48A9CB412EF296F00936506 /* comb.c in Sources */,
+				B48A9CB512EF296F00936506 /* freeverb.c in Sources */,
+				B48A9CB612EF296F00936506 /* revmodel.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,11 +421,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Christopher Lavender (LE5HQ5MQLM)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0F55631C-B551-48DF-BE58-394DFD764564";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;

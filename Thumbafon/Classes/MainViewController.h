@@ -20,6 +20,8 @@
 	AppBrain				*mAppBrain;
 	FlipsideViewController	*controller;
 	ButtonViewController	*buttonView;
+	
+	NSString *mLabelText;
 		
 }
 @property(retain) IBOutlet UILabel	*waveFormLabel;

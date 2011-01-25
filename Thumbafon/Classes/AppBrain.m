@@ -12,6 +12,7 @@
 #import "Note.h"
 #import "WaveFormTable.h"
 #import "Content.h"
+//#import "freeverb.h"
 
 @implementation AppBrain
 
@@ -63,12 +64,23 @@
 			default: break;
 		}
 	}
-	[self setWaveType: @"sine wave"];
+	
+	/* here's where we initialize the reverb 
+	Reverb_Init();
+	Reverb_SetRoomSize(0,0.5);
+	Reverb_SetDamp(0,0.5);
+	Reverb_SetWet(0,0.5);
+	Reverb_SetDry(0,0.5);*/
+	
+	[self setWaveType: @"SineWave"];
 	[self setMode:0];
 	return self;
 }
 
 - (void)dealloc {
+	/* here's where we release the reverb*/
+	//Reverb_Release();
+	
 	for (int i = 0; i < kNumberNotes; i++) [mNotes[i] release];
 	for (int j = 0; j < kNumberModes; j++) [mModes[j] release];	
 	[mWaveType release];
@@ -81,6 +93,7 @@
 	for (int i = 0; i < kNumberNotes; i++) {
 		[mNotes[i] fillAudioBuffer:sampleBuffer :numFrames];
 	}
+	//revmodel_process(sampleBuffer,numFrames,1);
 }
 
 @end

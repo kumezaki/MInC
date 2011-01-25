@@ -23,7 +23,7 @@ double pitchSet03[kNumberNotes] = {
 
 /*** Bb Lydian ***/
 double pitchSet04[kNumberNotes] = {
-	58,60,62,65,67,70,72,74
+	70,72,74,76,77,79,82,84
 };
 
 /*** C Mixolydian ***/ 

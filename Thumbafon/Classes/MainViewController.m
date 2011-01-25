@@ -39,7 +39,6 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    //return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
 
@@ -94,7 +93,17 @@
 }
 
 - (IBAction)setModeLabel {	
-	modeLabel.text = [NSString stringWithFormat:@"Note Set: %i", mAppBrain.mCurrentMode+1];
+	int j = mAppBrain.mCurrentMode;
+	switch (j) {
+		case 0: mLabelText = [NSString stringWithFormat:@"Note Set: Ionian"]; break;
+		case 1: mLabelText = [NSString stringWithFormat:@"Note Set: Dorian"]; break;
+		case 2: mLabelText = [NSString stringWithFormat:@"Note Set: Phrygian"]; break;
+		case 3: mLabelText = [NSString stringWithFormat:@"Note Set: Lydian"]; break;
+		case 4: mLabelText = [NSString stringWithFormat:@"Note Set: Mixolydian"]; break;
+		case 5: mLabelText = [NSString stringWithFormat:@"Note Set: Aeolean"]; break;
+		default: break;
+	}	
+	modeLabel.text = mLabelText;//set new labels
 }
 
 - (IBAction)setWaveFormLabel {
@@ -109,15 +118,15 @@
 	}
 }
 
-#define kFilteringFactor 0.75
+/*#define kFilteringFactor 0.75
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
 	//LowPass Filter
-	//double yAxis = acceleration.y * kFilteringFactor + yAxis * (1.0 - kFilteringFactor);
+	double yAxis = acceleration.y * kFilteringFactor + yAxis * (1.0 - kFilteringFactor);
 	
-	//if (yAxis > -0.12 && yAxis < 0.12) modeDidChange = NO;
-	//int k = yAxis < -0.25 ? 1 : yAxis > 0.25 ? -1 : 0;
+	if (yAxis > -0.12 && yAxis < 0.12) modeDidChange = NO;
+	int k = yAxis < -0.25 ? 1 : yAxis > 0.25 ? -1 : 0;
 
-	//[self changeMode:k];
-}
+	[self changeMode:k];
+}*/
 
 @end

@@ -20,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor viewFlipsideBackgroundColor];
+	
+	//Create MoreInfoView, set controller
+	mMoreInfo = [[MoreInfoViewController alloc] initWithNibName:@"MoreInfoView" bundle:nil];
 }
 
 
@@ -52,6 +55,7 @@
 
 
 - (void)dealloc {
+	[mMoreInfo release];
     [super dealloc];
 }
 
@@ -59,6 +63,11 @@
 {
 	NSString *label = sender.titleLabel.text;
 	[mAppBrain setWaveType:label];
+}
+
+- (IBAction)openMoreInfo:(id)sender {    		
+	mMoreInfo.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+	[self presentModalViewController:mMoreInfo animated:YES];
 }
 
 
