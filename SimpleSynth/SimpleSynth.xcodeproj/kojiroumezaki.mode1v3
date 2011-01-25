@@ -197,7 +197,48 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array/>
+	<array>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
+				<string>21D0B84F12EE9B9700CD8E27</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>AQPlayer.m</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>21D0B85012EE9B9700CD8E27</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>AQPlayer.m</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>21D0B85112EE9B9700CD8E27</string>
+						<key>history</key>
+						<array>
+							<string>21D0B84912EE9B3500CD8E27</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {831, 777}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>156 60 831 818 0 0 1440 878 </string>
+			</dict>
+		</dict>
+	</array>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>-1</integer>
@@ -269,6 +310,7 @@
 								<string>2860E32A111B888700E27156</string>
 								<string>2860E324111B887F00E27156</string>
 								<string>28EEBF621118D79A00187D67</string>
+								<string>21D0B3FF12ED27F900CD8E27</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97323FDCFA39411CA2CEA</string>
 								<string>19C28FACFE9D520D11CA2CBB</string>
@@ -277,8 +319,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>19</integer>
-									<integer>18</integer>
+									<integer>24</integer>
+									<integer>9</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -318,7 +360,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>32px-Speaker_Off.png</string>
+								<string>freeverb.c</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -326,27 +368,40 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>32px-Speaker_Off.png</string>
+										<string>freeverb.c</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>21D0B3F812ECDF5100CD8E27</string>
+										<string>21D0B84E12EE9B9700CD8E27</string>
 										<key>history</key>
 										<array>
 											<string>21C8874B12C3EF3E00179B1C</string>
 											<string>217993FA12C97A26006E5766</string>
-											<string>2112D03A12CACEFC0021C494</string>
 											<string>2112D08E12CAD13A0021C494</string>
 											<string>2113D01C12CBA13B00D85682</string>
 											<string>21C22D9412D7AE78001BF7EB</string>
 											<string>21D0B2F912EC96E100CD8E27</string>
 											<string>21D0B2FA12EC96E100CD8E27</string>
-											<string>21D0B2FB12EC96E100CD8E27</string>
-											<string>21D0B2FC12EC96E100CD8E27</string>
 											<string>21D0B3C412ECAA4700CD8E27</string>
-											<string>21D0B3D212ECAA9000CD8E27</string>
 											<string>21D0B3F612ECDF5100CD8E27</string>
-											<string>21D0B3F712ECDF5100CD8E27</string>
+											<string>21D0B42E12ED4A1700CD8E27</string>
+											<string>21D0B43412ED4A1700CD8E27</string>
+											<string>21D0B43512ED4A1700CD8E27</string>
+											<string>21D0B43712ED4A1700CD8E27</string>
+											<string>21D0B4AF12EDF7E600CD8E27</string>
+											<string>21D0B72D12EE33B600CD8E27</string>
+											<string>21D0B76512EE353500CD8E27</string>
+											<string>21D0B76612EE353500CD8E27</string>
+											<string>21D0B76712EE353500CD8E27</string>
+											<string>21D0B77812EE35B500CD8E27</string>
+											<string>21D0B81312EE39A400CD8E27</string>
+											<string>21D0B81412EE39A400CD8E27</string>
+											<string>21D0B81512EE39A400CD8E27</string>
+											<string>21D0B81612EE39A400CD8E27</string>
+											<string>21D0B81712EE39A400CD8E27</string>
+											<string>21D0B81812EE39A400CD8E27</string>
+											<string>21D0B81912EE39A400CD8E27</string>
+											<string>21D0B77712EE35B500CD8E27</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -544,14 +599,14 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>21D0B3F912ECDF5100CD8E27</string>
 		<string>21D0B38E12ECA16A00CD8E27</string>
 		<string>21D0B39012ECA16A00CD8E27</string>
 		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>2164C76E12C2520900B7BB3E</string>
 		<string>1C78EAAD065D492600B07095</string>
+		<string>2164C76E12C2520900B7BB3E</string>
 		<string>/Users/kojiroumezaki/Docs/Music/Mobile_In_C/minc_unfuddle/SimpleSynth/SimpleSynth.xcodeproj</string>
+		<string>21D0B84F12EE9B9700CD8E27</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 59 1440 819 0 0 1440 878 </string>
@@ -575,7 +630,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SimpleSynth_Singleton.m</string>
+								<string>freeverb.c</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -646,7 +701,7 @@
 			<key>WindowToolGUID</key>
 			<string>2164C76E12C2520900B7BB3E</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -793,7 +848,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>&lt;No Editor&gt;</string>
+										<string>revmodel.c</string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>
@@ -814,6 +869,8 @@
 							<string>616pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>

@@ -8,6 +8,8 @@
 
 #import "AQPlayer.h"
 
+#import "freeverb.h"
+
 AQPlayer *gAQP = nil;
 
 @implementation AQPlayer
@@ -27,13 +29,16 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	for (int i = 0; i < numFrames; i++)
 	{
 		max_amp = fabs(buffer[i]) > max_amp ? fabs(buffer[i]) : max_amp;
-		((SInt16 *)inAQBuffer->mAudioData)[i] = buffer[i] * (SInt16)0x7FFF;
+		buffer[i] = buffer[i] > 1.0 ? 1.0 : buffer[i] < -1.0 ? -1.0 : buffer[i];
 	}
 	
 	double elapsed_time = numFrames / kSR;
 	
 	[aqp ReportMaxAmplitude:max_amp];
 	[aqp ReportElapsedTime:elapsed_time];
+	
+	for (int i = 0; i < numFrames; i++)
+		((SInt16 *)inAQBuffer->mAudioData)[i] = buffer[i] * (SInt16)0x7FFF;
 	
 	inAQBuffer->mAudioDataByteSize = 512;
 	inAQBuffer->mPacketDescriptionCount = 0;
@@ -117,7 +122,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void)ReportMaxAmplitude:(double)max_amp
 {
-//	NSLog(@"AQPlayer ReportMaxAmplitude %lf",max_amp);
+	if (max_amp > 1.0)
+		NSLog(@"AQPlayer ReportMaxAmplitude %lf",max_amp);
 }
 
 -(void)ReportElapsedTime:(double)elapsed_time
@@ -142,6 +148,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 - (void)dealloc {
 	
+	/* here's where we release the reverb */
+	Reverb_Release();
+
 	[super dealloc];
 }
 
@@ -164,11 +173,17 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		mDeltaTheta[i] = (ratio) * 440. / kSR;
 	}
 	
+	/* here's where we initialize the reverb */
+	Reverb_Init();
+	Reverb_SetRoomSize(0,0.5);
+	Reverb_SetDamp(0,0.5);
+	Reverb_SetWet(0,0.5);
+	Reverb_SetDry(0,0.5);
+	
 	return self;
 }
 
 #define SIGN(x)	(x < 0. ? -1. : x > 0. ? +1. : 0.)
-
 
 -(void)FillAudioBuffer:(double*)buffer:(UInt32)num_samples
 {
@@ -179,11 +194,12 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 			for (int i = 0; i < num_samples; i++)
 			{
 #if 1
-				buffer[i] += amp * sinf(mTheta[j] * 2 * M_PI);									/* sine */
+				for (int k = 1; k <= 1; k += 1)	/* in case we want to implement additive synthesis */
+					buffer[i] += amp / k * sin(k * mTheta[j] * 2 * M_PI);						/* sine */
 #elif 0
 				buffer[i] += amp * 2 * (mTheta[j] - floor(mTheta[j] + 0.5));					/* sawtooth */
 #elif 0
-				buffer[i] += amp * SIGN(sinf(mTheta[j] * 2 * M_PI));							/* square */
+				buffer[i] += amp * SIGN(sin(mTheta[j] * 2 * M_PI));								/* square */
 #elif 0
 				buffer[i] += amp * (fabs(2 * (mTheta[j] - floor(mTheta[j] + 0.5))) * 2 - 1.);	/* triangle */
 #endif
@@ -194,6 +210,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 					printf("%d%s",(SInt16)(buffer[i] * (SInt16)0x7FFF),i<num_samples-1?" ":"\n\n");
 #endif
 			}
+
+	/* here's where we call the reverb (the 1 in the third argument is for 1 channel, i.e. mono) */
+	revmodel_process(buffer,num_samples,1);
 }
 
 @end

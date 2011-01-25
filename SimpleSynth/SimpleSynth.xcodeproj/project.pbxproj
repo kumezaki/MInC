@@ -19,6 +19,10 @@
 		21D0B3C112ECAA3E00CD8E27 /* SimpleSynth_Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B3C012ECAA3E00CD8E27 /* SimpleSynth_Singleton.m */; };
 		21D0B3CA12ECAA7600CD8E27 /* 32px-Speaker_Off.png in Resources */ = {isa = PBXBuildFile; fileRef = 21D0B3C812ECAA7600CD8E27 /* 32px-Speaker_Off.png */; };
 		21D0B3CB12ECAA7600CD8E27 /* 32px-Speaker_On.png in Resources */ = {isa = PBXBuildFile; fileRef = 21D0B3C912ECAA7600CD8E27 /* 32px-Speaker_On.png */; };
+		21D0B40812ED27F900CD8E27 /* allpass.c in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B40012ED27F900CD8E27 /* allpass.c */; };
+		21D0B40912ED27F900CD8E27 /* comb.c in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B40212ED27F900CD8E27 /* comb.c */; };
+		21D0B40A12ED27F900CD8E27 /* revmodel.c in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B40512ED27F900CD8E27 /* revmodel.c */; };
+		21D0B41012ED29A900CD8E27 /* freeverb.c in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B40E12ED29A900CD8E27 /* freeverb.c */; };
 		21D969C512C8E1150091C35C /* SoundFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D969C412C8E1150091C35C /* SoundFile.m */; };
 		21D969CF12C8E1630091C35C /* TouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D969CE12C8E1630091C35C /* TouchView.m */; };
 		2860E328111B887F00E27156 /* AppDelegate_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 2860E326111B887F00E27156 /* AppDelegate_iPhone.m */; };
@@ -47,6 +51,16 @@
 		21D0B3C012ECAA3E00CD8E27 /* SimpleSynth_Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SimpleSynth_Singleton.m; path = Shared/SimpleSynth_Singleton.m; sourceTree = "<group>"; };
 		21D0B3C812ECAA7600CD8E27 /* 32px-Speaker_Off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "32px-Speaker_Off.png"; path = "images/32px-Speaker_Off.png"; sourceTree = "<group>"; };
 		21D0B3C912ECAA7600CD8E27 /* 32px-Speaker_On.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "32px-Speaker_On.png"; path = "images/32px-Speaker_On.png"; sourceTree = "<group>"; };
+		21D0B40012ED27F900CD8E27 /* allpass.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = allpass.c; sourceTree = "<group>"; };
+		21D0B40112ED27F900CD8E27 /* allpass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allpass.h; sourceTree = "<group>"; };
+		21D0B40212ED27F900CD8E27 /* comb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = comb.c; sourceTree = "<group>"; };
+		21D0B40312ED27F900CD8E27 /* comb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comb.h; sourceTree = "<group>"; };
+		21D0B40412ED27F900CD8E27 /* denormals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = denormals.h; sourceTree = "<group>"; };
+		21D0B40512ED27F900CD8E27 /* revmodel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = revmodel.c; sourceTree = "<group>"; };
+		21D0B40612ED27F900CD8E27 /* revmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = revmodel.h; sourceTree = "<group>"; };
+		21D0B40712ED27F900CD8E27 /* tuning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tuning.h; sourceTree = "<group>"; };
+		21D0B40E12ED29A900CD8E27 /* freeverb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = freeverb.c; sourceTree = "<group>"; };
+		21D0B40F12ED29A900CD8E27 /* freeverb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = freeverb.h; sourceTree = "<group>"; };
 		21D969C312C8E1150091C35C /* SoundFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundFile.h; path = Shared/SoundFile.h; sourceTree = "<group>"; };
 		21D969C412C8E1150091C35C /* SoundFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoundFile.m; path = Shared/SoundFile.m; sourceTree = "<group>"; };
 		21D969CD12C8E1630091C35C /* TouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchView.h; path = Shared/TouchView.h; sourceTree = "<group>"; };
@@ -89,6 +103,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		21D0B3FF12ED27F900CD8E27 /* freeverb */ = {
+			isa = PBXGroup;
+			children = (
+				21D0B40012ED27F900CD8E27 /* allpass.c */,
+				21D0B40112ED27F900CD8E27 /* allpass.h */,
+				21D0B40212ED27F900CD8E27 /* comb.c */,
+				21D0B40312ED27F900CD8E27 /* comb.h */,
+				21D0B40412ED27F900CD8E27 /* denormals.h */,
+				21D0B40F12ED29A900CD8E27 /* freeverb.h */,
+				21D0B40E12ED29A900CD8E27 /* freeverb.c */,
+				21D0B40512ED27F900CD8E27 /* revmodel.c */,
+				21D0B40612ED27F900CD8E27 /* revmodel.h */,
+				21D0B40712ED27F900CD8E27 /* tuning.h */,
+			);
+			name = freeverb;
+			path = Shared/freeverb;
+			sourceTree = "<group>";
+		};
 		2860E324111B887F00E27156 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +144,7 @@
 		28EEBF621118D79A00187D67 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				21D0B3FF12ED27F900CD8E27 /* freeverb */,
 				2112CFE112CACD2E0021C494 /* SimpleSynth_Singleton.h */,
 				21D0B3C012ECAA3E00CD8E27 /* SimpleSynth_Singleton.m */,
 				2164C78612C2527D00B7BB3E /* AQPlayer.h */,
@@ -253,6 +286,10 @@
 				21D969C512C8E1150091C35C /* SoundFile.m in Sources */,
 				21D969CF12C8E1630091C35C /* TouchView.m in Sources */,
 				21D0B3C112ECAA3E00CD8E27 /* SimpleSynth_Singleton.m in Sources */,
+				21D0B40812ED27F900CD8E27 /* allpass.c in Sources */,
+				21D0B40912ED27F900CD8E27 /* comb.c in Sources */,
+				21D0B40A12ED27F900CD8E27 /* revmodel.c in Sources */,
+				21D0B41012ED29A900CD8E27 /* freeverb.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
