@@ -17,7 +17,7 @@
 	return 440. * pow(2., (midiNote - 69) / 12.);
 }
 
-@synthesize mAmp;
+//@synthesize mAmp;
 @synthesize mTheta;
 
 @synthesize mFreq;
@@ -27,7 +27,7 @@
 }
 
 -(id)init {
-	mAmp = MAX_AMP*.25;
+	//mAmp = MAX_AMP*.25;
 	mEnv = [[Envelope alloc] init];
 	return self;
 }
@@ -39,8 +39,8 @@
 
 -(void)fillAudioBuffer:(double*)bufferPointer:(UInt32)numFrames {
 	for (int i = 0; i < numFrames; i++) {
-		//bufferPointer[i] += [mWaveTable get:mTheta] * [mEnv get];
-		bufferPointer[i] += mAmp * [mWaveTable get:mTheta] * [mEnv get];
+		bufferPointer[i] += [mWaveTable get:mTheta] * [mEnv get];
+		//bufferPointer[i] += mAmp * [mWaveTable get:mTheta] * [mEnv get];
 		mTheta += mDeltaTheta;
 	}
 }

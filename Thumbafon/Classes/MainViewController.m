@@ -34,6 +34,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
 	[buttonView resignFirstResponder];
+	[controller changeFlipWaveFormLabel];
+	[controller changeFlipModeLabel];
 	[super viewWillDisappear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];    
 }
@@ -42,21 +44,23 @@
 	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+	//Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	mAppBrain = [[AppBrain alloc]init];
-	
-//Turn on the accelerometer, set update interval & assign delegate
+
+/*
+ //Turn on the accelerometer, set update interval & assign delegate
 	accelerometer = [UIAccelerometer sharedAccelerometer];
 	accelerometer.updateInterval = .09;
 	accelerometer.delegate = self;
+*/
 	
-//Create 2nd view, alloc/init, assign delegate, call setAQPlayer method
+	//Create 2nd view, alloc/init, assign delegate, call setAQPlayer method
 	controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
 	controller.delegate = self;
 	[controller setAppBrain:mAppBrain];
 	
-//Create buttonView	
+	//Create buttonView	
 	CGRect viewRect = CGRectMake(0,30,480,290);
 	buttonView = [[ButtonViewController alloc] initWithFrame:viewRect];
 	[buttonView setHidden:NO];
@@ -95,12 +99,12 @@
 - (IBAction)setModeLabel {	
 	int j = mAppBrain.mCurrentMode;
 	switch (j) {
-		case 0: mLabelText = [NSString stringWithFormat:@"Note Set: Ionian"]; break;
-		case 1: mLabelText = [NSString stringWithFormat:@"Note Set: Dorian"]; break;
-		case 2: mLabelText = [NSString stringWithFormat:@"Note Set: Phrygian"]; break;
-		case 3: mLabelText = [NSString stringWithFormat:@"Note Set: Lydian"]; break;
-		case 4: mLabelText = [NSString stringWithFormat:@"Note Set: Mixolydian"]; break;
-		case 5: mLabelText = [NSString stringWithFormat:@"Note Set: Aeolean"]; break;
+		case 0: mLabelText = [NSString stringWithFormat:@"Mode: Ionian"]; break;
+		case 1: mLabelText = [NSString stringWithFormat:@"Mode: Dorian"]; break;
+		case 2: mLabelText = [NSString stringWithFormat:@"Mode: Phrygian"]; break;
+		case 3: mLabelText = [NSString stringWithFormat:@"Mode: Lydian"]; break;
+		case 4: mLabelText = [NSString stringWithFormat:@"Mode: Mixolydian"]; break;
+		case 5: mLabelText = [NSString stringWithFormat:@"Mode: Aeolean"]; break;
 		default: break;
 	}	
 	modeLabel.text = mLabelText;//set new labels
@@ -117,8 +121,8 @@
 		//NSLog(@"SHAKE SHAKE SHAKE!!!");
 	}
 }
-
-/*#define kFilteringFactor 0.75
+/*
+#define kFilteringFactor 0.75
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
 	//LowPass Filter
 	double yAxis = acceleration.y * kFilteringFactor + yAxis * (1.0 - kFilteringFactor);
@@ -127,6 +131,6 @@
 	int k = yAxis < -0.25 ? 1 : yAxis > 0.25 ? -1 : 0;
 
 	[self changeMode:k];
-}*/
-
+}
+*/
 @end

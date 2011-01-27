@@ -13,6 +13,9 @@
 
 @synthesize delegate;
 
+@synthesize flipWaveFormLabel;
+@synthesize flipModeLabel;
+
 - (void) setAppBrain:(AppBrain *)AppBrain{
 	mAppBrain = AppBrain;
 }
@@ -55,6 +58,8 @@
 
 
 - (void)dealloc {
+	self.flipWaveFormLabel=nil;
+	self.flipModeLabel=nil;
 	[mMoreInfo release];
     [super dealloc];
 }
@@ -63,11 +68,42 @@
 {
 	NSString *label = sender.titleLabel.text;
 	[mAppBrain setWaveType:label];
+	[self changeFlipWaveFormLabel];
+}
+
+- (IBAction)changeModeType:(UIButton *)sender {
+	if ([sender.titleLabel.text isEqual:@"Dorian"]) [mAppBrain setMode:1];
+	else if ([sender.titleLabel.text isEqual:@"Phrygian"]) [mAppBrain setMode:2];
+	else if ([sender.titleLabel.text isEqual:@"Lydian"]) [mAppBrain setMode:3];
+	else if ([sender.titleLabel.text isEqual:@"Mixolydian"]) [mAppBrain setMode:4];
+	else if ([sender.titleLabel.text isEqual:@"Aeolean"]) [mAppBrain setMode:5];
+	else [mAppBrain setMode:0];
+	
+	[self changeFlipModeLabel];
 }
 
 - (IBAction)openMoreInfo:(id)sender {    		
 	mMoreInfo.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 	[self presentModalViewController:mMoreInfo animated:YES];
+}
+
+- (IBAction)changeFlipModeLabel {
+
+	int j = mAppBrain.mCurrentMode;
+	switch (j) {
+		case 0: mLabelText = [NSString stringWithFormat:@"Mode: Ionian"]; break;
+		case 1: mLabelText = [NSString stringWithFormat:@"Mode: Dorian"]; break;
+		case 2: mLabelText = [NSString stringWithFormat:@"Mode: Phrygian"]; break;
+		case 3: mLabelText = [NSString stringWithFormat:@"Mode: Lydian"]; break;
+		case 4: mLabelText = [NSString stringWithFormat:@"Mode: Mixolydian"]; break;
+		case 5: mLabelText = [NSString stringWithFormat:@"Mode: Aeolean"]; break;
+		default: break;
+	}	
+	flipModeLabel.text = mLabelText;//set new labels 
+}
+
+- (IBAction)changeFlipWaveFormLabel {
+	flipWaveFormLabel.text = [NSString stringWithFormat:@"Sound: %@",mAppBrain.mWaveType];
 }
 
 

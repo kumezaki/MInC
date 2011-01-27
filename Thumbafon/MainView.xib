@@ -45,15 +45,14 @@
 					<object class="IBUIButton" id="558454645">
 						<reference key="NSNextResponder" ref="883825266"/>
 						<int key="NSvFlags">265</int>
-						<string key="NSFrame">{{432, 5}, {18, 19}}</string>
+						<string key="NSFrame">{{434, 3}, {29, 31}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
-						<object class="NSColor" key="IBUIBackgroundColor" id="17381927">
+						<object class="NSColor" key="IBUIBackgroundColor" id="81891175">
 							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MCAwAA</bytes>
+							<bytes key="NSWhite">MAA</bytes>
 						</object>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-						<float key="IBUIAlpha">0.5</float>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -62,8 +61,7 @@
 							<double key="NSSize">15</double>
 							<int key="NSfFlags">16</int>
 						</object>
-						<int key="IBUIButtonType">3</int>
-						<bool key="IBUIShowsTouchWhenHighlighted">YES</bool>
+						<int key="IBUIButtonType">2</int>
 						<object class="NSColor" key="IBUIHighlightedTitleColor" id="789022707">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -80,9 +78,12 @@
 					<object class="IBUILabel" id="208638747">
 						<reference key="NSNextResponder" ref="883825266"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{229, 0}, {195, 30}}</string>
+						<string key="NSFrame">{{235, 3}, {195, 30}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
-						<reference key="IBUIBackgroundColor" ref="17381927"/>
+						<object class="NSColor" key="IBUIBackgroundColor" id="17381927">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MCAwAA</bytes>
+						</object>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -106,7 +107,7 @@
 					<object class="IBUILabel" id="505509949">
 						<reference key="NSNextResponder" ref="883825266"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{15, 0}, {198, 30}}</string>
+						<string key="NSFrame">{{15, 3}, {198, 30}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
 						<reference key="IBUIBackgroundColor" ref="17381927"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -127,10 +128,7 @@
 				</object>
 				<string key="NSFrameSize">{480, 320}</string>
 				<reference key="NSSuperview"/>
-				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">3</int>
-					<bytes key="NSWhite">MAA</bytes>
-				</object>
+				<reference key="IBUIBackgroundColor" ref="81891175"/>
 				<bool key="IBUIOpaque">NO</bool>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -249,17 +247,17 @@
 					<string>UIResponder</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABDRwAAweAAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABDZQAAweAAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABBoAAAweAAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABBcAAAwfgAAA</bytes>
 					</object>
-					<string>{{452, 113}, {480, 320}}</string>
+					<string>{{24, 143}, {480, 320}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABD3AAAwbAAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABD1YAAweAAAA</bytes>
 					</object>
 				</object>
 			</object>
@@ -279,7 +277,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">252</int>
+			<int key="maxID">254</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

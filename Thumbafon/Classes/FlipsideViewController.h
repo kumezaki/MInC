@@ -16,18 +16,29 @@
 
 @interface FlipsideViewController : UIViewController {
 	id <FlipsideViewControllerDelegate> delegate;
-		
+	
+	IBOutlet UILabel		*flipWaveFormLabel;
+	IBOutlet UILabel		*flipModeLabel;
+	
 	AppBrain	*mAppBrain;
 	MoreInfoViewController *mMoreInfo;
+	
+	NSString *mLabelText;
 
 }
 
 @property (nonatomic, assign) id <FlipsideViewControllerDelegate> delegate;
+@property(retain) IBOutlet UILabel	*flipWaveFormLabel;
+@property(retain) IBOutlet UILabel	*flipModeLabel;
 
--(void) setAppBrain:(AppBrain*) AppBrain;
--(IBAction) done:(id)sender;
--(IBAction) changeWaveType:(UIButton *)sender;
+- (void)setAppBrain:(AppBrain*) AppBrain;
+- (IBAction)done:(id)sender;
+- (IBAction)changeModeType:(UIButton *)sender;
+- (IBAction)changeWaveType:(UIButton *)sender;
 - (IBAction)openMoreInfo:(id)sender;
+
+- (IBAction)changeFlipModeLabel;
+- (IBAction)changeFlipWaveFormLabel;
 
 @end
 

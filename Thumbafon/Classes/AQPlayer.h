@@ -32,7 +32,9 @@
 
 - (void)fillAudioBuffer:(double*)sampleBuffer:(UInt32)numFrames;
 
+/*
 - (void)reportMaxAmplitude:(double)mMaxAmp;
 - (void)reportElapsedTime:(double)elapsedTime;
+*/
 
 @end

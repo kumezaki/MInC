@@ -17,13 +17,13 @@
 	Envelope	*mEnv;
 
 	double mFreq;
-	double mAmp;
+	//double mAmp;
 	double mTheta;
 	double mDeltaTheta;
 }
 
 @property double mFreq;
-@property double mAmp;
+//@property double mAmp;
 @property double mTheta;
 
 +(double) mtof:(double)midiNote;
