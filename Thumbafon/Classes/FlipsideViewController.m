@@ -91,19 +91,19 @@
 
 	int j = mAppBrain.mCurrentMode;
 	switch (j) {
-		case 0: mLabelText = [NSString stringWithFormat:@"Mode: Ionian"]; break;
-		case 1: mLabelText = [NSString stringWithFormat:@"Mode: Dorian"]; break;
-		case 2: mLabelText = [NSString stringWithFormat:@"Mode: Phrygian"]; break;
-		case 3: mLabelText = [NSString stringWithFormat:@"Mode: Lydian"]; break;
-		case 4: mLabelText = [NSString stringWithFormat:@"Mode: Mixolydian"]; break;
-		case 5: mLabelText = [NSString stringWithFormat:@"Mode: Aeolean"]; break;
+		case 0: mLabelText = [NSString stringWithFormat:@"Ionian"]; break;
+		case 1: mLabelText = [NSString stringWithFormat:@"Dorian"]; break;
+		case 2: mLabelText = [NSString stringWithFormat:@"Phrygian"]; break;
+		case 3: mLabelText = [NSString stringWithFormat:@"Lydian"]; break;
+		case 4: mLabelText = [NSString stringWithFormat:@"Mixolydian"]; break;
+		case 5: mLabelText = [NSString stringWithFormat:@"Aeolean"]; break;
 		default: break;
 	}	
 	flipModeLabel.text = mLabelText;//set new labels 
 }
 
 - (IBAction)changeFlipWaveFormLabel {
-	flipWaveFormLabel.text = [NSString stringWithFormat:@"Sound: %@",mAppBrain.mWaveType];
+	flipWaveFormLabel.text = [NSString stringWithFormat:@"%@",mAppBrain.mWaveType];
 }
 
 
