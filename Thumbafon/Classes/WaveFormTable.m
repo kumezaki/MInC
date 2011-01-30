@@ -25,23 +25,23 @@
 		mTable[i] = 0;
 		
 		if ([mWaveType isEqual:@"SineWave"]) {
-			mTable[i] = MAX_AMP * sinf(mTheta * 2. * M_PI);
+			mTable[i] = MAX_AMP * sin(mTheta * 2. * M_PI);
 		}
 		else if ([mWaveType isEqual:@"SquareWave"]) {
 			for (int j = 1; j <= 11; j += 2) {
-				mTable[i] += sinf(j * mTheta * 2. * M_PI)* MAX_AMP / j;
+				mTable[i] += sin(j * mTheta * 2. * M_PI)* MAX_AMP / j;
 			}
 			//mTable[i] = MAX_AMP * SIGN(sinf(mTheta * 2 * M_PI));
 		}
 		else if ([mWaveType isEqual:@"SawtoothWave"]) {
 			for (int j = 1; j <= 11; j += 1) {
-				mTable[i] += sinf(j * mTheta * 2. * M_PI)* MAX_AMP / j;
+				mTable[i] += sin(j * mTheta * 2. * M_PI)* MAX_AMP / j;
 			}	
 			//mTable[i] = MAX_AMP * 2 * (mTheta - floor(mTheta + 0.5));
 		}
 		else if ([mWaveType isEqual:@"TriangleWave"]) {
 			for (int j = 1; j <= 11; j += 2) {
-				mTable[i] += sinf(pow(j, 2) * mTheta * 2. * M_PI) * MAX_AMP / pow(j, 2);
+				mTable[i] += sin(j * mTheta * 2. * M_PI) * MAX_AMP / (j * j);
 			}
 			//mTable[i] = MAX_AMP * (fabs(2 * (mTheta - floor(mTheta + 0.5))) * 2 - 1.);
 		}

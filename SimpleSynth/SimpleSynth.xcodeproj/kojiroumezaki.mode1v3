@@ -197,48 +197,7 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>21D0B84F12EE9B9700CD8E27</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>AQPlayer.m</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>21D0B85012EE9B9700CD8E27</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>AQPlayer.m</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>21D0B85112EE9B9700CD8E27</string>
-						<key>history</key>
-						<array>
-							<string>21D0B84912EE9B3500CD8E27</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {831, 777}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>156 60 831 818 0 0 1440 878 </string>
-			</dict>
-		</dict>
-	</array>
+	<array/>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>-1</integer>
@@ -372,7 +331,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>21D0B84E12EE9B9700CD8E27</string>
+										<string>21D0B85212EE9EF700CD8E27</string>
 										<key>history</key>
 										<array>
 											<string>21C8874B12C3EF3E00179B1C</string>
@@ -599,6 +558,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>21D0B84F12EE9B9700CD8E27</string>
 		<string>21D0B38E12ECA16A00CD8E27</string>
 		<string>21D0B39012ECA16A00CD8E27</string>
 		<string>1C530D57069F1CE1000CFCEE</string>
@@ -606,7 +566,6 @@
 		<string>1C78EAAD065D492600B07095</string>
 		<string>2164C76E12C2520900B7BB3E</string>
 		<string>/Users/kojiroumezaki/Docs/Music/Mobile_In_C/minc_unfuddle/SimpleSynth/SimpleSynth.xcodeproj</string>
-		<string>21D0B84F12EE9B9700CD8E27</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 59 1440 819 0 0 1440 878 </string>
