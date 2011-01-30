@@ -10,6 +10,8 @@
 
 @implementation WaveFormTable
 
+@synthesize mWaveType;
+
 -(id)init {
 	[super init];
 	return self;
@@ -34,7 +36,7 @@
 			//mTable[i] = MAX_AMP * SIGN(sinf(mTheta * 2 * M_PI));
 		}
 		else if ([mWaveType isEqual:@"SawtoothWave"]) {
-			for (int j = 1; j <= 11; j += 1) {
+			for (int j = 1; j <= 10; j += 1) {
 				mTable[i] += sin(j * mTheta * 2. * M_PI)* MAX_AMP / j;
 			}	
 			//mTable[i] = MAX_AMP * 2 * (mTheta - floor(mTheta + 0.5));
@@ -45,6 +47,11 @@
 			}
 			//mTable[i] = MAX_AMP * (fabs(2 * (mTheta - floor(mTheta + 0.5))) * 2 - 1.);
 		}
+		else if ([mWaveType isEqual:@"PulseWave"]) {
+			for (int j = 1; j <= 2; j += 1) {
+				mTable[i] += sin(j * mTheta * 2. * M_PI) * MAX_AMP;
+			}
+		}		
 	}
 }
 

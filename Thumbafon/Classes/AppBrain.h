@@ -17,12 +17,9 @@
 	
 	NSString *mWaveType;
 	int mCurrentMode;
-	
-@public
-	
 	Mode *mModes[kNumberModes];
 	Note *mNotes[kNumberNotes];
-	WaveFormTable *mWaveTable;		
+	WaveFormTable *mWaveTable;
 }
 
 @property int mCurrentMode;

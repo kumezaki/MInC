@@ -9,7 +9,8 @@
 #import "Envelope.h"
 
 #import "AQPlayer.h"//for kSR setting only
-#define RAMP_TIME	(kSR * 0.05)
+#define RAMP_TIME_ON	(kSR * 0.001)
+#define RAMP_TIME_OFF	(kSR * 0.05)
 
 @implementation Envelope
 
@@ -19,19 +20,23 @@
 	return self;
 }
 
--(void)on {
-	mDelta = 1. / RAMP_TIME;
+- (void)setEnv:(NSString *)waveType {
+	NSLog(@"%@",waveType);
 }
 
--(void)off {
-	mDelta = -1. / RAMP_TIME;
+-(void)envelopeOn {
+	mDelta = 1. / RAMP_TIME_ON;
 }
 
--(double)get {
+-(void)envelopeOff {
+	mDelta = -1. / RAMP_TIME_OFF;
+}
+
+-(double)envelopeGet {
 	mAmp += mDelta;
 	
 	if (mAmp >= 1.0) {
-		mAmp = 1.; 
+		mAmp = 1.0; 
 		mDelta = 0.;
 	}
 	else if (mAmp <= 0.0) {

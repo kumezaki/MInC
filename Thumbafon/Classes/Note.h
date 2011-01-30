@@ -25,13 +25,13 @@
 @property double mFreq;
 @property double mTheta;
 
-+(double) mtof:(double)midiNote;
++ (double) mtof:(double)midiNote;
 
--(void)fillAudioBuffer:(double*)bufferPointer:(UInt32)numFrames;
--(void)setWaveTable:(WaveFormTable *)wave_table;
-
--(void)on;
--(void)off;
+- (void)fillAudioBuffer:(double*)bufferPointer:(UInt32)numFrames;
+- (void)setWaveTable:(WaveFormTable *)wave_table;
+ 
+- (void)noteOn;
+- (void)noteOff;
 
 
 @end

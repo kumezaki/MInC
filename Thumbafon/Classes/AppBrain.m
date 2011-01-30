@@ -12,7 +12,7 @@
 #import "Note.h"
 #import "WaveFormTable.h"
 #import "Content.h"
-//#import "freeverb.h"
+#import "freeverb.h"
 
 @implementation AppBrain
 
@@ -31,11 +31,11 @@
 }
 
 - (void)startNote:(int)note_pos {	
-	[mNotes[note_pos] on];
+	[mNotes[note_pos] noteOn];
 }
 
 - (void)stopNote:(int)note_pos {	
-	[mNotes[note_pos] off];
+	[mNotes[note_pos] noteOff];
 }
 
 - (void)ampAdjust:(double)uiData {
@@ -44,11 +44,11 @@
 - (id)init {
 	[super init];
 	
-	mWaveTable = [WaveFormTable new];
+	mWaveTable = [[WaveFormTable alloc]init];
 	mWaveType = [NSString new];
 	
 	for (int i = 0; i < kNumberNotes; i++) {
-		mNotes[i] = [Note new];
+		mNotes[i] = [[Note alloc]init];
 		[mNotes[i] setWaveTable:mWaveTable];
 	}
 	
@@ -65,12 +65,13 @@
 		}
 	}
 	
-	/* here's where we initialize the reverb 
+	/* here's where we initialize the reverb */
+	
 	Reverb_Init();
 	Reverb_SetRoomSize(0,0.5);
 	Reverb_SetDamp(0,0.5);
 	Reverb_SetWet(0,0.5);
-	Reverb_SetDry(0,0.5);*/
+	Reverb_SetDry(0,0.5);
 	
 	[self setWaveType: @"SineWave"];
 	[self setMode:0];
@@ -79,7 +80,7 @@
 
 - (void)dealloc {
 	/* here's where we release the reverb*/
-	//Reverb_Release();
+	Reverb_Release();
 	
 	for (int i = 0; i < kNumberNotes; i++) [mNotes[i] release];
 	for (int j = 0; j < kNumberModes; j++) [mModes[j] release];	
@@ -93,7 +94,7 @@
 	for (int i = 0; i < kNumberNotes; i++) {
 		[mNotes[i] fillAudioBuffer:sampleBuffer :numFrames];
 	}
-	//revmodel_process(sampleBuffer,numFrames,1);
+	revmodel_process(sampleBuffer,numFrames,1);
 }
 
 @end

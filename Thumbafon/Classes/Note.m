@@ -27,7 +27,7 @@
 
 -(id)init {
 	mEnv = [[Envelope alloc] init];
-	mAmp = MAX_AMP * .25;
+	mAmp = MAX_AMP;
 	return self;
 }
 
@@ -39,7 +39,7 @@
 -(void)fillAudioBuffer:(double*)bufferPointer:(UInt32)numFrames {
 	for (int i = 0; i < numFrames; i++) {
 		//bufferPointer[i] += [mWaveTable get:mTheta] * [mEnv get];
-		bufferPointer[i] += mAmp * [mWaveTable get:mTheta] * [mEnv get];
+		bufferPointer[i] += mAmp * [mWaveTable get:mTheta] * [mEnv envelopeGet];
 		mTheta += mDeltaTheta;
 	}
 }
@@ -48,12 +48,12 @@
 	mWaveTable = wave_table;
 }
 
--(void)on {
-	[mEnv on];
+-(void)noteOn {
+	[mEnv envelopeOn];
 }
 
--(void)off {
-	[mEnv off];
+-(void)noteOff {
+	[mEnv envelopeOff];
 }
 
 @end
