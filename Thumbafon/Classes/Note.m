@@ -27,7 +27,7 @@
 
 -(id)init {
 	mEnv = [[Envelope alloc] init];
-	mAmp = MAX_AMP * .125;
+	mAmp = MAX_AMP * .25;
 	return self;
 }
 

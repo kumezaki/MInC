@@ -22,6 +22,7 @@
 	for (int i = 0; i < kAudioDataByteSize; i++) {
 		
 		double mTheta = (double)i / kAudioDataByteSize;
+		mTable[i] = 0;
 		
 		if ([mWaveType isEqual:@"SineWave"]) {
 			mTable[i] = MAX_AMP * sinf(mTheta * 2. * M_PI);
