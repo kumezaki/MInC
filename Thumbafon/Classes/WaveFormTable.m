@@ -10,8 +10,6 @@
 
 @implementation WaveFormTable
 
-@synthesize mWaveType;
-
 -(id)init {
 	[super init];
 	return self;

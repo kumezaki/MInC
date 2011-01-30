@@ -30,6 +30,12 @@
 	[mWaveTable createWaveType:mWaveType];
 }
 
+- (void)setEnvelopeType:(NSString *)envType {
+	for (int i = 0; i <= kNumberNotes; i++) {
+		[mNotes[i] changeEnvelope:envType];
+	}
+}
+
 - (void)startNote:(int)note_pos {	
 	[mNotes[note_pos] noteOn];
 }

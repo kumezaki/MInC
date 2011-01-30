@@ -15,7 +15,6 @@
 	NSString *mWaveType;
 	double mTable[kAudioDataByteSize];
 }
-@property (readonly) NSString *mWaveType;
 
 -(void) createWaveType:(NSString *)waveType;
 -(double) get:(double)index;

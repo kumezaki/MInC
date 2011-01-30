@@ -30,6 +30,7 @@
 
 - (void)setMode:(int)val;
 - (void)setWaveType:(NSString *)waveType;
+- (void)setEnvelopeType:(NSString *)envType;
 
 - (void)ampAdjust:(double)uiData;
 

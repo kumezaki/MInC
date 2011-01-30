@@ -48,6 +48,10 @@
 	mWaveTable = wave_table;
 }
 
+- (void)changeEnvelope:(NSString *)envType {
+	NSLog(@"Success!");
+}
+
 -(void)noteOn {
 	[mEnv envelopeOn];
 }
