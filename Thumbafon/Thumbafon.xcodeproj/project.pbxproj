@@ -17,15 +17,15 @@
 		289233AE0DB2D0DB0083E9F9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289233A90DB2D0DB0083E9F9 /* MainViewController.m */; };
 		289233B00DB2D0DB0083E9F9 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289233AD0DB2D0DB0083E9F9 /* FlipsideViewController.m */; };
 		B427AC3A12CADC0F00EDDE3D /* ButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B427AC3912CADC0F00EDDE3D /* ButtonViewController.m */; };
+		B42A7F9612F6142400F5D423 /* allpass.c in Sources */ = {isa = PBXBuildFile; fileRef = B42A7F8C12F6142400F5D423 /* allpass.c */; };
+		B42A7F9712F6142400F5D423 /* comb.c in Sources */ = {isa = PBXBuildFile; fileRef = B42A7F8E12F6142400F5D423 /* comb.c */; };
+		B42A7F9812F6142400F5D423 /* freeverb.c in Sources */ = {isa = PBXBuildFile; fileRef = B42A7F9112F6142400F5D423 /* freeverb.c */; };
+		B42A7F9912F6142400F5D423 /* revmodel.c in Sources */ = {isa = PBXBuildFile; fileRef = B42A7F9312F6142400F5D423 /* revmodel.c */; };
 		B43EB798128F216D000FD8EE /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EB797128F216D000FD8EE /* Note.m */; };
 		B449ABCD12D26E3400001888 /* AppBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = B449ABCC12D26E3400001888 /* AppBrain.m */; };
 		B4653FDE127E66CC00DA1F26 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4653FDD127E66CC00DA1F26 /* AudioToolbox.framework */; };
 		B46C41FE12860403002E1B34 /* WaveFormTable.m in Sources */ = {isa = PBXBuildFile; fileRef = B46C41FB12860403002E1B34 /* WaveFormTable.m */; };
 		B46C420312860417002E1B34 /* AQPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B46C420012860417002E1B34 /* AQPlayer.m */; };
-		B48A9CB312EF296F00936506 /* allpass.c in Sources */ = {isa = PBXBuildFile; fileRef = B48A9CA912EF296F00936506 /* allpass.c */; };
-		B48A9CB412EF296F00936506 /* comb.c in Sources */ = {isa = PBXBuildFile; fileRef = B48A9CAB12EF296F00936506 /* comb.c */; };
-		B48A9CB512EF296F00936506 /* freeverb.c in Sources */ = {isa = PBXBuildFile; fileRef = B48A9CAE12EF296F00936506 /* freeverb.c */; };
-		B48A9CB612EF296F00936506 /* revmodel.c in Sources */ = {isa = PBXBuildFile; fileRef = B48A9CB012EF296F00936506 /* revmodel.c */; };
 		B4BE1C6512EE39390085248E /* InfoScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BE1C6412EE39390085248E /* InfoScreen.png */; };
 		B4BE1CB712EE479D0085248E /* MoreInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BE1CB512EE479D0085248E /* MoreInfoViewController.m */; };
 		B4BE1CB812EE479D0085248E /* MoreInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4BE1CB612EE479D0085248E /* MoreInfoView.xib */; };
@@ -71,6 +71,16 @@
 		8D1107310486CEB800E47090 /* Thumbafon-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Thumbafon-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		B427AC3812CADC0F00EDDE3D /* ButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ButtonViewController.h; path = Classes/ButtonViewController.h; sourceTree = "<group>"; };
 		B427AC3912CADC0F00EDDE3D /* ButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ButtonViewController.m; path = Classes/ButtonViewController.m; sourceTree = "<group>"; };
+		B42A7F8C12F6142400F5D423 /* allpass.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = allpass.c; sourceTree = "<group>"; };
+		B42A7F8D12F6142400F5D423 /* allpass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allpass.h; sourceTree = "<group>"; };
+		B42A7F8E12F6142400F5D423 /* comb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = comb.c; sourceTree = "<group>"; };
+		B42A7F8F12F6142400F5D423 /* comb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comb.h; sourceTree = "<group>"; };
+		B42A7F9012F6142400F5D423 /* denormals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = denormals.h; sourceTree = "<group>"; };
+		B42A7F9112F6142400F5D423 /* freeverb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = freeverb.c; sourceTree = "<group>"; };
+		B42A7F9212F6142400F5D423 /* freeverb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = freeverb.h; sourceTree = "<group>"; };
+		B42A7F9312F6142400F5D423 /* revmodel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = revmodel.c; sourceTree = "<group>"; };
+		B42A7F9412F6142400F5D423 /* revmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = revmodel.h; sourceTree = "<group>"; };
+		B42A7F9512F6142400F5D423 /* tuning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tuning.h; sourceTree = "<group>"; };
 		B43EB796128F216D000FD8EE /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Note.h; path = Classes/Note.h; sourceTree = "<group>"; };
 		B43EB797128F216D000FD8EE /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Note.m; path = Classes/Note.m; sourceTree = "<group>"; };
 		B449ABCB12D26E3400001888 /* AppBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppBrain.h; path = Classes/AppBrain.h; sourceTree = "<group>"; };
@@ -80,16 +90,6 @@
 		B46C41FB12860403002E1B34 /* WaveFormTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaveFormTable.m; path = Classes/WaveFormTable.m; sourceTree = "<group>"; };
 		B46C41FF12860417002E1B34 /* AQPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AQPlayer.h; path = Classes/AQPlayer.h; sourceTree = "<group>"; };
 		B46C420012860417002E1B34 /* AQPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AQPlayer.m; path = Classes/AQPlayer.m; sourceTree = "<group>"; };
-		B48A9CA912EF296F00936506 /* allpass.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = allpass.c; sourceTree = "<group>"; };
-		B48A9CAA12EF296F00936506 /* allpass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allpass.h; sourceTree = "<group>"; };
-		B48A9CAB12EF296F00936506 /* comb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = comb.c; sourceTree = "<group>"; };
-		B48A9CAC12EF296F00936506 /* comb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comb.h; sourceTree = "<group>"; };
-		B48A9CAD12EF296F00936506 /* denormals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = denormals.h; sourceTree = "<group>"; };
-		B48A9CAE12EF296F00936506 /* freeverb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = freeverb.c; sourceTree = "<group>"; };
-		B48A9CAF12EF296F00936506 /* freeverb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = freeverb.h; sourceTree = "<group>"; };
-		B48A9CB012EF296F00936506 /* revmodel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = revmodel.c; sourceTree = "<group>"; };
-		B48A9CB112EF296F00936506 /* revmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = revmodel.h; sourceTree = "<group>"; };
-		B48A9CB212EF296F00936506 /* tuning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tuning.h; sourceTree = "<group>"; };
 		B4BE1C6412EE39390085248E /* InfoScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InfoScreen.png; sourceTree = "<group>"; };
 		B4BE1CB412EE479D0085248E /* MoreInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoreInfoViewController.h; path = Classes/MoreInfoViewController.h; sourceTree = "<group>"; };
 		B4BE1CB512EE479D0085248E /* MoreInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoreInfoViewController.m; path = Classes/MoreInfoViewController.m; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 				289233A00DB2D0730083E9F9 /* Main View */,
 				281C6CD70DB2D82200F60ACC /* Flipside View */,
 				080E96DDFE201D6D7F000001 /* Application Delegate */,
-				B48A9CA812EF296F00936506 /* freeverb */,
+				B42A7F8B12F6142400F5D423 /* freeverb */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -243,22 +243,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B48A9CA812EF296F00936506 /* freeverb */ = {
+		B42A7F8B12F6142400F5D423 /* freeverb */ = {
 			isa = PBXGroup;
 			children = (
-				B48A9CA912EF296F00936506 /* allpass.c */,
-				B48A9CAA12EF296F00936506 /* allpass.h */,
-				B48A9CAB12EF296F00936506 /* comb.c */,
-				B48A9CAC12EF296F00936506 /* comb.h */,
-				B48A9CAD12EF296F00936506 /* denormals.h */,
-				B48A9CAE12EF296F00936506 /* freeverb.c */,
-				B48A9CAF12EF296F00936506 /* freeverb.h */,
-				B48A9CB012EF296F00936506 /* revmodel.c */,
-				B48A9CB112EF296F00936506 /* revmodel.h */,
-				B48A9CB212EF296F00936506 /* tuning.h */,
+				B42A7F8C12F6142400F5D423 /* allpass.c */,
+				B42A7F8D12F6142400F5D423 /* allpass.h */,
+				B42A7F8E12F6142400F5D423 /* comb.c */,
+				B42A7F8F12F6142400F5D423 /* comb.h */,
+				B42A7F9012F6142400F5D423 /* denormals.h */,
+				B42A7F9112F6142400F5D423 /* freeverb.c */,
+				B42A7F9212F6142400F5D423 /* freeverb.h */,
+				B42A7F9312F6142400F5D423 /* revmodel.c */,
+				B42A7F9412F6142400F5D423 /* revmodel.h */,
+				B42A7F9512F6142400F5D423 /* tuning.h */,
 			);
-			name = freeverb;
-			path = Classes/freeverb;
+			path = freeverb;
 			sourceTree = "<group>";
 		};
 		B4C15B2D12BC301E00A56C77 /* buttons */ = {
@@ -380,10 +379,10 @@
 				B427AC3A12CADC0F00EDDE3D /* ButtonViewController.m in Sources */,
 				B449ABCD12D26E3400001888 /* AppBrain.m in Sources */,
 				B4BE1CB712EE479D0085248E /* MoreInfoViewController.m in Sources */,
-				B48A9CB312EF296F00936506 /* allpass.c in Sources */,
-				B48A9CB412EF296F00936506 /* comb.c in Sources */,
-				B48A9CB512EF296F00936506 /* freeverb.c in Sources */,
-				B48A9CB612EF296F00936506 /* revmodel.c in Sources */,
+				B42A7F9612F6142400F5D423 /* allpass.c in Sources */,
+				B42A7F9712F6142400F5D423 /* comb.c in Sources */,
+				B42A7F9812F6142400F5D423 /* freeverb.c in Sources */,
+				B42A7F9912F6142400F5D423 /* revmodel.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

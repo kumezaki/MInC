@@ -222,8 +222,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 318116678;
-			PBXWorkspaceStateSaveDate = 318116678;
+			PBXPerProjectTemplateStateSaveDate = 318116789;
+			PBXWorkspaceStateSaveDate = 318116789;
 		};
 		perUserProjectItems = {
 			B426974B12BC56EF003F2F73 = B426974B12BC56EF003F2F73 /* PBXBookmark */;
@@ -252,7 +252,6 @@
 			B47B988D12F610E900DED80E = B47B988D12F610E900DED80E /* PBXTextBookmark */;
 			B47B988E12F610E900DED80E = B47B988E12F610E900DED80E /* PBXTextBookmark */;
 			B47B988F12F610E900DED80E = B47B988F12F610E900DED80E /* PBXTextBookmark */;
-			B47B989912F6113300DED80E = B47B989912F6113300DED80E /* PBXTextBookmark */;
 			B47B989A12F6113300DED80E = B47B989A12F6113300DED80E /* PBXTextBookmark */;
 			B48A9CC312EF2AC400936506 = B48A9CC312EF2AC400936506 /* PBXTextBookmark */;
 			B48DB10B12ED64C30015722F = B48DB10B12ED64C30015722F /* PBXBookmark */;
@@ -273,7 +272,7 @@
 			B4C15B7412BC536900A56C77 = B4C15B7412BC536900A56C77 /* PBXBookmark */;
 			B4CAB44612F13A1A005F2504 = B4CAB44612F13A1A005F2504 /* PBXTextBookmark */;
 			B4CAB46C12F13CF2005F2504 = B4CAB46C12F13CF2005F2504 /* PBXTextBookmark */;
-			B4D7752D12F6134C008FDAB5 /* PBXTextBookmark */ = B4D7752D12F6134C008FDAB5 /* PBXTextBookmark */;
+			B4D7754612F613AD008FDAB5 = B4D7754612F613AD008FDAB5 /* PBXTextBookmark */;
 			B4F9303912CC828A00BC6B6D = B4F9303912CC828A00BC6B6D /* PBXBookmark */;
 		};
 		sourceControlManager = B4290FB9127CF92C009192CD /* Source Control */;
@@ -646,16 +645,6 @@
 		vrLen = 938;
 		vrLoc = 0;
 	};
-	B47B989912F6113300DED80E /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = B4C1233F12C945570017918B /* CLSlipperyButton.h */;
-		name = "CLSlipperyButton.h: 4";
-		rLen = 0;
-		rLoc = 40;
-		rType = 0;
-		vrLen = 259;
-		vrLoc = 0;
-	};
 	B47B989A12F6113300DED80E /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = B4C1233F12C945570017918B /* CLSlipperyButton.h */;
@@ -667,6 +656,12 @@
 		vrLoc = 0;
 	};
 	B48A9CA912EF296F00936506 /* allpass.c */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.c;
+		name = allpass.c;
+		path = /Users/main_brain/minc_unfuddl/Thumbafon/Classes/freeverb/allpass.c;
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {914, 533}}";
 			sepNavSelRange = "{0, 0}";
@@ -674,6 +669,12 @@
 		};
 	};
 	B48A9CAD12EF296F00936506 /* denormals.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = denormals.h;
+		path = /Users/main_brain/minc_unfuddl/Thumbafon/Classes/freeverb/denormals.h;
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {899, 669}}";
 			sepNavSelRange = "{0, 0}";
@@ -681,6 +682,12 @@
 		};
 	};
 	B48A9CAE12EF296F00936506 /* freeverb.c */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.c;
+		name = freeverb.c;
+		path = /Users/main_brain/minc_unfuddl/Thumbafon/Classes/freeverb/freeverb.c;
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {901, 1872}}";
 			sepNavSelRange = "{1550, 18}";
@@ -688,6 +695,12 @@
 		};
 	};
 	B48A9CAF12EF296F00936506 /* freeverb.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = freeverb.h;
+		path = /Users/main_brain/minc_unfuddl/Thumbafon/Classes/freeverb/freeverb.h;
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {715, 585}}";
 			sepNavSelRange = "{292, 18}";
@@ -695,6 +708,12 @@
 		};
 	};
 	B48A9CB012EF296F00936506 /* revmodel.c */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.c;
+		name = revmodel.c;
+		path = /Users/main_brain/minc_unfuddl/Thumbafon/Classes/freeverb/revmodel.c;
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {899, 4199}}";
 			sepNavSelRange = "{0, 0}";
@@ -702,6 +721,12 @@
 		};
 	};
 	B48A9CB112EF296F00936506 /* revmodel.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = revmodel.h;
+		path = /Users/main_brain/minc_unfuddl/Thumbafon/Classes/freeverb/revmodel.h;
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1006, 1183}}";
 			sepNavSelRange = "{0, 0}";
@@ -811,7 +836,7 @@
 	};
 	B4C1233F12C945570017918B /* CLSlipperyButton.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {899, 661}}";
+			sepNavIntBoundsRect = "{{0, 0}, {899, 659}}";
 			sepNavSelRange = "{40, 0}";
 			sepNavVisRange = "{0, 259}";
 			sepNavWindowFrame = "{{38, 47}, {845, 805}}";
@@ -873,7 +898,7 @@
 		vrLen = 240;
 		vrLoc = 0;
 	};
-	B4D7752D12F6134C008FDAB5 /* PBXTextBookmark */ = {
+	B4D7754612F613AD008FDAB5 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = B4C1233F12C945570017918B /* CLSlipperyButton.h */;
 		name = "CLSlipperyButton.h: 4";
