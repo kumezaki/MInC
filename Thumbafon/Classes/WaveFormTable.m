@@ -10,11 +10,8 @@
 
 @implementation WaveFormTable
 
-@synthesize mAmp;
-
 -(id)init {
 	[super init];
-	mAmp = MAX_AMP*.25;
 	return self;
 }
 
@@ -23,11 +20,30 @@
 -(void) createWaveType:(NSString *)waveType {
 	mWaveType = waveType;	
 	for (int i = 0; i < kAudioDataByteSize; i++) {
+		
 		double mTheta = (double)i / kAudioDataByteSize;
-		if ([mWaveType isEqual:@"SineWave"]) mTable[i] = mAmp * sinf(mTheta * 2. * M_PI);
-		else if ([mWaveType isEqual:@"SquareWave"]) mTable[i] = mAmp * SIGN(sinf(mTheta * 2 * M_PI));
-		else if ([mWaveType isEqual:@"SawtoothWave"]) mTable[i] = mAmp * 2 * (mTheta - floor(mTheta + 0.5));
-		else if ([mWaveType isEqual:@"TriangleWave"]) mTable[i] = mAmp * (fabs(2 * (mTheta - floor(mTheta + 0.5))) * 2 - 1.);
+		
+		if ([mWaveType isEqual:@"SineWave"]) {
+			mTable[i] = MAX_AMP * sinf(mTheta * 2. * M_PI);
+		}
+		else if ([mWaveType isEqual:@"SquareWave"]) {
+			for (int j = 1; j <= 11; j += 2) {
+				mTable[i] += sinf(j * mTheta * 2. * M_PI)* MAX_AMP / j;
+			}
+			//mTable[i] = MAX_AMP * SIGN(sinf(mTheta * 2 * M_PI));
+		}
+		else if ([mWaveType isEqual:@"SawtoothWave"]) {
+			for (int j = 1; j <= 11; j += 1) {
+				mTable[i] += sinf(j * mTheta * 2. * M_PI)* MAX_AMP / j;
+			}	
+			//mTable[i] = MAX_AMP * 2 * (mTheta - floor(mTheta + 0.5));
+		}
+		else if ([mWaveType isEqual:@"TriangleWave"]) {
+			for (int j = 1; j <= 11; j += 2) {
+				mTable[i] += sinf(pow(j, 2) * mTheta * 2. * M_PI) * MAX_AMP / pow(j, 2);
+			}
+			//mTable[i] = MAX_AMP * (fabs(2 * (mTheta - floor(mTheta + 0.5))) * 2 - 1.);
+		}
 	}
 }
 

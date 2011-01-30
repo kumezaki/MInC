@@ -66,7 +66,6 @@
 	[buttonView setHidden:NO];
 	[self.view addSubview:buttonView];
 	[buttonView setAppBrain:mAppBrain];
-	[buttonView release];	
 	[super viewDidLoad];
 }
 
@@ -74,7 +73,7 @@
 	[self dismissModalViewControllerAnimated:YES];
 }
 
-- (IBAction)showInfo:(id)sender {    		
+- (IBAction)showInfo:(id)sender {
 	controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 	[self presentModalViewController:controller animated:YES];
 }
@@ -84,8 +83,8 @@
 	self.waveFormLabel=nil;
 	self.modeLabel=nil;
 	[mAppBrain release];
-
-	[accelerometer release];
+	[buttonView release];	
+	//[accelerometer release];
 	[controller release];
     [super dealloc];
 }
