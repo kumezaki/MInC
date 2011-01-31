@@ -68,6 +68,7 @@
 {
 	NSString *label = sender.titleLabel.text;
 	[mAppBrain setWaveType:label];
+	[mAppBrain setEnvelopeType];
 	[self changeFlipWaveFormLabel];
 }
 

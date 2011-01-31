@@ -24,28 +24,28 @@
 		double mTheta = (double)i / kAudioDataByteSize;
 		mTable[i] = 0;
 		
-		if ([mWaveType isEqual:@"SineWave"]) {
+		if ([mWaveType isEqual:@"E.Piano"]) {
 			mTable[i] = MAX_AMP * sin(mTheta * 2. * M_PI);
 		}
-		else if ([mWaveType isEqual:@"SquareWave"]) {
+		else if ([mWaveType isEqual:@"Pad"]) {
 			for (int j = 1; j <= 11; j += 2) {
 				mTable[i] += sin(j * mTheta * 2. * M_PI)* MAX_AMP / j;
 			}
 			//mTable[i] = MAX_AMP * SIGN(sinf(mTheta * 2 * M_PI));
 		}
-		else if ([mWaveType isEqual:@"SawtoothWave"]) {
+		else if ([mWaveType isEqual:@"Brass"]) {
 			for (int j = 1; j <= 10; j += 1) {
 				mTable[i] += sin(j * mTheta * 2. * M_PI)* MAX_AMP / j;
 			}	
 			//mTable[i] = MAX_AMP * 2 * (mTheta - floor(mTheta + 0.5));
 		}
-		else if ([mWaveType isEqual:@"TriangleWave"]) {
+		else if ([mWaveType isEqual:@"Flute"]) {
 			for (int j = 1; j <= 11; j += 2) {
 				mTable[i] += sin(j * mTheta * 2. * M_PI) * MAX_AMP / (j * j);
 			}
 			//mTable[i] = MAX_AMP * (fabs(2 * (mTheta - floor(mTheta + 0.5))) * 2 - 1.);
 		}
-		else if ([mWaveType isEqual:@"PulseWave"]) {
+		else if ([mWaveType isEqual:@"Organ"]) {
 			for (int j = 1; j <= 2; j += 1) {
 				mTable[i] += sin(j * mTheta * 2. * M_PI) * MAX_AMP;
 			}

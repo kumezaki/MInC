@@ -9,8 +9,7 @@
 #import "Envelope.h"
 
 #import "AQPlayer.h"//for kSR setting only
-#define RAMP_TIME_ON	(kSR * 0.001)
-#define RAMP_TIME_OFF	(kSR * 0.05)
+#define RAMP_TIME (kSR * 0.05)
 
 @implementation Envelope
 
@@ -21,22 +20,52 @@
 }
 
 - (void)setEnv:(NSString *)waveType {
-	NSLog(@"%@",waveType);
+	if ([waveType isEqual:@"E.Piano"]) {
+		mAttack = kSR * 0.001;
+		mRelease = kSR * 0.01;
+		mSustainAmp = 0.9;
+	}
+	else if ([waveType isEqual:@"Pad"]) {
+		mAttack = kSR * 0.5;
+		mRelease = kSR * 0.5;
+		mSustainAmp = 1.0;
+	}
+	else if ([waveType isEqual:@"Brass"]) {
+		mAttack = kSR * 0.009;
+		mRelease = kSR * 0.01;
+		mSustainAmp = 0.6;
+	}
+	else if ([waveType isEqual:@"Organ"]) {
+		mAttack = kSR * 0.01;
+		mRelease = kSR * 0.05;
+		mSustainAmp = 1.0;
+	}
+	else if ([waveType isEqual:@"Flute"]) {
+		mAttack = kSR * 0.05;
+		mRelease = kSR * 0.05;
+		mSustainAmp = 1.0;
+	}
+	else {
+		mAttack = kSR * 0.05;
+		mRelease = kSR * 0.05;
+		mSustainAmp = 0.9;
+	}
+	
 }
 
--(void)envelopeOn {
-	mDelta = 1. / RAMP_TIME_ON;
+-(void)on {
+	mDelta = 1. / mAttack;
 }
 
--(void)envelopeOff {
-	mDelta = -1. / RAMP_TIME_OFF;
+-(void)off {
+	mDelta = -1. / mRelease;
 }
 
--(double)envelopeGet {
+-(double)get {
 	mAmp += mDelta;
 	
 	if (mAmp >= 1.0) {
-		mAmp = 1.0; 
+		mAmp = mSustainAmp; 
 		mDelta = 0.;
 	}
 	else if (mAmp <= 0.0) {

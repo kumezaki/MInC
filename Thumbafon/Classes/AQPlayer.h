@@ -12,7 +12,7 @@
 #define kNumberBuffers 3
 #define kSR 22050.
 #define kAudioDataByteSize 512 //used for WaveFormTable size
-#define MAX_AMP	.25
+#define MAX_AMP	1.0
 
 #define kNumberModes 6
 #define kNumberNotes 8

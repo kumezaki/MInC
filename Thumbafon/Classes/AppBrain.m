@@ -28,13 +28,13 @@
 - (void)setWaveType:(NSString *)waveType {
 	mWaveType = waveType;
 	[mWaveTable createWaveType:mWaveType];
+	for (int i = 0; i < kNumberNotes; i++) {
+		[mNotes[i] changeEnvelope:mWaveType];
+	}	
 }
 
-- (void)setEnvelopeType:(NSString *)envType {
-	for (int i = 0; i <= kNumberNotes; i++) {
-		[mNotes[i] changeEnvelope:envType];
+- (void)setEnvelopeType {
 	}
-}
 
 - (void)startNote:(int)note_pos {	
 	[mNotes[note_pos] noteOn];
@@ -51,7 +51,6 @@
 	[super init];
 	
 	mWaveTable = [[WaveFormTable alloc]init];
-	mWaveType = [NSString new];
 	
 	for (int i = 0; i < kNumberNotes; i++) {
 		mNotes[i] = [[Note alloc]init];
@@ -79,7 +78,7 @@
 	Reverb_SetWet(0,0.5);
 	Reverb_SetDry(0,0.5);
 	
-	[self setWaveType: @"SineWave"];
+	[self setWaveType: @"Organ"];
 	[self setMode:0];
 	return self;
 }

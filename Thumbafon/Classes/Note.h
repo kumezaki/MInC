@@ -29,7 +29,7 @@
 
 - (void)fillAudioBuffer:(double*)bufferPointer:(UInt32)numFrames;
 - (void)setWaveTable:(WaveFormTable *)wave_table;
-- (void)changeEnvelope:(NSString *)envType;
+- (void)changeEnvelope:(NSString *)waveType;
  
 - (void)noteOn;
 - (void)noteOff;

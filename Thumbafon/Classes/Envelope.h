@@ -14,12 +14,16 @@
 	
 	double mAmp;
 	double mDelta;
+	
+	double mSustainAmp;
+	double mAttack;
+	double mRelease;
 }
 
 - (void)setEnv:(NSString *)waveType;
 
-- (void)envelopeOn;
-- (void)envelopeOff;
-- (double)envelopeGet;
+- (void)on;
+- (void)off;
+- (double)get;
 
 @end

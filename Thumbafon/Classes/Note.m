@@ -27,7 +27,7 @@
 
 -(id)init {
 	mEnv = [[Envelope alloc] init];
-	mAmp = MAX_AMP;
+	mAmp = MAX_AMP / kNumberNotes;
 	return self;
 }
 
@@ -39,7 +39,7 @@
 -(void)fillAudioBuffer:(double*)bufferPointer:(UInt32)numFrames {
 	for (int i = 0; i < numFrames; i++) {
 		//bufferPointer[i] += [mWaveTable get:mTheta] * [mEnv get];
-		bufferPointer[i] += mAmp * [mWaveTable get:mTheta] * [mEnv envelopeGet];
+		bufferPointer[i] += mAmp * [mWaveTable get:mTheta] * [mEnv get];
 		mTheta += mDeltaTheta;
 	}
 }
@@ -48,16 +48,16 @@
 	mWaveTable = wave_table;
 }
 
-- (void)changeEnvelope:(NSString *)envType {
-	NSLog(@"Success!");
+- (void)changeEnvelope:(NSString *)waveType {
+	[mEnv setEnv:waveType];
 }
 
 -(void)noteOn {
-	[mEnv envelopeOn];
+	[mEnv on];
 }
 
 -(void)noteOff {
-	[mEnv envelopeOff];
+	[mEnv off];
 }
 
 @end
