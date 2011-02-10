@@ -7,8 +7,9 @@
 //
 
 #import "FlipsideViewController.h"
+#import "MoreInfoViewController.h"
+#import "Networking.h"
 #import "AQSound.h"
-
 
 @implementation FlipsideViewController
 
@@ -61,6 +62,7 @@
 - (void)dealloc {
 	self.flipSoundLabel=nil;
 	self.flipModeLabel=nil;
+	if (network != nil) [network release];
 	[mMoreInfo release];
     [super dealloc];
 }
@@ -106,6 +108,11 @@
 - (IBAction)openMoreInfo:(id)sender {    		
 	mMoreInfo.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 	[self presentModalViewController:mMoreInfo animated:YES];
+}
+
+- (IBAction)networkSwitch:(UISwitch *)sender {
+	if (sender && network == nil) network = [[Networking alloc] init];
+	else if (!sender && network != nil) [network release];
 }
 
 

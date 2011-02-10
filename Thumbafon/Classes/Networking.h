@@ -23,13 +23,15 @@
 
 - (NSString *)getIPAddress;
 
--(void)sendUDP;
+- (void)sendUDP;
 
--(void)sendOSCMsg:(const char*)osc_str:(int)osc_str_length;
--(void)sendOSCMsgWithIntValue:(const char*)osc_str:(int)osc_str_length:(int)val;
--(void)sendOSCMsgWith2IntValues:(const char*)osc_str:(int)osc_str_length:(int)val0:(int)val1; /* this is untested */
+- (void)sendOSCMsg:(const char*)osc_str:(int)osc_str_length;
+- (void)sendOSCMsgWithIntValue:(const char*)osc_str:(int)osc_str_length:(int)val;
+- (void)sendOSCMsgWith2IntValues:(const char*)osc_str:(int)osc_str_length:(int)val0:(int)val1; /* this is untested */
 
--(void)testSend;
+- (void)buttonpress:(NSString *)button;
+- (void)buttonrelease:(NSString *)button;
+- (void)requestHint;
 
 
 @end

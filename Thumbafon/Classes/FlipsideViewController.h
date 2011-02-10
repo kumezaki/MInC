@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "AQPlayer.h"
-#import "MoreInfoViewController.h"
+@class AQPlayer, MoreInfoViewController, Networking;
 
 @protocol FlipsideViewControllerDelegate;
-
 
 @interface FlipsideViewController : UIViewController {
 	id <FlipsideViewControllerDelegate> delegate;
@@ -20,10 +18,11 @@
 	IBOutlet UILabel		*flipSoundLabel;
 	IBOutlet UILabel		*flipModeLabel;
 	
-	AQPlayer	*mAQPlayer;
-	MoreInfoViewController *mMoreInfo;
+	AQPlayer				*mAQPlayer;
+	MoreInfoViewController	*mMoreInfo;
+	Networking				*network;
 	
-	NSString *mLabelText;
+	NSString				*mLabelText;
 
 }
 
@@ -31,7 +30,7 @@
 @property(retain) IBOutlet UILabel	*flipSoundLabel;
 @property(retain) IBOutlet UILabel	*flipModeLabel;
 
-- (void)setAQPlayer:(AQPlayer*)aqplayer;
+- (void)setAQPlayer:(AQPlayer *)aqplayer;
 - (IBAction)done:(id)sender;
 - (IBAction)openMoreInfo:(id)sender;
 
@@ -40,6 +39,8 @@
 
 - (IBAction)changeFlipModeLabel;
 - (IBAction)changeFlipSoundLabel;
+
+- (IBAction)networkSwitch:(UISwitch *)sender;
 
 @end
 

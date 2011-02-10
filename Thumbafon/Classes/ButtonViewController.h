@@ -9,13 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "AQPlayer.h"
 
-@class MainViewController, CLSlipperyButton, Networking;
+@class MainViewController, CLSlipperyButton;
 
 @interface ButtonViewController : UIView {
 	
 	AQPlayer			*mAQPlayer;
 	CLSlipperyButton	*slickButton[kNumberVoices];
-	Networking			*network;
 
 	NSMutableDictionary	*touchDict;
 	

@@ -11,6 +11,7 @@
 #import "CLSlipperyButton.h"
 #import "AQSynth.h"
 #import "Networking.h"
+
 extern Networking *gNetwork;
 
 @implementation ButtonViewController
@@ -79,7 +80,6 @@ extern Networking *gNetwork;
 		}		
 		touchDict = [[NSMutableDictionary alloc] initWithCapacity:5];
     }
-	network = [[Networking alloc] init];
 
     return self;
 }
@@ -92,7 +92,6 @@ extern Networking *gNetwork;
 //}
 
 - (void)dealloc {	
-	[network release];
 	[touchDict release];
 	[super dealloc];
 }
@@ -101,7 +100,7 @@ extern Networking *gNetwork;
 
 - (IBAction)startSound:(CLSlipperyButton *)sender {	
 	[(AQSynth*)mAQPlayer startVoice:[sender.titleLabel.text intValue]];
-	[network testSend];
+	[gNetwork buttonpress:sender.titleLabel.text];
 }
 
 - (IBAction)stopSound:(CLSlipperyButton *)sender {

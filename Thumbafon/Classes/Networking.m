@@ -28,7 +28,9 @@ Networking *gNetwork = nil;
 -(id)init {
 	[super init];
 	
-	mSendIPAddress = 0xa000112;	//0x7F000001; /* IP address: 127.0.0.1 */
+	gNetwork = self;
+	
+	mSendIPAddress = 0xa00010d;	//0x7F000001; /* IP address: 127.0.0.1 */
 	mSendPortNum = 1337;
 	
 	memset(ip_add_buf,0,32);
@@ -131,10 +133,29 @@ Networking *gNetwork = nil;
 	OSC_END
 }
 
--(void)testSend {
+- (void)buttonpress:(NSString *)button {
+	
+	UInt8 buttonNum = [button intValue];
+	switch (buttonNum) {
+		case 0: [self sendOSCMsg:"/thumb/button/1\0":16];break;
+		case 1: [self sendOSCMsg:"/thumb/button/2\0":16];break;
+		case 2: [self sendOSCMsg:"/thumb/button/3\0":16];break;
+		case 3: [self sendOSCMsg:"/thumb/button/4\0":16];break;
+		case 4: [self sendOSCMsg:"/thumb/button/5\0":16];break;
+		case 5: [self sendOSCMsg:"/thumb/button/6\0":16];break;
+		case 6: [self sendOSCMsg:"/thumb/button/7\0":16];break;
+		case 7: [self sendOSCMsg:"/thumb/button/8\0":16];break;
+		default:break;
+	}
+	//[self sendOSCMsgWithIntValue:"/thumb/button\0":16:button];
+}
+
+- (void)buttonrelease:(NSString *)button {
+}
+
+-(void)requestHint {
 	
 	[self sendOSCMsg:"/thumb/hint\0":12];
-	[self sendOSCMsgWithIntValue:"/thumb/butt\0":12:7];
 
 }
 
