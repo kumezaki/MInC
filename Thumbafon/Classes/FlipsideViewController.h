@@ -23,6 +23,7 @@
 	Networking				*network;
 	
 	NSString				*mLabelText;
+	UIAlertView				*alert;
 
 }
 
@@ -41,6 +42,7 @@
 - (IBAction)changeFlipSoundLabel;
 
 - (IBAction)networkSwitch:(UISwitch *)sender;
+- (IBAction)hintButton;
 
 @end
 

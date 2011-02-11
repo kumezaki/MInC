@@ -100,11 +100,16 @@ extern Networking *gNetwork;
 
 - (IBAction)startSound:(CLSlipperyButton *)sender {	
 	[(AQSynth*)mAQPlayer startVoice:[sender.titleLabel.text intValue]];
-	[gNetwork buttonpress:sender.titleLabel.text];
+	if (gNetwork != nil) {
+		[gNetwork buttonpress:sender.titleLabel.text];
+	}
 }
 
 - (IBAction)stopSound:(CLSlipperyButton *)sender {
 	[(AQSynth*)mAQPlayer stopVoice:[sender.titleLabel.text intValue]];
+	if (gNetwork != nil) {
+		[gNetwork buttonrelease:sender.titleLabel.text];
+	}
 }
 
 #pragma mark -

@@ -41,6 +41,11 @@ Networking *gNetwork = nil;
 	return self;
 }
 
+- (void)dealloc {
+	gNetwork = nil;
+	[super dealloc];
+}
+
 - (NSString *)getIPAddress {
 	NSString *address = @"0.0.0.0";
 	struct ifaddrs *interfaces = NULL;
@@ -137,25 +142,39 @@ Networking *gNetwork = nil;
 	
 	UInt8 buttonNum = [button intValue];
 	switch (buttonNum) {
-		case 0: [self sendOSCMsg:"/thumb/button/1\0":16];break;
-		case 1: [self sendOSCMsg:"/thumb/button/2\0":16];break;
-		case 2: [self sendOSCMsg:"/thumb/button/3\0":16];break;
-		case 3: [self sendOSCMsg:"/thumb/button/4\0":16];break;
-		case 4: [self sendOSCMsg:"/thumb/button/5\0":16];break;
-		case 5: [self sendOSCMsg:"/thumb/button/6\0":16];break;
-		case 6: [self sendOSCMsg:"/thumb/button/7\0":16];break;
-		case 7: [self sendOSCMsg:"/thumb/button/8\0":16];break;
+		case 0: [self sendOSCMsg:"/thum/butt1/on\0":16];break;
+		case 1: [self sendOSCMsg:"/thum/butt2/on\0":16];break;
+		case 2: [self sendOSCMsg:"/thum/butt3/on\0":16];break;
+		case 3: [self sendOSCMsg:"/thum/butt4/on\0":16];break;
+		case 4: [self sendOSCMsg:"/thum/butt5/on\0":16];break;
+		case 5: [self sendOSCMsg:"/thum/butt6/on\0":16];break;
+		case 6: [self sendOSCMsg:"/thum/butt7/on\0":16];break;
+		case 7: [self sendOSCMsg:"/thum/butt8/on\0":16];break;
 		default:break;
 	}
 	//[self sendOSCMsgWithIntValue:"/thumb/button\0":16:button];
 }
 
 - (void)buttonrelease:(NSString *)button {
+	
+	UInt8 buttonNum = [button intValue];
+	switch (buttonNum) {
+		case 0: [self sendOSCMsg:"/thum/butt1/off\0":16];break;
+		case 1: [self sendOSCMsg:"/thum/butt2/off\0":16];break;
+		case 2: [self sendOSCMsg:"/thum/butt3/off\0":16];break;
+		case 3: [self sendOSCMsg:"/thum/butt4/off\0":16];break;
+		case 4: [self sendOSCMsg:"/thum/butt5/off\0":16];break;
+		case 5: [self sendOSCMsg:"/thum/butt6/off\0":16];break;
+		case 6: [self sendOSCMsg:"/thum/butt7/off\0":16];break;
+		case 7: [self sendOSCMsg:"/thum/butt8/off\0":16];break;
+		default:break;
+	}
+	
 }
 
 -(void)requestHint {
 	
-	[self sendOSCMsg:"/thumb/hint\0":12];
+	[self sendOSCMsg:"/thum/hint\0":12];
 
 }
 

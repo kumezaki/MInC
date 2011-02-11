@@ -111,9 +111,30 @@
 }
 
 - (IBAction)networkSwitch:(UISwitch *)sender {
-	if (sender && network == nil) network = [[Networking alloc] init];
-	else if (!sender && network != nil) [network release];
+
+	if (sender.on && network == nil)
+		network = [[Networking alloc] init];
+	
+	else if (!sender.on && network != nil) {
+		NSLog(@"network release?");
+		[network release];
+		network = nil;
+	}
 }
 
+- (IBAction)hintButton {
+
+	if (network == nil) {
+		alert = [[UIAlertView alloc] initWithTitle:@"Hint Window" 
+										   message:@"During a networked performance, use the HINTS button to see messages from the artist." 
+										  delegate:self 
+								 cancelButtonTitle:@"Return" 
+								 otherButtonTitles: nil];
+		[alert show];
+		[alert release];
+	}
+	else [network requestHint];
+
+}
 
 @end
