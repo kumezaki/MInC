@@ -32,4 +32,6 @@
 - (IBAction)setModeLabel;
 - (IBAction)setSoundLabel;
 
+-(void)checkIncomingMessages;
+
 @end
