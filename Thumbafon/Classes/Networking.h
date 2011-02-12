@@ -11,29 +11,32 @@
 
 @interface Networking : NSObject {
 	
-	UInt32					mSendIPAddress;
-	SInt16					mSendPortNum;
+	UInt32		mSendIPAddress;
+	SInt16		mSendPortNum;
 	
-	char					ip_add_buf[32];
-	int						ip_add_size;
+	char		ip_add_buf[32];
+	int			ip_add_size;
 	
-	char					mInBuffer[1024];
-	ssize_t					mInBufferLength;
+	char		mInBuffer[1024];
+	ssize_t		mInBufferLength;
 
-	char					mOutBuffer[1024];
-	ssize_t					mOutBufferLength;
+	char		mOutBuffer[1024];
+	ssize_t		mOutBufferLength;
 
-	SInt16					mReceivePortNum;
-
-	NSThread				*mThread;
-
-	NSString				*mInterstitialString;
+	SInt16		mReceivePortNum;
 	
-	int						sockSend;
-	int						sockReceive;
+	int			sockSend;
+	int			sockReceive;
+
+	NSThread	*mThread;
+	NSString	*mInterstitialString;
+	
+	BOOL		listenOSC;
+
 }
 
 @property (assign,readwrite) NSString	*mInterstitialString;
+@property BOOL listenOSC;
 
 - (NSString *)getIPAddress;
 

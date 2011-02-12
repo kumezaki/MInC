@@ -61,7 +61,6 @@
 	[buttonView setHidden:NO];
 	[self.view addSubview:buttonView];
 	[buttonView setAQPlayer:mAQPlayer];
-	[buttonView release];
 		
 	[super viewDidLoad];
 }
@@ -78,6 +77,7 @@
 - (void)dealloc {
 	self.soundLabel=nil;
 	self.modeLabel=nil;
+	[buttonView release];
 	[mAQPlayer release];
 	[controller release];
     [super dealloc];

@@ -26,6 +26,7 @@ Networking *gNetwork = nil;
 @implementation Networking
 
 @synthesize mInterstitialString;
+@synthesize listenOSC;
 
 -(id)init {
 	[super init];
@@ -43,7 +44,7 @@ Networking *gNetwork = nil;
 
 	mThread = [[NSThread alloc] initWithTarget:self selector:@selector(receiveUDP) object:nil];
 	[mThread start];
-
+	self.listenOSC = YES;
 	return self;
 }
 
@@ -108,8 +109,8 @@ Networking *gNetwork = nil;
 	close(sockSend); /* close the socket */
 }
 
-- (void)receiveUDP
-{
+- (void)receiveUDP {
+	
 	sockReceive = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	struct sockaddr_in sa;
 	socklen_t fromlen;
@@ -121,17 +122,16 @@ Networking *gNetwork = nil;
 	
 	if (-1 == bind(sockReceive,(struct sockaddr *)&sa, sizeof(struct sockaddr)))
 	{
-		perror("error bind failed");//CL: This is the error I'm getting (w/ "Address is already in use") does something need to be released properly?
+		perror("error bind failed");
 		close(sockReceive);
 		exit(EXIT_FAILURE);
 	} 
 	
-	for (;;) 
-	{
+	for (;;) {		
 		mInBufferLength = recvfrom(sockReceive, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);
-		if (mInBufferLength < 0)
-			fprintf(stderr,"%s\n",strerror(errno));
+		if (mInBufferLength < 0) fprintf(stderr,"%s\n",strerror(errno));
 		[self parseOSC];
+		if (self.listenOSC == NO) break;
 	}
 	
 	close(sockReceive); /* close the socket */
@@ -275,7 +275,8 @@ Networking *gNetwork = nil;
 -(void)requestHint {
 	
 	[self sendOSCMsg:"/thum/hint\0":12];
-	if ([mThread isExecuting]) NSLog(@"running");
+	self.listenOSC = NO;
+	NSLog(@"test");
 }
 
 @end

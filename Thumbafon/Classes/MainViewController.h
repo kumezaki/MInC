@@ -7,8 +7,9 @@
 //
 
 #import "FlipsideViewController.h"
+#import "AQPlayer.h"
 
-@class AQPlayer, ButtonViewController;
+@class ButtonViewController;
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate> {
 	IBOutlet UILabel		*soundLabel;

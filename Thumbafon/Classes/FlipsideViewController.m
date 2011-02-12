@@ -112,14 +112,17 @@
 
 - (IBAction)networkSwitch:(UISwitch *)sender {
 
-	if (sender.on && network == nil) {
+	if (sender.on) {// && network == nil) {
 		network = [[Networking alloc] init];
+		network.listenOSC = YES;
 		//mTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkIncomingMessages) userInfo:nil repeats:YES];
 	}
 	
-	else if (!sender.on && network != nil) {
-		[mTimer invalidate];
-		mTimer = nil;
+	else if (!sender.on){  // && network != nil) {
+		network.listenOSC = NO;
+		NSLog(@"network off");
+		//[mTimer invalidate];
+		//mTimer = nil;
 		[network release];
 		network = nil;
 	}
