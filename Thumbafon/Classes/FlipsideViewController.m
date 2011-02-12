@@ -112,26 +112,44 @@
 
 - (IBAction)networkSwitch:(UISwitch *)sender {
 
-	if (sender.on && network == nil)
+	if (sender.on && network == nil) {
 		network = [[Networking alloc] init];
+		//mTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkIncomingMessages) userInfo:nil repeats:YES];
+	}
 	
 	else if (!sender.on && network != nil) {
-		NSLog(@"network release?");
+		[mTimer invalidate];
+		mTimer = nil;
 		[network release];
 		network = nil;
 	}
 }
 
+-(void)checkIncomingMessages
+{
+	NSLog(@"checkIncomingMessages");
+	if (network != nil) {
+		if (network.mInterstitialString != nil)
+		{
+			/* do something with the string */
+			
+			[network.mInterstitialString release];
+			network.mInterstitialString = nil;
+		}
+	}
+}
+
+
 - (IBAction)hintButton {
 
 	if (network == nil) {
-		alert = [[UIAlertView alloc] initWithTitle:@"Hint Window" 
+		mAlert = [[UIAlertView alloc] initWithTitle:@"Hint Window" 
 										   message:@"During a networked performance, use the HINTS button to see messages from the artist." 
 										  delegate:self 
 								 cancelButtonTitle:@"Return" 
 								 otherButtonTitles: nil];
-		[alert show];
-		[alert release];
+		[mAlert show];
+		[mAlert release];
 	}
 	else [network requestHint];
 

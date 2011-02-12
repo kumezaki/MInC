@@ -112,7 +112,7 @@ Networking *gNetwork = nil;
 - (void)receiveUDP
 {
 	int sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
-	struct sockaddr_in sa; 
+	struct sockaddr_in sa;
 	socklen_t fromlen;
 	
 	memset(&sa, 0, sizeof(sa));
@@ -122,7 +122,7 @@ Networking *gNetwork = nil;
 	
 	if (-1 == bind(sock,(struct sockaddr *)&sa, sizeof(struct sockaddr)))
 	{
-		perror("error bind failed");
+		perror("error bind failed");//CL: This is the error I'm getting (w/ "Address is already in use") does something need to be released properly?
 		close(sock);
 		exit(EXIT_FAILURE);
 	} 
@@ -271,7 +271,7 @@ Networking *gNetwork = nil;
 -(void)requestHint {
 	
 	[self sendOSCMsg:"/thum/hint\0":12];
-
+	if ([mThread isExecuting]) NSLog(@"running");
 }
 
 @end

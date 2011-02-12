@@ -23,7 +23,8 @@
 	Networking				*network;
 	
 	NSString				*mLabelText;
-	UIAlertView				*alert;
+	UIAlertView				*mAlert;
+	NSTimer					*mTimer;
 
 }
 
@@ -43,6 +44,8 @@
 
 - (IBAction)networkSwitch:(UISwitch *)sender;
 - (IBAction)hintButton;
+
+- (void)checkIncomingMessages;
 
 @end
 

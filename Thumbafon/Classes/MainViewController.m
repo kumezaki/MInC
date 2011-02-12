@@ -11,9 +11,6 @@
 #import "ButtonViewController.h"
 #import "AQSound.h"
 
-#import "Networking.h"
-extern Networking *gNetwork;
-
 @implementation MainViewController
 
 @synthesize soundLabel;
@@ -65,9 +62,7 @@ extern Networking *gNetwork;
 	[self.view addSubview:buttonView];
 	[buttonView setAQPlayer:mAQPlayer];
 	[buttonView release];
-	
-	[self checkIncomingMessages];
-	
+		
 	[super viewDidLoad];
 }
 
@@ -117,20 +112,6 @@ extern Networking *gNetwork;
 		[self changeMode];
 		AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 	}
-}
-
--(void)checkIncomingMessages
-{
-	if (gNetwork.mInterstitialString != nil)
-	{
-		/* do something with the string */
-		NSLog(@"checkIncomingMessages");
-
-		[gNetwork.mInterstitialString release];
-		gNetwork.mInterstitialString = nil;
-	}
-	
-	[NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkIncomingMessages) userInfo:nil repeats:NO];  
 }
 
 @end

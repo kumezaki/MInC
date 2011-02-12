@@ -20,8 +20,7 @@
 	FlipsideViewController	*controller;
 	ButtonViewController	*buttonView;
 	
-	NSString *mLabelText;
-		
+	NSString *mLabelText;		
 }
 @property(retain) IBOutlet UILabel	*soundLabel;
 @property(retain) IBOutlet UILabel	*modeLabel;
@@ -31,7 +30,5 @@
 - (IBAction)showInfo:(id)sender;
 - (IBAction)setModeLabel;
 - (IBAction)setSoundLabel;
-
--(void)checkIncomingMessages;
 
 @end
