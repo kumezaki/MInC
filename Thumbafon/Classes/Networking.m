@@ -129,9 +129,13 @@ Networking *gNetwork = nil;
 	
 	for (;;) {		
 		mInBufferLength = recvfrom(sockReceive, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);
-		if (mInBufferLength < 0) fprintf(stderr,"%s\n",strerror(errno));
-		[self parseOSC];
-		if (self.listenOSC == NO) break;
+		
+		if (self.listenOSC) {
+			if (mInBufferLength < 0)
+				fprintf(stderr,"%s\n",strerror(errno));
+			[self parseOSC];
+		}
+		else break;
 	}
 	
 	close(sockReceive); /* close the socket */
