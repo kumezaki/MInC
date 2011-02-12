@@ -86,12 +86,11 @@ Networking *gNetwork = nil;
 
 -(void)sendUDP {
 	
-	int sock;
 	struct sockaddr_in sa;
 	int bytes_sent;
 	
-	sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
-	if (-1 == sock) /* if socket failed to initialize, exit */ {
+	sockSend = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
+	if (-1 == sockSend) /* if socket failed to initialize, exit */ {
 		
 		fprintf(stderr,"Error creating socket: %s\n",strerror(errno));
 		exit(EXIT_FAILURE);
@@ -102,16 +101,16 @@ Networking *gNetwork = nil;
 	sa.sin_addr.s_addr = htonl(mSendIPAddress);
 	sa.sin_port = htons(mSendPortNum);
 	
-	bytes_sent = sendto(sock, mOutBuffer, mOutBufferLength, 0,(struct sockaddr*)&sa, sizeof (struct sockaddr_in));
+	bytes_sent = sendto(sockSend, mOutBuffer, mOutBufferLength, 0,(struct sockaddr*)&sa, sizeof (struct sockaddr_in));
 	if (bytes_sent < 0)
 		fprintf(stderr,"Error sending packet: %s\n",strerror(errno));
 	
-	close(sock); /* close the socket */
+	close(sockSend); /* close the socket */
 }
 
 - (void)receiveUDP
 {
-	int sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
+	sockReceive = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	struct sockaddr_in sa;
 	socklen_t fromlen;
 	
@@ -120,22 +119,22 @@ Networking *gNetwork = nil;
 	sa.sin_addr.s_addr = INADDR_ANY;
 	sa.sin_port = htons(mReceivePortNum);
 	
-	if (-1 == bind(sock,(struct sockaddr *)&sa, sizeof(struct sockaddr)))
+	if (-1 == bind(sockReceive,(struct sockaddr *)&sa, sizeof(struct sockaddr)))
 	{
 		perror("error bind failed");//CL: This is the error I'm getting (w/ "Address is already in use") does something need to be released properly?
-		close(sock);
+		close(sockReceive);
 		exit(EXIT_FAILURE);
 	} 
 	
 	for (;;) 
 	{
-		mInBufferLength = recvfrom(sock, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);
+		mInBufferLength = recvfrom(sockReceive, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);
 		if (mInBufferLength < 0)
 			fprintf(stderr,"%s\n",strerror(errno));
 		[self parseOSC];
 	}
 	
-	close(sock); /* close the socket */
+	close(sockReceive); /* close the socket */
 }
 
 - (void)parseOSC
@@ -188,6 +187,11 @@ Networking *gNetwork = nil;
 		
 		pos += ((strlen(mInBuffer+pos) / 4) + 1) * 4;
 	}
+}
+
+- (void)closeReceiveSock
+{
+	close(sockReceive); /* close the socket */
 }
 
 -(void)sendOSCMsg:(const char*)osc_str:(int)osc_str_length {

@@ -28,6 +28,9 @@
 	NSThread				*mThread;
 
 	NSString				*mInterstitialString;
+	
+	int						sockSend;
+	int						sockReceive;
 }
 
 @property (assign,readwrite) NSString	*mInterstitialString;
@@ -37,6 +40,8 @@
 - (void)sendUDP;
 - (void)receiveUDP;
 - (void)parseOSC;
+
+- (void)closeReceiveSock;
 
 - (void)sendOSCMsg:(const char*)osc_str:(int)osc_str_length;
 - (void)sendOSCMsgWithIntValue:(const char*)osc_str:(int)osc_str_length:(int)val;
