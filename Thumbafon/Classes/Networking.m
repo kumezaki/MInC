@@ -24,14 +24,17 @@
 Networking *gNetwork = nil;
 
 @interface Networking ()
-@property (retain,readwrite) NSString	*mInterstitialString;
+@property (assign,readwrite) NSString	*mInterstitialString;
 @property UInt32 mSendIPAddress;
+@property BOOL listenUDP;
+@property BOOL listenIP;
 @end
 
 
 @implementation Networking
 
-@synthesize listenOSC;
+@synthesize listenUDP;
+@synthesize listenIP;
 @synthesize mInterstitialString;
 @synthesize mSendIPAddress;
 
@@ -49,14 +52,15 @@ Networking *gNetwork = nil;
 	[[self getIPAddress] getCString:ip_add_buf maxLength:32 encoding:NSASCIIStringEncoding];
 	ip_add_size = (strlen(ip_add_buf) / 4 + 1) * 4;
 	printf("ip_add_buf:%s\n",ip_add_buf);
-
+	
+	listenIP = YES;
+	listenUDP = NO;
 	mThread = [[NSThread alloc] initWithTarget:self 
 									  selector:@selector(receiveServerIP) 
 										object:nil];
 	[mThread start];
 	
-	self.listenOSC = NO;
-	mTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 
+	mTimer = [NSTimer scheduledTimerWithTimeInterval:0.25 
 											  target:self 
 											selector:@selector(checkIncomingMessages) 
 											userInfo:nil 
@@ -144,23 +148,17 @@ Networking *gNetwork = nil;
 	
 	for (;;) {		
 		mInBufferLength = recvfrom(sockIPReceive, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);		
-		
-		if (self.mSendIPAddress == 0) {
+		if (self.listenIP) {
+			NSLog(@"receiveServerIP is running");
 			if (mInBufferLength < 0) fprintf(stderr,"%s\n",strerror(errno));
 			[self parseOSC];
 		}
-		else {
-			close(sockIPReceive);
-			break;
-		}
-	}	
-	self.listenOSC = YES;
+		else break;
+	}
 	
-	[mThread release];
-	mThread = [[NSThread alloc] initWithTarget:self 
-									  selector:@selector(receiveUDP) 
-										object:nil];
-	[mThread start];
+	close(sockIPReceive);
+	self.listenUDP = YES;
+	[self receiveUDP];
 }
 
 
@@ -184,24 +182,25 @@ Networking *gNetwork = nil;
 	
 	for (;;) {		
 		mInBufferLength = recvfrom(sockReceive, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);		
-		
-		if (self.listenOSC) {
+		if (self.listenUDP) {
+			NSLog(@"receiveUDP is running");
 			if (mInBufferLength < 0) fprintf(stderr,"%s\n",strerror(errno));
 			[self parseOSC];
 		}
-		else {
-			close(sockReceive); 
-			break;
+		else break;
 		}
-	}
+	
+	close(sockReceive);
+	[mThread cancel];
 }
 
 - (void)quitNetworking {
-	[self sendOSCMsg:"/thum/leave\0":12];
-	[mTimer invalidate];
-	self.listenOSC = NO;
+	self.listenIP = NO;
+	self.listenUDP = NO;
 	close(sockIPReceive);
 	close(sockReceive); 
+	[self sendOSCMsg:"/thum/leave\0":12];
+	[mTimer invalidate];
 }
 
 - (void)parseOSC
@@ -218,7 +217,8 @@ Networking *gNetwork = nil;
 		{
 			case 0: /* OSC Address Pattern */
 			{
-				NSString* buf_str = [[NSString alloc] initWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
+				NSString *buf_str = [[NSString alloc] initWithCString:mInBuffer+pos 
+															 encoding:NSASCIIStringEncoding];
 				if ([buf_str isEqualToString:@"/thum/interstitial"]) add_type = 1;
 				else if (self.mSendIPAddress == 0 && [buf_str isEqualToString:@"/thum/serverIP"]) add_type = 2;
 				[buf_str release];
@@ -233,12 +233,15 @@ Networking *gNetwork = nil;
 			{
 				switch (add_type)
 				{
-					case 1:
-						self.mInterstitialString = [[NSString alloc] initWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
+					case 1: {
+						self.mInterstitialString = [[NSString alloc] initWithCString:mInBuffer+pos 
+																			encoding:NSASCIIStringEncoding];
 						break;
+					}
 					case 2: {
 						self.mSendIPAddress = inet_addr(mInBuffer+pos);
 						[self sendOSCMsg:"/thum/join\0\0":12];
+						self.listenIP = NO;
 						break;
 					}
 				}

@@ -60,8 +60,8 @@
 
 
 - (void)dealloc {
-	self.flipSoundLabel=nil;
-	self.flipModeLabel=nil;
+	flipSoundLabel=nil;
+	flipModeLabel=nil;
 	if (network != nil) [network release];
 	[mMoreInfo release];
     [super dealloc];

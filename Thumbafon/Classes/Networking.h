@@ -35,11 +35,10 @@
 	UIAlertView	*mAlert;
 	NSTimer		*mTimer;
 	
-	BOOL		listenOSC;
+	BOOL		listenUDP;
+	BOOL		listenIP;
 
 }
-
-@property BOOL listenOSC;
 
 - (NSString *)getIPAddress;
 - (void)receiveServerIP;
