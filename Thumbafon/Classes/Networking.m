@@ -155,10 +155,10 @@ Networking *gNetwork = nil;
 		}
 		else break;
 	}
-	
+
 	close(sockIPReceive);
 	self.listenUDP = YES;
-	[self receiveUDP];
+	if (mSendIPAddress != 0) [self receiveUDP];
 }
 
 
@@ -205,7 +205,7 @@ Networking *gNetwork = nil;
 
 - (void)parseOSC
 {
-	//NSLog(@"mInBufferLength: %ld\n",mInBufferLength);
+	NSLog(@"mInBufferLength: %ld\n",mInBufferLength);
 	
 	ssize_t pos = 0;
 	int msg_type = 0;
