@@ -115,14 +115,15 @@
 	if (sender.on) {// && network == nil) {
 		network = [[Networking alloc] init];
 		network.listenOSC = YES;
-		//mTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkIncomingMessages) userInfo:nil repeats:YES];
+		mTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkIncomingMessages) userInfo:nil repeats:YES];
 	}
 	
 	else if (!sender.on){  // && network != nil) {
 		network.listenOSC = NO;
+		[network closeReceiveSock];
 		NSLog(@"network off");
-		//[mTimer invalidate];
-		//mTimer = nil;
+		[mTimer invalidate];
+		mTimer = nil;
 		[network release];
 		network = nil;
 	}
@@ -130,11 +131,18 @@
 
 -(void)checkIncomingMessages
 {
-	NSLog(@"checkIncomingMessages");
+	//NSLog(@"checkIncomingMessages");
 	if (network != nil) {
 		if (network.mInterstitialString != nil)
 		{
-			/* do something with the string */
+			mAlert = [[UIAlertView alloc] initWithTitle:nil 
+												message:network.mInterstitialString 
+											   delegate:self 
+									  cancelButtonTitle:@"Return" 
+									  otherButtonTitles: nil];
+			[mAlert show];
+			[mAlert release];
+			
 			
 			[network.mInterstitialString release];
 			network.mInterstitialString = nil;

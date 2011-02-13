@@ -71,7 +71,7 @@ Networking *gNetwork = nil;
 			if (temp_addr->ifa_addr->sa_family == AF_INET) {
 				
 				// Check if interface is en0 which is the wifi connection on the iPhone
-				if ([[NSString stringWithUTF8String:temp_addr->ifa_name] isEqualToString:@"en1"]) {	/* on device it's en0, on simulator it's en1 */
+				if ([[NSString stringWithUTF8String:temp_addr->ifa_name] isEqualToString:@"en0"]) {	/* on device it's en0, on simulator it's en1 */
 					// Get NSString from C String
 					address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)];
 				}
@@ -120,8 +120,7 @@ Networking *gNetwork = nil;
 	sa.sin_addr.s_addr = INADDR_ANY;
 	sa.sin_port = htons(mReceivePortNum);
 	
-	if (-1 == bind(sockReceive,(struct sockaddr *)&sa, sizeof(struct sockaddr)))
-	{
+	if (-1 == bind(sockReceive,(struct sockaddr *)&sa, sizeof(struct sockaddr))) {
 		perror("error bind failed");
 		close(sockReceive);
 		exit(EXIT_FAILURE);
@@ -129,14 +128,14 @@ Networking *gNetwork = nil;
 	
 	for (;;) {		
 		mInBufferLength = recvfrom(sockReceive, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);
+		if (mInBufferLength < 0) fprintf(stderr,"%s\n",strerror(errno));
 		
-		if (self.listenOSC) {
-			if (mInBufferLength < 0)
-				fprintf(stderr,"%s\n",strerror(errno));
-			[self parseOSC];
-		}
+		if (self.listenOSC) [self parseOSC];
 		else break;
 	}
+}
+
+- (void)closeReceiveSock {
 	
 	close(sockReceive); /* close the socket */
 }
@@ -193,11 +192,6 @@ Networking *gNetwork = nil;
 	}
 }
 
-- (void)closeReceiveSock
-{
-	close(sockReceive); /* close the socket */
-}
-
 -(void)sendOSCMsg:(const char*)osc_str:(int)osc_str_length {
 	
 	char buf[1024]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",s\0\0",4);
@@ -237,50 +231,18 @@ Networking *gNetwork = nil;
 - (void)buttonpress:(NSString *)button {
 	
 	UInt8 buttonNum = [button intValue];
-#if 0
-	switch (buttonNum) {
-		case 0: [self sendOSCMsg:"/thum/butt1/on\0":16];break;
-		case 1: [self sendOSCMsg:"/thum/butt2/on\0":16];break;
-		case 2: [self sendOSCMsg:"/thum/butt3/on\0":16];break;
-		case 3: [self sendOSCMsg:"/thum/butt4/on\0":16];break;
-		case 4: [self sendOSCMsg:"/thum/butt5/on\0":16];break;
-		case 5: [self sendOSCMsg:"/thum/butt6/on\0":16];break;
-		case 6: [self sendOSCMsg:"/thum/butt7/on\0":16];break;
-		case 7: [self sendOSCMsg:"/thum/butt8/on\0":16];break;
-		default:break;
-	}
-#else	
 	[self sendOSCMsgWith2IntValues:"/thum/butt\0\0":12:buttonNum:1];
-#endif
-	
-	//[self sendOSCMsgWithIntValue:"/thumb/button\0":16:button];
 }
 
 - (void)buttonrelease:(NSString *)button {
 	
 	UInt8 buttonNum = [button intValue];
-#if 0
-	switch (buttonNum) {
-		case 0: [self sendOSCMsg:"/thum/butt1/off\0":16];break;
-		case 1: [self sendOSCMsg:"/thum/butt2/off\0":16];break;
-		case 2: [self sendOSCMsg:"/thum/butt3/off\0":16];break;
-		case 3: [self sendOSCMsg:"/thum/butt4/off\0":16];break;
-		case 4: [self sendOSCMsg:"/thum/butt5/off\0":16];break;
-		case 5: [self sendOSCMsg:"/thum/butt6/off\0":16];break;
-		case 6: [self sendOSCMsg:"/thum/butt7/off\0":16];break;
-		case 7: [self sendOSCMsg:"/thum/butt8/off\0":16];break;
-		default:break;
-	}
-#else
 	[self sendOSCMsgWith2IntValues:"/thum/butt\0\0":12:buttonNum:0];
-#endif
 }
 
 -(void)requestHint {
 	
 	[self sendOSCMsg:"/thum/hint\0":12];
-	self.listenOSC = NO;
-	NSLog(@"test");
 }
 
 @end
