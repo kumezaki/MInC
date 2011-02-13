@@ -30,6 +30,8 @@
 
 	NSThread	*mThread;
 	NSString	*mInterstitialString;
+	UIAlertView	*mAlert;
+	NSTimer		*mTimer;
 	
 	BOOL		listenOSC;
 

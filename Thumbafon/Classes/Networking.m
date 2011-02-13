@@ -42,9 +42,17 @@ Networking *gNetwork = nil;
 	ip_add_size = (strlen(ip_add_buf) / 4 + 1) * 4;
 	printf("ip_add_buf:%s\n",ip_add_buf);
 
-	mThread = [[NSThread alloc] initWithTarget:self selector:@selector(receiveUDP) object:nil];
+	mThread = [[NSThread alloc] initWithTarget:self 
+									  selector:@selector(receiveUDP) 
+										object:nil];
 	[mThread start];
+	
 	self.listenOSC = YES;
+	mTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 
+											  target:self 
+											selector:@selector(checkIncomingMessages) 
+											userInfo:nil 
+											 repeats:YES];
 	return self;
 }
 
@@ -127,16 +135,19 @@ Networking *gNetwork = nil;
 	} 
 	
 	for (;;) {		
-		mInBufferLength = recvfrom(sockReceive, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);
-		if (mInBufferLength < 0) fprintf(stderr,"%s\n",strerror(errno));
+		mInBufferLength = recvfrom(sockReceive, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);		
 		
-		if (self.listenOSC) [self parseOSC];
+		if (self.listenOSC) {
+			if (mInBufferLength < 0) fprintf(stderr,"%s\n",strerror(errno));
+			[self parseOSC];
+		}
 		else break;
 	}
 }
 
 - (void)closeReceiveSock {
-	
+	[mTimer invalidate];
+	self.listenOSC = NO;
 	close(sockReceive); /* close the socket */
 }
 
@@ -244,5 +255,23 @@ Networking *gNetwork = nil;
 	
 	[self sendOSCMsg:"/thum/hint\0":12];
 }
+
+-(void)checkIncomingMessages
+{
+	if (self.mInterstitialString != nil) {
+		mAlert = [[UIAlertView alloc] initWithTitle:nil 
+											message:self.mInterstitialString 
+										   delegate:self 
+								  cancelButtonTitle:@"Return" 
+								  otherButtonTitles: nil];
+		[mAlert show];
+		[mAlert release];
+		
+		
+		[self.mInterstitialString release];
+		self.mInterstitialString = nil;
+	}
+}
+
 
 @end
