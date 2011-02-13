@@ -149,16 +149,18 @@ Networking *gNetwork = nil;
 			if (mInBufferLength < 0) fprintf(stderr,"%s\n",strerror(errno));
 			[self parseOSC];
 		}
-		else break;
+		else {
+			close(sockIPReceive);
+			break;
+		}
 	}	
-	close(sockIPReceive);
 	self.listenOSC = YES;
 	
 	[mThread release];
 	mThread = [[NSThread alloc] initWithTarget:self 
 									  selector:@selector(receiveUDP) 
 										object:nil];
-	[mThread start];	
+	[mThread start];
 }
 
 
@@ -187,7 +189,10 @@ Networking *gNetwork = nil;
 			if (mInBufferLength < 0) fprintf(stderr,"%s\n",strerror(errno));
 			[self parseOSC];
 		}
-		else break;
+		else {
+			close(sockReceive); 
+			break;
+		}
 	}
 }
 
@@ -196,7 +201,7 @@ Networking *gNetwork = nil;
 	[mTimer invalidate];
 	self.listenOSC = NO;
 	close(sockIPReceive);
-	close(sockReceive); /* close the socket */
+	close(sockReceive); 
 }
 
 - (void)parseOSC
@@ -216,7 +221,7 @@ Networking *gNetwork = nil;
 				NSString* buf_str = [[NSString alloc] initWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
 				if ([buf_str isEqualToString:@"/thum/interstitial"]) add_type = 1;
 				else if (self.mSendIPAddress == 0 && [buf_str isEqualToString:@"/thum/serverIP"]) add_type = 2;
-				else [buf_str release];
+				[buf_str release];
 				break;
 			}
 			case 1: /* OSC Type Tags */
