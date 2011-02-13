@@ -24,9 +24,11 @@
 	ssize_t		mOutBufferLength;
 
 	SInt16		mReceivePortNum;
+	SInt16		mReceiveIPPortNum;
 	
 	int			sockSend;
 	int			sockReceive;
+	int			sockIPReceive;
 
 	NSThread	*mThread;
 	NSString	*mInterstitialString;
@@ -37,16 +39,16 @@
 
 }
 
-@property (assign,readwrite) NSString	*mInterstitialString;
 @property BOOL listenOSC;
 
 - (NSString *)getIPAddress;
+- (void)receiveServerIP;
 
 - (void)sendUDP;
 - (void)receiveUDP;
 - (void)parseOSC;
 
-- (void)closeReceiveSock;
+- (void)quitNetworking;
 
 - (void)sendOSCMsg:(const char*)osc_str:(int)osc_str_length;
 - (void)sendOSCMsgWithIntValue:(const char*)osc_str:(int)osc_str_length:(int)val;

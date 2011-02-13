@@ -23,9 +23,6 @@
 	Networking				*network;
 	
 	NSString				*mLabelText;
-	UIAlertView				*mAlert;
-	NSTimer					*mTimer;
-
 }
 
 @property (nonatomic, assign) id <FlipsideViewControllerDelegate> delegate;
@@ -44,8 +41,6 @@
 
 - (IBAction)networkSwitch:(UISwitch *)sender;
 - (IBAction)hintButton;
-
-- (void)checkIncomingMessages;
 
 @end
 

@@ -8,6 +8,9 @@
 
 #import "ThumbafonAppDelegate.h"
 #import "MainViewController.h"
+#import "Networking.h"
+
+extern Networking *gNetwork;
 
 @implementation ThumbafonAppDelegate
 
@@ -65,7 +68,8 @@
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    /*
+   	if (gNetwork != nil) [gNetwork sendOSCMsg:"/thum/leave\0":12];
+	/*
      Called when the application is about to terminate.
      See also applicationDidEnterBackground:.
      */

@@ -23,19 +23,27 @@
 
 Networking *gNetwork = nil;
 
+@interface Networking ()
+@property (retain,readwrite) NSString	*mInterstitialString;
+@property UInt32 mSendIPAddress;
+@end
+
+
 @implementation Networking
 
-@synthesize mInterstitialString;
 @synthesize listenOSC;
+@synthesize mInterstitialString;
+@synthesize mSendIPAddress;
 
 -(id)init {
 	[super init];
 	
 	gNetwork = self;
 	
-	mSendIPAddress = 0x7F000001; /* IP address: 127.0.0.1 (0xa00010d) */
+	mSendIPAddress = 0; //htonl(0x7F000001); /* local testing IP address: 127.0.0.1 */
 	mSendPortNum = 1337;
 	mReceivePortNum = 31337;
+	mReceiveIPPortNum = 41337;
 	
 	memset(ip_add_buf,0,32);
 	[[self getIPAddress] getCString:ip_add_buf maxLength:32 encoding:NSASCIIStringEncoding];
@@ -43,11 +51,11 @@ Networking *gNetwork = nil;
 	printf("ip_add_buf:%s\n",ip_add_buf);
 
 	mThread = [[NSThread alloc] initWithTarget:self 
-									  selector:@selector(receiveUDP) 
+									  selector:@selector(receiveServerIP) 
 										object:nil];
 	[mThread start];
 	
-	self.listenOSC = YES;
+	self.listenOSC = NO;
 	mTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 
 											  target:self 
 											selector:@selector(checkIncomingMessages) 
@@ -107,7 +115,7 @@ Networking *gNetwork = nil;
 	
 	memset(&sa, 0, sizeof(sa));
 	sa.sin_family = AF_INET;
-	sa.sin_addr.s_addr = htonl(mSendIPAddress);
+	sa.sin_addr.s_addr = mSendIPAddress;
 	sa.sin_port = htons(mSendPortNum);
 	
 	bytes_sent = sendto(sockSend, mOutBuffer, mOutBufferLength, 0,(struct sockaddr*)&sa, sizeof (struct sockaddr_in));
@@ -116,6 +124,44 @@ Networking *gNetwork = nil;
 	
 	close(sockSend); /* close the socket */
 }
+
+- (void)receiveServerIP {
+	
+	sockIPReceive = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
+	struct sockaddr_in sa;
+	socklen_t fromlen;
+	
+	memset(&sa, 0, sizeof(sa));
+	sa.sin_family = AF_INET;
+	sa.sin_addr.s_addr = INADDR_ANY;
+	sa.sin_port = htons(mReceiveIPPortNum);
+	
+	if (-1 == bind(sockIPReceive,(struct sockaddr *)&sa, sizeof(struct sockaddr))) {
+		perror("error bind to 41337 failed");
+		close(sockIPReceive);
+		exit(EXIT_FAILURE);
+	} 
+	
+	for (;;) {		
+		mInBufferLength = recvfrom(sockIPReceive, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);		
+		
+		if (self.mSendIPAddress == 0) {
+			if (mInBufferLength < 0) fprintf(stderr,"%s\n",strerror(errno));
+			[self parseOSC];
+		}
+		else break;
+	}	
+	close(sockIPReceive);
+	self.listenOSC = YES;
+	
+	[mThread release];
+	mThread = [[NSThread alloc] initWithTarget:self 
+									  selector:@selector(receiveUDP) 
+										object:nil];
+	[mThread start];	
+}
+
+
 
 - (void)receiveUDP {
 	
@@ -129,7 +175,7 @@ Networking *gNetwork = nil;
 	sa.sin_port = htons(mReceivePortNum);
 	
 	if (-1 == bind(sockReceive,(struct sockaddr *)&sa, sizeof(struct sockaddr))) {
-		perror("error bind failed");
+		perror("error bind to 31337 failed");
 		close(sockReceive);
 		exit(EXIT_FAILURE);
 	} 
@@ -145,20 +191,22 @@ Networking *gNetwork = nil;
 	}
 }
 
-- (void)closeReceiveSock {
+- (void)quitNetworking {
+	[self sendOSCMsg:"/thum/leave\0":12];
 	[mTimer invalidate];
 	self.listenOSC = NO;
+	close(sockIPReceive);
 	close(sockReceive); /* close the socket */
 }
 
 - (void)parseOSC
 {
-	printf("mInBufferLength: %ld\n",mInBufferLength);
+	//NSLog(@"mInBufferLength: %ld\n",mInBufferLength);
 	
 	ssize_t pos = 0;
 	int msg_type = 0;
 	int add_type = 0;
-
+	
 	while (pos < mInBufferLength)
 	{
 		switch (msg_type)
@@ -167,7 +215,8 @@ Networking *gNetwork = nil;
 			{
 				NSString* buf_str = [[NSString alloc] initWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
 				if ([buf_str isEqualToString:@"/thum/interstitial"]) add_type = 1;
-				[buf_str release];
+				else if (self.mSendIPAddress == 0 && [buf_str isEqualToString:@"/thum/serverIP"]) add_type = 2;
+				else [buf_str release];
 				break;
 			}
 			case 1: /* OSC Type Tags */
@@ -180,24 +229,26 @@ Networking *gNetwork = nil;
 				switch (add_type)
 				{
 					case 1:
-						mInterstitialString = [[NSString alloc] initWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
+						self.mInterstitialString = [[NSString alloc] initWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
 						break;
+					case 2: {
+						self.mSendIPAddress = inet_addr(mInBuffer+pos);
+						[self sendOSCMsg:"/thum/join\0\0":12];
+						break;
+					}
 				}
 				break;
 			}
 			default:
 				break;
 		}
-		
 		const char* msg_type_str = "";
-		switch (msg_type)
-		{
+		switch (msg_type) {
 			case 0: msg_type_str = "OSC Address Pattern"; msg_type = 1; break;
 			case 1: msg_type_str = "OSC Type Tags"; msg_type = 2; break;
 			default: msg_type_str = "OSC Data"; break;
 		}
-		
-		printf("%s: %s\n",msg_type_str,mInBuffer+pos);
+		//printf("%s: %s\n",msg_type_str,mInBuffer+pos);
 		
 		pos += ((strlen(mInBuffer+pos) / 4) + 1) * 4;
 	}
@@ -254,6 +305,7 @@ Networking *gNetwork = nil;
 -(void)requestHint {
 	
 	[self sendOSCMsg:"/thum/hint\0":12];
+	//NSLog(@"mThread isExecuting = %@", ([mThread isExecuting] ? @"YES" : @"NO"));
 }
 
 -(void)checkIncomingMessages

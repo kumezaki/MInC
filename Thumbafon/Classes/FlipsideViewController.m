@@ -112,12 +112,12 @@
 
 - (IBAction)networkSwitch:(UISwitch *)sender {
 
-	if (sender.on) && network == nil) {
+	if (sender.on && network == nil) {
 		network = [[Networking alloc] init];
 	}
 	
-	else if (!sender.on) && network != nil) {
-		[network closeReceiveSock];
+	else if (!sender.on && network != nil) {
+		[network quitNetworking];
 		[network release];
 		network = nil;
 	}
@@ -126,11 +126,11 @@
 - (IBAction)hintButton {
 
 	if (network == nil) {
-		mAlert = [[UIAlertView alloc] initWithTitle:@"Hint Window" 
+		UIAlertView *mAlert = [[UIAlertView alloc] initWithTitle:@"Hint Window" 
 										   message:@"During a networked performance, use the HINTS button to see messages from the artist." 
 										  delegate:self 
 								 cancelButtonTitle:@"Return" 
-								 otherButtonTitles: nil];
+								 otherButtonTitles:nil];
 		[mAlert show];
 		[mAlert release];
 	}
