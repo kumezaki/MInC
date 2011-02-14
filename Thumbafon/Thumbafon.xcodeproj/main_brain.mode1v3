@@ -337,7 +337,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>B4A38EF713087442004B6FCE</string>
+										<string>B4180FF2130924DD002FE37E</string>
 										<key>history</key>
 										<array>
 											<string>B465403A127E72B000DA1F26</string>
@@ -393,7 +393,7 @@
 											<string>B490366E1307F40C008372FD</string>
 											<string>B4A38ED613086EA4004B6FCE</string>
 											<string>B4A38ED713086EA4004B6FCE</string>
-											<string>B4A38ED813086EA4004B6FCE</string>
+											<string>B439FF181308937B0015F04F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -405,14 +405,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1153, 623}}</string>
+								<string>{{0, 0}, {1153, 615}}</string>
 								<key>RubberWindowFrame</key>
 								<string>1 59 1428 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>623pt</string>
+							<string>615pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -425,14 +425,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 628}, {1153, 150}}</string>
+								<string>{{0, 620}, {1153, 158}}</string>
 								<key>RubberWindowFrame</key>
 								<string>1 59 1428 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>150pt</string>
+							<string>158pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -451,9 +451,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>B4A38E9D130861BE004B6FCE</string>
+				<string>B4180FE013091485002FE37E</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>B4A38E9E130861BE004B6FCE</string>
+				<string>B4180FE113091485002FE37E</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -591,11 +591,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>B4A38ECA13086B2B004B6FCE</string>
-		<string>B4A38ECB13086B2B004B6FCE</string>
+		<string>B4180FED1309241F002FE37E</string>
+		<string>B4180FEF1309241F002FE37E</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>B4290FEC127D01C2009192CD</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/main_brain/minc_unfuddl/Thumbafon/Thumbafon.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -676,7 +676,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>B4290FEC127D01C2009192CD</string>
-				<string>B4A38E9F130861BE004B6FCE</string>
+				<string>B4180FE213091485002FE37E</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -798,13 +798,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>B4A38EA0130861BE004B6FCE</string>
+				<string>B4180FE313091485002FE37E</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>B4A38EA1130861BE004B6FCE</string>
-				<string>B4A38EA2130861BE004B6FCE</string>
-				<string>B4A38EA3130861BE004B6FCE</string>
-				<string>B4A38EA4130861BE004B6FCE</string>
-				<string>B4A38EA5130861BE004B6FCE</string>
+				<string>B4180FE413091485002FE37E</string>
+				<string>B4180FE513091485002FE37E</string>
+				<string>B4180FE613091485002FE37E</string>
+				<string>B4180FE713091485002FE37E</string>
+				<string>B4180FE813091485002FE37E</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -923,8 +923,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -960,7 +958,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>B4A38EC813086B2B004B6FCE</string>
+				<string>B4180FEC1309241F002FE37E</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -970,7 +968,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

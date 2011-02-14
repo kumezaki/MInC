@@ -155,7 +155,7 @@ Networking *gNetwork = nil;
 		}
 		else break;
 	}
-
+\
 	close(sockIPReceive);
 	self.listenUDP = YES;
 	if (mSendIPAddress != 0) [self receiveUDP];

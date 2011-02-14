@@ -8,9 +8,10 @@ var player_array = [];
 function loadbang() {
     
     messnamed("thum_msg_1","voices",gNumVoices);
+
 }
 
-function osc() {
+function parse() {
 	
 	var client_ip = arguments[1];
 	if (arguments[0] == "/thum/butt") {
