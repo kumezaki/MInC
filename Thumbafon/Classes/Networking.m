@@ -154,7 +154,6 @@ Networking *gNetwork = nil;
 }
 
 
-
 - (void)receiveUDP {
 	
 	sockReceive = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
@@ -172,7 +171,9 @@ Networking *gNetwork = nil;
 		exit(EXIT_FAILURE);
 	} 
 	
-	for (;;) {		
+	for (;;) {
+		/*** KU:I think there is an infinite loop in the following, so the if (self.listenUDP) conditional ***/
+		/*** won't be called until recvfrom gets something.                                                ***/
 		mInBufferLength = recvfrom(sockReceive, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);		
 		if (self.listenUDP) {
 			//NSLog(@"receiveUDP is running");
@@ -183,7 +184,7 @@ Networking *gNetwork = nil;
 		}
 	
 	close(sockReceive);
-	[mThread cancel];
+	[mThread cancel];	/*** KU: I don't the thread should be canceled here.  In any case it will automatically cancel when this method exits. ***/
 }
 
 - (void)parseOSC
