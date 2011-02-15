@@ -12,6 +12,7 @@
 @implementation VoiceSynth
 
 @synthesize mFreq;
+@synthesize mVoiceReg;
 
 + (Float64) noteNumToFreq:(UInt8)noteNum {
 	return pow(2., (Float64)(noteNum - 69) / 12.) * 440.;

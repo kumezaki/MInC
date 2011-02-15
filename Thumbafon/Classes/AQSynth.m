@@ -11,14 +11,23 @@
 #import "Mode.h"
 #import "VoiceSynth.h"
 #import "freeverb.h"
+#import "Networking.h"
+
+extern Networking *gNetwork;
 
 @implementation AQSynth
 
 @synthesize currentMode;
+@synthesize noteOffset;
 
-- (void)setMode:(UInt8)val {
-	currentMode = val;
-	for (UInt8 i = 0; i < kNumberVoices; i++) ((VoiceSynth*)voice[i]).mFreq = [mode[currentMode] getNoteFreq:i];
+- (void)setMode {
+
+	for (UInt8 i = 0; i < kNumberVoices; i++) {
+		((VoiceSynth*)voice[i]).mFreq = 
+					[VoiceSynth noteNumToFreq:[mode[self.currentMode] getNoteNum:i] 
+								+ noteOffset 
+											+ ((VoiceSynth*)voice[i]).mVoiceReg];
+	}
 }
 
 - (id)init {
@@ -44,7 +53,10 @@
 	Reverb_SetWet(0,0.5);
 	Reverb_SetDry(0,0.5);
 	
-	[self setMode:0];
+	noteOffset = 0; //0 set's to default C4
+	self.currentMode = 0;
+	[self setMode];
+
 	return self;
 }	
 

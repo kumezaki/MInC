@@ -80,12 +80,30 @@
 
 
 - (IBAction)changeMode:(UIButton *)sender {
-	if ([sender.titleLabel.text isEqual:@"Dorian"]) [(AQSynth*)mAQPlayer setMode:1];
-	else if ([sender.titleLabel.text isEqual:@"Phrygian"]) [(AQSynth*)mAQPlayer setMode:2];
-	else if ([sender.titleLabel.text isEqual:@"Lydian"]) [(AQSynth*)mAQPlayer setMode:3];
-	else if ([sender.titleLabel.text isEqual:@"Mixolydian"]) [(AQSynth*)mAQPlayer setMode:4];
-	else if ([sender.titleLabel.text isEqual:@"Aeolean"]) [(AQSynth*)mAQPlayer setMode:5];
-	else [(AQSynth*)mAQPlayer setMode:0];
+	if ([sender.titleLabel.text isEqual:@"Dorian"]) {
+		((AQSynth*)mAQPlayer).currentMode = 1;
+		[(AQSynth*)mAQPlayer setMode];
+	}
+	else if ([sender.titleLabel.text isEqual:@"Phrygian"]) {
+		((AQSynth*)mAQPlayer).currentMode = 2;
+		[(AQSynth*)mAQPlayer setMode];
+	}
+	else if ([sender.titleLabel.text isEqual:@"Lydian"]) {
+		((AQSynth*)mAQPlayer).currentMode = 3;
+		[(AQSynth*)mAQPlayer setMode];
+	}
+	else if ([sender.titleLabel.text isEqual:@"Mixolydian"]) {
+		((AQSynth*)mAQPlayer).currentMode = 4;
+		[(AQSynth*)mAQPlayer setMode];
+	}
+	else if ([sender.titleLabel.text isEqual:@"Aeolean"]) {
+		((AQSynth*)mAQPlayer).currentMode = 5;
+		[(AQSynth*)mAQPlayer setMode];
+	}
+	else {
+		((AQSynth*)mAQPlayer).currentMode = 0;
+		[(AQSynth*)mAQPlayer setMode];
+	}
 	
 	[self changeFlipModeLabel];
 }
@@ -114,6 +132,7 @@
 
 	if (sender.on && network == nil) {
 		network = [[Networking alloc] init];
+		network.mAQPlayer = mAQPlayer;
 	}
 	
 	else if (!sender.on && network != nil) {

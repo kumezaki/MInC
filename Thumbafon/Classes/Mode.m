@@ -12,14 +12,14 @@
 
 @implementation Mode
 
--(void) assignMode:(Float64*)notes {
+-(void) assignMode:(UInt8*)notes {
 	
-	for (UInt8 i = 0; i < kNumberVoices; i++) modeFreq[i] = [VoiceSynth noteNumToFreq:notes[i]];
+	for (UInt8 i = 0; i < kNumberVoices; i++) modeNote[i] = notes[i];
 }
 
--(Float64) getNoteFreq:(UInt8)val {
+-(UInt8) getNoteNum:(UInt8)val {
 	
-	return modeFreq[val];	
+	return modeNote[val];	
 }
 
 @end

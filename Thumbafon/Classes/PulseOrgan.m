@@ -30,6 +30,8 @@
 	mRelease = kSR * 0.05;
 	mSustain = 1.0;
 	
+	self.mVoiceReg = 0;
+
 	return self;
 }
 

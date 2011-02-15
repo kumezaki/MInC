@@ -84,8 +84,14 @@
 }
 
 - (void)changeMode {	
-	if (((AQSynth*)mAQPlayer).currentMode == 5) [(AQSynth*)mAQPlayer setMode:0];
-	else [(AQSynth*)mAQPlayer setMode:((AQSynth*)mAQPlayer).currentMode + 1];
+	if (((AQSynth*)mAQPlayer).currentMode == 5) {
+		((AQSynth*)mAQPlayer).currentMode = 0;
+		[(AQSynth*)mAQPlayer setMode];
+	}
+	else {
+		((AQSynth*)mAQPlayer).currentMode = ((AQSynth*)mAQPlayer).currentMode + 1;
+		[(AQSynth*)mAQPlayer setMode];
+	}
 	[self setModeLabel];
 }
 

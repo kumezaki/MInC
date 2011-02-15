@@ -16,17 +16,18 @@
 	Float64		theta;
 	Float64		deltaTheta;
 	UInt8		currentMode;
+	SInt8		noteOffset;
 	
 	Mode		*mode[kNumberModes];
 	Voice		*voice[kNumberVoices];
 	
-	
 }
 @property UInt8 currentMode;
+@property SInt8	noteOffset;
 
 - (void)startVoice:(UInt8)note_pos;
 - (void)stopVoice:(UInt8)note_pos;
-- (void)setMode:(UInt8)val;
+- (void)setMode;
 
 
 @end

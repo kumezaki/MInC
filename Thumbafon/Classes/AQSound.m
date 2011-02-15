@@ -9,9 +9,12 @@
 #import "AQSound.h"
 #import "SinePiano.h"
 #import "PulseOrgan.h"
-#import "SquarePad.h"
+#import "SquareStrings.h"
 #import "SawBrass.h"
 #import "TriangleFlute.h"
+#import "Networking.h"
+
+extern Networking *gNetwork;
 
 @implementation AQSound
 @synthesize soundType;
@@ -25,7 +28,8 @@
     }
 	
 	self.soundType = @"Organ";
-	[self setMode:0];
+	self.currentMode = 0;
+	[self setMode];
 	return self;
 }
 
@@ -39,41 +43,45 @@
 	soundType = sound_type;
 	
 	if ([soundType isEqual:@"Organ"]) {
-		for (UInt8 i = 0; i < kNumberVoices; i++)
-		{
+		
+		for (UInt8 i = 0; i < kNumberVoices; i++) {
 			if (voice[i] != nil) [voice[i] release];
 			voice[i] = [[PulseOrgan alloc] init];
 		}
 	}
+	
 	else if ([soundType isEqual:@"Brass"]) {
-		for (UInt8 i = 0; i < kNumberVoices; i++)
-		{
+		
+		for (UInt8 i = 0; i < kNumberVoices; i++) {
 			if (voice[i] != nil) [voice[i] release];
 			voice[i] = [[SawBrass alloc] init];
 		}
 	}
-	else if ([soundType isEqual:@"Pad"]) {
-		for (UInt8 i = 0; i < kNumberVoices; i++)
-		{
+	
+	else if ([soundType isEqual:@"Strings"]) {
+		
+		for (UInt8 i = 0; i < kNumberVoices; i++) {
 			if (voice[i] != nil) [voice[i] release];
-			voice[i] = [[SquarePad alloc] init];
-		}
+			voice[i] = [[SquareStrings alloc] init];
+		}	
 	}
+	
 	else if ([soundType isEqual:@"Flute"]) {
-		for (UInt8 i = 0; i < kNumberVoices; i++)
-		{
+		
+		for (UInt8 i = 0; i < kNumberVoices; i++) {
 			if (voice[i] != nil) [voice[i] release];
 			voice[i] = [[TriangleFlute alloc] init];
 		}
 	}
+	
 	else {
-		for (UInt8 i = 0; i < kNumberVoices; i++)
-		{
+		
+		for (UInt8 i = 0; i < kNumberVoices; i++) {
 			if (voice[i] != nil) [voice[i] release];
 			voice[i] = [[SinePiano alloc] init];
 		}
 	}
-	[self setMode:currentMode];
+	[self setMode];
 }
 
 @end

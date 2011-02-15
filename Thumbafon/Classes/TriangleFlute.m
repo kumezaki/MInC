@@ -20,7 +20,7 @@
 		mTheta = (Float64)i / kAudioDataByteSize;
 		mTable[i] = 0;
 		
-		for (UInt8 j = 1; j <= 11; j += 2) {
+		for (UInt8 j = 1; j <= 7; j += 2) {
 			mTable[i] += sin(j * mTheta * 2. * M_PI) * MAX_AMP / (j * j);
 		}
 	}		
@@ -30,6 +30,8 @@
 	mRelease = kSR * 0.05;
 	mSustain = 1.0;
 	
+	self.mVoiceReg = 12;
+
 	return self;
 }
 

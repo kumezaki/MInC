@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class AQPlayer;
 
 @interface Networking : NSObject {
 	
@@ -32,13 +33,20 @@
 
 	NSThread	*mThread;
 	NSString	*mInterstitialString;
+	NSString	*mOffsetMsg;
 	UIAlertView	*mAlert;
 	NSTimer		*mTimer;
 	
 	BOOL		listenUDP;
 	BOOL		listenIP;
-
+	
+	AQPlayer	*mAQPlayer;
+	SInt16		mCurrentNetoworkOffset;
+	BOOL		mGroupOffsetMode;
 }
+@property (readwrite, retain) AQPlayer	*mAQPlayer;
+@property SInt16 mCurrentNetworkOffset;
+@property BOOL mGroupOffsetMode;
 
 - (NSString *)getIPAddress;
 - (void)receiveServerIP;
@@ -56,6 +64,6 @@
 - (void)buttonpress:(NSString *)button;
 - (void)buttonrelease:(NSString *)button;
 - (void)requestHint;
-
+- (void)setAQSynthOffset:(SInt16)Offset;
 
 @end

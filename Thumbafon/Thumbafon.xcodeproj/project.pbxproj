@@ -50,7 +50,7 @@
 		B4CF630312FCDA3700AA82BB /* SawBrass.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CF630212FCDA3700AA82BB /* SawBrass.m */; };
 		B4CF630812FCDA5600AA82BB /* SinePiano.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CF630712FCDA5600AA82BB /* SinePiano.m */; };
 		B4CF630C12FCDC8E00AA82BB /* PulseOrgan.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CF630B12FCDC8E00AA82BB /* PulseOrgan.m */; };
-		B4CF630F12FCDCA100AA82BB /* SquarePad.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CF630E12FCDCA100AA82BB /* SquarePad.m */; };
+		B4CF630F12FCDCA100AA82BB /* SquareStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CF630E12FCDCA100AA82BB /* SquareStrings.m */; };
 		B4CF631212FCDCB600AA82BB /* TriangleFlute.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CF631112FCDCB600AA82BB /* TriangleFlute.m */; };
 		B4CF64E312FCF68500AA82BB /* allpass.c in Sources */ = {isa = PBXBuildFile; fileRef = B4CF64D912FCF68500AA82BB /* allpass.c */; };
 		B4CF64E412FCF68500AA82BB /* comb.c in Sources */ = {isa = PBXBuildFile; fileRef = B4CF64DB12FCF68500AA82BB /* comb.c */; };
@@ -121,8 +121,8 @@
 		B4CF630712FCDA5600AA82BB /* SinePiano.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SinePiano.m; path = Classes/SinePiano.m; sourceTree = "<group>"; };
 		B4CF630A12FCDC8E00AA82BB /* PulseOrgan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PulseOrgan.h; path = Classes/PulseOrgan.h; sourceTree = "<group>"; };
 		B4CF630B12FCDC8E00AA82BB /* PulseOrgan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PulseOrgan.m; path = Classes/PulseOrgan.m; sourceTree = "<group>"; };
-		B4CF630D12FCDCA100AA82BB /* SquarePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SquarePad.h; path = Classes/SquarePad.h; sourceTree = "<group>"; };
-		B4CF630E12FCDCA100AA82BB /* SquarePad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SquarePad.m; path = Classes/SquarePad.m; sourceTree = "<group>"; };
+		B4CF630D12FCDCA100AA82BB /* SquareStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SquareStrings.h; path = Classes/SquareStrings.h; sourceTree = "<group>"; };
+		B4CF630E12FCDCA100AA82BB /* SquareStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SquareStrings.m; path = Classes/SquareStrings.m; sourceTree = "<group>"; };
 		B4CF631012FCDCB600AA82BB /* TriangleFlute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TriangleFlute.h; path = Classes/TriangleFlute.h; sourceTree = "<group>"; };
 		B4CF631112FCDCB600AA82BB /* TriangleFlute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TriangleFlute.m; path = Classes/TriangleFlute.m; sourceTree = "<group>"; };
 		B4CF64D912FCF68500AA82BB /* allpass.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = allpass.c; sourceTree = "<group>"; };
@@ -288,8 +288,8 @@
 				B4CF630212FCDA3700AA82BB /* SawBrass.m */,
 				B4CF630A12FCDC8E00AA82BB /* PulseOrgan.h */,
 				B4CF630B12FCDC8E00AA82BB /* PulseOrgan.m */,
-				B4CF630D12FCDCA100AA82BB /* SquarePad.h */,
-				B4CF630E12FCDCA100AA82BB /* SquarePad.m */,
+				B4CF630D12FCDCA100AA82BB /* SquareStrings.h */,
+				B4CF630E12FCDCA100AA82BB /* SquareStrings.m */,
 				B4CF631012FCDCB600AA82BB /* TriangleFlute.h */,
 				B4CF631112FCDCB600AA82BB /* TriangleFlute.m */,
 			);
@@ -435,7 +435,7 @@
 				B4CF630312FCDA3700AA82BB /* SawBrass.m in Sources */,
 				B4CF630812FCDA5600AA82BB /* SinePiano.m in Sources */,
 				B4CF630C12FCDC8E00AA82BB /* PulseOrgan.m in Sources */,
-				B4CF630F12FCDCA100AA82BB /* SquarePad.m in Sources */,
+				B4CF630F12FCDCA100AA82BB /* SquareStrings.m in Sources */,
 				B4CF631212FCDCB600AA82BB /* TriangleFlute.m in Sources */,
 				B4CF64E312FCF68500AA82BB /* allpass.c in Sources */,
 				B4CF64E412FCF68500AA82BB /* comb.c in Sources */,

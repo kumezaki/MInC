@@ -1,5 +1,5 @@
 //
-//  SquarePad.h
+//  SquareStrings.h
 //  Thumbafon
 //
 //  Created by Chris Lavender on 2/4/11.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "VoiceSynth.h"
 
-@interface SquarePad : VoiceSynth {
+@interface SquareStrings : VoiceSynth {
 }
 
 @end

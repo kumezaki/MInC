@@ -7,6 +7,7 @@
 //
 
 #import "Networking.h"
+#import "AQSynth.h"
 
 #include <sys/socket.h>
 #include <sys/types.h>
@@ -25,6 +26,7 @@ Networking *gNetwork = nil;
 
 @interface Networking ()
 @property (assign,readwrite) NSString	*mInterstitialString;
+@property (assign,readwrite) NSString	*mOffsetMsg;
 @property UInt32 mSendIPAddress;
 @property BOOL listenUDP;
 @property BOOL listenIP;
@@ -36,7 +38,16 @@ Networking *gNetwork = nil;
 @synthesize listenUDP;
 @synthesize listenIP;
 @synthesize mInterstitialString;
+@synthesize mOffsetMsg;
 @synthesize mSendIPAddress;
+
+//*** available for outside access ***///
+@synthesize mAQPlayer;
+@synthesize mCurrentNetworkOffset;
+@synthesize mGroupOffsetMode;
+
+#pragma mark -
+#pragma mark init / dealloc
 
 -(id)init {
 	[super init];
@@ -53,6 +64,7 @@ Networking *gNetwork = nil;
 	ip_add_size = (strlen(ip_add_buf) / 4 + 1) * 4;
 	printf("ip_add_buf:%s\n",ip_add_buf);
 	
+	mGroupOffsetMode = NO;
 	listenIP = YES;
 	listenUDP = NO;
 	mThread = [[NSThread alloc] initWithTarget:self 
@@ -60,18 +72,12 @@ Networking *gNetwork = nil;
 										object:nil];
 	[mThread start];
 	
-	mTimer = [NSTimer scheduledTimerWithTimeInterval:0.25 
+	mTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 
 											  target:self 
 											selector:@selector(checkIncomingMessages) 
 											userInfo:nil 
 											 repeats:YES];
 	return self;
-}
-
-- (void)dealloc {
-	[mThread release];
-	gNetwork = nil;
-	[super dealloc];
 }
 
 - (NSString *)getIPAddress {
@@ -105,29 +111,15 @@ Networking *gNetwork = nil;
 	return address;
 }
 
--(void)sendUDP {
-	
-	struct sockaddr_in sa;
-	int bytes_sent;
-	
-	sockSend = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
-	if (-1 == sockSend) /* if socket failed to initialize, exit */ {
-		
-		fprintf(stderr,"Error creating socket: %s\n",strerror(errno));
-		exit(EXIT_FAILURE);
-    }
-	
-	memset(&sa, 0, sizeof(sa));
-	sa.sin_family = AF_INET;
-	sa.sin_addr.s_addr = mSendIPAddress;
-	sa.sin_port = htons(mSendPortNum);
-	
-	bytes_sent = sendto(sockSend, mOutBuffer, mOutBufferLength, 0,(struct sockaddr*)&sa, sizeof (struct sockaddr_in));
-	if (bytes_sent < 0)
-		fprintf(stderr,"Error sending packet: %s\n",strerror(errno));
-	
-	close(sockSend); /* close the socket */
+- (void)dealloc {
+	[mThread release];
+	[mAQPlayer release];
+	gNetwork = nil;
+	[super dealloc];
 }
+
+#pragma mark -
+#pragma mark receive methods on 2nd thread
 
 - (void)receiveServerIP {
 	
@@ -149,13 +141,13 @@ Networking *gNetwork = nil;
 	for (;;) {		
 		mInBufferLength = recvfrom(sockIPReceive, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);		
 		if (self.listenIP) {
-			NSLog(@"receiveServerIP is running");
+			//NSLog(@"receiveServerIP is running");
 			if (mInBufferLength < 0) fprintf(stderr,"%s\n",strerror(errno));
 			[self parseOSC];
 		}
 		else break;
 	}
-\
+
 	close(sockIPReceive);
 	self.listenUDP = YES;
 	if (mSendIPAddress != 0) [self receiveUDP];
@@ -183,7 +175,7 @@ Networking *gNetwork = nil;
 	for (;;) {		
 		mInBufferLength = recvfrom(sockReceive, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);		
 		if (self.listenUDP) {
-			NSLog(@"receiveUDP is running");
+			//NSLog(@"receiveUDP is running");
 			if (mInBufferLength < 0) fprintf(stderr,"%s\n",strerror(errno));
 			[self parseOSC];
 		}
@@ -194,18 +186,9 @@ Networking *gNetwork = nil;
 	[mThread cancel];
 }
 
-- (void)quitNetworking {
-	self.listenIP = NO;
-	self.listenUDP = NO;
-	close(sockIPReceive);
-	close(sockReceive); 
-	[self sendOSCMsg:"/thum/leave\0":12];
-	[mTimer invalidate];
-}
-
 - (void)parseOSC
 {
-	NSLog(@"mInBufferLength: %ld\n",mInBufferLength);
+	//NSLog(@"mInBufferLength: %ld\n",mInBufferLength);
 	
 	ssize_t pos = 0;
 	int msg_type = 0;
@@ -220,7 +203,9 @@ Networking *gNetwork = nil;
 				NSString *buf_str = [[NSString alloc] initWithCString:mInBuffer+pos 
 															 encoding:NSASCIIStringEncoding];
 				if ([buf_str isEqualToString:@"/thum/interstitial"]) add_type = 1;
-				else if (self.mSendIPAddress == 0 && [buf_str isEqualToString:@"/thum/serverIP"]) add_type = 2;
+				else if (self.mSendIPAddress == 0 && [buf_str isEqualToString:@"/thum/serverip"]) add_type = 2;
+				else if ([buf_str isEqualToString:@"/thum/keyoffset"]) add_type = 3;
+				else if ([buf_str isEqualToString:@"/thum/keyoffset/group"]) add_type = 4;
 				[buf_str release];
 				break;
 			}
@@ -244,6 +229,19 @@ Networking *gNetwork = nil;
 						self.listenIP = NO;
 						break;
 					}
+					case 3: {
+						self.mOffsetMsg = [[NSString alloc] initWithCString:mInBuffer+pos 
+																   encoding:NSASCIIStringEncoding];
+						break;
+					}
+					case 4: {
+						NSString *toggle = [[NSString alloc] initWithCString:mInBuffer+pos 
+																	encoding:NSASCIIStringEncoding];
+						if ([toggle isEqualToString:@"1"]) { self.mGroupOffsetMode = YES; NSLog(@"successYES!"); }
+						else if ([toggle isEqualToString:@"0"]) { self.mGroupOffsetMode = NO; NSLog(@"successNO!"); }
+						[toggle release];
+						break;
+					}
 				}
 				break;
 			}
@@ -260,6 +258,67 @@ Networking *gNetwork = nil;
 		
 		pos += ((strlen(mInBuffer+pos) / 4) + 1) * 4;
 	}
+}
+
+#pragma mark -
+#pragma mark receive related on main thread
+
+- (void)quitNetworking {
+	self.listenIP = NO;
+	self.listenUDP = NO;
+	close(sockIPReceive);
+	close(sockReceive); 
+	[self sendOSCMsg:"/thum/leave\0":12];
+	[mTimer invalidate];
+}
+
+-(void)checkIncomingMessages
+{
+	if (self.mGroupOffsetMode == YES && self.mOffsetMsg != nil) {
+		[self setAQSynthOffset:[mOffsetMsg intValue]];
+		[self.mOffsetMsg release];
+		self.mOffsetMsg = nil;
+	}
+	if (self.mInterstitialString != nil) {
+		mAlert = [[UIAlertView alloc] initWithTitle:nil 
+											message:self.mInterstitialString 
+										   delegate:self 
+								  cancelButtonTitle:@"Return" 
+								  otherButtonTitles: nil];
+		[mAlert show];
+		[mAlert release];
+		
+		
+		[self.mInterstitialString release];
+		self.mInterstitialString = nil;
+	}
+}
+
+#pragma mark -
+#pragma mark sendUDP
+
+-(void)sendUDP {
+	
+	struct sockaddr_in sa;
+	int bytes_sent;
+	
+	sockSend = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
+	if (-1 == sockSend) /* if socket failed to initialize, exit */ {
+		
+		fprintf(stderr,"Error creating socket: %s\n",strerror(errno));
+		exit(EXIT_FAILURE);
+    }
+	
+	memset(&sa, 0, sizeof(sa));
+	sa.sin_family = AF_INET;
+	sa.sin_addr.s_addr = mSendIPAddress;
+	sa.sin_port = htons(mSendPortNum);
+	
+	bytes_sent = sendto(sockSend, mOutBuffer, mOutBufferLength, 0,(struct sockaddr*)&sa, sizeof (struct sockaddr_in));
+	if (bytes_sent < 0)
+		fprintf(stderr,"Error sending packet: %s\n",strerror(errno));
+	
+	close(sockSend); /* close the socket */
 }
 
 -(void)sendOSCMsg:(const char*)osc_str:(int)osc_str_length {
@@ -298,6 +357,9 @@ Networking *gNetwork = nil;
 	OSC_END
 }
 
+#pragma mark -
+#pragma mark device actions to/from
+
 - (void)buttonpress:(NSString *)button {
 	
 	UInt8 buttonNum = [button intValue];
@@ -310,28 +372,16 @@ Networking *gNetwork = nil;
 	[self sendOSCMsgWith2IntValues:"/thum/butt\0\0":12:buttonNum:0];
 }
 
--(void)requestHint {
+- (void)requestHint {
 	
 	[self sendOSCMsg:"/thum/hint\0":12];
 	//NSLog(@"mThread isExecuting = %@", ([mThread isExecuting] ? @"YES" : @"NO"));
 }
 
--(void)checkIncomingMessages
-{
-	if (self.mInterstitialString != nil) {
-		mAlert = [[UIAlertView alloc] initWithTitle:nil 
-											message:self.mInterstitialString 
-										   delegate:self 
-								  cancelButtonTitle:@"Return" 
-								  otherButtonTitles: nil];
-		[mAlert show];
-		[mAlert release];
-		
-		
-		[self.mInterstitialString release];
-		self.mInterstitialString = nil;
-	}
+- (void)setAQSynthOffset:(SInt16)offset {
+	self.mCurrentNetworkOffset = offset;
+	NSLog(@"offset:%i",self.mCurrentNetworkOffset);
+	((AQSynth *)mAQPlayer).noteOffset = self.mCurrentNetworkOffset;
+	[(AQSynth *)mAQPlayer setMode];
 }
-
-
 @end

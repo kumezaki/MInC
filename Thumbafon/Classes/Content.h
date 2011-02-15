@@ -6,30 +6,27 @@
 //  Copyright 2010 Gnarly Dog Music. All rights reserved.
 //
 
-Float64 pitchSet01[kNumberVoices] = {
-	65,67,69,72,74,77,79,81 //F Ionian
-	//76,78,80,83,85,88,90,92 //E Ionian
+UInt8 pitchSet01[kNumberVoices] = {
+	60,62,64,67,69,71,72,74 //C Ionian (no 4th)
 };
 
-Float64 pitchSet02[kNumberVoices] = {
-	67,69,70,74,76,79,81,82 //g dorian
-	//78,80,81,85,87,90,92,93 //f# dorian
+UInt8 pitchSet02[kNumberVoices] = {
+	72,64,65,69,71,72,74,76 //d dorian (no 4th)
 };
 
-Float64 pitchSet03[kNumberVoices] = {
-	69,70,74,76,77,81,82,86 //a phrygian
-	//80,81,85,87,88,92,93,97 //g# phrygian
+UInt8 pitchSet03[kNumberVoices] = {
+	64,65,67,71,72,74,76,77 //e phrygian (no 4th)
 };
 
-Float64 pitchSet04[kNumberVoices] = {
-	70,72,74,76,77,79,82,84 //Bb Lydian
+UInt8 pitchSet04[kNumberVoices] = {
+	65,69,71,72,74,76,77,79 //F Lydian (no 9th in lower portion)
 
 };
 
-Float64 pitchSet05[kNumberVoices] = {
-	72,76,77,79,82,84,88,89 //C Mixolydian
+UInt8 pitchSet05[kNumberVoices] = {
+	67,71,72,74,76,77,79,81 //G Mixolydian (no 9th in lower portion)
 };
 
-Float64 pitchSet06[kNumberVoices] = {
-	74,77,79,81,84,86,89,91 //d aolean
+UInt8 pitchSet06[kNumberVoices] = {
+	69,72,74,76,77,79,81,83 //a aolean (no 9th in lower portion)
 };

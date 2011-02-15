@@ -11,13 +11,11 @@
 #import "AQPlayer.h"
 
 @interface Mode : NSObject {
-	
-	Float64 modeFreq[kNumberVoices];
-	UInt16 mNumNotes;
-	
+
+	UInt8 modeNote[kNumberVoices];	
 }
 
-- (void) assignMode:(Float64*)notes; //pulls note numbers from Content and sets Freq data in array
-- (Float64) getNoteFreq:(UInt8)val; //pulls Freq data from array
+- (void)assignMode:(UInt8*)notes; //pulls note numbers from Content and sets Freq data in array
+- (UInt8)getNoteNum:(UInt8)val; //pulls Freq data from array
 
 @end
