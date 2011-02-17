@@ -11,6 +11,7 @@
 #import "ButtonViewController.h"
 #import "AQSound.h"
 #import "Networking.h"
+#import "MessageViewController.h"
 
 extern Networking *gNetwork;
 
@@ -36,7 +37,7 @@ extern Networking *gNetwork;
     StatusBarStyle = [[UIApplication sharedApplication] statusBarStyle];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 	
-	if (gNetwork.mMainView == nil) {
+	if (gNetwork !=nil && gNetwork.mMainView == nil) {
 		gNetwork.mMainView = self;
 	}
 	
@@ -93,7 +94,7 @@ extern Networking *gNetwork;
 	
 	self.soundLabel=nil;
 	self.modeLabel=nil;
-	if (mMsgLabel != nil) [mMsgLabel release];
+	if (messageView != nil) [messageView release];
 	[buttonView release];
 	[mAQPlayer release];
 	[controller release];
@@ -115,7 +116,9 @@ extern Networking *gNetwork;
 
 - (IBAction)setModeLabel {	
 	
-	//if (mMsgLabel != nil) [mMsgLabel release];
+	if (messageView != nil) {
+		[messageView removeFromSuperview];
+	}
 	
 	int j = ((AQSynth*)mAQPlayer).currentMode;
 	switch (j) {
@@ -131,18 +134,13 @@ extern Networking *gNetwork;
 }
 
 - (IBAction)setMsgLabel {
-	/*
-	mMsgLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 420, 30)];
-	mMsgLabel.backgroundColor = [UIColor blackColor];
-	mMsgLabel.font = [UIFont fontWithName:@"Helvetica" size: 20.0];
-	mMsgLabel.shadowColor = [UIColor blueColor];
-	mMsgLabel.shadowOffset = CGSizeMake(1,1);
-	mMsgLabel.textColor = [UIColor whiteColor];
-	mMsgLabel.textAlignment = UITextAlignmentCenter;
-	[self.view addSubview:mMsgLabel];
-
-	mMsgLabel.text = self.mLabelText; */
-	modeLabel.text = self.mLabelText;//set new labels
+	
+	CGRect viewRect = CGRectMake(0,0,420,30);
+	messageView = [[MessageViewController alloc] initWithFrame:viewRect];
+	[messageView setHidden:NO];
+	[self.view addSubview:messageView];
+	messageView.mMsgLabel.text = self.mLabelText;
+	//modeLabel.text = self.mLabelText;//set new labels
 }
 
 

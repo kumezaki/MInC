@@ -9,7 +9,7 @@
 #import "FlipsideViewController.h"
 #import "AQPlayer.h"
 
-@class ButtonViewController;
+@class ButtonViewController, MessageViewController;
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate> {
 	IBOutlet UILabel		*soundLabel;
@@ -20,9 +20,9 @@
 	AQPlayer				*mAQPlayer;
 	FlipsideViewController	*controller;
 	ButtonViewController	*buttonView;
+	MessageViewController	*messageView;
 	
 	NSString				*mLabelText;
-	UILabel					*mMsgLabel;
 }
 @property(retain) IBOutlet UILabel	*soundLabel;
 @property(retain) IBOutlet UILabel	*modeLabel;

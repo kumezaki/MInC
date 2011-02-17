@@ -17,7 +17,8 @@
 	
 	IBOutlet UILabel		*flipSoundLabel;
 	IBOutlet UILabel		*flipModeLabel;
-	
+
+@private
 	AQPlayer				*mAQPlayer;
 	MoreInfoViewController	*mMoreInfo;
 	Networking				*network;

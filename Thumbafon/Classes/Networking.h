@@ -31,7 +31,6 @@
 	int			sockReceive;
 	int			sockIPReceive;
 
-	NSThread	*mThread;
 	NSString	*mInterstitialString;
 	NSString	*mHints;
 	NSString	*mOffsetMsg;
@@ -39,6 +38,9 @@
 	NSString	*mModeLabelMsg;
 	UIAlertView	*mAlert;
 	NSTimer		*mTimer;
+	
+	NSThread	*mThread;
+	NSString	*mThreadConversionString;
 	
 	BOOL		listenUDP;
 	BOOL		listenIP;

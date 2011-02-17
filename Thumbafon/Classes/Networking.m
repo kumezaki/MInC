@@ -27,11 +27,11 @@
 Networking *gNetwork = nil;
 
 @interface Networking ()
-@property (assign,readwrite) NSString	*mInterstitialString;
-@property (assign,readwrite) NSString	*mHints;
-@property (assign,readwrite) NSString	*mOffsetMsg;
-@property (assign,readwrite) NSString	*mModeMsg;
-@property (assign,readwrite) NSString	*mModeLabelMsg;
+@property (readwrite, retain) NSString	*mInterstitialString;
+@property (readwrite, retain) NSString	*mHints;
+@property (readwrite, retain) NSString	*mOffsetMsg;
+@property (readwrite, retain) NSString	*mModeMsg;
+@property (readwrite, retain) NSString	*mModeLabelMsg;
 @property UInt32 mSendIPAddress;
 @property BOOL listenUDP;
 @property BOOL listenIP;
@@ -239,18 +239,24 @@ Networking *gNetwork = nil;
 				switch (add_type)
 				{
 					case 1: {
-						self.mInterstitialString = [[NSString alloc] initWithCString:mInBuffer+pos 
+						NSString *interstitialString = [[NSString alloc] initWithCString:mInBuffer+pos 
 																			encoding:NSASCIIStringEncoding];
+						self.mInterstitialString = interstitialString;
+						[interstitialString release];
 						break;
 					}
 					case 2: {
-						self.mHints = [[NSString alloc] initWithCString:mInBuffer+pos 
+						NSString *hintsString = [[NSString alloc] initWithCString:mInBuffer+pos 
 															   encoding:NSASCIIStringEncoding];
+						self.mHints = hintsString;
+						[hintsString release];
 						break;
 					}
 					case 3: {
-						self.mOffsetMsg = [[NSString alloc] initWithCString:mInBuffer+pos 
+						NSString *offsetMsgString = [[NSString alloc] initWithCString:mInBuffer+pos 
 																   encoding:NSASCIIStringEncoding];
+						self.mOffsetMsg = offsetMsgString;
+						[offsetMsgString release];
 						break;
 					}
 					case 4: {
@@ -262,13 +268,17 @@ Networking *gNetwork = nil;
 						break;
 					}
 					case 5: {
-						self.mModeMsg = [[NSString alloc] initWithCString:mInBuffer+pos
+						NSString * modeMsgString = [[NSString alloc] initWithCString:mInBuffer+pos
 																 encoding:NSASCIIStringEncoding];
+						self.mModeMsg = modeMsgString;
+						[modeMsgString release];
 						break;
 					}
 					case 6: {
-						self.mModeLabelMsg = [[NSString alloc] initWithCString:mInBuffer+pos
+						NSString *modeLabelMsg = [[NSString alloc] initWithCString:mInBuffer+pos
 																	  encoding:NSASCIIStringEncoding];
+						self.mModeLabelMsg = modeLabelMsg;
+						[modeLabelMsg release];
 						break;
 					}
 					case 7: {
@@ -313,7 +323,7 @@ Networking *gNetwork = nil;
 	if (self.mOffsetMsg != nil) {
 		
 		[self setAQSynthOffset:[mOffsetMsg intValue]];
-		[self.mOffsetMsg release];
+		//[self.mOffsetMsg release];
 		self.mOffsetMsg = nil;
 	}
 	
@@ -321,7 +331,7 @@ Networking *gNetwork = nil;
 		
 		self.mCurrentNetworkMode = [mModeMsg intValue];
 		if (self.mCurrentNetworkMode < 6) [self setAQSynthMode:[mModeMsg intValue]];
-		[self.mModeMsg release];
+		//[self.mModeMsg release];
 		self.mModeMsg = nil;
 	}
 	
@@ -329,7 +339,7 @@ Networking *gNetwork = nil;
 		
 		mMainView.mLabelText = self.mModeLabelMsg;
 		[mMainView setMsgLabel];
-		[self.mModeLabelMsg release];
+		//[self.mModeLabelMsg release];
 		self.mModeLabelMsg = nil;
 	}		
 	
@@ -341,7 +351,7 @@ Networking *gNetwork = nil;
 								  otherButtonTitles: nil];
 		[mAlert show];
 		[mAlert release];
-		[self.mInterstitialString release];
+		//[self.mInterstitialString release];
 		self.mInterstitialString = nil;
 	}
 
@@ -353,14 +363,14 @@ Networking *gNetwork = nil;
 								  otherButtonTitles:@"Return",nil];
 		[mAlert show];
 		[mAlert release];
-		[self.mHints release];
+		//[self.mHints release];
 		self.mHints = nil;
 	}
 }
 
 - (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 
-	if (buttonIndex == 0) {
+	if ([[actionSheet buttonTitleAtIndex:0] isEqual:@"Previous"] && buttonIndex == 0) {
 		[self sendOSCMsg:"/thum/prevhint\0\0":16];
 	}
 	else {

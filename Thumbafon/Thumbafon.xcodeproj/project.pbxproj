@@ -22,6 +22,7 @@
 		B492984012F62A62004DA4E6 /* AQSynth.m in Sources */ = {isa = PBXBuildFile; fileRef = B492983F12F62A62004DA4E6 /* AQSynth.m */; };
 		B492984B12F62BA0004DA4E6 /* Voice.m in Sources */ = {isa = PBXBuildFile; fileRef = B492984A12F62BA0004DA4E6 /* Voice.m */; };
 		B492985112F62BEF004DA4E6 /* VoiceSynth.m in Sources */ = {isa = PBXBuildFile; fileRef = B492985012F62BEF004DA4E6 /* VoiceSynth.m */; };
+		B4BABFBB130DD0AB00115356 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BABFBA130DD0AB00115356 /* MessageViewController.m */; };
 		B4BE1C6512EE39390085248E /* InfoScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BE1C6412EE39390085248E /* InfoScreen.png */; };
 		B4BE1CB712EE479D0085248E /* MoreInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BE1CB512EE479D0085248E /* MoreInfoViewController.m */; };
 		B4C03E1012C5A2780037E3B5 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280E754C0DD40C5E005A515E /* MainWindow.xib */; };
@@ -87,6 +88,8 @@
 		B492984A12F62BA0004DA4E6 /* Voice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Voice.m; path = Classes/Voice.m; sourceTree = "<group>"; };
 		B492984F12F62BEF004DA4E6 /* VoiceSynth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoiceSynth.h; path = Classes/VoiceSynth.h; sourceTree = "<group>"; };
 		B492985012F62BEF004DA4E6 /* VoiceSynth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VoiceSynth.m; path = Classes/VoiceSynth.m; sourceTree = "<group>"; };
+		B4BABFB9130DD0AB00115356 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageViewController.h; path = Classes/MessageViewController.h; sourceTree = "<group>"; };
+		B4BABFBA130DD0AB00115356 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageViewController.m; path = Classes/MessageViewController.m; sourceTree = "<group>"; };
 		B4BE1C6412EE39390085248E /* InfoScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InfoScreen.png; sourceTree = "<group>"; };
 		B4BE1CB412EE479D0085248E /* MoreInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoreInfoViewController.h; path = Classes/MoreInfoViewController.h; sourceTree = "<group>"; };
 		B4BE1CB512EE479D0085248E /* MoreInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoreInfoViewController.m; path = Classes/MoreInfoViewController.m; sourceTree = "<group>"; };
@@ -181,6 +184,8 @@
 				289233A90DB2D0DB0083E9F9 /* MainViewController.m */,
 				B427AC3812CADC0F00EDDE3D /* ButtonViewController.h */,
 				B427AC3912CADC0F00EDDE3D /* ButtonViewController.m */,
+				B4BABFB9130DD0AB00115356 /* MessageViewController.h */,
+				B4BABFBA130DD0AB00115356 /* MessageViewController.m */,
 				B4C1233F12C945570017918B /* CLSlipperyButton.h */,
 				B4C1234012C945570017918B /* CLSlipperyButton.m */,
 			);
@@ -442,6 +447,7 @@
 				B4CF64E512FCF68500AA82BB /* freeverb.c in Sources */,
 				B4CF64E612FCF68500AA82BB /* revmodel.c in Sources */,
 				B4CD4A2812FD27AF00DCB1BA /* Networking.m in Sources */,
+				B4BABFBB130DD0AB00115356 /* MessageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
