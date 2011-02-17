@@ -17,7 +17,8 @@
 @synthesize modeLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+    
+	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         self.wantsFullScreenLayout = YES;       
         self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     }
@@ -25,6 +26,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+	
 	[super viewWillAppear:animated];
 	[buttonView becomeFirstResponder];
     StatusBarStyle = [[UIApplication sharedApplication] statusBarStyle];
@@ -35,6 +37,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+	
 	[buttonView resignFirstResponder];
 	[controller changeFlipSoundLabel];
 	[controller changeFlipModeLabel];
@@ -43,11 +46,13 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+	
 	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
 
 	//Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+	
 	mAQPlayer = [[AQSound alloc] init];
 	
 	//Create 2nd view, alloc/init, assign delegate, call setmAQPlayer method
@@ -66,15 +71,18 @@
 }
 
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller {	
+	
 	[self dismissModalViewControllerAnimated:YES];
 }
 
 - (IBAction)showInfo:(id)sender {
+	
 	controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 	[self presentModalViewController:controller animated:YES];
 }
 
 - (void)dealloc {
+	
 	self.soundLabel=nil;
 	self.modeLabel=nil;
 	[buttonView release];
@@ -84,6 +92,7 @@
 }
 
 - (void)changeMode {	
+	
 	if (((AQSynth*)mAQPlayer).currentMode == 5) {
 		((AQSynth*)mAQPlayer).currentMode = 0;
 		[(AQSynth*)mAQPlayer setMode];
@@ -96,6 +105,7 @@
 }
 
 - (IBAction)setModeLabel {	
+	
 	int j = ((AQSynth*)mAQPlayer).currentMode;
 	switch (j) {
 		case 0: mLabelText = [NSString stringWithFormat:@"Ionian"]; break;
@@ -110,10 +120,12 @@
 }
 
 - (IBAction)setSoundLabel {
+	
 	soundLabel.text = [NSString stringWithFormat:@"%@",((AQSound*)mAQPlayer).soundType];
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+	
 	if (motion == UIEventSubtypeMotionShake) {
 		[self changeMode];
 		AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);

@@ -26,10 +26,13 @@ Networking *gNetwork = nil;
 
 @interface Networking ()
 @property (assign,readwrite) NSString	*mInterstitialString;
+@property (assign,readwrite) NSString	*mHints;
 @property (assign,readwrite) NSString	*mOffsetMsg;
 @property UInt32 mSendIPAddress;
 @property BOOL listenUDP;
 @property BOOL listenIP;
+@property BOOL groupOffsetMode;
+
 @end
 
 
@@ -37,14 +40,15 @@ Networking *gNetwork = nil;
 
 @synthesize listenUDP;
 @synthesize listenIP;
+@synthesize groupOffsetMode;
 @synthesize mInterstitialString;
+@synthesize mHints;
 @synthesize mOffsetMsg;
 @synthesize mSendIPAddress;
 
 //*** available for outside access ***///
 @synthesize mAQPlayer;
 @synthesize mCurrentNetworkOffset;
-@synthesize mGroupOffsetMode;
 
 #pragma mark -
 #pragma mark init / dealloc
@@ -64,7 +68,7 @@ Networking *gNetwork = nil;
 	ip_add_size = (strlen(ip_add_buf) / 4 + 1) * 4;
 	printf("ip_add_buf:%s\n",ip_add_buf);
 	
-	mGroupOffsetMode = NO;
+	groupOffsetMode = NO;
 	listenIP = YES;
 	listenUDP = NO;
 	mThread = [[NSThread alloc] initWithTarget:self 
@@ -81,6 +85,7 @@ Networking *gNetwork = nil;
 }
 
 - (NSString *)getIPAddress {
+	
 	NSString *address = @"0.0.0.0";
 	struct ifaddrs *interfaces = NULL;
 	struct ifaddrs *temp_addr = NULL;
@@ -112,6 +117,7 @@ Networking *gNetwork = nil;
 }
 
 - (void)dealloc {
+	
 	[mThread release];
 	[mAQPlayer release];
 	gNetwork = nil;
@@ -184,7 +190,6 @@ Networking *gNetwork = nil;
 		}
 	
 	close(sockReceive);
-	[mThread cancel];	/*** KU: I don't the thread should be canceled here.  In any case it will automatically cancel when this method exits. ***/
 }
 
 - (void)parseOSC
@@ -204,9 +209,11 @@ Networking *gNetwork = nil;
 				NSString *buf_str = [[NSString alloc] initWithCString:mInBuffer+pos 
 															 encoding:NSASCIIStringEncoding];
 				if ([buf_str isEqualToString:@"/thum/interstitial"]) add_type = 1;
-				else if (self.mSendIPAddress == 0 && [buf_str isEqualToString:@"/thum/serverip"]) add_type = 2;
+				else if ([buf_str isEqualToString:@"/thum/hints"]) add_type = 2;
 				else if ([buf_str isEqualToString:@"/thum/keyoffset"]) add_type = 3;
 				else if ([buf_str isEqualToString:@"/thum/keyoffset/group"]) add_type = 4;
+				else if (self.mSendIPAddress == 0 && [buf_str isEqualToString:@"/thum/serverip"]) add_type = 5;
+
 				[buf_str release];
 				break;
 			}
@@ -225,9 +232,8 @@ Networking *gNetwork = nil;
 						break;
 					}
 					case 2: {
-						self.mSendIPAddress = inet_addr(mInBuffer+pos);
-						[self sendOSCMsg:"/thum/join\0\0":12];
-						self.listenIP = NO;
+						self.mHints = [[NSString alloc] initWithCString:mInBuffer+pos 
+															   encoding:NSASCIIStringEncoding];
 						break;
 					}
 					case 3: {
@@ -238,9 +244,15 @@ Networking *gNetwork = nil;
 					case 4: {
 						NSString *toggle = [[NSString alloc] initWithCString:mInBuffer+pos 
 																	encoding:NSASCIIStringEncoding];
-						if ([toggle isEqualToString:@"1"]) { self.mGroupOffsetMode = YES; NSLog(@"successYES!"); }
-						else if ([toggle isEqualToString:@"0"]) { self.mGroupOffsetMode = NO; NSLog(@"successNO!"); }
+						if ([toggle isEqualToString:@"1"]) self.groupOffsetMode = YES; //NSLog(@"successYES!");
+						else if ([toggle isEqualToString:@"0"]) self.groupOffsetMode = NO; //NSLog(@"successNO!");
 						[toggle release];
+						break;
+					}
+					case 5: {
+						self.mSendIPAddress = inet_addr(mInBuffer+pos);
+						[self sendOSCMsg:"/thum/join\0\0":12];
+						self.listenIP = NO;
 						break;
 					}
 				}
@@ -265,6 +277,7 @@ Networking *gNetwork = nil;
 #pragma mark receive related on main thread
 
 - (void)quitNetworking {
+	
 	self.listenIP = NO;
 	self.listenUDP = NO;
 	close(sockIPReceive);
@@ -275,11 +288,6 @@ Networking *gNetwork = nil;
 
 -(void)checkIncomingMessages
 {
-	if (self.mGroupOffsetMode == YES && self.mOffsetMsg != nil) {
-		[self setAQSynthOffset:[mOffsetMsg intValue]];
-		[self.mOffsetMsg release];
-		self.mOffsetMsg = nil;
-	}
 	if (self.mInterstitialString != nil) {
 		mAlert = [[UIAlertView alloc] initWithTitle:nil 
 											message:self.mInterstitialString 
@@ -288,12 +296,39 @@ Networking *gNetwork = nil;
 								  otherButtonTitles: nil];
 		[mAlert show];
 		[mAlert release];
-		
-		
 		[self.mInterstitialString release];
 		self.mInterstitialString = nil;
 	}
+	
+	if (self.mOffsetMsg != nil) {
+		[self setAQSynthOffset:[mOffsetMsg intValue]];
+		[self.mOffsetMsg release];
+		self.mOffsetMsg = nil;
+	}
+	
+	if (self.mHints != nil) {
+		mAlert = [[UIAlertView alloc] initWithTitle:nil 
+											message:self.mHints 
+										   delegate:self 
+								  cancelButtonTitle:@"Previous" 
+								  otherButtonTitles:@"Return",nil];
+		[mAlert show];
+		[mAlert release];
+		[self.mHints release];
+		self.mHints = nil;
+	}
 }
+
+- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+	if (buttonIndex == 0) {
+		[self sendOSCMsg:"/thum/prevhint\0\0":16];
+	}
+	else {
+		NSLog(@"cancel");
+	}
+}
+
 
 #pragma mark -
 #pragma mark sendUDP
@@ -375,14 +410,14 @@ Networking *gNetwork = nil;
 
 - (void)requestHint {
 	
-	[self sendOSCMsg:"/thum/hint\0":12];
-	//NSLog(@"mThread isExecuting = %@", ([mThread isExecuting] ? @"YES" : @"NO"));
+	[self sendOSCMsg:"/thum/hints\0":12];
 }
 
 - (void)setAQSynthOffset:(SInt16)offset {
+	
 	self.mCurrentNetworkOffset = offset;
-	NSLog(@"offset:%i",self.mCurrentNetworkOffset);
 	((AQSynth *)mAQPlayer).noteOffset = self.mCurrentNetworkOffset;
 	[(AQSynth *)mAQPlayer setMode];
 }
+
 @end

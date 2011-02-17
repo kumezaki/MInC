@@ -79,10 +79,12 @@ extern Networking *gNetwork;
 }
 
 - (void)startVoice:(UInt8)note_pos {	
+	
 	[voice[note_pos] on];
 }
 
 - (void)stopVoice:(UInt8)note_pos {	
+	
 	[voice[note_pos] off];
 }
 

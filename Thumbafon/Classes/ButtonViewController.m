@@ -76,7 +76,6 @@ extern Networking *gNetwork;
 				default:
 					break;
 			}
-			[slickButton[i] release];
 		}		
 		touchDict = [[NSMutableDictionary alloc] initWithCapacity:5];
     }
@@ -85,6 +84,7 @@ extern Networking *gNetwork;
 }
 
 - (void) setAQPlayer:(AQPlayer *)aqplayer {
+	
 	mAQPlayer = aqplayer;
 }
 
@@ -92,13 +92,16 @@ extern Networking *gNetwork;
 //}
 
 - (void)dealloc {	
+	
 	[touchDict release];
+	for (int i = 0; i < kNumberVoices; i++) [slickButton[i] release];
 	[super dealloc];
 }
 
 #pragma mark -
 
 - (IBAction)startSound:(CLSlipperyButton *)sender {	
+	
 	[(AQSynth*)mAQPlayer startVoice:[sender.titleLabel.text intValue]];
 	if (gNetwork != nil) {
 		[gNetwork buttonpress:sender.titleLabel.text];
@@ -106,6 +109,7 @@ extern Networking *gNetwork;
 }
 
 - (IBAction)stopSound:(CLSlipperyButton *)sender {
+	
 	[(AQSynth*)mAQPlayer stopVoice:[sender.titleLabel.text intValue]];
 	if (gNetwork != nil) {
 		[gNetwork buttonrelease:sender.titleLabel.text];
@@ -116,6 +120,7 @@ extern Networking *gNetwork;
 #pragma mark UIResponder methodology
 
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
+	
 	UITouch *touch = [touches anyObject];
 	CGPoint touchPoint = [touch locationInView:self];
 	for (UInt8 i = 0; i < kNumberVoices; i++) {
@@ -132,6 +137,7 @@ extern Networking *gNetwork;
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {	
+	
 	UITouch *touch = [touches anyObject];
 	CLSlipperyButton *movedButton = [touchDict objectForKey:[NSValue valueWithPointer:touch]];
 	CGPoint touchPoint = [touch locationInView:self];		
@@ -158,6 +164,7 @@ extern Networking *gNetwork;
 }		
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	
 	UITouch *touch = [touches anyObject];
 	CLSlipperyButton *endedButton = [touchDict objectForKey:[NSValue valueWithPointer:touch]];
 	endedButton.highlighted = NO;
@@ -171,10 +178,12 @@ extern Networking *gNetwork;
 
 //Shake Gesture gets sent up the chain to MainViewController
 -(BOOL)canBecomeFirstResponder {
-    return YES;
+    
+	return YES;
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+	
 	[self.nextResponder motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event];
 }
 @end

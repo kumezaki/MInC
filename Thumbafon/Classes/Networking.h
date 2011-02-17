@@ -10,7 +10,7 @@
 
 @class AQPlayer;
 
-@interface Networking : NSObject {
+@interface Networking : NSObject <UIAlertViewDelegate> {
 	
 	UInt32		mSendIPAddress;
 	SInt16		mSendPortNum;
@@ -33,6 +33,7 @@
 
 	NSThread	*mThread;
 	NSString	*mInterstitialString;
+	NSString	*mHints;
 	NSString	*mOffsetMsg;
 	UIAlertView	*mAlert;
 	NSTimer		*mTimer;
@@ -43,10 +44,10 @@
 	AQPlayer	*mAQPlayer;
 	SInt16		mCurrentNetoworkOffset;
 	BOOL		mGroupOffsetMode;
+	
 }
 @property (readwrite, retain) AQPlayer	*mAQPlayer;
 @property SInt16 mCurrentNetworkOffset;
-@property BOOL mGroupOffsetMode;
 
 - (NSString *)getIPAddress;
 - (void)receiveServerIP;

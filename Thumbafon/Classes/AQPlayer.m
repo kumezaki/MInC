@@ -34,6 +34,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 
 -(id)init {
+	
 	[super init];
 	[self start];
 	return self;
@@ -41,12 +42,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 
 - (void)dealloc {
+	
 	[self stop];
 	[super dealloc];
 }
 
 
 -(void) newAQ {
+	
 	mDataFormat.mSampleRate = kSR;
 	mDataFormat.mFormatID = kAudioFormatLinearPCM;
 	mDataFormat.mFormatFlags = kAudioFormatFlagIsSignedInteger;
@@ -69,6 +72,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 }
 
 -(OSStatus) start; { 
+	
 	OSStatus result = noErr;
     
 	// if we have no queue, create one now
@@ -86,6 +90,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 
 -(OSStatus) stop; {
+	
 	OSStatus result = noErr;
 	
 	result = AudioQueueStop(mQueue, true);
