@@ -10,11 +10,15 @@
 
 #import "ButtonViewController.h"
 #import "AQSound.h"
+#import "Networking.h"
+
+extern Networking *gNetwork;
 
 @implementation MainViewController
 
 @synthesize soundLabel;
 @synthesize modeLabel;
+@synthesize mLabelText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     
@@ -31,6 +35,10 @@
 	[buttonView becomeFirstResponder];
     StatusBarStyle = [[UIApplication sharedApplication] statusBarStyle];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
+	
+	if (gNetwork.mMainView == nil) {
+		gNetwork.mMainView = self;
+	}
 	
 	[self setModeLabel];
 	[self setSoundLabel];
@@ -85,6 +93,7 @@
 	
 	self.soundLabel=nil;
 	self.modeLabel=nil;
+	if (mMsgLabel != nil) [mMsgLabel release];
 	[buttonView release];
 	[mAQPlayer release];
 	[controller release];
@@ -106,21 +115,40 @@
 
 - (IBAction)setModeLabel {	
 	
+	//if (mMsgLabel != nil) [mMsgLabel release];
+	
 	int j = ((AQSynth*)mAQPlayer).currentMode;
 	switch (j) {
-		case 0: mLabelText = [NSString stringWithFormat:@"Ionian"]; break;
-		case 1: mLabelText = [NSString stringWithFormat:@"Dorian"]; break;
-		case 2: mLabelText = [NSString stringWithFormat:@"Phrygian"]; break;
-		case 3: mLabelText = [NSString stringWithFormat:@"Lydian"]; break;
-		case 4: mLabelText = [NSString stringWithFormat:@"Mixolydian"]; break;
-		case 5: mLabelText = [NSString stringWithFormat:@"Aeolean"]; break;
+		case 0: self.mLabelText = [NSString stringWithFormat:@"Ionian"]; break;
+		case 1: self.mLabelText = [NSString stringWithFormat:@"Dorian"]; break;
+		case 2: self.mLabelText = [NSString stringWithFormat:@"Phrygian"]; break;
+		case 3: self.mLabelText = [NSString stringWithFormat:@"Lydian"]; break;
+		case 4: self.mLabelText = [NSString stringWithFormat:@"Mixolydian"]; break;
+		case 5: self.mLabelText = [NSString stringWithFormat:@"Aeolean"]; break;
 		default: break;
 	}
-	modeLabel.text = mLabelText;//set new labels
+	modeLabel.text = self.mLabelText;//set new labels
 }
+
+- (IBAction)setMsgLabel {
+	/*
+	mMsgLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 420, 30)];
+	mMsgLabel.backgroundColor = [UIColor blackColor];
+	mMsgLabel.font = [UIFont fontWithName:@"Helvetica" size: 20.0];
+	mMsgLabel.shadowColor = [UIColor blueColor];
+	mMsgLabel.shadowOffset = CGSizeMake(1,1);
+	mMsgLabel.textColor = [UIColor whiteColor];
+	mMsgLabel.textAlignment = UITextAlignmentCenter;
+	[self.view addSubview:mMsgLabel];
+
+	mMsgLabel.text = self.mLabelText; */
+	modeLabel.text = self.mLabelText;//set new labels
+}
+
 
 - (IBAction)setSoundLabel {
 	
+	//if (mMsgLabel != nil) [mMsgLabel release];
 	soundLabel.text = [NSString stringWithFormat:@"%@",((AQSound*)mAQPlayer).soundType];
 }
 

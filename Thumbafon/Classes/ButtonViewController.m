@@ -26,11 +26,14 @@ extern Networking *gNetwork;
 		UInt16 y = 145;
 		
 		for (UInt8 i = 0; i < kNumberVoices; i++) {
+			
 			NSString *nIndex = [NSString stringWithFormat:@"%i", i];
 			CGRect buttonRect = CGRectMake(x, y, 120, 145);
+			
 			slickButton[i] = [[CLSlipperyButton alloc]initWithFrame:buttonRect];
 			[slickButton[i] setTitle:nIndex forState:0] ;
 			[slickButton[i] setHidden:NO];
+			
 			[self addSubview:slickButton[i]];		
 			
 			x+=120;
@@ -103,6 +106,7 @@ extern Networking *gNetwork;
 - (IBAction)startSound:(CLSlipperyButton *)sender {	
 	
 	[(AQSynth*)mAQPlayer startVoice:[sender.titleLabel.text intValue]];
+	
 	if (gNetwork != nil) {
 		[gNetwork buttonpress:sender.titleLabel.text];
 	}
@@ -111,6 +115,7 @@ extern Networking *gNetwork;
 - (IBAction)stopSound:(CLSlipperyButton *)sender {
 	
 	[(AQSynth*)mAQPlayer stopVoice:[sender.titleLabel.text intValue]];
+	
 	if (gNetwork != nil) {
 		[gNetwork buttonrelease:sender.titleLabel.text];
 	}
@@ -123,8 +128,11 @@ extern Networking *gNetwork;
 	
 	UITouch *touch = [touches anyObject];
 	CGPoint touchPoint = [touch locationInView:self];
+	
 	for (UInt8 i = 0; i < kNumberVoices; i++) {
+		
 		if(CGRectContainsPoint(slickButton[i].frame, touchPoint)) {
+			
 			if (!slickButton[i].highlighted) {
 				slickButton[i].highlighted = YES;
 				[self startSound:slickButton[i]];
@@ -141,19 +149,24 @@ extern Networking *gNetwork;
 	UITouch *touch = [touches anyObject];
 	CLSlipperyButton *movedButton = [touchDict objectForKey:[NSValue valueWithPointer:touch]];
 	CGPoint touchPoint = [touch locationInView:self];		
+	
 	if (movedButton.highlighted && !CGRectContainsPoint(movedButton.frame, touchPoint)) {
 		movedButton.highlighted = NO;
 		[self stopSound:movedButton];
 	}
-	//the following tracks where in each button the touches are located
-	/*else if (movedButton.highlighted && CGRectContainsPoint(movedButton.frame, touchPoint)) {
+	/*
+	 //the following tracks where in each button the touches are located (partial implementation)
+	 
+	 else if (movedButton.highlighted && CGRectContainsPoint(movedButton.frame, touchPoint)) {
 		CGPoint buttonTouch = [touch locationInView:touch.view];
 		double yVal = 1/buttonTouch.y;
 		yVal = yVal > 0.8 ? 0.8 : yVal < 0.4 ? 0.4 : yVal;
-		[mAppBrain ampAdjust:yVal];
 		//NSLog(@"buttonTouch.x = %f, buttonTouch.y = %f", buttonTouch.x, buttonTouch.y);
-	}*/
+	}
+	 */
+	
 	for (UInt8 i = 0; i < kNumberVoices; i++) {
+		
 		if(!movedButton.highlighted && CGRectContainsPoint(slickButton[i].frame, touchPoint)) {
 			slickButton[i].highlighted = YES;
 			[self startSound:slickButton[i]];
@@ -166,9 +179,13 @@ extern Networking *gNetwork;
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	
 	UITouch *touch = [touches anyObject];
+	
 	CLSlipperyButton *endedButton = [touchDict objectForKey:[NSValue valueWithPointer:touch]];
+	
 	endedButton.highlighted = NO;
+	
 	[self stopSound:endedButton];
+	
 	[touchDict removeObjectForKey:[NSValue valueWithPointer:touch]];
 	//NSLog(@"touchDict END %i",[touchDict count]);
 }

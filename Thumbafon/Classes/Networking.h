@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AQPlayer;
+@class AQPlayer, MainViewController, FlipsideViewController;
 
 @interface Networking : NSObject <UIAlertViewDelegate> {
 	
@@ -35,19 +35,25 @@
 	NSString	*mInterstitialString;
 	NSString	*mHints;
 	NSString	*mOffsetMsg;
+	NSString	*mModeMsg;
+	NSString	*mModeLabelMsg;
 	UIAlertView	*mAlert;
 	NSTimer		*mTimer;
 	
 	BOOL		listenUDP;
 	BOOL		listenIP;
 	
-	AQPlayer	*mAQPlayer;
-	SInt16		mCurrentNetoworkOffset;
-	BOOL		mGroupOffsetMode;
+	AQPlayer				*mAQPlayer;
+	FlipsideViewController	*mFlipside;
+	MainViewController		*mMainView;
+	BOOL					mGroupOffsetState;
+	SInt16					mCurrentNetworkOffset;
+	UInt8					mCurrentNetworkMode;
 	
 }
 @property (readwrite, retain) AQPlayer	*mAQPlayer;
-@property SInt16 mCurrentNetworkOffset;
+@property (readwrite, retain) MainViewController *mMainView;
+@property (readwrite, retain) FlipsideViewController *mFlipside;
 
 - (NSString *)getIPAddress;
 - (void)receiveServerIP;
@@ -65,6 +71,7 @@
 - (void)buttonpress:(NSString *)button;
 - (void)buttonrelease:(NSString *)button;
 - (void)requestHint;
-- (void)setAQSynthOffset:(SInt16)Offset;
+- (void)setAQSynthOffset:(SInt16)offset;
+- (void)setAQSynthMode:(UInt8)mode;
 
 @end

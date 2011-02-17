@@ -133,6 +133,7 @@
 	if (sender.on && network == nil) {
 		network = [[Networking alloc] init];
 		network.mAQPlayer = mAQPlayer;
+		network.mFlipside = self;
 	}
 	
 	else if (!sender.on && network != nil) {

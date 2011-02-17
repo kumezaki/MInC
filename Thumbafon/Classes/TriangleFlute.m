@@ -17,14 +17,13 @@
 	//Create WaveTable
 	for (UInt32 i = 0; i < kAudioDataByteSize; i++) {
 		
-		mTheta = (Float64)i / kAudioDataByteSize;
 		mTable[i] = 0;
+		mTheta = (Float64)i / kAudioDataByteSize;
 		
 		for (UInt8 j = 1; j <= 7; j += 2) {
 			mTable[i] += sin(j * mTheta * 2. * M_PI) * MAX_AMP / (j * j);
 		}
 	}		
-	
 	//Set Envelope Settings
 	mAttack = kSR * 0.05;
 	mRelease = kSR * 0.05;

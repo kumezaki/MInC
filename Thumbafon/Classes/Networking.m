@@ -8,6 +8,8 @@
 
 #import "Networking.h"
 #import "AQSynth.h"
+#import "MainViewController.h"
+#import "FlipsideViewController.h"
 
 #include <sys/socket.h>
 #include <sys/types.h>
@@ -28,27 +30,35 @@ Networking *gNetwork = nil;
 @property (assign,readwrite) NSString	*mInterstitialString;
 @property (assign,readwrite) NSString	*mHints;
 @property (assign,readwrite) NSString	*mOffsetMsg;
+@property (assign,readwrite) NSString	*mModeMsg;
+@property (assign,readwrite) NSString	*mModeLabelMsg;
 @property UInt32 mSendIPAddress;
 @property BOOL listenUDP;
 @property BOOL listenIP;
-@property BOOL groupOffsetMode;
+@property BOOL groupOffsetState;
+@property SInt16 mCurrentNetworkOffset;
+@property UInt8 mCurrentNetworkMode;
 
 @end
-
 
 @implementation Networking
 
 @synthesize listenUDP;
 @synthesize listenIP;
-@synthesize groupOffsetMode;
+@synthesize groupOffsetState;
+@synthesize mCurrentNetworkOffset;
+@synthesize mCurrentNetworkMode;
 @synthesize mInterstitialString;
 @synthesize mHints;
 @synthesize mOffsetMsg;
+@synthesize mModeMsg;
+@synthesize mModeLabelMsg;
 @synthesize mSendIPAddress;
 
 //*** available for outside access ***///
 @synthesize mAQPlayer;
-@synthesize mCurrentNetworkOffset;
+@synthesize mMainView;
+@synthesize mFlipside;
 
 #pragma mark -
 #pragma mark init / dealloc
@@ -68,7 +78,7 @@ Networking *gNetwork = nil;
 	ip_add_size = (strlen(ip_add_buf) / 4 + 1) * 4;
 	printf("ip_add_buf:%s\n",ip_add_buf);
 	
-	groupOffsetMode = NO;
+	groupOffsetState = NO;
 	listenIP = YES;
 	listenUDP = NO;
 	mThread = [[NSThread alloc] initWithTarget:self 
@@ -208,11 +218,13 @@ Networking *gNetwork = nil;
 			{
 				NSString *buf_str = [[NSString alloc] initWithCString:mInBuffer+pos 
 															 encoding:NSASCIIStringEncoding];
-				if ([buf_str isEqualToString:@"/thum/interstitial"]) add_type = 1;
-				else if ([buf_str isEqualToString:@"/thum/hints"]) add_type = 2;
-				else if ([buf_str isEqualToString:@"/thum/keyoffset"]) add_type = 3;
-				else if ([buf_str isEqualToString:@"/thum/keyoffset/group"]) add_type = 4;
-				else if (self.mSendIPAddress == 0 && [buf_str isEqualToString:@"/thum/serverip"]) add_type = 5;
+				if ([buf_str isEqualToString:@"/thum/interstitial"])		add_type = 1;
+				else if ([buf_str isEqualToString:@"/thum/hints"])			add_type = 2;
+				else if ([buf_str isEqualToString:@"/thum/keyoffset"])		add_type = 3;
+				else if ([buf_str isEqualToString:@"/thum/keyoffset/group"])add_type = 4;
+				else if ([buf_str isEqualToString:@"/thum/mode"])			add_type = 5;
+				else if ([buf_str isEqualToString:@"/thum/labelmsg"])		add_type = 6;
+				else if (self.mSendIPAddress == 0 && [buf_str isEqualToString:@"/thum/serverip"]) add_type = 7;
 
 				[buf_str release];
 				break;
@@ -244,12 +256,22 @@ Networking *gNetwork = nil;
 					case 4: {
 						NSString *toggle = [[NSString alloc] initWithCString:mInBuffer+pos 
 																	encoding:NSASCIIStringEncoding];
-						if ([toggle isEqualToString:@"1"]) self.groupOffsetMode = YES; //NSLog(@"successYES!");
-						else if ([toggle isEqualToString:@"0"]) self.groupOffsetMode = NO; //NSLog(@"successNO!");
+						if ([toggle isEqualToString:@"0"]) self.groupOffsetState = NO; //NSLog(@"successNO!");
+						else self.groupOffsetState = YES; //NSLog(@"successYES!");
 						[toggle release];
 						break;
 					}
 					case 5: {
+						self.mModeMsg = [[NSString alloc] initWithCString:mInBuffer+pos
+																 encoding:NSASCIIStringEncoding];
+						break;
+					}
+					case 6: {
+						self.mModeLabelMsg = [[NSString alloc] initWithCString:mInBuffer+pos
+																	  encoding:NSASCIIStringEncoding];
+						break;
+					}
+					case 7: {
 						self.mSendIPAddress = inet_addr(mInBuffer+pos);
 						[self sendOSCMsg:"/thum/join\0\0":12];
 						self.listenIP = NO;
@@ -286,8 +308,31 @@ Networking *gNetwork = nil;
 	[mTimer invalidate];
 }
 
--(void)checkIncomingMessages
-{
+-(void)checkIncomingMessages {
+	
+	if (self.mOffsetMsg != nil) {
+		
+		[self setAQSynthOffset:[mOffsetMsg intValue]];
+		[self.mOffsetMsg release];
+		self.mOffsetMsg = nil;
+	}
+	
+	if (self.mModeMsg != nil) {
+		
+		self.mCurrentNetworkMode = [mModeMsg intValue];
+		if (self.mCurrentNetworkMode < 6) [self setAQSynthMode:[mModeMsg intValue]];
+		[self.mModeMsg release];
+		self.mModeMsg = nil;
+	}
+	
+	if (self.mModeLabelMsg != nil) {
+		
+		mMainView.mLabelText = self.mModeLabelMsg;
+		[mMainView setMsgLabel];
+		[self.mModeLabelMsg release];
+		self.mModeLabelMsg = nil;
+	}		
+	
 	if (self.mInterstitialString != nil) {
 		mAlert = [[UIAlertView alloc] initWithTitle:nil 
 											message:self.mInterstitialString 
@@ -299,13 +344,7 @@ Networking *gNetwork = nil;
 		[self.mInterstitialString release];
 		self.mInterstitialString = nil;
 	}
-	
-	if (self.mOffsetMsg != nil) {
-		[self setAQSynthOffset:[mOffsetMsg intValue]];
-		[self.mOffsetMsg release];
-		self.mOffsetMsg = nil;
-	}
-	
+
 	if (self.mHints != nil) {
 		mAlert = [[UIAlertView alloc] initWithTitle:nil 
 											message:self.mHints 
@@ -419,5 +458,17 @@ Networking *gNetwork = nil;
 	((AQSynth *)mAQPlayer).noteOffset = self.mCurrentNetworkOffset;
 	[(AQSynth *)mAQPlayer setMode];
 }
+
+- (void)setAQSynthMode:(UInt8)mode {
+	
+	if (mode < 6) {
+		self.mCurrentNetworkMode = mode;
+		((AQSynth *)mAQPlayer).currentMode = self.mCurrentNetworkMode;
+		[(AQSynth *)mAQPlayer setMode];
+		[mMainView setModeLabel];
+		[mFlipside changeFlipModeLabel];
+	}
+}
+
 
 @end

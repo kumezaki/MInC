@@ -17,8 +17,8 @@
 	//Create WaveTable
 	for (UInt32 i = 0; i < kAudioDataByteSize; i++) {
 		
-		mTheta = (Float64)i / kAudioDataByteSize;
 		mTable[i] = 0;
+		mTheta = (Float64)i / kAudioDataByteSize;
 		mTable[i] = MAX_AMP * sin(mTheta * 2. * M_PI);
 	}
 	

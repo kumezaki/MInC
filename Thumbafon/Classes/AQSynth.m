@@ -24,9 +24,7 @@ extern Networking *gNetwork;
 
 	for (UInt8 i = 0; i < kNumberVoices; i++) {
 		((VoiceSynth*)voice[i]).mFreq = 
-					[VoiceSynth noteNumToFreq:[mode[self.currentMode] getNoteNum:i] 
-								+ noteOffset 
-											+ ((VoiceSynth*)voice[i]).mVoiceReg];
+			[VoiceSynth noteNumToFreq:[mode[self.currentMode] getNoteNum:i] + noteOffset + ((VoiceSynth*)voice[i]).mVoiceReg];
 	}
 }
 
