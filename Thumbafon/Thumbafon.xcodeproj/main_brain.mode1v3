@@ -309,7 +309,7 @@
 							<real>239</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>8 116 1375 700 0 0 1440 878 </string>
+						<string>10 155 1375 700 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -339,7 +339,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>B4F6AB04130E75A300ED57CC</string>
+										<string>B4F6AB13130E766000ED57CC</string>
 										<key>history</key>
 										<array>
 											<string>B465403A127E72B000DA1F26</string>
@@ -404,7 +404,7 @@
 											<string>B490777D130E58730098E195</string>
 											<string>B490777E130E58730098E195</string>
 											<string>B49077DB130E5C720098E195</string>
-											<string>B4B0AEB1130E757A00B509F4</string>
+											<string>B4F6AB04130E75A300ED57CC</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -418,7 +418,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1092, 654}}</string>
 								<key>RubberWindowFrame</key>
-								<string>8 116 1375 700 0 0 1440 878 </string>
+								<string>10 155 1375 700 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -438,7 +438,7 @@
 								<key>Frame</key>
 								<string>{{0, 659}, {1092, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>8 116 1375 700 0 0 1440 878 </string>
+								<string>10 155 1375 700 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -462,9 +462,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>B4F6AB01130E758F00ED57CC</string>
+				<string>B4F6AB10130E766000ED57CC</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>B4F6AB02130E758F00ED57CC</string>
+				<string>B4F6AB11130E766000ED57CC</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -606,7 +606,7 @@
 		<string>/Users/main_brain/minc_unfuddl/Thumbafon/Thumbafon.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>8 116 1375 700 0 0 1440 878 </string>
+	<string>10 155 1375 700 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -683,7 +683,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>B4290FEC127D01C2009192CD</string>
-				<string>B4F6AB03130E758F00ED57CC</string>
+				<string>B4F6AB12130E766000ED57CC</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
