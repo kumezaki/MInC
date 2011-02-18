@@ -1,0 +1,14 @@
+In file included from /Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageViewController.m:9:
+/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageViewController.h:14: error: expected specifier-qualifier-list before 'UiLabel'
+/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageViewController.m:14: error: no declaration of property 'mMsgLabel' found in the interface
+/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageViewController.m: In function '-[MessageViewController initWithFrame:]':
+/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageViewController.m:18: warning: 'UIViewController' may not respond to '-initWithFrame:'
+/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageViewController.m:18: warning: (Messages without a matching method signature
+/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageViewController.m:18: warning: will be assumed to return 'id' and accept
+/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageViewController.m:18: warning: '...' as arguments.)
+/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageViewController.m:21: error: 'mMsgLabel' undeclared (first use in this function)
+/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageViewController.m:21: error: (Each undeclared identifier is reported only once
+/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageViewController.m:21: error: for each function it appears in.)
+/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageViewController.m:27: warning: 'MessageViewController' may not respond to '-addSubview:'
+/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageViewController.m: In function '-[MessageViewController dealloc]':
+/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageViewController.m:43: error: 'mMsgLabel' undeclared (first use in this function)
