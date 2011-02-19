@@ -17,6 +17,7 @@
 	
 	IBOutlet UILabel		*flipSoundLabel;
 	IBOutlet UILabel		*flipModeLabel;
+	IBOutlet UISwitch		*networkSwitch;
 
 @private
 	AQPlayer				*mAQPlayer;
@@ -29,6 +30,7 @@
 @property (nonatomic, assign) id <FlipsideViewControllerDelegate> delegate;
 @property(retain) IBOutlet UILabel	*flipSoundLabel;
 @property(retain) IBOutlet UILabel	*flipModeLabel;
+@property(retain) IBOutlet UISwitch	*networkSwitch;
 
 - (void)setAQPlayer:(AQPlayer *)aqplayer;
 - (IBAction)done:(id)sender;
@@ -40,7 +42,7 @@
 - (IBAction)changeFlipModeLabel;
 - (IBAction)changeFlipSoundLabel;
 
-- (IBAction)networkSwitch:(UISwitch *)sender;
+- (IBAction)activateNetworking:(UISwitch *)sender;
 - (IBAction)hintButton;
 
 @end

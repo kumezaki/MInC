@@ -35,4 +35,6 @@
 - (IBAction)setSoundLabel;
 - (IBAction)setMsgLabel;
 
+- (void)networkingPower:(BOOL)state;
+
 @end

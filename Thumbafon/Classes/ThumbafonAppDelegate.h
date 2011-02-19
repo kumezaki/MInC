@@ -13,6 +13,8 @@
 @interface ThumbafonAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow			*window;
     MainViewController	*mainViewController;
+	
+	BOOL	networkWasOn;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

@@ -13,7 +13,7 @@
 
 - (id)init {
 	[super init];
-	Float32 mMaxAmp = MAX_AMP * .75;
+	Float32 mMaxAmp = MAX_AMP * .8;
 	//Create WaveTable
 	for (UInt32 i = 0; i < kAudioDataByteSize; i++) {
 
@@ -29,7 +29,7 @@
 	mRelease = kSR * 0.05;
 	mSustain = 1.0;
 	
-	self.mVoiceReg = 0;
+	self.mVoiceReg = 1;
 
 	return self;
 }

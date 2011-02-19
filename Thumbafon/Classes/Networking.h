@@ -18,6 +18,9 @@
 	char		ip_add_buf[32];
 	int			ip_add_size;
 	
+	char		dev_name_buf[32];
+	int			dev_name_size;
+	
 	char		mInBuffer[1024];
 	ssize_t		mInBufferLength;
 

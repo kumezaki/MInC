@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface MoreInfoViewController : UIViewController {
+	
+	IBOutlet UITextView *infoText;
 }
+@property(retain) IBOutlet UITextView *infoText;
 
+- (IBAction)done:(UIButton *)sender;
 @end

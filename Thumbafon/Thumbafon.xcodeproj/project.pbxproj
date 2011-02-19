@@ -19,11 +19,11 @@
 		B427AC3A12CADC0F00EDDE3D /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B427AC3912CADC0F00EDDE3D /* ButtonView.m */; };
 		B4653FDE127E66CC00DA1F26 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4653FDD127E66CC00DA1F26 /* AudioToolbox.framework */; };
 		B46C420312860417002E1B34 /* AQPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B46C420012860417002E1B34 /* AQPlayer.m */; };
+		B476B490130F9BDB0004427F /* BlankInfoScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B476B48F130F9BDB0004427F /* BlankInfoScreen.png */; };
 		B49076C2130E2DC70098E195 /* MessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B49076C1130E2DC70098E195 /* MessageView.m */; };
 		B492984012F62A62004DA4E6 /* AQSynth.m in Sources */ = {isa = PBXBuildFile; fileRef = B492983F12F62A62004DA4E6 /* AQSynth.m */; };
 		B492984B12F62BA0004DA4E6 /* Voice.m in Sources */ = {isa = PBXBuildFile; fileRef = B492984A12F62BA0004DA4E6 /* Voice.m */; };
 		B492985112F62BEF004DA4E6 /* VoiceSynth.m in Sources */ = {isa = PBXBuildFile; fileRef = B492985012F62BEF004DA4E6 /* VoiceSynth.m */; };
-		B4BE1C6512EE39390085248E /* InfoScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BE1C6412EE39390085248E /* InfoScreen.png */; };
 		B4BE1CB712EE479D0085248E /* MoreInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BE1CB512EE479D0085248E /* MoreInfoViewController.m */; };
 		B4C03E1012C5A2780037E3B5 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280E754C0DD40C5E005A515E /* MainWindow.xib */; };
 		B4C1234112C945570017918B /* CLSlipperyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C1234012C945570017918B /* CLSlipperyButton.m */; };
@@ -82,6 +82,7 @@
 		B4653FDD127E66CC00DA1F26 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B46C41FF12860417002E1B34 /* AQPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AQPlayer.h; path = Classes/AQPlayer.h; sourceTree = "<group>"; };
 		B46C420012860417002E1B34 /* AQPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AQPlayer.m; path = Classes/AQPlayer.m; sourceTree = "<group>"; };
+		B476B48F130F9BDB0004427F /* BlankInfoScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlankInfoScreen.png; sourceTree = "<group>"; };
 		B49076C0130E2DC70098E195 /* MessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageView.h; path = Classes/MessageView.h; sourceTree = "<group>"; };
 		B49076C1130E2DC70098E195 /* MessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageView.m; path = Classes/MessageView.m; sourceTree = "<group>"; };
 		B492983E12F62A62004DA4E6 /* AQSynth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AQSynth.h; path = Classes/AQSynth.h; sourceTree = "<group>"; };
@@ -90,7 +91,6 @@
 		B492984A12F62BA0004DA4E6 /* Voice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Voice.m; path = Classes/Voice.m; sourceTree = "<group>"; };
 		B492984F12F62BEF004DA4E6 /* VoiceSynth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoiceSynth.h; path = Classes/VoiceSynth.h; sourceTree = "<group>"; };
 		B492985012F62BEF004DA4E6 /* VoiceSynth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VoiceSynth.m; path = Classes/VoiceSynth.m; sourceTree = "<group>"; };
-		B4BE1C6412EE39390085248E /* InfoScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InfoScreen.png; sourceTree = "<group>"; };
 		B4BE1CB412EE479D0085248E /* MoreInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoreInfoViewController.h; path = Classes/MoreInfoViewController.h; sourceTree = "<group>"; };
 		B4BE1CB512EE479D0085248E /* MoreInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoreInfoViewController.m; path = Classes/MoreInfoViewController.m; sourceTree = "<group>"; };
 		B4C1233F12C945570017918B /* CLSlipperyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLSlipperyButton.h; path = Classes/CLSlipperyButton.h; sourceTree = "<group>"; };
@@ -216,9 +216,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B476B48F130F9BDB0004427F /* BlankInfoScreen.png */,
 				B4C15B6812BC533600A56C77 /* Icon.png */,
 				B4C15B6412BC529600A56C77 /* Default.png */,
-				B4BE1C6412EE39390085248E /* InfoScreen.png */,
 				B4C15B2D12BC301E00A56C77 /* buttons */,
 				8D1107310486CEB800E47090 /* Thumbafon-Info.plist */,
 				280E754C0DD40C5E005A515E /* MainWindow.xib */,
@@ -412,8 +412,8 @@
 				B4C15B6512BC529600A56C77 /* Default.png in Resources */,
 				B4C15B6912BC533600A56C77 /* Icon.png in Resources */,
 				B4C03E1012C5A2780037E3B5 /* MainWindow.xib in Resources */,
-				B4BE1C6512EE39390085248E /* InfoScreen.png in Resources */,
 				B4CF628C12FCD3AB00AA82BB /* MoreInfoView.xib in Resources */,
+				B476B490130F9BDB0004427F /* BlankInfoScreen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

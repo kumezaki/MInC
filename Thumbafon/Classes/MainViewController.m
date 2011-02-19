@@ -158,4 +158,9 @@ extern Networking *gNetwork;
 	}
 }
 
+- (void)networkingPower:(BOOL)state {
+	controller.networkSwitch.on = state;
+	[controller activateNetworking:controller.networkSwitch];
+}
+
 @end

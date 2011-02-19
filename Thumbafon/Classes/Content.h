@@ -11,7 +11,7 @@ UInt8 pitchSet01[kNumberVoices] = {
 };
 
 UInt8 pitchSet02[kNumberVoices] = {
-	72,64,65,69,71,72,74,76 //d dorian (no 4th)
+	62,64,65,69,71,72,74,76 //d dorian (no 4th)
 };
 
 UInt8 pitchSet03[kNumberVoices] = {

@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="40"/>
+			<integer value="153"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -86,9 +86,9 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Epiano</string>
 						<reference key="IBUIHighlightedTitleColor" ref="772665661"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+						<object class="NSColor" key="IBUINormalTitleColor" id="871431365">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
 						</object>
 						<object class="NSColor" key="IBUINormalTitleShadowColor" id="936495205">
 							<int key="NSColorSpace">3</int>
@@ -111,10 +111,7 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Strings</string>
 						<reference key="IBUIHighlightedTitleColor" ref="772665661"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="871431365"/>
 						<reference key="IBUINormalTitleShadowColor" ref="936495205"/>
 					</object>
 					<object class="IBUIButton" id="834110497">
@@ -133,10 +130,7 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Brass</string>
 						<reference key="IBUIHighlightedTitleColor" ref="772665661"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="871431365"/>
 						<reference key="IBUINormalTitleShadowColor" ref="936495205"/>
 					</object>
 					<object class="IBUIButton" id="370185806">
@@ -155,10 +149,7 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Flute</string>
 						<reference key="IBUIHighlightedTitleColor" ref="772665661"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="871431365"/>
 						<reference key="IBUINormalTitleShadowColor" ref="936495205"/>
 					</object>
 					<object class="IBUILabel" id="170310801">
@@ -242,10 +233,7 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Ionian</string>
 						<reference key="IBUIHighlightedTitleColor" ref="772665661"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="871431365"/>
 						<reference key="IBUINormalTitleShadowColor" ref="936495205"/>
 					</object>
 					<object class="IBUIButton" id="931205752">
@@ -265,10 +253,7 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Dorian</string>
 						<reference key="IBUIHighlightedTitleColor" ref="772665661"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="871431365"/>
 						<reference key="IBUINormalTitleShadowColor" ref="936495205"/>
 					</object>
 					<object class="IBUIButton" id="466930747">
@@ -288,10 +273,7 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Phrygian</string>
 						<reference key="IBUIHighlightedTitleColor" ref="772665661"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="871431365"/>
 						<reference key="IBUINormalTitleShadowColor" ref="936495205"/>
 					</object>
 					<object class="IBUIButton" id="148353017">
@@ -311,10 +293,7 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Lydian</string>
 						<reference key="IBUIHighlightedTitleColor" ref="772665661"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="871431365"/>
 						<reference key="IBUINormalTitleShadowColor" ref="936495205"/>
 					</object>
 					<object class="IBUIButton" id="525251508">
@@ -334,10 +313,7 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Mixolydian</string>
 						<reference key="IBUIHighlightedTitleColor" ref="772665661"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="871431365"/>
 						<reference key="IBUINormalTitleShadowColor" ref="936495205"/>
 					</object>
 					<object class="IBUIButton" id="372467140">
@@ -357,10 +333,7 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Aeolean</string>
 						<reference key="IBUIHighlightedTitleColor" ref="772665661"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="871431365"/>
 						<reference key="IBUINormalTitleShadowColor" ref="936495205"/>
 					</object>
 					<object class="IBUINavigationBar" id="591540362">
@@ -409,10 +382,7 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Organ</string>
 						<reference key="IBUIHighlightedTitleColor" ref="772665661"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="871431365"/>
 						<reference key="IBUINormalTitleShadowColor" ref="936495205"/>
 					</object>
 					<object class="IBUISwitch" id="156122012">
@@ -476,10 +446,7 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">HINTS</string>
 						<reference key="IBUIHighlightedTitleColor" ref="772665661"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="871431365"/>
 						<reference key="IBUINormalTitleShadowColor" ref="936495205"/>
 					</object>
 				</object>
@@ -490,6 +457,7 @@
 					<bytes key="NSRGB">MCAwIDAAA</bytes>
 				</object>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
+				<int key="IBUIContentMode">9</int>
 				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 					<int key="interfaceOrientation">3</int>
 				</object>
@@ -640,21 +608,29 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">networkSwitch:</string>
-						<reference key="source" ref="156122012"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">13</int>
-					</object>
-					<int key="connectionID">191</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">hintButton</string>
 						<reference key="source" ref="692483981"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">195</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">activateNetworking:</string>
+						<reference key="source" ref="156122012"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">13</int>
+					</object>
+					<int key="connectionID">196</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">networkSwitch</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="156122012"/>
+					</object>
+					<int key="connectionID">197</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -990,7 +966,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">195</int>
+			<int key="maxID">199</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1002,24 +978,24 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>activateNetworking:</string>
 							<string>changeFlipModeLabel</string>
 							<string>changeFlipSoundLabel</string>
 							<string>changeMode:</string>
 							<string>changeSound:</string>
 							<string>done:</string>
 							<string>hintButton</string>
-							<string>networkSwitch:</string>
 							<string>openMoreInfo:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
-							<string>UIButton</string>
-							<string>UIButton</string>
-							<string>id</string>
-							<string>id</string>
 							<string>UISwitch</string>
+							<string>id</string>
+							<string>id</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 						</object>
 					</object>
@@ -1027,17 +1003,21 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>activateNetworking:</string>
 							<string>changeFlipModeLabel</string>
 							<string>changeFlipSoundLabel</string>
 							<string>changeMode:</string>
 							<string>changeSound:</string>
 							<string>done:</string>
 							<string>hintButton</string>
-							<string>networkSwitch:</string>
 							<string>openMoreInfo:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">activateNetworking:</string>
+								<string key="candidateClassName">UISwitch</string>
+							</object>
 							<object class="IBActionInfo">
 								<string key="name">changeFlipModeLabel</string>
 								<string key="candidateClassName">id</string>
@@ -1063,10 +1043,6 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">networkSwitch:</string>
-								<string key="candidateClassName">UISwitch</string>
-							</object>
-							<object class="IBActionInfo">
 								<string key="name">openMoreInfo:</string>
 								<string key="candidateClassName">id</string>
 							</object>
@@ -1079,12 +1055,14 @@
 							<string>delegate</string>
 							<string>flipModeLabel</string>
 							<string>flipSoundLabel</string>
+							<string>networkSwitch</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>id</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
+							<string>UISwitch</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -1094,6 +1072,7 @@
 							<string>delegate</string>
 							<string>flipModeLabel</string>
 							<string>flipSoundLabel</string>
+							<string>networkSwitch</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1108,6 +1087,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">flipSoundLabel</string>
 								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">networkSwitch</string>
+								<string key="candidateClassName">UISwitch</string>
 							</object>
 						</object>
 					</object>

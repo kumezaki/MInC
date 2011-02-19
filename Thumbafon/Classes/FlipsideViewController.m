@@ -17,6 +17,7 @@
 
 @synthesize flipSoundLabel;
 @synthesize flipModeLabel;
+@synthesize networkSwitch;
 
 - (void) setAQPlayer:(AQPlayer*)aqplayer{
 	mAQPlayer = aqplayer;
@@ -60,10 +61,11 @@
 
 
 - (void)dealloc {
-	flipSoundLabel=nil;
-	flipModeLabel=nil;
 	if (network != nil) [network release];
 	[mMoreInfo release];
+	networkSwitch=nil;
+	flipSoundLabel=nil;
+	flipModeLabel=nil;
     [super dealloc];
 }
 
@@ -128,7 +130,7 @@
 	[self presentModalViewController:mMoreInfo animated:YES];
 }
 
-- (IBAction)networkSwitch:(UISwitch *)sender {
+- (IBAction)activateNetworking:(UISwitch *)sender {
 
 	if (sender.on && network == nil) {
 		network = [[Networking alloc] init];

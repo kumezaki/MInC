@@ -169,7 +169,9 @@
 				<reference key="NSSuperview"/>
 				<reference key="IBUIBackgroundColor" ref="81891175"/>
 				<bool key="IBUIOpaque">NO</bool>
+				<bool key="IBUIAutoresizesSubviews">NO</bool>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
+				<int key="IBUIContentMode">9</int>
 				<bool key="IBUIMultipleTouchEnabled">YES</bool>
 				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 					<int key="interfaceOrientation">3</int>
@@ -353,7 +355,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>setModeLabel</string>
-							<string>setModeLabelMsg</string>
+							<string>setMsgLabel</string>
 							<string>setSoundLabel</string>
 							<string>showInfo:</string>
 						</object>
@@ -370,7 +372,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>setModeLabel</string>
-							<string>setModeLabelMsg</string>
+							<string>setMsgLabel</string>
 							<string>setSoundLabel</string>
 							<string>showInfo:</string>
 						</object>
@@ -381,7 +383,7 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">setModeLabelMsg</string>
+								<string key="name">setMsgLabel</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">

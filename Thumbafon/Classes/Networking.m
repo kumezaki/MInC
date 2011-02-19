@@ -78,6 +78,14 @@ Networking *gNetwork = nil;
 	ip_add_size = (strlen(ip_add_buf) / 4 + 1) * 4;
 	printf("ip_add_buf:%s\n",ip_add_buf);
 	
+	UIDevice *thisDevice = [UIDevice currentDevice];
+	memset(dev_name_buf,0,32);
+	[thisDevice.name getCString:dev_name_buf maxLength:32 encoding:NSASCIIStringEncoding];
+	dev_name_size = (strlen(dev_name_buf) / 4 + 1) * 4;
+	printf("dev_name_buf:%s\n",dev_name_buf);
+	printf("dev_name_size:%i\n",dev_name_size);	
+
+	
 	groupOffsetState = NO;
 	listenIP = YES;
 	listenUDP = NO;
@@ -120,6 +128,7 @@ Networking *gNetwork = nil;
 			temp_addr = temp_addr->ifa_next;
 		}
 	}
+	NSLog(@"Test Address: %@",address);
 	
 	// Free memory
 	freeifaddrs(interfaces);
@@ -225,7 +234,6 @@ Networking *gNetwork = nil;
 				else if ([buf_str isEqualToString:@"/thum/mode"])			add_type = 5;
 				else if ([buf_str isEqualToString:@"/thum/labelmsg"])		add_type = 6;
 				else if (self.mSendIPAddress == 0 && [buf_str isEqualToString:@"/thum/serverip"]) add_type = 7;
-
 				[buf_str release];
 				break;
 			}
@@ -427,11 +435,12 @@ Networking *gNetwork = nil;
 
 -(void)sendOSCMsg:(const char*)osc_str:(int)osc_str_length {
 	
-	char buf[1024]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",s\0\0",4);
+	char buf[1024]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",ss\0",4);
 	
 	OSC_START
 	OSC_ADD(buf,osc_str_length+4);
-	OSC_ADD(ip_add_buf,ip_add_size)
+	OSC_ADD(ip_add_buf,ip_add_size);
+	OSC_ADD(dev_name_buf,dev_name_size);
 	OSC_END
 }
 
