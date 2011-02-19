@@ -40,6 +40,7 @@ extern Networking *gNetwork;
 }
 
 - (void)setSound:(NSString*)sound_type {
+	changingSound = YES;
 	soundType = sound_type;
 	
 	if ([soundType isEqual:@"Organ"]) {
@@ -82,6 +83,7 @@ extern Networking *gNetwork;
 		}
 	}
 	[self setMode];
+	changingSound = NO;
 }
 
 @end

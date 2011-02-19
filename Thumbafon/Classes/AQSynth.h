@@ -18,6 +18,8 @@
 	UInt8		currentMode;
 	SInt16		noteOffset;
 	
+	BOOL changingSound;
+	
 	Mode		*mode[kNumberModes];
 	Voice		*voice[kNumberVoices];
 	

@@ -81,7 +81,7 @@ function parse() {
 	if (arguments[0] == "/thum/butt") {    
 	    do_thum_butt(client_ip,parseInt(arguments[2]),parseInt(arguments[3]));
 	}
-	else if (arguments[0] == "/thum/hints") {
+	else if (arguments[0] == "/thum/hint") {
 		send_hints(player_array[client_ip].target_pos, client_ip, 0);
 	}
 	else if (arguments[0] == "/thum/prevhint") {

@@ -236,7 +236,7 @@ Networking *gNetwork = nil;
 				else if ([buf_str isEqualToString:@"/thum/keyoffset"])		add_type = 3;
 				else if ([buf_str isEqualToString:@"/thum/keyoffset/group"])add_type = 4;
 				else if ([buf_str isEqualToString:@"/thum/mode"])			add_type = 5;
-				else if ([buf_str isEqualToString:@"/thum/labelmsg"])		add_type = 6;
+				else if ([buf_str isEqualToString:@"/thum/marquee"])		add_type = 6;
 				else if (self.mSendIPAddress == 0 && [buf_str isEqualToString:@"/thum/serverip"]) add_type = 7;
 				[buf_str release];
 				break;
@@ -252,14 +252,14 @@ Networking *gNetwork = nil;
 				{
 					case 1: {
 						NSString *interstitialString = [[NSString alloc] initWithCString:mInBuffer+pos 
-																			encoding:NSASCIIStringEncoding];
+																				encoding:NSASCIIStringEncoding];
 						self.mInterstitialString = interstitialString;
 						[interstitialString release];
 						break;
 					}
 					case 2: {
 						NSString *hintsString = [[NSString alloc] initWithCString:mInBuffer+pos 
-															   encoding:NSASCIIStringEncoding];
+																		 encoding:NSASCIIStringEncoding];
 						self.mHints = hintsString;
 						[hintsString release];
 						break;
@@ -280,10 +280,10 @@ Networking *gNetwork = nil;
 						break;
 					}
 					case 6: {
-						NSString *newMarqueeMsg = [[NSString alloc] initWithCString:mInBuffer+pos
-																	  encoding:NSASCIIStringEncoding];
-						self.mMarqueeMsg = newMarqueeMsg;
-						[modeLabelMsg release];
+						NSString *marqueeString = [[NSString alloc] initWithCString:mInBuffer+pos 
+																		   encoding:NSASCIIStringEncoding];
+						self.mMarqueeMsg = marqueeString;
+						[marqueeString release];
 						break;
 					}
 					case 7: {
@@ -480,7 +480,7 @@ Networking *gNetwork = nil;
 
 - (void)requestHint {
 	
-	[self sendOSCMsg:"/thum/hints\0":12];
+	[self sendOSCMsg:"/thum/hint\0\0":12];
 }
 
 - (void)setAQSynthOffset {

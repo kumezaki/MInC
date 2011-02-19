@@ -67,9 +67,8 @@ extern Networking *gNetwork;
 }
 
 -(void)fillAudioBuffer:(Float64*)buffer:(UInt32)num_samples {
-	
 	for (UInt8 i = 0; i < kNumberVoices; i++)
-        if (voice[i] != nil)
+        if (!changingSound && voice[i] != nil)
             [(VoiceSynth*)voice[i] getSamplesForFreq:buffer:num_samples];
 	
 	revmodel_process(buffer,num_samples,1);

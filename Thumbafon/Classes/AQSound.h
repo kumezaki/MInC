@@ -14,8 +14,7 @@
 
 @interface AQSound : AQSynth {
 
-	NSString *soundType;
-	
+	NSString *soundType;	
 }
 
 @property (nonatomic, retain) NSString *soundType;
