@@ -29,15 +29,15 @@ Networking *gNetwork = nil;
 @interface Networking ()
 @property (readwrite, retain) NSString	*mInterstitialString;
 @property (readwrite, retain) NSString	*mHints;
-@property (readwrite, retain) NSString	*mOffsetMsg;
-@property (readwrite, retain) NSString	*mModeMsg;
-@property (readwrite, retain) NSString	*mModeLabelMsg;
+@property (readwrite, retain) NSString	*mMarqueeMsg;
 @property UInt32 mSendIPAddress;
 @property BOOL listenUDP;
 @property BOOL listenIP;
 @property BOOL groupOffsetState;
+@property SInt16 mNewNetworkOffset;
 @property SInt16 mCurrentNetworkOffset;
-@property UInt8 mCurrentNetworkMode;
+@property UInt16 mNewNetworkMode;
+@property UInt16 mCurrentNetworkMode;
 
 @end
 
@@ -46,13 +46,13 @@ Networking *gNetwork = nil;
 @synthesize listenUDP;
 @synthesize listenIP;
 @synthesize groupOffsetState;
+@synthesize mNewNetworkOffset;
 @synthesize mCurrentNetworkOffset;
+@synthesize mNewNetworkMode;
 @synthesize mCurrentNetworkMode;
 @synthesize mInterstitialString;
 @synthesize mHints;
-@synthesize mOffsetMsg;
-@synthesize mModeMsg;
-@synthesize mModeLabelMsg;
+@synthesize mMarqueeMsg;
 @synthesize mSendIPAddress;
 
 //*** available for outside access ***///
@@ -73,22 +73,26 @@ Networking *gNetwork = nil;
 	mReceivePortNum = 31337;
 	mReceiveIPPortNum = 41337;
 	
+	groupOffsetState = NO;
+	listenIP = YES;
+	listenUDP = NO;
+	
+	mCurrentNetworkOffset = 0;
+	
 	memset(ip_add_buf,0,32);
 	[[self getIPAddress] getCString:ip_add_buf maxLength:32 encoding:NSASCIIStringEncoding];
 	ip_add_size = (strlen(ip_add_buf) / 4 + 1) * 4;
 	printf("ip_add_buf:%s\n",ip_add_buf);
 	
 	UIDevice *thisDevice = [UIDevice currentDevice];
+	NSString * devNameNoPunk = [[thisDevice.name componentsSeparatedByCharactersInSet: [NSCharacterSet punctuationCharacterSet]] componentsJoinedByString: @""];
+
 	memset(dev_name_buf,0,32);
-	[thisDevice.name getCString:dev_name_buf maxLength:32 encoding:NSASCIIStringEncoding];
+	[devNameNoPunk getCString:dev_name_buf maxLength:32 encoding:NSASCIIStringEncoding];
 	dev_name_size = (strlen(dev_name_buf) / 4 + 1) * 4;
 	printf("dev_name_buf:%s\n",dev_name_buf);
 	printf("dev_name_size:%i\n",dev_name_size);	
 
-	
-	groupOffsetState = NO;
-	listenIP = YES;
-	listenUDP = NO;
 	mThread = [[NSThread alloc] initWithTarget:self 
 									  selector:@selector(receiveServerIP) 
 										object:nil];
@@ -261,31 +265,24 @@ Networking *gNetwork = nil;
 						break;
 					}
 					case 3: {
-						NSString *offsetMsgString = [[NSString alloc] initWithCString:mInBuffer+pos 
-																   encoding:NSASCIIStringEncoding];
-						self.mOffsetMsg = offsetMsgString;
-						[offsetMsgString release];
+						int offset = atoi(mInBuffer+pos);
+						self.mNewNetworkOffset = offset;
 						break;
 					}
 					case 4: {
-						NSString *toggle = [[NSString alloc] initWithCString:mInBuffer+pos 
-																	encoding:NSASCIIStringEncoding];
-						if ([toggle isEqualToString:@"0"]) self.groupOffsetState = NO; //NSLog(@"successNO!");
-						else self.groupOffsetState = YES; //NSLog(@"successYES!");
-						[toggle release];
+						if (strcmp(mInBuffer+pos,"0")) self.groupOffsetState = YES; //NSLog(@"successYES!"); }
+						else self.groupOffsetState = NO; //NSLog(@"successNO!"); }
 						break;
 					}
 					case 5: {
-						NSString * modeMsgString = [[NSString alloc] initWithCString:mInBuffer+pos
-																 encoding:NSASCIIStringEncoding];
-						self.mModeMsg = modeMsgString;
-						[modeMsgString release];
+						int mode = atoi(mInBuffer+pos);
+						self.mNewNetworkMode = mode;
 						break;
 					}
 					case 6: {
-						NSString *modeLabelMsg = [[NSString alloc] initWithCString:mInBuffer+pos
+						NSString *newMarqueeMsg = [[NSString alloc] initWithCString:mInBuffer+pos
 																	  encoding:NSASCIIStringEncoding];
-						self.mModeLabelMsg = modeLabelMsg;
+						self.mMarqueeMsg = newMarqueeMsg;
 						[modeLabelMsg release];
 						break;
 					}
@@ -328,27 +325,23 @@ Networking *gNetwork = nil;
 
 -(void)checkIncomingMessages {
 	
-	if (self.mOffsetMsg != nil) {
-		
-		[self setAQSynthOffset:[mOffsetMsg intValue]];
-		//[self.mOffsetMsg release];
-		self.mOffsetMsg = nil;
+	if (self.mCurrentNetworkOffset != self.mNewNetworkOffset) {
+		self.mCurrentNetworkOffset = self.mNewNetworkOffset;
+		[self setAQSynthOffset];
 	}
 	
-	if (self.mModeMsg != nil) {
-		
-		self.mCurrentNetworkMode = [mModeMsg intValue];
-		if (self.mCurrentNetworkMode < 6) [self setAQSynthMode:[mModeMsg intValue]];
-		//[self.mModeMsg release];
-		self.mModeMsg = nil;
+	if (self.mCurrentNetworkMode != self.mNewNetworkMode) {
+		self.mCurrentNetworkMode = self.mNewNetworkMode;
+		[self setAQSynthMode];
 	}
 	
-	if (self.mModeLabelMsg != nil) {
+	
+	if (self.mMarqueeMsg != nil) {
 		
-		mMainView.mLabelText = self.mModeLabelMsg;
+		mMainView.mLabelText = self.mMarqueeMsg;
 		[mMainView setMsgLabel];
-		//[self.mModeLabelMsg release];
-		self.mModeLabelMsg = nil;
+		//[self.mMarqueeMsg release];
+		self.mMarqueeMsg = nil;
 	}		
 	
 	if (self.mInterstitialString != nil) {
@@ -490,17 +483,14 @@ Networking *gNetwork = nil;
 	[self sendOSCMsg:"/thum/hints\0":12];
 }
 
-- (void)setAQSynthOffset:(SInt16)offset {
-	
-	self.mCurrentNetworkOffset = offset;
+- (void)setAQSynthOffset {
 	((AQSynth *)mAQPlayer).noteOffset = self.mCurrentNetworkOffset;
 	[(AQSynth *)mAQPlayer setMode];
 }
 
-- (void)setAQSynthMode:(UInt8)mode {
+- (void)setAQSynthMode {
 	
-	if (mode < 6) {
-		self.mCurrentNetworkMode = mode;
+	if (mCurrentNetworkMode < 6) {
 		((AQSynth *)mAQPlayer).currentMode = self.mCurrentNetworkMode;
 		[(AQSynth *)mAQPlayer setMode];
 		[mMainView setModeLabel];

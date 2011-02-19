@@ -34,16 +34,13 @@
 	int			sockReceive;
 	int			sockIPReceive;
 
-	NSString	*mInterstitialString;
-	NSString	*mHints;
-	NSString	*mOffsetMsg;
-	NSString	*mModeMsg;
-	NSString	*mModeLabelMsg;
 	UIAlertView	*mAlert;
 	NSTimer		*mTimer;
-	
 	NSThread	*mThread;
-	NSString	*mThreadConversionString;
+
+	NSString	*mInterstitialString;
+	NSString	*mHints;
+	NSString	*mMarqueeMsg;
 	
 	BOOL		listenUDP;
 	BOOL		listenIP;
@@ -51,9 +48,14 @@
 	AQPlayer				*mAQPlayer;
 	FlipsideViewController	*mFlipside;
 	MainViewController		*mMainView;
+	
 	BOOL					mGroupOffsetState;
+	
+	SInt16					mNewNetworkOffset;
 	SInt16					mCurrentNetworkOffset;
-	UInt8					mCurrentNetworkMode;
+	
+	UInt16					mNewNetworkMode;
+	UInt16					mCurrentNetworkMode;
 	
 }
 @property (readwrite, retain) AQPlayer	*mAQPlayer;
@@ -76,7 +78,7 @@
 - (void)buttonpress:(NSString *)button;
 - (void)buttonrelease:(NSString *)button;
 - (void)requestHint;
-- (void)setAQSynthOffset:(SInt16)offset;
-- (void)setAQSynthMode:(UInt8)mode;
+- (void)setAQSynthOffset;
+- (void)setAQSynthMode;
 
 @end
