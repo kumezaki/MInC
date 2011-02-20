@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@class AQPlayer, MainViewController, FlipsideViewController,Mode;
+@class AQPlayer, MainViewController, FlipsideViewController, Mode;
 
-@interface Networking : NSObject <UIAlertViewDelegate> {
+@interface Networking : NSObject {
 	
 	UInt32		mSendIPAddress;
 	SInt16		mSendPortNum;
@@ -34,12 +34,10 @@
 	int			sockReceive;
 	int			sockIPReceive;
 
-	UIAlertView	*mAlert;
-	NSThread	*mThread;
-	
 	BOOL		listenUDP;
 	BOOL		listenIP;
 	
+	NSThread				*mThread;
 	AQPlayer				*mAQPlayer;
 	FlipsideViewController	*mFlipside;
 	MainViewController		*mMainView;

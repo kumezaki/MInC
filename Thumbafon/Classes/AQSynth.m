@@ -22,13 +22,6 @@ extern Networking *gNetwork;
 @synthesize magicMode;
 @synthesize magicState;
 
-- (void)setMagicMode:(Mode *)newMode{
-	magicMode = newMode;
-	for(UInt8 i = 0; i < kNumberVoices; i++) {
-		NSLog(@"magic mode notes:%i", [magicMode getNoteNum:i]);
-	}
-}
-
 - (void)setMode {
 	if (magicState) {
 		for (UInt8 i = 0; i < kNumberVoices; i++) {

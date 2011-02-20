@@ -82,6 +82,18 @@ Networking *gNetwork = nil;
 	return self;
 }
 
+- (void)dealloc {
+	
+	if (mThread != nil) [mThread release];
+	[mMagicMode release];
+	[mAQPlayer release];
+	[mFlipside release];
+	[mMainView release];
+
+	gNetwork = nil;
+	[super dealloc];
+}
+
 - (void)networkOn {
 	
 	self.listenIP = YES;
@@ -100,11 +112,8 @@ Networking *gNetwork = nil;
 	self.listenUDP = NO; 
 	self.listenIP = NO;
 	
-	/*** release unneeded objects ***/
+	/*** release mThread ***/
 	[mThread release];
-	[mAQPlayer release];
-	[mFlipside release];
-	[mMainView release];
 	
 	/*** close the sockets ***/
 	close(sockIPReceive);
@@ -115,15 +124,6 @@ Networking *gNetwork = nil;
 	
 	/*** set power to off ***/
 	self.powerSwitch = NO;
-}
-
-
-- (void)dealloc {
-	
-	[mMagicMode release];
-	[mAQPlayer release];
-	gNetwork = nil;
-	[super dealloc];
 }
 
 - (NSString *)getIPAddress {
@@ -158,7 +158,7 @@ Networking *gNetwork = nil;
 }
 
 #pragma mark -
-#pragma mark mThread listening methods
+#pragma mark mThread UDP listening methods
 
 - (void)receiveServerIP {
 	
@@ -410,52 +410,13 @@ Networking *gNetwork = nil;
 #pragma mark messages to device
 
 - (void)setOneButtonAlert:(NSString *)msg {
-	
-	mAlert = [[UIAlertView alloc] initWithTitle:nil 
-										message:msg 
-									   delegate:self 
-							  cancelButtonTitle:@"Return" 
-							  otherButtonTitles: nil];
-	
-	//set text alignment to Left...
-	NSArray *subViewArray = mAlert.subviews;
-	for(int i = 1;i < [subViewArray count]; i++) {
-		if([[[subViewArray objectAtIndex:i] class] isSubclassOfClass:[UILabel class]]) {
-			UILabel *label = [subViewArray objectAtIndex:i];
-			label.textAlignment = UITextAlignmentLeft;
-		}
-	}
-	
-	[mAlert show];
-	[mAlert release];
+	mMainView.mAlertMsg = msg;
+	[mMainView oneButtonAlert];
 }
 
 - (void)setTwoButtonAlert:(NSString *)msg {
-
-	mAlert = [[UIAlertView alloc] initWithTitle:nil 
-										message:msg 
-									   delegate:self 
-							  cancelButtonTitle:@"Previous" 
-							  otherButtonTitles:@"Return",nil];
-	
-	//set text alignment to Left...
-	NSArray *subViewArray = mAlert.subviews;
-	for(int i = 0;i < [subViewArray count]; i++) {
-		if([[[subViewArray objectAtIndex:i] class] isSubclassOfClass:[UILabel class]]) {
-			UILabel *label = [subViewArray objectAtIndex:i];
-			label.textAlignment = UITextAlignmentLeft;
-		}
-	}
-	
-	[mAlert show];
-	[mAlert release];
-}
-
-- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-	
-	if ([[actionSheet buttonTitleAtIndex:0] isEqual:@"Previous"] && buttonIndex == 0) {
-		[self sendOSCMsg:"/thum/prev\0\0":12];
-	}
+	mMainView.mAlertMsg = msg;
+	[mMainView twoButtonAlert];
 }
 
 - (void)setMarquee:(NSString *)msg {

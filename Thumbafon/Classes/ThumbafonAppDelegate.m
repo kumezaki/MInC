@@ -30,6 +30,7 @@
 	application.applicationSupportsShakeToEdit = YES;
 	
 	network = [[Networking alloc]init];
+	network.mMainView = mainViewController;
 	
     return YES;
 }
@@ -41,7 +42,7 @@
      Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
      */
 	if (network.powerSwitch) {
-		[mainViewController networkingPower:NO];
+		[mainViewController networkUISwitchShutOff:NO];
 		networkWasOn = YES;
 	}
 
@@ -54,7 +55,7 @@
      If your application supports background execution, called instead of applicationWillTerminate: when the user quits.
      */
 	if (network.powerSwitch) {
-		[mainViewController networkingPower:NO];
+		[mainViewController networkUISwitchShutOff:NO];
 		networkWasOn = YES;
 	}
 }
@@ -65,7 +66,7 @@
      Called as part of  transition from the background to the inactive state: here you can undo many of the changes made on entering the background.
      */
 	if (networkWasOn) {
-		[mainViewController networkingPower:YES];
+		[mainViewController networkUISwitchShutOff:YES];
 		networkWasOn = NO;
 	}
 }
@@ -76,7 +77,7 @@
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
 	if (networkWasOn) {
-		[mainViewController networkingPower:YES];
+		[mainViewController networkUISwitchShutOff:YES];
 		networkWasOn = NO;
 	}
 
@@ -89,7 +90,7 @@
      See also applicationDidEnterBackground:.
      */
 	if (network.powerSwitch) {
-		[mainViewController networkingPower:NO];
+		[mainViewController networkUISwitchShutOff:NO];
 	}
 
 }

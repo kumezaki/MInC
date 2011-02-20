@@ -20,6 +20,7 @@ extern Networking *gNetwork;
 @synthesize soundLabel;
 @synthesize modeLabel;
 @synthesize mLabelText;
+@synthesize mAlertMsg;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     
@@ -37,10 +38,8 @@ extern Networking *gNetwork;
     StatusBarStyle = [[UIApplication sharedApplication] statusBarStyle];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 	
-	if (gNetwork.powerSwitch && gNetwork.mMainView == nil) {
-		
-		gNetwork.mMainView = self;
-		
+	if (gNetwork.powerSwitch && messView == nil) {
+
 		CGRect viewRect = CGRectMake(0,0,420,30);
 		messView = [[MessageView alloc] initWithFrame:viewRect];
 		[messView setHidden:YES];
@@ -102,6 +101,7 @@ extern Networking *gNetwork;
 	self.modeLabel=nil;
 	if (messView != nil) [messView release];
 	[mLabelText release];
+	[mAlertMsg release];
 	[buttView release];
 	[mAQPlayer release];
 	[controller release];
@@ -146,15 +146,62 @@ extern Networking *gNetwork;
 	modeLabel.text = self.mLabelText;//set new labels
 }
 
-- (IBAction)setMsgLabel {
+- (IBAction)setSoundLabel {
+	
+	soundLabel.text = [NSString stringWithFormat:@"%@",((AQSound*)mAQPlayer).soundType];
+}
 
+- (IBAction)setMsgLabel {
+	
 	[messView setHidden:NO];
 	messView.mMsgLabel.text = self.mLabelText;
 }
 
-- (IBAction)setSoundLabel {
+- (void)oneButtonAlert {
+
+	UIAlertView *mAlert = [[UIAlertView alloc] initWithTitle:nil 
+										message:self.mAlertMsg 
+									   delegate:self 
+							  cancelButtonTitle:@"Return" 
+							  otherButtonTitles: nil];
 	
-	soundLabel.text = [NSString stringWithFormat:@"%@",((AQSound*)mAQPlayer).soundType];
+	//set text alignment to Left...
+	NSArray *subViewArray = mAlert.subviews;
+	for(int i = 1;i < [subViewArray count]; i++) {
+		if([[[subViewArray objectAtIndex:i] class] isSubclassOfClass:[UILabel class]]) {
+			UILabel *label = [subViewArray objectAtIndex:i];
+			label.textAlignment = UITextAlignmentLeft;
+		}
+	}
+	
+	[mAlert show];
+	[mAlert release];
+}
+
+- (void)twoButtonAlert {
+	
+	UIAlertView *mAlert = [[UIAlertView alloc] initWithTitle:nil 
+										message:self.mAlertMsg 
+									   delegate:self 
+							  cancelButtonTitle:@"Previous" 
+							  otherButtonTitles:@"Return",nil];
+	
+	//set text alignment to Left...
+	NSArray *subViewArray = mAlert.subviews;
+	for(int i = 0;i < [subViewArray count]; i++) {
+		if([[[subViewArray objectAtIndex:i] class] isSubclassOfClass:[UILabel class]]) {
+			UILabel *label = [subViewArray objectAtIndex:i];
+			label.textAlignment = UITextAlignmentLeft;
+		}
+	}
+	
+	[mAlert show];
+	[mAlert release];
+}
+
+- (void)networkUISwitchShutOff:(BOOL)state {
+	controller.networkSwitch.on = state;
+	[controller activateNetworking:controller.networkSwitch];
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
@@ -165,9 +212,11 @@ extern Networking *gNetwork;
 	}
 }
 
-- (void)networkingPower:(BOOL)state {
-	controller.networkSwitch.on = state;
-	[controller activateNetworking:controller.networkSwitch];
+- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+	
+	if ([[actionSheet buttonTitleAtIndex:0] isEqual:@"Previous"] && buttonIndex == 0) {
+		[gNetwork sendOSCMsg:"/thum/prev\0\0":12];
+	}
 }
 
 @end

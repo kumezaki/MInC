@@ -11,7 +11,7 @@
 
 @class ButtonView, MessageView;
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate> {
+@interface MainViewController : UIViewController <UIAlertViewDelegate,FlipsideViewControllerDelegate>  {
 	IBOutlet UILabel		*soundLabel;
 	IBOutlet UILabel		*modeLabel;
 	
@@ -23,18 +23,24 @@
 	MessageView				*messView;
 	
 	NSString				*mLabelText;
+	NSString				*mAlertMsg;
 }
 @property(retain) IBOutlet UILabel	*soundLabel;
 @property(retain) IBOutlet UILabel	*modeLabel;
 @property(readwrite, retain) NSString *mLabelText;
+@property(readwrite, retain) NSString *mAlertMsg;
 
 - (void)changeMode;
 
 - (IBAction)showInfo:(id)sender;
 - (IBAction)setModeLabel;
 - (IBAction)setSoundLabel;
+
 - (IBAction)setMsgLabel;
 
-- (void)networkingPower:(BOOL)state;
+- (void)oneButtonAlert;
+- (void)twoButtonAlert;
+
+- (void)networkUISwitchShutOff:(BOOL)state;
 
 @end

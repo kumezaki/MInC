@@ -17,7 +17,7 @@ function clear_players() {
 	
 	messnamed("thum_msg_1","target",0);
 	messnamed("thum_msg_2","msg","/thum/1butt","Unfortunately, the system needed to be reset. Please turn your Network power switch OFF & then ON again to rejoin the performance.\n");
-	messnamed("thum_msg_2","0.0.0.0");
+	messnamed("thum_msg_2","ip", "0.0.0.0");
 	target_pos_array = [];
 	player_report();
 }
