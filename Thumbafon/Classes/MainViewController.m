@@ -37,7 +37,7 @@ extern Networking *gNetwork;
     StatusBarStyle = [[UIApplication sharedApplication] statusBarStyle];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 	
-	if (gNetwork !=nil && gNetwork.mMainView == nil) {
+	if (gNetwork.powerSwitch && gNetwork.mMainView == nil) {
 		
 		gNetwork.mMainView = self;
 		

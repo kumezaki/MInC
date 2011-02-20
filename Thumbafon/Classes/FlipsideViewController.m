@@ -11,6 +11,8 @@
 #import "Networking.h"
 #import "AQSound.h"
 
+extern Networking *gNetwork;
+
 @implementation FlipsideViewController
 
 @synthesize delegate;
@@ -61,7 +63,6 @@
 
 
 - (void)dealloc {
-	if (network != nil) [network release];
 	[mMoreInfo release];
 	networkSwitch=nil;
 	flipSoundLabel=nil;
@@ -132,31 +133,37 @@
 
 - (IBAction)activateNetworking:(UISwitch *)sender {
 
-	if (sender.on && network == nil) {
-		network = [[Networking alloc] init];
-		network.mAQPlayer = mAQPlayer;
-		network.mFlipside = self;
+	if (sender.on && !gNetwork.powerSwitch) {
+		
+		if (gNetwork.mAQPlayer == nil) gNetwork.mAQPlayer = mAQPlayer;
+		if (gNetwork.mFlipside == nil) gNetwork.mFlipside = self;
+		[gNetwork networkOn];
 	}
 	
-	else if (!sender.on && network != nil) {
-		[network quitNetworking];
-		[network release];
-		network = nil;
-	}
+	else if (!sender.on && gNetwork.powerSwitch) [gNetwork networkOff];
 }
 
 - (IBAction)hintButton {
 
-	if (network == nil) {
+	if (!gNetwork.powerSwitch) {
 		UIAlertView *mAlert = [[UIAlertView alloc] initWithTitle:@"Hint Window" 
-										   message:@"During a networked performance, use the HINTS button to see messages from the artist." 
+										   message:@"During a WiFi performance, use the HINTS button to see messages from the artist." 
 										  delegate:self 
 								 cancelButtonTitle:@"Return" 
 								 otherButtonTitles:nil];
+		//set text alignment to Left...
+		NSArray *subViewArray = mAlert.subviews;
+		for(int i = 1;i < [subViewArray count]; i++) {
+			if([[[subViewArray objectAtIndex:i] class] isSubclassOfClass:[UILabel class]]) {
+				UILabel *label = [subViewArray objectAtIndex:i];
+				label.textAlignment = UITextAlignmentLeft;
+			}
+		}
+		
 		[mAlert show];
 		[mAlert release];
 	}
-	else [network requestHint];
+	else [gNetwork requestHint];
 
 }
 

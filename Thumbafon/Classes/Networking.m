@@ -27,17 +27,10 @@
 Networking *gNetwork = nil;
 
 @interface Networking ()
-@property (readwrite, retain) NSString	*mInterstitialString;
-@property (readwrite, retain) NSString	*mHints;
-@property (readwrite, retain) NSString	*mMarqueeMsg;
+
 @property UInt32 mSendIPAddress;
 @property BOOL listenUDP;
 @property BOOL listenIP;
-@property BOOL groupOffsetState;
-@property SInt16 mNewNetworkOffset;
-@property SInt16 mCurrentNetworkOffset;
-@property UInt16 mNewNetworkMode;
-@property UInt16 mCurrentNetworkMode;
 
 @end
 
@@ -45,20 +38,13 @@ Networking *gNetwork = nil;
 
 @synthesize listenUDP;
 @synthesize listenIP;
-@synthesize groupOffsetState;
-@synthesize mNewNetworkOffset;
-@synthesize mCurrentNetworkOffset;
-@synthesize mNewNetworkMode;
-@synthesize mCurrentNetworkMode;
-@synthesize mInterstitialString;
-@synthesize mHints;
-@synthesize mMarqueeMsg;
 @synthesize mSendIPAddress;
 
 //*** available for outside access ***///
 @synthesize mAQPlayer;
 @synthesize mMainView;
 @synthesize mFlipside;
+@synthesize powerSwitch;
 
 #pragma mark -
 #pragma mark init / dealloc
@@ -68,16 +54,13 @@ Networking *gNetwork = nil;
 	
 	gNetwork = self;
 	
+	listenIP = NO;
+	listenUDP = NO;
+	
 	mSendIPAddress = 0; //htonl(0x7F000001); /* local testing IP address: 127.0.0.1 */
 	mSendPortNum = 1337;
 	mReceivePortNum = 31337;
 	mReceiveIPPortNum = 41337;
-	
-	groupOffsetState = NO;
-	listenIP = YES;
-	listenUDP = NO;
-	
-	mCurrentNetworkOffset = 0;
 	
 	memset(ip_add_buf,0,32);
 	[[self getIPAddress] getCString:ip_add_buf maxLength:32 encoding:NSASCIIStringEncoding];
@@ -90,20 +73,50 @@ Networking *gNetwork = nil;
 	memset(dev_name_buf,0,32);
 	[devNameNoPunk getCString:dev_name_buf maxLength:32 encoding:NSASCIIStringEncoding];
 	dev_name_size = (strlen(dev_name_buf) / 4 + 1) * 4;
-	printf("dev_name_buf:%s\n",dev_name_buf);
-	printf("dev_name_size:%i\n",dev_name_size);	
+	//printf("dev_name_buf:%s\n",dev_name_buf);
+	//printf("dev_name_size:%i\n",dev_name_size);	
 
-	mThread = [[NSThread alloc] initWithTarget:self 
-									  selector:@selector(receiveServerIP) 
-										object:nil];
+	return self;
+}
+
+- (void)networkOn {
+	
+	self.listenIP = YES;
+	self.listenUDP = NO;
+	mThread = [[NSThread alloc] initWithTarget:self selector:@selector(receiveServerIP) object:nil];
 	[mThread start];
 	
-	mTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 
-											  target:self 
-											selector:@selector(checkIncomingMessages) 
-											userInfo:nil 
-											 repeats:YES];
-	return self;
+	self.powerSwitch = YES;
+}
+
+- (void)networkOff {
+	/*** send leave msg ***/
+	[self sendOSCMsg:"/thum/leave\0":12]; 
+	
+	/*** break the for(;;)'s ***/
+	self.listenUDP = NO; 
+	self.listenIP = NO;
+	
+	/*** release mThread ***/
+	[mThread release];
+	
+	/*** close the sockets ***/
+	close(sockIPReceive);
+	close(sockReceive);
+	
+	/*** reset mSendIPAddress ***/
+	self.mSendIPAddress = 0; 
+	
+	/*** set power to off ***/
+	self.powerSwitch = NO;
+}
+
+
+- (void)dealloc {
+	
+	[mAQPlayer release];
+	gNetwork = nil;
+	[super dealloc];
 }
 
 - (NSString *)getIPAddress {
@@ -131,20 +144,10 @@ Networking *gNetwork = nil;
 			}
 			temp_addr = temp_addr->ifa_next;
 		}
-	}
-	NSLog(@"Test Address: %@",address);
-	
+	}	
 	// Free memory
 	freeifaddrs(interfaces);
 	return address;
-}
-
-- (void)dealloc {
-	
-	[mThread release];
-	[mAQPlayer release];
-	gNetwork = nil;
-	[super dealloc];
 }
 
 #pragma mark -
@@ -211,13 +214,14 @@ Networking *gNetwork = nil;
 		}
 		else break;
 		}
-	
 	close(sockReceive);
 }
 
 - (void)parseOSC
 {
 	//NSLog(@"mInBufferLength: %ld\n",mInBufferLength);
+	
+	NSAutoreleasePool *parsePool = [[NSAutoreleasePool alloc] init];
 	
 	ssize_t pos = 0;
 	int msg_type = 0;
@@ -229,16 +233,15 @@ Networking *gNetwork = nil;
 		{
 			case 0: /* OSC Address Pattern */
 			{
-				NSString *buf_str = [[NSString alloc] initWithCString:mInBuffer+pos 
-															 encoding:NSASCIIStringEncoding];
-				if ([buf_str isEqualToString:@"/thum/interstitial"])		add_type = 1;
-				else if ([buf_str isEqualToString:@"/thum/hints"])			add_type = 2;
-				else if ([buf_str isEqualToString:@"/thum/keyoffset"])		add_type = 3;
-				else if ([buf_str isEqualToString:@"/thum/keyoffset/group"])add_type = 4;
-				else if ([buf_str isEqualToString:@"/thum/mode"])			add_type = 5;
-				else if ([buf_str isEqualToString:@"/thum/marquee"])		add_type = 6;
-				else if (self.mSendIPAddress == 0 && [buf_str isEqualToString:@"/thum/serverip"]) add_type = 7;
-				[buf_str release];
+				NSString *buf_str = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
+				
+					 if ([buf_str isEqualToString:@"/thum/key"])		add_type = 1;
+				else if ([buf_str isEqualToString:@"/thum/mode"])		add_type = 2;
+				else if ([buf_str isEqualToString:@"/thum/notes"])		add_type = 3;
+				else if ([buf_str isEqualToString:@"/thum/marq"])		add_type = 4;
+				else if ([buf_str isEqualToString:@"/thum/1butt"])		add_type = 5;
+				else if ([buf_str isEqualToString:@"/thum/2butt"])		add_type = 6;
+				else if (self.mSendIPAddress == 0 && [buf_str isEqualToString:@"/thum/srvip"])add_type = 7;
 				break;
 			}
 			case 1: /* OSC Type Tags */
@@ -250,154 +253,60 @@ Networking *gNetwork = nil;
 			{
 				switch (add_type)
 				{
-					case 1: {
-						NSString *interstitialString = [[NSString alloc] initWithCString:mInBuffer+pos 
-																				encoding:NSASCIIStringEncoding];
-						self.mInterstitialString = interstitialString;
-						[interstitialString release];
+					case 1: { //offset
+						NSString *msg = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
+						[self performSelectorOnMainThread:@selector(setAQSynthOffset:) withObject:msg waitUntilDone:YES];
 						break;
 					}
-					case 2: {
-						NSString *hintsString = [[NSString alloc] initWithCString:mInBuffer+pos 
-																		 encoding:NSASCIIStringEncoding];
-						self.mHints = hintsString;
-						[hintsString release];
+					case 2: { //mode
+						NSString *msg = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
+						[self performSelectorOnMainThread:@selector(setAQSynthMode:) withObject:msg waitUntilDone:YES];
 						break;
 					}
-					case 3: {
-						int offset = atoi(mInBuffer+pos);
-						self.mNewNetworkOffset = offset;
+					case 3: { //notes
+						//NSString *msgString = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
+						//[self performSelectorOnMainThread:@selector(setTwoButton:) withObject:msg waitUntilDone:NO];
 						break;
 					}
-					case 4: {
-						if (strcmp(mInBuffer+pos,"0")) self.groupOffsetState = YES; //NSLog(@"successYES!"); }
-						else self.groupOffsetState = NO; //NSLog(@"successNO!"); }
+					case 4: { //marquee
+						NSString *msg = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
+						[self performSelectorOnMainThread:@selector(setMarquee:) withObject:msg waitUntilDone:NO];
 						break;
 					}
 					case 5: {
-						int mode = atoi(mInBuffer+pos);
-						self.mNewNetworkMode = mode;
+						NSString *msg = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
+						[self performSelectorOnMainThread:@selector(setOneButtonAlert:) withObject:msg waitUntilDone:NO];
 						break;
 					}
 					case 6: {
-						NSString *marqueeString = [[NSString alloc] initWithCString:mInBuffer+pos 
-																		   encoding:NSASCIIStringEncoding];
-						self.mMarqueeMsg = marqueeString;
-						[marqueeString release];
+						NSString *msg = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
+						[self performSelectorOnMainThread:@selector(setTwoButtonAlert:) withObject:msg waitUntilDone:NO];
 						break;
 					}
 					case 7: {
 						self.mSendIPAddress = inet_addr(mInBuffer+pos);
 						[self sendOSCMsg:"/thum/join\0\0":12];
-						self.listenIP = NO;
+						self.listenIP = NO; /*** must be set from outside the for(;;) loop ***/
 						break;
 					}
 				}
 				break;
 			}
 			default:
-				break;
+			break;
 		}
-		const char* msg_type_str = "";
+		//const char* msg_type_str = "";
 		switch (msg_type) {
-			case 0: msg_type_str = "OSC Address Pattern"; msg_type = 1; break;
-			case 1: msg_type_str = "OSC Type Tags"; msg_type = 2; break;
-			default: msg_type_str = "OSC Data"; break;
+			case 0: msg_type = 1; break; //msg_type_str = "OSC Address Pattern";
+			case 1: msg_type = 2; break; //msg_type_str = "OSC Type Tags";
+			default: break; //msg_type_str = "OSC Data";
 		}
 		//printf("%s: %s\n",msg_type_str,mInBuffer+pos);
 		
 		pos += ((strlen(mInBuffer+pos) / 4) + 1) * 4;
 	}
+	[parsePool drain];
 }
-
-#pragma mark -
-#pragma mark receive related on main thread
-
-- (void)quitNetworking {
-	
-	self.listenIP = NO;
-	self.listenUDP = NO;
-	close(sockIPReceive);
-	close(sockReceive); 
-	[self sendOSCMsg:"/thum/leave\0":12];
-	[mTimer invalidate];
-}
-
--(void)checkIncomingMessages {
-	
-	if (self.mCurrentNetworkOffset != self.mNewNetworkOffset) {
-		self.mCurrentNetworkOffset = self.mNewNetworkOffset;
-		[self setAQSynthOffset];
-	}
-	
-	if (self.mCurrentNetworkMode != self.mNewNetworkMode) {
-		self.mCurrentNetworkMode = self.mNewNetworkMode;
-		[self setAQSynthMode];
-	}
-	
-	
-	if (self.mMarqueeMsg != nil) {
-		
-		mMainView.mLabelText = self.mMarqueeMsg;
-		[mMainView setMsgLabel];
-		//[self.mMarqueeMsg release];
-		self.mMarqueeMsg = nil;
-	}		
-	
-	if (self.mInterstitialString != nil) {
-		mAlert = [[UIAlertView alloc] initWithTitle:nil 
-											message:self.mInterstitialString 
-										   delegate:self 
-								  cancelButtonTitle:@"Return" 
-								  otherButtonTitles: nil];
-		NSArray *subViewArray = mAlert.subviews;
-		
-		for(int i = 0;i < [subViewArray count]; i++) {
-			
-			if([[[subViewArray objectAtIndex:i] class] isSubclassOfClass:[UILabel class]]) {
-				UILabel *label = [subViewArray objectAtIndex:i];
-				label.textAlignment = UITextAlignmentLeft;
-			}
-		}
-		[mAlert show];
-		[mAlert release];
-		//[self.mInterstitialString release];
-		self.mInterstitialString = nil;
-	}
-
-	if (self.mHints != nil) {
-		mAlert = [[UIAlertView alloc] initWithTitle:nil 
-											message:self.mHints 
-										   delegate:self 
-								  cancelButtonTitle:@"Previous" 
-								  otherButtonTitles:@"Return",nil];
-		
-		NSArray *subViewArray = mAlert.subviews;
-		
-		for(int i = 0;i < [subViewArray count]; i++) {
-			
-			if([[[subViewArray objectAtIndex:i] class] isSubclassOfClass:[UILabel class]]) {
-				UILabel *label = [subViewArray objectAtIndex:i];
-				label.textAlignment = UITextAlignmentLeft;
-			}
-		}
-		[mAlert show];
-		[mAlert release];
-		//[self.mHints release];
-		self.mHints = nil;
-	}
-}
-
-- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-
-	if ([[actionSheet buttonTitleAtIndex:0] isEqual:@"Previous"] && buttonIndex == 0) {
-		[self sendOSCMsg:"/thum/prevhint\0\0":16];
-	}
-	else {
-		NSLog(@"cancel");
-	}
-}
-
 
 #pragma mark -
 #pragma mark sendUDP
@@ -464,17 +373,17 @@ Networking *gNetwork = nil;
 }
 
 #pragma mark -
-#pragma mark device actions to/from
+#pragma mark messages from device
 
 - (void)buttonpress:(NSString *)button {
 	
-	UInt8 buttonNum = [button intValue];
+	UInt16 buttonNum = [button intValue];
 	[self sendOSCMsgWith2IntValues:"/thum/butt\0\0":12:buttonNum:1];
 }
 
 - (void)buttonrelease:(NSString *)button {
 	
-	UInt8 buttonNum = [button intValue];
+	UInt16 buttonNum = [button intValue];
 	[self sendOSCMsgWith2IntValues:"/thum/butt\0\0":12:buttonNum:0];
 }
 
@@ -483,19 +392,82 @@ Networking *gNetwork = nil;
 	[self sendOSCMsg:"/thum/hint\0\0":12];
 }
 
-- (void)setAQSynthOffset {
-	((AQSynth *)mAQPlayer).noteOffset = self.mCurrentNetworkOffset;
+
+#pragma mark -
+#pragma mark messages to device
+
+- (void)setOneButtonAlert:(NSString *)msg {
+	
+	mAlert = [[UIAlertView alloc] initWithTitle:nil 
+										message:msg 
+									   delegate:self 
+							  cancelButtonTitle:@"Return" 
+							  otherButtonTitles: nil];
+	
+	//set text alignment to Left...
+	NSArray *subViewArray = mAlert.subviews;
+	for(int i = 1;i < [subViewArray count]; i++) {
+		if([[[subViewArray objectAtIndex:i] class] isSubclassOfClass:[UILabel class]]) {
+			UILabel *label = [subViewArray objectAtIndex:i];
+			label.textAlignment = UITextAlignmentLeft;
+		}
+	}
+	
+	[mAlert show];
+	[mAlert release];
+}
+
+- (void)setTwoButtonAlert:(NSString *)msg {
+
+	mAlert = [[UIAlertView alloc] initWithTitle:nil 
+										message:msg 
+									   delegate:self 
+							  cancelButtonTitle:@"Previous" 
+							  otherButtonTitles:@"Return",nil];
+	
+	//set text alignment to Left...
+	NSArray *subViewArray = mAlert.subviews;
+	for(int i = 0;i < [subViewArray count]; i++) {
+		if([[[subViewArray objectAtIndex:i] class] isSubclassOfClass:[UILabel class]]) {
+			UILabel *label = [subViewArray objectAtIndex:i];
+			label.textAlignment = UITextAlignmentLeft;
+		}
+	}
+	
+	[mAlert show];
+	[mAlert release];
+}
+
+- (void)setMarquee:(NSString *)msg {
+
+		mMainView.mLabelText = msg;
+		[mMainView setMsgLabel];
+}
+
+- (void)setAQSynthOffset:(NSString *)offset {
+	
+	((AQSynth *)mAQPlayer).noteOffset = [offset intValue];
 	[(AQSynth *)mAQPlayer setMode];
 }
 
-- (void)setAQSynthMode {
+- (void)setAQSynthMode:(NSString *)mode {
 	
-	if (mCurrentNetworkMode < 6) {
-		((AQSynth *)mAQPlayer).currentMode = self.mCurrentNetworkMode;
+	UInt16 networkMode = [mode intValue];
+	if (networkMode < 6) {
+		((AQSynth *)mAQPlayer).currentMode = networkMode;
 		[(AQSynth *)mAQPlayer setMode];
 		[mMainView setModeLabel];
 		[mFlipside changeFlipModeLabel];
 	}
 }
+
+- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+	
+	if ([[actionSheet buttonTitleAtIndex:0] isEqual:@"Previous"] && buttonIndex == 0) {
+		[self sendOSCMsg:"/thum/prev\0\0":12];
+	}
+}
+
+
 
 @end

@@ -107,7 +107,7 @@ extern Networking *gNetwork;
 	
 	[(AQSynth*)mAQPlayer startVoice:[sender.titleLabel.text intValue]];
 	
-	if (gNetwork != nil) {
+	if (gNetwork.powerSwitch) {
 		[gNetwork buttonpress:sender.titleLabel.text];
 	}
 }
@@ -116,7 +116,7 @@ extern Networking *gNetwork;
 	
 	[(AQSynth*)mAQPlayer stopVoice:[sender.titleLabel.text intValue]];
 	
-	if (gNetwork != nil) {
+	if (gNetwork.powerSwitch) {
 		[gNetwork buttonrelease:sender.titleLabel.text];
 	}
 }

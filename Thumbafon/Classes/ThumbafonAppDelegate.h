@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class MainViewController;
+@class MainViewController, Networking;
 
 @interface ThumbafonAppDelegate : NSObject <UIApplicationDelegate> {
-    UIWindow			*window;
+    
+	UIWindow			*window;
     MainViewController	*mainViewController;
+	Networking			*network;
 	
 	BOOL	networkWasOn;
 }

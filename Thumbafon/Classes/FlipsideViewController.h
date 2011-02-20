@@ -22,7 +22,6 @@
 @private
 	AQPlayer				*mAQPlayer;
 	MoreInfoViewController	*mMoreInfo;
-	Networking				*network;
 	
 	NSString				*mLabelText;
 }

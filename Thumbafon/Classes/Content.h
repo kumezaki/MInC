@@ -20,7 +20,6 @@ UInt8 pitchSet03[kNumberVoices] = {
 
 UInt8 pitchSet04[kNumberVoices] = {
 	65,69,71,72,74,76,77,79 //F Lydian (no 9th in lower portion)
-
 };
 
 UInt8 pitchSet05[kNumberVoices] = {

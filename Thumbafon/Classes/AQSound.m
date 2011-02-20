@@ -24,10 +24,10 @@ extern Networking *gNetwork;
 	[super init];
 	
 	for (UInt8 i = 0; i < kNumberVoices; i++) {
-        voice[i] = [[PulseOrgan alloc] init];
+        voice[i] = [[SinePiano alloc] init];
     }
 	
-	self.soundType = @"Organ";
+	self.soundType = @"Epiano";
 	self.currentMode = 0;
 	[self setMode];
 	return self;
@@ -40,9 +40,10 @@ extern Networking *gNetwork;
 }
 
 - (void)setSound:(NSString*)sound_type {
+		
 	changingSound = YES;
 	soundType = sound_type;
-	
+		
 	if ([soundType isEqual:@"Organ"]) {
 		
 		for (UInt8 i = 0; i < kNumberVoices; i++) {
@@ -85,5 +86,6 @@ extern Networking *gNetwork;
 	[self setMode];
 	changingSound = NO;
 }
+
 
 @end

@@ -11,7 +11,7 @@
 
 @implementation Voice
 
-- (id)init {	
+- (id)init {
 	mMaxNoteAmp = MAX_AMP/kNumberVoices;
 	return self;
 }
