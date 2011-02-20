@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AQPlayer, MainViewController, FlipsideViewController;
+@class AQPlayer, MainViewController, FlipsideViewController,Mode;
 
 @interface Networking : NSObject <UIAlertViewDelegate> {
 	
@@ -36,7 +36,6 @@
 
 	UIAlertView	*mAlert;
 	NSThread	*mThread;
-	NSTimer		*mTimer;
 	
 	BOOL		listenUDP;
 	BOOL		listenIP;
@@ -44,6 +43,7 @@
 	AQPlayer				*mAQPlayer;
 	FlipsideViewController	*mFlipside;
 	MainViewController		*mMainView;
+	Mode					*mMagicMode;
 	
 	BOOL		powerSwitch;
 
@@ -76,5 +76,7 @@
 - (void)setMarquee:(NSString *)msg;
 - (void)setAQSynthOffset:(NSString *)offset;
 - (void)setAQSynthMode:(NSString *)mode;
+- (void)setNewNotes:(NSString *)notes;
+- (void)setMagicNotesState:(NSNumber *)toggle;
 
 @end

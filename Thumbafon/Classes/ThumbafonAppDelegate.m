@@ -12,10 +12,8 @@
 
 @implementation ThumbafonAppDelegate
 
-
 @synthesize window;
 @synthesize mainViewController;
-
 
 #pragma mark -
 #pragma mark Application lifecycle

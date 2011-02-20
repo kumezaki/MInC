@@ -19,6 +19,7 @@ extern Networking *gNetwork;
 
 @synthesize flipSoundLabel;
 @synthesize flipModeLabel;
+@synthesize mLabelText;
 @synthesize networkSwitch;
 
 - (void) setAQPlayer:(AQPlayer*)aqplayer{
@@ -64,6 +65,7 @@ extern Networking *gNetwork;
 
 - (void)dealloc {
 	[mMoreInfo release];
+	[mLabelText release];
 	networkSwitch=nil;
 	flipSoundLabel=nil;
 	flipModeLabel=nil;
@@ -113,16 +115,23 @@ extern Networking *gNetwork;
 
 - (IBAction)changeFlipModeLabel {
 
-	int j = ((AQSynth*)mAQPlayer).currentMode;
-	switch (j) {
-		case 0: mLabelText = [NSString stringWithFormat:@"Ionian"]; break;
-		case 1: mLabelText = [NSString stringWithFormat:@"Dorian"]; break;
-		case 2: mLabelText = [NSString stringWithFormat:@"Phrygian"]; break;
-		case 3: mLabelText = [NSString stringWithFormat:@"Lydian"]; break;
-		case 4: mLabelText = [NSString stringWithFormat:@"Mixolydian"]; break;
-		case 5: mLabelText = [NSString stringWithFormat:@"Aeolean"]; break;
-		default: break;
-	}	
+	if (((AQSynth*)mAQPlayer).magicState) {
+		self.mLabelText = [NSString stringWithFormat:@"Magic Mode"];
+		flipModeLabel.textColor = [UIColor cyanColor];
+	}
+	else {
+		int j = ((AQSynth*)mAQPlayer).currentMode;
+		switch (j) {
+			case 0: self.mLabelText = [NSString stringWithFormat:@"Ionian"]; break;
+			case 1: self.mLabelText = [NSString stringWithFormat:@"Dorian"]; break;
+			case 2: self.mLabelText = [NSString stringWithFormat:@"Phrygian"]; break;
+			case 3: self.mLabelText = [NSString stringWithFormat:@"Lydian"]; break;
+			case 4: self.mLabelText = [NSString stringWithFormat:@"Mixolydian"]; break;
+			case 5: self.mLabelText = [NSString stringWithFormat:@"Aeolean"]; break;
+			default: break;
+		}
+		flipModeLabel.textColor = [UIColor whiteColor];
+	}
 	flipModeLabel.text = mLabelText;//set new labels 
 }
 

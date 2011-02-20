@@ -26,7 +26,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	infoText.font = [UIFont fontWithName:@"Helvetica-Bold" size: 16.0];
-	infoText.text = @"Thumbafōn is a simple music making app for all.\n • Select Modes for different sonic colors.\n • The Modes work together allowing for T-fōn jams.\n • While playing modes can be changed via a shake.\n\nIn addition to being a fun musical instrument Thumbafōn is also a powerful tool for collaborative performance. For more information goto www.thumbafon.com.";
+	infoText.text = @"Thumbafōn is a simple music making app for all.\n • Select Modes for different sonic colors.\n • The Modes work together allowing for T-fōn jams.\n • While playing, modes can be changed via a shake.\n\nIn addition to being a fun musical instrument Thumbafōn is also a powerful tool for collaborative performance. For more information goto www.thumbafon.com.";
 	
     [super viewDidLoad];
 }

@@ -16,7 +16,7 @@ function loadbang() {
 function clear_players() {
 	
 	messnamed("thum_msg_1","target",0);
-	messnamed("thum_msg_3","msg","/thum/1butt","Unfortunately, the system needed to be reset. Please turn your Network power switch OFF & then ON again to rejoin the performance.\n");
+	messnamed("thum_msg_2","msg","/thum/1butt","Unfortunately, the system needed to be reset. Please turn your Network power switch OFF & then ON again to rejoin the performance.\n");
 	messnamed("thum_msg_2","0.0.0.0");
 	target_pos_array = [];
 	player_report();
@@ -53,7 +53,7 @@ function add_player(client_ip, device_name) {
 		target_pos_array[target_pos] = client_ip;
 		player_array[client_ip] = new Thumbafonist(target_pos, device_name);
 		messnamed("thum_msg_1","target",target_pos + 1);
-		messnamed("thum_msg_2",client_ip);
+		messnamed("thum_msg_2","ip", client_ip);
 		post(target_pos + 1, device_name,"with IP address", client_ip, "has joined the performance.\n");
 	}
 	else if (target_pos >= gNumVoices) {
@@ -105,7 +105,7 @@ function do_thum_butt(client_ip,butt_num,on) {
 function send_offset(target_pos, current_off_set) {
 	gOffset = current_off_set;
 	messnamed("thum_msg_1","target",target_pos);
-	messnamed("thum_msg_3","offset",gOffset);
+	messnamed("thum_msg_2","offset",gOffset);
 	switch (gOffset) {
         case -5: messnamed("display_msg","text", "G"); break;
         case -4: messnamed("display_msg","text", "G#/Ab"); break;
@@ -128,19 +128,19 @@ function send_hint(target_pos, client_ip, arg) {
 	if (arg == 0) {
 		post(client_ip,"wants a clue. Send it to target", target_pos,"\n");
 		messnamed("thum_msg_1","target",target_pos);
-		messnamed("thum_msg_3","msg", "/thum/2butt", "The device in your hands will be a way for you to contribute to the performance.  Go ahead and experiment with it for a minute.  With a little creativity it can be a nifty little musical instrument.");
+		messnamed("thum_msg_2","msg", "/thum/2butt", "The device in your hands will be a way for you to contribute to the performance.  Go ahead and experiment with it for a minute.  With a little creativity it can be a nifty little musical instrument.");
 	}
 	else if (arg == 1) {
 		post(client_ip,"wants another clue.\n");
 		messnamed("thum_msg_1","target",target_pos);
-		messnamed("thum_msg_3","msg", "/thum/2butt", "You can control your own volume with the volume buttons on the side of the device.  Or you could also monitor your own sound via an ear piece");
+		messnamed("thum_msg_2","msg", "/thum/2butt", "You can control your own volume with the volume buttons on the side of the device.  Or you could also monitor your own sound via an ear piece");
 	}
 }
 
 function send_interstitial(target_pos, arg) {
 		
 	switch(arg) {
-		case 0: messnamed("thum_msg_1","target",target_pos); messnamed("thum_msg_3","msg", "/thum/1butt", "Welcome to my recital and thank you for participating! I will use messages such as this one to guide everyone through the performance.\n\nYou can always refer back to this messages by selecting the HINTS button. Try it out to find out what to do next...");break;
-        case 1: messnamed("thum_msg_1","target",target_pos); messnamed("thum_msg_3","msg", "/thum/1butt", "This is a test.");break;
+		case 0: messnamed("thum_msg_1","target",target_pos); messnamed("thum_msg_2","msg", "/thum/1butt", "Welcome to my recital and thank you for participating! I will use messages such as this one to guide everyone through the performance.\n\nYou can always refer back to this messages by selecting the HINTS button. Try it out to find out what to do next...");break;
+        case 1: messnamed("thum_msg_1","target",target_pos); messnamed("thum_msg_2","msg", "/thum/1butt", "This is a test.");break;
 	}
 }

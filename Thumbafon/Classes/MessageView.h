@@ -13,6 +13,6 @@
 @private
 	UILabel	*mMsgLabel;
 }
-@property(readwrite,retain)UILabel *mMsgLabel;
+@property(readwrite,retain) UILabel *mMsgLabel;
 
 @end

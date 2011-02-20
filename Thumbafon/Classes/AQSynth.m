@@ -17,13 +17,28 @@ extern Networking *gNetwork;
 
 @implementation AQSynth
 
-@synthesize currentMode;
 @synthesize noteOffset;
+@synthesize currentMode;
+@synthesize magicMode;
+@synthesize magicState;
+
+- (void)setMagicMode:(Mode *)newMode{
+	magicMode = newMode;
+	for(UInt8 i = 0; i < kNumberVoices; i++) {
+		NSLog(@"magic mode notes:%i", [magicMode getNoteNum:i]);
+	}
+}
 
 - (void)setMode {
-	for (UInt8 i = 0; i < kNumberVoices; i++) {
-		((VoiceSynth*)voice[i]).mFreq = 
-			[VoiceSynth noteNumToFreq:[mode[self.currentMode] getNoteNum:i] + noteOffset + ((VoiceSynth*)voice[i]).mVoiceReg];
+	if (magicState) {
+		for (UInt8 i = 0; i < kNumberVoices; i++) {
+			((VoiceSynth*)voice[i]).mFreq = [VoiceSynth noteNumToFreq:[magicMode getNoteNum:i] + noteOffset + ((VoiceSynth*)voice[i]).mVoiceReg];
+		}
+	}
+	else {
+		for (UInt8 i = 0; i < kNumberVoices; i++) {
+			((VoiceSynth*)voice[i]).mFreq = [VoiceSynth noteNumToFreq:[mode[self.currentMode] getNoteNum:i] + noteOffset + ((VoiceSynth*)voice[i]).mVoiceReg];
+		}
 	}
 }
 

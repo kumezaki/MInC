@@ -190,12 +190,22 @@ extern Networking *gNetwork;
 	//NSLog(@"touchDict END %i",[touchDict count]);
 }
 
--(void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
 }
 
 //Shake Gesture gets sent up the chain to MainViewController
--(BOOL)canBecomeFirstResponder {
+- (BOOL)canBecomeFirstResponder {
     
+	return YES;
+}
+
+- (BOOL) resignFirstResponder {
+	
+	for (UInt8 i = 0 ; i < kNumberVoices; i ++) {
+		[self stopSound:slickButton[i]];
+		slickButton[i].highlighted = NO;
+	}
+	
 	return YES;
 }
 

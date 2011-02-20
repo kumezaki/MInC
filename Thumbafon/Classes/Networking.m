@@ -10,6 +10,7 @@
 #import "AQSynth.h"
 #import "MainViewController.h"
 #import "FlipsideViewController.h"
+#import "Mode.h"
 
 #include <sys/socket.h>
 #include <sys/types.h>
@@ -31,6 +32,7 @@ Networking *gNetwork = nil;
 @property UInt32 mSendIPAddress;
 @property BOOL listenUDP;
 @property BOOL listenIP;
+@property (readwrite,retain) Mode *mMagicMode;
 
 @end
 
@@ -44,6 +46,7 @@ Networking *gNetwork = nil;
 @synthesize mAQPlayer;
 @synthesize mMainView;
 @synthesize mFlipside;
+@synthesize mMagicMode;
 @synthesize powerSwitch;
 
 #pragma mark -
@@ -97,8 +100,11 @@ Networking *gNetwork = nil;
 	self.listenUDP = NO; 
 	self.listenIP = NO;
 	
-	/*** release mThread ***/
+	/*** release unneeded objects ***/
 	[mThread release];
+	[mAQPlayer release];
+	[mFlipside release];
+	[mMainView release];
 	
 	/*** close the sockets ***/
 	close(sockIPReceive);
@@ -114,6 +120,7 @@ Networking *gNetwork = nil;
 
 - (void)dealloc {
 	
+	[mMagicMode release];
 	[mAQPlayer release];
 	gNetwork = nil;
 	[super dealloc];
@@ -151,7 +158,7 @@ Networking *gNetwork = nil;
 }
 
 #pragma mark -
-#pragma mark receive methods on 2nd thread
+#pragma mark mThread listening methods
 
 - (void)receiveServerIP {
 	
@@ -241,7 +248,8 @@ Networking *gNetwork = nil;
 				else if ([buf_str isEqualToString:@"/thum/marq"])		add_type = 4;
 				else if ([buf_str isEqualToString:@"/thum/1butt"])		add_type = 5;
 				else if ([buf_str isEqualToString:@"/thum/2butt"])		add_type = 6;
-				else if (self.mSendIPAddress == 0 && [buf_str isEqualToString:@"/thum/srvip"])add_type = 7;
+				else if ([buf_str isEqualToString:@"/thum/magic"])		add_type = 7;
+				else if (self.mSendIPAddress == 0 && [buf_str isEqualToString:@"/thum/srvip"])add_type = 8;
 				break;
 			}
 			case 1: /* OSC Type Tags */
@@ -255,17 +263,17 @@ Networking *gNetwork = nil;
 				{
 					case 1: { //offset
 						NSString *msg = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
-						[self performSelectorOnMainThread:@selector(setAQSynthOffset:) withObject:msg waitUntilDone:YES];
+						[self performSelectorOnMainThread:@selector(setAQSynthOffset:) withObject:msg waitUntilDone:NO];
 						break;
 					}
 					case 2: { //mode
 						NSString *msg = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
-						[self performSelectorOnMainThread:@selector(setAQSynthMode:) withObject:msg waitUntilDone:YES];
+						[self performSelectorOnMainThread:@selector(setAQSynthMode:) withObject:msg waitUntilDone:NO];
 						break;
 					}
-					case 3: { //notes
-						//NSString *msgString = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
-						//[self performSelectorOnMainThread:@selector(setTwoButton:) withObject:msg waitUntilDone:NO];
+					case 3: { //note sets
+						NSString *msg = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
+						[self performSelectorOnMainThread:@selector(setNewNotes:) withObject:msg waitUntilDone:NO];
 						break;
 					}
 					case 4: { //marquee
@@ -273,17 +281,22 @@ Networking *gNetwork = nil;
 						[self performSelectorOnMainThread:@selector(setMarquee:) withObject:msg waitUntilDone:NO];
 						break;
 					}
-					case 5: {
+					case 5: { //one button alert view
 						NSString *msg = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
 						[self performSelectorOnMainThread:@selector(setOneButtonAlert:) withObject:msg waitUntilDone:NO];
 						break;
 					}
-					case 6: {
+					case 6: { //two button alert view
 						NSString *msg = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
 						[self performSelectorOnMainThread:@selector(setTwoButtonAlert:) withObject:msg waitUntilDone:NO];
 						break;
 					}
-					case 7: {
+					case 7: { //magic mode on/off
+						NSNumber *toggle = [NSNumber numberWithBool: atoi(mInBuffer+pos)];
+						[self performSelectorOnMainThread:@selector(setMagicNotesState:) withObject:toggle waitUntilDone:NO];
+						break;
+					}
+					case 8: {
 						self.mSendIPAddress = inet_addr(mInBuffer+pos);
 						[self sendOSCMsg:"/thum/join\0\0":12];
 						self.listenIP = NO; /*** must be set from outside the for(;;) loop ***/
@@ -309,7 +322,7 @@ Networking *gNetwork = nil;
 }
 
 #pragma mark -
-#pragma mark sendUDP
+#pragma mark OSC send methods
 
 -(void)sendUDP {
 	
@@ -438,6 +451,13 @@ Networking *gNetwork = nil;
 	[mAlert release];
 }
 
+- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+	
+	if ([[actionSheet buttonTitleAtIndex:0] isEqual:@"Previous"] && buttonIndex == 0) {
+		[self sendOSCMsg:"/thum/prev\0\0":12];
+	}
+}
+
 - (void)setMarquee:(NSString *)msg {
 
 		mMainView.mLabelText = msg;
@@ -461,13 +481,28 @@ Networking *gNetwork = nil;
 	}
 }
 
-- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-	
-	if ([[actionSheet buttonTitleAtIndex:0] isEqual:@"Previous"] && buttonIndex == 0) {
-		[self sendOSCMsg:"/thum/prev\0\0":12];
-	}
+- (void)setMagicNotesState:(NSNumber *)toggle {
+		
+	((AQSynth*)mAQPlayer).magicState = [toggle boolValue];
+	[mMainView setModeLabel];
+	[mFlipside changeFlipModeLabel];
+	if (![toggle boolValue]) [(AQSynth*)mAQPlayer setMode];
 }
 
+- (void)setNewNotes:(NSString *)notes {
+	
+	NSArray *noteList = [notes componentsSeparatedByString:@","];
+	if (noteList.count == kNumberVoices) {
+		if (mMagicMode == nil) mMagicMode = [[Mode alloc]init];
+		
+		[self.mMagicMode assignMagicMode:noteList];
+		
+		((AQSynth*)mAQPlayer).magicMode = self.mMagicMode;
+		[(AQSynth*)mAQPlayer setMode];
+		[mMainView setModeLabel];
+		[mFlipside changeFlipModeLabel];
+	}
+}	
 
 
 @end

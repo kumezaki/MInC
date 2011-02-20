@@ -13,17 +13,22 @@
 
 @interface AQSynth : AQPlayer {
 
-	Float64		theta;
-	Float64		deltaTheta;
-	UInt8		currentMode;
-	SInt16		noteOffset;
+	Float64	theta;
+	Float64	deltaTheta;
+	UInt8	currentMode;
+	SInt16	noteOffset;
+
+	Mode	*mode[kNumberModes];
+	Voice	*voice[kNumberVoices];
 	
-	BOOL changingSound;
+	Mode	*magicMode;
 	
-	Mode		*mode[kNumberModes];
-	Voice		*voice[kNumberVoices];
+	BOOL	changingSound;
+	BOOL	magicState;
 	
 }
+@property (readwrite,retain) Mode *magicMode;
+@property BOOL magicState;
 @property UInt8 currentMode;
 @property SInt16 noteOffset;
 

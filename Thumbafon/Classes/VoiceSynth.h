@@ -21,8 +21,8 @@
 	SInt8	mVoiceReg;
 	
 }
-@property (readwrite) Float64 mFreq;
-@property (readwrite) SInt8 mVoiceReg;
+@property Float64 mFreq;
+@property SInt8 mVoiceReg;
 
 + (Float64)noteNumToFreq:(UInt8)note_num;
 

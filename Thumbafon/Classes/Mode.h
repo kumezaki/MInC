@@ -12,10 +12,12 @@
 
 @interface Mode : NSObject {
 
-	UInt8 modeNote[kNumberVoices];	
+	UInt16 modeNote[kNumberVoices];	
 }
 
-- (void)assignMode:(UInt8*)notes; //pulls note numbers from Content and sets Freq data in array
-- (UInt8)getNoteNum:(UInt8)val; //pulls Freq data from array
+
+- (void)assignMode:(UInt16 *)notes; //pulls note numbers from Content and sets Freq data in array
+- (void)assignMagicMode:(NSArray *)notes;
+- (UInt16)getNoteNum:(UInt16)val; //pulls Freq data from array
 
 @end

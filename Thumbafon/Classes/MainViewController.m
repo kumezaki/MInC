@@ -101,6 +101,7 @@ extern Networking *gNetwork;
 	self.soundLabel=nil;
 	self.modeLabel=nil;
 	if (messView != nil) [messView release];
+	[mLabelText release];
 	[buttView release];
 	[mAQPlayer release];
 	[controller release];
@@ -125,16 +126,22 @@ extern Networking *gNetwork;
 	if (messView != nil) {
 		[messView setHidden:YES];
 	}
-	
-	int j = ((AQSynth*)mAQPlayer).currentMode;
-	switch (j) {
-		case 0: self.mLabelText = [NSString stringWithFormat:@"Ionian"]; break;
-		case 1: self.mLabelText = [NSString stringWithFormat:@"Dorian"]; break;
-		case 2: self.mLabelText = [NSString stringWithFormat:@"Phrygian"]; break;
-		case 3: self.mLabelText = [NSString stringWithFormat:@"Lydian"]; break;
-		case 4: self.mLabelText = [NSString stringWithFormat:@"Mixolydian"]; break;
-		case 5: self.mLabelText = [NSString stringWithFormat:@"Aeolean"]; break;
-		default: break;
+	if (((AQSynth*)mAQPlayer).magicState) {
+		self.mLabelText = [NSString stringWithFormat:@"Magic Mode"];
+		modeLabel.textColor = [UIColor cyanColor];
+	}
+	else {
+		int j = ((AQSynth*)mAQPlayer).currentMode;
+		switch (j) {
+			case 0: self.mLabelText = [NSString stringWithFormat:@"Ionian"]; break;
+			case 1: self.mLabelText = [NSString stringWithFormat:@"Dorian"]; break;
+			case 2: self.mLabelText = [NSString stringWithFormat:@"Phrygian"]; break;
+			case 3: self.mLabelText = [NSString stringWithFormat:@"Lydian"]; break;
+			case 4: self.mLabelText = [NSString stringWithFormat:@"Mixolydian"]; break;
+			case 5: self.mLabelText = [NSString stringWithFormat:@"Aeolean"]; break;
+			default: break;
+		}
+		modeLabel.textColor = [UIColor whiteColor];
 	}
 	modeLabel.text = self.mLabelText;//set new labels
 }

@@ -35,7 +35,7 @@ extern Networking *gNetwork;
 
 -(void)dealloc {
 	for (UInt8 i = 0; i < kNumberVoices; i++) [voice[i] release];	
-    
+    [soundType release];
 	[super dealloc];
 }
 

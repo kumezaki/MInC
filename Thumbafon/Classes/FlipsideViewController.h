@@ -30,6 +30,7 @@
 @property(retain) IBOutlet UILabel	*flipSoundLabel;
 @property(retain) IBOutlet UILabel	*flipModeLabel;
 @property(retain) IBOutlet UISwitch	*networkSwitch;
+@property(readwrite,retain)NSString *mLabelText;
 
 - (void)setAQPlayer:(AQPlayer *)aqplayer;
 - (IBAction)done:(id)sender;
