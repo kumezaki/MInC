@@ -191,6 +191,11 @@ extern Networking *gNetwork;
 }
 
 - (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+	
+	for (UInt8 i = 0 ; i < kNumberVoices; i ++) {
+		[self stopSound:slickButton[i]];
+		slickButton[i].highlighted = NO;
+	}	
 }
 
 //Shake Gesture gets sent up the chain to MainViewController

@@ -167,7 +167,7 @@ extern Networking *gNetwork;
 	
 	//set text alignment to Left...
 	NSArray *subViewArray = mAlert.subviews;
-	for(int i = 1;i < [subViewArray count]; i++) {
+	for(int i = 0;i < [subViewArray count]; i++) {
 		if([[[subViewArray objectAtIndex:i] class] isSubclassOfClass:[UILabel class]]) {
 			UILabel *label = [subViewArray objectAtIndex:i];
 			label.textAlignment = UITextAlignmentLeft;
@@ -202,6 +202,7 @@ extern Networking *gNetwork;
 - (void)networkUISwitchShutOff:(BOOL)state {
 	controller.networkSwitch.on = state;
 	[controller activateNetworking:controller.networkSwitch];
+	NSLog(@"UISwitch is: %@", controller.networkSwitch.on ? @"YES" : @"NO");
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
