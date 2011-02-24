@@ -236,7 +236,7 @@ extern Networking *gNetwork;
 		[controller activateNetworking:controller.networkSwitch];
 	}
 	else {
-		[controller performSelector:@selector(activateNetworking:) withObject:controller.networkSwitch afterDelay:2];
+		[controller performSelector:@selector(activateNetworking:) withObject:controller.networkSwitch afterDelay:3];
 	}
 	[self aqpPower:state];
 }
