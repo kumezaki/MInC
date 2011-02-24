@@ -32,6 +32,7 @@ Networking *gNetwork = nil;
 @property UInt32 mSendIPAddress;
 @property BOOL listenUDP;
 @property BOOL listenIP;
+@property BOOL connected;
 @property (readwrite,retain) Mode *mMagicMode;
 
 @end
@@ -40,25 +41,37 @@ Networking *gNetwork = nil;
 
 @synthesize listenUDP;
 @synthesize listenIP;
+@synthesize wifiExists;
 @synthesize mSendIPAddress;
+@synthesize connected;
 
 //*** available for outside access ***///
 @synthesize mAQPlayer;
 @synthesize mMainView;
 @synthesize mFlipside;
 @synthesize mMagicMode;
-@synthesize powerSwitch;
+@synthesize isOn;
+@synthesize internetConnectionStatus;
 
 #pragma mark -
 #pragma mark init / dealloc
 
+
 -(id)init {
 	[super init];
+	
+	[[Reachability reachabilityForLocalWiFi] startNotifier];
+	//Set a method to be called when a notification is sent.
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:@"kNetworkReachabilityChangedNotification" object:nil];
+	
+	[self updateStatus];
 	
 	gNetwork = self;
 	
 	listenIP = NO;
 	listenUDP = NO;
+	connected = NO;
+	isOn = NO;
 	
 	mSendIPAddress = 0; //htonl(0x7F000001); /* local testing IP address: 127.0.0.1 */
 	mSendPortNum = 1337;
@@ -84,7 +97,7 @@ Networking *gNetwork = nil;
 
 - (void)dealloc {
 	
-	if (mThread != nil) [mThread release];
+	[mThread release];
 	[mMagicMode release];
 	[mAQPlayer release];
 	[mFlipside release];
@@ -94,36 +107,66 @@ Networking *gNetwork = nil;
 	[super dealloc];
 }
 
-- (void)networkOn {
+- (void)reachabilityChanged:(NSNotification *)note {
+    [self updateStatus];
+}
+
+- (void)updateStatus {
 	
+    // Query the SystemConfiguration framework for the state of the device's network connections.
+    self.internetConnectionStatus = [[Reachability reachabilityForLocalWiFi] currentReachabilityStatus];
+    
+	if (self.internetConnectionStatus == NotReachable) {
+        //show an alert to let the user know that they can't connect...
+		[self setOneButtonAlert:@"Whoa! The WiFi network just totally stopped working for you...bummer!"];
+		self.wifiExists = NO;
+    }  
+	else self.wifiExists = YES;
+}
+
+- (void)checkWIFI {
+	
+	[[Reachability reachabilityForLocalWiFi] startNotifier];
+	//Set a method to be called when a notification is sent.
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:@"kNetworkReachabilityChangedNotification" object:nil];
+	
+	[self updateStatus];
+	
+
+}
+
+- (void)networkOn {
+
+	/*** set power to on ***/
 	self.listenIP = YES;
 	self.listenUDP = NO;
+	
 	mThread = [[NSThread alloc] initWithTarget:self selector:@selector(receiveServerIP) object:nil];
 	[mThread start];
 	
-	self.powerSwitch = YES;
+	self.isOn = YES;
 }
 
 - (void)networkOff {
+	//NSLog(@"networkOFF was called.");
+
 	/*** send leave msg ***/
 	[self sendOSCMsg:"/thum/leave\0":12]; 
+
+	/*** set power to off ***/
+	self.isOn = NO;
+	self.connected = NO;
 	
 	/*** break the for(;;)'s ***/
 	self.listenUDP = NO; 
 	self.listenIP = NO;
 	
-	/*** release mThread ***/
-	[mThread release];
-	
-	/*** close the sockets ***/
-	close(sockIPReceive);
 	close(sockReceive);
+	close(sockIPReceive);
 	
 	/*** reset mSendIPAddress ***/
 	self.mSendIPAddress = 0; 
 	
-	/*** set power to off ***/
-	self.powerSwitch = NO;
 }
 
 - (NSString *)getIPAddress {
@@ -144,7 +187,8 @@ Networking *gNetwork = nil;
 			if (temp_addr->ifa_addr->sa_family == AF_INET) {
 				
 				// Check if interface is en0 which is the wifi connection on the iPhone
-				if ([[NSString stringWithUTF8String:temp_addr->ifa_name] isEqualToString:@"en0"]) {	/* on device it's en0, on simulator it's en1 */
+				/* on device it's en0, on simulator it's en1 */
+				if ([[NSString stringWithUTF8String:temp_addr->ifa_name] isEqualToString:@"en0"]) {	
 					// Get NSString from C String
 					address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)];
 				}
@@ -186,10 +230,10 @@ Networking *gNetwork = nil;
 		}
 		else break;
 	}
-
+	//NSLog(@"receiveServerIP NOT running");
 	close(sockIPReceive);
-	self.listenUDP = YES;
-	if (mSendIPAddress != 0) [self receiveUDP];
+	if (self.connected) self.listenUDP = YES;
+	if (self.mSendIPAddress != 0) [self receiveUDP];
 }
 
 
@@ -221,6 +265,7 @@ Networking *gNetwork = nil;
 		}
 		else break;
 		}
+	//NSLog(@"receiveUDP NOT running");
 	close(sockReceive);
 }
 
@@ -249,7 +294,8 @@ Networking *gNetwork = nil;
 				else if ([buf_str isEqualToString:@"/thum/1butt"])		add_type = 5;
 				else if ([buf_str isEqualToString:@"/thum/2butt"])		add_type = 6;
 				else if ([buf_str isEqualToString:@"/thum/magic"])		add_type = 7;
-				else if (self.mSendIPAddress == 0 && [buf_str isEqualToString:@"/thum/srvip"])add_type = 8;
+				else if (!self.connected && [buf_str isEqualToString:@"/thum/srvip"])add_type = 8;
+				else if (self.connected && [buf_str isEqualToString:@"/thum/shake"])add_type = 9;
 				break;
 			}
 			case 1: /* OSC Type Tags */
@@ -296,12 +342,20 @@ Networking *gNetwork = nil;
 						[self performSelectorOnMainThread:@selector(setMagicNotesState:) withObject:toggle waitUntilDone:NO];
 						break;
 					}
+					/***case 8 & 9 are insurance against packet loss during the exachange of ip's***/
 					case 8: {
 						self.mSendIPAddress = inet_addr(mInBuffer+pos);
-						[self sendOSCMsg:"/thum/join\0\0":12];
-						self.listenIP = NO; /*** must be set from outside the for(;;) loop ***/
+						self.connected = YES;
+						[self performSelectorOnMainThread:@selector(sendJoinMsg) withObject:nil waitUntilDone:NO];
+						NSLog(@"Sent join message.");
 						break;
 					}
+					case 9: {
+						self.listenIP = NO; /*** must be set from outside the for(;;) loop ***/
+						NSLog(@"Thumbshake is complete!");
+						break;
+					}
+						
 				}
 				break;
 			}
@@ -350,7 +404,7 @@ Networking *gNetwork = nil;
 
 -(void)sendOSCMsg:(const char*)osc_str:(int)osc_str_length {
 	
-	char buf[1024]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",ss\0",4);
+	char buf[512]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",ss\0",4);
 	
 	OSC_START
 	OSC_ADD(buf,osc_str_length+4);
@@ -361,12 +415,13 @@ Networking *gNetwork = nil;
 
 -(void)sendOSCMsgWithIntValue:(const char*)osc_str:(int)osc_str_length:(int)val {
 	
-	char buf[128]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",si\0",4);
+	char buf[512]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",ssi\0\0\0\0",8);
 	val = htonl(val);
 	
 	OSC_START
-	OSC_ADD(buf,osc_str_length+4);
+	OSC_ADD(buf,osc_str_length+8);
 	OSC_ADD(ip_add_buf,ip_add_size);
+	OSC_ADD(dev_name_buf,dev_name_size);
 	OSC_ADD(&val,4);
 	OSC_END
 }
@@ -408,6 +463,10 @@ Networking *gNetwork = nil;
 
 #pragma mark -
 #pragma mark messages to device
+
+- (void)sendJoinMsg {
+	[self sendOSCMsgWithIntValue:"/thum/join\0\0":12:((AQSynth*)mAQPlayer).currentMode];
+}
 
 - (void)setOneButtonAlert:(NSString *)msg {
 	mMainView.mAlertMsg = msg;

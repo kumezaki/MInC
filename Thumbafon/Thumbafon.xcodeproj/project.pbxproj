@@ -16,9 +16,11 @@
 		288765590DF743DE002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765580DF743DE002DB57D /* CoreGraphics.framework */; };
 		289233AE0DB2D0DB0083E9F9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289233A90DB2D0DB0083E9F9 /* MainViewController.m */; };
 		289233B00DB2D0DB0083E9F9 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289233AD0DB2D0DB0083E9F9 /* FlipsideViewController.m */; };
+		B41FD68A1315937A00F3781F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B41FD6891315937A00F3781F /* SystemConfiguration.framework */; };
 		B427AC3A12CADC0F00EDDE3D /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B427AC3912CADC0F00EDDE3D /* ButtonView.m */; };
 		B4653FDE127E66CC00DA1F26 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4653FDD127E66CC00DA1F26 /* AudioToolbox.framework */; };
 		B46C420312860417002E1B34 /* AQPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B46C420012860417002E1B34 /* AQPlayer.m */; };
+		B46E62181315945F00DBE4FB /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B46E62171315945F00DBE4FB /* Reachability.m */; };
 		B476B490130F9BDB0004427F /* BlankInfoScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B476B48F130F9BDB0004427F /* BlankInfoScreen.png */; };
 		B49076C2130E2DC70098E195 /* MessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B49076C1130E2DC70098E195 /* MessageView.m */; };
 		B492984012F62A62004DA4E6 /* AQSynth.m in Sources */ = {isa = PBXBuildFile; fileRef = B492983F12F62A62004DA4E6 /* AQSynth.m */; };
@@ -93,12 +95,15 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Thumbafon_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thumbafon_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Thumbafon-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Thumbafon-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		B41FD6891315937A00F3781F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B427AC3812CADC0F00EDDE3D /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ButtonView.h; path = Classes/ButtonView.h; sourceTree = "<group>"; };
 		B427AC3912CADC0F00EDDE3D /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ButtonView.m; path = Classes/ButtonView.m; sourceTree = "<group>"; };
 		B450995412FD3C24004B7C9B /* Thumbafon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thumbafon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4653FDD127E66CC00DA1F26 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B46C41FF12860417002E1B34 /* AQPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AQPlayer.h; path = Classes/AQPlayer.h; sourceTree = "<group>"; };
 		B46C420012860417002E1B34 /* AQPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AQPlayer.m; path = Classes/AQPlayer.m; sourceTree = "<group>"; };
+		B46E62161315945F00DBE4FB /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Classes/Reachability.h; sourceTree = "<group>"; };
+		B46E62171315945F00DBE4FB /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Classes/Reachability.m; sourceTree = "<group>"; };
 		B476B48F130F9BDB0004427F /* BlankInfoScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlankInfoScreen.png; sourceTree = "<group>"; };
 		B49076C0130E2DC70098E195 /* MessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageView.h; path = Classes/MessageView.h; sourceTree = "<group>"; };
 		B49076C1130E2DC70098E195 /* MessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageView.m; path = Classes/MessageView.m; sourceTree = "<group>"; };
@@ -186,6 +191,7 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765590DF743DE002DB57D /* CoreGraphics.framework in Frameworks */,
 				B4653FDE127E66CC00DA1F26 /* AudioToolbox.framework in Frameworks */,
+				B41FD68A1315937A00F3781F /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,12 +263,12 @@
 				280E754C0DD40C5E005A515E /* MainWindow.xib */,
 				B476B48F130F9BDB0004427F /* BlankInfoScreen.png */,
 				B4C15B6812BC533600A56C77 /* Icon.png */,
+				B4B7FB0B131345E70096C5D1 /* Icon@2x.png */,
 				B4E5D7C5131304AB00D8EE67 /* Default.png */,
+				B4B7FAFF131340A20096C5D1 /* Default@2x.png */,
 				B4B7FB0F131346FF0096C5D1 /* Icon-Small.png */,
 				B4B7FB10131346FF0096C5D1 /* Icon-Small@2x.png */,
-				B4B7FB0B131345E70096C5D1 /* Icon@2x.png */,
 				B4B7FB0C131345E70096C5D1 /* iTunesArtwork.png */,
-				B4B7FAFF131340A20096C5D1 /* Default@2x.png */,
 				B4C15B2D12BC301E00A56C77 /* buttons */,
 				B4A4812713136A120071AA28 /* Screenshots */,
 			);
@@ -276,6 +282,7 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765580DF743DE002DB57D /* CoreGraphics.framework */,
 				B4653FDD127E66CC00DA1F26 /* AudioToolbox.framework */,
+				B41FD6891315937A00F3781F /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -285,11 +292,13 @@
 			children = (
 				1D3623240D0F684500981E51 /* ThumbafonAppDelegate.h */,
 				1D3623250D0F684500981E51 /* ThumbafonAppDelegate.m */,
+				B4CD4A2612FD27AF00DCB1BA /* Networking.h */,
+				B4CD4A2712FD27AF00DCB1BA /* Networking.m */,
+				B46E62161315945F00DBE4FB /* Reachability.h */,
+				B46E62171315945F00DBE4FB /* Reachability.m */,
 				289233A00DB2D0730083E9F9 /* Main View */,
 				B492982E12F62980004DA4E6 /* AudioQueue Family */,
 				B492984C12F62BA8004DA4E6 /* Voice Family */,
-				B4CD4A2612FD27AF00DCB1BA /* Networking.h */,
-				B4CD4A2712FD27AF00DCB1BA /* Networking.m */,
 				B4F6F5971291FF30008BB207 /* Mode.h */,
 				B4F6F5981291FF30008BB207 /* Mode.m */,
 				B4F3439212937A5B001A83D3 /* Content.h */,
@@ -524,6 +533,7 @@
 				B4CF64E612FCF68500AA82BB /* revmodel.c in Sources */,
 				B4CD4A2812FD27AF00DCB1BA /* Networking.m in Sources */,
 				B49076C2130E2DC70098E195 /* MessageView.m in Sources */,
+				B46E62181315945F00DBE4FB /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

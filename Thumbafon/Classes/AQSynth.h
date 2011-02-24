@@ -15,7 +15,7 @@
 
 	Float64	theta;
 	Float64	deltaTheta;
-	UInt8	currentMode;
+	UInt16	currentMode;
 	SInt16	noteOffset;
 
 	Mode	*mode[kNumberModes];
@@ -29,7 +29,7 @@
 }
 @property (readwrite,retain) Mode *magicMode;
 @property BOOL magicState;
-@property UInt8 currentMode;
+@property UInt16 currentMode;
 @property SInt16 noteOffset;
 
 - (void)startVoice:(UInt8)note_pos;

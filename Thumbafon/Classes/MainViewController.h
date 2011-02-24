@@ -40,7 +40,8 @@
 
 - (void)oneButtonAlert;
 - (void)twoButtonAlert;
-
-- (void)networkUISwitchShutOff:(BOOL)state;
+- (BOOL)getFlipsideSwitchState;
+- (void)setFlipsideSwitchState:(BOOL)state;
+- (void)aqpPower:(BOOL)state;
 
 @end

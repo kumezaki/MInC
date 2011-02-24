@@ -22,6 +22,7 @@ extern Networking *gNetwork;
 @synthesize mLabelText;
 @synthesize networkSwitch;
 
+
 - (void) setAQPlayer:(AQPlayer*)aqplayer{
 	mAQPlayer = aqplayer;
 }
@@ -101,13 +102,17 @@ extern Networking *gNetwork;
 		((AQSynth*)mAQPlayer).currentMode = 4;
 		[(AQSynth*)mAQPlayer setMode];
 	}
-	else if ([sender.titleLabel.text isEqual:@"Aeolean"]) {
+	else if ([sender.titleLabel.text isEqual:@"Aeolian"]) {
 		((AQSynth*)mAQPlayer).currentMode = 5;
 		[(AQSynth*)mAQPlayer setMode];
 	}
 	else {
 		((AQSynth*)mAQPlayer).currentMode = 0;
 		[(AQSynth*)mAQPlayer setMode];
+	}
+	
+	if (gNetwork != nil) {
+		[gNetwork sendOSCMsgWithIntValue:"/thum/mode\0\0":12:((AQSynth*)mAQPlayer).currentMode];
 	}
 	
 	[self changeFlipModeLabel];
@@ -127,7 +132,7 @@ extern Networking *gNetwork;
 			case 2: self.mLabelText = [NSString stringWithFormat:@"Phrygian"]; break;
 			case 3: self.mLabelText = [NSString stringWithFormat:@"Lydian"]; break;
 			case 4: self.mLabelText = [NSString stringWithFormat:@"Mixolydian"]; break;
-			case 5: self.mLabelText = [NSString stringWithFormat:@"Aeolean"]; break;
+			case 5: self.mLabelText = [NSString stringWithFormat:@"Aeolian"]; break;
 			default: break;
 		}
 		flipModeLabel.textColor = [UIColor whiteColor];
@@ -141,20 +146,31 @@ extern Networking *gNetwork;
 }
 
 - (IBAction)activateNetworking:(UISwitch *)sender {
-
-	if (sender.on && !gNetwork.powerSwitch) {
-		
-		if (gNetwork.mAQPlayer == nil) gNetwork.mAQPlayer = mAQPlayer;
-		if (gNetwork.mFlipside == nil) gNetwork.mFlipside = self;
-		[gNetwork networkOn];
-	}
 	
-	else if (!sender.on && gNetwork.powerSwitch) [gNetwork networkOff];
+	if (sender.on && !gNetwork.isOn) {
+		[gNetwork updateStatus];
+		
+		if (gNetwork.wifiExists) [gNetwork networkOn]; //NSLog(@"Flipside activateNetworking ON");
+		
+		else {
+			self.networkSwitch.on = NO;
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bummer!" 
+															message:@"Looks like you've lost your WiFi connection. Try reconnecting with the Network switch." 
+														   delegate:self 
+												  cancelButtonTitle:nil 
+												  otherButtonTitles:@"OK", nil];
+			[alert show];
+			[alert release];
+		}
+	}
+	else if (!sender.on && gNetwork.isOn) {
+		[gNetwork networkOff]; //NSLog(@"Flipside activateNetworking OFF");
+	}
 }
 
 - (IBAction)hintButton {
 
-	if (!gNetwork.powerSwitch) {
+	if (!self.networkSwitch) {
 		UIAlertView *mAlert = [[UIAlertView alloc] initWithTitle:@"Hint Window" 
 										   message:@"During a WiFi performance, use the HINTS button to see messages from the artist." 
 										  delegate:self 

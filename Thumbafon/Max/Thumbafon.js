@@ -37,11 +37,11 @@ function clear_players() {
 
 function player_report() {
 	var totalPlayers = 0;
-	post("Present:");
+	post("players:");
 	for (var i = 1; i < gNumVoices; i++) {
 		var client_ip = target_pos_array[i];
 		if (target_pos_array[i] != undefined) {
-		post(player_array[target_pos_array[i]].device_name,":");
+		post("/",player_array[target_pos_array[i]].device_name);
 			totalPlayers++;
 		}
 	}
@@ -72,9 +72,9 @@ function add_player(client_ip, device_name) {
 		player_array[client_ip] = new Thumbafonist(target_pos, device_name);
 		messnamed("thum_msg_1","target",target_pos);
 		messnamed("thum_msg_2","ip", client_ip);
+		messnamed("thum_msg_2","midi", target_pos);
 		send_key(client_ip, gKey);
-		send_mode(client_ip, gMode);
-		post(player_array[client_ip].target_pos, player_array[client_ip].device_name,"with IP address", client_ip,"has joined the performance.\n");
+		post(player_array[client_ip].device_name,"has joined the performance at target",player_array[client_ip].target_pos,"\n");
 	}
 	else if (target_pos >= gNumVoices) {
 		post("Could not add", device_name,". Too many Thumbafonists right now.\n");
@@ -94,9 +94,11 @@ function remove_player(client_ip) {
 function parse() {
 	
 	var client_ip = arguments[1];
-	var device_name = arguments[2];
-	
-	if (arguments[0] == "/thum/join") add_player(client_ip, device_name);
+		
+	if (arguments[0] == "/thum/join") {
+		add_player(client_ip, arguments[2]);
+		send_mode(client_ip, arguments[3]);
+	}
 	
 	// a guard against messages from non-assigned ip addresses
 	for (i in target_pos_array) {
@@ -106,9 +108,13 @@ function parse() {
 		
 			if (arguments[0] == "/thum/butt") {    
 				receive_butt(client_ip,parseInt(arguments[2]),parseInt(arguments[3]));
+				
+			}
+			else if (arguments[0] == "/thum/mode") {
+				send_mode(client_ip, arguments[2]);
 			}
 			else if (arguments[0] == "/thum/hint") {
-				send_2butt(player_array[client_ip].target_pos, client_ip, 0);
+				send_2butt(client_ip, "this is a just a test string.\n");
 			}
 			else if (arguments[0] == "/thum/prev") {
 				send_2butt(player_array[client_ip].target_pos, client_ip, 1);
@@ -124,7 +130,7 @@ function receive_butt(client_ip, button_num, state) {
     
     messnamed("thum_msg_1","target",player_array[client_ip].target_pos);
 	messnamed("thum_msg_2","button", button_num, state == 0 ? 0 : player_array[client_ip].velocity);
-	post(player_array[client_ip].device_name, button_num, state == 0 ? 0 : player_array[client_ip].velocity,"\n");
+	//post(player_array[client_ip].device_name, button_num, state == 0 ? 0 : player_array[client_ip].velocity,"\n");
 }
 
 function send_key(client_ip, key) {
@@ -151,8 +157,7 @@ function send_key(client_ip, key) {
 
 function send_mode(client_ip, mode) {
 	messnamed("thum_msg_1","target",player_array[client_ip].target_pos);
-	messnamed("thum_msg_2","mode",mode);
-	gMode = mode;
+	messnamed("thum_msg_2","mode", mode);
 }
 
 function set_magic_mode(client_ip, state) {
@@ -188,37 +193,37 @@ function send_all(type, msg) {
 		
 	if (type == "key") {
 		for(i = 1; i < gNumVoices; i++) {
-			if (target_pos_array[i] != undefined) send_key(target_pos_array[i], msg);
+			if (player_array[target_pos_array[i]] != undefined) send_key(target_pos_array[i], msg);
 		}
 	}
 	else if (type == "mode") {
 		for(i = 1; i < gNumVoices; i++) {
-			if (target_pos_array[i] != undefined) send_mode(target_pos_array[i], msg);
+			if (player_array[target_pos_array[i]]  != undefined) send_mode(target_pos_array[i], msg);
 		}
 	}
 	else if (type == "magic") {
 		for(i = 1; i < gNumVoices; i++) {
-			if (target_pos_array[i] != undefined) set_magic_mode(target_pos_array[i], msg);
+			if (player_array[target_pos_array[i]]  != undefined) set_magic_mode(target_pos_array[i], msg);
 		}
 	}
 	else if (type == "notes") {
 		for(i = 1; i < gNumVoices; i++) {
-			if (target_pos_array[i] != undefined) send_magic_notes(target_pos_array[i], msg);
+			if (player_array[target_pos_array[i]]  != undefined) send_magic_notes(target_pos_array[i], msg);
 		}
 	}
 	else if (type == "alert") {
 		for(i = 1; i < gNumVoices; i++) {
-			if (target_pos_array[i] != undefined) send_1butt(target_pos_array[i],msg);
+			if (player_array[target_pos_array[i]]  != undefined) send_1butt(target_pos_array[i],msg);
 		}
 	}
 	else if (type == "hint") {
 		for(i = 1; i < gNumVoices; i++) {
-			if (target_pos_array[i] != undefined) send_2butt(target_pos_array[i], msg);
+			if (player_array[target_pos_array[i]]  != undefined) send_2butt(target_pos_array[i], msg);
 		}
 	}
 	else if (type == "marq") {
 		for(i = 0; i < gNumVoices; i++) {
-			if (target_pos_array[i] != undefined) send_marq(target_pos_array[i], msg);
+			if (player_array[target_pos_array[i]]  != undefined) send_marq(target_pos_array[i], msg);
 		}
 	}
 }

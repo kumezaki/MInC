@@ -17,8 +17,6 @@
 	
     MainViewController	*mainViewController;
 	Networking			*network;
-	
-	BOOL				networkWasOn;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

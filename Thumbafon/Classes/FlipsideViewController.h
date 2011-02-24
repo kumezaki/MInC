@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Reachability.h"
 
-@class AQPlayer, MoreInfoViewController, Networking;
+@class AQPlayer, MoreInfoViewController;
 
 @protocol FlipsideViewControllerDelegate;
 
@@ -20,19 +21,20 @@
 	IBOutlet UISwitch		*networkSwitch;
 
 @private
+	NSString				*mLabelText;
+	
 	AQPlayer				*mAQPlayer;
 	MoreInfoViewController	*mMoreInfo;
-	
-	NSString				*mLabelText;
 }
 
 @property (nonatomic, assign) id <FlipsideViewControllerDelegate> delegate;
 @property(retain) IBOutlet UILabel	*flipSoundLabel;
 @property(retain) IBOutlet UILabel	*flipModeLabel;
 @property(retain) IBOutlet UISwitch	*networkSwitch;
-@property(readwrite,retain)NSString *mLabelText;
+@property(readwrite,retain) NSString *mLabelText;
 
 - (void)setAQPlayer:(AQPlayer *)aqplayer;
+
 - (IBAction)done:(id)sender;
 - (IBAction)openMoreInfo:(id)sender;
 

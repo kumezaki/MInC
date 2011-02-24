@@ -23,8 +23,11 @@
 	AudioStreamBasicDescription		mDataFormat;
 	AudioQueueRef					mQueue;
 	AudioQueueBufferRef				mBuffers[kNumberBuffers];
+	
+	BOOL							isRunning;
 
 }
+@property BOOL isRunning;
 
 - (void)newAQ;
 

@@ -10,6 +10,8 @@
 
 @implementation AQPlayer
 
+@synthesize isRunning;
+
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) {	
 	
 	AQPlayer *aqp = (AQPlayer *)inUserData;
@@ -71,8 +73,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	}
 }
 
--(OSStatus) start; { 
-	
+-(OSStatus) start; { 	
 	OSStatus result = noErr;
     
 	// if we have no queue, create one now
@@ -84,17 +85,18 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		AQBufferCallback(self, mQueue, mBuffers[i]);
 	
 	result = AudioQueueStart(mQueue, nil);
-	
+	self.isRunning = YES;
+
 	return result;
 }
 
 
 -(OSStatus) stop; {
-	
 	OSStatus result = noErr;
 	
 	result = AudioQueueStop(mQueue, true);
-	
+	self.isRunning = NO;
+
 	return result;
 }
 

@@ -22,6 +22,7 @@ extern Networking *gNetwork;
 @synthesize mLabelText;
 @synthesize mAlertMsg;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -38,7 +39,7 @@ extern Networking *gNetwork;
     StatusBarStyle = [[UIApplication sharedApplication] statusBarStyle];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 	
-	if (gNetwork.powerSwitch && messView == nil) {
+	if (gNetwork.isOn && messView == nil) {
 
 		CGRect viewRect = CGRectMake(0,0,420,30);
 		messView = [[MessageView alloc] initWithFrame:viewRect];
@@ -80,6 +81,10 @@ extern Networking *gNetwork;
 	[buttView setHidden:NO];
 	[self.view addSubview:buttView];
 	[buttView setAQPlayer:mAQPlayer];
+	
+	gNetwork.mAQPlayer = mAQPlayer;
+	gNetwork.mFlipside = controller;
+	gNetwork.mMainView = self;
 		
 	[super viewDidLoad];
 }
@@ -138,7 +143,7 @@ extern Networking *gNetwork;
 			case 2: self.mLabelText = [NSString stringWithFormat:@"Phrygian"]; break;
 			case 3: self.mLabelText = [NSString stringWithFormat:@"Lydian"]; break;
 			case 4: self.mLabelText = [NSString stringWithFormat:@"Mixolydian"]; break;
-			case 5: self.mLabelText = [NSString stringWithFormat:@"Aeolean"]; break;
+			case 5: self.mLabelText = [NSString stringWithFormat:@"Aeolian"]; break;
 			default: break;
 		}
 		modeLabel.textColor = [UIColor whiteColor];
@@ -162,7 +167,7 @@ extern Networking *gNetwork;
 	UIAlertView *mAlert = [[UIAlertView alloc] initWithTitle:nil 
 										message:self.mAlertMsg 
 									   delegate:self 
-							  cancelButtonTitle:@"Return" 
+							  cancelButtonTitle:@"OK" 
 							  otherButtonTitles: nil];
 	
 	//set text alignment to Left...
@@ -184,7 +189,7 @@ extern Networking *gNetwork;
 										message:self.mAlertMsg 
 									   delegate:self 
 							  cancelButtonTitle:@"Previous" 
-							  otherButtonTitles:@"Return",nil];
+							  otherButtonTitles:@"OK",nil];
 	
 	//set text alignment to Left...
 	NSArray *subViewArray = mAlert.subviews;
@@ -199,17 +204,14 @@ extern Networking *gNetwork;
 	[mAlert release];
 }
 
-- (void)networkUISwitchShutOff:(BOOL)state {
-	controller.networkSwitch.on = state;
-	[controller activateNetworking:controller.networkSwitch];
-	NSLog(@"UISwitch is: %@", controller.networkSwitch.on ? @"YES" : @"NO");
-}
-
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
 	
 	if (motion == UIEventSubtypeMotionShake) {
 		[self changeMode];
 		AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+		if (gNetwork != nil) {
+			[gNetwork sendOSCMsgWithIntValue:"/thum/mode\0\0":12:((AQSynth*)mAQPlayer).currentMode];
+		}
 	}
 }
 
@@ -217,6 +219,34 @@ extern Networking *gNetwork;
 	
 	if ([[actionSheet buttonTitleAtIndex:0] isEqual:@"Previous"] && buttonIndex == 0) {
 		[gNetwork sendOSCMsg:"/thum/prev\0\0":12];
+	}
+}
+
+- (BOOL) getFlipsideSwitchState {
+	
+	return controller.networkSwitch.on;
+}
+
+- (void) setFlipsideSwitchState:(BOOL)state {
+	
+	[gNetwork updateStatus];
+	controller.networkSwitch.on = state;
+
+	if (gNetwork.wifiExists) {
+		[controller activateNetworking:controller.networkSwitch];
+	}
+	else {
+		[controller performSelector:@selector(activateNetworking:) withObject:controller.networkSwitch afterDelay:2];
+	}
+	[self aqpPower:state];
+}
+
+- (void)aqpPower:(BOOL)state {
+	if (!state && mAQPlayer.isRunning) {
+		mAQPlayer.isRunning = NO;
+	}
+	else if (state && !mAQPlayer.isRunning) {
+		mAQPlayer.isRunning = YES;
 	}
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Reachability.h"
 
 @class AQPlayer, MainViewController, FlipsideViewController, Mode;
 
@@ -37,20 +38,30 @@
 	BOOL		listenUDP;
 	BOOL		listenIP;
 	
+	NetworkStatus			internetConnectionStatus;
+	
 	NSThread				*mThread;
 	AQPlayer				*mAQPlayer;
 	FlipsideViewController	*mFlipside;
 	MainViewController		*mMainView;
-	Mode					*mMagicMode;
+	Mode					*mMagicMode;	
 	
-	BOOL		powerSwitch;
+	BOOL		isOn;
+	BOOL		connected;
+	BOOL		wifiExists;
 
 }
 @property (readwrite, retain) AQPlayer	*mAQPlayer;
 @property (readwrite, retain) MainViewController *mMainView;
 @property (readwrite, retain) FlipsideViewController *mFlipside;
 
-@property BOOL powerSwitch;
+@property NetworkStatus internetConnectionStatus;
+@property BOOL isOn;
+@property BOOL wifiExists;
+
+- (void)reachabilityChanged:(NSNotification *)note;
+- (void)updateStatus;
+- (void)checkWIFI;
 
 - (void)networkOn;
 - (void)networkOff;
@@ -69,6 +80,7 @@
 - (void)buttonrelease:(NSString *)button;
 - (void)requestHint;
 
+- (void)sendJoinMsg;
 - (void)setTwoButtonAlert:(NSString *)msg;
 - (void)setOneButtonAlert:(NSString *)msg;
 - (void)setMarquee:(NSString *)msg;
