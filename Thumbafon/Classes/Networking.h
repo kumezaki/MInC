@@ -87,5 +87,6 @@
 - (void)setAQSynthMode:(NSString *)mode;
 - (void)setNewNotes:(NSString *)notes;
 - (void)setMagicNotesState:(NSNumber *)toggle;
+- (void)setKillNetwork;
 
 @end

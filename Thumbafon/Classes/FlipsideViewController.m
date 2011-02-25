@@ -156,7 +156,7 @@ extern Networking *gNetwork;
 		if (gNetwork.wifiExists) [gNetwork networkOn]; //NSLog(@"Flipside activateNetworking ON");
 		else {
 			self.networkSwitch.on = NO;
-			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"WiFi Network Status" 
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"WiFi Network?" 
 															message:@"Unable to connect to a WiFi network. Please be sure you have WiFi enabled and that you are connected to a Thumbafōn router." 
 														   delegate:self 
 												  cancelButtonTitle:nil 

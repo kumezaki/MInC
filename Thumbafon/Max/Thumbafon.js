@@ -30,9 +30,10 @@ function clear_players() {
 		
 		if (target_pos_array[i] != undefined) {
 			messnamed("thum_msg_1","target",i);
+			messnamed("thum_msg_2", "kill");
+			messnamed("thum_msg_2","dump","bang");
 			messnamed("thum_msg_2","ip", "0.0.0.0");
 			messnamed("thum_msg_2","dev", "set",gDefaultName);
-			messnamed("thum_msg_2","dump","bang");
 			player_array[target_pos_array[i]] = undefined;
 			target_pos_array[i] = undefined;
 			}
@@ -42,18 +43,18 @@ function clear_players() {
 
 function player_report() {
 	var totalPlayers = 0;
-	//post("players:");
+	post("players:");
 	messnamed("report","clear");
-	
+	messnamed("report","set","players:","\n");
 	for (var i = 1; i < gNumVoices; i++) {
 		var client_ip = target_pos_array[i];
 		if (target_pos_array[i] != undefined) {
-		//post("/",player_array[target_pos_array[i]].device_name);
-		messnamed("report","append",player_array[target_pos_array[i]].device_name,"poly~","target:", player_array[target_pos_array[i]].target_pos);
+		post("/",player_array[target_pos_array[i]].device_name);
+		messnamed("report","append",player_array[target_pos_array[i]].device_name,"poly~target:",player_array[target_pos_array[i]].target_pos+"\n");
 		totalPlayers++;
 		}
 	}
-	//post("\nTotal current players is:",totalPlayers,"\n");
+	post("\nTotal current players is:",totalPlayers,"\n");
 }
 
 function Thumbafonist(target_pos, device_name) {
@@ -201,11 +202,13 @@ function send_marq(client_ip, string) {
 function send_all(type, msg) {
 		
 	if (type == "key") {
+		gKey = msg;
 		for(i = 1; i < gNumVoices; i++) {
 			if (player_array[target_pos_array[i]] != undefined) send_key(target_pos_array[i], msg);
 		}
 	}
 	else if (type == "mode") {
+		gMode = msg;
 		for(i = 1; i < gNumVoices; i++) {
 			if (player_array[target_pos_array[i]]  != undefined) send_mode(target_pos_array[i], msg);
 		}

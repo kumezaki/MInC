@@ -233,8 +233,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -273,10 +271,6 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>B492982112F62806004DA4E6</string>
-								<string>289233A00DB2D0730083E9F9</string>
-								<string>B492982E12F62980004DA4E6</string>
-								<string>B492984C12F62BA8004DA4E6</string>
-								<string>B492985812F62C34004DA4E6</string>
 								<string>281C6CD70DB2D82200F60ACC</string>
 								<string>29B97323FDCFA39411CA2CEA</string>
 								<string>1C37FAAC04509CD000000102</string>
@@ -290,7 +284,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 19}, {300, 760}}</string>
+							<string>{{0, 0}, {300, 760}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -322,6 +316,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -339,27 +335,28 @@
 										<key>_historyCapacity</key>
 										<integer>20</integer>
 										<key>bookmark</key>
-										<string>B4AEB6E71317BAD600D944EC</string>
+										<string>B4B24605131872DD00E7E3D6</string>
 										<key>history</key>
 										<array>
-											<string>B4AEB61113174BA400D944EC</string>
 											<string>B4AEB61413174BA400D944EC</string>
 											<string>B4AEB68B1317747100D944EC</string>
 											<string>B4AEB68C1317747100D944EC</string>
 											<string>B4AEB68D1317747100D944EC</string>
-											<string>B4AEB68F1317747100D944EC</string>
-											<string>B4AEB6901317747100D944EC</string>
-											<string>B4AEB6931317747100D944EC</string>
-											<string>B4AEB6941317747100D944EC</string>
-											<string>B4AEB6CC131795D800D944EC</string>
-											<string>B4AEB6CD131795D800D944EC</string>
-											<string>B4AEB6CE131795D800D944EC</string>
 											<string>B4AEB6E01317BAD600D944EC</string>
-											<string>B4AEB6E11317BAD600D944EC</string>
 											<string>B4AEB6E21317BAD600D944EC</string>
 											<string>B4AEB6E31317BAD600D944EC</string>
-											<string>B4AEB6E41317BAD600D944EC</string>
-											<string>B4AEB6E51317BAD600D944EC</string>
+											<string>B4B245AE13185EBC00E7E3D6</string>
+											<string>B4B245AF13185EBC00E7E3D6</string>
+											<string>B4B245B213185EBC00E7E3D6</string>
+											<string>B4B245E013186D8500E7E3D6</string>
+											<string>B4B245E113186D8500E7E3D6</string>
+											<string>B4B245E213186D8500E7E3D6</string>
+											<string>B4B245E313186D8500E7E3D6</string>
+											<string>B4B245E413186D8500E7E3D6</string>
+											<string>B4B245E713186D8500E7E3D6</string>
+											<string>B4B245F8131871DC00E7E3D6</string>
+											<string>B4B245F9131871DC00E7E3D6</string>
+											<string>B4B245FA131871DC00E7E3D6</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -371,14 +368,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1116, 616}}</string>
+								<string>{{0, 0}, {1116, 612}}</string>
 								<key>RubberWindowFrame</key>
 								<string>2 59 1438 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>616pt</string>
+							<string>612pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -391,14 +388,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 621}, {1116, 157}}</string>
+								<string>{{0, 617}, {1116, 161}}</string>
 								<key>RubberWindowFrame</key>
 								<string>2 59 1438 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>157pt</string>
+							<string>161pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -417,9 +414,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>B4AEB6421317524B00D944EC</string>
+				<string>B4B2456A13183BE800E7E3D6</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>B4AEB6431317524B00D944EC</string>
+				<string>B4B2456B13183BE800E7E3D6</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -557,13 +554,14 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>B4B24606131872DD00E7E3D6</string>
 		<string>1C530D57069F1CE1000CFCEE</string>
-		<string>B4AEB6651317588800D944EC</string>
-		<string>B4AEB64D1317524B00D944EC</string>
+		<string>B4B2458413183F5400E7E3D6</string>
+		<string>B4B2457413183BE800E7E3D6</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>B4290FEC127D01C2009192CD</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/main_brain/minc_unfuddl/Thumbafon/Thumbafon.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>2 59 1438 819 0 0 1440 878 </string>
@@ -582,14 +580,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Reachability.m</string>
+								<string>Networking.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -606,6 +602,8 @@
 							<string>519pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -645,7 +643,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>B4290FEC127D01C2009192CD</string>
-				<string>B4AEB6441317524B00D944EC</string>
+				<string>B4B2456413183BE400E7E3D6</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -767,13 +765,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>B4AEB6451317524B00D944EC</string>
+				<string>B4B2456C13183BE800E7E3D6</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>B4AEB6461317524B00D944EC</string>
-				<string>B4AEB6471317524B00D944EC</string>
-				<string>B4AEB6481317524B00D944EC</string>
-				<string>B4AEB6491317524B00D944EC</string>
-				<string>B4AEB64A1317524B00D944EC</string>
+				<string>B4B2456D13183BE800E7E3D6</string>
+				<string>B4B2456E13183BE800E7E3D6</string>
+				<string>B4B2456F13183BE800E7E3D6</string>
+				<string>B4B2457013183BE800E7E3D6</string>
+				<string>B4B2457113183BE800E7E3D6</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -807,7 +805,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Reachability.m</string>
+										<string>Networking.m</string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>
@@ -863,8 +861,8 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D57069F1CE1000CFCEE</string>
-				<string>B4AEB6C01317957E00D944EC</string>
-				<string>B4AEB6C11317957E00D944EC</string>
+				<string>B4B2459113184D3100E7E3D6</string>
+				<string>B4B2459213184D3100E7E3D6</string>
 				<string>1CDD528C0622207200134675</string>
 				<string>1CD0528E0623707200166675</string>
 			</array>
@@ -929,7 +927,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>B4AEB64B1317524B00D944EC</string>
+				<string>B4B2457213183BE800E7E3D6</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>

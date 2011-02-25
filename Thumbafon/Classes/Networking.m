@@ -134,7 +134,7 @@ Networking *gNetwork = nil;
 	[mThread start];
 	
 	self.isOn = YES;
-	[mMainView setModeLabel];//reset the marquee message
+	[self setMarquee:@"end"];//reset the marquee message
 }
 
 - (void)networkOff {
@@ -268,6 +268,7 @@ Networking *gNetwork = nil;
 	
 	ssize_t pos = 0;
 	int msg_type = 0;
+	int tag_type = 0;
 	int add_type = 0;
 	
 	while (pos < mInBufferLength)
@@ -278,20 +279,27 @@ Networking *gNetwork = nil;
 			{
 				NSString *buf_str = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
 				
-					 if ([buf_str isEqualToString:@"/thum/key"])		add_type = 1;
-				else if ([buf_str isEqualToString:@"/thum/mode"])		add_type = 2;
-				else if ([buf_str isEqualToString:@"/thum/notes"])		add_type = 3;
-				else if ([buf_str isEqualToString:@"/thum/marq"])		add_type = 4;
-				else if ([buf_str isEqualToString:@"/thum/1butt"])		add_type = 5;
-				else if ([buf_str isEqualToString:@"/thum/2butt"])		add_type = 6;
-				else if ([buf_str isEqualToString:@"/thum/magic"])		add_type = 7;
+					 if ([buf_str isEqualToString:@"/thum/key"])	add_type = 1;
+				else if ([buf_str isEqualToString:@"/thum/mode"])	add_type = 2;
+				else if ([buf_str isEqualToString:@"/thum/notes"])	add_type = 3;
+				else if ([buf_str isEqualToString:@"/thum/marq"])	add_type = 4;
+				else if ([buf_str isEqualToString:@"/thum/1butt"])	add_type = 5;
+				else if ([buf_str isEqualToString:@"/thum/2butt"])	add_type = 6;
+				else if ([buf_str isEqualToString:@"/thum/magic"])	add_type = 7;
 				else if (!self.connected && [buf_str isEqualToString:@"/thum/srvip"])add_type = 8;
 				else if (self.connected && [buf_str isEqualToString:@"/thum/shake"])add_type = 9;
+				else if ([buf_str isEqualToString:@"/thum/kill"])	tag_type = 1;
 				break;
 			}
 			case 1: /* OSC Type Tags */
 			{
-				/* do nothing for now */
+				switch (tag_type)
+				{	
+					case 1: { //kill network
+						[self performSelectorOnMainThread:@selector(setKillNetwork) withObject:nil waitUntilDone:NO];					
+						break;
+					}
+				}
 				break;
 			}
 			case 2: /* OSC Data */
@@ -338,7 +346,7 @@ Networking *gNetwork = nil;
 						self.mSendIPAddress = inet_addr(mInBuffer+pos);
 						self.connected = YES;
 						[self performSelectorOnMainThread:@selector(sendJoinMsg) withObject:nil waitUntilDone:NO];
-						NSLog(@"Sent join message.");
+						NSLog(@"Sent Join message.");
 						break;
 					}
 					case 9: {
@@ -346,7 +354,6 @@ Networking *gNetwork = nil;
 						NSLog(@"Thumbshake is complete!");
 						break;
 					}
-						
 				}
 				break;
 			}
@@ -471,8 +478,9 @@ Networking *gNetwork = nil;
 
 - (void)setMarquee:(NSString *)msg {
 
-		mMainView.mMarqText = msg;
-		[mMainView setMarqueeLabel];
+	mMainView.mMarqText = msg;
+	[mMainView setMarqueeLabel];
+
 }
 
 - (void)setAQSynthOffset:(NSString *)offset {
@@ -499,6 +507,12 @@ Networking *gNetwork = nil;
 	[mFlipside changeFlipModeLabel];
 	if (![toggle boolValue]) [(AQSynth*)mAQPlayer setMode];
 }
+
+- (void)setKillNetwork {
+	mFlipside.networkSwitch.on = NO;
+	[mFlipside activateNetworking:mFlipside.networkSwitch];
+}
+
 
 - (void)setNewNotes:(NSString *)notes {
 	

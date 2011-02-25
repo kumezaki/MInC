@@ -70,14 +70,14 @@ extern Networking *gNetwork;
 	//Create buttView	
 	CGRect viewRect = CGRectMake(0,30,480,290);
 	buttView = [[ButtonView alloc] initWithFrame:viewRect];
-	[buttView setHidden:NO];
+	buttView.hidden = NO;
 	[self.view addSubview:buttView];
 	[buttView setAQPlayer:mAQPlayer];
 	
 	//Create marquee view
 	CGRect messRect = CGRectMake(0,0,420,30);
 	messView = [[MessageView alloc] initWithFrame:messRect];
-	[messView setHidden:YES];
+	messView.hidden = YES;
 	[self.view addSubview:messView];
 	
 	[super viewDidLoad];
@@ -122,7 +122,7 @@ extern Networking *gNetwork;
 
 - (IBAction)setModeLabel {	
 	
-	[messView setHidden:YES];
+	messView.hidden = YES;
 	
 	if (((AQSynth*)mAQPlayer).magicState) {
 		self.mMarqText = [NSString stringWithFormat:@"Magic Mode"];
@@ -151,8 +151,12 @@ extern Networking *gNetwork;
 
 - (IBAction)setMarqueeLabel {
 	
-	[messView setHidden:NO];
+	if ([self.mMarqText isEqual:@"end"]) [self setModeLabel];
+
+	else {
+	messView.hidden = NO;
 	messView.mMsgLabel.text = self.mMarqText;
+	}
 }
 
 - (void)oneButtonAlert {
@@ -231,7 +235,7 @@ extern Networking *gNetwork;
 		
 		if (gNetwork.wifiExists) [controller activateNetworking:controller.networkSwitch];
 		else {
-			self.mMarqText = @"checking WiFi status...";
+			self.mMarqText = @"reconnecting to WiFi network...";
 			[self setMarqueeLabel];
 			[controller performSelector:@selector(activateNetworking:) withObject:controller.networkSwitch afterDelay:3];
 		}
