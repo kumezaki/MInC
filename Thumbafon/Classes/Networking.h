@@ -61,7 +61,6 @@
 
 - (void)reachabilityChanged:(NSNotification *)note;
 - (void)updateStatus;
-- (void)checkWIFI;
 
 - (void)networkOn;
 - (void)networkOff;

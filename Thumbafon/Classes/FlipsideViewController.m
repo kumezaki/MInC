@@ -147,15 +147,17 @@ extern Networking *gNetwork;
 
 - (IBAction)activateNetworking:(UISwitch *)sender {
 	
+	if (gNetwork.mAQPlayer == nil) gNetwork.mAQPlayer = mAQPlayer;
+	if (gNetwork.mFlipside == nil) gNetwork.mFlipside = self;
+
 	if (sender.on && !gNetwork.isOn) {
 		[gNetwork updateStatus];
-		
+
 		if (gNetwork.wifiExists) [gNetwork networkOn]; //NSLog(@"Flipside activateNetworking ON");
-		
 		else {
 			self.networkSwitch.on = NO;
-			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bummer!" 
-															message:@"Looks like you've lost your WiFi connection. Try reconnecting with the Network switch." 
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"WiFi Network Status" 
+															message:@"Unable to connect to a WiFi network. Please be sure you have WiFi enabled and that you are connected to a Thumbafōn router." 
 														   delegate:self 
 												  cancelButtonTitle:nil 
 												  otherButtonTitles:@"OK", nil];
@@ -170,11 +172,11 @@ extern Networking *gNetwork;
 
 - (IBAction)hintButton {
 
-	if (!self.networkSwitch) {
+	if (!self.networkSwitch.on) {
 		UIAlertView *mAlert = [[UIAlertView alloc] initWithTitle:@"Hint Window" 
 										   message:@"During a WiFi performance, use the HINTS button to see messages from the artist." 
 										  delegate:self 
-								 cancelButtonTitle:@"Return" 
+								 cancelButtonTitle:@"OK" 
 								 otherButtonTitles:nil];
 		//set text alignment to Left...
 		NSArray *subViewArray = mAlert.subviews;

@@ -22,12 +22,12 @@
 	ButtonView				*buttView;
 	MessageView				*messView;
 	
-	NSString				*mLabelText;
+	NSString				*mMarqText;
 	NSString				*mAlertMsg;
 }
 @property(retain) IBOutlet UILabel	*soundLabel;
 @property(retain) IBOutlet UILabel	*modeLabel;
-@property(readwrite, retain) NSString *mLabelText;
+@property(readwrite, retain) NSString *mMarqText;
 @property(readwrite, retain) NSString *mAlertMsg;
 
 - (void)changeMode;
@@ -36,7 +36,7 @@
 - (IBAction)setModeLabel;
 - (IBAction)setSoundLabel;
 
-- (IBAction)setMsgLabel;
+- (IBAction)setMarqueeLabel;
 
 - (void)oneButtonAlert;
 - (void)twoButtonAlert;

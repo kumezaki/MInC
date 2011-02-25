@@ -19,7 +19,7 @@
 
 #import "Reachability.h"
 
-#define kShouldPrintReachabilityFlags 1
+#define kShouldPrintReachabilityFlags 0
 
 static void PrintReachabilityFlags(SCNetworkReachabilityFlags    flags, const char* comment)
 {
@@ -71,7 +71,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 		{
 			retVal = YES;
 		}
-		NSLog(@"Reachability startNotifier retVal: %@",retVal ? @"YES" : @"NO");
+		//NSLog(@"Reachability startNotifier retVal: %@",retVal ? @"YES" : @"NO");
 	}
 	return retVal;
 }

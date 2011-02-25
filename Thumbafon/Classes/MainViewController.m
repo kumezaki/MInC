@@ -19,7 +19,7 @@ extern Networking *gNetwork;
 
 @synthesize soundLabel;
 @synthesize modeLabel;
-@synthesize mLabelText;
+@synthesize mMarqText;
 @synthesize mAlertMsg;
 
 
@@ -38,15 +38,7 @@ extern Networking *gNetwork;
 	[buttView becomeFirstResponder];
     StatusBarStyle = [[UIApplication sharedApplication] statusBarStyle];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
-	
-	if (gNetwork.isOn && messView == nil) {
 
-		CGRect viewRect = CGRectMake(0,0,420,30);
-		messView = [[MessageView alloc] initWithFrame:viewRect];
-		[messView setHidden:YES];
-		[self.view addSubview:messView];		
-	}
-	
 	[self setModeLabel];
 	[self setSoundLabel];
 }
@@ -67,7 +59,7 @@ extern Networking *gNetwork;
 
 	//Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-	
+
 	mAQPlayer = [[AQSound alloc] init];
 	
 	//Create 2nd view, alloc/init, assign delegate, call setmAQPlayer method
@@ -82,10 +74,12 @@ extern Networking *gNetwork;
 	[self.view addSubview:buttView];
 	[buttView setAQPlayer:mAQPlayer];
 	
-	gNetwork.mAQPlayer = mAQPlayer;
-	gNetwork.mFlipside = controller;
-	gNetwork.mMainView = self;
-		
+	//Create marquee view
+	CGRect messRect = CGRectMake(0,0,420,30);
+	messView = [[MessageView alloc] initWithFrame:messRect];
+	[messView setHidden:YES];
+	[self.view addSubview:messView];
+	
 	[super viewDidLoad];
 }
 
@@ -104,8 +98,8 @@ extern Networking *gNetwork;
 	
 	self.soundLabel=nil;
 	self.modeLabel=nil;
-	if (messView != nil) [messView release];
-	[mLabelText release];
+	[messView release];
+	[mMarqText release];
 	[mAlertMsg release];
 	[buttView release];
 	[mAQPlayer release];
@@ -128,27 +122,26 @@ extern Networking *gNetwork;
 
 - (IBAction)setModeLabel {	
 	
-	if (messView != nil) {
-		[messView setHidden:YES];
-	}
+	[messView setHidden:YES];
+	
 	if (((AQSynth*)mAQPlayer).magicState) {
-		self.mLabelText = [NSString stringWithFormat:@"Magic Mode"];
+		self.mMarqText = [NSString stringWithFormat:@"Magic Mode"];
 		modeLabel.textColor = [UIColor cyanColor];
 	}
 	else {
 		int j = ((AQSynth*)mAQPlayer).currentMode;
 		switch (j) {
-			case 0: self.mLabelText = [NSString stringWithFormat:@"Ionian"]; break;
-			case 1: self.mLabelText = [NSString stringWithFormat:@"Dorian"]; break;
-			case 2: self.mLabelText = [NSString stringWithFormat:@"Phrygian"]; break;
-			case 3: self.mLabelText = [NSString stringWithFormat:@"Lydian"]; break;
-			case 4: self.mLabelText = [NSString stringWithFormat:@"Mixolydian"]; break;
-			case 5: self.mLabelText = [NSString stringWithFormat:@"Aeolian"]; break;
+			case 0: self.mMarqText = [NSString stringWithFormat:@"Ionian"]; break;
+			case 1: self.mMarqText = [NSString stringWithFormat:@"Dorian"]; break;
+			case 2: self.mMarqText = [NSString stringWithFormat:@"Phrygian"]; break;
+			case 3: self.mMarqText = [NSString stringWithFormat:@"Lydian"]; break;
+			case 4: self.mMarqText = [NSString stringWithFormat:@"Mixolydian"]; break;
+			case 5: self.mMarqText = [NSString stringWithFormat:@"Aeolian"]; break;
 			default: break;
 		}
 		modeLabel.textColor = [UIColor whiteColor];
 	}
-	modeLabel.text = self.mLabelText;//set new labels
+	modeLabel.text = self.mMarqText;//set new labels
 }
 
 - (IBAction)setSoundLabel {
@@ -156,14 +149,13 @@ extern Networking *gNetwork;
 	soundLabel.text = [NSString stringWithFormat:@"%@",((AQSound*)mAQPlayer).soundType];
 }
 
-- (IBAction)setMsgLabel {
+- (IBAction)setMarqueeLabel {
 	
 	[messView setHidden:NO];
-	messView.mMsgLabel.text = self.mLabelText;
+	messView.mMsgLabel.text = self.mMarqText;
 }
 
 - (void)oneButtonAlert {
-
 	UIAlertView *mAlert = [[UIAlertView alloc] initWithTitle:nil 
 										message:self.mAlertMsg 
 									   delegate:self 
@@ -204,6 +196,13 @@ extern Networking *gNetwork;
 	[mAlert release];
 }
 
+- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+	
+	if ([[actionSheet buttonTitleAtIndex:0] isEqual:@"Previous"] && buttonIndex == 0) {
+		[gNetwork sendOSCMsg:"/thum/prev\0\0":12];
+	}
+}
+
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
 	
 	if (motion == UIEventSubtypeMotionShake) {
@@ -215,37 +214,36 @@ extern Networking *gNetwork;
 	}
 }
 
-- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-	
-	if ([[actionSheet buttonTitleAtIndex:0] isEqual:@"Previous"] && buttonIndex == 0) {
-		[gNetwork sendOSCMsg:"/thum/prev\0\0":12];
-	}
-}
-
 - (BOOL) getFlipsideSwitchState {
 	
 	return controller.networkSwitch.on;
 }
 
-- (void) setFlipsideSwitchState:(BOOL)state {
-	
-	[gNetwork updateStatus];
-	controller.networkSwitch.on = state;
+- (void) setFlipsideSwitchState:(BOOL)prevState {
 
-	if (gNetwork.wifiExists) {
+	controller.networkSwitch.on = prevState;
+
+	if (!prevState) {
 		[controller activateNetworking:controller.networkSwitch];
 	}
 	else {
-		[controller performSelector:@selector(activateNetworking:) withObject:controller.networkSwitch afterDelay:3];
+		[gNetwork updateStatus];
+		
+		if (gNetwork.wifiExists) [controller activateNetworking:controller.networkSwitch];
+		else {
+			self.mMarqText = @"checking WiFi status...";
+			[self setMarqueeLabel];
+			[controller performSelector:@selector(activateNetworking:) withObject:controller.networkSwitch afterDelay:3];
+		}
 	}
-	[self aqpPower:state];
+	[self aqpPower:prevState];
 }
 
-- (void)aqpPower:(BOOL)state {
-	if (!state && mAQPlayer.isRunning) {
+- (void)aqpPower:(BOOL)prevState {
+	if (!prevState && mAQPlayer.isRunning) {
 		mAQPlayer.isRunning = NO;
 	}
-	else if (state && !mAQPlayer.isRunning) {
+	else if (prevState && !mAQPlayer.isRunning) {
 		mAQPlayer.isRunning = YES;
 	}
 }

@@ -30,7 +30,9 @@
 	application.applicationSupportsShakeToEdit = YES;
 	
 	mNetworkWasOn = [[NSUserDefaults alloc]init];	
+	
 	network = [[Networking alloc]init];
+	network.mMainView = mainViewController;
 	
     return YES;
 }
@@ -54,7 +56,9 @@
      If your application supports background execution, called instead of applicationWillTerminate: when the user quits.
      */
 	NSLog(@"Did Enter Background");
-	//[mNetworkWasOn setBool:NO forKey:@"networkState"];
+	[mNetworkWasOn setBool:[mainViewController getFlipsideSwitchState] forKey:@"networkState"];
+	[mainViewController setFlipsideSwitchState:NO];
+
 }
 
 
@@ -63,7 +67,6 @@
      Called as part of  transition from the background to the inactive state: here you can undo many of the changes made on entering the background.
      */
 	NSLog(@"Will Enter Foreground");
-	[network checkWIFI]
 	
 }
 
@@ -73,9 +76,9 @@
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
 	NSLog(@"Did Become Active");
-	[network updateStatus];
-	[mainViewController setFlipsideSwitchState:[mNetworkWasOn boolForKey:@"networkState"]];
-
+	if ([mNetworkWasOn boolForKey:@"networkState"]) {
+		[mainViewController setFlipsideSwitchState:YES];
+	}
 }
 
 

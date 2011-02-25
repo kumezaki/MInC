@@ -3,6 +3,7 @@ autowatch = 1;
 var gNumVoices = 8;
 var gKey = 0;
 var gMode = 0;
+var gDefaultName = "<device_name>";
 
 /***target_pos_array is client_ip's indexed by target_pos***/
 /***to conform to poly~ all for-loops that check this array should start with 1***///
@@ -13,6 +14,8 @@ var player_array = [];
 
 function loadbang() {
     messnamed("thum_msg_1","voices",gNumVoices);
+    messnamed("thum_msg_1","target",0);
+    messnamed("thum_msg_2","dev","set", gDefaultName);
     messnamed("display_msg","drawto", "keydisplay");
     messnamed("display_msg","font","Helvetica");
     messnamed("display_msg","size", 36);
@@ -21,12 +24,14 @@ function loadbang() {
 function clear_players() {
 	
 	send_all("alert","Unfortunately, the system needed to be reset. Please turn your Network power switch OFF & then ON again to rejoin the performance.\n");
-	
+	messnamed("report","clear");
+
 	for (i = 1; i < gNumVoices; i++) {
 		
 		if (target_pos_array[i] != undefined) {
 			messnamed("thum_msg_1","target",i);
 			messnamed("thum_msg_2","ip", "0.0.0.0");
+			messnamed("thum_msg_2","dev", "set",gDefaultName);
 			messnamed("thum_msg_2","dump","bang");
 			player_array[target_pos_array[i]] = undefined;
 			target_pos_array[i] = undefined;
@@ -37,15 +42,18 @@ function clear_players() {
 
 function player_report() {
 	var totalPlayers = 0;
-	post("players:");
+	//post("players:");
+	messnamed("report","clear");
+	
 	for (var i = 1; i < gNumVoices; i++) {
 		var client_ip = target_pos_array[i];
 		if (target_pos_array[i] != undefined) {
-		post("/",player_array[target_pos_array[i]].device_name);
-			totalPlayers++;
+		//post("/",player_array[target_pos_array[i]].device_name);
+		messnamed("report","append",player_array[target_pos_array[i]].device_name,"poly~","target:", player_array[target_pos_array[i]].target_pos);
+		totalPlayers++;
 		}
 	}
-	post("\nTotal current players is:",totalPlayers,"\n");
+	//post("\nTotal current players is:",totalPlayers,"\n");
 }
 
 function Thumbafonist(target_pos, device_name) {
@@ -61,10 +69,7 @@ function add_player(client_ip, device_name) {
 	
 	for (var target_pos = 1; target_pos < gNumVoices; target_pos++) {
 		
-		if (target_pos_array[target_pos] == undefined) {
-			//post(target_pos,target_pos_array[target_pos],"\n");
-			break;
-		}
+		if (target_pos_array[target_pos] == undefined) break;
 	}
 	if (target_pos < gNumVoices) {
 	
@@ -72,6 +77,7 @@ function add_player(client_ip, device_name) {
 		player_array[client_ip] = new Thumbafonist(target_pos, device_name);
 		messnamed("thum_msg_1","target",target_pos);
 		messnamed("thum_msg_2","ip", client_ip);
+		messnamed("thum_msg_2","dev","set", device_name);
 		messnamed("thum_msg_2","midi", target_pos);
 		send_key(client_ip, gKey);
 		post(player_array[client_ip].device_name,"has joined the performance at target",player_array[client_ip].target_pos,"\n");
@@ -84,9 +90,12 @@ function add_player(client_ip, device_name) {
 function remove_player(client_ip) {
 
 	messnamed("thum_msg_1","target", player_array[client_ip].target_pos);
-	messnamed("thum_msg_2","ip","0.0.0.0");
 	messnamed("thum_msg_2","dump","bang");
+	messnamed("thum_msg_2","ip","0.0.0.0");
+	messnamed("thum_msg_2","dev","set",gDefaultName);
+	
 	post(player_array[client_ip].device_name,"has left the performance.\n");
+	
 	target_pos_array[player_array[client_ip].target_pos] = undefined;
 	player_array[client_ip] = undefined;
 }
@@ -111,7 +120,7 @@ function parse() {
 				
 			}
 			else if (arguments[0] == "/thum/mode") {
-				send_mode(client_ip, arguments[2]);
+				send_mode(client_ip, arguments[3]);
 			}
 			else if (arguments[0] == "/thum/hint") {
 				send_2butt(client_ip, "this is a just a test string.\n");
@@ -134,9 +143,10 @@ function receive_butt(client_ip, button_num, state) {
 }
 
 function send_key(client_ip, key) {
-
+    
+    gKey = key;
 	messnamed("thum_msg_1","target",player_array[client_ip].target_pos);
-	messnamed("thum_msg_2","key",key);
+	messnamed("thum_msg_2","key",gKey);
 	switch (key) {
         case -5: messnamed("display_msg","text", "G"); break;
         case -4: messnamed("display_msg","text", "G#/Ab"); break;
@@ -152,7 +162,6 @@ function send_key(client_ip, key) {
         case 6: messnamed("display_msg","text", "F#/Gb"); break;
         case 7: messnamed("display_msg","text", "G"); break;
     }
-    gKey = key;
 }
 
 function send_mode(client_ip, mode) {
@@ -171,7 +180,7 @@ function send_magic_notes(client_ip, notes) {
 }
 
 function send_1butt(client_ip, string) {
-		
+
 	messnamed("thum_msg_1","target",player_array[client_ip].target_pos); 
 	messnamed("thum_msg_2","msg", "/thum/1butt", string);
 }

@@ -63,7 +63,6 @@ Networking *gNetwork = nil;
 	[[Reachability reachabilityForLocalWiFi] startNotifier];
 	//Set a method to be called when a notification is sent.
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:@"kNetworkReachabilityChangedNotification" object:nil];
-	
 	[self updateStatus];
 	
 	gNetwork = self;
@@ -97,6 +96,7 @@ Networking *gNetwork = nil;
 
 - (void)dealloc {
 	
+	[[NSNotificationCenter defaultCenter] removeObserver:@"kNetworkReachabilityChangedNotification"];
 	[mThread release];
 	[mMagicMode release];
 	[mAQPlayer release];
@@ -112,27 +112,16 @@ Networking *gNetwork = nil;
 }
 
 - (void)updateStatus {
-	
-    // Query the SystemConfiguration framework for the state of the device's network connections.
+
+	// Query the SystemConfiguration framework for the state of the device's network connections.
     self.internetConnectionStatus = [[Reachability reachabilityForLocalWiFi] currentReachabilityStatus];
     
 	if (self.internetConnectionStatus == NotReachable) {
         //show an alert to let the user know that they can't connect...
-		[self setOneButtonAlert:@"Whoa! The WiFi network just totally stopped working for you...bummer!"];
+		//[self setOneButtonAlert:@"Whoa! The WiFi network just totally stopped working for you...bummer!"];
 		self.wifiExists = NO;
     }  
 	else self.wifiExists = YES;
-}
-
-- (void)checkWIFI {
-	
-	[[Reachability reachabilityForLocalWiFi] startNotifier];
-	//Set a method to be called when a notification is sent.
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:@"kNetworkReachabilityChangedNotification" object:nil];
-	
-	[self updateStatus];
-	
-
 }
 
 - (void)networkOn {
@@ -145,6 +134,7 @@ Networking *gNetwork = nil;
 	[mThread start];
 	
 	self.isOn = YES;
+	[mMainView setModeLabel];//reset the marquee message
 }
 
 - (void)networkOff {
@@ -165,8 +155,9 @@ Networking *gNetwork = nil;
 	close(sockIPReceive);
 	
 	/*** reset mSendIPAddress ***/
-	self.mSendIPAddress = 0; 
+	self.mSendIPAddress = 0;
 	
+	self.wifiExists = NO;
 }
 
 - (NSString *)getIPAddress {
@@ -480,8 +471,8 @@ Networking *gNetwork = nil;
 
 - (void)setMarquee:(NSString *)msg {
 
-		mMainView.mLabelText = msg;
-		[mMainView setMsgLabel];
+		mMainView.mMarqText = msg;
+		[mMainView setMarqueeLabel];
 }
 
 - (void)setAQSynthOffset:(NSString *)offset {
