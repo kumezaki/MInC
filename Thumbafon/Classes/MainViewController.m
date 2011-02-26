@@ -165,16 +165,6 @@ extern Networking *gNetwork;
 									   delegate:self 
 							  cancelButtonTitle:@"OK" 
 							  otherButtonTitles: nil];
-	
-	//set text alignment to Left...
-	NSArray *subViewArray = mAlert.subviews;
-	for(int i = 0;i < [subViewArray count]; i++) {
-		if([[[subViewArray objectAtIndex:i] class] isSubclassOfClass:[UILabel class]]) {
-			UILabel *label = [subViewArray objectAtIndex:i];
-			label.textAlignment = UITextAlignmentLeft;
-		}
-	}
-	
 	[mAlert show];
 	[mAlert release];
 }

@@ -78,7 +78,7 @@
 		mainViewController.mMarqText = @"reconnecting to WiFi network...";
 		[mainViewController setMarqueeLabel];
 		
-		[self performSelector:@selector(activateNetworking:) withObject:previousSwitchState afterDelay:3];		
+		[self performSelector:@selector(activateNetworking:) withObject:previousSwitchState afterDelay:4];		
 	}
 	
 	else {
@@ -127,6 +127,11 @@
 		else {
 			mainViewController.mAlertMsg = @"Unable to connect to a WiFi network. Please be sure you have WiFi enabled and that you are connected to a Thumbafōn router.";
 			[mainViewController oneButtonAlert];
+			
+			mainViewController.mMarqText = @"end";
+			[mainViewController setMarqueeLabel];
+			
+			mFlipView.networkSwitch.on = NO;
 		}
 	}
 	

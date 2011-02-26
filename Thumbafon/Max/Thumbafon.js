@@ -69,9 +69,9 @@ function Thumbafonist(target_pos, device_name) {
 function add_player(client_ip, device_name) {
 	
 	for (var target_pos = 1; target_pos < gNumVoices; target_pos++) {
-		
 		if (target_pos_array[target_pos] == undefined) break;
 	}
+	
 	if (target_pos < gNumVoices) {
 	
 		target_pos_array[target_pos] = client_ip;
@@ -118,7 +118,6 @@ function parse() {
 		
 			if (arguments[0] == "/thum/butt") {    
 				receive_butt(client_ip,parseInt(arguments[2]),parseInt(arguments[3]));
-				
 			}
 			else if (arguments[0] == "/thum/mode") {
 				send_mode(client_ip, arguments[3]);
