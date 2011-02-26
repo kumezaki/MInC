@@ -10,6 +10,7 @@
 #import "MoreInfoViewController.h"
 #import "Networking.h"
 #import "AQSound.h"
+#import "ThumbafonAppDelegate.h"
 
 extern Networking *gNetwork;
 
@@ -30,6 +31,10 @@ extern Networking *gNetwork;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor viewFlipsideBackgroundColor];
+	
+	appDelegate = (ThumbafonAppDelegate*)[[UIApplication sharedApplication] delegate];
+	[appDelegate setNetworkingAQP:mAQPlayer];
+	[appDelegate setNetworkingFlipside:self];
 	
 	//Create MoreInfoView, set controller
 	mMoreInfo = [[MoreInfoViewController alloc] initWithNibName:@"MoreInfoView" bundle:nil];
@@ -145,29 +150,8 @@ extern Networking *gNetwork;
 	[self presentModalViewController:mMoreInfo animated:YES];
 }
 
-- (IBAction)activateNetworking:(UISwitch *)sender {
-	
-	if (gNetwork.mAQPlayer == nil) gNetwork.mAQPlayer = mAQPlayer;
-	if (gNetwork.mFlipside == nil) gNetwork.mFlipside = self;
-
-	if (sender.on && !gNetwork.isOn) {
-		[gNetwork updateStatus];
-
-		if (gNetwork.wifiExists) [gNetwork networkOn]; //NSLog(@"Flipside activateNetworking ON");
-		else {
-			self.networkSwitch.on = NO;
-			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"WiFi Network?" 
-															message:@"Unable to connect to a WiFi network. Please be sure you have WiFi enabled and that you are connected to a Thumbafōn router." 
-														   delegate:self 
-												  cancelButtonTitle:nil 
-												  otherButtonTitles:@"OK", nil];
-			[alert show];
-			[alert release];
-		}
-	}
-	else if (!sender.on && gNetwork.isOn) {
-		[gNetwork networkOff]; //NSLog(@"Flipside activateNetworking OFF");
-	}
+- (IBAction)doNetworkSwitch:(UISwitch *)sender {
+	[appDelegate activateNetworking:[NSNumber numberWithBool:sender.on]];
 }
 
 - (IBAction)hintButton {

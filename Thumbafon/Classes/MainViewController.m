@@ -218,38 +218,4 @@ extern Networking *gNetwork;
 	}
 }
 
-- (BOOL) getFlipsideSwitchState {
-	
-	return controller.networkSwitch.on;
-}
-
-- (void) setFlipsideSwitchState:(BOOL)prevState {
-
-	controller.networkSwitch.on = prevState;
-
-	if (!prevState) {
-		[controller activateNetworking:controller.networkSwitch];
-	}
-	else {
-		[gNetwork updateStatus];
-		
-		if (gNetwork.wifiExists) [controller activateNetworking:controller.networkSwitch];
-		else {
-			self.mMarqText = @"reconnecting to WiFi network...";
-			[self setMarqueeLabel];
-			[controller performSelector:@selector(activateNetworking:) withObject:controller.networkSwitch afterDelay:3];
-		}
-	}
-	[self aqpPower:prevState];
-}
-
-- (void)aqpPower:(BOOL)prevState {
-	if (!prevState && mAQPlayer.isRunning) {
-		mAQPlayer.isRunning = NO;
-	}
-	else if (prevState && !mAQPlayer.isRunning) {
-		mAQPlayer.isRunning = YES;
-	}
-}
-
 @end

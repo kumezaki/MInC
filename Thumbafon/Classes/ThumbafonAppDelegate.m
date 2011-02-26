@@ -9,11 +9,15 @@
 #import "ThumbafonAppDelegate.h"
 #import "MainViewController.h"
 #import "Networking.h"
+#import "FlipsideViewController.h"
+#import "AQPlayer.h"
 
 @implementation ThumbafonAppDelegate
 
 @synthesize window;
 @synthesize mainViewController;
+@synthesize mFlipView;
+@synthesize mAQPlayer;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -37,60 +41,56 @@
     return YES;
 }
 
-
 - (void)applicationWillResignActive:(UIApplication *)application {
-    /*
-     Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-     Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-     */
+   
 	NSLog(@"Will Resign Active");	
 	
-	[mNetworkWasOn setBool:[mainViewController getFlipsideSwitchState] forKey:@"networkState"];
-	[mainViewController setFlipsideSwitchState:NO];
+	[mNetworkWasOn setObject:[NSNumber numberWithBool:mFlipView.networkSwitch.on]forKey:@"previousSwitchState"];	
+	[self activateNetworking:[NSNumber numberWithBool:NO]];
+	[self aqpPower:NO];
 }
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    /*
-     Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-     If your application supports background execution, called instead of applicationWillTerminate: when the user quits.
-     */
+   
 	NSLog(@"Did Enter Background");
-	[mNetworkWasOn setBool:[mainViewController getFlipsideSwitchState] forKey:@"networkState"];
-	[mainViewController setFlipsideSwitchState:NO];
-
+	
+	[mNetworkWasOn setObject:[NSNumber numberWithBool:mFlipView.networkSwitch.on] forKey:@"previousSwitchState"];
+	[self activateNetworking:[NSNumber numberWithBool:NO]];
+	
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    /*
-     Called as part of  transition from the background to the inactive state: here you can undo many of the changes made on entering the background.
-     */
+
 	NSLog(@"Will Enter Foreground");
 	
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    /*
-     Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-     */
+	
 	NSLog(@"Did Become Active");
-	if ([mNetworkWasOn boolForKey:@"networkState"]) {
-		[mainViewController setFlipsideSwitchState:YES];
+	
+	NSNumber *previousSwitchState = [mNetworkWasOn objectForKey:@"previousSwitchState"];
+	if ([previousSwitchState boolValue] == YES) {
+		
+		mainViewController.mMarqText = @"reconnecting to WiFi network...";
+		[mainViewController setMarqueeLabel];
+		
+		[self performSelector:@selector(activateNetworking:) withObject:previousSwitchState afterDelay:3];		
+	}
+	
+	else {
+		[self activateNetworking:[NSNumber numberWithBool:NO]];
 	}
 }
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-	/*
-     Called when the application is about to terminate.
-     See also applicationDidEnterBackground:.
-     */
-	NSLog(@"Terminating");
-	[mNetworkWasOn setBool:NO forKey:@"networkState"];
 	
-	//NSLog(@"Past Network State: %@", [mNetworkWasOn boolForKey:@"networkState"] ? @"YES" : @"NO");
+	NSLog(@"Terminating");
+	[mNetworkWasOn setObject:[NSNumber numberWithBool:NO] forKey:@"previousSwitchState"];
 }
 
 #pragma mark -
@@ -109,6 +109,49 @@
     [mainViewController release];
     [window release];
     [super dealloc];
+}
+
+#pragma mark -
+#pragma mark Networking management
+
+- (void)activateNetworking:(NSNumber *)prev_state {
+	
+	BOOL state = [prev_state boolValue];
+	
+	mFlipView.networkSwitch.on = state;
+	
+	if (state && !network.isOn) {
+		[network updateStatus];
+		
+		if (network.wifiExists) [network networkOn];
+		else {
+			mainViewController.mAlertMsg = @"Unable to connect to a WiFi network. Please be sure you have WiFi enabled and that you are connected to a Thumbafōn router.";
+			[mainViewController oneButtonAlert];
+		}
+	}
+	
+	else if (!state && network.isOn) [network networkOff];
+	
+	[mFlipView.networkSwitch setNeedsDisplay];
+}
+
+- (void)setNetworkingAQP:(AQPlayer *)aqp {
+	self.mAQPlayer = aqp;
+	network.mAQPlayer = aqp;
+}
+- (void)setNetworkingFlipside:(FlipsideViewController *)flipview{
+	self.mFlipView = flipview;
+	network.mFlipside = flipview;
+}
+
+- (void)aqpPower:(BOOL)state {
+	
+	if (!state && mAQPlayer.isRunning) {
+		mAQPlayer.isRunning = NO;
+	}
+	else if (state && !mAQPlayer.isRunning) {
+		mAQPlayer.isRunning = YES;
+	}
 }
 
 @end

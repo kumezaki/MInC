@@ -8,19 +8,30 @@
 
 #import <UIKit/UIKit.h>
 
-@class MainViewController, Networking;
+@class MainViewController, Networking, AQPlayer, FlipsideViewController;
 
 @interface ThumbafonAppDelegate : NSObject <UIApplicationDelegate> {
     
 	UIWindow			*window;
-	NSUserDefaults		*mNetworkWasOn;
 	
+	NSUserDefaults		*mNetworkWasOn;
     MainViewController	*mainViewController;
-	Networking			*network;
+
+@private
+	FlipsideViewController	*mFlipView;
+	AQPlayer				*mAQPlayer;
+	Networking				*network;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet MainViewController *mainViewController;
+@property (readwrite, retain)  FlipsideViewController *mFlipView;
+@property (readwrite, retain) AQPlayer *mAQPlayer;
+
+- (void)activateNetworking:(NSNumber *)prev_state;
+- (void)setNetworkingAQP:(AQPlayer *)aqp;
+- (void)setNetworkingFlipside:(FlipsideViewController *)flipview;
+- (void)aqpPower:(BOOL)state;
 
 @end
 

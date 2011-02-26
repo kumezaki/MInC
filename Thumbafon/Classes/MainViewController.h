@@ -40,8 +40,5 @@
 
 - (void)oneButtonAlert;
 - (void)twoButtonAlert;
-- (BOOL)getFlipsideSwitchState;
-- (void)setFlipsideSwitchState:(BOOL)state;
-- (void)aqpPower:(BOOL)state;
 
 @end

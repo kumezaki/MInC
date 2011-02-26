@@ -30,7 +30,7 @@
 
 -(Float64)getEnvelope {
 	mAmp += mAmpDelta;
-	
+	//1.0 = 1 second)
 	if (mAmp >= 1.0) {
 		mAmp = mSustain; 
 		mAmpDelta = 0.;

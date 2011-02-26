@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
 
-@class AQPlayer, MoreInfoViewController;
+@class AQPlayer, MoreInfoViewController, ThumbafonAppDelegate;
 
 @protocol FlipsideViewControllerDelegate;
 
@@ -25,6 +25,7 @@
 	
 	AQPlayer				*mAQPlayer;
 	MoreInfoViewController	*mMoreInfo;
+	ThumbafonAppDelegate	*appDelegate;
 }
 
 @property (nonatomic, assign) id <FlipsideViewControllerDelegate> delegate;
@@ -44,7 +45,7 @@
 - (IBAction)changeFlipModeLabel;
 - (IBAction)changeFlipSoundLabel;
 
-- (IBAction)activateNetworking:(UISwitch *)sender;
+- (IBAction)doNetworkSwitch:(UISwitch *)sender;
 - (IBAction)hintButton;
 
 @end

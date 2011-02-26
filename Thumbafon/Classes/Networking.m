@@ -509,8 +509,9 @@ Networking *gNetwork = nil;
 }
 
 - (void)setKillNetwork {
+	[self networkOff];
 	mFlipside.networkSwitch.on = NO;
-	[mFlipside activateNetworking:mFlipside.networkSwitch];
+	[mFlipside.networkSwitch setNeedsDisplay];
 }
 
 

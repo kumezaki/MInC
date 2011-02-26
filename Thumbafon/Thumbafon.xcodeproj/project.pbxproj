@@ -338,14 +338,14 @@
 			children = (
 				B4CF630612FCDA5600AA82BB /* SinePiano.h */,
 				B4CF630712FCDA5600AA82BB /* SinePiano.m */,
-				B4CF630112FCDA3700AA82BB /* SawBrass.h */,
-				B4CF630212FCDA3700AA82BB /* SawBrass.m */,
-				B4CF630A12FCDC8E00AA82BB /* PulseOrgan.h */,
-				B4CF630B12FCDC8E00AA82BB /* PulseOrgan.m */,
-				B4CF630D12FCDCA100AA82BB /* SquareStrings.h */,
-				B4CF630E12FCDCA100AA82BB /* SquareStrings.m */,
 				B4CF631012FCDCB600AA82BB /* TriangleFlute.h */,
 				B4CF631112FCDCB600AA82BB /* TriangleFlute.m */,
+				B4CF630A12FCDC8E00AA82BB /* PulseOrgan.h */,
+				B4CF630B12FCDC8E00AA82BB /* PulseOrgan.m */,
+				B4CF630112FCDA3700AA82BB /* SawBrass.h */,
+				B4CF630212FCDA3700AA82BB /* SawBrass.m */,
+				B4CF630D12FCDCA100AA82BB /* SquareStrings.h */,
+				B4CF630E12FCDCA100AA82BB /* SquareStrings.m */,
 			);
 			name = "The Sounds";
 			sourceTree = "<group>";
