@@ -1,0 +1,1598 @@
+TThumbafon
+v7
+r0
+t320031941.720675
+cCheck dependencies
+cProcessInfoPlistFile /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Info.plist Thumbafon-Info.plist
+cCompileXIB /Users/main_brain/minc_unfuddl/Thumbafon/FlipsideView.xib
+cCompileXIB /Users/main_brain/minc_unfuddl/Thumbafon/MainView.xib
+cCpResource build/Release-iphonesimulator/Thumbafon.app/aqua1.png buttons/aqua1.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/blue1.png buttons/blue1.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/yellow1.png buttons/yellow1.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/green1.png buttons/green1.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/pink1.png buttons/pink1.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/purple1.png buttons/purple1.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/red1.png buttons/red1.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/seafoam1.png buttons/seafoam1.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/aqua2.png buttons/aqua2.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/seafoam2.png buttons/seafoam2.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/green2.png buttons/green2.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/yellow2.png buttons/yellow2.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/blue2.png buttons/blue2.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/pink2.png buttons/pink2.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/purple2.png buttons/purple2.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/red2.png buttons/red2.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/Icon.png Icon.png
+cCompileXIB /Users/main_brain/minc_unfuddl/Thumbafon/MainWindow.xib
+cCompileXIB /Users/main_brain/minc_unfuddl/Thumbafon/MoreInfoView.xib
+cCpResource build/Release-iphonesimulator/Thumbafon.app/BlankInfoScreen.png BlankInfoScreen.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/Default.png Default.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/Default@2x.png Default@2x.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/Icon@2x.png Icon@2x.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/iTunesArtwork.png iTunesArtwork.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/Icon-Small.png Icon-Small.png
+cCpResource build/Release-iphonesimulator/Thumbafon.app/Icon-Small@2x.png Icon-Small@2x.png
+cProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch.gch Thumbafon_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+cProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-elmemxskqdrizahazjdvebeolvgz/Thumbafon_Prefix.pch.gch Thumbafon_Prefix.pch normal i386 c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/main.o /Users/main_brain/minc_unfuddl/Thumbafon/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/ThumbafonAppDelegate.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/ThumbafonAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/MainViewController.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/FlipsideViewController.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/FlipsideViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/AQPlayer.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQPlayer.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Mode.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/Mode.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/CLSlipperyButton.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/CLSlipperyButton.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/ButtonView.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/ButtonView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/MoreInfoViewController.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/MoreInfoViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/AQSynth.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQSynth.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Voice.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/Voice.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/VoiceSynth.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/VoiceSynth.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/AQSound.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQSound.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/SawBrass.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/SawBrass.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/SinePiano.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/SinePiano.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/PulseOrgan.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/PulseOrgan.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/SquareStrings.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/SquareStrings.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/TriangleFlute.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/TriangleFlute.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/allpass.o /Users/main_brain/minc_unfuddl/Thumbafon/freeverb/allpass.c normal i386 c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/comb.o /Users/main_brain/minc_unfuddl/Thumbafon/freeverb/comb.c normal i386 c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/freeverb.o /Users/main_brain/minc_unfuddl/Thumbafon/freeverb/freeverb.c normal i386 c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/revmodel.o /Users/main_brain/minc_unfuddl/Thumbafon/freeverb/revmodel.c normal i386 c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Networking.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/Networking.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/MessageView.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cLd /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Thumbafon normal i386
+cGenerateDSYMFile /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app.dSYM /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Thumbafon
+cTouch /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk
+c000000004CC128950000000000000110
+t1287727253
+s272
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
+c000000004CC1224600000000001EA9C0
+t1287725638
+s2009536
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.h
+c000000004CC1222F0000000000000A23
+t1287725615
+s2595
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004CC12246000000000029B310
+t1287725638
+s2732816
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004CC1226D000000000029D5D0
+t1287725677
+s2741712
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004CC1225F0000000000001466
+t1287725663
+s5222
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004CC1281F0000000000000AA1
+t1287727135
+s2721
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004CC12883000000000074D7B0
+t1287727235
+s7657392
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/Availability.h
+c000000004CB3FA080000000000001ADD
+t1286863368
+s6877
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/arpa/inet.h
+c000000004CB3E46D0000000000001533
+t1286857837
+s5427
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/ctype.h
+c000000004CB3E4860000000000002C18
+t1286857862
+s11288
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/fcntl.h
+c000000004CB3E48600000000000003EA
+t1286857862
+s1002
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/ifaddrs.h
+c000000004CB3E4770000000000000782
+t1286857847
+s1922
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/netinet/in.h
+c000000004CBFACA90000000000005462
+t1287629993
+s21602
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/stdio.h
+c000000004CB3E48600000000000040AC
+t1286857862
+s16556
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/stdlib.h
+c000000004CB3E4860000000000002DF5
+t1286857862
+s11765
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/string.h
+c000000004CB3E4860000000000001731
+t1286857862
+s5937
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/socket.h
+c000000004CBFACAC0000000000005A69
+t1287629996
+s23145
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/types.h
+c000000004CBFACAC0000000000002905
+t1287629996
+s10501
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/unistd.h
+c000000004CB3E486000000000000563E
+t1286857862
+s22078
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/114Icon.png
+c000000004D630E3200000000000026AD
+t1298337330
+s9901
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/BicIcon.png
+c000000004D630E0D0000000000009429
+t1298337293
+s37929
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/BlankInfoScreen.png
+c000000004D5F5ED400000000000054C8
+t1298095828
+s21704
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQPlayer.h
+c000000004D6010F700000000000002C2
+t1298141431
+s706
+i<Foundation/Foundation.h>
+i<AudioToolbox/AudioToolbox.h>
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQPlayer.m
+c000000004D5E3ECE0000000000000900
+t1298022094
+s2304
+i"AQPlayer.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQSound.h
+c000000004D60132D0000000000000198
+t1298141997
+s408
+i<Foundation/Foundation.h>
+i"AQSynth.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQSound.m
+c000000004D60C90C00000000000006D9
+t1298188556
+s1753
+i"AQSound.h"
+i"SinePiano.h"
+i"PulseOrgan.h"
+i"SquareStrings.h"
+i"SawBrass.h"
+i"TriangleFlute.h"
+i"Networking.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQSynth.h
+c000000004D60E11900000000000002A3
+t1298194713
+s675
+i<Foundation/Foundation.h>
+i"AQPlayer.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQSynth.m
+c000000004D6106B50000000000000814
+t1298204341
+s2068
+i"AQSynth.h"
+i"Content.h"
+i"Mode.h"
+i"VoiceSynth.h"
+i"freeverb.h"
+i"Networking.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/ButtonView.h
+c000000004D60FC770000000000000213
+t1298201719
+s531
+i<UIKit/UIKit.h>
+i"AQPlayer.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/ButtonView.m
+c000000004D62112D00000000000018A8
+t1298272557
+s6312
+i"ButtonView.h"
+i"CLSlipperyButton.h"
+i"AQSynth.h"
+i"Networking.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/CLSlipperyButton.h
+c000000004D5E3ECE0000000000000103
+t1298022094
+s259
+i<UIKit/UIKit.h>
+i<Foundation/Foundation.h>
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/CLSlipperyButton.m
+c000000004D5E3ECE00000000000003AA
+t1298022094
+s938
+i"CLSlipperyButton.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/Content.h
+c000000004D60D4CF00000000000002C6
+t1298191567
+s710
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/FlipsideViewController.h
+c000000004D610EF3000000000000053F
+t1298206451
+s1343
+i<UIKit/UIKit.h>
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/FlipsideViewController.m
+c000000004D6111FD00000000000012D5
+t1298207229
+s4821
+i"FlipsideViewController.h"
+i"MoreInfoViewController.h"
+i"Networking.h"
+i"AQSound.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MainViewController.h
+c000000004D62C1500000000000000418
+t1298317648
+s1048
+i"FlipsideViewController.h"
+i"AQPlayer.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MainViewController.m
+c000000004D62BD9C0000000000001779
+t1298316700
+s6009
+i"MainViewController.h"
+i"ButtonView.h"
+i"AQSound.h"
+i"Networking.h"
+i"MessageView.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageView.h
+c000000004D60C91E0000000000000121
+t1298188574
+s289
+i<UIKit/UIKit.h>
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageView.m
+c000000004D5E3ECE00000000000003B5
+t1298022094
+s949
+i"MessageView.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/Mode.h
+c000000004D60DECF00000000000001D6
+t1298194127
+s470
+i<Foundation/Foundation.h>
+i"AQPlayer.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/Mode.m
+c000000004D60DA7A000000000000020E
+t1298193018
+s526
+i"Mode.h"
+i"VoiceSynth.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MoreInfoViewController.h
+c000000004D610EFD0000000000000169
+t1298206461
+s361
+i<UIKit/UIKit.h>
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MoreInfoViewController.m
+c000000004D60FF5800000000000007BD
+t1298202456
+s1981
+i"MoreInfoViewController.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/Networking.h
+c000000004D610B34000000000000074E
+t1298205492
+s1870
+i<Foundation/Foundation.h>
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/Networking.m
+c000000004D62411B0000000000003130
+t1298284827
+s12592
+i"Networking.h"
+i"AQSynth.h"
+i"MainViewController.h"
+i"FlipsideViewController.h"
+i"Mode.h"
+i<sys/socket.h>
+i<sys/types.h>
+i<netinet/in.h>
+i<fcntl.h>
+i<unistd.h>
+i<ifaddrs.h>
+i<arpa/inet.h>
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/PulseOrgan.h
+c000000004D5E3ECE00000000000000F3
+t1298022094
+s243
+i<Foundation/Foundation.h>
+i"VoiceSynth.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/PulseOrgan.m
+c000000004D60469800000000000002AF
+t1298155160
+s687
+i"PulseOrgan.h"
+i"AQPlayer.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/SawBrass.h
+c000000004D5E3ECE00000000000000EF
+t1298022094
+s239
+i<Foundation/Foundation.h>
+i"VoiceSynth.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/SawBrass.m
+c000000004D5E3ECE0000000000000291
+t1298022094
+s657
+i"SawBrass.h"
+i"AQPlayer.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/SinePiano.h
+c000000004D5E3ECE00000000000000F1
+t1298022094
+s241
+i<Foundation/Foundation.h>
+i"VoiceSynth.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/SinePiano.m
+c000000004D5E3ECE000000000000025E
+t1298022094
+s606
+i"SinePiano.h"
+i"AQPlayer.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/SquareStrings.h
+c000000004D5E3ECE00000000000000F9
+t1298022094
+s249
+i<Foundation/Foundation.h>
+i"VoiceSynth.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/SquareStrings.m
+c000000004D5E3ECE000000000000029E
+t1298022094
+s670
+i"SquareStrings.h"
+i"AQPlayer.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/ThumbafonAppDelegate.h
+c000000004D607BA50000000000000224
+t1298168741
+s548
+i<UIKit/UIKit.h>
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/ThumbafonAppDelegate.m
+c000000004D6240610000000000000D46
+t1298284641
+s3398
+i"ThumbafonAppDelegate.h"
+i"MainViewController.h"
+i"Networking.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/TriangleFlute.h
+c000000004D5E3ECE00000000000000F9
+t1298022094
+s249
+i<Foundation/Foundation.h>
+i"VoiceSynth.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/TriangleFlute.m
+c000000004D5E3ECE00000000000002A5
+t1298022094
+s677
+i"TriangleFlute.h"
+i"AQPlayer.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/Voice.h
+c000000004D5E3ECE0000000000000178
+t1298022094
+s376
+i<Foundation/Foundation.h>
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/Voice.m
+c000000004D604A91000000000000024A
+t1298156177
+s586
+i"Voice.h"
+i"AQPlayer.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/VoiceSynth.h
+c000000004D60CA04000000000000023C
+t1298188804
+s572
+i<Foundation/Foundation.h>
+i"Voice.h"
+i"AQPlayer.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Classes/VoiceSynth.m
+c000000004D60BE88000000000000036F
+t1298185864
+s879
+i"VoiceSynth.h"
+i"AQPlayer.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Default-Landscape.png
+c000000004D62CD0F000000000000742E
+t1298320655
+s29742
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Default.png
+c000000004D630DE9000000000000E55D
+t1298337257
+s58717
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Default@2x.png
+c000000004D630D9B0000000000022329
+t1298337179
+s140073
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/FlipsideView.xib
+c000000004D60A7DE000000000000EF50
+t1298180062
+s61264
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Icon-Small.png
+c000000004D630F650000000000000F12
+t1298337637
+s3858
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Icon-Small@2x.png
+c000000004D630F0B0000000000001510
+t1298337547
+s5392
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Icon.png
+c000000004D630E4D00000000000014A9
+t1298337357
+s5289
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Icon@2x.png
+c000000004D630E3200000000000026AD
+t1298337330
+s9901
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/IconSmall@2x.png
+c000000004D630F0B0000000000001510
+t1298337547
+s5392
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/MainView.xib
+c000000004D5EE39F000000000000717C
+t1298064287
+s29052
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/MainWindow.xib
+c000000004D5E3ECF0000000000006255
+t1298022095
+s25173
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/MoreInfoView.xib
+c000000004D60A8860000000000005D43
+t1298180230
+s23875
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/Thumbafon_Prefix.pch
+c000000004D5E3ECF0000000000000144
+t1298022095
+s324
+i<Availability.h>
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app
+t1298339141
+s1122
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app.dSYM
+t1298339141
+s102
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/114Icon.png
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/BicIcon.png
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/BlankInfoScreen.png
+t1298339137
+s21704
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Default-Landscape.png
+t1298326621
+s29742
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Default.png
+t1298339137
+s58717
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Default@2x.png
+t1298339137
+s140073
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/FlipsideView.nib
+t1298339136
+s5761
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Icon-Small.png
+t1298339137
+s3858
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Icon-Small@2x.png
+t1298339137
+s5392
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Icon.png
+t1298339136
+s5289
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Icon@2x.png
+t1298339137
+s9901
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/IconSmall@2x.png
+t2
+s0
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Info.plist
+t1298339136
+s812
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/MainView.nib
+t1298339136
+s2406
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/MainWindow.nib
+t1298339137
+s1151
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/MoreInfoView.nib
+t1298339137
+s2344
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/PkgInfo
+t1298339136
+s8
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Thumbafon
+t1298339141
+s110656
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/aqua1.png
+t1298339136
+s1940
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/aqua2.png
+t1298339136
+s1960
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/blue1.png
+t1298339136
+s4579
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/blue2.png
+t1298339136
+s4560
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/green1.png
+t1298339136
+s1837
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/green2.png
+t1298339136
+s1614
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/iTunesArtwork.png
+t1298339137
+s37929
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/pink1.png
+t1298339136
+s4319
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/pink2.png
+t1298339136
+s4565
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/purple1.png
+t1298339136
+s4471
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/purple2.png
+t1298339137
+s4334
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/red1.png
+t1298339136
+s4343
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/red2.png
+t1298339137
+s5079
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/seafoam1.png
+t1298339136
+s1712
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/seafoam2.png
+t1298339136
+s1901
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/yellow1.png
+t1298339136
+s4415
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/yellow2.png
+t1298339136
+s8926
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/AQPlayer.o
+t1298339140
+s15464
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/AQSound.o
+t1298339140
+s14932
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/AQSynth.o
+t1298339140
+s19348
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/ButtonView.o
+t1298339140
+s58384
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/CLSlipperyButton.o
+t1298339140
+s40108
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/FlipsideViewController.o
+t1298339140
+s65472
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/MainViewController.o
+t1298339140
+s74836
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/MessageView.o
+t1298339141
+s40340
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Mode.o
+t1298339140
+s7608
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/MoreInfoViewController.o
+t1298339140
+s43788
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Networking.o
+t1298339141
+s79768
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/PulseOrgan.o
+t1298339141
+s8724
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/SawBrass.o
+t1298339140
+s8632
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/SinePiano.o
+t1298339140
+s8484
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/SquareStrings.o
+t1298339141
+s8732
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Thumbafon.LinkFileList
+c000000004D6315400000000000000CCE
+t1298339136
+s3278
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/ThumbafonAppDelegate.o
+t1298339140
+s56660
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/TriangleFlute.o
+t1298339141
+s8668
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Voice.o
+t1298339140
+s8648
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/VoiceSynth.o
+t1298339140
+s11940
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/allpass.o
+t1298339141
+s3232
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/comb.o
+t1298339141
+s3832
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/freeverb.o
+t1298339141
+s14068
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/main.o
+t1298339139
+s6292
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/revmodel.o
+t1298339141
+s17032
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/buttons/aqua1.png
+c000000004D5E3ECF0000000000000794
+t1298022095
+s1940
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/buttons/aqua2.png
+c000000004D5E3ECF00000000000007A8
+t1298022095
+s1960
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/buttons/blue1.png
+c000000004D5E3ECF00000000000011E3
+t1298022095
+s4579
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/buttons/blue2.png
+c000000004D5E3ECF00000000000011D0
+t1298022095
+s4560
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/buttons/green1.png
+c000000004D5E3ECF000000000000072D
+t1298022095
+s1837
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/buttons/green2.png
+c000000004D5E3ECF000000000000064E
+t1298022095
+s1614
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/buttons/pink1.png
+c000000004D5E3ECF00000000000010DF
+t1298022095
+s4319
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/buttons/pink2.png
+c000000004D5E3ECF00000000000011D5
+t1298022095
+s4565
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/buttons/purple1.png
+c000000004D5E3ECF0000000000001177
+t1298022095
+s4471
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/buttons/purple2.png
+c000000004D5E3ECF00000000000010EE
+t1298022095
+s4334
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/buttons/red1.png
+c000000004D5E3ECF00000000000010F7
+t1298022095
+s4343
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/buttons/red2.png
+c000000004D6314E600000000000013D7
+t1298339046
+s5079
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/buttons/seafoam1.png
+c000000004D5E3ECF00000000000006B0
+t1298022095
+s1712
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/buttons/seafoam2.png
+c000000004D5E3ECF000000000000076D
+t1298022095
+s1901
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/buttons/yellow1.png
+c000000004D5E3ECF000000000000113F
+t1298022095
+s4415
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/buttons/yellow2.png
+c000000004D62E9BD00000000000022DE
+t1298327997
+s8926
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/allpass.c
+c000000004D5E3ECE000000000000029F
+t1298022094
+s671
+i"allpass.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/allpass.h
+c000000004D5E3ECE00000000000003D0
+t1298022094
+s976
+i"denormals.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/comb.c
+c000000004D5E3ECE0000000000000328
+t1298022094
+s808
+i"comb.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/comb.h
+c000000004D5E3ECE0000000000000470
+t1298022094
+s1136
+i"denormals.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/denormals.h
+c000000004D5E3ECE00000000000001DD
+t1298022094
+s477
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/freeverb.c
+c000000004D5E3ECE0000000000001308
+t1298022094
+s4872
+i<ctype.h>
+i<stdlib.h>
+i<string.h>
+i"freeverb.h"
+i"revmodel.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/freeverb.h
+c000000004D5E3ECE0000000000000672
+t1298022094
+s1650
+i"revmodel.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/revmodel.c
+c000000004D5E3ECE0000000000002683
+t1298022094
+s9859
+i<stdio.h>
+i"revmodel.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/revmodel.h
+c000000004D5E3ECE0000000000000AAC
+t1298022094
+s2732
+i"comb.h"
+i"allpass.h"
+i"tuning.h"
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/tuning.h
+c000000004D5E3ECE0000000000000673
+t1298022094
+s1651
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/iTunesArtwork.png
+c000000004D630E0D0000000000009429
+t1298337293
+s37929
+
+N/Users/main_brain/minc_unfuddl/Thumbafon/main.m
+c000000004D5E3ECF000000000000016E
+t1298022095
+s366
+i<UIKit/UIKit.h>
+
+N/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-elmemxskqdrizahazjdvebeolvgz/Thumbafon_Prefix.pch.gch
+t1298339137
+s2167216
+
+N/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch.gch
+t1298339139
+s15113424
+
+NThumbafon-Info.plist
+c000000004D62E4580000000000000499
+t1298326616
+s1177
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies320031935#320031936#0(0"0(0#1#0"8606088096#0"0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/AQPlayer.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQPlayer.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031940.287631
+e320031940.444956
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/AQPlayer.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQPlayer.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@67"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQPlayer.m320031940#320031940#0(0"0(0#0#59"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQPlayer.m8621986304#2051"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQPlayer.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/AQPlayer.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/AQSound.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQSound.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031940.749350
+e320031940.893817
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/AQSound.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQSound.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@66"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQSound.m320031940#320031940#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQSound.m8622213824#2049"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQSound.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/AQSound.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/AQSynth.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQSynth.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031940.584764
+e320031940.744426
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/AQSynth.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQSynth.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@66"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQSynth.m320031940#320031940#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQSynth.m8618523200#2049"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/AQSynth.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/AQSynth.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/ButtonView.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/ButtonView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031940.445045
+e320031940.661216
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/ButtonView.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/ButtonView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@69"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/ButtonView.m320031940#320031940#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/ButtonView.m8621619392#2055"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/ButtonView.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/ButtonView.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/CLSlipperyButton.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/CLSlipperyButton.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031940.378986
+e320031940.469746
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/CLSlipperyButton.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/CLSlipperyButton.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@75"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/CLSlipperyButton.m320031940#320031940#0(0"0(0#0#67"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/CLSlipperyButton.m8615724832#2067"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/CLSlipperyButton.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/CLSlipperyButton.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/FlipsideViewController.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/FlipsideViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031940.017383
+e320031940.297748
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/FlipsideViewController.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/FlipsideViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@81"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/FlipsideViewController.m320031940#320031940#0(0"0(0#0#73"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/FlipsideViewController.m8614553152#2079"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/FlipsideViewController.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/FlipsideViewController.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/MainViewController.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031939.934648
+e320031940.287538
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/MainViewController.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MainViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@77"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/MainViewController.m320031939#320031940#0(0"0(0#0#69"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MainViewController.m8615869568#2071"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/MainViewController.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/MainViewController.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/MessageView.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031941.334072
+e320031941.439813
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/MessageView.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@70"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageView.m320031941#320031941#0(0"0(0#0#62"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageView.m8617741632#2057"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/MessageView.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/MessageView.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Mode.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/Mode.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031940.297823
+e320031940.378888
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Mode.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/Mode.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@63"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/Mode.m320031940#320031940#0(0"0(0#0#55"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/Mode.m8618177728#2043"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/Mode.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Mode.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/MoreInfoViewController.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/MoreInfoViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031940.469857
+e320031940.584678
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/MoreInfoViewController.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MoreInfoViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@81"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/MoreInfoViewController.m320031940#320031940#0(0"0(0#0#73"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/MoreInfoViewController.m8615791968#2079"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/MoreInfoViewController.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/MoreInfoViewController.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Networking.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/Networking.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031941.249273
+e320031941.595538
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Networking.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/Networking.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@69"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/Networking.m320031941#320031941#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/Networking.m8617800800#2055"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/Networking.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Networking.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/PulseOrgan.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/PulseOrgan.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031940.951285
+e320031941.060404
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/PulseOrgan.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/PulseOrgan.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@69"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/PulseOrgan.m320031940#320031941#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/PulseOrgan.m8620982464#2055"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/PulseOrgan.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/PulseOrgan.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/SawBrass.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/SawBrass.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031940.855426
+e320031940.951160
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/SawBrass.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/SawBrass.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@67"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/SawBrass.m320031940#320031940#0(0"0(0#0#59"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/SawBrass.m8618661952#2051"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/SawBrass.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/SawBrass.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/SinePiano.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/SinePiano.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031940.893909
+e320031940.976341
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/SinePiano.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/SinePiano.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@68"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/SinePiano.m320031940#320031940#0(0"0(0#0#60"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/SinePiano.m8621576416#2053"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/SinePiano.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/SinePiano.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/SquareStrings.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/SquareStrings.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031940.976437
+e320031941.071244
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/SquareStrings.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/SquareStrings.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@72"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/SquareStrings.m320031940#320031941#0(0"0(0#0#64"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/SquareStrings.m8618767136#2061"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/SquareStrings.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/SquareStrings.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/ThumbafonAppDelegate.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/ThumbafonAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031939.874380
+e320031940.017290
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/ThumbafonAppDelegate.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/ThumbafonAppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@79"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/ThumbafonAppDelegate.m320031939#320031940#0(0"0(0#0#71"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/ThumbafonAppDelegate.m8615272544#2075"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/ThumbafonAppDelegate.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/ThumbafonAppDelegate.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/TriangleFlute.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/TriangleFlute.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031941.060537
+e320031941.151140
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/TriangleFlute.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/TriangleFlute.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@72"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/TriangleFlute.m320031941#320031941#0(0"0(0#0#64"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/TriangleFlute.m8620621536#2061"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/TriangleFlute.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/TriangleFlute.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Voice.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/Voice.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031940.661309
+e320031940.749266
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Voice.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/Voice.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@64"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/Voice.m320031940#320031940#0(0"0(0#0#56"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/Voice.m8618319104#2045"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/Voice.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Voice.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/VoiceSynth.o /Users/main_brain/minc_unfuddl/Thumbafon/Classes/VoiceSynth.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031940.744510
+e320031940.855336
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/VoiceSynth.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/Classes/VoiceSynth.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@69"Compile /Users/main_brain/minc_unfuddl/Thumbafon/Classes/VoiceSynth.m320031940#320031940#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/Thumbafon/Classes/VoiceSynth.m8618001664#2055"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/Classes/VoiceSynth.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/VoiceSynth.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/allpass.o /Users/main_brain/minc_unfuddl/Thumbafon/freeverb/allpass.c normal i386 c com.apple.compilers.gcc.4_2
+s320031941.071335
+e320031941.129242
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/allpass.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/allpass.c
+xnormal
+xi386
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@67"Compile /Users/main_brain/minc_unfuddl/Thumbafon/freeverb/allpass.c320031941#320031941#0(0"0(0#0#59"/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/allpass.c8618760384#1996"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-elmemxskqdrizahazjdvebeolvgz/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/freeverb/allpass.c -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/allpass.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/comb.o /Users/main_brain/minc_unfuddl/Thumbafon/freeverb/comb.c normal i386 c com.apple.compilers.gcc.4_2
+s320031941.129323
+e320031941.169878
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/comb.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/comb.c
+xnormal
+xi386
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@64"Compile /Users/main_brain/minc_unfuddl/Thumbafon/freeverb/comb.c320031941#320031941#0(0"0(0#0#56"/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/comb.c8612984256#1990"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-elmemxskqdrizahazjdvebeolvgz/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/freeverb/comb.c -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/comb.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/freeverb.o /Users/main_brain/minc_unfuddl/Thumbafon/freeverb/freeverb.c normal i386 c com.apple.compilers.gcc.4_2
+s320031941.151260
+e320031941.249173
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/freeverb.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/freeverb.c
+xnormal
+xi386
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@68"Compile /Users/main_brain/minc_unfuddl/Thumbafon/freeverb/freeverb.c320031941#320031941#0(0"0(0#0#60"/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/freeverb.c8615812256#1998"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-elmemxskqdrizahazjdvebeolvgz/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/freeverb/freeverb.c -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/freeverb.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/main.o /Users/main_brain/minc_unfuddl/Thumbafon/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031939.873563
+e320031939.934503
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/main.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@55"Compile /Users/main_brain/minc_unfuddl/Thumbafon/main.m320031939#320031939#0(0"0(0#0#47"/Users/main_brain/minc_unfuddl/Thumbafon/main.m8617834432#2035"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/main.m -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/main.o0#
+
+CCompileC build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/revmodel.o /Users/main_brain/minc_unfuddl/Thumbafon/freeverb/revmodel.c normal i386 c com.apple.compilers.gcc.4_2
+s320031941.169974
+e320031941.333960
+r1
+xCompileC
+xbuild/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/revmodel.o
+x/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/revmodel.c
+xnormal
+xi386
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@68"Compile /Users/main_brain/minc_unfuddl/Thumbafon/freeverb/revmodel.c320031941#320031941#0(0"0(0#0#60"/Users/main_brain/minc_unfuddl/Thumbafon/freeverb/revmodel.c8614645312#1998"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-elmemxskqdrizahazjdvebeolvgz/Thumbafon_Prefix.pch -c /Users/main_brain/minc_unfuddl/Thumbafon/freeverb/revmodel.c -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/revmodel.o0#
+
+CCompileXIB /Users/main_brain/minc_unfuddl/Thumbafon/FlipsideView.xib
+s320031936.051333
+e320031937.067503
+r1
+xCompileXIB
+x/Users/main_brain/minc_unfuddl/Thumbafon/FlipsideView.xib
+lSLF07#2@27"CompileXIB FlipsideView.xib320031936#320031937#0(0"0(0#0#57"/Users/main_brain/minc_unfuddl/Thumbafon/FlipsideView.xib8618379488#584"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/FlipsideView.nib /Users/main_brain/minc_unfuddl/Thumbafon/FlipsideView.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCompileXIB /Users/main_brain/minc_unfuddl/Thumbafon/MainView.xib
+s320031936.052000
+e320031936.902928
+r1
+xCompileXIB
+x/Users/main_brain/minc_unfuddl/Thumbafon/MainView.xib
+lSLF07#2@23"CompileXIB MainView.xib320031936#320031936#0(0"0(0#0#53"/Users/main_brain/minc_unfuddl/Thumbafon/MainView.xib8618323264#576"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/MainView.nib /Users/main_brain/minc_unfuddl/Thumbafon/MainView.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCompileXIB /Users/main_brain/minc_unfuddl/Thumbafon/MainWindow.xib
+s320031936.982870
+e320031937.430613
+r1
+xCompileXIB
+x/Users/main_brain/minc_unfuddl/Thumbafon/MainWindow.xib
+lSLF07#2@25"CompileXIB MainWindow.xib320031936#320031937#0(0"0(0#0#55"/Users/main_brain/minc_unfuddl/Thumbafon/MainWindow.xib8614934592#580"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/MainWindow.nib /Users/main_brain/minc_unfuddl/Thumbafon/MainWindow.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCompileXIB /Users/main_brain/minc_unfuddl/Thumbafon/MoreInfoView.xib
+s320031937.067579
+e320031937.608252
+r1
+xCompileXIB
+x/Users/main_brain/minc_unfuddl/Thumbafon/MoreInfoView.xib
+lSLF07#2@27"CompileXIB MoreInfoView.xib320031937#320031937#0(0"0(0#0#57"/Users/main_brain/minc_unfuddl/Thumbafon/MoreInfoView.xib8618173440#584"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/MoreInfoView.nib /Users/main_brain/minc_unfuddl/Thumbafon/MoreInfoView.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/114Icon.png 114Icon.png
+r0
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/BicIcon.png BicIcon.png
+r0
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/BlankInfoScreen.png BlankInfoScreen.png
+s320031937.430772
+e320031937.439532
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/BlankInfoScreen.png
+xBlankInfoScreen.png
+lSLF07#2@24"Copy BlankInfoScreen.png320031937#320031937#0(0"0(0#0#60"/Users/main_brain/minc_unfuddl/Thumbafon/BlankInfoScreen.png8618645344#508"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/BlankInfoScreen.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/Default-Landscape.png Default-Landscape.png
+s320019421.310558
+e320019421.316228
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/Default-Landscape.png
+xDefault-Landscape.png
+lSLF07#2@26"Copy Default-Landscape.png320019421#320019421#0(0"0(0#0#62"/Users/main_brain/minc_unfuddl/Thumbafon/Default-Landscape.png8605894784#510"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/Default-Landscape.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/Default.png Default.png
+s320031937.431356
+e320031937.439697
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/Default.png
+xDefault.png
+lSLF07#2@16"Copy Default.png320031937#320031937#0(0"0(0#0#52"/Users/main_brain/minc_unfuddl/Thumbafon/Default.png8617793536#500"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/Default.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/Default@2x.png Default@2x.png
+s320031937.431867
+e320031937.439787
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/Default@2x.png
+xDefault@2x.png
+lSLF07#2@19"Copy Default@2x.png320031937#320031937#0(0"0(0#0#55"/Users/main_brain/minc_unfuddl/Thumbafon/Default@2x.png8617397312#503"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/Default@2x.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/Icon-Small.png Icon-Small.png
+s320031937.436422
+e320031937.443907
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/Icon-Small.png
+xIcon-Small.png
+lSLF07#2@19"Copy Icon-Small.png320031937#320031937#0(0"0(0#0#55"/Users/main_brain/minc_unfuddl/Thumbafon/Icon-Small.png8599792768#503"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/Icon-Small.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/Icon-Small@2x.png Icon-Small@2x.png
+s320031937.437907
+e320031937.443420
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/Icon-Small@2x.png
+xIcon-Small@2x.png
+lSLF07#2@22"Copy Icon-Small@2x.png320031937#320031937#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/Thumbafon/Icon-Small@2x.png8618100928#506"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/Icon-Small@2x.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/Icon.png Icon.png
+s320031936.981186
+e320031936.997840
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/Icon.png
+xIcon.png
+lSLF07#2@13"Copy Icon.png320031936#320031936#0(0"0(0#0#49"/Users/main_brain/minc_unfuddl/Thumbafon/Icon.png8615188512#497"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/Icon.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/Icon@2x.png Icon@2x.png
+s320031937.433353
+e320031937.441206
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/Icon@2x.png
+xIcon@2x.png
+lSLF07#2@16"Copy Icon@2x.png320031937#320031937#0(0"0(0#0#52"/Users/main_brain/minc_unfuddl/Thumbafon/Icon@2x.png8615231776#500"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/Icon@2x.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/IconSmall@2x.png IconSmall@2x.png
+r0
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/aqua1.png buttons/aqua1.png
+s320031936.903007
+e320031936.976214
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/aqua1.png
+xbuttons/aqua1.png
+lSLF07#2@22"Copy buttons/aqua1.png320031936#320031936#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/Thumbafon/buttons/aqua1.png8622098624#506"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/buttons/aqua1.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/aqua2.png buttons/aqua2.png
+s320031936.912360
+e320031936.982816
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/aqua2.png
+xbuttons/aqua2.png
+lSLF07#2@22"Copy buttons/aqua2.png320031936#320031936#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/Thumbafon/buttons/aqua2.png8618340384#506"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/buttons/aqua2.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/blue1.png buttons/blue1.png
+s320031936.904019
+e320031936.971176
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/blue1.png
+xbuttons/blue1.png
+lSLF07#2@22"Copy buttons/blue1.png320031936#320031936#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/Thumbafon/buttons/blue1.png8621541216#506"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/buttons/blue1.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/blue2.png buttons/blue2.png
+s320031936.974583
+e320031936.986126
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/blue2.png
+xbuttons/blue2.png
+lSLF07#2@22"Copy buttons/blue2.png320031936#320031936#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/Thumbafon/buttons/blue2.png8617388768#506"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/buttons/blue2.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/green1.png buttons/green1.png
+s320031936.905993
+e320031936.972904
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/green1.png
+xbuttons/green1.png
+lSLF07#2@23"Copy buttons/green1.png320031936#320031936#0(0"0(0#0#59"/Users/main_brain/minc_unfuddl/Thumbafon/buttons/green1.png8618883584#507"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/buttons/green1.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/green2.png buttons/green2.png
+s320031936.971251
+e320031936.979541
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/green2.png
+xbuttons/green2.png
+lSLF07#2@23"Copy buttons/green2.png320031936#320031936#0(0"0(0#0#59"/Users/main_brain/minc_unfuddl/Thumbafon/buttons/green2.png8617618624#507"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/buttons/green2.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/iTunesArtwork.png iTunesArtwork.png
+s320031937.434884
+e320031937.445762
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/iTunesArtwork.png
+xiTunesArtwork.png
+lSLF07#2@22"Copy iTunesArtwork.png320031937#320031937#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/Thumbafon/iTunesArtwork.png8612767584#506"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/iTunesArtwork.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/pink1.png buttons/pink1.png
+s320031936.907490
+e320031936.976308
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/pink1.png
+xbuttons/pink1.png
+lSLF07#2@22"Copy buttons/pink1.png320031936#320031936#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/Thumbafon/buttons/pink1.png8618771648#506"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/buttons/pink1.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/pink2.png buttons/pink2.png
+s320031936.976444
+e320031936.990887
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/pink2.png
+xbuttons/pink2.png
+lSLF07#2@22"Copy buttons/pink2.png320031936#320031936#0(0"0(0#0#58"/Users/main_brain/minc_unfuddl/Thumbafon/buttons/pink2.png8616123328#506"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/buttons/pink2.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/purple1.png buttons/purple1.png
+s320031936.908769
+e320031936.979666
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/purple1.png
+xbuttons/purple1.png
+lSLF07#2@24"Copy buttons/purple1.png320031936#320031936#0(0"0(0#0#60"/Users/main_brain/minc_unfuddl/Thumbafon/buttons/purple1.png8618678880#508"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/buttons/purple1.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/purple2.png buttons/purple2.png
+s320031936.977903
+e320031937.039018
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/purple2.png
+xbuttons/purple2.png
+lSLF07#2@24"Copy buttons/purple2.png320031936#320031937#0(0"0(0#0#60"/Users/main_brain/minc_unfuddl/Thumbafon/buttons/purple2.png8615786400#508"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/buttons/purple2.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/red1.png buttons/red1.png
+s320031936.910304
+e320031936.972996
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/red1.png
+xbuttons/red1.png
+lSLF07#2@21"Copy buttons/red1.png320031936#320031936#0(0"0(0#0#57"/Users/main_brain/minc_unfuddl/Thumbafon/buttons/red1.png8618644736#505"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/buttons/red1.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/red2.png buttons/red2.png
+s320031936.979715
+e320031937.024886
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/red2.png
+xbuttons/red2.png
+lSLF07#2@21"Copy buttons/red2.png320031936#320031937#0(0"0(0#0#57"/Users/main_brain/minc_unfuddl/Thumbafon/buttons/red2.png8615491232#505"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/buttons/red2.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/seafoam1.png buttons/seafoam1.png
+s320031936.911832
+e320031936.984810
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/seafoam1.png
+xbuttons/seafoam1.png
+lSLF07#2@25"Copy buttons/seafoam1.png320031936#320031936#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/Thumbafon/buttons/seafoam1.png8618532960#509"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/buttons/seafoam1.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/seafoam2.png buttons/seafoam2.png
+s320031936.967450
+e320031936.997738
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/seafoam2.png
+xbuttons/seafoam2.png
+lSLF07#2@25"Copy buttons/seafoam2.png320031936#320031936#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/Thumbafon/buttons/seafoam2.png8617871872#509"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/buttons/seafoam2.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/yellow1.png buttons/yellow1.png
+s320031936.904504
+e320031936.967360
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/yellow1.png
+xbuttons/yellow1.png
+lSLF07#2@24"Copy buttons/yellow1.png320031936#320031936#0(0"0(0#0#60"/Users/main_brain/minc_unfuddl/Thumbafon/buttons/yellow1.png8620992544#508"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/buttons/yellow1.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CCpResource build/Release-iphonesimulator/Thumbafon.app/yellow2.png buttons/yellow2.png
+s320031936.973067
+e320031936.985258
+r1
+xCpResource
+xbuild/Release-iphonesimulator/Thumbafon.app/yellow2.png
+xbuttons/yellow2.png
+lSLF07#2@24"Copy buttons/yellow2.png320031936#320031936#0(0"0(0#0#60"/Users/main_brain/minc_unfuddl/Thumbafon/buttons/yellow2.png8617565920#508"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/main_brain/minc_unfuddl/Thumbafon/buttons/yellow2.png /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
+CGenerateDSYMFile /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app.dSYM /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Thumbafon
+s320031941.663757
+e320031941.711741
+r1
+xGenerateDSYMFile
+x/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app.dSYM
+x/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Thumbafon
+lSLF07#2@119"GenerateDSYMFile build/Release-iphonesimulator/Thumbafon.app.dSYM build/Release-iphonesimulator/Thumbafon.app/Thumbafon320031941#320031941#0(0"0(0#0#94"/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Thumbafon8618159040#399"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Thumbafon -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app.dSYM0#
+
+CLd /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Thumbafon normal i386
+s320031941.595624
+e320031941.663666
+r1
+xLd
+x/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Thumbafon
+xnormal
+xi386
+lSLF07#2@99"Link /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Thumbafon320031941#320031941#0(0"0(0#0#0"8618737696#952"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -L/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -filelist /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Objects-normal/i386/Thumbafon.LinkFileList -mmacosx-version-min=10.6 -Xlinker -objc_abi_version -Xlinker 2 -framework Foundation -framework UIKit -framework CoreGraphics -framework AudioToolbox -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Thumbafon0#
+
+CProcessInfoPlistFile /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Info.plist Thumbafon-Info.plist
+s320031936.047357
+e320031936.051277
+r1
+xProcessInfoPlistFile
+x/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Info.plist
+xThumbafon-Info.plist
+lSLF07#2@28"Process Thumbafon-Info.plist320031936#320031936#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/Thumbafon/Thumbafon-Info.plist8618748480#495"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility Thumbafon-Info.plist -genpkginfo /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app/Info.plist0#
+
+CProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-elmemxskqdrizahazjdvebeolvgz/Thumbafon_Prefix.pch.gch Thumbafon_Prefix.pch normal i386 c com.apple.compilers.gcc.4_2
+s320031937.609166
+e320031937.984495
+r1
+xProcessPCH
+x/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-elmemxskqdrizahazjdvebeolvgz/Thumbafon_Prefix.pch.gch
+xThumbafon_Prefix.pch
+xnormal
+xi386
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@31"Precompile Thumbafon_Prefix.pch320031937#320031937#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/Thumbafon/Thumbafon_Prefix.pch8620981376#1867"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -c /Users/main_brain/minc_unfuddl/Thumbafon/Thumbafon_Prefix.pch -o /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-elmemxskqdrizahazjdvebeolvgz/Thumbafon_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch.gch Thumbafon_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s320031937.608379
+e320031939.873442
+r1
+xProcessPCH
+x/var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch.gch
+xThumbafon_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@31"Precompile Thumbafon_Prefix.pch320031937#320031939#0(0"0(0#0#61"/Users/main_brain/minc_unfuddl/Thumbafon/Thumbafon_Prefix.pch8622126912#1921"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-generated-files.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-own-target-headers.hmap -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-all-target-headers.hmap -iquote /Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/Thumbafon-project-headers.hmap -F/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/include -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources/i386 -I/Users/main_brain/minc_unfuddl/Thumbafon/build/Thumbafon.build/Release-iphonesimulator/Thumbafon.build/DerivedSources -DNS_BLOCK_ASSERTIONS=1 -c /Users/main_brain/minc_unfuddl/Thumbafon/Thumbafon_Prefix.pch -o /var/folders/2V/2VYSwGnfFm4hV97dnIHprk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Thumbafon_Prefix-hamczzipnwcsnmasjufvskmshoum/Thumbafon_Prefix.pch.gch0#
+
+CTouch /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app
+s320031941.711821
+e320031941.720641
+r1
+xTouch
+x/Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app
+lSLF07#2@90"Touch /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app320031941#320031941#0(0"0(0#0#0"8617856384#286"    cd /Users/main_brain/minc_unfuddl/Thumbafon    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/main_brain/minc_unfuddl/Thumbafon/build/Release-iphonesimulator/Thumbafon.app0#
+
