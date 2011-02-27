@@ -215,13 +215,13 @@ Networking *gNetwork = nil;
 	for (;;) {		
 		mInBufferLength = recvfrom(sockIPReceive, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);		
 		if (self.listenIP) {
-			//NSLog(@"receiveServerIP is running");
+			NSLog(@"recvIP is running");
 			if (mInBufferLength < 0) fprintf(stderr,"%s\n",strerror(errno));
 			[self parseOSC];
 		}
 		else break;
 	}
-	//NSLog(@"receiveServerIP NOT running");
+	NSLog(@"recvIP STOPPED");
 	close(sockIPReceive);
 	if (self.connected) self.listenUDP = YES;
 	if (self.mSendIPAddress != 0) [self receiveUDP];
@@ -246,17 +246,15 @@ Networking *gNetwork = nil;
 	} 
 	
 	for (;;) {
-		/*** KU:I think there is an infinite loop in the following, so the if (self.listenUDP) conditional ***/
-		/*** won't be called until recvfrom gets something.                                                ***/
 		mInBufferLength = recvfrom(sockReceive, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);		
 		if (self.listenUDP) {
-			//NSLog(@"receiveUDP is running");
+			NSLog(@"recvUDP is running");
 			if (mInBufferLength < 0) fprintf(stderr,"%s\n",strerror(errno));
 			[self parseOSC];
 		}
 		else break;
 		}
-	//NSLog(@"receiveUDP NOT running");
+	NSLog(@"recvUDP STOPPED");
 	close(sockReceive);
 }
 
@@ -286,16 +284,21 @@ Networking *gNetwork = nil;
 				else if ([buf_str isEqualToString:@"/thum/1butt"])	add_type = 5;
 				else if ([buf_str isEqualToString:@"/thum/2butt"])	add_type = 6;
 				else if ([buf_str isEqualToString:@"/thum/magic"])	add_type = 7;
-				else if (!self.connected && [buf_str isEqualToString:@"/thum/srvip"])add_type = 8;
-				else if (self.connected && [buf_str isEqualToString:@"/thum/shake"])add_type = 9;
-				else if ([buf_str isEqualToString:@"/thum/kill"])	tag_type = 1;
+				else if ([buf_str isEqualToString:@"/thum/srvip"])	add_type = 8;
+				else if ([buf_str isEqualToString:@"/thum/shake"])	tag_type = 1;
+				else if ([buf_str isEqualToString:@"/thum/kill"])	tag_type = 2;
 				break;
 			}
 			case 1: /* OSC Type Tags */
 			{
 				switch (tag_type)
 				{	
-					case 1: { //kill network
+					case 1: { //network handshake complete
+						self.listenIP = NO; /*** must be set from outside the for(;;) loop ***/
+						NSLog(@"Thumbshake is complete!");					
+						break;
+					}
+					case 2: { //kill network
 						[self performSelectorOnMainThread:@selector(setKillNetwork) withObject:nil waitUntilDone:NO];					
 						break;
 					}
@@ -341,17 +344,12 @@ Networking *gNetwork = nil;
 						[self performSelectorOnMainThread:@selector(setMagicNotesState:) withObject:toggle waitUntilDone:NO];
 						break;
 					}
-					/***case 8 & 9 are insurance against packet loss during the exachange of ip's***/
+					/***case 8 w/ tag_type 1 are insurance against packet loss during the exachange of ip's***/
 					case 8: {
 						self.mSendIPAddress = inet_addr(mInBuffer+pos);
 						self.connected = YES;
 						[self performSelectorOnMainThread:@selector(sendJoinMsg) withObject:nil waitUntilDone:NO];
 						NSLog(@"Sent Join message.");
-						break;
-					}
-					case 9: {
-						self.listenIP = NO; /*** must be set from outside the for(;;) loop ***/
-						NSLog(@"Thumbshake is complete!");
 						break;
 					}
 				}

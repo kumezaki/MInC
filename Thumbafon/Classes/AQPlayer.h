@@ -15,7 +15,7 @@
 #define kNumberVoices 8
 
 #define kSR 22050.
-#define kAudioDataByteSize 512 //used for buffer size
+#define kAudioDataByteSize 1024 //used for buffer size
 #define MAX_AMP	1.0 //used for limiter as well as base amp info
 
 @interface AQPlayer : NSObject {

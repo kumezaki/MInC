@@ -1,6 +1,6 @@
 autowatch = 1;
 
-var gNumVoices = 8;
+var gNumVoices = 5;
 var gKey = 0;
 var gMode = 0;
 var gDefaultName = "<device_name>";
@@ -69,7 +69,7 @@ function Thumbafonist(target_pos, device_name) {
 function add_player(client_ip, device_name) {
 	
 	for (var target_pos = 1; target_pos < gNumVoices; target_pos++) {
-		if (target_pos_array[target_pos] == undefined) break;
+		if (target_pos_array[target_pos] == undefined || target_pos_array[target_pos] == client_ip) break;
 	}
 	
 	if (target_pos < gNumVoices) {

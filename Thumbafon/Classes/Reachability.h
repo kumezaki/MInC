@@ -17,7 +17,7 @@ typedef enum {
 	ReachableViaWiFi,
 	ReachableViaWWAN
 } NetworkStatus;
-#define kReachabilityChangedNotification @"Unfortunately your device is having difficulty connecting to a WiFi network.\nTry again in a couple seconds."
+#define kReachabilityChangedNotification @"Unfortunately your device is having difficulty connecting to a WiFi network.\nWait a couple seconds and try again."
 
 @interface Reachability: NSObject
 {

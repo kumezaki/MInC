@@ -55,7 +55,8 @@
    
 	NSLog(@"Did Enter Background");
 	
-	[mNetworkWasOn setObject:[NSNumber numberWithBool:mFlipView.networkSwitch.on] forKey:@"previousSwitchState"];
+	//[mNetworkWasOn setObject:[NSNumber numberWithBool:mFlipView.networkSwitch.on] forKey:@"previousSwitchState"];
+	[mNetworkWasOn setObject:[NSNumber numberWithBool:NO] forKey:@"previousSwitchState"];
 	[self activateNetworking:[NSNumber numberWithBool:NO]];
 	
 }
@@ -78,7 +79,7 @@
 		mainViewController.mMarqText = @"reconnecting to WiFi network...";
 		[mainViewController setMarqueeLabel];
 		
-		[self performSelector:@selector(activateNetworking:) withObject:previousSwitchState afterDelay:4];		
+		[self performSelector:@selector(activateNetworking:) withObject:previousSwitchState afterDelay:3];		
 	}
 	
 	else {

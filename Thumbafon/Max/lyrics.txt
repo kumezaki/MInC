@@ -14,7 +14,7 @@
 13, "Scan it, send it, fax - rename it,";
 14, "Touch it, bring it, obey it, watch it,";
 15, "Turn it, leave it, stop - format it. ";
-16, "";
+16, "--------";
 17, "Buy it, use it, break it, fix it,";
 18, "Trash it, change it, melt - upgrade it,";
 19, "Charge it, pawn it, zoom it, press it,";
@@ -31,9 +31,9 @@
 30, "Scan it, send it, fax - rename it,";
 31, "Touch it, bring it, obey it, watch it,";
 32, "Turn it, leave it, stop - format it.";
-33, "";
+33, "--------";
 34, "Technologic ";
-35, "";
+35, "????????";
 36, "Buy it, use it, break it, fix it,";
 37, "Trash it, change it, melt - upgrade it,";
 38, "Charge it, pawn it, zoom it, press it,";
@@ -50,7 +50,7 @@
 49, "Scan it, send it, fax - rename it";
 50, "Touch it, bring it, obey it, watch it,";
 51, "Turn it, leave it, stop - format it.";
-52, "";
+52, "--------";
 53, "Buy it, use it, break it, fix it,";
 54, "Trash it, change it, melt - upgrade it,";
 55, "Charge it, pawn it, zoom it, press it,";
@@ -61,10 +61,10 @@
 60, "Drag and drop it, zip - unzip it";
 61, "Touch it, bring it, obey it, watch it,";
 62, "Turn it, leave it, stop - format it.";
-63, "";
+63, "--------";
 64, "Surf it, scroll it, pose it, click it,";
 65, "Cross it, crack it, twitch - update it";
-66, "";
+66, "--------";
 67, "Lock it, fill it, curl it, find it,";
 68, "View it, coat it, jam - unlock it,";
 69, "Buy it, use it, break it, fix it,";
@@ -73,14 +73,14 @@
 72, "Snap it, work it, quick - erase it,";
 73, "Write it, cut it, paste it, save it,";
 74, "Load it, check it, quick - rewrite it,";
-75, "";
+75, "--------";
 76, "Surf it, scroll it, pose it, click it,";
 77, "Cross it, crack it, twitch - update it,";
 78, "Name it, rate it, tune it, print it,";
 79, "Scan it, send it, fax - rename it,";
 80, "Touch it, bring it, obey it, watch it,";
 81, "Turn it, leave it, stop - format it.";
-82, "";
+82, "--------";
 83, "Buy it, use it, break it, fix it,";
 84, "Trash it, change it, melt - upgrade it,";
 85, "Charge it, pawn it, zoom it, press it,";
@@ -95,7 +95,7 @@
 94, "Scan it, send it, fax - rename it,";
 95, "Touch it, bring it, obey it, watch it,";
 96, "Turn it, leave it, stop - format it. ";
-97, "";
+97, "--------";
 98, "Buy it, use it, break it, fix it,";
 99, "Trash it, change it, melt - upgrade it,";
 100, "Charge it, pawn it, zoom it, press it,";
@@ -110,7 +110,7 @@
 109, "Scan it, send it, fax - rename it,";
 110, "Touch it, bring it, obey it, watch it,";
 111, "Turn it, leave it, stop - format it.";
-112, "";
+112, "--------";
 113, "Buy it, use it, break it, fix it,";
 114, "Trash it, change it, melt - upgrade it,";
 115, "Charge it, pawn it, zoom it, press it,";
@@ -127,7 +127,7 @@
 126, "Scan it, send it, fax - rename it,";
 127, "Touch it, bring it, obey it, watch it,";
 128, "Turn it, leave it, stop - format it.";
-129, "";
+129, "--------";
 130, "Technologic ";
 131, "Technologic ";
-132, "the end.";
+132, "end";
