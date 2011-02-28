@@ -98,12 +98,12 @@
 		B41FD6891315937A00F3781F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B427AC3812CADC0F00EDDE3D /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ButtonView.h; path = Classes/ButtonView.h; sourceTree = "<group>"; };
 		B427AC3912CADC0F00EDDE3D /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ButtonView.m; path = Classes/ButtonView.m; sourceTree = "<group>"; };
-		B450995412FD3C24004B7C9B /* Thumbafon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thumbafon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4653FDD127E66CC00DA1F26 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B46C41FF12860417002E1B34 /* AQPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AQPlayer.h; path = Classes/AQPlayer.h; sourceTree = "<group>"; };
 		B46C420012860417002E1B34 /* AQPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AQPlayer.m; path = Classes/AQPlayer.m; sourceTree = "<group>"; };
 		B46E62161315945F00DBE4FB /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Classes/Reachability.h; sourceTree = "<group>"; };
 		B46E62171315945F00DBE4FB /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Classes/Reachability.m; sourceTree = "<group>"; };
+		B47358DD131B222000FDF099 /* Thumbafon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thumbafon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B476B48F130F9BDB0004427F /* BlankInfoScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlankInfoScreen.png; sourceTree = "<group>"; };
 		B49076C0130E2DC70098E195 /* MessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageView.h; path = Classes/MessageView.h; sourceTree = "<group>"; };
 		B49076C1130E2DC70098E195 /* MessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageView.m; path = Classes/MessageView.m; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B450995412FD3C24004B7C9B /* Thumbafon.app */,
+				B47358DD131B222000FDF099 /* Thumbafon.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -426,7 +426,7 @@
 			);
 			name = Thumbafon;
 			productName = Thumbafon;
-			productReference = B450995412FD3C24004B7C9B /* Thumbafon.app */;
+			productReference = B47358DD131B222000FDF099 /* Thumbafon.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -567,6 +567,34 @@
 			};
 			name = Release;
 		};
+		B47358D0131B1F5E00FDF099 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Christopher Lavender";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "75F2F8FC-1964-4642-A2F4-0301BA7E5F0F";
+				SDKROOT = iphoneos;
+			};
+			name = Distribution;
+		};
+		B47358D1131B1F5E00FDF099 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Thumbafon_Prefix.pch;
+				INFOPLIST_FILE = "Thumbafon-Info.plist";
+				PRODUCT_NAME = Thumbafon;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -605,6 +633,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				B47358D1131B1F5E00FDF099 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -614,6 +643,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				B47358D0131B1F5E00FDF099 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

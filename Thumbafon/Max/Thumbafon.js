@@ -50,7 +50,7 @@ function player_report() {
 		var client_ip = target_pos_array[i];
 		if (target_pos_array[i] != undefined) {
 		post("/",player_array[target_pos_array[i]].device_name);
-		messnamed("report","append",player_array[target_pos_array[i]].device_name,"poly~target:",player_array[target_pos_array[i]].target_pos+"\n");
+		messnamed("report","append",player_array[target_pos_array[i]].device_name,"position:",player_array[target_pos_array[i]].target_pos+"\n");
 		totalPlayers++;
 		}
 	}
