@@ -19,6 +19,7 @@ function loadbang() {
     messnamed("display_msg","drawto", "keydisplay");
     messnamed("display_msg","font","Helvetica");
     messnamed("display_msg","size", 36);
+    messnamed("report","clear");
 }
 
 function clear_players() {
