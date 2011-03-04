@@ -272,12 +272,17 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
+								<string>B492982112F62806004DA4E6</string>
+								<string>289233A00DB2D0730083E9F9</string>
 								<string>29B97323FDCFA39411CA2CEA</string>
 								<string>19C28FACFE9D520D11CA2CBB</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
+									<integer>10</integer>
+									<integer>8</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -319,7 +324,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Thumbafon-Info.plist</string>
+								<string>MainViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,33 +332,33 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Thumbafon-Info.plist</string>
+										<string>MainViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>20</integer>
 										<key>bookmark</key>
-										<string>B4735915131B3F9900FDF099</string>
+										<string>B489C385131DC5D20072357C</string>
 										<key>history</key>
 										<array>
-											<string>B4B246E71318B3AB00E7E3D6</string>
-											<string>B4B246E91318B3AB00E7E3D6</string>
-											<string>B4B246EA1318B3AB00E7E3D6</string>
 											<string>B4B246EB1318B3AB00E7E3D6</string>
 											<string>B4B246ED1318B3AB00E7E3D6</string>
 											<string>B4B246EE1318B3AB00E7E3D6</string>
 											<string>B4B246EF1318B3AB00E7E3D6</string>
 											<string>B4739F901318B41B001AD586</string>
-											<string>B45FC79D131ADB4A00B477BB</string>
 											<string>B4784D3C131B113F00A45BEC</string>
-											<string>B4784D3D131B113F00A45BEC</string>
 											<string>B4784D3E131B113F00A45BEC</string>
 											<string>B4784D3F131B113F00A45BEC</string>
-											<string>B4784D40131B113F00A45BEC</string>
 											<string>B47358BB131B154D00FDF099</string>
 											<string>B47358BC131B154D00FDF099</string>
 											<string>B47358FE131B23F400FDF099</string>
 											<string>B47358FF131B23F400FDF099</string>
 											<string>B4735911131B243B00FDF099</string>
-											<string>B4735912131B243B00FDF099</string>
+											<string>B489C37F131DC5D20072357C</string>
+											<string>B489C380131DC5D20072357C</string>
+											<string>B489C381131DC5D20072357C</string>
+											<string>B489C382131DC5D20072357C</string>
+											<string>B489C383131DC5D20072357C</string>
+											<string>B489C384131DC5D20072357C</string>
+											<string>B45FC79D131ADB4A00B477BB</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -411,9 +416,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>B47358BF131B154D00FDF099</string>
+				<string>B489C386131DC5D20072357C</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>B47358C0131B154D00FDF099</string>
+				<string>B489C387131DC5D20072357C</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -551,9 +556,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>B4735914131B243B00FDF099</string>
-		<string>B4735904131B23F400FDF099</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>B4290FEC127D01C2009192CD</string>
 		<string>/Users/main_brain/unfuddle/Thumbafon/Thumbafon.xcodeproj</string>
@@ -580,7 +582,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ResourceRules.plist</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -597,8 +599,6 @@
 							<string>445pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -638,7 +638,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>B4290FEC127D01C2009192CD</string>
-				<string>B47358C1131B154D00FDF099</string>
+				<string>B489C388131DC5D20072357C</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -760,13 +760,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>B47358EC131B22EB00FDF099</string>
+				<string>B489C389131DC5D20072357C</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>B47358ED131B22EB00FDF099</string>
-				<string>B47358EE131B22EB00FDF099</string>
-				<string>B47358EF131B22EB00FDF099</string>
-				<string>B47358F0131B22EB00FDF099</string>
-				<string>B47358F1131B22EB00FDF099</string>
+				<string>B489C38A131DC5D20072357C</string>
+				<string>B489C38B131DC5D20072357C</string>
+				<string>B489C38C131DC5D20072357C</string>
+				<string>B489C38D131DC5D20072357C</string>
+				<string>B489C38E131DC5D20072357C</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
