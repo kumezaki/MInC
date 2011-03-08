@@ -16,6 +16,10 @@ function loadbang() {
     messnamed("thum_msg_1","voices",gNumVoices);
     messnamed("thum_msg_1","target",0);
     messnamed("thum_msg_2","dev","set", gDefaultName);
+	messnamed("thum_msg_1","target",0);
+    messnamed("thum_msg_2","devdisplay","dev","drawto","TextView");
+    messnamed("thum_msg_1","target",0);
+    messnamed("thum_msg_2","devdisplay","dev","size",20);
     messnamed("display_msg","drawto", "keydisplay");
     messnamed("display_msg","font","Helvetica");
     messnamed("display_msg","size", 36);
@@ -82,6 +86,7 @@ function add_player(client_ip, device_name) {
 		messnamed("thum_msg_2","dev","set", device_name);
 		messnamed("thum_msg_2","midi", target_pos);
 		send_key(client_ip, gKey);
+		lcd_display(target_pos, device_name);
 		post(player_array[client_ip].device_name,"has joined the performance at target",player_array[client_ip].target_pos,"\n");
 	}
 	else if (target_pos >= gNumVoices) {
@@ -238,4 +243,71 @@ function send_all(type, msg) {
 			if (player_array[target_pos_array[i]]  != undefined) send_marq(target_pos_array[i], msg);
 		}
 	}
+}
+
+function lcd_display(pos,name) {
+		
+	messnamed("thum_msg_1","target",pos);
+	switch (pos) {
+        case 1:
+        	messnamed("thum_msg_2","devdisplay","lcdx",-0.8);
+        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
+        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	break;
+        case 2:
+        	messnamed("thum_msg_2","devdisplay","lcdx",-0.7);
+        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
+        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	break;
+        case 3:
+        	messnamed("thum_msg_2","devdisplay","lcdx",-0.6);
+        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
+        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	break;
+        case 4: 
+        	messnamed("thum_msg_2","devdisplay","lcdx",-0.5);
+        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
+        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	break;
+        case 5: 
+        	messnamed("thum_msg_2","devdisplay","lcdx",-0.4);
+        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
+        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	break;
+        case 6: 
+        	messnamed("thum_msg_2","devdisplay","lcdx",-0.3);
+        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
+        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	break;
+        case 7: 
+        	messnamed("thum_msg_2","devdisplay","lcdx",-0.2);
+        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
+        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	break;
+        case 8:
+        	messnamed("thum_msg_2","devdisplay","lcdx",-0.1);
+        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
+        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	break;
+        case 9:
+        	messnamed("thum_msg_2","devdisplay","lcdx", 0.);
+        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
+        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	break;
+        case 10: 
+        	messnamed("thum_msg_2","devdisplay","lcdx",0.1);
+        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
+        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	break;
+        case 11:
+        	messnamed("thum_msg_2","devdisplay","lcdx", 0.2);
+        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
+        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	break;
+        case 12:
+        	messnamed("thum_msg_2","devdisplay","lcdx", 0.3);
+        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
+        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	break;
+        }
 }
