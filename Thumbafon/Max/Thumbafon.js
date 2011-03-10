@@ -1,9 +1,10 @@
 autowatch = 1;
 
-var gNumVoices = 5;
+var gNumVoices = 12;
 var gKey = 0;
 var gMode = 0;
 var gDefaultName = "<device_name>";
+var gNewIP = "<ip>"; //used as as a test to gate extra join messages
 
 /***target_pos_array is client_ip's indexed by target_pos***/
 /***to conform to poly~ all for-loops that check this array should start with 1***///
@@ -16,10 +17,7 @@ function loadbang() {
     messnamed("thum_msg_1","voices",gNumVoices);
     messnamed("thum_msg_1","target",0);
     messnamed("thum_msg_2","dev","set", gDefaultName);
-	messnamed("thum_msg_1","target",0);
-    messnamed("thum_msg_2","devdisplay","dev","drawto","TextView");
-    messnamed("thum_msg_1","target",0);
-    messnamed("thum_msg_2","devdisplay","dev","size",20);
+    messnamed("thum_msg_2","lcd","lcdmsg","drawto","TextView");
     messnamed("display_msg","drawto", "keydisplay");
     messnamed("display_msg","font","Helvetica");
     messnamed("display_msg","size", 36);
@@ -31,12 +29,13 @@ function clear_players() {
 	send_all("alert","Unfortunately, the system needed to be reset. Please turn your Network power switch OFF & then ON again to rejoin the performance.\n");
 	messnamed("report","clear");
 
-	for (i = 1; i < gNumVoices; i++) {
+	for (i = 1; i <= gNumVoices; i++) {
 		
 		if (target_pos_array[i] != undefined) {
 			messnamed("thum_msg_1","target",i);
 			messnamed("thum_msg_2", "kill");
 			messnamed("thum_msg_2","dump","bang");
+			messnamed("thum_msg_2","lcd","lcdkill","bang");
 			messnamed("thum_msg_2","ip", "0.0.0.0");
 			messnamed("thum_msg_2","dev", "set",gDefaultName);
 			player_array[target_pos_array[i]] = undefined;
@@ -51,7 +50,7 @@ function player_report() {
 	post("players:");
 	messnamed("report","clear");
 	messnamed("report","set","players:","\n");
-	for (var i = 1; i < gNumVoices; i++) {
+	for (var i = 1; i <= gNumVoices; i++) {
 		var client_ip = target_pos_array[i];
 		if (target_pos_array[i] != undefined) {
 		post("/",player_array[target_pos_array[i]].device_name);
@@ -73,11 +72,11 @@ function Thumbafonist(target_pos, device_name) {
 
 function add_player(client_ip, device_name) {
 	
-	for (var target_pos = 1; target_pos < gNumVoices; target_pos++) {
+	for (var target_pos = 1; target_pos <= gNumVoices; target_pos++) {
 		if (target_pos_array[target_pos] == undefined || target_pos_array[target_pos] == client_ip) break;
 	}
 	
-	if (target_pos < gNumVoices) {
+	if (target_pos <= gNumVoices) {
 	
 		target_pos_array[target_pos] = client_ip;
 		player_array[client_ip] = new Thumbafonist(target_pos, device_name);
@@ -89,14 +88,16 @@ function add_player(client_ip, device_name) {
 		lcd_display(target_pos, device_name);
 		post(player_array[client_ip].device_name,"has joined the performance at target",player_array[client_ip].target_pos,"\n");
 	}
-	else if (target_pos >= gNumVoices) {
+	else if (target_pos > gNumVoices) {
 		post("Could not add", device_name,". Too many Thumbafonists right now.\n");
 	}
 }
 
 function remove_player(client_ip) {
 
+	if (client_ip == gNewIP) gNewIP = "<ip>";
 	messnamed("thum_msg_1","target", player_array[client_ip].target_pos);
+	messnamed("thum_msg_2","lcd","lcdkill","bang");
 	messnamed("thum_msg_2","dump","bang");
 	messnamed("thum_msg_2","ip","0.0.0.0");
 	messnamed("thum_msg_2","dev","set",gDefaultName);
@@ -110,16 +111,19 @@ function remove_player(client_ip) {
 function parse() {
 	
 	var client_ip = arguments[1];
-		
+	
 	if (arguments[0] == "/thum/join") {
-		add_player(client_ip, arguments[2]);
-		send_mode(client_ip, arguments[3]);
+		if (client_ip != gNewIP) {
+			gNewIP = client_ip;
+			add_player(client_ip, arguments[2]);
+			send_mode(client_ip, arguments[3]);
+		}
 	}
 	
 	// a guard against messages from non-assigned ip addresses
 	for (i in target_pos_array) {
 		var player = target_pos_array[i];
-		
+
 		if (player == client_ip) {
 		
 			if (arguments[0] == "/thum/butt") {    
@@ -208,38 +212,38 @@ function send_all(type, msg) {
 		
 	if (type == "key") {
 		gKey = msg;
-		for(i = 1; i < gNumVoices; i++) {
+		for(i = 1; i <= gNumVoices; i++) {
 			if (player_array[target_pos_array[i]] != undefined) send_key(target_pos_array[i], msg);
 		}
 	}
 	else if (type == "mode") {
 		gMode = msg;
-		for(i = 1; i < gNumVoices; i++) {
+		for(i = 1; i <= gNumVoices; i++) {
 			if (player_array[target_pos_array[i]]  != undefined) send_mode(target_pos_array[i], msg);
 		}
 	}
 	else if (type == "magic") {
-		for(i = 1; i < gNumVoices; i++) {
+		for(i = 1; i <= gNumVoices; i++) {
 			if (player_array[target_pos_array[i]]  != undefined) set_magic_mode(target_pos_array[i], msg);
 		}
 	}
 	else if (type == "notes") {
-		for(i = 1; i < gNumVoices; i++) {
+		for(i = 1; i <= gNumVoices; i++) {
 			if (player_array[target_pos_array[i]]  != undefined) send_magic_notes(target_pos_array[i], msg);
 		}
 	}
 	else if (type == "alert") {
-		for(i = 1; i < gNumVoices; i++) {
-			if (player_array[target_pos_array[i]]  != undefined) send_1butt(target_pos_array[i],msg);
+		for(i = 1; i <= gNumVoices; i++) {
+			if (player_array[target_pos_array[i]]  != undefined) send_1butt(target_pos_array[i], msg);
 		}
 	}
 	else if (type == "hint") {
-		for(i = 1; i < gNumVoices; i++) {
+		for(i = 1; i <= gNumVoices; i++) {
 			if (player_array[target_pos_array[i]]  != undefined) send_2butt(target_pos_array[i], msg);
 		}
 	}
 	else if (type == "marq") {
-		for(i = 0; i < gNumVoices; i++) {
+		for(i = 0; i <= gNumVoices; i++) {
 			if (player_array[target_pos_array[i]]  != undefined) send_marq(target_pos_array[i], msg);
 		}
 	}
@@ -248,66 +252,55 @@ function send_all(type, msg) {
 function lcd_display(pos,name) {
 		
 	messnamed("thum_msg_1","target",pos);
+	messnamed("thum_msg_2","lcd","lcdmsg","size",20);
 	switch (pos) {
         case 1:
-        	messnamed("thum_msg_2","devdisplay","lcdx",-0.8);
-        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
-        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	messnamed("thum_msg_2","lcd","lcddev","text", name);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.8, -2.2);
         	break;
         case 2:
-        	messnamed("thum_msg_2","devdisplay","lcdx",-0.7);
-        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
-        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	messnamed("thum_msg_2","lcd","lcddev","text", name);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.7, -2.2);
         	break;
         case 3:
-        	messnamed("thum_msg_2","devdisplay","lcdx",-0.6);
-        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
-        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	messnamed("thum_msg_2","lcd","lcddev","text", name);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.6, -2.2);
         	break;
         case 4: 
-        	messnamed("thum_msg_2","devdisplay","lcdx",-0.5);
-        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
-        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	messnamed("thum_msg_2","lcd","lcddev","text", name);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.5, -2.2);
         	break;
         case 5: 
-        	messnamed("thum_msg_2","devdisplay","lcdx",-0.4);
-        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
-        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	messnamed("thum_msg_2","lcd","lcddev","text", name);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.4, -2.2);
         	break;
         case 6: 
-        	messnamed("thum_msg_2","devdisplay","lcdx",-0.3);
-        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
-        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	messnamed("thum_msg_2","lcd","lcddev","text", name);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.3, -2.2);
         	break;
         case 7: 
-        	messnamed("thum_msg_2","devdisplay","lcdx",-0.2);
-        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
-        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	messnamed("thum_msg_2","lcd","lcddev","text", name);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.2, -2.2);
         	break;
         case 8:
-        	messnamed("thum_msg_2","devdisplay","lcdx",-0.1);
-        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
-        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	messnamed("thum_msg_2","lcd","lcddev","text", name);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.1, -2.2);
         	break;
         case 9:
-        	messnamed("thum_msg_2","devdisplay","lcdx", 0.);
-        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
-        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	messnamed("thum_msg_2","lcd","lcddev","text", name);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0., -2.2);
         	break;
         case 10: 
-        	messnamed("thum_msg_2","devdisplay","lcdx",0.1);
-        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
-        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	messnamed("thum_msg_2","lcd","lcddev","text", name);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0.1, -2.2);
         	break;
         case 11:
-        	messnamed("thum_msg_2","devdisplay","lcdx", 0.2);
-        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
-        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	messnamed("thum_msg_2","lcd","lcddev","text", name);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0.2, -2.2);
         	break;
         case 12:
-        	messnamed("thum_msg_2","devdisplay","lcdx", 0.3);
-        	messnamed("thum_msg_2","devdisplay","lcdy",-2.2);
-        	messnamed("thum_msg_2","devdisplay","dev","text", name);
+        	messnamed("thum_msg_2","lcd","lcddev","text", name);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0.3, -2.2);
         	break;
         }
 }
