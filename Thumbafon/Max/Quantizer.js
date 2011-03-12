@@ -12,7 +12,7 @@ function metro_time(tempo) {
 function note_on(note_num,delay) {
     
     var crappy_time = delay / gTempo;
-    if (crappy_time < .1 || crappy_time > .9) delay = 0;
+    if (crappy_time < .15 || crappy_time > .75) delay = 0;
     post ("crappy_time =",crappy_time,"\n");
     
     note_delay_array[note_num] = delay;
@@ -31,12 +31,12 @@ function note_off(note_num) {
 
 function on_task_func() {
 
-    post("on_task_func "+arguments[0]+"\n");
+//    post("on_task_func "+arguments[0]+"\n");
     outlet(0,parseInt(arguments[0]),100);
 }
 
 function off_task_func() {
 
-    post("off_task_func "+arguments[0]+"\n");
+//    post("off_task_func "+arguments[0]+"\n");
     outlet(0,parseInt(arguments[0]),0);
 }

@@ -256,51 +256,51 @@ function lcd_display(pos,name) {
 	switch (pos) {
         case 1:
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos",-0.8, -2.2);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0.54, -0.7);
         	break;
         case 2:
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos",-0.7, -2.2);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0.45, -0.7);
         	break;
         case 3:
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos",-0.6, -2.2);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0.36, -0.7);
         	break;
         case 4: 
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos",-0.5, -2.2);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0.27, -0.7);
         	break;
         case 5: 
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos",-0.4, -2.2);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0.18, -0.7);
         	break;
         case 6: 
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos",-0.3, -2.2);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0.09, -0.7);
         	break;
         case 7: 
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos",-0.2, -2.2);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0., -0.7);
         	break;
         case 8:
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos",-0.1, -2.2);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.09, -0.7);
         	break;
         case 9:
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos", 0., -2.2);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.18, -0.7);
         	break;
         case 10: 
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos", 0.1, -2.2);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.27, -0.7);
         	break;
         case 11:
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos", 0.2, -2.2);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.36, -0.7);
         	break;
         case 12:
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos", 0.3, -2.2);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.45, -0.7);
         	break;
         }
 }
