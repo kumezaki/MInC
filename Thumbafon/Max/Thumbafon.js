@@ -3,6 +3,7 @@ autowatch = 1;
 var gNumVoices = 12;
 var gKey = 0;
 var gMode = 0;
+var gMagicState = 0;
 var gDefaultName = "<device_name>";
 var gNewIP = "<ip>"; //used as as a test to gate extra join messages
 
@@ -66,8 +67,8 @@ function Thumbafonist(target_pos, device_name) {
     this.target_pos = target_pos;
     this.device_name = device_name;
     this.velocity = 100;
-    this.octave = 4; //corresponding with C4
-    this.present = true; 
+    //this.octave = 4; //corresponding with C4
+    //this.present = true; 
 }
 
 function add_player(client_ip, device_name) {
@@ -85,6 +86,7 @@ function add_player(client_ip, device_name) {
 		messnamed("thum_msg_2","dev","set", device_name);
 		messnamed("thum_msg_2","midi", target_pos);
 		send_key(client_ip, gKey);
+		if (gMagicState == 1) set_magic_mode(client_ip, gMagicState);
 		lcd_display(target_pos, device_name);
 		post(player_array[client_ip].device_name,"has joined the performance at target",player_array[client_ip].target_pos,"\n");
 	}
@@ -182,6 +184,7 @@ function send_mode(client_ip, mode) {
 function set_magic_mode(client_ip, state) {
 	messnamed("thum_msg_1","target",player_array[client_ip].target_pos);
 	messnamed("thum_msg_2","magic",state);
+	if (state == 0) messnamed("thum_msg_2","mode",gMode);
 }
 
 function send_magic_notes(client_ip, notes) {
@@ -223,6 +226,7 @@ function send_all(type, msg) {
 		}
 	}
 	else if (type == "magic") {
+		gMagicState = msg;
 		for(i = 1; i <= gNumVoices; i++) {
 			if (player_array[target_pos_array[i]]  != undefined) set_magic_mode(target_pos_array[i], msg);
 		}
@@ -256,51 +260,51 @@ function lcd_display(pos,name) {
 	switch (pos) {
         case 1:
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos", 0.54, -0.7);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0.54, -0.5);
         	break;
         case 2:
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos", 0.45, -0.7);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0.45, -0.5);
         	break;
         case 3:
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos", 0.36, -0.7);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0.36, -0.5);
         	break;
         case 4: 
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos", 0.27, -0.7);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0.27, -0.5);
         	break;
         case 5: 
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos", 0.18, -0.7);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0.18, -0.5);
         	break;
         case 6: 
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos", 0.09, -0.7);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0.09, -0.5);
         	break;
         case 7: 
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos", 0., -0.7);
+        	messnamed("thum_msg_2","lcd","lcdpos", 0., -0.5);
         	break;
         case 8:
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos",-0.09, -0.7);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.09, -0.5);
         	break;
         case 9:
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos",-0.18, -0.7);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.18, -0.5);
         	break;
         case 10: 
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos",-0.27, -0.7);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.27, -0.5);
         	break;
         case 11:
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos",-0.36, -0.7);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.36, -0.5);
         	break;
         case 12:
         	messnamed("thum_msg_2","lcd","lcddev","text", name);
-        	messnamed("thum_msg_2","lcd","lcdpos",-0.45, -0.7);
+        	messnamed("thum_msg_2","lcd","lcdpos",-0.45, -0.5);
         	break;
         }
 }

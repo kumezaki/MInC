@@ -13,7 +13,7 @@ function note_on(note_num,delay) {
     
     var crappy_time = delay / gTempo;
     if (crappy_time < .15 || crappy_time > .75) delay = 0;
-    post ("crappy_time =",crappy_time,"\n");
+    //post ("crappy_time =",crappy_time,"\n");
     
     note_delay_array[note_num] = delay;
     t = new Task(on_task_func,this,note_num);
