@@ -4,8 +4,10 @@ var gNumVoices = 12;
 var gKey = 0;
 var gMode = 0;
 var gMagicState = 0;
+var gMagicNotes;
 var gDefaultName = "<device_name>";
-var gNewIP = "<ip>"; //used as as a test to gate extra join messages
+var gNewIP; //used as a test to gate extra join messages
+var gFirstPlayer = 0; //used to test first person
 
 /***target_pos_array is client_ip's indexed by target_pos***/
 /***to conform to poly~ all for-loops that check this array should start with 1***///
@@ -19,9 +21,10 @@ function loadbang() {
     messnamed("thum_msg_1","target",0);
     messnamed("thum_msg_2","dev","set", gDefaultName);
     messnamed("thum_msg_2","lcd","lcdmsg","drawto","TextView");
-    messnamed("display_msg","drawto", "keydisplay");
-    messnamed("display_msg","font","Helvetica");
-    messnamed("display_msg","size", 36);
+    messnamed("display_msg","font","Monaco", 34);
+    messnamed("display_msg","brgb", 0, 0, 0);
+    messnamed("display_msg","color", 0);
+    messnamed("display_msg","clear");
     messnamed("report","clear");
 }
 
@@ -29,6 +32,9 @@ function clear_players() {
 	
 	send_all("alert","Unfortunately, the system needed to be reset. Please turn your Network power switch OFF & then ON again to rejoin the performance.\n");
 	messnamed("report","clear");
+	messnamed("proj_msg","title_fade",0);
+	gNewIP = "<ip>"
+	gFirstPlayer = 0;
 
 	for (i = 1; i <= gNumVoices; i++) {
 		
@@ -62,42 +68,77 @@ function player_report() {
 	post("\nTotal current players is:",totalPlayers,"\n");
 }
 
-function Thumbafonist(target_pos, device_name) {
+function Thumbafonist(target_pos, device_name, client_ip) {
     
     this.target_pos = target_pos;
     this.device_name = device_name;
+    this.client_ip = client_ip;
     this.velocity = 100;
     //this.octave = 4; //corresponding with C4
     //this.present = true; 
 }
 
 function add_player(client_ip, device_name) {
-	
+	//check to see if this person is the 1st participant
+	if (gFirstPlayer == 0) {
+		messnamed("title_switch","bang");
+		messnamed("proj_msg","title_fade",1);
+		gFirstPlayer++;
+	}
+	//if it's actually mid performance, still see if anybody is there
+	else {
+		for (var target_pos = 1; target_pos <= gNumVoices; target_pos++) {
+			if (target_pos_array[i] != undefined) break;
+			else messnamed("proj_msg","title_fade",1);//if nobody was there than turn on the title
+		}
+	}
+	//find an available slot
 	for (var target_pos = 1; target_pos <= gNumVoices; target_pos++) {
 		if (target_pos_array[target_pos] == undefined || target_pos_array[target_pos] == client_ip) break;
 	}
 	
 	if (target_pos <= gNumVoices) {
-	
+		
+		//assign participant to that slot
 		target_pos_array[target_pos] = client_ip;
-		player_array[client_ip] = new Thumbafonist(target_pos, device_name);
+		player_array[client_ip] = new Thumbafonist(target_pos, device_name, client_ip);
+		
+		//send necessary messages
 		messnamed("thum_msg_1","target",target_pos);
 		messnamed("thum_msg_2","ip", client_ip);
 		messnamed("thum_msg_2","dev","set", device_name);
 		messnamed("thum_msg_2","midi", target_pos);
-		send_key(client_ip, gKey);
-		if (gMagicState == 1) set_magic_mode(client_ip, gMagicState);
+		
+		//magic mode info was not makeing it to the devices when first logging on
+		//presumably this is due to the device switching between port 41337 & 31337
+		//thus the scheduled delay...
+		t = new Task(set_magic_mode,this,client_ip, gMagicState);
+    	t.schedule(500);
+		
+		if (gMagicState == 1) {
+			t2 = new Task(send_magic_notes,this,client_ip, gMagicNotes);
+    		t2.schedule(600);
+    	}
+    	//send the current key offset
+    	send_key(client_ip, gKey);
+		
+		//send device name to main projection
 		lcd_display(target_pos, device_name);
+		
 		post(player_array[client_ip].device_name,"has joined the performance at target",player_array[client_ip].target_pos,"\n");
 	}
+	//if there isn't enough room let them know.
 	else if (target_pos > gNumVoices) {
+		messnamed("proj_msg","msg","Oh NO! There's already the maxinum number of players. Wait for a position to open up and try again!");
 		post("Could not add", device_name,". Too many Thumbafonists right now.\n");
 	}
 }
 
 function remove_player(client_ip) {
 
-	if (client_ip == gNewIP) gNewIP = "<ip>";
+	if (gMagicState == 1) set_magic_mode(client_ip, 0);
+	if (client_ip == gNewIP) gNewIP = undefined;
+	
 	messnamed("thum_msg_1","target", player_array[client_ip].target_pos);
 	messnamed("thum_msg_2","lcd","lcdkill","bang");
 	messnamed("thum_msg_2","dump","bang");
@@ -108,6 +149,12 @@ function remove_player(client_ip) {
 	
 	target_pos_array[player_array[client_ip].target_pos] = undefined;
 	player_array[client_ip] = undefined;
+	
+	//check to see if anybody is left
+	for (var target_pos = 1; target_pos <= gNumVoices; target_pos++) {
+		if (target_pos_array[i] != undefined) break;
+		else messnamed("proj_msg","title_fade", 0);//if nobody is there fade out the title
+		}
 }
 
 function parse() {
@@ -115,8 +162,8 @@ function parse() {
 	var client_ip = arguments[1];
 	
 	if (arguments[0] == "/thum/join") {
-		if (client_ip != gNewIP) {
-			gNewIP = client_ip;
+		if (client_ip != gNewIP) { //don't listen to anybody who is already assigned as the new-guy
+			gNewIP = client_ip; //since the new person is not the new-guy make them the new-guy
 			add_player(client_ip, arguments[2]);
 			send_mode(client_ip, arguments[3]);
 		}
@@ -159,20 +206,23 @@ function send_key(client_ip, key) {
     gKey = key;
 	messnamed("thum_msg_1","target",player_array[client_ip].target_pos);
 	messnamed("thum_msg_2","key",gKey);
+	
+	messnamed("display_msg","clear");
 	switch (key) {
-        case -5: messnamed("display_msg","text", "G"); break;
-        case -4: messnamed("display_msg","text", "G#/Ab"); break;
-        case -3: messnamed("display_msg","text", "A"); break;
-        case -2: messnamed("display_msg","text", "A#/Bb"); break;
-        case -1: messnamed("display_msg","text", "B"); break;
-        case 0: messnamed("display_msg","text", "C"); break;
-        case 1: messnamed("display_msg","text", "C#/Db"); break;
-        case 2: messnamed("display_msg","text", "D"); break;
-        case 3: messnamed("display_msg","text", "D#/Eb"); break;
-        case 4: messnamed("display_msg","text", "E"); break;
-        case 5: messnamed("display_msg","text", "F"); break;
-        case 6: messnamed("display_msg","text", "F#/Gb"); break;
-        case 7: messnamed("display_msg","text", "G"); break;
+        case -5: messnamed("display_msg","moveto", 45, 38); messnamed("display_msg","write", "G"); break;
+        case -4: messnamed("display_msg","moveto", 8, 38); messnamed("display_msg","write", "G#/Ab"); break;
+        case -3: messnamed("display_msg","moveto", 45, 38); messnamed("display_msg","write", "A"); break;
+        case -2: messnamed("display_msg","moveto", 8, 38); messnamed("display_msg","write", "A#/Bb"); break;
+        case -1: messnamed("display_msg","moveto", 45, 38); messnamed("display_msg","write", "B"); break;
+        case 0: messnamed("display_msg","moveto", 45, 38); messnamed("display_msg","write", "C"); break;
+        case 1: messnamed("display_msg","moveto", 8, 38); messnamed("display_msg","write", "C#/Db"); break;
+        case 2: messnamed("display_msg","moveto", 45, 38); messnamed("display_msg","write", "D"); break;
+        case 3: messnamed("display_msg","moveto", 8, 38); messnamed("display_msg","write", "D#/Eb"); break;
+        case 4: messnamed("display_msg","moveto", 45, 38); messnamed("display_msg","write", "E"); break;
+        case 5: messnamed("display_msg","moveto", 45, 38); messnamed("display_msg","write", "F"); break;
+        case 6: messnamed("display_msg","moveto", 8, 38); messnamed("display_msg","write", "F#/Gb"); break;
+        case 7: messnamed("display_msg","moveto", 45, 38); messnamed("display_msg","write", "G"); break;
+        case 8: messnamed("display_msg","moveto", 8, 38); messnamed("display_msg","write", "G#/Ab"); break;
     }
 }
 
@@ -232,6 +282,7 @@ function send_all(type, msg) {
 		}
 	}
 	else if (type == "notes") {
+		gMagicNotes = msg;
 		for(i = 1; i <= gNumVoices; i++) {
 			if (player_array[target_pos_array[i]]  != undefined) send_magic_notes(target_pos_array[i], msg);
 		}
