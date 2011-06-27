@@ -321,7 +321,7 @@ union {
 	struct sockaddr_in sa;
 	int bytes_sent;
 	
-	sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
+	sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (-1 == sock) /* if socket failed to initialize, exit */
     {
 		fprintf(stderr,"Error creating socket: %s\n",strerror(errno));
@@ -342,7 +342,7 @@ union {
 
 -(void)receive_udp
 {
-	int sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
+	int sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
 	struct sockaddr_in sa; 
 	socklen_t fromlen;
 	
@@ -600,7 +600,7 @@ union {
 //	NSLog([SagarihaAppDelegate dataFilePath]);
 	mSendIPAddress = [[dict valueForKey:@"server_ip_address"] unsignedIntValue];
 	mSendPortNum = [[dict valueForKey:@"server_port_num"] unsignedIntValue];
-	NSLog(@"%d %d",mSendIPAddress,mSendPortNum);
+	NSLog(@"%lu %d",mSendIPAddress,mSendPortNum);
 }
 
 -(void)writeDataFile
