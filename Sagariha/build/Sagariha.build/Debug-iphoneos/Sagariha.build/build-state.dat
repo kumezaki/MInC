@@ -1,0 +1,771 @@
+TSagariha
+v7
+r0
+t329761968.164679
+cCheck dependencies
+cCpResource build/Debug-iphoneos/Sagariha.app/ResourceRules.plist /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist
+cProcessInfoPlistFile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/Info.plist Sagariha-Info.plist
+cCompileXIB /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/MainWindow.xib
+cProcessPCH /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dckuazcgiqpisngmddvyxvejvrnk/Sagariha_Prefix.pch.gch Sagariha_Prefix.pch normal armv6 objective-c com.apple.compilers.gcc.4_2
+cProcessPCH /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dmkhgdfymtmxlwcbwzkslbjklneq/Sagariha_Prefix.pch.gch Sagariha_Prefix.pch normal armv7 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/main.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/main.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaAppDelegate.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAppDelegate.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaAudioQueuePlayer.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAudioQueuePlayer.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaWaveTable.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaWaveTable.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaPanView.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaPanView.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+cLd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/Sagariha normal armv6
+cCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/main.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/main.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaAppDelegate.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAppDelegate.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaAudioQueuePlayer.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAudioQueuePlayer.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaWaveTable.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaWaveTable.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaPanView.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaPanView.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+cLd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/Sagariha normal armv7
+cCreateUniversalBinary /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/Sagariha normal "armv6 armv7"
+cGenerateDSYMFile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app.dSYM /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/Sagariha
+cProcessProductPackaging "/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/A76868E4-7FB6-46CD-97B0-3296385963B2.mobileprovision" /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision
+cTouch /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app
+cProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha.xcent
+cCodeSign /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk
+c000000004C6DE9E30000000000000110
+t1282271715
+s272
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/Entitlements.plist
+c000000004C578FA900000000000001A7
+t1280806825
+s423
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/ResourceRules.plist
+c000000004C578FA900000000000001E5
+t1280806825
+s485
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
+c000000004C5A51EA000000000039EF90
+t1280987626
+s3796880
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.h
+c000000004C5A51980000000000000A23
+t1280987544
+s2595
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004C5A51050000000000345F00
+t1280987397
+s3432192
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004C5A52B100000000003E1EF0
+t1280987825
+s4071152
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004C5A527F0000000000001466
+t1280987775
+s5222
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004C62427000000000000009CD
+t1281507952
+s2509
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004C62430F0000000002EBC2B0
+t1281508111
+s49005232
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include/arpa/inet.h
+c000000004C5790620000000000001533
+t1280807010
+s5427
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include/fcntl.h
+c000000004C57909100000000000003EA
+t1280807057
+s1002
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include/ifaddrs.h
+c000000004C5790730000000000000782
+t1280807027
+s1922
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include/netinet/in.h
+c000000004C5A4AAE0000000000005462
+t1280985774
+s21602
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include/sys/socket.h
+c000000004C5A4AB400000000000059D6
+t1280985780
+s22998
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/usr/include/sys/types.h
+c000000004C5A4AB50000000000002905
+t1280985781
+s10501
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk
+c000000004CC7DC9E0000000000000110
+t1288166558
+s272
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist
+c000000004CB3DFCF00000000000001A7
+t1286856655
+s423
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist
+c000000004CB3DFCF00000000000001E5
+t1286856655
+s485
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
+c000000004CC10EF400000000003B8CB0
+t1287720692
+s3902640
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.h
+c000000004CC10EB60000000000000A23
+t1287720630
+s2595
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004CC10EF500000000003532B0
+t1287720693
+s3486384
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004CC10F4700000000003E1F20
+t1287720775
+s4071200
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004CC10F1C0000000000001466
+t1287720732
+s5222
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004CC11AE60000000000000AA1
+t1287723750
+s2721
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004CC11B750000000000C769F0
+t1287723893
+s13068784
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/arpa/inet.h
+c000000004CB3E4790000000000001533
+t1286857849
+s5427
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/fcntl.h
+c000000004CB3E4B800000000000003EA
+t1286857912
+s1002
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/ifaddrs.h
+c000000004CB3E4840000000000000782
+t1286857860
+s1922
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/netinet/in.h
+c000000004CBFACDD0000000000005462
+t1287630045
+s21602
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/sys/socket.h
+c000000004CBFACD80000000000005A69
+t1287630040
+s23145
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/sys/types.h
+c000000004CBFACD90000000000002905
+t1287630041
+s10501
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/unistd.h
+c000000004CB3E4B8000000000000563E
+t1286857912
+s22078
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/../Sagariha_2011/FirstView.xib
+c000000004D93235D00000000000049D7
+t1301488477
+s18903
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/../Sagariha_2011/SecondView.xib
+c000000004D93235D00000000000049D5
+t1301488477
+s18901
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAppDelegate.h
+c000000004CC4E5EE0000000000000CF2
+t1287972334
+s3314
+i<UIKit/UIKit.h>
+i"SagarihaAudioQueuePlayer.h"
+i"SagarihaPanView.h"
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAppDelegate.m
+c000000004D93268600000000000044BB
+t1301489286
+s17595
+i"SagarihaAppDelegate.h"
+i<sys/socket.h>
+i<sys/types.h>
+i<netinet/in.h>
+i<fcntl.h>
+i<unistd.h>
+i<ifaddrs.h>
+i<arpa/inet.h>
+i<sys/socket.h>
+i<sys/types.h>
+i<netinet/in.h>
+i<fcntl.h>
+i<ifaddrs.h>
+i<arpa/inet.h>
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAudioQueuePlayer.h
+c000000004CAA3EC000000000000002CD
+t1286225600
+s717
+i<AudioToolbox/AudioToolbox.h>
+i<Foundation/Foundation.h>
+i"SagarihaWaveTable.h"
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAudioQueuePlayer.m
+c000000004D92CBAB00000000000009F3
+t1301466027
+s2547
+i"SagarihaAudioQueuePlayer.h"
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaPanView.h
+c000000004CAEBFA10000000000000164
+t1286520737
+s356
+i<UIKit/UIKit.h>
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaPanView.m
+c000000004CAEC02F0000000000000497
+t1286520879
+s1175
+i"SagarihaPanView.h"
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaWaveTable.h
+c000000004CA67F3D00000000000001AB
+t1285979965
+s427
+i<Foundation/Foundation.h>
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaWaveTable.m
+c000000004CA6A84700000000000002FC
+t1285990471
+s764
+i"SagarihaWaveTable.h"
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/MainWindow.xib
+c000000004D92CF230000000000015D5A
+t1301466915
+s89434
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Sagariha_Prefix.pch
+c000000004C928D1100000000000000B9
+t1284672785
+s185
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app
+t1301491913
+s340
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app.dSYM
+t1301490122
+s102
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/FirstView.nib
+t1301488933
+s1743
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/Info.plist
+t1301490120
+s788
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/MainWindow.nib
+t1301490120
+s8018
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/PkgInfo
+t1301490120
+s8
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/ResourceRules.plist
+t1301490120
+s485
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/Sagariha
+t1301490122
+s138032
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/SecondView.nib
+t1301488933
+s1742
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision
+t1301490357
+s7599
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/Sagariha
+t1301490122
+s63272
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/Sagariha.LinkFileList
+c000000004D9329C800000000000002C0
+t1301490120
+s704
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaAppDelegate.o
+t1301490122
+s113600
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaAudioQueuePlayer.o
+t1301490122
+s18772
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaPanView.o
+t1301490122
+s44048
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaWaveTable.o
+t1301490122
+s8880
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/main.o
+t1301490121
+s6468
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/Sagariha
+t1301490122
+s58180
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/Sagariha.LinkFileList
+c000000004D9329C800000000000002C0
+t1301490120
+s704
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaAppDelegate.o
+t1301490122
+s110064
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaAudioQueuePlayer.o
+t1301490122
+s18276
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaPanView.o
+t1301490122
+s42676
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaWaveTable.o
+t1301490122
+s8272
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/main.o
+t1301490122
+s6452
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha.xcent
+t1301490122
+s428
+
+N/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/main.m
+c000000004C928D11000000000000016C
+t1284672785
+s364
+i<UIKit/UIKit.h>
+
+N/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/598B1C40-5AC1-467B-AC23-87B115A92E4E.mobileprovision
+c000000004D9327DA000000000000CB24
+t1301489626
+s52004
+
+N/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/66134140-2FED-4A6B-AD0A-0815DD2175AD.mobileprovision
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/A76868E4-7FB6-46CD-97B0-3296385963B2.mobileprovision
+c000000004D932A6E0000000000001DAF
+t1301490286
+s7599
+
+N/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/D701FCFC-DACB-44F9-997C-C5E08499B63B.mobileprovision
+c000000004CAFB6900000000000001DB8
+t1286583952
+s7608
+
+N/var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dckuazcgiqpisngmddvyxvejvrnk/Sagariha_Prefix.pch.gch
+t1301490121
+s9983704
+
+N/var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dmkhgdfymtmxlwcbwzkslbjklneq/Sagariha_Prefix.pch.gch
+t1301490121
+s10446552
+
+N/var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-fxmpbmoessnnqhejdudwsrecmpfu/Sagariha_Prefix.pch.gch
+t1290301873
+s10294832
+
+N/var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-gusnchubsamcmbeywkqfmpczxxvf/Sagariha_Prefix.pch.gch
+t1290301873
+s9831984
+
+NSagariha-Info.plist
+c000000004C92A7420000000000000377
+t1284679490
+s887
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies329761966#329761967#0(0"0(0#1#0"3343187568374212096#0"0#
+
+CCodeSign /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app
+s329761967.304450
+e329761968.164631
+r1
+xCodeSign
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app
+o/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app: replacing existing signature
+lSLF07#2@42"CodeSign build/Debug-iphoneos/Sagariha.app329761967#329761968#0(114"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app: replacing existing signature0(0#0#83"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app27584981513797680#699"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv _CODESIGN_ALLOCATE_ /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate    /usr/bin/codesign -f -s "iPhone Developer: Kojiro Umezaki (QCV8YTJB4W)" --resource-rules=/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/ResourceRules.plist --entitlements /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha.xcent /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app0#
+
+CCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaAppDelegate.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAppDelegate.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s323182921.940522
+e323182922.211053
+r1
+xCompileC
+xbuild/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaAppDelegate.o
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAppDelegate.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@87"Compile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAppDelegate.m323182921#323182922#0(0"0(0#0#79"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAppDelegate.m8607815776#1903"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-generated-files.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-own-target-headers.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-all-target-headers.hmap -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-project-headers.hmap -F/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/include -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources/armv6 -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources -include /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dckuazcgiqpisngmddvyxvejvrnk/Sagariha_Prefix.pch -c /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAppDelegate.m -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaAppDelegate.o0#
+
+CCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaAudioQueuePlayer.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAudioQueuePlayer.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s323182921.999197
+e323182922.091169
+r1
+xCompileC
+xbuild/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaAudioQueuePlayer.o
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAudioQueuePlayer.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@92"Compile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAudioQueuePlayer.m323182921#323182922#0(0"0(0#0#84"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAudioQueuePlayer.m8606531232#1913"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-generated-files.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-own-target-headers.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-all-target-headers.hmap -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-project-headers.hmap -F/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/include -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources/armv6 -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources -include /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dckuazcgiqpisngmddvyxvejvrnk/Sagariha_Prefix.pch -c /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAudioQueuePlayer.m -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaAudioQueuePlayer.o0#
+
+CCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaPanView.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaPanView.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s323182922.144717
+e323182922.223310
+r1
+xCompileC
+xbuild/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaPanView.o
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaPanView.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@83"Compile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaPanView.m323182922#323182922#0(0"0(0#0#75"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaPanView.m8607953632#1895"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-generated-files.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-own-target-headers.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-all-target-headers.hmap -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-project-headers.hmap -F/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/include -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources/armv6 -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources -include /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dckuazcgiqpisngmddvyxvejvrnk/Sagariha_Prefix.pch -c /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaPanView.m -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaPanView.o0#
+
+CCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaWaveTable.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaWaveTable.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s323182922.091275
+e323182922.144622
+r1
+xCompileC
+xbuild/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaWaveTable.o
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaWaveTable.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@85"Compile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaWaveTable.m323182922#323182922#0(0"0(0#0#77"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaWaveTable.m8608231040#1899"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-generated-files.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-own-target-headers.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-all-target-headers.hmap -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-project-headers.hmap -F/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/include -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources/armv6 -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources -include /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dckuazcgiqpisngmddvyxvejvrnk/Sagariha_Prefix.pch -c /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaWaveTable.m -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/SagarihaWaveTable.o0#
+
+CCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/main.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/main.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+s323182921.938681
+e323182921.999098
+r1
+xCompileC
+xbuild/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/main.o
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/main.m
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@64"Compile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/main.m323182921#323182921#0(0"0(0#0#56"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/main.m8608163904#1865"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-generated-files.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-own-target-headers.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-all-target-headers.hmap -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-project-headers.hmap -F/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/include -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources/armv6 -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources -include /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dckuazcgiqpisngmddvyxvejvrnk/Sagariha_Prefix.pch -c /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/main.m -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/main.o0#
+
+CCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaAppDelegate.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAppDelegate.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s323182922.258199
+e323182922.499173
+r1
+xCompileC
+xbuild/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaAppDelegate.o
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAppDelegate.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@87"Compile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAppDelegate.m323182922#323182922#0(0"0(0#0#79"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAppDelegate.m8606143712#1903"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-generated-files.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-own-target-headers.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-all-target-headers.hmap -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-project-headers.hmap -F/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/include -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources/armv7 -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources -include /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dmkhgdfymtmxlwcbwzkslbjklneq/Sagariha_Prefix.pch -c /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAppDelegate.m -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaAppDelegate.o0#
+
+CCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaAudioQueuePlayer.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAudioQueuePlayer.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s323182922.278818
+e323182922.367964
+r1
+xCompileC
+xbuild/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaAudioQueuePlayer.o
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAudioQueuePlayer.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@92"Compile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAudioQueuePlayer.m323182922#323182922#0(0"0(0#0#84"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAudioQueuePlayer.m8606002848#1913"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-generated-files.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-own-target-headers.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-all-target-headers.hmap -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-project-headers.hmap -F/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/include -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources/armv7 -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources -include /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dmkhgdfymtmxlwcbwzkslbjklneq/Sagariha_Prefix.pch -c /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaAudioQueuePlayer.m -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaAudioQueuePlayer.o0#
+
+CCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaPanView.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaPanView.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s323182922.431125
+e323182922.513920
+r1
+xCompileC
+xbuild/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaPanView.o
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaPanView.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@83"Compile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaPanView.m323182922#323182922#0(0"0(0#0#75"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaPanView.m8607902240#1895"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-generated-files.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-own-target-headers.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-all-target-headers.hmap -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-project-headers.hmap -F/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/include -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources/armv7 -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources -include /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dmkhgdfymtmxlwcbwzkslbjklneq/Sagariha_Prefix.pch -c /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaPanView.m -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaPanView.o0#
+
+CCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaWaveTable.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaWaveTable.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s323182922.368052
+e323182922.431028
+r1
+xCompileC
+xbuild/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaWaveTable.o
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaWaveTable.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@85"Compile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaWaveTable.m323182922#323182922#0(0"0(0#0#77"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaWaveTable.m8608066272#1899"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-generated-files.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-own-target-headers.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-all-target-headers.hmap -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-project-headers.hmap -F/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/include -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources/armv7 -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources -include /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dmkhgdfymtmxlwcbwzkslbjklneq/Sagariha_Prefix.pch -c /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Classes/SagarihaWaveTable.m -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/SagarihaWaveTable.o0#
+
+CCompileC build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/main.o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/main.m normal armv7 objective-c com.apple.compilers.gcc.4_2
+s323182922.211147
+e323182922.278730
+r1
+xCompileC
+xbuild/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/main.o
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/main.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@64"Compile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/main.m323182922#323182922#0(0"0(0#0#56"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/main.m8605990976#1865"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-generated-files.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-own-target-headers.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-all-target-headers.hmap -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-project-headers.hmap -F/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/include -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources/armv7 -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources -include /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dmkhgdfymtmxlwcbwzkslbjklneq/Sagariha_Prefix.pch -c /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/main.m -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/main.o0#
+
+CCompileXIB /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/../Sagariha_2011/FirstView.xib
+s323181733.136552
+e323181733.601066
+r1
+xCompileXIB
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/../Sagariha_2011/FirstView.xib
+lSLF07#2@41"CompileXIB ../Sagariha_2011/FirstView.xib323181733#323181733#0(0"0(0#0#80"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/../Sagariha_2011/FirstView.xib29555332122476664#591"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/FirstView.nib /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/../Sagariha_2011/FirstView.xib --sdk /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk0#
+
+CCompileXIB /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/../Sagariha_2011/SecondView.xib
+s323181733.142101
+e323181733.571387
+r1
+xCompileXIB
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/../Sagariha_2011/SecondView.xib
+lSLF07#2@42"CompileXIB ../Sagariha_2011/SecondView.xib323181733#323181733#0(0"0(0#0#81"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/../Sagariha_2011/SecondView.xib8610688224#593"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/SecondView.nib /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/../Sagariha_2011/SecondView.xib --sdk /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk0#
+
+CCompileXIB /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/MainWindow.xib
+s323182920.042368
+e323182920.674777
+r1
+xCompileXIB
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/MainWindow.xib
+lSLF07#2@25"CompileXIB MainWindow.xib323182920#323182920#0(0"0(0#0#64"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/MainWindow.xib8607952672#576"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/MainWindow.nib /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/MainWindow.xib --sdk /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk0#
+
+CCpResource build/Debug-iphoneos/Sagariha.app/ResourceRules.plist /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/ResourceRules.plist
+s311994670.413715
+e311994670.548945
+r1
+xCpResource
+xbuild/Debug-iphoneos/Sagariha.app/ResourceRules.plist
+x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/ResourceRules.plist
+lSLF07#2@94"Copy /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/ResourceRules.plist311994670#311994670#0(0"0(0#0#89"/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/ResourceRules.plist3419159298929816064#503"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/ResourceRules.plist /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app0#
+
+CCpResource build/Debug-iphoneos/Sagariha.app/ResourceRules.plist /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist
+s323182920.032415
+e323182920.042281
+r1
+xCpResource
+xbuild/Debug-iphoneos/Sagariha.app/ResourceRules.plist
+x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist
+lSLF07#2@94"Copy /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist323182920#323182920#0(0"0(0#0#89"/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist3419159298929816064#517"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/ResourceRules.plist /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app0#
+
+CCreateUniversalBinary /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/Sagariha normal "armv6 armv7"
+s323182922.542395
+e323182922.545199
+r1
+xCreateUniversalBinary
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/Sagariha
+xnormal
+xarmv6 armv7
+lSLF07#2@85"CreateUniversalBinary build/Debug-iphoneos/Sagariha.app/Sagariha normal "armv6 armv7"323182922#323182922#0(0"0(0#0#61"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/armv6 armv78605987808#570"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/lipo -create /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/Sagariha /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/Sagariha -output /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/Sagariha0#
+
+CGenerateDSYMFile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app.dSYM /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/Sagariha
+s323182922.545261
+e323182922.570127
+r1
+xGenerateDSYMFile
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app.dSYM
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/Sagariha
+lSLF07#2@98"GenerateDSYMFile build/Debug-iphoneos/Sagariha.app.dSYM build/Debug-iphoneos/Sagariha.app/Sagariha323182922#323182922#0(0"0(0#0#92"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/Sagariha8601852416#398"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/Sagariha -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app.dSYM0#
+
+CLd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/Sagariha normal armv6
+s323182922.223392
+e323182922.258085
+r1
+xLd
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/Sagariha
+xnormal
+xarmv6
+lSLF07#2@135"Link /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/Sagariha323182922#323182922#0(0"0(0#0#0"8601185664#944"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv IPHONEOS_DEPLOYMENT_TARGET 4.2    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -arch armv6 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -L/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -F/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -filelist /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/Sagariha.LinkFileList -dead_strip -miphoneos-version-min=4.2 -framework Foundation -framework UIKit -framework CoreGraphics -framework AudioToolbox -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv6/Sagariha0#
+
+CLd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/Sagariha normal armv7
+s323182922.514014
+e323182922.542291
+r1
+xLd
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/Sagariha
+xnormal
+xarmv7
+lSLF07#2@135"Link /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/Sagariha323182922#323182922#0(0"0(0#0#0"8606120192#944"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv IPHONEOS_DEPLOYMENT_TARGET 4.2    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -arch armv7 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -L/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -F/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -filelist /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/Sagariha.LinkFileList -dead_strip -miphoneos-version-min=4.2 -framework Foundation -framework UIKit -framework CoreGraphics -framework AudioToolbox -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Objects-normal/armv7/Sagariha0#
+
+CProcessInfoPlistFile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/Info.plist Sagariha-Info.plist
+s323182920.034246
+e323182920.037630
+r1
+xProcessInfoPlistFile
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/Info.plist
+xSagariha-Info.plist
+lSLF07#2@27"Process Sagariha-Info.plist323182920#323182920#0(0"0(0#0#69"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Sagariha-Info.plist8608328512#610"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility Sagariha-Info.plist -genpkginfo /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -resourcerulesfile /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/ResourceRules.plist -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/Info.plist0#
+
+CProcessPCH /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dckuazcgiqpisngmddvyxvejvrnk/Sagariha_Prefix.pch.gch Sagariha_Prefix.pch normal armv6 objective-c com.apple.compilers.gcc.4_2
+s323182920.674975
+e323182921.846801
+r1
+xProcessPCH
+x/var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dckuazcgiqpisngmddvyxvejvrnk/Sagariha_Prefix.pch.gch
+xSagariha_Prefix.pch
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@30"Precompile Sagariha_Prefix.pch323182920#323182921#0(0"0(0#0#69"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Sagariha_Prefix.pch8608572064#1751"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-generated-files.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-own-target-headers.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-all-target-headers.hmap -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-project-headers.hmap -F/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/include -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources/armv6 -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources -c /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Sagariha_Prefix.pch -o /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dckuazcgiqpisngmddvyxvejvrnk/Sagariha_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dmkhgdfymtmxlwcbwzkslbjklneq/Sagariha_Prefix.pch.gch Sagariha_Prefix.pch normal armv7 objective-c com.apple.compilers.gcc.4_2
+s323182920.675799
+e323182921.938441
+r1
+xProcessPCH
+x/var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dmkhgdfymtmxlwcbwzkslbjklneq/Sagariha_Prefix.pch.gch
+xSagariha_Prefix.pch
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@30"Precompile Sagariha_Prefix.pch323182920#323182921#0(0"0(0#0#69"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Sagariha_Prefix.pch8608434400#1751"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.2 -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-generated-files.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-own-target-headers.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-all-target-headers.hmap -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-project-headers.hmap -F/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/include -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources/armv7 -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources -c /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Sagariha_Prefix.pch -o /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-dmkhgdfymtmxlwcbwzkslbjklneq/Sagariha_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-fxmpbmoessnnqhejdudwsrecmpfu/Sagariha_Prefix.pch.gch Sagariha_Prefix.pch normal armv7 objective-c com.apple.compilers.gcc.4_2
+s311994671.628148
+e311994673.222166
+r1
+xProcessPCH
+x/var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-fxmpbmoessnnqhejdudwsrecmpfu/Sagariha_Prefix.pch.gch
+xSagariha_Prefix.pch
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@30"Precompile Sagariha_Prefix.pch311994671#311994673#0(0"0(0#0#69"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Sagariha_Prefix.pch8610220576#1751"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-generated-files.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-own-target-headers.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-all-target-headers.hmap -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-project-headers.hmap -F/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/include -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources/armv7 -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources -c /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Sagariha_Prefix.pch -o /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-fxmpbmoessnnqhejdudwsrecmpfu/Sagariha_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-gusnchubsamcmbeywkqfmpczxxvf/Sagariha_Prefix.pch.gch Sagariha_Prefix.pch normal armv6 objective-c com.apple.compilers.gcc.4_2
+s311994671.626816
+e311994673.221599
+r1
+xProcessPCH
+x/var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-gusnchubsamcmbeywkqfmpczxxvf/Sagariha_Prefix.pch.gch
+xSagariha_Prefix.pch
+xnormal
+xarmv6
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@30"Precompile Sagariha_Prefix.pch311994671#311994673#0(0"0(0#0#69"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Sagariha_Prefix.pch8611001248#1751"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-generated-files.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-own-target-headers.hmap -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-all-target-headers.hmap -iquote /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha-project-headers.hmap -F/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/include -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources/armv6 -I/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/DerivedSources -c /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Sagariha_Prefix.pch -o /var/folders/Gc/GcZ9mooMG7KUzWy6iRAaM++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Sagariha_Prefix-gusnchubsamcmbeywkqfmpczxxvf/Sagariha_Prefix.pch.gch0#
+
+CProcessProductPackaging "/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/598B1C40-5AC1-467B-AC23-87B115A92E4E.mobileprovision" /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision
+s323182577.014040
+e323182577.016318
+r1
+xProcessProductPackaging
+x/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/598B1C40-5AC1-467B-AC23-87B115A92E4E.mobileprovision
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision
+lSLF07#2@201"ProcessProductPackaging "/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/598B1C40-5AC1-467B-AC23-87B115A92E4E.mobileprovision" build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision323182577#323182577#0(0"0(0#0#108"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision8607137504#454"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> "/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/598B1C40-5AC1-467B-AC23-87B115A92E4E.mobileprovision" -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision0#
+
+CProcessProductPackaging "/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/66134140-2FED-4A6B-AD0A-0815DD2175AD.mobileprovision" /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision
+s323183096.324282
+e323183096.324995
+r0
+xProcessProductPackaging
+x/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/66134140-2FED-4A6B-AD0A-0815DD2175AD.mobileprovision
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision
+lSLF07#2@201"ProcessProductPackaging "/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/66134140-2FED-4A6B-AD0A-0815DD2175AD.mobileprovision" build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision323183096#323183096#0(165"<com.apple.tools.product-pkg-utility>: error: class '(null)' of input object does not respond to either selector writeToFile:options:error: or writeToFile:atomically1(4@165"<com.apple.tools.product-pkg-utility>: error: class '(null)' of input object does not respond to either selector writeToFile:options:error: or writeToFile:atomically323183096#18446744073709551615#0#0(6@0"323183096#0#0#0#0#0"0(0#0#108"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision8605450592#454"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> "/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/66134140-2FED-4A6B-AD0A-0815DD2175AD.mobileprovision" -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision1#
+
+CProcessProductPackaging "/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/A76868E4-7FB6-46CD-97B0-3296385963B2.mobileprovision" /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision
+s323183157.825123
+e323183157.828536
+r1
+xProcessProductPackaging
+x/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/A76868E4-7FB6-46CD-97B0-3296385963B2.mobileprovision
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision
+lSLF07#2@201"ProcessProductPackaging "/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/A76868E4-7FB6-46CD-97B0-3296385963B2.mobileprovision" build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision323183157#323183157#0(0"0(0#0#108"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision28429174518579312#454"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> "/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/A76868E4-7FB6-46CD-97B0-3296385963B2.mobileprovision" -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision0#
+
+CProcessProductPackaging "/Users/kojiroumezaki/Library/MobileDevice/Provisioning Profiles/D701FCFC-DACB-44F9-997C-C5E08499B63B.mobileprovision" /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app/embedded.mobileprovision
+r0
+
+CProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/Entitlements.plist /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha.xcent
+s311994675.062448
+e311994675.082724
+r1
+xProcessProductPackaging
+x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/Entitlements.plist
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha.xcent
+lSLF07#2@178"ProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/Entitlements.plist build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha.xcent311994675#311994675#0(0"0(0#0#115"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha.xcent8603281280#457"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/Entitlements.plist -entitlements -format xml -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha.xcent0#
+
+CProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha.xcent
+s323182922.574159
+e323182922.586712
+r1
+xProcessProductPackaging
+x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha.xcent
+lSLF07#2@178"ProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha.xcent323182922#323182922#0(0"0(0#0#115"/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha.xcent8605020896#457"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/Entitlements.plist -entitlements -format xml -o /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Sagariha.build/Debug-iphoneos/Sagariha.build/Sagariha.xcent0#
+
+CTouch /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app
+s323183157.828586
+e323183157.834854
+r1
+xTouch
+x/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app
+lSLF07#2@89"Touch /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app323183157#323183157#0(0"0(0#0#0"8599727424#287"    cd /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/build/Debug-iphoneos/Sagariha.app0#
+

@@ -1,0 +1,308 @@
+// !$*UTF8*$!
+{
+	1D3623240D0F684500981E51 /* SagarihaAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {999, 1521}}";
+			sepNavSelRange = "{426, 16}";
+			sepNavVisRange = "{0, 1733}";
+			sepNavWindowFrame = "{{398, 4}, {991, 874}}";
+		};
+	};
+	1D3623250D0F684500981E51 /* SagarihaAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {959, 8697}}";
+			sepNavSelRange = "{1057, 0}";
+			sepNavVisRange = "{0, 1784}";
+			sepNavWindowFrame = "{{50, 4}, {1018, 874}}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* Sagariha */ = {
+		activeExec = 0;
+		executables = (
+			214AA0D31242C4910018FABC /* Sagariha */,
+		);
+	};
+	21260506125556A500B6A797 /* SagarihaAudioQueuePlayer.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1121, 507}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 534}";
+			sepNavWindowFrame = "{{15, 4}, {500, 874}}";
+		};
+	};
+	21260507125556A500B6A797 /* SagarihaAudioQueuePlayer.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1121, 1586}}";
+			sepNavSelRange = "{1531, 0}";
+			sepNavVisRange = "{1240, 689}";
+			sepNavWindowFrame = "{{15, 56}, {855, 817}}";
+		};
+	};
+	2126050D12556F1000B6A797 /* SagarihaWaveTable.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1121, 353}}";
+			sepNavSelRange = "{344, 0}";
+			sepNavVisRange = "{0, 427}";
+			sepNavWindowFrame = "{{590, 4}, {500, 874}}";
+		};
+	};
+	2126050E12556F1000B6A797 /* SagarihaWaveTable.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1121, 663}}";
+			sepNavSelRange = "{382, 0}";
+			sepNavVisRange = "{0, 0}";
+			sepNavWindowFrame = "{{532, 4}, {500, 874}}";
+		};
+	};
+	214AA0D31242C4910018FABC /* Sagariha */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = Sagariha;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	214AA0E91242C4A20018FABC /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	214AA0EA1242C4A20018FABC /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	215EC15213A7C4E200B53B0F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2126050E12556F1000B6A797 /* SagarihaWaveTable.m */;
+		name = "SagarihaWaveTable.m: 24";
+		rLen = 0;
+		rLoc = 382;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	2169F4BE139412CD00D9DB98 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2126050E12556F1000B6A797 /* SagarihaWaveTable.m */;
+		name = "SagarihaWaveTable.m: 24";
+		rLen = 0;
+		rLoc = 382;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	217566E813435A8B00CDC566 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* SagarihaAppDelegate.h */;
+		name = "SagarihaAppDelegate.h: 18";
+		rLen = 0;
+		rLoc = 497;
+		rType = 0;
+		vrLen = 990;
+		vrLoc = 87;
+	};
+	217567B613435E5E00CDC566 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21C30C76125A9AB20065495A /* SagarihaPanView.m */;
+		name = "SagarihaPanView.m: 61";
+		rLen = 0;
+		rLoc = 1005;
+		rType = 0;
+		vrLen = 510;
+		vrLoc = 659;
+	};
+	217567B713435E5E00CDC566 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* SagarihaAppDelegate.m */;
+		name = "SagarihaAppDelegate.m: 313";
+		rLen = 24;
+		rLoc = 8412;
+		rType = 0;
+		vrLen = 500;
+		vrLoc = 7959;
+	};
+	21C30C75125A9AB20065495A /* SagarihaPanView.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1121, 353}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 356}";
+			sepNavWindowFrame = "{{421, 10}, {855, 817}}";
+		};
+	};
+	21C30C76125A9AB20065495A /* SagarihaPanView.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1121, 884}}";
+			sepNavSelRange = "{1005, 0}";
+			sepNavVisRange = "{659, 510}";
+			sepNavWindowFrame = "{{100, 4}, {855, 874}}";
+		};
+	};
+	21D614E81343578F003F0F1D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 364;
+		vrLoc = 0;
+	};
+	21D614E91343578F003F0F1D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2126050D12556F1000B6A797 /* SagarihaWaveTable.h */;
+		name = "SagarihaWaveTable.h: 19";
+		rLen = 0;
+		rLoc = 344;
+		rType = 0;
+		vrLen = 427;
+		vrLoc = 0;
+	};
+	21D614EB1343578F003F0F1D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21260506125556A500B6A797 /* SagarihaAudioQueuePlayer.h */;
+		name = "SagarihaAudioQueuePlayer.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 534;
+		vrLoc = 0;
+	};
+	21D614EC1343578F003F0F1D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21260507125556A500B6A797 /* SagarihaAudioQueuePlayer.m */;
+		name = "SagarihaAudioQueuePlayer.m: 70";
+		rLen = 0;
+		rLoc = 1531;
+		rType = 0;
+		vrLen = 689;
+		vrLoc = 1240;
+	};
+	21D614ED1343578F003F0F1D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21C30C75125A9AB20065495A /* SagarihaPanView.h */;
+		name = "SagarihaPanView.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 356;
+		vrLoc = 0;
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 214AA0D31242C4910018FABC /* Sagariha */;
+		activeSDKPreference = iphoneos4.2;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* Sagariha */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* Sagariha */,
+		);
+		codeSenseManager = 214AA0EA1242C4A20018FABC /* Code sense */;
+		executables = (
+			214AA0D31242C4910018FABC /* Sagariha */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					943,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					903,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 329761912;
+			PBXWorkspaceStateSaveDate = 329761912;
+		};
+		perUserProjectItems = {
+			215EC15213A7C4E200B53B0F /* PBXTextBookmark */ = 215EC15213A7C4E200B53B0F /* PBXTextBookmark */;
+			2169F4BE139412CD00D9DB98 /* PBXTextBookmark */ = 2169F4BE139412CD00D9DB98 /* PBXTextBookmark */;
+			217566E813435A8B00CDC566 /* PBXTextBookmark */ = 217566E813435A8B00CDC566 /* PBXTextBookmark */;
+			217567B613435E5E00CDC566 /* PBXTextBookmark */ = 217567B613435E5E00CDC566 /* PBXTextBookmark */;
+			217567B713435E5E00CDC566 /* PBXTextBookmark */ = 217567B713435E5E00CDC566 /* PBXTextBookmark */;
+			21D614E81343578F003F0F1D /* PBXTextBookmark */ = 21D614E81343578F003F0F1D /* PBXTextBookmark */;
+			21D614E91343578F003F0F1D /* PBXTextBookmark */ = 21D614E91343578F003F0F1D /* PBXTextBookmark */;
+			21D614EB1343578F003F0F1D /* PBXTextBookmark */ = 21D614EB1343578F003F0F1D /* PBXTextBookmark */;
+			21D614EC1343578F003F0F1D /* PBXTextBookmark */ = 21D614EC1343578F003F0F1D /* PBXTextBookmark */;
+			21D614ED1343578F003F0F1D /* PBXTextBookmark */ = 21D614ED1343578F003F0F1D /* PBXTextBookmark */;
+		};
+		sourceControlManager = 214AA0E91242C4A20018FABC /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1069, 588}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 364}";
+			sepNavWindowFrame = "{{15, 157}, {1128, 716}}";
+		};
+	};
+	8D1107310486CEB800E47090 /* Sagariha-Info.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{38, 136}, {1128, 716}}";
+		};
+	};
+}
