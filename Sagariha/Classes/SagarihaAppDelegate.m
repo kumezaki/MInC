@@ -327,8 +327,8 @@ union {
 		fprintf(stderr,"Error creating socket: %s\n",strerror(errno));
 		exit(EXIT_FAILURE);
     }
-	
-	memset(&sa, 0, sizeof(sa));
+    
+   	memset(&sa, 0, sizeof(sa));
 	sa.sin_family = AF_INET;
 	sa.sin_addr.s_addr = htonl(mSendIPAddress);
 	sa.sin_port = htons(mSendPortNum);
@@ -345,7 +345,7 @@ union {
 	int sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
 	struct sockaddr_in sa; 
 	socklen_t fromlen;
-	
+    
 	memset(&sa, 0, sizeof(sa));
 	sa.sin_family = AF_INET;
 	sa.sin_addr.s_addr = INADDR_ANY;
