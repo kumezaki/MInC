@@ -48,7 +48,9 @@ int main(int argc, char *argv[])
     if (n < 0) 
          error("ERROR writing to socket");
     bzero(buffer,256);
+    printf("enter read\n");
     n = read(sockfd,buffer,255);
+    printf("exit read\n");
     if (n < 0) 
          error("ERROR reading from socket");
     printf("%s\n",buffer);

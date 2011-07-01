@@ -38,18 +38,35 @@ int main(int argc, char *argv[])
               error("ERROR on binding");
      listen(sockfd,5);
      clilen = sizeof(cli_addr);
-     newsockfd = accept(sockfd, 
-                 (struct sockaddr *) &cli_addr, 
-                 &clilen);
-     if (newsockfd < 0) 
-          error("ERROR on accept");
-     bzero(buffer,256);
-     n = read(newsockfd,buffer,255);
-     if (n < 0) error("ERROR reading from socket");
-     printf("Here is the message: %s\n",buffer);
-     n = write(newsockfd,"I got your message",18);
-     if (n < 0) error("ERROR writing to socket");
-     close(newsockfd);
+
+	int done = 0;
+	while (!done)
+	{	
+		 printf("enter accept\n");
+		 newsockfd = accept(sockfd, 
+					 (struct sockaddr *) &cli_addr, 
+					 &clilen);
+		 printf("exit accept\n"); /* will get here if a client connects, otherwise this process waits */
+		 if (newsockfd < 0) 
+			  error("ERROR on accept");
+	
+		 bzero(buffer,256);
+		 n = read(newsockfd,buffer,255);
+		 if (n < 0) error("ERROR reading from socket");
+		 if (n > 0)
+			 printf("Here is the message: %s\n",buffer);
+	
+		/* this block of code won't be necessary moving forward, I think */
+		/* all we care about is reading packets */
+//		 n = write(newsockfd,"I got your message",18);
+//		 if (n < 0) error("ERROR writing to socket");
+
+		/* exit if the first 4 characters match */
+		if (strncmp(buffer,"exit",4)==0) done = 1;
+
+		 close(newsockfd);
+	}
+	
      close(sockfd);
      return 0; 
 }
