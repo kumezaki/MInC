@@ -17,6 +17,12 @@
 #include <ifaddrs.h>
 #include <arpa/inet.h>
 
+//for tcp connection
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <netinet/in.h>
+
 @implementation SagarihaAppDelegate
 
 #define OSC_START mOutBufferLength = 0;
@@ -95,7 +101,7 @@ union {
 	mOSCMsg_InterstitialMsg = nil;
 	mOSCMsg_Cue = -1;
 	
-	mThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_udp) object:nil];
+	mThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_tcp) object:nil];
 	[mThread start];
 	
 	[self checkIncomingMessages];
@@ -340,8 +346,8 @@ union {
 	close(sock); /* close the socket */
 }
 
--(void)receive_udp
-{
+-(void)receive_tcp
+/*{
 	int sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
 	struct sockaddr_in sa; 
 	socklen_t fromlen;
@@ -366,7 +372,73 @@ union {
 		[self parse_osc];
 	}
 	
-	close(sock); /* close the socket */
+	close(sock); // close the socket
+} */
+
+{
+    int sockfd, newsockfd;// portno;
+    socklen_t clilen;
+    
+    char buffer[256];
+    
+    struct sockaddr_in serv_addr, cli_addr;
+    
+    int n;
+    
+    //    if (argc < 2) {
+    //        fprintf(stderr,"ERROR, no port provided\n");
+    //        exit(1);
+    //    }
+    
+    sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    
+    if (sockfd < 0)
+        NSLog(@"ERROR opening socket");
+    
+    bzero((char *) &serv_addr, sizeof(serv_addr));
+    
+    //portno = atoi(mReceivePortNum);//if being read from user input
+    
+    serv_addr.sin_family = AF_INET;
+    
+    serv_addr.sin_addr.s_addr = INADDR_ANY;
+    
+    serv_addr.sin_port = htons(mReceivePortNum);
+    
+    if (bind(sockfd, (struct sockaddr *) &serv_addr, 
+             sizeof(serv_addr)) < 0)
+        NSLog(@"ERROR on binding");
+    
+    listen(sockfd,5);
+    
+    clilen = sizeof(cli_addr);
+    
+	int done = 0;
+	
+    while (!done)
+	{	
+        printf("enter accept\n");
+        newsockfd = accept(sockfd, 
+                           (struct sockaddr *) &cli_addr, 
+                           &clilen);
+        printf("exit accept\n"); /* will get here if a client connects, otherwise this process waits */
+        
+        if (newsockfd < 0) 
+            NSLog(@"ERROR on accept");
+        
+        bzero(buffer,256);
+        n = read(newsockfd,buffer,255);
+        if (n < 0) NSLog(@"ERROR reading from socket");
+        if (n > 0)
+            printf("Here is the message: %s\n",buffer);
+        
+		/* exit if the first 4 characters match */
+		if (strncmp(buffer,"exit",4)==0) done = 1;
+        
+        close(newsockfd);
+	}
+	
+    close(sockfd);
 }
 
 - (void)parse_osc
@@ -648,8 +720,8 @@ union {
 	mEnvPeriodSlider.hidden = cue_num < 3;
 	mEnvPeriodLabel.hidden = cue_num < 3;
 	
-	mPanView.hidden = NO; cue_num < 4;
-	mPanLabel.hidden = NO; cue_num < 4;
+	//mPanView.hidden = NO; cue_num < 4;
+	//mPanLabel.hidden = NO; cue_num < 4;
 
 	mDelayLevelSlider.hidden = cue_num < 5;
 	mDelayLevelLabel.hidden = cue_num < 5;

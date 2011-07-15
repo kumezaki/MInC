@@ -101,7 +101,7 @@
 -(void)SendOSCMsgWithFloatValue:(const char*)osc_str:(int)osc_str_length:(float)val;
 
 -(void)send_udp;
--(void)receive_udp;
+-(void)receive_tcp;
 -(void)parse_osc;
 
 -(void)checkIncomingMessages;
