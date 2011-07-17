@@ -327,7 +327,7 @@ union {
 	struct sockaddr_in sa;
 	int bytes_sent;
 	
-	sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
+	sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	if (-1 == sock) /* if socket failed to initialize, exit */
     {
 		fprintf(stderr,"Error creating socket: %s\n",strerror(errno));
@@ -347,36 +347,8 @@ union {
 }
 
 -(void)receive_tcp
-/*{
-	int sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
-	struct sockaddr_in sa; 
-	socklen_t fromlen;
-    
-	memset(&sa, 0, sizeof(sa));
-	sa.sin_family = AF_INET;
-	sa.sin_addr.s_addr = INADDR_ANY;
-	sa.sin_port = htons(mReceivePortNum);
-	
-	if (-1 == bind(sock,(struct sockaddr *)&sa, sizeof(struct sockaddr)))
-	{
-		perror("error bind failed");
-		close(sock);
-		exit(EXIT_FAILURE);
-	} 
-	
-	for (;;) 
-	{
-		mInBufferLength = recvfrom(sock, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);
-		if (mInBufferLength < 0)
-			fprintf(stderr,"%s\n",strerror(errno));
-		[self parse_osc];
-	}
-	
-	close(sock); // close the socket
-} */
-
 {
-    int sockfd, newsockfd;// portno;
+    int sockfd, newsockfd;
     socklen_t clilen;
     
     char buffer[256];
@@ -385,20 +357,13 @@ union {
     
     int n;
     
-    //    if (argc < 2) {
-    //        fprintf(stderr,"ERROR, no port provided\n");
-    //        exit(1);
-    //    }
-    
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     
     if (sockfd < 0)
         NSLog(@"ERROR opening socket");
     
     bzero((char *) &serv_addr, sizeof(serv_addr));
-    
-    //portno = atoi(mReceivePortNum);//if being read from user input
-    
+        
     serv_addr.sin_family = AF_INET;
     
     serv_addr.sin_addr.s_addr = INADDR_ANY;
