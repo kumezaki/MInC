@@ -11,8 +11,6 @@
 #import "SagarihaAudioQueuePlayer.h"
 #import "SagarihaPanView.h"
 
-#include <arpa/inet.h>
-
 @interface SagarihaAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, UITextFieldDelegate, UIAccelerometerDelegate> {
     UIWindow *window;
 	UITabBarController *tabBarController;
@@ -47,13 +45,17 @@
 	char					ip_add_buf[32];
 	int						ip_add_size;
 	
-	char					mInBuffer[1024];
-	ssize_t					mInBufferLength;
+	char					mUDPInBuffer[1024];
+	ssize_t					mUDPInBufferLength;
+    
+    char					mTCPInBuffer[1024];
+	ssize_t					mTCPInBufferLength;
 
 	char					mOutBuffer[1024];
 	ssize_t					mOutBufferLength;
 
-	NSThread				*mThread;
+	NSThread				*mUDPThread;
+    NSThread				*mTCPThread;
 
 	int						mOSCMsg_State;
 	float					mOSCMsg_RecProg;
@@ -74,7 +76,8 @@
 	UInt32					mSendIPAddress;
 	SInt16					mSendPortNum;
 
-	SInt16					mReceivePortNum;
+	SInt16					mUDPReceivePortNum;
+    SInt16					mTCPReceivePortNum;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -104,8 +107,10 @@
 -(void)SendOSCMsgWithFloatValue:(const char*)osc_str:(int)osc_str_length:(float)val;
 
 -(void)send_udp;
--(void)receive_tcp;
+-(void)receive_udp;
 -(void)parse_osc;
+-(void)receive_tcp;
+-(void)parse_tcp;
 
 -(void)checkIncomingMessages;
 

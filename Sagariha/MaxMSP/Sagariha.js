@@ -643,7 +643,6 @@ function audio_func(pos,val)
 
 	if (gAudioFile[pos].position == gAudioFile[pos].eof)
 	{
-		post("END OF FILE\N"); //I put this here as a test.
 		gAudioFile[pos].close();
 		gAudioFile[pos] = undefined;
 		send_audio_end_msg(pos);
@@ -658,35 +657,35 @@ function audio_func(pos,val)
 function send_rec_prog_msg(pos,v)
 {
 	if (v < 3) {
-	messnamed("saga_osc_out_msg","address",gIPAddress[pos]);
+	messnamed("saga_osc_out_msg","host",gIPAddress[pos]);
 	messnamed("saga_osc_out_msg","port",31337);
 	messnamed("saga_osc_out_msg","/saga/rec_prog",parseInt(v * 1000.)); }
 }
 
 function send_interstitial_msg(pos,dur,msg)
 {
-	messnamed("saga_osc_out_msg","address",gIPAddress[pos]);
+	messnamed("saga_osc_out_msg","host",gIPAddress[pos]);
 	messnamed("saga_osc_out_msg","port",31337);
 	messnamed("saga_osc_out_msg","/saga/interstitial",dur,msg);
 }
 
 function send_audio_msg(pos,index,size,v)
 {
-	messnamed("saga_osc_out_msg","address",gIPAddress[pos]);
-	messnamed("saga_osc_out_msg","port",31337);
-	messnamed("saga_osc_out_msg","/saga/audio",index,size,v);
+	messnamed("saga_tcp_out_msg","address",gIPAddress[pos]);
+	messnamed("saga_tcp_out_msg","port",41337);
+	messnamed("saga_tcp_out_msg",index,size,v);
 }
 
 function send_audio_end_msg(pos)
 {
-	messnamed("saga_osc_out_msg","address",gIPAddress[pos]);
-	messnamed("saga_osc_out_msg","port",31337);
-	messnamed("saga_osc_out_msg","/saga/audio_end");
+	messnamed("saga_tcp_out_msg","address",gIPAddress[pos]);
+	messnamed("saga_tcp_out_msg","port",41337);
+	messnamed("saga_tcp_out_msg","audio_stop");
 }
 
 function send_cue_msg(pos,v)
 {
-	messnamed("saga_osc_out_msg","address",gIPAddress[pos]);
+	messnamed("saga_osc_out_msg","host",gIPAddress[pos]);
 	messnamed("saga_osc_out_msg","port",31337);
 	messnamed("saga_osc_out_msg","/saga/cue",parseInt(v));
 }
