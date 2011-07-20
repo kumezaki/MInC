@@ -1,9 +1,9 @@
 {
 	"patcher" : 	{
 		"fileversion" : 1,
-		"rect" : [ 329.0, 269.0, 448.0, 183.0 ],
+		"rect" : [ 354.0, 269.0, 448.0, 183.0 ],
 		"bglocked" : 0,
-		"defrect" : [ 329.0, 269.0, 448.0, 183.0 ],
+		"defrect" : [ 354.0, 269.0, 448.0, 183.0 ],
 		"openrect" : [ 0.0, 0.0, 0.0, 0.0 ],
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -20,187 +20,187 @@
 		"devicewidth" : 0.0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"fontname" : "Arial Bold",
-					"fontsize" : 10.0,
-					"id" : "obj-12",
-					"linecount" : 2,
 					"maxclass" : "comment",
+					"text" : "<- click on this to exit server program",
+					"linecount" : 2,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 214.0, 39.0, 150.0, 29.0 ],
-					"text" : "<- click on this to exit server program"
+					"fontsize" : 10.0,
+					"id" : "obj-12",
+					"fontname" : "Arial Bold",
+					"patching_rect" : [ 214.0, 39.0, 150.0, 29.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"fontname" : "Arial Bold",
+					"maxclass" : "message",
+					"text" : "take that!",
+					"numinlets" : 2,
+					"numoutlets" : 1,
 					"fontsize" : 10.0,
 					"id" : "obj-8",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 89.0, 39.0, 55.0, 16.0 ],
-					"text" : "take that!"
+					"fontname" : "Arial Bold",
+					"patching_rect" : [ 89.0, 39.0, 55.0, 16.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"fontname" : "Arial Bold",
+					"maxclass" : "message",
+					"text" : "exit",
+					"numinlets" : 2,
+					"numoutlets" : 1,
 					"fontsize" : 10.0,
 					"id" : "obj-6",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 180.0, 39.0, 32.5, 16.0 ],
-					"text" : "exit"
+					"fontname" : "Arial Bold",
+					"patching_rect" : [ 180.0, 39.0, 32.5, 16.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"fontname" : "Arial Bold",
-					"fontsize" : 10.0,
-					"id" : "obj-7",
 					"maxclass" : "number",
 					"numinlets" : 1,
 					"numoutlets" : 2,
+					"fontsize" : 10.0,
+					"id" : "obj-7",
 					"outlettype" : [ "int", "bang" ],
+					"fontname" : "Arial Bold",
 					"patching_rect" : [ 205.0, 94.0, 50.0, 18.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"fontname" : "Arial",
+					"maxclass" : "newobj",
+					"text" : "print success",
+					"numinlets" : 1,
+					"numoutlets" : 0,
 					"fontsize" : 12.0,
 					"id" : "obj-5",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 34.0, 93.0, 81.0, 20.0 ],
-					"text" : "print success"
+					"fontname" : "Arial",
+					"patching_rect" : [ 34.0, 93.0, 81.0, 20.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"fontname" : "Arial",
+					"maxclass" : "newobj",
+					"text" : "print failure",
+					"numinlets" : 1,
+					"numoutlets" : 0,
 					"fontsize" : 12.0,
 					"id" : "obj-4",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 120.0, 93.0, 70.0, 20.0 ],
-					"text" : "print failure"
+					"fontname" : "Arial",
+					"patching_rect" : [ 120.0, 93.0, 70.0, 20.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"fontname" : "Arial Bold",
-					"fontsize" : 10.0,
-					"id" : "obj-9",
 					"maxclass" : "message",
+					"text" : "take this!",
 					"numinlets" : 2,
 					"numoutlets" : 1,
+					"fontsize" : 10.0,
+					"id" : "obj-9",
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 34.0, 39.0, 54.0, 16.0 ],
-					"text" : "take this!"
+					"fontname" : "Arial Bold",
+					"patching_rect" : [ 34.0, 39.0, 54.0, 16.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"fontname" : "Arial",
-					"fontsize" : 12.0,
-					"id" : "obj-1",
 					"maxclass" : "newobj",
+					"text" : "print info",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 291.0, 93.0, 70.0, 20.0 ],
-					"text" : "print info"
+					"fontsize" : 12.0,
+					"id" : "obj-1",
+					"fontname" : "Arial",
+					"patching_rect" : [ 291.0, 93.0, 70.0, 20.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"fontname" : "Arial",
-					"fontsize" : 12.0,
-					"id" : "obj-3",
 					"maxclass" : "newobj",
+					"text" : "mxj net.tcp.send @address 10.0.1.6 @port 31337",
 					"numinlets" : 1,
 					"numoutlets" : 4,
+					"fontsize" : 12.0,
+					"id" : "obj-3",
 					"outlettype" : [ "", "", "", "" ],
-					"patching_rect" : [ 34.0, 67.0, 276.0, 20.0 ],
-					"text" : "mxj net.tcp.send @address 127.0.0.1 @port 1337"
+					"fontname" : "Arial",
+					"patching_rect" : [ 34.0, 67.0, 276.0, 20.0 ]
 				}
 
 			}
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-9", 0 ],
+					"destination" : [ "obj-3", 0 ],
 					"hidden" : 0,
-					"midpoints" : [  ],
-					"source" : [ "obj-3", 3 ]
+					"midpoints" : [  ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-8", 0 ],
+					"destination" : [ "obj-3", 0 ],
 					"hidden" : 0,
-					"midpoints" : [  ],
-					"source" : [ "obj-3", 1 ]
+					"midpoints" : [  ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-5", 0 ],
+					"source" : [ "obj-6", 0 ],
+					"destination" : [ "obj-3", 0 ],
 					"hidden" : 0,
-					"midpoints" : [  ],
-					"source" : [ "obj-3", 0 ]
+					"midpoints" : [  ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
+					"source" : [ "obj-3", 2 ],
 					"destination" : [ "obj-7", 0 ],
 					"hidden" : 0,
-					"midpoints" : [  ],
-					"source" : [ "obj-3", 2 ]
+					"midpoints" : [  ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-3", 0 ],
+					"destination" : [ "obj-5", 0 ],
 					"hidden" : 0,
-					"midpoints" : [  ],
-					"source" : [ "obj-6", 0 ]
+					"midpoints" : [  ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-3", 1 ],
+					"destination" : [ "obj-4", 0 ],
 					"hidden" : 0,
-					"midpoints" : [  ],
-					"source" : [ "obj-8", 0 ]
+					"midpoints" : [  ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-3", 3 ],
+					"destination" : [ "obj-1", 0 ],
 					"hidden" : 0,
-					"midpoints" : [  ],
-					"source" : [ "obj-9", 0 ]
+					"midpoints" : [  ]
 				}
 
 			}

@@ -11,6 +11,8 @@
 #import "SagarihaAudioQueuePlayer.h"
 #import "SagarihaPanView.h"
 
+#include <arpa/inet.h>
+
 @interface SagarihaAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, UITextFieldDelegate, UIAccelerometerDelegate> {
     UIWindow *window;
 	UITabBarController *tabBarController;
@@ -66,6 +68,7 @@
 	NSTimer*				mAudioTimer;
 	
 	SagarihaAudioQueuePlayer*	mAudioQueuePlayer;
+        
 	
 @public
 	UInt32					mSendIPAddress;
