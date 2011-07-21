@@ -502,7 +502,7 @@ union {
             default: msg_type_str = "OSC Data"; break;
         }
                     
-        printf("%s: %s\n",msg_type_str,mUDPInBuffer+pos);
+        //printf("%s: %s\n",msg_type_str,mUDPInBuffer+pos);
         pos += ((strlen(mUDPInBuffer+pos) / 4) + 1)* 4;            
     }
 }
@@ -514,42 +514,39 @@ union {
     
     struct sockaddr_in serv_addr, cli_addr;
     
-    sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    sockfd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     
     if (sockfd < 0)
         NSLog(@"ERROR opening TCP socket");
     
-    bzero((char *) &serv_addr, sizeof(serv_addr));
-    
+    //bzero((char *) &serv_addr, sizeof(serv_addr));
+    memset(&serv_addr, 0, sizeof(serv_addr));
     serv_addr.sin_family = AF_INET;    
-    serv_addr.sin_addr.s_addr = INADDR_ANY;    
+    serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);    
     serv_addr.sin_port = htons(mTCPReceivePortNum);
     
     if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0)
         NSLog(@"ERROR on TCP binding");
     
-    listen(sockfd,5);
-    
-    clilen = sizeof(cli_addr);
-    
-	int done = 0;
-	
-    while (!done)
+    if (listen(sockfd,5) < 0)
+        NSLog(@"listen() failed");
+        	
+    for (;;)
 	{	
+        clilen = sizeof(cli_addr);
+
         newsockfd = accept(sockfd,(struct sockaddr *) &cli_addr, &clilen);
         /* will get here if a client connects, otherwise this process waits */
         
         if (newsockfd < 0) NSLog(@"ERROR on TCP accept");
         
-        else
-        {
-            mTCPInBufferLength = read(newsockfd,mTCPInBuffer, 1024);
-            NSLog(@"mTCPInBufferLength: %ld\n",mTCPInBufferLength);
-            
-            if (mTCPInBufferLength < 0) NSLog(@"ERROR reading from TCP socket\n");
-            //if (mTCPInBufferLength > 0) NSLog(@"TCP Packet received\n");
-            [self parse_tcp];
-        }
+        mTCPInBufferLength = recv(newsockfd, mTCPInBuffer, 1024, 0);
+        NSLog(@"mTCPInBufferLength: %ld\n",mTCPInBufferLength);
+        
+        if (mTCPInBufferLength < 0) NSLog(@"ERROR reading from TCP socket\n");
+        
+        [self parse_tcp];
+        
         close(newsockfd);
 	}
 	
@@ -558,41 +555,42 @@ union {
 
 - (void)parse_tcp
 {
-    NSLog(@"mTCPInBuffer: %s", mTCPInBuffer);
-/*  ssize_t pos = 0;
+    //NSLog(@"mTCPInBuffer: %s", mTCPInBuffer);
+    int pos = 0;
+    /*OSC_VAL_BYTE_SWAP(mTCPInBuffer+pos)
+    int audio_index = u.int_val;*/
     
-    while (pos < mTCPInBufferLength)
+    int audio_index = atoi(mTCPInBuffer+pos);
+    pos += 2;
+    NSLog(@"audio_index %i", audio_index);
+    /*
+    OSC_VAL_BYTE_SWAP(mTCPInBuffer+pos)
+    int size = u.int_val;*/
+    
+    int size = atoi(mTCPInBuffer+pos);
+    pos += 2;
+    
+    NSLog(@"size %i", size);
+    
+    for (int i = 0; i < size; i++)
     {
         OSC_VAL_BYTE_SWAP(mTCPInBuffer+pos)
-        int audio_index = u.int_val;
+        float audio_sample = u.flt_val;
+        //float audio_sample = atoi(mTCPInBuffer+pos);
+        NSLog(@"audio_sample %f", audio_sample);
+        [mAudioQueuePlayer SetSample:audio_index+i:audio_sample];
         pos += 4;
-        
-        NSLog(@"audio_index %i", audio_index);
-        
-        OSC_VAL_BYTE_SWAP(mTCPInBuffer+pos)
-        int size = u.int_val;
-        pos += 4;
-        
-        NSLog(@"size %i", size);
-        
-        for (int i = 0; i < size; i++)
-        {
-            OSC_VAL_BYTE_SWAP(mTCPInBuffer+pos)
-            float audio_sample = u.flt_val;
-            [mAudioQueuePlayer SetSample:audio_index+i:audio_sample];
-            pos += 4;
-        }
-        
-        if (audio_index == mNextAudioIndex)
-        {
-            NSLog(@"mNextAudioIndex %d, audio_index %d, size %d", mNextAudioIndex, audio_index, size);
-            mOSCMsg_DownloadProg = audio_index / (22050 * 5.);
-            mNextAudioIndex = audio_index + size;
-            [self SendOSCMsgWithIntValue:"/saga/audio\0":12:mNextAudioIndex];
-        }
-        else
-            printf("missing audio index %d\n",audio_index);
-    }*/
+    }
+    
+    if (audio_index == mNextAudioIndex)
+    {
+        mOSCMsg_DownloadProg = audio_index / (22050 * 5.);
+        mNextAudioIndex = audio_index + size;
+        [self SendOSCMsgWithIntValue:"/saga/audio\0":12:mNextAudioIndex];
+    }
+    else
+        printf("missing audio index %d\n",audio_index);
+
 }
 
 
