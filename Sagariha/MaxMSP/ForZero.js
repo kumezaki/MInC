@@ -674,6 +674,7 @@ function send_audio_msg(pos,index,size,v)
 	messnamed("saga_tcp_out_msg","address",gIPAddress[pos]);
 	messnamed("saga_tcp_out_msg","port",41337);
 	messnamed("saga_tcp_out_msg",index,size,v);
+	//post("audio_sample_value:",v,"\n");
 }
 
 function send_audio_end_msg(pos)

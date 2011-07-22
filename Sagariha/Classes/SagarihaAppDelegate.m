@@ -408,12 +408,12 @@ union {
             {
                 switch (add_type)
                 {
-                    case 5:
+                    /*case 5:
                         {
                             //printf("audio_end received\n");
                             mOSCMsg_DownloadEnd = YES;
                             break;
-                        }
+                        }*/
                 }
                 break;
             }
@@ -446,7 +446,7 @@ union {
                         mOSCMsg_InterstitialMsg = [[NSString alloc] initWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
                         break;
                     }
-                    case 4:
+                    /*case 4:
                     {
                         OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                         int audio_index = u.int_val;
@@ -478,7 +478,7 @@ union {
                             printf("missing audio index %d\n",audio_index);
                         
                         break;
-                    }
+                    }*/
                     case 6:
                     {
                         OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
@@ -541,7 +541,7 @@ union {
         if (newsockfd < 0) NSLog(@"ERROR on TCP accept");
         
         mTCPInBufferLength = recv(newsockfd, mTCPInBuffer, 1024, 0);
-        NSLog(@"mTCPInBufferLength: %ld\n",mTCPInBufferLength);
+        //NSLog(@"mTCPInBufferLength: %ld\n",mTCPInBufferLength);
         
         if (mTCPInBufferLength < 0) NSLog(@"ERROR reading from TCP socket\n");
         
@@ -555,42 +555,41 @@ union {
 
 - (void)parse_tcp
 {
-    //NSLog(@"mTCPInBuffer: %s", mTCPInBuffer);
-    int pos = 0;
-    /*OSC_VAL_BYTE_SWAP(mTCPInBuffer+pos)
-    int audio_index = u.int_val;*/
     
-    int audio_index = atoi(mTCPInBuffer+pos);
-    pos += 2;
-    NSLog(@"audio_index %i", audio_index);
-    /*
-    OSC_VAL_BYTE_SWAP(mTCPInBuffer+pos)
-    int size = u.int_val;*/
-    
-    int size = atoi(mTCPInBuffer+pos);
-    pos += 2;
-    
-    NSLog(@"size %i", size);
-    
-    for (int i = 0; i < size; i++)
+    NSAutoreleasePool *tcpThreadPool = [[NSAutoreleasePool alloc] init];
+
+    NSString * audioBuffer = [NSString stringWithCString:mTCPInBuffer encoding:NSASCIIStringEncoding];
+    NSArray * audioMsgComponents = [audioBuffer componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
+    if ([[audioMsgComponents objectAtIndex:0] isEqual:@"audio_stop"])
     {
-        OSC_VAL_BYTE_SWAP(mTCPInBuffer+pos)
-        float audio_sample = u.flt_val;
-        //float audio_sample = atoi(mTCPInBuffer+pos);
-        NSLog(@"audio_sample %f", audio_sample);
-        [mAudioQueuePlayer SetSample:audio_index+i:audio_sample];
-        pos += 4;
-    }
-    
-    if (audio_index == mNextAudioIndex)
-    {
-        mOSCMsg_DownloadProg = audio_index / (22050 * 5.);
-        mNextAudioIndex = audio_index + size;
-        [self SendOSCMsgWithIntValue:"/saga/audio\0":12:mNextAudioIndex];
+        mOSCMsg_DownloadEnd = YES;
     }
     else
-        printf("missing audio index %d\n",audio_index);
-
+    {
+        int audio_index = [[audioMsgComponents objectAtIndex:0]intValue];
+        //NSLog(@"audio_index %i", audio_index);
+        
+        int size = [[audioMsgComponents objectAtIndex:1]intValue];    
+        //NSLog(@"size %i", size);
+        
+        for (int i = 2; i < audioMsgComponents.count; i++)
+        {
+            float audio_sample = [[audioMsgComponents objectAtIndex:i]floatValue];
+            //NSLog(@"audio_sample %f", audio_sample);
+            [mAudioQueuePlayer SetSample:audio_index+(i-2):audio_sample];
+        }
+        
+        if (audio_index == mNextAudioIndex)
+        {
+            mOSCMsg_DownloadProg = audio_index / (22050 * 5.);
+            mNextAudioIndex = audio_index + size;
+            [self SendOSCMsgWithIntValue:"/saga/audio\0":12:mNextAudioIndex];
+        }
+        else
+            printf("missing audio index %d\n",audio_index);
+    }
+    [tcpThreadPool drain];
 }
 
 
