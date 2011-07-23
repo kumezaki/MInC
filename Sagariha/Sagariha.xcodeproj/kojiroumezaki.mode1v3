@@ -197,7 +197,48 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array/>
+	<array>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
+				<string>21F22E4D13DB0C4900DFCC03</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>SagarihaAppDelegate.m</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>21F22E4E13DB0C4900DFCC03</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>SagarihaAppDelegate.m</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>21F22E5013DB0C4900DFCC03</string>
+						<key>history</key>
+						<array>
+							<string>21F22E4F13DB0C4900DFCC03</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {1018, 777}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>50 60 1018 818 0 0 1440 878 </string>
+			</dict>
+		</dict>
+	</array>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>-1</integer>
@@ -277,7 +318,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>13</integer>
+									<integer>7</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -329,7 +371,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>21F22E4113DB062300DFCC03</string>
+										<string>21F22E4C13DB0C4900DFCC03</string>
 										<key>history</key>
 										<array>
 											<string>21D614E81343578F003F0F1D</string>
@@ -534,14 +576,14 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>21F22E4213DB062300DFCC03</string>
 		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>21F22E3313DB020D00DFCC03</string>
 		<string>21F22E3413DB020D00DFCC03</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>214AA0E01242C4A20018FABC</string>
-		<string>/Users/kojiroumezaki/Docs/Music/Mobile_In_C/minc_unfuddle/Sagariha/Sagariha.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
+		<string>/Users/kojiroumezaki/Docs/Music/Mobile_In_C/minc_unfuddle/Sagariha/Sagariha.xcodeproj</string>
+		<string>21F22E4D13DB0C4900DFCC03</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 59 1440 819 0 0 1440 878 </string>
