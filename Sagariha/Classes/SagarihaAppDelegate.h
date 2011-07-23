@@ -31,7 +31,7 @@
 	IBOutlet UISlider			*mVolumeClientSlider;
 	IBOutlet UITextField		*mIPAddressTextField;
 	IBOutlet UITextField		*mPortNumTextField;
-	IBOutlet UIView				*mInterstitialView;
+	IBOutlet UIImageView		*mInterstitialView;
 	IBOutlet UILabel			*mInterstitialLabel;
 	IBOutlet UIButton			*mHintButton;
 	IBOutlet UIButton			*mOKButton;
@@ -64,6 +64,8 @@
 	int						mOSCMsg_InterstitialMsgDur;
 	NSString*				mOSCMsg_InterstitialMsg;
 	int						mOSCMsg_Cue;
+	BOOL					mOSCMsg_Play;
+	BOOL					mOSCMsg_Stop;
 	
 	int						mNextAudioIndex;
 	
@@ -71,6 +73,7 @@
 	
 	SagarihaAudioQueuePlayer*	mAudioQueuePlayer;
         
+	NSArray					*mImageArray;
 	
 @public
 	UInt32					mSendIPAddress;

@@ -50,6 +50,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	mTheta = 0.;
 	mWaveTable = [[SagarihaWaveTable alloc] init];
 
+	mLoopStart = 0.;
+	mLoopEnd = 1.;
+
 	return self;
 }
 
@@ -67,13 +70,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     OSStatus result = AudioQueueNewOutput(&mDataFormat, AQBufferCallback, self, nil, nil, 0, &mQueue);
 	
 	if (result != noErr)
-		printf("AudioQueueNewOutput %ld\n",result);
+		NSLog(@"AudioQueueNewOutput %ld\n",result);
 	
     for (int i = 0; i < kNumberBuffers; ++i)
 	{
 		result = AudioQueueAllocateBuffer(mQueue, 512, &mBuffers[i]);
 		if (result != noErr)
-			printf("AudioQueueAllocateBuffer %ld\n",result);
+			NSLog(@"AudioQueueAllocateBuffer %ld\n",result);
 	}
 }
 
@@ -103,9 +106,16 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	OSStatus result = noErr;
 
-    result = AudioQueueStop(mQueue, true);
+	if (mPlaying)
+	{
+		result = AudioQueueFlush(mQueue);            
+		NSLog(@"AudioQueueFlush %d",result);
+		
+		result = AudioQueueStop(mQueue, true);
+		NSLog(@"AudioQueueStop %d",result);
 	
-	mPlaying = NO;
+		mPlaying = NO;
+	}
 
 	return result;
 }
@@ -117,6 +127,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	mTheta += mFreq / mSR;
 #else
 	mTheta += 1. / kWaveTableSize;
+	if (mTheta > mLoopEnd) mTheta = mLoopStart + (mTheta - mLoopEnd);
 #endif
 	return sample;
 }

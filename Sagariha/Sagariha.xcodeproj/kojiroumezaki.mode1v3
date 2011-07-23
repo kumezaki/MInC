@@ -229,6 +229,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -275,8 +277,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>24</integer>
-									<integer>23</integer>
+									<integer>13</integer>
+									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -315,7 +317,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SagarihaWaveTable.m</string>
+								<string>SagarihaPanView.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -323,11 +325,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>SagarihaWaveTable.m</string>
+										<string>SagarihaPanView.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>215EC15213A7C4E200B53B0F</string>
+										<string>21F22E4113DB062300DFCC03</string>
 										<key>history</key>
 										<array>
 											<string>21D614E81343578F003F0F1D</string>
@@ -336,9 +338,7 @@
 											<string>21D614EC1343578F003F0F1D</string>
 											<string>21D614ED1343578F003F0F1D</string>
 											<string>217566E813435A8B00CDC566</string>
-											<string>217567B613435E5E00CDC566</string>
-											<string>217567B713435E5E00CDC566</string>
-											<string>2169F4BE139412CD00D9DB98</string>
+											<string>21D2465613DA3F000015731A</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -360,8 +360,6 @@
 							<string>0pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -398,9 +396,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>215EC14313A7C48A00B53B0F</string>
+				<string>21F22DE413DAFACF00DFCC03</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>215EC14413A7C48A00B53B0F</string>
+				<string>21F22DE513DAFACF00DFCC03</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -536,12 +534,14 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>215EC15013A7C4E200B53B0F</string>
-		<string>215EC15113A7C4E200B53B0F</string>
-		<string>1C78EAAD065D492600B07095</string>
+		<string>21F22E4213DB062300DFCC03</string>
+		<string>1C530D57069F1CE1000CFCEE</string>
+		<string>21F22E3313DB020D00DFCC03</string>
+		<string>21F22E3413DB020D00DFCC03</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>214AA0E01242C4A20018FABC</string>
-		<string>/Users/kojiroumezaki/Docs/Music/Sagariha/Sagariha/Sagariha.xcodeproj</string>
+		<string>/Users/kojiroumezaki/Docs/Music/Mobile_In_C/minc_unfuddle/Sagariha/Sagariha.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 59 1440 819 0 0 1440 878 </string>
@@ -565,23 +565,25 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>SagarihaAppDelegate.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1440, 536}}</string>
+								<string>{{0, 0}, {1440, 43}}</string>
 								<key>RubberWindowFrame</key>
-								<string>160 60 1440 818 0 0 1440 878 </string>
+								<string>0 60 1440 818 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>536pt</string>
+							<string>43pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -596,14 +598,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 541}, {1440, 236}}</string>
+								<string>{{0, 48}, {1440, 729}}</string>
 								<key>RubberWindowFrame</key>
-								<string>160 60 1440 818 0 0 1440 878 </string>
+								<string>0 60 1440 818 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXBuildResultsModule</string>
 							<key>Proportion</key>
-							<string>236pt</string>
+							<string>729pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -621,18 +623,18 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>214AA0E01242C4A20018FABC</string>
-				<string>215EC14513A7C48A00B53B0F</string>
+				<string>21F22DE613DAFACF00DFCC03</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.buildV3</string>
 			<key>WindowString</key>
-			<string>160 60 1440 818 0 0 1440 878 </string>
+			<string>0 60 1440 818 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>214AA0E01242C4A20018FABC</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -741,13 +743,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>215EC14613A7C48A00B53B0F</string>
+				<string>21F22E2313DB003700DFCC03</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>215EC14713A7C48A00B53B0F</string>
-				<string>215EC14813A7C48A00B53B0F</string>
-				<string>215EC14913A7C48A00B53B0F</string>
-				<string>215EC14A13A7C48A00B53B0F</string>
-				<string>215EC14B13A7C48A00B53B0F</string>
+				<string>21F22E2413DB003700DFCC03</string>
+				<string>21F22E2513DB003700DFCC03</string>
+				<string>21F22E2613DB003700DFCC03</string>
+				<string>21F22E2713DB003700DFCC03</string>
+				<string>21F22E2813DB003700DFCC03</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -774,14 +776,12 @@
 							<key>Dock</key>
 							<array>
 								<dict>
-									<key>BecomeActive</key>
-									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>SagarihaAppDelegate.m</string>
+										<string></string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>
@@ -802,6 +802,8 @@
 							<string>335pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -837,8 +839,8 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D57069F1CE1000CFCEE</string>
-				<string>21F6769C1274FB8C00D1CB08</string>
-				<string>21F6769D1274FB8C00D1CB08</string>
+				<string>21F22E3013DB020100DFCC03</string>
+				<string>21F22E3113DB020100DFCC03</string>
 				<string>1CDD528C0622207200134675</string>
 				<string>1CD0528E0623707200166675</string>
 			</array>
@@ -866,6 +868,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -878,7 +882,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1440, 777}}</string>
 								<key>RubberWindowFrame</key>
-								<string>160 60 1440 818 0 0 1440 878 </string>
+								<string>0 60 1440 818 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -901,17 +905,17 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>215EC14C13A7C48A00B53B0F</string>
+				<string>21F22E2913DB003700DFCC03</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>160 60 1440 818 0 0 1440 878 </string>
+			<string>0 60 1440 818 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

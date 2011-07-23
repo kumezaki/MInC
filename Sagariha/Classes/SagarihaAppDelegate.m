@@ -21,6 +21,8 @@
 
 @implementation SagarihaAppDelegate
 
+#define __VINNIE__	1
+
 #define OSC_START mOutBufferLength = 0;
 #define OSC_END [self send_udp];
 #define OSC_ADD(msg,num_msg_bytes) memcpy(mOutBuffer+mOutBufferLength,msg,num_msg_bytes); mOutBufferLength+=num_msg_bytes;
@@ -52,7 +54,6 @@ union {
 								,(appDelegate->mSendIPAddress&0x0000FF00)>>8
 								,(appDelegate->mSendIPAddress&0x000000FF)>>0];
 	mPortNumTextField.text = [NSString stringWithFormat:@"%d",appDelegate->mSendPortNum];
-    
 }
 
 /*
@@ -70,6 +71,12 @@ union {
 - (id)init
 {
 	[super init];
+
+	mImageArray = [[NSArray alloc] initWithObjects:
+				   [UIImage imageNamed:@"image_0.jpg"],
+				   [UIImage imageNamed:@"image_1.jpg"],
+				   nil
+				   ];
 
 	/* IP address */
 	mSendIPAddress = 0x7F000001; /* IP address: 127.0.0.1 */
@@ -89,7 +96,7 @@ union {
 	memset(ip_add_buf,0,32);
 	[[self getIPAddress] getCString:ip_add_buf maxLength:32 encoding:NSASCIIStringEncoding];
 	ip_add_size = (strlen(ip_add_buf) / 4 + 1) * 4;
-	printf("%s\n",ip_add_buf);
+	NSLog(@"%s\n",ip_add_buf);
 	
 	mOSCMsg_State = -1;
 	mOSCMsg_RecProg = -1.;
@@ -98,6 +105,8 @@ union {
 	mOSCMsg_InterstitialMsgDur = 0;
 	mOSCMsg_InterstitialMsg = nil;
 	mOSCMsg_Cue = -1;
+	mOSCMsg_Play = NO;
+	mOSCMsg_Stop = NO;
 	
 	mUDPThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_udp) object:nil];
 	[mUDPThread start];
@@ -117,6 +126,7 @@ union {
 
 - (void)dealloc {
 	
+	[mImageArray release];
 	[mAudioQueuePlayer release];
 	[mUDPThread release];
     [mTCPThread release];
@@ -173,20 +183,20 @@ union {
 
 -(IBAction)SetVolumeServer:(id)sender
 {
-//	printf("%f\n",[mVolumeServerSlider value]);
+//	NSLog(@"%f\n",[mVolumeServerSlider value]);
 	[self SendOSCMsgWithIntValue:"/saga/vol_s\0\0\0":12:FLOAT_TO_MRMR_INT([mVolumeServerSlider value])];
 }
 
 -(IBAction)SetVolumeClient:(id)sender
 {
-//	printf("%f\n",[mVolumeClientSlider value]);
+//	NSLog(@"%f\n",[mVolumeClientSlider value]);
 //	[self SendOSCMsgWithIntValue:"/saga/vol_c\0\0\0":12:FLOAT_TO_MRMR_INT([mVolumeClientSlider value])];
 	mAudioQueuePlayer->mAmp = [mVolumeClientSlider value];
 }
 
 -(IBAction)InterstitialMsgDone:(id)sender
 {
-//	printf("InterstitialMsgDone\n");
+//	NSLog(@"InterstitialMsgDone\n");
 	[self turnInterstitialMsgOff];
 }
 
@@ -214,7 +224,7 @@ union {
 		}
 		appDelegate->mSendIPAddress = ip_add;
 		[appDelegate writeDataFile];
-		printf("IPAddressChanged to %08lx\n",appDelegate->mSendIPAddress);
+		NSLog(@"IPAddressChanged to %08lx\n",appDelegate->mSendIPAddress);
 	}
 }
 
@@ -229,7 +239,7 @@ union {
 	
 	appDelegate->mSendPortNum = [mPortNumTextField.text intValue];
 	[appDelegate writeDataFile];
-	printf("PortNumChanged to %d\n",appDelegate->mSendPortNum);
+	NSLog(@"PortNumChanged to %d\n",appDelegate->mSendPortNum);
 }
 
 -(IBAction)RequestHint
@@ -249,6 +259,15 @@ union {
 #endif
 	}
 	mOKButton.hidden = mOSCMsg_InterstitialMsgDur == -1 ? YES : NO;
+	
+	[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+
+	[tabBarController.tabBar setHidden:YES];
+	
+	window.backgroundColor = [UIColor blackColor];
+	
+//	UITabBarItem *tabBarItem = [[tabBarController.tabBar items] objectAtIndex:1];
+//	[tabBarItem setEnabled:NO];
 }
 
 -(void)turnInterstitialMsgOff
@@ -262,13 +281,22 @@ union {
 		[NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(turnInterstitialMsgOff) userInfo:nil repeats:NO];
 
 	mOKButton.hidden = YES;
+
+	[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+	
+	[tabBarController.tabBar setHidden:NO];
+
+	window.backgroundColor = [UIColor whiteColor];
+	
+//	UITabBarItem *tabBarItem = [[tabBarController.tabBar items] objectAtIndex:1];
+//	[tabBarItem setEnabled:YES];
 }
 
 -(void)RequestAudio
 {
 	if (mStateClientSegControl.selectedSegmentIndex != 2) return;
 
-	printf("RequestAudio %d\n",mNextAudioIndex);
+	NSLog(@"RequestAudio %d\n",mNextAudioIndex);
 
 	[self SendOSCMsgWithIntValue:"/saga/audio\0":12:mNextAudioIndex];
 
@@ -277,7 +305,7 @@ union {
 
 -(void)ResetAudioTimer
 {
-	mAudioTimer = [NSTimer scheduledTimerWithTimeInterval:0.10 target:self selector:@selector(RequestAudio) userInfo:nil repeats:NO];
+	mAudioTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(RequestAudio) userInfo:nil repeats:NO];
 }
 
 
@@ -398,6 +426,9 @@ union {
                 //else OSC_MSG_COMPARE("/saga/audio",4)
                 //else OSC_MSG_COMPARE("/saga/audio_end",5)
                 else OSC_MSG_COMPARE("/saga/cue",6)
+				else OSC_MSG_COMPARE("/saga/play",7)
+				else OSC_MSG_COMPARE("/saga/stop",8)
+				else OSC_MSG_COMPARE("/saga/loop",9)
 
                 //[buf_str release];
                 //NSLog(@"add_type %d", add_type);
@@ -413,7 +444,17 @@ union {
                             //printf("audio_end received\n");
                             mOSCMsg_DownloadEnd = YES;
                             break;
-                        }*/
+					}*/
+					case 7:
+					{
+						NSLog(@"play received");
+						mOSCMsg_Play = YES;
+						break;
+					}
+					case 8:
+						NSLog(@"stop received");
+						mOSCMsg_Stop = YES;
+						break;
                 }
                 break;
             }
@@ -486,6 +527,24 @@ union {
                         mOSCMsg_Cue = u.int_val;
                         break;
                     }
+					case 9:
+					{
+						OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
+						float loop_start = u.int_val;
+						pos += 4;
+
+						OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
+						float loop_end = u.int_val;
+						pos += 4;
+						
+						if ((loop_start < loop_end)
+							&& (loop_start >= 0 && loop_start <= 5000.)
+							&& (loop_end >= 0 && loop_end <= 5000.))
+						{
+							mAudioQueuePlayer->mLoopStart = loop_start / 5000.;
+							mAudioQueuePlayer->mLoopEnd = loop_end / 5000.;
+						}
+					}
                 }
                 break;
             }
@@ -617,18 +676,36 @@ union {
 	
 	if (mOSCMsg_DownloadEnd)
 	{
+		NSLog(@"Download ended");
+#if __VINNIE__
+		[mAudioQueuePlayer->mWaveTable->mArray writeToFile:[SagarihaWaveTable dataFilePath] atomically:YES];
+		mStateClientSegControl.selectedSegmentIndex = 0;
+#else
 		mStateClientSegControl.selectedSegmentIndex = 1;
 		[mAudioQueuePlayer Start];
+#endif
 		mOSCMsg_DownloadEnd = NO;
 	}
 	
 	if (mOSCMsg_InterstitialMsg != nil)
 	{
 		[self turnInterstitialMsgOn];
-		mInterstitialLabel.text = mOSCMsg_InterstitialMsg;
 		
-		UITabBarItem *tabBarItem = [[tabBarController.tabBar items] objectAtIndex:1];
-		[tabBarItem setEnabled:NO];
+		int image_pos = -1;
+		if ([mOSCMsg_InterstitialMsg isEqualToString:@"image_0"])
+			image_pos = 0;
+		else if ([mOSCMsg_InterstitialMsg isEqualToString:@"image_1"])
+			image_pos = 1;
+		if (image_pos == -1)
+		{
+			mInterstitialLabel.text = mOSCMsg_InterstitialMsg;
+			mInterstitialView.image = nil;
+		}
+		else
+		{
+			mInterstitialLabel.text = @"";
+			mInterstitialView.image = [mImageArray objectAtIndex:image_pos];
+		}
 		
 		mOSCMsg_InterstitialMsg = nil;
 	}
@@ -639,6 +716,21 @@ union {
 		mOSCMsg_Cue = -1;
 	}
 	
+	if (mOSCMsg_Play)
+	{
+		mStateClientSegControl.selectedSegmentIndex = 1;
+		mAudioQueuePlayer->mTheta = mAudioQueuePlayer->mLoopStart;
+		[mAudioQueuePlayer Start];
+		mOSCMsg_Play = NO;
+	}
+	
+	if (mOSCMsg_Stop)
+	{
+		mStateClientSegControl.selectedSegmentIndex = 0;
+		[mAudioQueuePlayer Stop];
+		mOSCMsg_Stop = NO;
+	}
+
 	[NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkIncomingMessages) userInfo:nil repeats:NO];  
 }
 
@@ -707,7 +799,7 @@ union {
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
 #if 0
-	printf("%f, %f, %f\n", acceleration.x, acceleration.y, acceleration.z);
+	NSLog(@"%f, %f, %f\n", acceleration.x, acceleration.y, acceleration.z);
 #endif
 	
 #define LIMIT_ACC_VAL(n)	n < -1. ? -1. : n > 1. ? 1. : n
@@ -728,7 +820,7 @@ union {
 //	[self SendOSCMsgWithFloatValue:"/saga/accelz\0\0\0\0":16:z];
 	
 #if 0
-	printf("%f, %f, %f\n",x,y,z);
+	NSLog(@"%f, %f, %f\n",x,y,z);
 #endif
 }
 
@@ -755,7 +847,7 @@ union {
 	mVolumeClientSlider.hidden = YES;
 	mVolumeClientLabel.hidden = YES;
 
-//	printf("setting cue number to %d\n",cue_num);
+//	NSLog(@"setting cue number to %d\n",cue_num);
 }
 
 -(IBAction)ForZero_Start:(id)sender

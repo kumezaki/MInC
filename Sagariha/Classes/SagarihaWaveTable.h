@@ -18,7 +18,12 @@
 	
 	double mTable[kWaveTableSize];
 
+@public
+	NSMutableArray* mArray;
+
 }
+
++(NSString *)dataFilePath;
 
 -(double) Get:(double)index;
 -(void) Set:(UInt32)index:(double)value;

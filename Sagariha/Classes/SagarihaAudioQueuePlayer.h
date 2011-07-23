@@ -19,15 +19,18 @@
 	AudioQueueBufferRef			mBuffers[kNumberBuffers];
 	AudioStreamBasicDescription	mDataFormat;
 	
-	BOOL				mPlaying;
-	
 @public
 
+	BOOL				mPlaying;
+	
 	double				mSR;
 	double				mFreq;
 	double				mAmp;
 	double				mTheta;
 	SagarihaWaveTable*	mWaveTable;
+	
+	double				mLoopStart;
+	double				mLoopEnd;
 }
 
 -(void)		Init;

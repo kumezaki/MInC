@@ -15,6 +15,8 @@
 		21260508125556A500B6A797 /* SagarihaAudioQueuePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 21260507125556A500B6A797 /* SagarihaAudioQueuePlayer.m */; };
 		2126050F12556F1000B6A797 /* SagarihaWaveTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 2126050E12556F1000B6A797 /* SagarihaWaveTable.m */; };
 		21C30C77125A9AB20065495A /* SagarihaPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C30C76125A9AB20065495A /* SagarihaPanView.m */; };
+		21F22E3813DB023700DFCC03 /* image_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21F22E3613DB023700DFCC03 /* image_0.jpg */; };
+		21F22E3913DB023700DFCC03 /* image_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21F22E3713DB023700DFCC03 /* image_1.jpg */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,8 @@
 		2126050E12556F1000B6A797 /* SagarihaWaveTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaWaveTable.m; sourceTree = "<group>"; };
 		21C30C75125A9AB20065495A /* SagarihaPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaPanView.h; sourceTree = "<group>"; };
 		21C30C76125A9AB20065495A /* SagarihaPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaPanView.m; sourceTree = "<group>"; };
+		21F22E3613DB023700DFCC03 /* image_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_0.jpg; sourceTree = "<group>"; };
+		21F22E3713DB023700DFCC03 /* image_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_1.jpg; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				21F22E3613DB023700DFCC03 /* image_0.jpg */,
+				21F22E3713DB023700DFCC03 /* image_1.jpg */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Sagariha-Info.plist */,
 			);
@@ -168,6 +174,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				21F22E3813DB023700DFCC03 /* image_0.jpg in Resources */,
+				21F22E3913DB023700DFCC03 /* image_1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,15 +229,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PREBINDING = NO;
-				PROVISIONING_PROFILE = "23E44FB8-11C5-4BEC-B180-51F096DE6D7D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "23E44FB8-11C5-4BEC-B180-51F096DE6D7D";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -238,15 +246,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PREBINDING = NO;
-				PROVISIONING_PROFILE = "23E44FB8-11C5-4BEC-B180-51F096DE6D7D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "23E44FB8-11C5-4BEC-B180-51F096DE6D7D";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
