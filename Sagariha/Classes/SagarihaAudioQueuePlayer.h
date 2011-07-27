@@ -12,16 +12,26 @@
 #import "SagarihaWaveTable.h"
 
 #define kNumberBuffers	3
+#define kBufferDurationSeconds .5
 
 @interface SagarihaAudioQueuePlayer : NSObject {
-
-	AudioQueueRef				mQueue;
+    
+    AudioStreamBasicDescription	mDataFormat;
+    AudioQueueRef				mQueue;
 	AudioQueueBufferRef			mBuffers[kNumberBuffers];
-	AudioStreamBasicDescription	mDataFormat;
 	
-@public
+    AudioFileID						mAudioFile;
+    CFStringRef						mFilePath;
+    UInt32							mNumPacketsToRead;
+    SInt64							mCurrentPacket;
+    
+    BOOL							mIsDone;
+    BOOL                            mIsLooping;
 
-	BOOL				mPlaying;
+    
+@public
+    
+	BOOL				mIsPlaying;
 	
 	double				mSR;
 	double				mFreq;
@@ -33,12 +43,18 @@
 	double				mLoopEnd;
 }
 
--(void)		Init;
+-(void)		createAQ;
 
 -(OSStatus)	Start;
 -(OSStatus)	Stop;
 
 -(double)	GetSample;
 -(void)		SetSample:(UInt32)index:(double)value;
+
+-(void)    CalculateBytesForTime:(AudioStreamBasicDescription)inDesc
+                                :(UInt32)inMaxPacketSize
+                                :(Float64)inSeconds
+                                :(UInt32*)outBufferSize
+                                :(UInt32*)outNumPackets;
 
 @end

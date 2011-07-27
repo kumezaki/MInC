@@ -73,7 +73,7 @@
 
 -(void) Set:(UInt32)index:(double)value
 {
-	if ((index >= 0) && (index < kWaveTableSize))
+	if (index < kWaveTableSize)
 	{
 //		mTable[index] = value;
 		[mArray replaceObjectAtIndex:index withObject:[[NSNumber alloc] initWithDouble:value]];

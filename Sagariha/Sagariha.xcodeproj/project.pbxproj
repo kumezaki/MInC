@@ -19,6 +19,8 @@
 		21F22E3913DB023700DFCC03 /* image_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21F22E3713DB023700DFCC03 /* image_1.jpg */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		B41FE63813DDFB4200209552 /* audsound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B41FE63713DDFB4200209552 /* audsound.mp3 */; };
+		B4D57C3513DE823D007D2350 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D57C3413DE823D007D2350 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Sagariha_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sagariha_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Sagariha-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sagariha-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		B41FE63713DDFB4200209552 /* audsound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audsound.mp3; sourceTree = "<group>"; };
+		B4D57C3413DE823D007D2350 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4D57C3513DE823D007D2350 /* CoreFoundation.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -105,6 +110,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B41FE63713DDFB4200209552 /* audsound.mp3 */,
 				21F22E3613DB023700DFCC03 /* image_0.jpg */,
 				21F22E3713DB023700DFCC03 /* image_1.jpg */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
@@ -116,6 +122,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B4D57C3413DE823D007D2350 /* CoreFoundation.framework */,
 				212604F81255559E00B6A797 /* AudioToolbox.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -176,6 +183,7 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				21F22E3813DB023700DFCC03 /* image_0.jpg in Resources */,
 				21F22E3913DB023700DFCC03 /* image_1.jpg in Resources */,
+				B41FE63813DDFB4200209552 /* audsound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,15 +237,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PREBINDING = NO;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "23E44FB8-11C5-4BEC-B180-51F096DE6D7D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "23E44FB8-11C5-4BEC-B180-51F096DE6D7D";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -246,15 +254,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PREBINDING = NO;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "23E44FB8-11C5-4BEC-B180-51F096DE6D7D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "23E44FB8-11C5-4BEC-B180-51F096DE6D7D";
 				SDKROOT = iphoneos;
 			};
 			name = Release;

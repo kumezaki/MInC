@@ -45,7 +45,7 @@
 	char					ip_add_buf[32];
 	int						ip_add_size;
 	
-	char					mUDPInBuffer[1024];
+	char					mUDPInBuffer[8192];
 	ssize_t					mUDPInBufferLength;
     
     char					mTCPInBuffer[1024];
@@ -68,9 +68,7 @@
 	BOOL					mOSCMsg_Stop;
 	
 	int						mNextAudioIndex;
-	
-	NSTimer*				mAudioTimer;
-	
+		
 	SagarihaAudioQueuePlayer*	mAudioQueuePlayer;
         
 	NSArray					*mImageArray;
@@ -103,7 +101,6 @@
 -(void)turnInterstitialMsgOff;
 
 -(void)RequestAudio;
--(void)ResetAudioTimer;
 
 -(void)SendOSCMsg:(const char*)osc_str:(int)osc_str_length;
 -(void)SendOSCMsgWithIntValue:(const char*)osc_str:(int)osc_str_length:(int)val;
@@ -116,6 +113,8 @@
 -(void)parse_tcp;
 
 -(void)checkIncomingMessages;
+-(void)updateDownloadProg;
+-(void)downloadEnd;
 
 -(NSString *)getIPAddress;
 

@@ -110,10 +110,10 @@ union {
 	
 	mUDPThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_udp) object:nil];
 	[mUDPThread start];
-    
+    /*
     mTCPThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_tcp) object:nil];
 	[mTCPThread start];
-	
+	*/
 	[self checkIncomingMessages];
 	
 	mAudioQueuePlayer = [[SagarihaAudioQueuePlayer alloc] init];
@@ -129,7 +129,7 @@ union {
 	[mImageArray release];
 	[mAudioQueuePlayer release];
 	[mUDPThread release];
-    [mTCPThread release];
+//    [mTCPThread release];
     [tabBarController release];
     [window release];
     [super dealloc];
@@ -294,20 +294,13 @@ union {
 
 -(void)RequestAudio
 {
-	if (mStateClientSegControl.selectedSegmentIndex != 2) return;
-
-	NSLog(@"RequestAudio %d\n",mNextAudioIndex);
-
-	[self SendOSCMsgWithIntValue:"/saga/audio\0":12:mNextAudioIndex];
-
-	[self ResetAudioTimer];
+	if (mStateClientSegControl.selectedSegmentIndex == 2)
+    {
+        //printf("RequestAudio %d\n",mNextAudioIndex);
+        [self SendOSCMsgWithIntValue:"/saga/audio\0":12:mNextAudioIndex];
+    }
+    else return;
 }
-
--(void)ResetAudioTimer
-{
-	mAudioTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(RequestAudio) userInfo:nil repeats:NO];
-}
-
 
 -(void)SendOSCMsg:(const char*)osc_str:(int)osc_str_length
 {
@@ -401,6 +394,7 @@ union {
 
 - (void)parse_osc
 {
+    // printf("mUDPInBuffer: %s\n", mUDPInBuffer);
 
     ssize_t pos = 0;
     int msg_type = 0;
@@ -418,20 +412,20 @@ union {
 #else
 #define	OSC_MSG_COMPARE(osc_add,add_type_val) if (strcmp(mUDPInBuffer,osc_add)==0) add_type = add_type_val;
 #endif
-                //NSString* buf_str = [NSString stringWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
+                // NSString* buf_str = [NSString stringWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
 
                 OSC_MSG_COMPARE("/saga/state",1)
                 else OSC_MSG_COMPARE("/saga/rec_prog",2)
                 else OSC_MSG_COMPARE("/saga/interstitial",3)
-                //else OSC_MSG_COMPARE("/saga/audio",4)
-                //else OSC_MSG_COMPARE("/saga/audio_end",5)
+                else OSC_MSG_COMPARE("/saga/audio",4)
+                else OSC_MSG_COMPARE("/saga/audio_end",5)
                 else OSC_MSG_COMPARE("/saga/cue",6)
 				else OSC_MSG_COMPARE("/saga/play",7)
 				else OSC_MSG_COMPARE("/saga/stop",8)
 				else OSC_MSG_COMPARE("/saga/loop",9)
 
-                //[buf_str release];
-                //NSLog(@"add_type %d", add_type);
+                // [buf_str release];
+                // NSLog(@"add_type %d", add_type);
                 break;
             }
 
@@ -439,12 +433,15 @@ union {
             {
                 switch (add_type)
                 {
-                    /*case 5:
+                    case 5:
                         {
-                            //printf("audio_end received\n");
+                            // printf("audio_end received\n");
                             mOSCMsg_DownloadEnd = YES;
+                            [self performSelectorOnMainThread:@selector(downloadEnd) 
+                                                   withObject:nil 
+                                                waitUntilDone:NO];
                             break;
-					}*/
+					}
 					case 7:
 					{
 						NSLog(@"play received");
@@ -487,19 +484,19 @@ union {
                         mOSCMsg_InterstitialMsg = [[NSString alloc] initWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
                         break;
                     }
-                    /*case 4:
+                    case 4:
                     {
                         OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                         int audio_index = u.int_val;
                         pos += 4;
                         
-                        NSLog(@"audio_index %i", audio_index);
+                        // NSLog(@"audio_index %i", audio_index);
                         
                         OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                         int size = u.int_val;
                         pos += 4;
                         
-                        NSLog(@"size %i", size);
+                        // NSLog(@"size %i", size);
                         
                         for (int i = 0; i < size; i++)
                         {
@@ -513,17 +510,24 @@ union {
                         {
                             mOSCMsg_DownloadProg = audio_index / (22050 * 5.);
                             mNextAudioIndex = audio_index + size;
-                            [self SendOSCMsgWithIntValue:"/saga/audio\0":12:mNextAudioIndex];
+                            
+                            [self performSelectorOnMainThread:@selector(RequestAudio) 
+                                                   withObject:nil 
+                                                waitUntilDone:NO];
+                            
+                            [self performSelectorOnMainThread:@selector(updateDownloadProg) 
+                                                   withObject:nil 
+                                                waitUntilDone:NO];
                         }
                         else
                             printf("missing audio index %d\n",audio_index);
                         
                         break;
-                    }*/
+                    }
                     case 6:
                     {
                         OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
-                        //printf("cue %d\n",u.int_val);
+                        // printf("cue %d\n",u.int_val);
                         mOSCMsg_Cue = u.int_val;
                         break;
                     }
@@ -616,43 +620,94 @@ union {
 {
     
     NSAutoreleasePool *tcpThreadPool = [[NSAutoreleasePool alloc] init];
-
+    
+    //printf("mTCPInBuffer: %s\n", mTCPInBuffer);
+    
     NSString * audioBuffer = [NSString stringWithCString:mTCPInBuffer encoding:NSASCIIStringEncoding];
     NSArray * audioMsgComponents = [audioBuffer componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-
+    
     if ([[audioMsgComponents objectAtIndex:0] isEqual:@"audio_stop"])
     {
         mOSCMsg_DownloadEnd = YES;
+        [self performSelectorOnMainThread:@selector(downloadEnd) 
+                               withObject:nil 
+                            waitUntilDone:NO];
     }
     else
     {
+        // set first element as audio_index
         int audio_index = [[audioMsgComponents objectAtIndex:0]intValue];
-        //NSLog(@"audio_index %i", audio_index);
+        //printf("audio_index %d\n", audio_index);
         
+        // set second element as size
         int size = [[audioMsgComponents objectAtIndex:1]intValue];    
-        //NSLog(@"size %i", size);
+        //printf("size %d\n", size);
         
-        for (int i = 2; i < audioMsgComponents.count; i++)
+        // set the range of the audio samples
+        NSRange samples;
+            samples.location = 2;
+            samples.length = size;
+        
+        // creat a sub array containing the data within the range
+        NSArray * audioSamples = [audioMsgComponents subarrayWithRange:samples];
+
+        // enumerate through the rest of the string and set each item as an audio_sample
+        for (int i = 0; i < audioSamples.count; i++)
         {
-            float audio_sample = [[audioMsgComponents objectAtIndex:i]floatValue];
+            float audio_sample = [[audioSamples objectAtIndex:i]floatValue];
             //NSLog(@"audio_sample %f", audio_sample);
-            [mAudioQueuePlayer SetSample:audio_index+(i-2):audio_sample];
+            [mAudioQueuePlayer SetSample:audio_index+i:audio_sample];
         }
         
         if (audio_index == mNextAudioIndex)
         {
+            // increment the progress bar
             mOSCMsg_DownloadProg = audio_index / (22050 * 5.);
+            
+            // set mNextAudioIndex
             mNextAudioIndex = audio_index + size;
-            [self SendOSCMsgWithIntValue:"/saga/audio\0":12:mNextAudioIndex];
+            
+            // request the next packet of data
+            [self performSelectorOnMainThread:@selector(RequestAudio) 
+                                   withObject:nil 
+                                waitUntilDone:NO];
+            
+            [self performSelectorOnMainThread:@selector(updateDownloadProg) 
+                                   withObject:nil 
+                                waitUntilDone:NO];
         }
         else
             printf("missing audio index %d\n",audio_index);
     }
+     
     [tcpThreadPool drain];
 }
 
+-(void)updateDownloadProg {
+    
+    if (mOSCMsg_DownloadProg >= 0.)
+	{
+		mDownloadProgView.progress = mOSCMsg_DownloadProg;
+		mOSCMsg_DownloadProg = -1.;
+	}
+}
 
--(void)checkIncomingMessages
+-(void)downloadEnd {
+    if (mOSCMsg_DownloadEnd)
+	{
+		NSLog(@"Download ended");
+#if __VINNIE__
+		[mAudioQueuePlayer->mWaveTable->mArray writeToFile:[SagarihaWaveTable dataFilePath] atomically:YES];
+		mStateClientSegControl.selectedSegmentIndex = 0;
+#else
+		mStateClientSegControl.selectedSegmentIndex = 1;
+		[mAudioQueuePlayer Start];
+#endif
+		mOSCMsg_DownloadEnd = NO;
+	}
+}
+
+- (void)checkIncomingMessages
 {
 	if (mOSCMsg_State >= 0)
 	{
@@ -665,28 +720,7 @@ union {
 		mRecProgView.progress = mOSCMsg_RecProg;
 		mOSCMsg_RecProg = -1.;
 	}
-
-	if (mOSCMsg_DownloadProg >= 0.)
-	{
-		mDownloadProgView.progress = mOSCMsg_DownloadProg;
-		[mAudioTimer invalidate];
-		[self ResetAudioTimer];
-		mOSCMsg_DownloadProg = -1.;
-	}
-	
-	if (mOSCMsg_DownloadEnd)
-	{
-		NSLog(@"Download ended");
-#if __VINNIE__
-		[mAudioQueuePlayer->mWaveTable->mArray writeToFile:[SagarihaWaveTable dataFilePath] atomically:YES];
-		mStateClientSegControl.selectedSegmentIndex = 0;
-#else
-		mStateClientSegControl.selectedSegmentIndex = 1;
-		[mAudioQueuePlayer Start];
-#endif
-		mOSCMsg_DownloadEnd = NO;
-	}
-	
+		
 	if (mOSCMsg_InterstitialMsg != nil)
 	{
 		[self turnInterstitialMsgOn];
