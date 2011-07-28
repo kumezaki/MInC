@@ -91,14 +91,10 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 #if 0	
 	gAQP = self;
-	
-	mIsPlaying = NO;
-	
 	mSR = 22050.;
 	mFreq = 880.;
 	mAmp = 1.0;
 	mTheta = 0.;
-	mWaveTable = [[SagarihaWaveTable alloc] init];
     
 	mLoopStart = 0.;
 	mLoopEnd = 1.;
@@ -107,27 +103,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     mIsDone = NO;
     mIsLooping = YES;
     
-    NSURL* url = [[NSBundle mainBundle] URLForResource:@"audsound" withExtension:@"mp3"];
-    CFURLRef audioFileURL = (CFURLRef)url;//cast the NSURL as a CFURLRef
-    
-    OSStatus result = AudioFileOpenURL (audioFileURL, 
-                                        kAudioFileReadPermission,
-                                        0,
-                                        &mAudioFile);
-    
-    if (result)
-		NSLog(@"AudioFileOpenURL %ld\n",result);
-    
-    
-    UInt32 dataFormatSize = sizeof(mDataFormat);
-    
-    result = AudioFileGetProperty(mAudioFile, 
-                                  kAudioFilePropertyDataFormat, 
-                                  &dataFormatSize, 
-                                  &mDataFormat);
-    if (result)
-        NSLog(@"couldn't get file's data format: %ld\n",result);
 #endif
+    mIsPlaying = NO;
+	mWaveTable = [[SagarihaWaveTable alloc] init];
     
 	return self;
 }
@@ -165,14 +143,35 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 #else
 {
+    CFURLRef audioFileURL = (CFURLRef)[[NSBundle mainBundle] URLForResource:@"audsound" withExtension:@"mp3"];
     
-    OSStatus result = AudioQueueNewOutput(&mDataFormat, 
-                                          AQBufferCallback, 
-                                          self, 
-                                          nil, 
-                                          nil, 
-                                          0, 
-                                          &mQueue);
+    //CFURLRef audioFileURL = (CFURLRef)[NSURL fileURLWithPath: [SagarihaWaveTable dataFilePath]];
+    
+    OSStatus result = AudioFileOpenURL (audioFileURL, 
+                                        kAudioFileReadPermission,
+                                        0,
+                                        &mAudioFile);
+    
+    if (result)
+		NSLog(@"AudioFileOpenURL %ld\n",result);
+    
+    
+    UInt32 dataFormatSize = sizeof(mDataFormat);
+    
+    result = AudioFileGetProperty(mAudioFile, 
+                                  kAudioFilePropertyDataFormat, 
+                                  &dataFormatSize, 
+                                  &mDataFormat);
+    if (result)
+        NSLog(@"couldn't get file's data format: %ld\n",result);
+    
+    result = AudioQueueNewOutput(&mDataFormat, 
+                                 AQBufferCallback, 
+                                 self, 
+                                 nil, 
+                                 nil, 
+                                 0, 
+                                 &mQueue);
     
 	if (result)
 		printf("AudioQueueNewOutput failed: %ld\n",result);
@@ -227,7 +226,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     if (result)
         NSLog(@"set queue volume: %ld\n",result);
     
-	printf("is initialized\n");
+	printf("new AQ created.\n");
 }
 #endif
 
@@ -260,10 +259,10 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	if (mIsPlaying)
 	{
 		result = AudioQueueFlush(mQueue);            
-		NSLog(@"AudioQueueFlush %ld",result);
+		//NSLog(@"AudioQueueFlush %ld",result);
 		
 		result = AudioQueueStop(mQueue, true);
-		NSLog(@"AudioQueueStop %ld",result);
+		//NSLog(@"AudioQueueStop %ld",result);
         
 		mIsPlaying = NO;
 	}
@@ -287,6 +286,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	[mWaveTable Set:index:value];
 }
+
 
 - (void)CalculateBytesForTime:(AudioStreamBasicDescription)inDesc
                              :(UInt32)inMaxPacketSize

@@ -20,13 +20,15 @@
     AudioQueueRef				mQueue;
 	AudioQueueBufferRef			mBuffers[kNumberBuffers];
 	
-    AudioFileID						mAudioFile;
-    CFStringRef						mFilePath;
-    UInt32							mNumPacketsToRead;
-    SInt64							mCurrentPacket;
+    AudioFileID     mAudioFile;
+    CFStringRef     mFilePath;
+    UInt32          mNumPacketsToRead;
+    SInt64          mCurrentPacket;
     
-    BOOL							mIsDone;
-    BOOL                            mIsLooping;
+    NSData          *mTransferedData;
+    
+    BOOL            mIsDone;
+    BOOL            mIsLooping;
 
     
 @public
@@ -37,7 +39,7 @@
 	double				mFreq;
 	double				mAmp;
 	double				mTheta;
-	SagarihaWaveTable*	mWaveTable;
+	SagarihaWaveTable   *mWaveTable;
 	
 	double				mLoopStart;
 	double				mLoopEnd;

@@ -12,9 +12,12 @@
 #import "SagarihaPanView.h"
 
 @interface SagarihaAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, UITextFieldDelegate, UIAccelerometerDelegate> {
-    UIWindow *window;
-	UITabBarController *tabBarController;
+    
+    UIWindow                    *window;
+	UITabBarController          *tabBarController;
 
+    SagarihaAudioQueuePlayer    *mAudioQueuePlayer;
+    
 	IBOutlet UISegmentedControl	*mStateServerSegControl;
 	IBOutlet UISegmentedControl	*mStateClientSegControl;
 	IBOutlet UIProgressView		*mRecProgView;
@@ -62,15 +65,13 @@
 	float					mOSCMsg_DownloadProg;
 	BOOL					mOSCMsg_DownloadEnd;
 	int						mOSCMsg_InterstitialMsgDur;
-	NSString*				mOSCMsg_InterstitialMsg;
+	NSString                *mOSCMsg_InterstitialMsg;
 	int						mOSCMsg_Cue;
 	BOOL					mOSCMsg_Play;
 	BOOL					mOSCMsg_Stop;
 	
 	int						mNextAudioIndex;
-		
-	SagarihaAudioQueuePlayer*	mAudioQueuePlayer;
-        
+		        
 	NSArray					*mImageArray;
 	
 @public

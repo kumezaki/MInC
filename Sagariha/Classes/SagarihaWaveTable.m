@@ -18,7 +18,9 @@
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *docDirectory = [paths objectAtIndex:0];
 	NSFileManager *fileManager = [NSFileManager defaultManager];
-	bool file_exists = [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"SagarihaAudio.dat"]];
+	bool file_exists = 
+        [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"SagarihaAudio.dat"]];
+    
 	NSLog(file_exists?@"audio file exists":@"audio file does not exist");
 	
 	if (file_exists)
@@ -53,6 +55,7 @@
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docDirectory = [paths objectAtIndex:0];
+    NSLog(@"docDirectory: %@", [docDirectory stringByAppendingString:@"/SagarihaAudio.dat"]);
 	return [docDirectory stringByAppendingPathComponent:@"SagarihaAudio.dat"];
 }
 
