@@ -45,34 +45,34 @@
 	IBOutlet UIButton			*mStopButton;
 	IBOutlet UIButton			*mPanicButton;
 
-	char					ip_add_buf[32];
-	int						ip_add_size;
+	char			ip_add_buf[32];
+	int				ip_add_size;
 	
-	char					mUDPInBuffer[8192];
-	ssize_t					mUDPInBufferLength;
+	char			mUDPInBuffer[1024]; //8192
+	ssize_t			mUDPInBufferLength;
     
-    char					mTCPInBuffer[1024];
-	ssize_t					mTCPInBufferLength;
+    char			mTCPInBuffer[1024];
+	ssize_t			mTCPInBufferLength;
 
-	char					mOutBuffer[1024];
-	ssize_t					mOutBufferLength;
+	char			mOutBuffer[1024];
+	ssize_t			mOutBufferLength;
 
-	NSThread				*mUDPThread;
-    NSThread				*mTCPThread;
+	NSThread		*mUDPThread;
+    NSThread		*mTCPThread;
 
-	int						mOSCMsg_State;
-	float					mOSCMsg_RecProg;
-	float					mOSCMsg_DownloadProg;
-	BOOL					mOSCMsg_DownloadEnd;
-	int						mOSCMsg_InterstitialMsgDur;
-	NSString                *mOSCMsg_InterstitialMsg;
-	int						mOSCMsg_Cue;
-	BOOL					mOSCMsg_Play;
-	BOOL					mOSCMsg_Stop;
+	int				mOSCMsg_State;
+	float			mOSCMsg_RecProg;
+	float			mOSCMsg_DownloadProg;
+	BOOL			mOSCMsg_DownloadEnd;
+	int				mOSCMsg_InterstitialMsgDur;
+	NSString        *mOSCMsg_InterstitialMsg;
+	int				mOSCMsg_Cue;
+	BOOL			mOSCMsg_Play;
+	BOOL			mOSCMsg_Stop;
 	
-	int						mNextAudioIndex;
+	int				mNextAudioIndex;
 		        
-	NSArray					*mImageArray;
+	NSArray			*mImageArray;
 	
 @public
 	UInt32					mSendIPAddress;

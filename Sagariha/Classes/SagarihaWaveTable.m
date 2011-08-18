@@ -19,7 +19,7 @@
 	NSString *docDirectory = [paths objectAtIndex:0];
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	bool file_exists = 
-        [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"SagarihaAudio.dat"]];
+        [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"SagarihaAudio.aif"]];
     
 	NSLog(file_exists?@"audio file exists":@"audio file does not exist");
 	
@@ -55,8 +55,7 @@
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docDirectory = [paths objectAtIndex:0];
-    NSLog(@"docDirectory: %@", [docDirectory stringByAppendingString:@"/SagarihaAudio.dat"]);
-	return [docDirectory stringByAppendingPathComponent:@"SagarihaAudio.dat"];
+	return [docDirectory stringByAppendingPathComponent:@"SagarihaAudio.aif"];
 }
 
 -(double) Get:(double)index
@@ -76,11 +75,11 @@
 
 -(void) Set:(UInt32)index:(double)value
 {
-	if (index < kWaveTableSize)
-	{
+//	if (index < kWaveTableSize)
+//	{
 //		mTable[index] = value;
 		[mArray replaceObjectAtIndex:index withObject:[[NSNumber alloc] initWithDouble:value]];
-	}
+//	}
 }
 
 @end

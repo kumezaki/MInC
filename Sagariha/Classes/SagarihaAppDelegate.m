@@ -697,7 +697,10 @@ union {
 	{
 		NSLog(@"Download ended");
 #if __VINNIE__
-		[mAudioQueuePlayer->mWaveTable->mArray writeToFile:[SagarihaWaveTable dataFilePath] atomically:YES];
+		[mAudioQueuePlayer->mWaveTable->mArray writeToFile:@"SagarihaAudio.aif" atomically:YES];
+        //[mAudioQueuePlayer->mWaveTable->mArray writeToFile:[SagarihaWaveTable dataFilePath] atomically:YES];
+        //NSData *data = [NSKeyedArchiver archivedDataWithRootObject:mAudioQueuePlayer->mWaveTable->mArray];
+        //[data writeToFile:@"SagarihaAudio.aif" atomically:NO];
 		mStateClientSegControl.selectedSegmentIndex = 0;
 #else
 		mStateClientSegControl.selectedSegmentIndex = 1;

@@ -8,11 +8,12 @@
 
 #import "SagarihaAudioQueuePlayer.h"
 
-// SagarihaAudioQueuePlayer *gAQP = nil;
+
+//SagarihaAudioQueuePlayer *gAQP = nil;
 
 @implementation SagarihaAudioQueuePlayer
 
-#if 0
+#if _old_AQ_
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
 {
     SagarihaAudioQueuePlayer *aqp = (SagarihaAudioQueuePlayer *)inUserData;
@@ -45,9 +46,10 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
                                            THIS->mCurrentPacket, 
                                            &nPackets, 
 										   inCompleteAQBuffer->mAudioData);
-	if (result)
+	if (result) {
 		printf("AudioFileReadPackets failed: %ld\n", result);
-    
+        return;
+    }
     //printf("AQ is running\n");
     
 	if (nPackets > 0) {
@@ -89,8 +91,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	[super init];
 
-#if 0	
-	gAQP = self;
+#if _old_AQ_	
+	//gAQP = self;
 	mSR = 22050.;
 	mFreq = 880.;
 	mAmp = 1.0;
@@ -111,7 +113,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 }
 
 -(void)createAQ
-#if 0
+#if _old_AQ_
 {
 	mDataFormat.mFormatID = kAudioFormatLinearPCM;
 	mDataFormat.mFormatFlags = kAudioFormatFlagIsSignedInteger;
@@ -143,7 +145,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 #else
 {
-    CFURLRef audioFileURL = (CFURLRef)[[NSBundle mainBundle] URLForResource:@"audsound" withExtension:@"mp3"];
+    CFURLRef audioFileURL = (CFURLRef)[[NSBundle mainBundle] URLForResource:@"SagarihaAudio" withExtension:@"aif"];
     
     //CFURLRef audioFileURL = (CFURLRef)[NSURL fileURLWithPath: [SagarihaWaveTable dataFilePath]];
     
@@ -234,6 +236,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	OSStatus result = noErr;
     
+    //NSLog(@"File Loaded: %@",[[NSBundle mainBundle] URLForResource:@"SagarihaAudio" withExtension:@"aif"]);
+    
     // if we have no queue, create one now
     if (mQueue == nil)
         [self createAQ];
@@ -248,8 +252,19 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
         
 		mIsPlaying = YES;
 	}
+
+#if _old_AQ_
+#else
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *docDirectory = [paths objectAtIndex:0];
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	bool file_exists = 
+    [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"SagarihaAudio.aif"]];
     
-	return result;
+	NSLog(file_exists?@"audio file downloaded":@"audio file did NOT download");
+#endif    
+	
+    return result;
 }
 
 -(OSStatus)Stop
@@ -287,7 +302,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	[mWaveTable Set:index:value];
 }
 
-
+#if _old_AQ_
+#else
 - (void)CalculateBytesForTime:(AudioStreamBasicDescription)inDesc
                              :(UInt32)inMaxPacketSize
                              :(Float64)inSeconds
@@ -319,6 +335,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	}
 	*outNumPackets = *outBufferSize / inMaxPacketSize;
 }
-
+#endif
 
 @end

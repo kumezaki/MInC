@@ -12,7 +12,7 @@ function Audio()
     this.buf_index = 0;
 }
 var gAudio = new Array;
-var gTransmitAudioBufSize = 128;
+var gTransmitAudioBufSize = 64;
 
 var gIPAddress = new Array;
 var gPortNum_Client_UDP = 31337;
@@ -316,8 +316,11 @@ function audio_func(pos,val)
     if (gAudio[pos].file == undefined)
     {
         gAudio[pos].file = new File("saga_buf_"+(pos+1));
+        //gAudio[pos].file = new File("audsound.mp3");
         gAudio[pos].file.byteorder = "big";
     }
+    
+//    post("gAudio[",+pos,"].file.filename =",gAudio[pos].file.filename,"\n");
     
     gAudio[pos].file.position = gAudio[pos].buf_index * 4 * 2;
     
