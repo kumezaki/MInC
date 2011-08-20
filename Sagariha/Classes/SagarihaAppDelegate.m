@@ -108,6 +108,8 @@ union {
 	mOSCMsg_Play = NO;
 	mOSCMsg_Stop = NO;
 	
+    incomingDataBuffer = [[NSMutableData alloc]init];
+    
 	mUDPThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_udp) object:nil];
 	[mUDPThread start];
     
@@ -126,10 +128,11 @@ union {
 
 - (void)dealloc {
 	
-	[mImageArray release];
+	[incomingDataBuffer release];
+    [mImageArray release];
 	[mAudioQueuePlayer release];
 	[mUDPThread release];
-//    [mTCPThread release];
+    [mTCPThread release];
     [tabBarController release];
     [window release];
     [super dealloc];
@@ -597,29 +600,36 @@ union {
     
     if (clntSock < 0) NSLog(@"ERROR on TCP accept");
 
-    UInt8 buffer[256];
-    int bytesRead;
-    BOOL done = NO;
+    char buffer[256];
+    int bytesRcvd;
     int count = 0;
-    
+    BOOL done = NO;
+
     while (!done) {
+        
         memset(buffer, 0, 256);
-        bytesRead = recv(clntSock, buffer, sizeof(buffer), 0);
         
-        if (bytesRead < 0) NSLog(@"ERROR reading from TCP socket\n");
+        bytesRcvd = recv(clntSock, buffer, sizeof(buffer)-1, 0);
         
-        if (bytesRead  > 0) {
-			printf("bytesRead: %d; buffer contents: %s\n",bytesRead,buffer);
-                [incomingDataBuffer appendBytes:buffer length:bytesRead];
+        if (bytesRcvd < 0) NSLog(@"ERROR reading from TCP socket\n");
+        
+        if (bytesRcvd  > 0) {
+			printf("bytesRead: %d; buffer contents: %s\n", bytesRcvd, buffer);
+            [incomingDataBuffer appendBytes:buffer length:bytesRcvd];
             ++count;
             printf("receive packet count: %d\n",count);
         }
-        if (bytesRead == 0) {
+        if (bytesRcvd == 0) {
+            NSLog(@"total bytes recieved: %u",[incomingDataBuffer length]);
             [self tcp_file];
             done = YES;
             break;
         }
     }
+    
+    NSRange resetRange = {0, [incomingDataBuffer length]};
+    [incomingDataBuffer resetBytesInRange:resetRange];
+    
     close(clntSock);	
     close(servSock);
 }
@@ -634,7 +644,7 @@ union {
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *filePath = [documentsPath stringByAppendingPathComponent:@"forZero.mp3"];
     mAudioQueuePlayer.theFile = filePath;
-    NSLog(@"filePath:%@", filePath);
+        //NSLog(@"filePath:%@", filePath);
     
     [raw writeToFile:filePath atomically:YES];
         

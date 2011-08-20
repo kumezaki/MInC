@@ -147,22 +147,18 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 #else
 {
-#if 0   
-    CFURLRef audioFileURL = (CFURLRef)[[NSBundle mainBundle] URLForResource:@"audsound" withExtension:@"mp3"];
-#else
+    
     CFURLRef audioFileURL = (CFURLRef) [NSURL URLWithString:self.theFile];
-#endif    
-    NSLog(@"filePath:%@",(NSString*)audioFileURL);
+        //NSLog(@"filePath:%@",(NSString*)audioFileURL);
     
     OSStatus result = AudioFileOpenURL (audioFileURL, 
                                         kAudioFileReadPermission,
                                         0,
                                         &mAudioFile);
-    
     if (result)
 		NSLog(@"AudioFileOpenURL %ld\n",result);
     
-    /*
+    
     UInt32 dataFormatSize = sizeof(mDataFormat);
     
     result = AudioFileGetProperty(mAudioFile, 
@@ -232,7 +228,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	result = (AudioQueueSetParameter(mQueue, kAudioQueueParam_Volume, 1.0));
     if (result)
         NSLog(@"set queue volume: %ld\n",result);
-    */
+    
 	printf("new AQ created.\n");
 }
 #endif
@@ -307,6 +303,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 }
 
 #if _old_AQ_
+
 #else
 - (void)CalculateBytesForTime:(AudioStreamBasicDescription)inDesc
                              :(UInt32)inMaxPacketSize
