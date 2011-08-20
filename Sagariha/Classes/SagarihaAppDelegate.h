@@ -51,8 +51,10 @@
 	char			mUDPInBuffer[1024]; //8192
 	ssize_t			mUDPInBufferLength;
     
-    char			mTCPInBuffer[1024];
-	ssize_t			mTCPInBufferLength;
+        //char			mTCPInBuffer[1024];
+        //ssize_t			mTCPInBufferLength;
+    
+    NSMutableData* incomingDataBuffer;
 
 	char			mOutBuffer[1024];
 	ssize_t			mOutBufferLength;
@@ -111,7 +113,7 @@
 -(void)receive_udp;
 -(void)parse_osc;
 -(void)receive_tcp;
--(void)parse_tcp;
+-(void)tcp_file;
 
 -(void)checkIncomingMessages;
 -(void)updateDownloadProg;

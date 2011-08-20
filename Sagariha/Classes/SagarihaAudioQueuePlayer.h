@@ -11,7 +11,7 @@
 
 #import "SagarihaWaveTable.h"
 
-#define _old_AQ_ 1
+#define _old_AQ_ 0
 
 #define kNumberBuffers	3
 #define kBufferDurationSeconds .5
@@ -43,6 +43,8 @@
 	double				mLoopStart;
 	double				mLoopEnd;
 }
+
+@property (nonatomic, retain) NSString *theFile;
 
 -(void)		createAQ;
 

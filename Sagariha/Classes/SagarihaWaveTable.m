@@ -21,7 +21,7 @@
 	bool file_exists = 
         [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"SagarihaAudio.aif"]];
     
-	NSLog(file_exists?@"audio file exists":@"audio file does not exist");
+        //NSLog(file_exists?@"audio file exists":@"audio file does not exist");
 	
 	if (file_exists)
 		mArray = [[NSMutableArray alloc] initWithContentsOfFile:[SagarihaWaveTable dataFilePath]];

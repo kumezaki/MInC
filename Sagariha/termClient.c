@@ -37,6 +37,9 @@ int main(int argc, char *argv[])
 
 	/* Open file to be sent */
 	FILE *fp = fopen(fileName,"rb");
+	size_t fileSize = sizeof(*fp);
+	
+	printf("size of file in bytes:%ld",fileSize);
 	
 	if (fp == NULL)
 	{
@@ -54,21 +57,21 @@ int main(int argc, char *argv[])
     servAddr.sin_addr.s_addr = inet_addr(servIP);	/* Server IP address */
     servAddr.sin_port        = htons(servPort);		/* Server port */
 
-    /* Establish the connection to the echo server */
+    /* Establish the connection to the server */
     if (connect(sock, (struct sockaddr *) &servAddr, sizeof(servAddr)) < 0)
         dieWithError("connect() failed");
-    
+    int count = 0;
     while (!feof(fp))
 	{
     	memset(sendBuffer, 0 ,BUFSIZE);
 		size_t bytesRead = fread(sendBuffer,1,BUFSIZE,fp);
 		printf("%ld\n",bytesRead);
-		
+		++count;
         /* Send the string to the server */
     if (send(sock, sendBuffer, BUFSIZE, 0) < 0)
         dieWithError("send(): ERROR writing to socket");
 	}
-	
+	printf("sent packet count: %d\n", count);
 	fclose(fp);
     close(sock);
     exit(0);

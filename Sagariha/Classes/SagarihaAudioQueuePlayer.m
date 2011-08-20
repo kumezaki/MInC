@@ -12,6 +12,7 @@
 //SagarihaAudioQueuePlayer *gAQP = nil;
 
 @implementation SagarihaAudioQueuePlayer
+@synthesize theFile = _theFile;
 
 #if _old_AQ_
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
@@ -80,8 +81,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 - (void)dealloc {
     
-	[self Stop];
-	
+	[_theFile release];
+    self.theFile = nil;
+    [self Stop];
 	[mWaveTable dealloc];
     
 	[super dealloc];
@@ -145,9 +147,12 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 #else
 {
-    CFURLRef audioFileURL = (CFURLRef)[[NSBundle mainBundle] URLForResource:@"SagarihaAudio" withExtension:@"aif"];
-    
-    //CFURLRef audioFileURL = (CFURLRef)[NSURL fileURLWithPath: [SagarihaWaveTable dataFilePath]];
+#if 0   
+    CFURLRef audioFileURL = (CFURLRef)[[NSBundle mainBundle] URLForResource:@"audsound" withExtension:@"mp3"];
+#else
+    CFURLRef audioFileURL = (CFURLRef) [NSURL URLWithString:self.theFile];
+#endif    
+    NSLog(@"filePath:%@",(NSString*)audioFileURL);
     
     OSStatus result = AudioFileOpenURL (audioFileURL, 
                                         kAudioFileReadPermission,
@@ -157,7 +162,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     if (result)
 		NSLog(@"AudioFileOpenURL %ld\n",result);
     
-    
+    /*
     UInt32 dataFormatSize = sizeof(mDataFormat);
     
     result = AudioFileGetProperty(mAudioFile, 
@@ -227,7 +232,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	result = (AudioQueueSetParameter(mQueue, kAudioQueueParam_Volume, 1.0));
     if (result)
         NSLog(@"set queue volume: %ld\n",result);
-    
+    */
 	printf("new AQ created.\n");
 }
 #endif
@@ -254,14 +259,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	}
 
 #if _old_AQ_
-#else
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *docDirectory = [paths objectAtIndex:0];
 	NSFileManager *fileManager = [NSFileManager defaultManager];
-	bool file_exists = 
-    [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"SagarihaAudio.aif"]];
+	bool file_exists = [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"Sagariha.mp3"]];
     
 	NSLog(file_exists?@"audio file downloaded":@"audio file did NOT download");
+#else
 #endif    
 	
     return result;

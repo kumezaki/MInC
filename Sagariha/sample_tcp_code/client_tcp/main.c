@@ -41,10 +41,14 @@ int main (int argc, const char * argv[])
     int sockfd;
     struct sockaddr_in serv_addr;
     struct hostent *server;
+    
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd < 0) { fprintf(stderr,"ERROR opening socket\n"); exit(0); }
+    
     server = gethostbyname(ip_address);
+    
     if (server == NULL) { fprintf(stderr,"ERROR, no such host\n"); exit(0); }
+    
     bzero((char *) &serv_addr, sizeof(serv_addr));
     serv_addr.sin_family = AF_INET;
     bcopy((char *)server->h_addr, 
@@ -61,10 +65,10 @@ int main (int argc, const char * argv[])
 		size_t num_read = fread(buffer,1,buf_size,fp);
 		
 		/*** send the TCP/IP packet here (see client.c code) ***/
-		size_t num_sent = write(sockfd,buffer,num_read);
+        int num_sent = write(sockfd,buffer,num_read);
 		if (num_sent < 0) { fprintf(stderr,"ERROR writing to socket\n"); exit(0); }
 		
-		printf("num_read %ld: num_sent %ld\n",num_read,num_sent);
+		printf("num_read %ld: num_sent %d\n",num_read,num_sent);
 	}
 	
 	/*** close down network stuff here (see client.c code) ***/

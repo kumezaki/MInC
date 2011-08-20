@@ -110,10 +110,10 @@ union {
 	
 	mUDPThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_udp) object:nil];
 	[mUDPThread start];
-    /*
+    
     mTCPThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_tcp) object:nil];
 	[mTCPThread start];
-	*/
+	
 	[self checkIncomingMessages];
 	
 	mAudioQueuePlayer = [[SagarihaAudioQueuePlayer alloc] init];
@@ -572,114 +572,72 @@ union {
 
 -(void)receive_tcp
 {
-    int sockfd, newsockfd;
-    socklen_t clilen;
+    int servSock, clntSock;
+    struct sockaddr_in servAddr, clntAddr;
     
-    struct sockaddr_in serv_addr, cli_addr;
+    servSock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
     
-    sockfd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-    
-    if (sockfd < 0)
+    if (servSock < 0)
         NSLog(@"ERROR opening TCP socket");
     
-    //bzero((char *) &serv_addr, sizeof(serv_addr));
-    memset(&serv_addr, 0, sizeof(serv_addr));
-    serv_addr.sin_family = AF_INET;    
-    serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);    
-    serv_addr.sin_port = htons(mTCPReceivePortNum);
+    memset(&servAddr, 0, sizeof(servAddr));
+    servAddr.sin_family = AF_INET;    
+    servAddr.sin_addr.s_addr = htonl(INADDR_ANY);    
+    servAddr.sin_port = htons(mTCPReceivePortNum);
     
-    if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0)
+    if (bind(servSock, (struct sockaddr *) &servAddr, sizeof(servAddr)) < 0)
         NSLog(@"ERROR on TCP binding");
     
-    if (listen(sockfd,5) < 0)
+    if (listen(servSock,5) < 0)
         NSLog(@"listen() failed");
-        	
-    for (;;)
-	{	
-        clilen = sizeof(cli_addr);
+    
+    socklen_t clntLen = sizeof(clntAddr);
+    clntSock = accept(servSock,(struct sockaddr *) &clntAddr, &clntLen);
+    /* will get here if a client connects, otherwise this process waits */
+    
+    if (clntSock < 0) NSLog(@"ERROR on TCP accept");
 
-        newsockfd = accept(sockfd,(struct sockaddr *) &cli_addr, &clilen);
-        /* will get here if a client connects, otherwise this process waits */
+    UInt8 buffer[256];
+    int bytesRead;
+    BOOL done = NO;
+    int count = 0;
+    
+    while (!done) {
+        memset(buffer, 0, 256);
+        bytesRead = recv(clntSock, buffer, sizeof(buffer), 0);
         
-        if (newsockfd < 0) NSLog(@"ERROR on TCP accept");
+        if (bytesRead < 0) NSLog(@"ERROR reading from TCP socket\n");
         
-        mTCPInBufferLength = recv(newsockfd, mTCPInBuffer, 1024, 0);
-        //NSLog(@"mTCPInBufferLength: %ld\n",mTCPInBufferLength);
-        
-        if (mTCPInBufferLength < 0) NSLog(@"ERROR reading from TCP socket\n");
-        
-        [self parse_tcp];
-        
-        close(newsockfd);
-	}
-	
-    close(sockfd);
+        if (bytesRead  > 0) {
+			printf("bytesRead: %d; buffer contents: %s\n",bytesRead,buffer);
+                [incomingDataBuffer appendBytes:buffer length:bytesRead];
+            ++count;
+            printf("receive packet count: %d\n",count);
+        }
+        if (bytesRead == 0) {
+            [self tcp_file];
+            done = YES;
+            break;
+        }
+    }
+    close(clntSock);	
+    close(servSock);
 }
 
-- (void)parse_tcp
+- (void)tcp_file
 {
     
     NSAutoreleasePool *tcpThreadPool = [[NSAutoreleasePool alloc] init];
     
-    //printf("mTCPInBuffer: %s\n", mTCPInBuffer);
+    NSData* raw = [NSData dataWithBytes:[incomingDataBuffer bytes] length:[incomingDataBuffer length]];
     
-    NSString * audioBuffer = [NSString stringWithCString:mTCPInBuffer encoding:NSASCIIStringEncoding];
-    NSArray * audioMsgComponents = [audioBuffer componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:@"forZero.mp3"];
+    mAudioQueuePlayer.theFile = filePath;
+    NSLog(@"filePath:%@", filePath);
     
-    if ([[audioMsgComponents objectAtIndex:0] isEqual:@"audio_stop"])
-    {
-        mOSCMsg_DownloadEnd = YES;
-        [self performSelectorOnMainThread:@selector(downloadEnd) 
-                               withObject:nil 
-                            waitUntilDone:NO];
-    }
-    else
-    {
-        // set first element as audio_index
-        int audio_index = [[audioMsgComponents objectAtIndex:0]intValue];
-        //printf("audio_index %d\n", audio_index);
+    [raw writeToFile:filePath atomically:YES];
         
-        // set second element as size
-        int size = [[audioMsgComponents objectAtIndex:1]intValue];    
-        //printf("size %d\n", size);
-        
-        // set the range of the audio samples
-        NSRange samples;
-            samples.location = 2;
-            samples.length = size;
-        
-        // creat a sub array containing the data within the range
-        NSArray * audioSamples = [audioMsgComponents subarrayWithRange:samples];
-
-        // enumerate through the rest of the string and set each item as an audio_sample
-        for (int i = 0; i < audioSamples.count; i++)
-        {
-            float audio_sample = [[audioSamples objectAtIndex:i]floatValue];
-            //NSLog(@"audio_sample %f", audio_sample);
-            [mAudioQueuePlayer SetSample:audio_index+i:audio_sample];
-        }
-        
-        if (audio_index == mNextAudioIndex)
-        {
-            // increment the progress bar
-            mOSCMsg_DownloadProg = audio_index / (22050 * 5.);
-            
-            // set mNextAudioIndex
-            mNextAudioIndex = audio_index + size;
-            
-            // request the next packet of data
-            [self performSelectorOnMainThread:@selector(RequestAudio) 
-                                   withObject:nil 
-                                waitUntilDone:NO];
-            
-            [self performSelectorOnMainThread:@selector(updateDownloadProg) 
-                                   withObject:nil 
-                                waitUntilDone:NO];
-        }
-        else
-            printf("missing audio index %d\n",audio_index);
-    }
-     
     [tcpThreadPool drain];
 }
 
