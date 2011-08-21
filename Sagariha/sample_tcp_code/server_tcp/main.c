@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
 	if (newsockfd < 0) 
 		error("ERROR on accept");
 	
-	
+
 	int done = 0;
 	while (!done)
 	{	
