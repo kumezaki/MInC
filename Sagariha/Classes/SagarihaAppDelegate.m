@@ -21,7 +21,7 @@
 
 @implementation SagarihaAppDelegate
 
-#define __VINNIE__	1
+#define __VINNIE__	0
 
 #define OSC_START mOutBufferLength = 0;
 #define OSC_END [self send_udp];
@@ -160,10 +160,11 @@ union {
 			break;
 		case 2:	/* download */
 			mNextAudioIndex = 0;
-#if 1
+#if 0
 			[self RequestAudio];
 #else
-			[self SendOSCMsg:"/saga/audio\0":12];
+			[self SendOSCMsg:"/saga/download\0\0":16];
+            [self performSelector:@selector(receive_tcp) onThread:mTCPThread withObject:nil waitUntilDone:NO];
 #endif
 			break;
 	}
@@ -666,10 +667,7 @@ union {
 		NSLog(@"Download ended");
 #if __VINNIE__
 		[mAudioQueuePlayer->mWaveTable->mArray writeToFile:@"SagarihaAudio.aif" atomically:YES];
-        //[mAudioQueuePlayer->mWaveTable->mArray writeToFile:[SagarihaWaveTable dataFilePath] atomically:YES];
-        //NSData *data = [NSKeyedArchiver archivedDataWithRootObject:mAudioQueuePlayer->mWaveTable->mArray];
-        //[data writeToFile:@"SagarihaAudio.aif" atomically:NO];
-		mStateClientSegControl.selectedSegmentIndex = 0;
+        mStateClientSegControl.selectedSegmentIndex = 0;
 #else
 		mStateClientSegControl.selectedSegmentIndex = 1;
 		[mAudioQueuePlayer Start];
