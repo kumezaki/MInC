@@ -155,9 +155,11 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
                                         kAudioFileReadPermission,
                                         0,
                                         &mAudioFile);
-    if (result)
+    if (result != noErr) {
 		NSLog(@"AudioFileOpenURL %ld\n",result);
-    
+        self.theFile = nil;
+        return;
+    }
     
     UInt32 dataFormatSize = sizeof(mDataFormat);
     
@@ -165,9 +167,11 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
                                   kAudioFilePropertyDataFormat, 
                                   &dataFormatSize, 
                                   &mDataFormat);
-    if (result)
+    if (result != noErr) {
         NSLog(@"couldn't get file's data format: %ld\n",result);
-    
+        self.theFile = nil;
+        return;
+    }
     result = AudioQueueNewOutput(&mDataFormat, 
                                  AQBufferCallback, 
                                  self, 
@@ -176,9 +180,12 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
                                  0, 
                                  &mQueue);
     
-	if (result)
+	if (result != noErr) {
 		printf("AudioQueueNewOutput failed: %ld\n",result);
-    
+        self.theFile = nil;
+        return;
+    }
+
     
     UInt32 bufferByteSize;		
 	UInt32 maxPacketSize;
@@ -189,9 +196,12 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
                                   &size,               
                                   &maxPacketSize); 
     
-    if (result)
+    if (result != noErr) {
         NSLog(@"couldn't get file's max packet size: %ld\n",result);
-    
+        self.theFile = nil;
+        return;
+    }
+
     [self CalculateBytesForTime:mDataFormat
                                :maxPacketSize
                                :kBufferDurationSeconds
@@ -202,7 +212,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     
     // channel layout?
 	result = AudioFileGetPropertyInfo(mAudioFile, kAudioFilePropertyChannelLayout, &size, NULL);
-	if (result == noErr && size > 0) {
+	
+    if (result == noErr && size > 0) {
 		
         AudioChannelLayout *acl = (AudioChannelLayout *)malloc(size);
 		
@@ -226,7 +237,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     
 	// set the volume of the queue
 	result = (AudioQueueSetParameter(mQueue, kAudioQueueParam_Volume, 1.0));
-    if (result)
+    
+    if (result != noErr)
         NSLog(@"set queue volume: %ld\n",result);
     
 	printf("new AQ created.\n");
@@ -243,7 +255,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     if (mQueue == nil)
         [self createAQ];
     
-	if (!mIsPlaying)
+	if (!mIsPlaying && self.theFile != nil)
 	{
 		// prime the queue with some data before starting
 		for (int i = 0; i < kNumberBuffers; ++i)
