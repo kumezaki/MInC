@@ -9,7 +9,11 @@ BEGIN {
 	ip_address = $1
 	port_num = $2
 	file_path = $3
-	
+
+# lame encoder call
+# use the following for raw file
+#	sys_cmd = "lame -r -s 44.1 --bitwidth 16 -m m \'"$3"\'"
+# use the following for .wav file
 	sys_cmd = "lame -m m \'"$3"\'"
 	system(sys_cmd)
 	
