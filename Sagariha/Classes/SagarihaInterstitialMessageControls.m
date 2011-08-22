@@ -9,10 +9,8 @@
 #import "SagarihaInterstitialMessageControls.h"
 
 #import "SagarihaAppDelegate.h"
-#import "SagarihaNetworking.h"
 #import "SagarihaSingleton.h"
 
-extern SagarihaNetworking* networking;
 extern SagarihaSingleton* singleton;
 
 @implementation SagarihaInterstitialMessageControls

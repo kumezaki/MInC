@@ -12,7 +12,6 @@
 #import "SagarihaNetworking.h"
 #import "SagarihaSingleton.h"
 
-extern SagarihaNetworking* networking;
 extern SagarihaSingleton* singleton;
 
 #define FLOAT_TO_MRMR_INT(v) (int)(v * 1000. + 0.5)
@@ -33,7 +32,7 @@ extern SagarihaSingleton* singleton;
 
 -(IBAction)SetStateServer:(id)sender
 {
-	[networking SendOSCMsgWithIntValue:"/saga/state\0":12:mStateServerSegControl.selectedSegmentIndex];
+	[singleton->networking SendOSCMsgWithIntValue:"/saga/state\0":12:mStateServerSegControl.selectedSegmentIndex];
 }
 
 -(IBAction)SetStateClient:(id)sender
@@ -49,10 +48,10 @@ extern SagarihaSingleton* singleton;
 		case 2:	/* download */
 			singleton.nextAudioIndex = 0;
 #if 0
-			[networking SendOSCMsgWithIntValue:"/saga/audio\0":12:singleton.nextAudioIndex];
+			[singleton->networking SendOSCMsgWithIntValue:"/saga/audio\0":12:singleton.nextAudioIndex];
 #else
-			[networking SendOSCMsg:"/saga/download\0\0":16];
-			[networking DoReceiveTCP]; /* Question: hasn't the TCP thread already started? What call this here? */
+			[singleton->networking SendOSCMsg:"/saga/download\0\0":16];
+			[singleton->networking DoReceiveTCP]; /* Question: hasn't the TCP thread already started? What call this here? */
 #endif
 			break;
 	}
@@ -60,23 +59,23 @@ extern SagarihaSingleton* singleton;
 
 -(IBAction)SetEnvPeriod:(id)sender
 {
-	[networking SendOSCMsgWithIntValue:"/saga/period\0\0\0\0":16:FLOAT_TO_MRMR_INT([mEnvPeriodSlider value])];
+	[singleton->networking SendOSCMsgWithIntValue:"/saga/period\0\0\0\0":16:FLOAT_TO_MRMR_INT([mEnvPeriodSlider value])];
 }
 
 -(IBAction)SetDelayLevel:(id)sender
 {
-	[networking SendOSCMsgWithIntValue:"/saga/delay\0":12:FLOAT_TO_MRMR_INT([mDelayLevelSlider value])];
+	[singleton->networking SendOSCMsgWithIntValue:"/saga/delay\0":12:FLOAT_TO_MRMR_INT([mDelayLevelSlider value])];
 }
 
 -(IBAction)SetPan:(id)sender
 {
-	[networking SendOSCMsgWithIntValue:"/saga/pan\0\0\0":12:FLOAT_TO_MRMR_INT([mPanSlider value])];
+	[singleton->networking SendOSCMsgWithIntValue:"/saga/pan\0\0\0":12:FLOAT_TO_MRMR_INT([mPanSlider value])];
 }
 
 -(IBAction)SetVolumeServer:(id)sender
 {
 	//	NSLog(@"%f\n",[mVolumeServerSlider value]);
-	[networking SendOSCMsgWithIntValue:"/saga/vol_s\0\0\0":12:FLOAT_TO_MRMR_INT([mVolumeServerSlider value])];
+	[singleton->networking SendOSCMsgWithIntValue:"/saga/vol_s\0\0\0":12:FLOAT_TO_MRMR_INT([mVolumeServerSlider value])];
 }
 
 -(IBAction)SetVolumeClient:(id)sender
@@ -88,7 +87,7 @@ extern SagarihaSingleton* singleton;
 
 -(IBAction)RequestHint
 {
-	[networking SendOSCMsg:"/saga/hint\0\0":12];
+	[singleton->networking SendOSCMsg:"/saga/hint\0\0":12];
 }
 
 -(void) SetCue:(int)cue_num
@@ -153,7 +152,7 @@ extern SagarihaSingleton* singleton;
 	
 	float x = LIMIT_ACC_VAL(acceleration.x);
 	float y = LIMIT_ACC_VAL(acceleration.y+0.35);
-	//	float z = LIMIT_ACC_VAL(acceleration.z);
+//	float z = LIMIT_ACC_VAL(acceleration.z);
 	
 	//	[mPanView Set:(x+1.)/2:1.-((y+1.)/2)];
 	[mPanView SetVelocity:x:-y];
@@ -162,9 +161,9 @@ extern SagarihaSingleton* singleton;
 	x = [mPanView GetX] * 2. - 1.;
 	y = (1. - [mPanView GetY]) * 2. - 1.;
 	
-	[networking SendOSCMsgWithFloatValue:"/saga/accelx\0\0\0\0":16:x];
-	[networking SendOSCMsgWithFloatValue:"/saga/accely\0\0\0\0":16:y];
-	//	[networking SendOSCMsgWithFloatValue:"/saga/accelz\0\0\0\0":16:z];
+	[singleton->networking SendOSCMsgWithFloatValue:"/saga/accelx\0\0\0\0":16:x];
+	[singleton->networking SendOSCMsgWithFloatValue:"/saga/accely\0\0\0\0":16:y];
+//	[singleton->networking SendOSCMsgWithFloatValue:"/saga/accelz\0\0\0\0":16:z];
 	
 #if 0
 	NSLog(@"%f, %f, %f\n",x,y,z);

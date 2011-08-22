@@ -11,14 +11,14 @@
 #import "SagarihaAppDelegate.h"
 #import "SagarihaNetworking.h"
 
-extern SagarihaNetworking* networking;
-
 @implementation SagarihaSingleton
 
 @synthesize nextAudioIndex;
 
 -(id)init
 {
+	networking = [[SagarihaNetworking alloc] init];
+
 	if ([self dataFileExists])
 		[self readDataFile];
 
@@ -41,6 +41,8 @@ extern SagarihaNetworking* networking;
 
 -(void)dealloc
 {
+	[networking release];
+
 	[mAudioQueuePlayer release];
 
 	[super dealloc];

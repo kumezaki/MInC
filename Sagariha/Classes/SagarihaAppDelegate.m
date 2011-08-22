@@ -8,7 +8,6 @@
 
 #import "SagarihaAppDelegate.h"
 
-#import "SagarihaNetworking.h"
 #import "SagarihaSingleton.h"
 
 #include <arpa/inet.h>
@@ -22,7 +21,6 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
-SagarihaNetworking* networking = nil;
 SagarihaSingleton* singleton = nil;
 
 @implementation SagarihaAppDelegate
@@ -54,8 +52,6 @@ SagarihaSingleton* singleton = nil;
 {
 	[super init];
 
-	networking = [[SagarihaNetworking alloc] init];
-	
 	singleton = [[SagarihaSingleton alloc] init];
 	
 	return self;
@@ -64,9 +60,9 @@ SagarihaSingleton* singleton = nil;
 - (void)dealloc {
 
     [singleton release];
-	[networking release];
     [tabBarController release];
     [window release];
+
     [super dealloc];
 }
 

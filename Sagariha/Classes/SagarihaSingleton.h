@@ -10,12 +10,15 @@
 
 #import "SagarihaAudioQueuePlayer.h"
 #import "SagarihaForZeroControls.h"
+#import "SagarihaNetworking.h"
 
 @interface SagarihaSingleton : NSObject <UIAccelerometerDelegate> {
 	
 	int				nextAudioIndex;
-
+	
 @public
+
+	SagarihaNetworking			*networking;
 	SagarihaAudioQueuePlayer    *mAudioQueuePlayer;
 	
 	int				mOSCMsg_State;

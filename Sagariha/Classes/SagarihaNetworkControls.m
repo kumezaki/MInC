@@ -8,10 +8,8 @@
 
 #import "SagarihaNetworkControls.h"
 
-#import "SagarihaNetworking.h"
 #import "SagarihaSingleton.h"
 
-extern SagarihaNetworking* networking;
 extern SagarihaSingleton* singleton;
 
 @implementation SagarihaNetworkControls
@@ -23,11 +21,11 @@ extern SagarihaSingleton* singleton;
 	mIPAddressTextField.delegate = self;
 	mPortNumTextField.delegate = self;
 	
-	mIPAddressTextField.text = [NSString stringWithFormat:@"%d.%d.%d.%d",(networking->mSendIPAddress&0xFF000000)>>24
-								,(networking->mSendIPAddress&0x00FF0000)>>16
-								,(networking->mSendIPAddress&0x0000FF00)>>8
-								,(networking->mSendIPAddress&0x000000FF)>>0];
-	mPortNumTextField.text = [NSString stringWithFormat:@"%d",networking->mSendPortNum];
+	mIPAddressTextField.text = [NSString stringWithFormat:@"%d.%d.%d.%d",(singleton->networking->mSendIPAddress&0xFF000000)>>24
+								,(singleton->networking->mSendIPAddress&0x00FF0000)>>16
+								,(singleton->networking->mSendIPAddress&0x0000FF00)>>8
+								,(singleton->networking->mSendIPAddress&0x000000FF)>>0];
+	mPortNumTextField.text = [NSString stringWithFormat:@"%d",singleton->networking->mSendPortNum];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
@@ -55,9 +53,9 @@ extern SagarihaSingleton* singleton;
 #endif
 			ip_add |= [s intValue] << (8 * (4 - ++i));
 		}
-		networking->mSendIPAddress = ip_add;
+		singleton->networking->mSendIPAddress = ip_add;
 		[singleton writeDataFile];
-		NSLog(@"IPAddressChanged to %08lx\n",networking->mSendIPAddress);
+		NSLog(@"IPAddressChanged to %08lx\n",singleton->networking->mSendIPAddress);
 	}
 }
 
@@ -68,9 +66,9 @@ extern SagarihaSingleton* singleton;
 	[mPortNumTextField.text getCString:buffer maxLength:16 encoding:NSASCIIStringEncoding];
 #endif
 	
-	networking->mSendPortNum = [mPortNumTextField.text intValue];
+	singleton->networking->mSendPortNum = [mPortNumTextField.text intValue];
 	[singleton writeDataFile];
-	NSLog(@"PortNumChanged to %d\n",networking->mSendPortNum);
+	NSLog(@"PortNumChanged to %d\n",singleton->networking->mSendPortNum);
 }
 
 @end

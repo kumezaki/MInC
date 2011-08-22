@@ -8,30 +8,30 @@
 
 #import "SagarihaForZeroControls.h"
 
-#import "SagarihaNetworking.h"
+#import "SagarihaSingleton.h"
 
-extern SagarihaNetworking* networking;
+extern SagarihaSingleton* singleton;
 
 @implementation SagarihaForZeroControls
 
 -(IBAction)ForZero_Start:(id)sender
 {
-    [networking SendOSCMsg:"/saga/fz_start\0\0":16];    
+    [singleton->networking SendOSCMsg:"/saga/fz_start\0\0":16];    
 }
 
 -(IBAction)ForZero_Subtract:(id)sender
 {
-	[networking SendOSCMsg:"/saga/fz_sub\0\0\0\0":16];
+	[singleton->networking SendOSCMsg:"/saga/fz_sub\0\0\0\0":16];
 }
 
 -(IBAction)ForZero_Stop:(id)sender
 {    
-	[networking SendOSCMsg:"/saga/fz_stop\0\0\0":16];
+	[singleton->networking SendOSCMsg:"/saga/fz_stop\0\0\0":16];
 }
 
 -(IBAction)ForZero_Panic:(id)sender
 {
-	[networking SendOSCMsg:"/saga/fz_panic\0\0":16];
+	[singleton->networking SendOSCMsg:"/saga/fz_panic\0\0":16];
 }
 
 @end
