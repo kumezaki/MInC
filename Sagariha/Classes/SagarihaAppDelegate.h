@@ -16,8 +16,6 @@
     UIWindow                    *window;
 	UITabBarController          *tabBarController;
 
-    SagarihaAudioQueuePlayer    *mAudioQueuePlayer;
-    
 	IBOutlet UISegmentedControl	*mStateServerSegControl;
 	IBOutlet UISegmentedControl	*mStateClientSegControl;
 	IBOutlet UIProgressView		*mRecProgView;
@@ -45,43 +43,13 @@
 	IBOutlet UIButton			*mStopButton;
 	IBOutlet UIButton			*mPanicButton;
 
-	char			ip_add_buf[32];
-	int				ip_add_size;
-	
-	char			mUDPInBuffer[1024]; //8192
-	ssize_t			mUDPInBufferLength;
-    
-        //char			mTCPInBuffer[1024];
-        //ssize_t			mTCPInBufferLength;
-    
-    NSMutableData* incomingDataBuffer;
-
-	char			mOutBuffer[1024];
-	ssize_t			mOutBufferLength;
-
-	NSThread		*mUDPThread;
-    NSThread		*mTCPThread;
-
-	int				mOSCMsg_State;
-	float			mOSCMsg_RecProg;
-	float			mOSCMsg_DownloadProg;
-	BOOL			mOSCMsg_DownloadEnd;
-	int				mOSCMsg_InterstitialMsgDur;
-	NSString        *mOSCMsg_InterstitialMsg;
-	int				mOSCMsg_Cue;
-	BOOL			mOSCMsg_Play;
-	BOOL			mOSCMsg_Stop;
-	
-	int				mNextAudioIndex;
-		        
 	NSArray			*mImageArray;
 	
 @public
-	UInt32					mSendIPAddress;
-	SInt16					mSendPortNum;
+	
+	SagarihaAudioQueuePlayer    *mAudioQueuePlayer;
 
-	SInt16					mUDPReceivePortNum;
-    SInt16					mTCPReceivePortNum;
+	int				mNextAudioIndex;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -105,25 +73,10 @@
 
 -(void)RequestAudio;
 
--(void)SendOSCMsg:(const char*)osc_str:(int)osc_str_length;
--(void)SendOSCMsgWithIntValue:(const char*)osc_str:(int)osc_str_length:(int)val;
--(void)SendOSCMsgWithFloatValue:(const char*)osc_str:(int)osc_str_length:(float)val;
-
--(void)send_udp;
--(void)receive_udp;
--(void)parse_osc;
--(void)receive_tcp;
--(void)tcp_file;
-
 -(void)checkIncomingMessages;
+
 -(void)updateDownloadProg;
 -(void)downloadEnd;
-
--(NSString *)getIPAddress;
-
-+(NSString *)dataFilePath;
--(void) readDataFile;
--(void) writeDataFile;
 
 -(void) SetCue:(int)cue_num;
 

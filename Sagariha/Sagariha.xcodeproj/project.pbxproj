@@ -22,6 +22,8 @@
 		B41FE63813DDFB4200209552 /* audsound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B41FE63713DDFB4200209552 /* audsound.mp3 */; };
 		B47EA76713E3554000C314CE /* test_audio.aif in Resources */ = {isa = PBXBuildFile; fileRef = B47EA76613E3554000C314CE /* test_audio.aif */; };
 		B4D57C3513DE823D007D2350 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D57C3413DE823D007D2350 /* CoreFoundation.framework */; };
+		B71FE392140294390057F582 /* SagarihaSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = B71FE391140294390057F582 /* SagarihaSingleton.m */; };
+		B71FE3A2140294FB0057F582 /* SagarihaNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B71FE3A1140294FB0057F582 /* SagarihaNetworking.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,10 @@
 		B41FE63713DDFB4200209552 /* audsound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audsound.mp3; sourceTree = "<group>"; };
 		B47EA76613E3554000C314CE /* test_audio.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = test_audio.aif; path = MaxMSP/test_audio.aif; sourceTree = "<group>"; };
 		B4D57C3413DE823D007D2350 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		B71FE390140294390057F582 /* SagarihaSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaSingleton.h; sourceTree = "<group>"; };
+		B71FE391140294390057F582 /* SagarihaSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaSingleton.m; sourceTree = "<group>"; };
+		B71FE3A0140294FB0057F582 /* SagarihaNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaNetworking.h; sourceTree = "<group>"; };
+		B71FE3A1140294FB0057F582 /* SagarihaNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaNetworking.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,10 @@
 				1D3623250D0F684500981E51 /* SagarihaAppDelegate.m */,
 				21C30C75125A9AB20065495A /* SagarihaPanView.h */,
 				21C30C76125A9AB20065495A /* SagarihaPanView.m */,
+				B71FE390140294390057F582 /* SagarihaSingleton.h */,
+				B71FE391140294390057F582 /* SagarihaSingleton.m */,
+				B71FE3A0140294FB0057F582 /* SagarihaNetworking.h */,
+				B71FE3A1140294FB0057F582 /* SagarihaNetworking.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -203,6 +213,8 @@
 				21260508125556A500B6A797 /* SagarihaAudioQueuePlayer.m in Sources */,
 				2126050F12556F1000B6A797 /* SagarihaWaveTable.m in Sources */,
 				21C30C77125A9AB20065495A /* SagarihaPanView.m in Sources */,
+				B71FE392140294390057F582 /* SagarihaSingleton.m in Sources */,
+				B71FE3A2140294FB0057F582 /* SagarihaNetworking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +225,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -221,6 +235,8 @@
 				INFOPLIST_FILE = "Sagariha-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = Sagariha;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 			};
 			name = Debug;
 		};
@@ -228,12 +244,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Sagariha_Prefix.pch;
 				INFOPLIST_FILE = "Sagariha-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = Sagariha;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 			};
 			name = Release;
 		};
