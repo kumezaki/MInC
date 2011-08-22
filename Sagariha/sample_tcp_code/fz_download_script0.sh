@@ -4,7 +4,7 @@ DONE=0
 FILE_NAME=./fz_download.txt
 
 # this is for debugging only
-#cp ./download.txt ./fz_download.txt
+cp ./download.txt ./fz_download.txt
 #cp ./download_exit.txt ./fz_download.txt
 
 while [ $DONE = 0 ]; do

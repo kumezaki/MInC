@@ -1,6 +1,6 @@
 BEGIN {
 	FS=", "
-	program_name = "./fz_send_data_tcp";
+	program_name = "./fz_send_data_tcp"
 }
 
 {
@@ -10,10 +10,11 @@ BEGIN {
 	port_num = $2
 	file_path = $3
 	
-	sys_cmd = program_name" \'"$1"\' \'"$2"\' \'"$3"\' &";
+	sys_cmd = "lame -m m \'"$3"\'"
+	system(sys_cmd)
 	
-	print sys_cmd;
-	system(sys_cmd);
+	sys_cmd = program_name" \'"$1"\' \'"$2"\' \'"$3"\' &"
+	system(sys_cmd)
 	
 #	print $1,$2,$3
 }
