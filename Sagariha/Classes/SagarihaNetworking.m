@@ -201,8 +201,6 @@ union {
 {
 	if (singleton == nil) return;
 	
-	SagarihaAppDelegate *appDelegate = (SagarihaAppDelegate*)[[UIApplication sharedApplication] delegate];
-
     // printf("mUDPInBuffer: %s\n", mUDPInBuffer);
 	
     ssize_t pos = 0;
@@ -311,14 +309,14 @@ union {
                         {
                             OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                             float audio_sample = u.flt_val;
-                            [appDelegate->mAudioQueuePlayer SetSample:audio_index+i:audio_sample];
+                            [singleton->mAudioQueuePlayer SetSample:audio_index+i:audio_sample];
                             pos += 4;
                         }
                         
-                        if (audio_index == appDelegate->mNextAudioIndex)
+                        if (audio_index == singleton.nextAudioIndex)
                         {
                             singleton->mOSCMsg_DownloadProg = audio_index / (22050 * 5.);
-                            appDelegate->mNextAudioIndex = audio_index + size;
+                            singleton.nextAudioIndex = audio_index + size;
                             
                             [self performSelectorOnMainThread:@selector(RequestAudio) 
                                                    withObject:nil 
@@ -354,8 +352,8 @@ union {
 							&& (loop_start >= 0 && loop_start <= 5000.)
 							&& (loop_end >= 0 && loop_end <= 5000.))
 						{
-							appDelegate->mAudioQueuePlayer->mLoopStart = loop_start / 5000.;
-							appDelegate->mAudioQueuePlayer->mLoopEnd = loop_end / 5000.;
+							singleton->mAudioQueuePlayer->mLoopStart = loop_start / 5000.;
+							singleton->mAudioQueuePlayer->mLoopEnd = loop_end / 5000.;
 						}
 					}
                 }
@@ -447,15 +445,13 @@ union {
 
 - (void)tcp_file
 {
-	SagarihaAppDelegate *appDelegate = (SagarihaAppDelegate*)[[UIApplication sharedApplication] delegate];
-
     NSAutoreleasePool *tcpThreadPool = [[NSAutoreleasePool alloc] init];
     
     NSData* raw = [NSData dataWithBytes:[incomingDataBuffer bytes] length:[incomingDataBuffer length]];
     
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *filePath = [documentsPath stringByAppendingPathComponent:@"forZero.mp3"];
-    appDelegate->mAudioQueuePlayer.theFile = filePath;
+    singleton->mAudioQueuePlayer.theFile = filePath;
 	//NSLog(@"filePath:%@", filePath);
     
     [raw writeToFile:filePath atomically:YES];

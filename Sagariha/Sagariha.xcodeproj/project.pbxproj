@@ -24,6 +24,10 @@
 		B4D57C3513DE823D007D2350 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D57C3413DE823D007D2350 /* CoreFoundation.framework */; };
 		B71FE392140294390057F582 /* SagarihaSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = B71FE391140294390057F582 /* SagarihaSingleton.m */; };
 		B71FE3A2140294FB0057F582 /* SagarihaNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B71FE3A1140294FB0057F582 /* SagarihaNetworking.m */; };
+		B78E8C731402B7BD003A8E04 /* SagarihaForZeroControls.m in Sources */ = {isa = PBXBuildFile; fileRef = B78E8C721402B7BD003A8E04 /* SagarihaForZeroControls.m */; };
+		B78E8C861402B9AE003A8E04 /* SagarihaNetworkControls.m in Sources */ = {isa = PBXBuildFile; fileRef = B78E8C851402B9AE003A8E04 /* SagarihaNetworkControls.m */; };
+		B78E8D1A1402C2C7003A8E04 /* SagarihaInterstitialMessageControls.m in Sources */ = {isa = PBXBuildFile; fileRef = B78E8D191402C2C7003A8E04 /* SagarihaInterstitialMessageControls.m */; };
+		B78E8E2B1402D045003A8E04 /* SagarihaMainControls.m in Sources */ = {isa = PBXBuildFile; fileRef = B78E8E2A1402D045003A8E04 /* SagarihaMainControls.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +57,14 @@
 		B71FE391140294390057F582 /* SagarihaSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaSingleton.m; sourceTree = "<group>"; };
 		B71FE3A0140294FB0057F582 /* SagarihaNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaNetworking.h; sourceTree = "<group>"; };
 		B71FE3A1140294FB0057F582 /* SagarihaNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaNetworking.m; sourceTree = "<group>"; };
+		B78E8C711402B7BD003A8E04 /* SagarihaForZeroControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaForZeroControls.h; sourceTree = "<group>"; };
+		B78E8C721402B7BD003A8E04 /* SagarihaForZeroControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaForZeroControls.m; sourceTree = "<group>"; };
+		B78E8C841402B9AE003A8E04 /* SagarihaNetworkControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaNetworkControls.h; sourceTree = "<group>"; };
+		B78E8C851402B9AE003A8E04 /* SagarihaNetworkControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaNetworkControls.m; sourceTree = "<group>"; };
+		B78E8D181402C2C7003A8E04 /* SagarihaInterstitialMessageControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaInterstitialMessageControls.h; sourceTree = "<group>"; };
+		B78E8D191402C2C7003A8E04 /* SagarihaInterstitialMessageControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaInterstitialMessageControls.m; sourceTree = "<group>"; };
+		B78E8E291402D045003A8E04 /* SagarihaMainControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaMainControls.h; sourceTree = "<group>"; };
+		B78E8E2A1402D045003A8E04 /* SagarihaMainControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaMainControls.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,18 +86,26 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2126050D12556F1000B6A797 /* SagarihaWaveTable.h */,
-				2126050E12556F1000B6A797 /* SagarihaWaveTable.m */,
-				21260506125556A500B6A797 /* SagarihaAudioQueuePlayer.h */,
-				21260507125556A500B6A797 /* SagarihaAudioQueuePlayer.m */,
+				B78E8E291402D045003A8E04 /* SagarihaMainControls.h */,
+				B78E8E2A1402D045003A8E04 /* SagarihaMainControls.m */,
 				1D3623240D0F684500981E51 /* SagarihaAppDelegate.h */,
 				1D3623250D0F684500981E51 /* SagarihaAppDelegate.m */,
+				21260506125556A500B6A797 /* SagarihaAudioQueuePlayer.h */,
+				21260507125556A500B6A797 /* SagarihaAudioQueuePlayer.m */,
+				B78E8C711402B7BD003A8E04 /* SagarihaForZeroControls.h */,
+				B78E8C721402B7BD003A8E04 /* SagarihaForZeroControls.m */,
+				B78E8D181402C2C7003A8E04 /* SagarihaInterstitialMessageControls.h */,
+				B78E8D191402C2C7003A8E04 /* SagarihaInterstitialMessageControls.m */,
+				B78E8C841402B9AE003A8E04 /* SagarihaNetworkControls.h */,
+				B78E8C851402B9AE003A8E04 /* SagarihaNetworkControls.m */,
+				B71FE3A0140294FB0057F582 /* SagarihaNetworking.h */,
+				B71FE3A1140294FB0057F582 /* SagarihaNetworking.m */,
 				21C30C75125A9AB20065495A /* SagarihaPanView.h */,
 				21C30C76125A9AB20065495A /* SagarihaPanView.m */,
 				B71FE390140294390057F582 /* SagarihaSingleton.h */,
 				B71FE391140294390057F582 /* SagarihaSingleton.m */,
-				B71FE3A0140294FB0057F582 /* SagarihaNetworking.h */,
-				B71FE3A1140294FB0057F582 /* SagarihaNetworking.m */,
+				2126050D12556F1000B6A797 /* SagarihaWaveTable.h */,
+				2126050E12556F1000B6A797 /* SagarihaWaveTable.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -215,6 +235,10 @@
 				21C30C77125A9AB20065495A /* SagarihaPanView.m in Sources */,
 				B71FE392140294390057F582 /* SagarihaSingleton.m in Sources */,
 				B71FE3A2140294FB0057F582 /* SagarihaNetworking.m in Sources */,
+				B78E8C731402B7BD003A8E04 /* SagarihaForZeroControls.m in Sources */,
+				B78E8C861402B9AE003A8E04 /* SagarihaNetworkControls.m in Sources */,
+				B78E8D1A1402C2C7003A8E04 /* SagarihaInterstitialMessageControls.m in Sources */,
+				B78E8E2B1402D045003A8E04 /* SagarihaMainControls.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

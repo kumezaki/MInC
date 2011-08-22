@@ -15,6 +15,8 @@ extern SagarihaNetworking* networking;
 
 @implementation SagarihaSingleton
 
+@synthesize nextAudioIndex;
+
 -(id)init
 {
 	if ([self dataFileExists])
@@ -30,7 +32,18 @@ extern SagarihaNetworking* networking;
 	mOSCMsg_Play = NO;
 	mOSCMsg_Stop = NO;
 	
+	mAudioQueuePlayer = [[SagarihaAudioQueuePlayer alloc] init];
+	
+	[self checkIncomingMessages];
+	
 	return self;
+}
+
+-(void)dealloc
+{
+	[mAudioQueuePlayer release];
+
+	[super dealloc];
 }
 
 +(NSString *)dataFilePath
@@ -71,6 +84,53 @@ extern SagarihaNetworking* networking;
 	[dict setValue:[NSNumber numberWithUnsignedInt:networking->mSendPortNum] forKey:@"server_port_num"];
 	[dict writeToFile:[SagarihaSingleton dataFilePath] atomically:YES];
 	[dict release];
+}
+
+- (void)checkIncomingMessages
+{
+	SagarihaAppDelegate *appDelegate = (SagarihaAppDelegate*)[[UIApplication sharedApplication] delegate];
+
+	if (mOSCMsg_State >= 0)
+	{
+		appDelegate->main_controls.mStateServerSegControl.selectedSegmentIndex = mOSCMsg_State;
+		mOSCMsg_State = -1;
+	}
+	
+	if (mOSCMsg_RecProg >= 0.)
+	{
+		appDelegate->main_controls.mRecProgView.progress = mOSCMsg_RecProg;
+		mOSCMsg_RecProg = -1.;
+	}
+	
+	if (mOSCMsg_InterstitialMsg != nil)
+	{
+		[appDelegate->interstial_controls displayMessage];
+		
+		mOSCMsg_InterstitialMsg = nil;
+	}
+	
+	if (mOSCMsg_Cue >= 0)
+	{
+		[appDelegate->main_controls SetCue:mOSCMsg_Cue];
+		mOSCMsg_Cue = -1;
+	}
+	
+	if (mOSCMsg_Play)
+	{
+		appDelegate->main_controls.mStateClientSegControl.selectedSegmentIndex = 1;
+		mAudioQueuePlayer->mTheta = mAudioQueuePlayer->mLoopStart;
+		[mAudioQueuePlayer Start];
+		mOSCMsg_Play = NO;
+	}
+	
+	if (mOSCMsg_Stop)
+	{
+		appDelegate->main_controls.mStateClientSegControl.selectedSegmentIndex = 0;
+		[mAudioQueuePlayer Stop];
+		mOSCMsg_Stop = NO;
+	}
+	
+	[NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkIncomingMessages) userInfo:nil repeats:NO];  
 }
 
 @end
