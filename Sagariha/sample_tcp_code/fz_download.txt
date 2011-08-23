@@ -1,1 +1,0 @@
-10.0.1.13, 41337, ThinkTank:/Users/main_brain/minc_minc/Sagariha/MaxMSP/saga_buf_1

@@ -4,7 +4,7 @@ DONE=0
 FILE_NAME=./fz_download.txt
 
 # this is for debugging only
-cp ./download.txt ./fz_download.txt
+#cp ../MaxMSP/download_test.txt ./fz_download.txt
 #cp ./download_exit.txt ./fz_download.txt
 
 while [ $DONE = 0 ]; do
@@ -15,9 +15,9 @@ while [ $DONE = 0 ]; do
 			DONE=1
 		fi
 		rm $FILE_NAME
-#	else
+	else
 # this is for debugging only
-#		echo $FILE_NAME not found
+		echo $FILE_NAME not found
 	fi
 	if [ $DONE = 0 ]; then
 		sleep 0.5

@@ -122,6 +122,9 @@ function osc_msg()
 
     else if (osc_add == "/fz_panic")
         osc_msg_fz_panic();
+
+    else if (osc_add == "/download")
+        osc_msg_download(pos);
 }
 
 function osc_msg_state(pos,val)
@@ -248,6 +251,23 @@ function osc_msg_fz_panic()
     messnamed("fz_msg","panic");
 }
 
+function osc_msg_download(pos)
+{
+    if (pos != -1)
+    {
+    	var file_name = "saga_buf_"+(pos+1);
+    	var tcp_port_num = 41337;
+    	
+		messnamed("saga_poly_in_1_msg","target",pos+1);
+		messnamed("saga_poly_in_2_msg","write","samptype","int16");
+		messnamed("saga_poly_in_2_msg","write","writeraw",file_name);
+		
+		f = new File("fz_download.txt","w");
+		f.writeline(gIPAddress[pos]+", "+tcp_port_num+", ../MaxMSP/"+file_name);
+		f.close();
+    }
+}
+
 
 /*** FUNCTIONS FOR HANDING OUTGOING OSC MESSAGES ***/
 
@@ -309,7 +329,7 @@ function send_client_loop(pos,start,stop)
 }
 
 
-/*** FUNCTION FOR TRANSMITTING AUDIO ***/
+/*** FUNCTION FOR TRANSMITTING AUDIO (GOING OBSOLETE) ***/
 
 function audio_func(pos,val)
 {
