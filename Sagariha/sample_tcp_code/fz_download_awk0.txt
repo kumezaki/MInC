@@ -17,7 +17,7 @@ BEGIN {
 #	sys_cmd = "lame -m m \'"$3"\'"
 	system(sys_cmd)
 	
-	sys_cmd = program_name" \'"$1"\' \'"$2"\' \'"$3"\' &"
+	sys_cmd = program_name" \'"$1"\' \'"$2"\' \'"$3".mp3\' &"
 	system(sys_cmd)
 	
 #	print $1,$2,$3
