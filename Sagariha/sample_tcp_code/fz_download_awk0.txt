@@ -12,9 +12,9 @@ BEGIN {
 
 # lame encoder call
 # use the following for raw file
-	sys_cmd = "lame -r -s 44.1 --bitwidth 16 -m m \'"$3"\'"
+	sys_cmd = "./lame -r -s 44.1 --bitwidth 16 --big-endian -m m \'"$3"\'"
 # use the following for .wav file
-#	sys_cmd = "lame -m m \'"$3"\'"
+#	sys_cmd = "./lame -m m \'"$3"\'"
 	system(sys_cmd)
 	
 	sys_cmd = program_name" \'"$1"\' \'"$2"\' \'"$3".mp3\' &"
