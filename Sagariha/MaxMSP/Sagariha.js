@@ -3,7 +3,7 @@ autowatch = 1;
 var gNumVoices = 1;
 
 var gBufSize = 5000;
-var gBufFileName = "buf_audio.aif";
+var gBufFileName = "audsound.aif";
 
 function Audio()
 {
@@ -266,6 +266,15 @@ function osc_msg_download(pos)
 		f.writeline(gIPAddress[pos]+", "+tcp_port_num+", ../MaxMSP/"+file_name);
 		f.close();
     }
+}
+
+/*** MISCELLANEOUS FUNCTIONS ***/
+
+function exit_tcp_script()
+{
+	f = new File("fz_download.txt","w");
+	f.writeline("exit");
+	f.close();
 }
 
 
