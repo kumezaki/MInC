@@ -15,9 +15,9 @@ while [ $DONE = 0 ]; do
 			DONE=1
 		fi
 		rm $FILE_NAME
-	else
+#	else
 # this is for debugging only
-		echo $FILE_NAME not found
+#		echo $FILE_NAME not found
 	fi
 	if [ $DONE = 0 ]; then
 		sleep 0.5

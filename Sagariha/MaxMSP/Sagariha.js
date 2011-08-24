@@ -61,7 +61,7 @@ function find_ip_address_pos(ip_add)
 
 function osc_msg()
 {
-    post(arguments[0],arguments[1],arguments[2],"\n");
+//    post(arguments[0],arguments[1],arguments[2],"\n");
     
     var osc_add = arguments[0];
     var ip_add = arguments[1];

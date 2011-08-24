@@ -57,8 +57,8 @@ union {
 
     incomingDataBuffer = [[NSMutableData alloc]init];
 
-    mTCPThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_tcp) object:nil];
-	[mTCPThread start];
+    //mTCPThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_tcp) object:nil];
+	//[mTCPThread start];
 
 	return self;
 }
@@ -67,7 +67,7 @@ union {
 {
 	[incomingDataBuffer release];
 
-    [mTCPThread release];
+    //[mTCPThread release];
 
 	[mUDPThread release];
 
@@ -379,7 +379,17 @@ union {
 
 -(void)DoReceiveTCP
 {
-	[self performSelector:@selector(receive_tcp) onThread:mTCPThread withObject:nil waitUntilDone:NO];
+    /*NSLog(@"mTCPThread isExecuting: %@", [mTCPThread isExecuting] == YES ? @"YES" : @"NO" );
+    if ([mTCPThread isExecuting]) {
+        
+        [self performSelector:@selector(receive_tcp) onThread:mTCPThread withObject:nil waitUntilDone:NO];
+    
+    }
+    else {*/
+        mTCPThread = [[[NSThread alloc] initWithTarget:self 
+                                              selector:@selector(receive_tcp) 
+                                                object:nil]autorelease];
+        [mTCPThread start];
 }
 
 -(void)receive_tcp
@@ -423,13 +433,13 @@ union {
         if (bytesRcvd < 0) NSLog(@"ERROR reading from TCP socket\n");
         
         if (bytesRcvd  > 0) {
-			printf("bytesRead: %d; buffer contents: %s\n", bytesRcvd, buffer);
+			//printf("bytesRead: %d; buffer contents: %s\n", bytesRcvd, buffer);
             [incomingDataBuffer appendBytes:buffer length:bytesRcvd];
             ++count;
-            printf("receive packet count: %d\n",count);
+            //printf("receive packet count: %d\n",count);
         }
         if (bytesRcvd == 0) {
-            NSLog(@"total bytes recieved: %u",[incomingDataBuffer length]);
+            //NSLog(@"total bytes recieved: %u",[incomingDataBuffer length]);
             [self tcp_file];
             done = YES;
             break;
@@ -437,7 +447,7 @@ union {
     }
     
     NSRange resetRange = {0, [incomingDataBuffer length]};
-    [incomingDataBuffer resetBytesInRange:resetRange];
+    [incomingDataBuffer replaceBytesInRange:resetRange withBytes:NULL length:0];
     
     close(clntSock);	
     close(servSock);
