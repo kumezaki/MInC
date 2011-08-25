@@ -20,7 +20,7 @@
 
 	SagarihaNetworking			*networking;
 	SagarihaAudioQueuePlayer    *mAudioQueuePlayer;
-	
+    
 	int				mOSCMsg_State;
 	float			mOSCMsg_RecProg;
 	float			mOSCMsg_DownloadProg;
@@ -40,5 +40,6 @@
 -(void) writeDataFile;
 
 -(void)checkIncomingMessages;
+-(void)setNetworkingDelegate:(id)delegate;
 
 @end

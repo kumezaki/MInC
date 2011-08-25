@@ -47,6 +47,7 @@
 @property (nonatomic, retain) NSString *theFile;
 
 -(void)		createAQ;
+-(void)     readAudioFile;
 
 -(OSStatus)	Start;
 -(OSStatus)	Stop;

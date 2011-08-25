@@ -23,9 +23,11 @@ extern SagarihaSingleton* singleton;
 
 @synthesize mRecProgView;
 @synthesize mDownloadProgView;
+@synthesize mDownloadIndicator;
 
 -(void)awakeFromNib
 {
+    [singleton setNetworkingDelegate:self];
 	[[UIAccelerometer sharedAccelerometer] setDelegate:self];
 	[UIAccelerometer sharedAccelerometer].updateInterval = 0.1;
 }
@@ -50,8 +52,10 @@ extern SagarihaSingleton* singleton;
 #if 0
 			[singleton->networking SendOSCMsgWithIntValue:"/saga/audio\0":12:singleton.nextAudioIndex];
 #else
-			[singleton->networking SendOSCMsg:"/saga/download\0\0":16];
 			[singleton->networking DoReceiveTCP]; /* Question: hasn't the TCP thread already started? What call this here? */
+            [mDownloadIndicator startAnimating];
+            //[singleton->networking SendOSCMsg:"/saga/download\0\0":16];
+
 #endif
 			break;
 	}
@@ -127,7 +131,7 @@ extern SagarihaSingleton* singleton;
 
 #define __VINNIE__	0
 
--(void)downloadEnd {
+-(void)downloadEnded {
     if (singleton->mOSCMsg_DownloadEnd)
 	{
 		NSLog(@"Download ended");
@@ -135,7 +139,9 @@ extern SagarihaSingleton* singleton;
 		[singleton->mAudioQueuePlayer->mWaveTable->mArray writeToFile:@"SagarihaAudio.aif" atomically:YES];
         mStateClientSegControl.selectedSegmentIndex = 0;
 #else
-		mStateClientSegControl.selectedSegmentIndex = 1;
+        [mDownloadIndicator stopAnimating];
+        
+        mStateClientSegControl.selectedSegmentIndex = 1;
 		[singleton->mAudioQueuePlayer Start];
 #endif
 		singleton->mOSCMsg_DownloadEnd = NO;

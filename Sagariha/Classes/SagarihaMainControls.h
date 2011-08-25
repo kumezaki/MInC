@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "SagarihaNetworking.h"
 #import "SagarihaPanView.h"
 
-@interface SagarihaMainControls : NSObject <UIAccelerometerDelegate> {
+@interface SagarihaMainControls : NSObject <UIAccelerometerDelegate, SagarihaNetworkingDelegate> {
 
-	IBOutlet UISegmentedControl	*mStateServerSegControl;
-	IBOutlet UISegmentedControl	*mStateClientSegControl;
+	IBOutlet UISegmentedControl         *mStateServerSegControl;
+	IBOutlet UISegmentedControl         *mStateClientSegControl;
+    IBOutlet UIActivityIndicatorView    *mDownloadIndicator;
 
 	IBOutlet UILabel			*mEnvPeriodLabel;
 	IBOutlet UISlider			*mEnvPeriodSlider;
@@ -39,6 +40,7 @@
 
 @property(nonatomic, retain) IBOutlet UIProgressView		*mRecProgView;
 @property(nonatomic, retain) IBOutlet UIProgressView		*mDownloadProgView;
+@property(nonatomic, retain) IBOutlet UIActivityIndicatorView *mDownloadIndicator;
 
 -(IBAction)SetStateServer:(id)sender;
 -(IBAction)SetStateClient:(id)sender;
@@ -54,6 +56,5 @@
 -(void) SetCue:(int)cue_num;
 
 -(void)updateDownloadProg;
--(void)downloadEnd;
 
 @end

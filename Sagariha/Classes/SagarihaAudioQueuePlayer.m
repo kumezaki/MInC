@@ -148,37 +148,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 #else
 {
     
-    CFURLRef audioFileURL = (CFURLRef) [NSURL URLWithString:self.theFile];
-        //NSLog(@"filePath:%@",(NSString*)audioFileURL);
-    
-    OSStatus result = AudioFileOpenURL (audioFileURL, 
-                                        kAudioFileReadPermission,
-                                        0,
-                                        &mAudioFile);
-    if (result != noErr) {
-		NSLog(@"AudioFileOpenURL %ld\n",result);
-        self.theFile = nil;
-        return;
-    }
-    
-    UInt32 dataFormatSize = sizeof(mDataFormat);
-    
-    result = AudioFileGetProperty(mAudioFile, 
-                                  kAudioFilePropertyDataFormat, 
-                                  &dataFormatSize, 
-                                  &mDataFormat);
-    if (result != noErr) {
-        NSLog(@"couldn't get file's data format: %ld\n",result);
-        self.theFile = nil;
-        return;
-    }
-    result = AudioQueueNewOutput(&mDataFormat, 
-                                 AQBufferCallback, 
-                                 self, 
-                                 nil, 
-                                 nil, 
-                                 0, 
-                                 &mQueue);
+    OSStatus result = AudioQueueNewOutput(&mDataFormat,
+                                          AQBufferCallback, 
+                                          self, 
+                                          nil, 
+                                          nil, 
+                                          0, 
+                                          &mQueue);
     
 	if (result != noErr) {
 		printf("AudioQueueNewOutput failed: %ld\n",result);
@@ -245,10 +221,40 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 }
 #endif
 
--(OSStatus)Start
+- (void)readAudioFile {
+    
+    CFURLRef audioFileURL = (CFURLRef) [NSURL URLWithString:self.theFile];
+    //NSLog(@"filePath:%@",(NSString*)audioFileURL);
+    
+    OSStatus result = AudioFileOpenURL (audioFileURL, 
+                                        kAudioFileReadPermission,
+                                        0,
+                                        &mAudioFile);
+    if (result != noErr) {
+		NSLog(@"AudioFileOpenURL %ld\n",result);
+        self.theFile = nil;
+        return;
+    }
+    
+    UInt32 dataFormatSize = sizeof(mDataFormat);
+    
+    result = AudioFileGetProperty(mAudioFile, 
+                                  kAudioFilePropertyDataFormat, 
+                                  &dataFormatSize, 
+                                  &mDataFormat);
+    if (result != noErr) {
+        NSLog(@"couldn't get file's data format: %ld\n",result);
+        self.theFile = nil;
+        return;
+    }
+
+}
+
+- (OSStatus)Start
 {
 	OSStatus result = noErr;
     
+    [self readAudioFile];
     //NSLog(@"File Loaded: %@",[[NSBundle mainBundle] URLForResource:@"SagarihaAudio" withExtension:@"aif"]);
     
     // if we have no queue, create one now

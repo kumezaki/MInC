@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 
 
+@class SagarihaNetworking;
+
+@protocol SagarihaNetworkingDelegate
+- (void)downloadEnded;
+@end
+
 @interface SagarihaNetworking : NSObject {
 
 	char			ip_add_buf[32];
@@ -23,11 +29,9 @@
 	ssize_t			mUDPInBufferLength;
 
     NSThread		*mTCPThread;
-
-//	char			mTCPInBuffer[1024];
-//	ssize_t			mTCPInBufferLength;
 	
     NSMutableData	*incomingDataBuffer;
+
 
 @public
 	UInt32					mSendIPAddress;
@@ -37,6 +41,7 @@
 
     SInt16					mTCPReceivePortNum;
 }
+@property(nonatomic,assign) id<SagarihaNetworkingDelegate> delegate;
 
 - (NSString *)getIPAddress;
 

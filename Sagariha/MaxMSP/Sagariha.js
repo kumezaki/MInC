@@ -81,11 +81,11 @@ function osc_msg()
 
     if (pos == -1) return;
     
-    if (osc_add == "/accelx")
-        osc_msg_accelx(pos,val);
+    if (osc_add == "/accelx");
+        //osc_msg_accelx(pos,val);
 
-    else if (osc_add == "/accely")
-        osc_msg_accely(pos,val);
+    else if (osc_add == "/accely");
+       // osc_msg_accely(pos,val);
 
     else if (osc_add == "/state")
         osc_msg_state(pos,val);
@@ -255,26 +255,31 @@ function osc_msg_download(pos)
 {
     if (pos != -1)
     {
-    	var file_name = "saga_buf_"+(pos+1);
-    	var tcp_port_num = 41337;
-    	
-		messnamed("saga_poly_in_1_msg","target",pos+1);
-		messnamed("saga_poly_in_2_msg","write","samptype","int16");
-		messnamed("saga_poly_in_2_msg","write","writeraw",file_name);
-		
-		f = new File("fz_download.txt","w");
-		f.writeline(gIPAddress[pos]+", "+tcp_port_num+", ../MaxMSP/"+file_name);
-		f.close();
-    }
+        var file_name = "saga_buf_"+(pos+1);
+        var tcp_port_num = 41337;
+        
+        messnamed("saga_poly_in_1_msg","target",pos+1);
+        messnamed("saga_poly_in_2_msg","write","samptype","int16");
+        messnamed("saga_poly_in_2_msg","write","writeraw",file_name);
+                
+                post("raw audio file created.\n");
+
+        f = new File("fz_download.txt","w");
+        	 	post("fz_download.txt created.\n");
+        f.writeline(gIPAddress[pos]+", "+tcp_port_num+", ../MaxMSP/"+file_name);
+        		post("txt file written to.\n");
+        f.close();
+        	 	post("txt file closed.\n");
+    }		
 }
 
 /*** MISCELLANEOUS FUNCTIONS ***/
 
 function exit_tcp_script()
 {
-	f = new File("fz_download.txt","w");
-	f.writeline("exit");
-	f.close();
+    f = new File("fz_download.txt","w");
+    f.writeline("exit");
+    f.close();
 }
 
 

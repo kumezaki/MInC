@@ -18,7 +18,7 @@
 -(id)init
 {
 	networking = [[SagarihaNetworking alloc] init];
-
+    
 	if ([self dataFileExists])
 		[self readDataFile];
 
@@ -37,6 +37,10 @@
 	[self checkIncomingMessages];
 	
 	return self;
+}
+
+- (void)setNetworkingDelegate:(id)delegate {
+    networking.delegate = delegate;
 }
 
 -(void)dealloc

@@ -25,6 +25,7 @@
 extern SagarihaSingleton* singleton;
 
 @implementation SagarihaNetworking
+@synthesize delegate = _delegate;
 
 #define OSC_START mOutBufferLength = 0;
 #define OSC_END [self send_udp];
@@ -64,10 +65,10 @@ union {
 }
 
 -(void)dealloc
-{
+{    
 	[incomingDataBuffer release];
 
-    //[mTCPThread release];
+    [mTCPThread release];
 
 	[mUDPThread release];
 
@@ -395,6 +396,7 @@ union {
 -(void)receive_tcp
 {
     int servSock, clntSock;
+    
     struct sockaddr_in servAddr, clntAddr;
     
     servSock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
@@ -413,6 +415,8 @@ union {
     if (listen(servSock,5) < 0)
         NSLog(@"listen() failed");
     
+    [self SendOSCMsg:"/saga/download\0\0":16]; //don't send until the socket is open and listening
+
     socklen_t clntLen = sizeof(clntAddr);
     clntSock = accept(servSock,(struct sockaddr *) &clntAddr, &clntLen);
     /* will get here if a client connects, otherwise this process waits */
@@ -422,8 +426,8 @@ union {
     char buffer[256];
     int bytesRcvd;
     int count = 0;
-    BOOL done = NO;
-	
+	BOOL done = NO;
+    
     while (!done) {
         
         memset(buffer, 0, 256);
@@ -433,7 +437,7 @@ union {
         if (bytesRcvd < 0) NSLog(@"ERROR reading from TCP socket\n");
         
         if (bytesRcvd  > 0) {
-			//printf("bytesRead: %d; buffer contents: %s\n", bytesRcvd, buffer);
+            //printf("bytesRead: %d; buffer contents: %s\n", bytesRcvd, buffer);
             [incomingDataBuffer appendBytes:buffer length:bytesRcvd];
             ++count;
             //printf("receive packet count: %d\n",count);
@@ -445,10 +449,8 @@ union {
             break;
         }
     }
-    
     NSRange resetRange = {0, [incomingDataBuffer length]};
     [incomingDataBuffer replaceBytesInRange:resetRange withBytes:NULL length:0];
-    
     close(clntSock);	
     close(servSock);
 }
@@ -465,7 +467,11 @@ union {
 	//NSLog(@"filePath:%@", filePath);
     
     [raw writeToFile:filePath atomically:YES];
-	
+    
+    singleton->mOSCMsg_DownloadEnd = YES;
+    
+    [self.delegate downloadEnded];
+    
     [tcpThreadPool drain];
 }
 
