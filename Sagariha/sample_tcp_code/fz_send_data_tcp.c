@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
 	{
     	memset(sendBuffer, 0 ,BUFSIZE);
 		size_t bytesRead = fread(sendBuffer,1,BUFSIZE,fp);
-		printf("%ld\n",bytesRead);
+		//printf("%ld\n",bytesRead);
 		++count;
         /* Send the string to the server */
     if (send(sock, sendBuffer, BUFSIZE, 0) < 0)

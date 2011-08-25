@@ -14,6 +14,7 @@ while [ $DONE = 0 ]; do
 			echo exiting fz_download_script0.sh
 			DONE=1
 		fi
+		echo $FILE_NAME created!
 		rm $FILE_NAME
 #	else
 # this is for debugging only

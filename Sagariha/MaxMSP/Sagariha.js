@@ -1,6 +1,6 @@
 autowatch = 1;
 
-var gNumVoices = 1;
+var gNumVoices = 2;
 
 var gBufSize = 5000;
 var gBufFileName = "audsound.aif";
@@ -262,14 +262,14 @@ function osc_msg_download(pos)
         messnamed("saga_poly_in_2_msg","write","samptype","int16");
         messnamed("saga_poly_in_2_msg","write","writeraw",file_name);
                 
-                post("raw audio file created.\n");
+                post("raw audio file created for pos:",pos,"\n");
 
-        f = new File("fz_download.txt","w");
-        	 	post("fz_download.txt created.\n");
+        f = new File("fz_download.txt","write", "TEXT");
+        	 	post("fz_download.txt created for pos:",pos,"\n");
         f.writeline(gIPAddress[pos]+", "+tcp_port_num+", ../MaxMSP/"+file_name);
-        		post("txt file written to.\n");
+        		post("script file written for pos:",pos,"\n");
         f.close();
-        	 	post("txt file closed.\n");
+        	 	post("txt file closed for pos:",pos,"\n");
     }		
 }
 
