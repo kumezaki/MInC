@@ -976,6 +976,14 @@
 					</object>
 					<int key="connectionID">169</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">network_controls</string>
+						<reference key="source" ref="664661524"/>
+						<reference key="destination" ref="737321806"/>
+					</object>
+					<int key="connectionID">172</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1373,7 +1381,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">171</int>
+			<int key="maxID">172</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1387,6 +1395,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>interstial_controls</string>
 							<string>main_controls</string>
+							<string>network_controls</string>
 							<string>tabBarController</string>
 							<string>window</string>
 						</object>
@@ -1394,6 +1403,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>SagarihaInterstitialMessageControls</string>
 							<string>SagarihaMainControls</string>
+							<string>SagarihaNetworkControls</string>
 							<string>UITabBarController</string>
 							<string>UIWindow</string>
 						</object>
@@ -1404,6 +1414,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>interstial_controls</string>
 							<string>main_controls</string>
+							<string>network_controls</string>
 							<string>tabBarController</string>
 							<string>window</string>
 						</object>
@@ -1416,6 +1427,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">main_controls</string>
 								<string key="candidateClassName">SagarihaMainControls</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">network_controls</string>
+								<string key="candidateClassName">SagarihaNetworkControls</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">tabBarController</string>
@@ -2193,7 +2208,7 @@
 			<integer value="3000" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
-		<nil key="IBDocument.LastKnownRelativeProjectPath"/>
+		<string key="IBDocument.LastKnownRelativeProjectPath">Sagariha.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<string key="IBCocoaTouchPluginVersion">141</string>
 	</data>
