@@ -17,7 +17,7 @@
 	int				nextAudioIndex;
 	
 @public
-
+	
 	SagarihaNetworking			*networking;
 	SagarihaAudioQueuePlayer    *mAudioQueuePlayer;
     
@@ -30,6 +30,7 @@
 	int				mOSCMsg_Cue;
 	BOOL			mOSCMsg_Play;
 	BOOL			mOSCMsg_Stop;
+	NSString		*mOSCMsg_ServerIPAddString;
 }
 
 @property(readwrite) int nextAudioIndex;

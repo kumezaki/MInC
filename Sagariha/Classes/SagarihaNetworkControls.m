@@ -14,6 +14,8 @@ extern SagarihaSingleton* singleton;
 
 @implementation SagarihaNetworkControls
 
+@synthesize editing;
+
 -(void)awakeFromNib
 {
 	NSLog(@"SagarihaNetworkControls awakeFromNib");
@@ -21,11 +23,7 @@ extern SagarihaSingleton* singleton;
 	mIPAddressTextField.delegate = self;
 	mPortNumTextField.delegate = self;
 	
-	mIPAddressTextField.text = [NSString stringWithFormat:@"%d.%d.%d.%d",(singleton->networking->mSendIPAddress&0xFF000000)>>24
-								,(singleton->networking->mSendIPAddress&0x00FF0000)>>16
-								,(singleton->networking->mSendIPAddress&0x0000FF00)>>8
-								,(singleton->networking->mSendIPAddress&0x000000FF)>>0];
-	mPortNumTextField.text = [NSString stringWithFormat:@"%d",singleton->networking->mSendPortNum];
+	[self SetIPAddress];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
@@ -69,6 +67,15 @@ extern SagarihaSingleton* singleton;
 	singleton->networking->mSendPortNum = [mPortNumTextField.text intValue];
 	[singleton writeDataFile];
 	NSLog(@"PortNumChanged to %d\n",singleton->networking->mSendPortNum);
+}
+
+-(void)SetIPAddress
+{
+	mIPAddressTextField.text = [NSString stringWithFormat:@"%d.%d.%d.%d",(singleton->networking->mSendIPAddress&0xFF000000)>>24
+								,(singleton->networking->mSendIPAddress&0x00FF0000)>>16
+								,(singleton->networking->mSendIPAddress&0x0000FF00)>>8
+								,(singleton->networking->mSendIPAddress&0x000000FF)>>0];
+	mPortNumTextField.text = [NSString stringWithFormat:@"%d",singleton->networking->mSendPortNum];
 }
 
 @end

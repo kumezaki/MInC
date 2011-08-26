@@ -13,9 +13,15 @@
 
 	IBOutlet UITextField		*mIPAddressTextField;
 	IBOutlet UITextField		*mPortNumTextField;
+	
+	BOOL	editing;
 }
+
+@property (readonly) BOOL editing;
 
 -(IBAction)IPAddressChanged:(id)sender;
 -(IBAction)PortNumChanged:(id)sender;
+
+-(void)SetIPAddress;
 
 @end

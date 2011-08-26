@@ -31,6 +31,7 @@
 	mOSCMsg_Cue = -1;
 	mOSCMsg_Play = NO;
 	mOSCMsg_Stop = NO;
+	mOSCMsg_ServerIPAddString = nil;
 	
 	mAudioQueuePlayer = [[SagarihaAudioQueuePlayer alloc] init];
 	
@@ -134,6 +135,17 @@
 		appDelegate->main_controls.mStateClientSegControl.selectedSegmentIndex = 0;
 		[mAudioQueuePlayer Stop];
 		mOSCMsg_Stop = NO;
+	}
+	
+	if (mOSCMsg_ServerIPAddString != nil)
+	{
+		[networking SetServerIPAddress:mOSCMsg_ServerIPAddString];
+		
+		if ((appDelegate->network_controls != nil) && (!appDelegate->network_controls.editing))
+			[appDelegate->network_controls SetIPAddress];
+		
+		[mOSCMsg_ServerIPAddString release];
+		mOSCMsg_ServerIPAddString = nil;
 	}
 	
 	[NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkIncomingMessages) userInfo:nil repeats:NO];  

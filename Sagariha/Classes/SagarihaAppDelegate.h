@@ -10,6 +10,7 @@
 
 #import "SagarihaInterstitialMessageControls.h"
 #import "SagarihaMainControls.h"
+#import "SagarihaNetworkControls.h"
 
 @interface SagarihaAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
     
@@ -19,6 +20,7 @@
 @public
 	
 	IBOutlet SagarihaMainControls					*main_controls;
+	IBOutlet SagarihaNetworkControls				*network_controls;
 	IBOutlet SagarihaInterstitialMessageControls	*interstial_controls;
 
 }

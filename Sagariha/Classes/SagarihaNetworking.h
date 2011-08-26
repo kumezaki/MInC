@@ -44,6 +44,8 @@
 @property(nonatomic,assign) id<SagarihaNetworkingDelegate> delegate;
 
 - (NSString *)getIPAddress;
+-(void)SetServerIPAddress:(NSString *)str;
+-(void)SetServerPortNum:(NSString *)str;
 
 -(void)SendOSCMsg:(const char*)osc_str:(int)osc_str_length;
 -(void)SendOSCMsgWithIntValue:(const char*)osc_str:(int)osc_str_length:(int)val;

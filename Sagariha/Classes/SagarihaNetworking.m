@@ -108,6 +108,45 @@ union {
 	return address;
 }
 
+-(void)SetServerIPAddress:(NSString *)str
+{
+	NSArray* ip_add_array = [str componentsSeparatedByString:@"."];
+	
+	if ([ip_add_array count] != 4)
+	{
+		NSLog(@"IP address must have 4 components");
+		return;
+	}
+	else
+	{
+		int i = 0;
+		UInt32 ip_add = 0;
+		for (NSString* s in ip_add_array)
+		{
+#if 0
+			NSLog([NSString stringWithFormat:@"s=%@", s]);
+#endif
+			ip_add |= [s intValue] << (8 * (4 - ++i));
+		}
+		mSendIPAddress = ip_add;
+		[singleton writeDataFile];
+		printf("IPAddressChanged to %08lx\n",mSendIPAddress);
+	}
+	
+}
+
+-(void)SetServerPortNum:(NSString *)str
+{
+#if 0
+	char buffer[16];
+	[mPortNumTextField.text getCString:buffer maxLength:16 encoding:NSASCIIStringEncoding];
+#endif
+	
+	mSendPortNum = [str intValue];
+	[singleton writeDataFile];
+	printf("PortNumChanged to %d\n",mSendPortNum);
+}
+
 -(void)SendOSCMsg:(const char*)osc_str:(int)osc_str_length
 {
 	char buf[128]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",s\0\0",4);
@@ -224,17 +263,18 @@ union {
 				
                 OSC_MSG_COMPARE("/saga/state",1)
                 else OSC_MSG_COMPARE("/saga/rec_prog",2)
-					else OSC_MSG_COMPARE("/saga/interstitial",3)
-						else OSC_MSG_COMPARE("/saga/audio",4)
-							else OSC_MSG_COMPARE("/saga/audio_end",5)
-								else OSC_MSG_COMPARE("/saga/cue",6)
-									else OSC_MSG_COMPARE("/saga/play",7)
-										else OSC_MSG_COMPARE("/saga/stop",8)
-											else OSC_MSG_COMPARE("/saga/loop",9)
+				else OSC_MSG_COMPARE("/saga/interstitial",3)
+				else OSC_MSG_COMPARE("/saga/audio",4)
+				else OSC_MSG_COMPARE("/saga/audio_end",5)
+				else OSC_MSG_COMPARE("/saga/cue",6)
+				else OSC_MSG_COMPARE("/saga/play",7)
+				else OSC_MSG_COMPARE("/saga/stop",8)
+				else OSC_MSG_COMPARE("/saga/loop",9)
+				else OSC_MSG_COMPARE("/saga/hb",10)
 												
-												// [buf_str release];
-												// NSLog(@"add_type %d", add_type);
-												break;
+				// [buf_str release];
+				// NSLog(@"add_type %d", add_type);
+				break;
             }
 				
             case 1:
@@ -356,6 +396,12 @@ union {
 							singleton->mAudioQueuePlayer->mLoopStart = loop_start / 5000.;
 							singleton->mAudioQueuePlayer->mLoopEnd = loop_end / 5000.;
 						}
+						break;
+					}
+					case 10:
+					{
+						singleton->mOSCMsg_ServerIPAddString = [[NSString alloc] initWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
+						break;
 					}
                 }
                 break;
