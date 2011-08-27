@@ -1,0 +1,377 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B493EC3B14084EC300E85E4B /* NetworkMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = B493EC3A14084EC300E85E4B /* NetworkMessages.m */; };
+		B4DE2AC81407555100F9C4A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2AC71407555100F9C4A0 /* UIKit.framework */; };
+		B4DE2ACA1407555100F9C4A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2AC91407555100F9C4A0 /* Foundation.framework */; };
+		B4DE2ACC1407555100F9C4A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2ACB1407555100F9C4A0 /* CoreGraphics.framework */; };
+		B4DE2AD21407555100F9C4A0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4DE2AD01407555100F9C4A0 /* InfoPlist.strings */; };
+		B4DE2AD51407555100F9C4A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2AD41407555100F9C4A0 /* main.m */; };
+		B4DE2AD81407555100F9C4A0 /* ForZeroAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2AD71407555100F9C4A0 /* ForZeroAppDelegate.m */; };
+		B4DE2ADB1407555100F9C4A0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4DE2AD91407555100F9C4A0 /* MainWindow.xib */; };
+		B4DE2ADE1407555100F9C4A0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2ADD1407555100F9C4A0 /* MainViewController.m */; };
+		B4DE2AE01407555100F9C4A0 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4DE2ADF1407555100F9C4A0 /* MainView.xib */; };
+		B4DE2AE31407555100F9C4A0 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2AE21407555100F9C4A0 /* FlipsideViewController.m */; };
+		B4DE2AE51407555100F9C4A0 /* FlipsideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4DE2AE41407555100F9C4A0 /* FlipsideView.xib */; };
+		B4DE2B031407599000F9C4A0 /* SagarihaAudioQueuePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2AF11407599000F9C4A0 /* SagarihaAudioQueuePlayer.m */; };
+		B4DE2B051407599000F9C4A0 /* SagarihaInterstitialMessageControls.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2AF51407599000F9C4A0 /* SagarihaInterstitialMessageControls.m */; };
+		B4DE2B081407599000F9C4A0 /* NetworkConnections.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2AFB1407599000F9C4A0 /* NetworkConnections.m */; };
+		B4DE2B091407599000F9C4A0 /* SagarihaPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2AFD1407599000F9C4A0 /* SagarihaPanView.m */; };
+		B4DE2B0B1407599000F9C4A0 /* SagarihaWaveTable.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2B011407599000F9C4A0 /* SagarihaWaveTable.m */; };
+		B4DE2B1814075F0400F9C4A0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2B1714075F0400F9C4A0 /* CoreFoundation.framework */; };
+		B4DE2B1A14075F0B00F9C4A0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2B1914075F0A00F9C4A0 /* AudioToolbox.framework */; };
+		B4DE2B1D140779CE00F9C4A0 /* image_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4DE2B1B140779CE00F9C4A0 /* image_0.jpg */; };
+		B4DE2B1E140779CE00F9C4A0 /* image_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4DE2B1C140779CE00F9C4A0 /* image_1.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B493EC3914084EC300E85E4B /* NetworkMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkMessages.h; sourceTree = "<group>"; };
+		B493EC3A14084EC300E85E4B /* NetworkMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkMessages.m; sourceTree = "<group>"; };
+		B4DE2AC31407555100F9C4A0 /* ForZero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForZero.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4DE2AC71407555100F9C4A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B4DE2AC91407555100F9C4A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B4DE2ACB1407555100F9C4A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B4DE2ACF1407555100F9C4A0 /* ForZero-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ForZero-Info.plist"; sourceTree = "<group>"; };
+		B4DE2AD11407555100F9C4A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B4DE2AD31407555100F9C4A0 /* ForZero-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ForZero-Prefix.pch"; sourceTree = "<group>"; };
+		B4DE2AD41407555100F9C4A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B4DE2AD61407555100F9C4A0 /* ForZeroAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForZeroAppDelegate.h; sourceTree = "<group>"; };
+		B4DE2AD71407555100F9C4A0 /* ForZeroAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForZeroAppDelegate.m; sourceTree = "<group>"; };
+		B4DE2ADA1407555100F9C4A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		B4DE2ADC1407555100F9C4A0 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		B4DE2ADD1407555100F9C4A0 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		B4DE2ADF1407555100F9C4A0 /* MainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
+		B4DE2AE11407555100F9C4A0 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
+		B4DE2AE21407555100F9C4A0 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
+		B4DE2AE41407555100F9C4A0 /* FlipsideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlipsideView.xib; sourceTree = "<group>"; };
+		B4DE2AF01407599000F9C4A0 /* SagarihaAudioQueuePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaAudioQueuePlayer.h; sourceTree = "<group>"; };
+		B4DE2AF11407599000F9C4A0 /* SagarihaAudioQueuePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaAudioQueuePlayer.m; sourceTree = "<group>"; };
+		B4DE2AF41407599000F9C4A0 /* SagarihaInterstitialMessageControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaInterstitialMessageControls.h; sourceTree = "<group>"; };
+		B4DE2AF51407599000F9C4A0 /* SagarihaInterstitialMessageControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaInterstitialMessageControls.m; sourceTree = "<group>"; };
+		B4DE2AFA1407599000F9C4A0 /* NetworkConnections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkConnections.h; sourceTree = "<group>"; };
+		B4DE2AFB1407599000F9C4A0 /* NetworkConnections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkConnections.m; sourceTree = "<group>"; };
+		B4DE2AFC1407599000F9C4A0 /* SagarihaPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaPanView.h; sourceTree = "<group>"; };
+		B4DE2AFD1407599000F9C4A0 /* SagarihaPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaPanView.m; sourceTree = "<group>"; };
+		B4DE2B001407599000F9C4A0 /* SagarihaWaveTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaWaveTable.h; sourceTree = "<group>"; };
+		B4DE2B011407599000F9C4A0 /* SagarihaWaveTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaWaveTable.m; sourceTree = "<group>"; };
+		B4DE2B1714075F0400F9C4A0 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		B4DE2B1914075F0A00F9C4A0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		B4DE2B1B140779CE00F9C4A0 /* image_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_0.jpg; sourceTree = "<group>"; };
+		B4DE2B1C140779CE00F9C4A0 /* image_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_1.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B4DE2AC01407555100F9C4A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4DE2B1A14075F0B00F9C4A0 /* AudioToolbox.framework in Frameworks */,
+				B4DE2B1814075F0400F9C4A0 /* CoreFoundation.framework in Frameworks */,
+				B4DE2AC81407555100F9C4A0 /* UIKit.framework in Frameworks */,
+				B4DE2ACA1407555100F9C4A0 /* Foundation.framework in Frameworks */,
+				B4DE2ACC1407555100F9C4A0 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B493EC2F1408253200E85E4B /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				B4DE2AF41407599000F9C4A0 /* SagarihaInterstitialMessageControls.h */,
+				B4DE2AF51407599000F9C4A0 /* SagarihaInterstitialMessageControls.m */,
+				B4DE2AFC1407599000F9C4A0 /* SagarihaPanView.h */,
+				B4DE2AFD1407599000F9C4A0 /* SagarihaPanView.m */,
+			);
+			name = UIViews;
+			sourceTree = "<group>";
+		};
+		B493EC56140879D600E85E4B /* Networking Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B4DE2AFA1407599000F9C4A0 /* NetworkConnections.h */,
+				B4DE2AFB1407599000F9C4A0 /* NetworkConnections.m */,
+				B493EC3914084EC300E85E4B /* NetworkMessages.h */,
+				B493EC3A14084EC300E85E4B /* NetworkMessages.m */,
+			);
+			name = "Networking Classes";
+			sourceTree = "<group>";
+		};
+		B4DE2AB81407555100F9C4A0 = {
+			isa = PBXGroup;
+			children = (
+				B4DE2B1914075F0A00F9C4A0 /* AudioToolbox.framework */,
+				B4DE2B1714075F0400F9C4A0 /* CoreFoundation.framework */,
+				B4DE2ACD1407555100F9C4A0 /* ForZero */,
+				B4DE2AC61407555100F9C4A0 /* Frameworks */,
+				B4DE2AC41407555100F9C4A0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B4DE2AC41407555100F9C4A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4DE2AC31407555100F9C4A0 /* ForZero.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4DE2AC61407555100F9C4A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4DE2AC71407555100F9C4A0 /* UIKit.framework */,
+				B4DE2AC91407555100F9C4A0 /* Foundation.framework */,
+				B4DE2ACB1407555100F9C4A0 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4DE2ACD1407555100F9C4A0 /* ForZero */ = {
+			isa = PBXGroup;
+			children = (
+				B4DE2AD61407555100F9C4A0 /* ForZeroAppDelegate.h */,
+				B4DE2AD71407555100F9C4A0 /* ForZeroAppDelegate.m */,
+				B4DE2ADC1407555100F9C4A0 /* MainViewController.h */,
+				B4DE2ADD1407555100F9C4A0 /* MainViewController.m */,
+				B4DE2AF01407599000F9C4A0 /* SagarihaAudioQueuePlayer.h */,
+				B4DE2AF11407599000F9C4A0 /* SagarihaAudioQueuePlayer.m */,
+				B4DE2AE11407555100F9C4A0 /* FlipsideViewController.h */,
+				B4DE2AE21407555100F9C4A0 /* FlipsideViewController.m */,
+				B493EC56140879D600E85E4B /* Networking Classes */,
+				B493EC2F1408253200E85E4B /* UIViews */,
+				B4DE2B001407599000F9C4A0 /* SagarihaWaveTable.h */,
+				B4DE2B011407599000F9C4A0 /* SagarihaWaveTable.m */,
+				B4DE2ACE1407555100F9C4A0 /* Supporting Files */,
+			);
+			path = ForZero;
+			sourceTree = "<group>";
+		};
+		B4DE2ACE1407555100F9C4A0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B4DE2AD91407555100F9C4A0 /* MainWindow.xib */,
+				B4DE2ADF1407555100F9C4A0 /* MainView.xib */,
+				B4DE2AE41407555100F9C4A0 /* FlipsideView.xib */,
+				B4DE2AED140755A000F9C4A0 /* Sound Files */,
+				B4DE2AEC1407559300F9C4A0 /* Images */,
+				B4DE2ACF1407555100F9C4A0 /* ForZero-Info.plist */,
+				B4DE2AD01407555100F9C4A0 /* InfoPlist.strings */,
+				B4DE2AD31407555100F9C4A0 /* ForZero-Prefix.pch */,
+				B4DE2AD41407555100F9C4A0 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B4DE2AEC1407559300F9C4A0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B4DE2B1B140779CE00F9C4A0 /* image_0.jpg */,
+				B4DE2B1C140779CE00F9C4A0 /* image_1.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		B4DE2AED140755A000F9C4A0 /* Sound Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Sound Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B4DE2AC21407555100F9C4A0 /* ForZero */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4DE2AE81407555100F9C4A0 /* Build configuration list for PBXNativeTarget "ForZero" */;
+			buildPhases = (
+				B4DE2ABF1407555100F9C4A0 /* Sources */,
+				B4DE2AC01407555100F9C4A0 /* Frameworks */,
+				B4DE2AC11407555100F9C4A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ForZero;
+			productName = ForZero;
+			productReference = B4DE2AC31407555100F9C4A0 /* ForZero.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B4DE2ABA1407555100F9C4A0 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = B4DE2ABD1407555100F9C4A0 /* Build configuration list for PBXProject "ForZero" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B4DE2AB81407555100F9C4A0;
+			productRefGroup = B4DE2AC41407555100F9C4A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B4DE2AC21407555100F9C4A0 /* ForZero */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B4DE2AC11407555100F9C4A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4DE2AD21407555100F9C4A0 /* InfoPlist.strings in Resources */,
+				B4DE2ADB1407555100F9C4A0 /* MainWindow.xib in Resources */,
+				B4DE2AE01407555100F9C4A0 /* MainView.xib in Resources */,
+				B4DE2AE51407555100F9C4A0 /* FlipsideView.xib in Resources */,
+				B4DE2B1D140779CE00F9C4A0 /* image_0.jpg in Resources */,
+				B4DE2B1E140779CE00F9C4A0 /* image_1.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B4DE2ABF1407555100F9C4A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4DE2AD51407555100F9C4A0 /* main.m in Sources */,
+				B4DE2AD81407555100F9C4A0 /* ForZeroAppDelegate.m in Sources */,
+				B4DE2ADE1407555100F9C4A0 /* MainViewController.m in Sources */,
+				B4DE2AE31407555100F9C4A0 /* FlipsideViewController.m in Sources */,
+				B4DE2B031407599000F9C4A0 /* SagarihaAudioQueuePlayer.m in Sources */,
+				B4DE2B051407599000F9C4A0 /* SagarihaInterstitialMessageControls.m in Sources */,
+				B4DE2B081407599000F9C4A0 /* NetworkConnections.m in Sources */,
+				B4DE2B091407599000F9C4A0 /* SagarihaPanView.m in Sources */,
+				B4DE2B0B1407599000F9C4A0 /* SagarihaWaveTable.m in Sources */,
+				B493EC3B14084EC300E85E4B /* NetworkMessages.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B4DE2AD01407555100F9C4A0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4DE2AD11407555100F9C4A0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B4DE2AD91407555100F9C4A0 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4DE2ADA1407555100F9C4A0 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B4DE2AE61407555100F9C4A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Christopher Lavender (LE5HQ5MQLM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Christopher Lavender (LE5HQ5MQLM)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PROVISIONING_PROFILE = "28A95909-E8C4-4CA9-B08F-7F26E38DD09A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "28A95909-E8C4-4CA9-B08F-7F26E38DD09A";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B4DE2AE71407555100F9C4A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Christopher Lavender (LE5HQ5MQLM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "28A95909-E8C4-4CA9-B08F-7F26E38DD09A";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		B4DE2AE91407555100F9C4A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ForZero/ForZero-Prefix.pch";
+				INFOPLIST_FILE = "ForZero/ForZero-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B4DE2AEA1407555100F9C4A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ForZero/ForZero-Prefix.pch";
+				INFOPLIST_FILE = "ForZero/ForZero-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B4DE2ABD1407555100F9C4A0 /* Build configuration list for PBXProject "ForZero" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4DE2AE61407555100F9C4A0 /* Debug */,
+				B4DE2AE71407555100F9C4A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4DE2AE81407555100F9C4A0 /* Build configuration list for PBXNativeTarget "ForZero" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4DE2AE91407555100F9C4A0 /* Debug */,
+				B4DE2AEA1407555100F9C4A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B4DE2ABA1407555100F9C4A0 /* Project object */;
+}
