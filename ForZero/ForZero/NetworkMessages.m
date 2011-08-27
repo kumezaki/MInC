@@ -13,9 +13,9 @@
 @synthesize delegate = _delegate;
 @synthesize mAudioQueuePlayer;
 
-#define OSC_START self->mOutBufferLength = 0;
+#define OSC_START mOutBufferLength = 0;
 #define OSC_END [self send_udp];
-#define OSC_ADD(msg,num_msg_bytes) memcpy(self->mOutBuffer+self->mOutBufferLength,msg,num_msg_bytes); self->mOutBufferLength+=num_msg_bytes;
+#define OSC_ADD(msg,num_msg_bytes) memcpy(mOutBuffer+mOutBufferLength,msg,num_msg_bytes);mOutBufferLength+=num_msg_bytes;
 
 #define OSC_VAL_BYTE_SWAP(val_ptr) memcpy(&u.int_val,val_ptr,4); u.int_val = htonl(u.int_val);
 union {
@@ -40,7 +40,7 @@ union {
 	    
 	OSC_START
 	OSC_ADD(buf,osc_str_length+4);
-	OSC_ADD(self->ip_add_buf,self->ip_add_size)
+	OSC_ADD(ip_add_buf,ip_add_size)
 	OSC_END
 }
 
@@ -51,7 +51,7 @@ union {
 	
 	OSC_START
 	OSC_ADD(buf,osc_str_length+4);
-	OSC_ADD(self->ip_add_buf,self->ip_add_size);
+	OSC_ADD(ip_add_buf,ip_add_size);
 	OSC_ADD(&val,4);
 	OSC_END
 }
@@ -64,7 +64,7 @@ union {
 	
 	OSC_START
 	OSC_ADD(buf,osc_str_length+4);
-	OSC_ADD(self->ip_add_buf,self->ip_add_size);
+	OSC_ADD(ip_add_buf,ip_add_size);
 	OSC_ADD(&u.flt_val,4);
 	OSC_END
 }
@@ -79,7 +79,7 @@ union {
     int msg_type = 0;
     int add_type = 0;
 	
-    while (pos < self->mUDPInBufferLength)
+    while (pos < mUDPInBufferLength)
     {
         switch (msg_type)
         {
@@ -89,7 +89,7 @@ union {
 #if 0
 #define OSC_MSG_COMPARE(osc_add,add_type_val) if ([buf_str isEqualToString:@osc_add]) add_type = add_type_val;
 #else
-#define	OSC_MSG_COMPARE(osc_add,add_type_val) if (strcmp(self->mUDPInBuffer,osc_add)==0) add_type = add_type_val;
+#define	OSC_MSG_COMPARE(osc_add,add_type_val) if (strcmp(mUDPInBuffer,osc_add)==0) add_type = add_type_val;
 #endif
                 // NSString* buf_str = [NSString stringWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
 				
@@ -140,37 +140,37 @@ union {
                 {
                     case 1:
                     {
-                        OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
+                        OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                         //printf("state %d\n",u.int_val);
                         mOSCMsg_State = u.int_val;
                         break;
                     }
                     case 2:
                     {
-                        OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
+                        OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                         //printf("rec_prog %d\n",u.int_val);
                         mOSCMsg_RecProg = (float)u.int_val / 1000.;
                         break;
                     }
                     case 3:
                     {
-                        OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
+                        OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                         mOSCMsg_InterstitialMsgDur = u.int_val;
                         pos += 4;
 						
                         //printf("hint %s\n",mUDPInBuffer+pos);
-                        mOSCMsg_InterstitialMsg = [[NSString alloc] initWithCString:self->mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
+                        mOSCMsg_InterstitialMsg = [[NSString alloc] initWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
                         break;
                     }
                     case 4:
                     {
-                        OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
+                        OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                         int audio_index = u.int_val;
                         pos += 4;
                         
                         // NSLog(@"audio_index %i", audio_index);
                         
-                        OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
+                        OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                         int size = u.int_val;
                         pos += 4;
                         
@@ -178,7 +178,7 @@ union {
                         
                         for (int i = 0; i < size; i++)
                         {
-                            OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
+                            OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                             float audio_sample = u.flt_val;
                             [mAudioQueuePlayer SetSample:audio_index+i:audio_sample];
                             pos += 4;
@@ -204,18 +204,18 @@ union {
                     }
                     case 6:
                     {
-                        OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
+                        OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                         // printf("cue %d\n",u.int_val);
                         mOSCMsg_Cue = u.int_val;
                         break;
                     }
 					case 9:
 					{
-						OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
+						OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
 						float loop_start = u.int_val;
 						pos += 4;
 						
-						OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
+						OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
 						float loop_end = u.int_val;
 						pos += 4;
 						
@@ -244,7 +244,7 @@ union {
         }
 		
         //printf("%s: %s\n",msg_type_str,mUDPInBuffer+pos);
-        pos += ((strlen(self->mUDPInBuffer+pos) / 4) + 1)* 4;            
+        pos += ((strlen(mUDPInBuffer+pos) / 4) + 1)* 4;            
     }
 }
 
@@ -252,7 +252,7 @@ union {
         
     //NSAutoreleasePool *tcpThreadPool = [[NSAutoreleasePool alloc] init];
     
-    NSData* raw = [NSData dataWithBytes:[self->incomingDataBuffer bytes] length:[self->incomingDataBuffer length]];
+    NSData* raw = [NSData dataWithBytes:[incomingDataBuffer bytes] length:[incomingDataBuffer length]];
     
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *filePath = [documentsPath stringByAppendingPathComponent:@"forZero.mp3"];
