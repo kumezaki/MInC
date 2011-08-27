@@ -287,8 +287,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Christopher Lavender (LE5HQ5MQLM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Christopher Lavender (LE5HQ5MQLM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -297,8 +297,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				PROVISIONING_PROFILE = "28A95909-E8C4-4CA9-B08F-7F26E38DD09A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "28A95909-E8C4-4CA9-B08F-7F26E38DD09A";
+				PROVISIONING_PROFILE = "36C68F25-2B3A-4645-8725-0772B9CE4933";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "36C68F25-2B3A-4645-8725-0772B9CE4933";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -307,15 +307,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Christopher Lavender (LE5HQ5MQLM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "28A95909-E8C4-4CA9-B08F-7F26E38DD09A";
+				PROVISIONING_PROFILE = "36C68F25-2B3A-4645-8725-0772B9CE4933";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "36C68F25-2B3A-4645-8725-0772B9CE4933";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
