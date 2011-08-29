@@ -137,7 +137,7 @@
 	if (file_exists)
 		[self readDataFile];
 
-	mWithServer = NO;
+	mWithServer = YES;
 	
 	memset(ip_add_buf,0,32);
 	[[self getIPAddress] getCString:ip_add_buf maxLength:32 encoding:NSASCIIStringEncoding];
