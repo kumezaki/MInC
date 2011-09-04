@@ -202,7 +202,7 @@
 		B4CADD8113EE07DC00E44854 /* PropPhoneAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PropPhoneAppDelegate.h; sourceTree = "<group>"; };
 		B4CADD8213EE07DC00E44854 /* PropPhoneAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PropPhoneAppDelegate.m; sourceTree = "<group>"; };
 		B4CADD8513EE07DC00E44854 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		B4E2403613EE0B4B00FE617B /* PropPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PropPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4E2403613EE0B4B00FE617B /* PropPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PropPhone.app; path = "/Users/main_brain/minc_minc/PropPhone_beta/build/Release-iphoneos/PropPhone.app"; sourceTree = "<absolute>"; };
 		B4F0355B14134224002970C1 /* ConnectionLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionLogic.h; sourceTree = "<group>"; };
 		B4F0355C14134224002970C1 /* ConnectionLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionLogic.m; sourceTree = "<group>"; };
 		B4F0355D14134224002970C1 /* ConnectionLogicDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionLogicDelegate.h; sourceTree = "<group>"; };
@@ -414,7 +414,6 @@
 		B4CADD6F13EE07DC00E44854 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B4E2403613EE0B4B00FE617B /* PropPhone.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
