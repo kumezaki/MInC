@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="80"
+   height="80"
+   id="svg3153"
+   version="1.1"
+   inkscape:version="0.48.1 r9760"
+   sodipodi:docname="New document 4">
+  <defs
+     id="defs3155" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="37.04241"
+     inkscape:cy="38.97753"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1058"
+     inkscape:window-height="738"
+     inkscape:window-x="1387"
+     inkscape:window-y="109"
+     inkscape:window-maximized="0">
+    <sodipodi:guide
+       orientation="0,1"
+       position="39.995727,39.995727"
+       id="guide8224" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata3158">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-972.36218)"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="rect3161"
+       width="80"
+       height="80"
+       x="0"
+       y="972.36218"
+       inkscape:export-filename="/Users/main_brain/Documents/Xcoding/PropPhone/Phone Graphics/png/Icon Buttons/arrow_highlighted.png"
+       inkscape:export-xdpi="94.739998"
+       inkscape:export-ydpi="94.739998" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer21"
+     inkscape:label="arrow default"
+     style="display:none"
+     sodipodi:insensitive="true">
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Glyphish;-inkscape-font-specification:Glyphish"
+       x="33.57143"
+       y="33.392857"
+       id="text3933"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3935"
+         x="33.57143"
+         y="33.392857" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Glyphish;-inkscape-font-specification:Glyphish"
+       x="45.535713"
+       y="30.535713"
+       id="text3937"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3939"
+         x="45.535713"
+         y="30.535713" /></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="thin_x5F_arrow_x5F_left"
+       d="m 51.838727,61.504273 c -1.023,0 -2.048,-0.391 -2.828,-1.172 l -20.329,-20.328 20.329,-20.328 c 1.561,-1.562 4.096,-1.562 5.656,0 1.562,1.562 1.562,4.095 0,5.656 l -14.671,14.672 14.671,14.672 c 1.562,1.562 1.562,4.095 0,5.656 -0.78,0.781 -1.805,1.172 -2.828,1.172 z"
+       style="fill:#808080" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer22"
+     inkscape:label="arrow highlighted"
+     style="display:inline">
+    <path
+       inkscape:connector-curvature="0"
+       id="thin_x5F_arrow_x5F_left-8"
+       d="m 51.838727,61.504273 c -1.023,0 -2.048,-0.391 -2.828,-1.172 l -20.329,-20.328 20.329,-20.328 c 1.561,-1.562 4.096,-1.562 5.656,0 1.562,1.562 1.562,4.095 0,5.656 l -14.671,14.672 14.671,14.672 c 1.562,1.562 1.562,4.095 0,5.656 -0.78,0.781 -1.805,1.172 -2.828,1.172 z"
+       style="fill:#e6e6e6;display:inline" />
+  </g>
+</svg>
