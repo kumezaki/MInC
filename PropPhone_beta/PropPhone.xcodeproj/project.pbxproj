@@ -46,7 +46,6 @@
 		B4910D2F13EE5DEC00E6449D /* PropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4910D2313EE5DEC00E6449D /* PropViewController.m */; };
 		B4910D3013EE5DEC00E6449D /* PropViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4910D2413EE5DEC00E6449D /* PropViewController.xib */; };
 		B49412D81408F9C100056A0D /* TimerSetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49412D71408F9C100056A0D /* TimerSetView.xib */; };
-		B4943348140A3A94002842AD /* tele.aif in Resources */ = {isa = PBXBuildFile; fileRef = B4943347140A3A93002842AD /* tele.aif */; };
 		B494334A140A3B32002842AD /* tele.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B4943349140A3B31002842AD /* tele.mp3 */; };
 		B4954129140F38BF00B4A15D /* play_default2.png in Resources */ = {isa = PBXBuildFile; fileRef = B4954127140F38BF00B4A15D /* play_default2.png */; };
 		B495412A140F38BF00B4A15D /* stop_default2.png in Resources */ = {isa = PBXBuildFile; fileRef = B4954128140F38BF00B4A15D /* stop_default2.png */; };
@@ -98,7 +97,6 @@
 		B4F0356F1413429B002970C1 /* IncomingCallView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F0356E1413429B002970C1 /* IncomingCallView.xib */; };
 		B4F03571141342A5002970C1 /* StandbyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F03570141342A5002970C1 /* StandbyView.xib */; };
 		B4F03573141342AD002970C1 /* ActionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F03572141342AD002970C1 /* ActionViewController.xib */; };
-		B4F03575141342C4002970C1 /* teleShort.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B4F03574141342C4002970C1 /* teleShort.mp3 */; };
 		B4F03577141342DF002970C1 /* SpinButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F03576141342DF002970C1 /* SpinButton.m */; };
 /* End PBXBuildFile section */
 
@@ -150,7 +148,6 @@
 		B4910D2313EE5DEC00E6449D /* PropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropViewController.m; sourceTree = "<group>"; };
 		B4910D2413EE5DEC00E6449D /* PropViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropViewController.xib; sourceTree = "<group>"; };
 		B49412D71408F9C100056A0D /* TimerSetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerSetView.xib; sourceTree = "<group>"; };
-		B4943347140A3A93002842AD /* tele.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = tele.aif; sourceTree = "<group>"; };
 		B4943349140A3B31002842AD /* tele.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tele.mp3; sourceTree = "<group>"; };
 		B4954127140F38BF00B4A15D /* play_default2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_default2.png; sourceTree = "<group>"; };
 		B4954128140F38BF00B4A15D /* stop_default2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop_default2.png; sourceTree = "<group>"; };
@@ -218,7 +215,6 @@
 		B4F0356E1413429B002970C1 /* IncomingCallView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IncomingCallView.xib; sourceTree = "<group>"; };
 		B4F03570141342A5002970C1 /* StandbyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandbyView.xib; sourceTree = "<group>"; };
 		B4F03572141342AD002970C1 /* ActionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionViewController.xib; sourceTree = "<group>"; };
-		B4F03574141342C4002970C1 /* teleShort.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = teleShort.mp3; sourceTree = "<group>"; };
 		B4F03576141342DF002970C1 /* SpinButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -464,8 +460,6 @@
 				B494332E1409AB6A002842AD /* Control Stuff */,
 				B48174D413EE0937009C49E5 /* Images */,
 				B4C1CDA51412E3B600202C31 /* info.html */,
-				B4943347140A3A93002842AD /* tele.aif */,
-				B4F03574141342C4002970C1 /* teleShort.mp3 */,
 				B4943349140A3B31002842AD /* tele.mp3 */,
 				B4CADD7A13EE07DC00E44854 /* PropPhone-Info.plist */,
 				B4CADD7B13EE07DC00E44854 /* InfoPlist.strings */,
@@ -541,7 +535,6 @@
 				B4831D9C13EFB1390032D816 /* nicholsDisplay2.png in Resources */,
 				B495674913F64798009DAF35 /* pickerBG.png in Resources */,
 				B49412D81408F9C100056A0D /* TimerSetView.xib in Resources */,
-				B4943348140A3A94002842AD /* tele.aif in Resources */,
 				B494334A140A3B32002842AD /* tele.mp3 in Resources */,
 				B46C5B54140C428600040D69 /* comedy.png in Resources */,
 				B46C5B5A140C482000040D69 /* comedyHighlighted.png in Resources */,
@@ -590,7 +583,6 @@
 				B4F0356F1413429B002970C1 /* IncomingCallView.xib in Resources */,
 				B4F03571141342A5002970C1 /* StandbyView.xib in Resources */,
 				B4F03573141342AD002970C1 /* ActionViewController.xib in Resources */,
-				B4F03575141342C4002970C1 /* teleShort.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
