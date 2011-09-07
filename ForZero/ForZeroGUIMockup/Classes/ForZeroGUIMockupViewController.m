@@ -38,13 +38,40 @@
 */
 
 
-/*
+
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //Set which orientations we allow
+	if (
+        (interfaceOrientation == UIInterfaceOrientationPortrait) ||
+        (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||
+        (interfaceOrientation == UIInterfaceOrientationLandscapeRight)
+        )
+	{
+		return YES;
+	}
+	else
+	{
+		return NO;
+	}
 }
-*/
+
+//********** WILL ROTATE ORIENTATION **********
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+										 duration:(NSTimeInterval)duration
+{
+	if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation))
+	{
+		//----- GOING TO PORTRAIT -----
+		//[[self view] setBackgroundColor:[UIColor blueColor]];
+	}
+	else
+	{
+		//----- GOING TO LANDSCAPE -----
+		//[[self view] setBackgroundColor:[UIColor redColor]];
+	}
+}
+
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
