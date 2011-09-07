@@ -9,7 +9,8 @@
 #import "ForZeroGUIMockupViewController.h"
 
 @implementation ForZeroGUIMockupViewController
-
+@synthesize serverView, deviceView;
+@synthesize downloadButton, uploadButton;
 
 
 /*
@@ -64,11 +65,19 @@
 	{
 		//----- GOING TO PORTRAIT -----
 		//[[self view] setBackgroundColor:[UIColor blueColor]];
+        self.serverView.frame = CGRectMake(0, 0, 320, 200);
+        self.deviceView.frame = CGRectMake(0, 265, 320, 200);
+        self.uploadButton.frame = CGRectMake(93, 150, 40, 160);
+        self.downloadButton.frame = CGRectMake(186, 150, 40, 160);
 	}
 	else
 	{
 		//----- GOING TO LANDSCAPE -----
 		//[[self view] setBackgroundColor:[UIColor redColor]];
+        self.serverView.frame = CGRectMake(0, 0, 480, 145);
+        self.deviceView.frame = CGRectMake(0, 155, 480, 145);
+        self.uploadButton.frame = CGRectMake(146, 125, 40, 50);
+        self.downloadButton.frame = CGRectMake(292, 125, 40, 50);
 	}
 }
 
@@ -83,6 +92,10 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
+    self.uploadButton=nil;
+    self.downloadButton=nil;
+    self.serverView=nil;
+    self.deviceView=nil;
 }
 
 

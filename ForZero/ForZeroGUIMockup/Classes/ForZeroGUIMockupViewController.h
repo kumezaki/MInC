@@ -11,6 +11,11 @@
 @interface ForZeroGUIMockupViewController : UIViewController {
 
 }
+@property (nonatomic, retain) IBOutlet UIView *serverView;
+@property (nonatomic, retain) IBOutlet UIView *deviceView;
+@property (nonatomic, retain) IBOutlet UIButton *downloadButton;
+@property (nonatomic, retain) IBOutlet UIButton *uploadButton;
+
 
 @end
 
