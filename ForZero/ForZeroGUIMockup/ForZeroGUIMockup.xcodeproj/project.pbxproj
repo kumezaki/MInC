@@ -15,6 +15,14 @@
 		2899E5220DE3E06400AC0155 /* ForZeroGUIMockupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* ForZeroGUIMockupViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* ForZeroGUIMockupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* ForZeroGUIMockupViewController.m */; };
+		B4528CFF141846DC00A2DCDE /* speakerOff.png in Resources */ = {isa = PBXBuildFile; fileRef = B4528CFE141846DC00A2DCDE /* speakerOff.png */; };
+		B4528D02141846E400A2DCDE /* speakerOn.png in Resources */ = {isa = PBXBuildFile; fileRef = B4528D01141846E400A2DCDE /* speakerOn.png */; };
+		B4E3A87814183D83002F41A4 /* arrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E3A87014183D83002F41A4 /* arrowDown.png */; };
+		B4E3A87914183D83002F41A4 /* arrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E3A87114183D83002F41A4 /* arrowUp.png */; };
+		B4E3A87A14183D83002F41A4 /* meter.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E3A87214183D83002F41A4 /* meter.png */; };
+		B4E3A87B14183D83002F41A4 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E3A87314183D83002F41A4 /* play.png */; };
+		B4E3A87C14183D83002F41A4 /* rec.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E3A87414183D83002F41A4 /* rec.png */; };
+		B4E3A87F14183D83002F41A4 /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E3A87714183D83002F41A4 /* stop.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +39,14 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* ForZeroGUIMockup_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForZeroGUIMockup_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ForZeroGUIMockup-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ForZeroGUIMockup-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		B4528CFE141846DC00A2DCDE /* speakerOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speakerOff.png; sourceTree = "<group>"; };
+		B4528D01141846E400A2DCDE /* speakerOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speakerOn.png; sourceTree = "<group>"; };
+		B4E3A87014183D83002F41A4 /* arrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowDown.png; sourceTree = "<group>"; };
+		B4E3A87114183D83002F41A4 /* arrowUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowUp.png; sourceTree = "<group>"; };
+		B4E3A87214183D83002F41A4 /* meter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meter.png; sourceTree = "<group>"; };
+		B4E3A87314183D83002F41A4 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		B4E3A87414183D83002F41A4 /* rec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rec.png; sourceTree = "<group>"; };
+		B4E3A87714183D83002F41A4 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +106,14 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B4E3A87014183D83002F41A4 /* arrowDown.png */,
+				B4E3A87114183D83002F41A4 /* arrowUp.png */,
+				B4E3A87214183D83002F41A4 /* meter.png */,
+				B4E3A87314183D83002F41A4 /* play.png */,
+				B4E3A87414183D83002F41A4 /* rec.png */,
+				B4528CFE141846DC00A2DCDE /* speakerOff.png */,
+				B4528D01141846E400A2DCDE /* speakerOn.png */,
+				B4E3A87714183D83002F41A4 /* stop.png */,
 				2899E5210DE3E06400AC0155 /* ForZeroGUIMockupViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* ForZeroGUIMockup-Info.plist */,
@@ -158,6 +182,14 @@
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				2899E5220DE3E06400AC0155 /* ForZeroGUIMockupViewController.xib in Resources */,
+				B4E3A87814183D83002F41A4 /* arrowDown.png in Resources */,
+				B4E3A87914183D83002F41A4 /* arrowUp.png in Resources */,
+				B4E3A87A14183D83002F41A4 /* meter.png in Resources */,
+				B4E3A87B14183D83002F41A4 /* play.png in Resources */,
+				B4E3A87C14183D83002F41A4 /* rec.png in Resources */,
+				B4E3A87F14183D83002F41A4 /* stop.png in Resources */,
+				B4528CFF141846DC00A2DCDE /* speakerOff.png in Resources */,
+				B4528D02141846E400A2DCDE /* speakerOn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

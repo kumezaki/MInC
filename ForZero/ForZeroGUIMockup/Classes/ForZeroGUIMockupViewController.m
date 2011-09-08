@@ -66,18 +66,18 @@
 		//----- GOING TO PORTRAIT -----
 		//[[self view] setBackgroundColor:[UIColor blueColor]];
         self.serverView.frame = CGRectMake(0, 0, 320, 200);
-        self.deviceView.frame = CGRectMake(0, 265, 320, 200);
-        self.uploadButton.frame = CGRectMake(93, 150, 40, 160);
-        self.downloadButton.frame = CGRectMake(186, 150, 40, 160);
+        self.deviceView.frame = CGRectMake(0, 260, 320, 200);
+        self.uploadButton.frame = CGRectMake(88, 150, 45, 160);
+        self.downloadButton.frame = CGRectMake(186, 150, 45, 160);
 	}
 	else
 	{
 		//----- GOING TO LANDSCAPE -----
 		//[[self view] setBackgroundColor:[UIColor redColor]];
-        self.serverView.frame = CGRectMake(0, 0, 480, 145);
-        self.deviceView.frame = CGRectMake(0, 155, 480, 145);
-        self.uploadButton.frame = CGRectMake(146, 125, 40, 50);
-        self.downloadButton.frame = CGRectMake(292, 125, 40, 50);
+        self.serverView.frame = CGRectMake(0, 0, 480, 140);
+        self.deviceView.frame = CGRectMake(0, 160, 480, 140);
+        self.uploadButton.frame = CGRectMake(139, 123, 45, 55);
+        self.downloadButton.frame = CGRectMake(294, 123, 45, 55);
 	}
 }
 
