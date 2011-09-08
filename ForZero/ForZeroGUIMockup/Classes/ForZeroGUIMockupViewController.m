@@ -45,6 +45,7 @@
     //Set which orientations we allow
 	if (
         (interfaceOrientation == UIInterfaceOrientationPortrait) ||
+        (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) ||
         (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||
         (interfaceOrientation == UIInterfaceOrientationLandscapeRight)
         )
