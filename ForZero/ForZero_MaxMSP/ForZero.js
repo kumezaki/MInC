@@ -265,7 +265,7 @@ function osc_msg_download(pos)
 
         f = new File("fz_download.txt","write", "TEXT");
         	 	post("fz_download.txt created for pos:",pos,"\n");
-        f.writeline(gIPAddress[pos]+", "+tcp_port_num+", ../MaxMSP/"+file_name);
+        f.writeline(gIPAddress[pos]+", "+tcp_port_num+", ../ForZero_MaxMSP/"+file_name);
         		post("script file written for pos:",pos,"\n");
         f.close();
         	 	post("txt file closed for pos:",pos,"\n");
