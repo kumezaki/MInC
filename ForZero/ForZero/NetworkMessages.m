@@ -10,8 +10,8 @@
 
 @implementation NetworkMessages
 
-@synthesize delegate = _delegate;
-@synthesize mAudioQueuePlayer;
+@synthesize delegate;
+@synthesize aqPlayer;
 
 #define OSC_START mOutBufferLength = 0;
 #define OSC_END [self send_udp];
@@ -93,15 +93,15 @@ union {
 #endif
                 // NSString* buf_str = [NSString stringWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
 				
-                OSC_MSG_COMPARE("/saga/state",1)
-                else OSC_MSG_COMPARE("/saga/rec_prog",2)
-					else OSC_MSG_COMPARE("/saga/interstitial",3)
-						else OSC_MSG_COMPARE("/saga/audio",4)
-							else OSC_MSG_COMPARE("/saga/audio_end",5)
-								else OSC_MSG_COMPARE("/saga/cue",6)
-									else OSC_MSG_COMPARE("/saga/play",7)
-										else OSC_MSG_COMPARE("/saga/stop",8)
-											else OSC_MSG_COMPARE("/saga/loop",9)
+                OSC_MSG_COMPARE("/fz/state",1)
+                else OSC_MSG_COMPARE("/fz/rec_prog",2)
+					else OSC_MSG_COMPARE("/fz/interstitial",3)
+						else OSC_MSG_COMPARE("/fz/audio",4)
+							else OSC_MSG_COMPARE("/fz/audio_end",5)
+								else OSC_MSG_COMPARE("/fz/cue",6)
+									else OSC_MSG_COMPARE("/fz/play",7)
+										else OSC_MSG_COMPARE("/fz/stop",8)
+											else OSC_MSG_COMPARE("/fz/loop",9)
 												
 												// [buf_str release];
 												// NSLog(@"add_type %d", add_type);
@@ -180,7 +180,7 @@ union {
                         {
                             OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                             float audio_sample = u.flt_val;
-                            [mAudioQueuePlayer SetSample:audio_index+i:audio_sample];
+                            [self.aqPlayer SetSample:audio_index+i:audio_sample];
                             pos += 4;
                         }
                         /*
@@ -223,8 +223,8 @@ union {
 							&& (loop_start >= 0 && loop_start <= 5000.)
 							&& (loop_end >= 0 && loop_end <= 5000.))
 						{
-							mAudioQueuePlayer->mLoopStart = loop_start / 5000.;
-							mAudioQueuePlayer->mLoopEnd = loop_end / 5000.;
+							self.aqPlayer->mLoopStart = loop_start / 5000.;
+							self.aqPlayer->mLoopEnd = loop_end / 5000.;
 						}
 					}
                 }
@@ -256,7 +256,7 @@ union {
     
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *filePath = [documentsPath stringByAppendingPathComponent:@"forZero.mp3"];
-    self.mAudioQueuePlayer.theFile = filePath;
+    self.aqPlayer.theFile = filePath;
 	//NSLog(@"filePath:%@", filePath);
     
     [raw writeToFile:filePath atomically:YES];

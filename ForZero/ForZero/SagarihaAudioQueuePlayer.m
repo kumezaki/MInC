@@ -10,7 +10,9 @@
 
 
 @implementation SagarihaAudioQueuePlayer
+@synthesize delegate = _delegate;
 @synthesize theFile = _theFile;
+@synthesize mAmp;
 
 #if _old_AQ_
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
@@ -230,6 +232,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
                                         &mAudioFile);
     if (result != noErr) {
 		NSLog(@"AudioFileOpenURL %ld\n",result);
+        [self.delegate audioQueueError:@"Unable to read the audio file.\nHas one been downloaded yet?"];
         self.theFile = nil;
         return;
     }

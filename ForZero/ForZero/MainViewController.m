@@ -12,15 +12,25 @@
 
 @implementation MainViewController
 
-@synthesize mStateServerSegControl;
-@synthesize mStateClientSegControl;
+@synthesize serverView=_serverView, clientView=_clientView;
+@synthesize uploadButt=_uploadButt, downloadButt=_downloadButt, downloadIndicator=_downloadIndicator;
+@synthesize serverRecButt=_serverRecButt, serverStopButt=_serverStopButt, serverPlayButt=_serverPlayButt;
+@synthesize clientRecButt=_clientRecButt, clientStopButt=_clientStopButt, clientPlayButt=_clientPlayButt;
 
-@synthesize mRecProgView;
-@synthesize mDownloadProgView;
-@synthesize mDownloadIndicator;
+@synthesize recProgView=_recProgView, downloadProgView=_downloadProgView;
 
-@synthesize networking = _networking;
+@synthesize networking=_networking, aqPlayer=_aqPlayer;
 
+- (void)displayAlertMessage:(NSString*)msg
+{
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Oops!" 
+                                                    message:msg 
+                                                   delegate:nil 
+                                          cancelButtonTitle:@"Ok" 
+                                          otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
@@ -28,11 +38,12 @@
     [[UIAccelerometer sharedAccelerometer] setDelegate:self];
 	[UIAccelerometer sharedAccelerometer].updateInterval = 0.1;
         
-    mAudioQueuePlayer = [[SagarihaAudioQueuePlayer alloc]init];
+    _aqPlayer = [[SagarihaAudioQueuePlayer alloc]init];
+    _aqPlayer.delegate = self;
     
     _networking = [[NetworkMessages alloc] init];
     _networking.delegate = self;
-    _networking.mAudioQueuePlayer = mAudioQueuePlayer;
+    _networking.aqPlayer = self.aqPlayer;
     
     [super viewDidLoad];
 }
@@ -55,10 +66,45 @@
     [controller release];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+// Override to allow orientations other than the default portrait orientation.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    //Set which orientations we allow
+	if (
+        (interfaceOrientation == UIInterfaceOrientationPortrait) ||
+        (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) ||
+        (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||
+        (interfaceOrientation == UIInterfaceOrientationLandscapeRight)
+        )
+	{
+		return YES;
+	}
+	else
+	{
+		return NO;
+	}
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+										 duration:(NSTimeInterval)duration
 {
-    // Return YES for supported orientations.
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation))
+	{
+		//----- GOING TO PORTRAIT -----
+		//[[self view] setBackgroundColor:[UIColor blueColor]];
+        self.serverView.frame = CGRectMake(0, 0, 320, 200);
+        self.clientView.frame = CGRectMake(0, 260, 320, 200);
+        self.uploadButt.frame = CGRectMake(88, 150, 45, 160);
+        self.downloadButt.frame = CGRectMake(186, 150, 45, 160);
+	}
+	else
+	{
+		//----- GOING TO LANDSCAPE -----
+		//[[self view] setBackgroundColor:[UIColor redColor]];
+        self.serverView.frame = CGRectMake(0, 0, 480, 140);
+        self.clientView.frame = CGRectMake(0, 160, 480, 140);
+        self.uploadButt.frame = CGRectMake(139, 123, 45, 55);
+        self.downloadButt.frame = CGRectMake(294, 123, 45, 55);
+	}
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,76 +125,110 @@
 
 - (void)dealloc
 {
-    [_networking release];
-    [mAudioQueuePlayer release];
     [mPanView release];
+
+    // release the IBOutlets
+    [_downloadProgView release];
+    [_recProgView release];
+    [_clientPlayButt release];
+    [_clientStopButt release];
+    [_clientRecButt release];
+    [_serverPlayButt release];
+    [_serverStopButt release];
+    [_serverRecButt release];
+    [_downloadIndicator release];
+    [_uploadButt release];
+    [_downloadButt release];
+    [_clientView release];
+    [_serverView release];
+    
+    // release model objects
+    [_networking release];
+    [_aqPlayer release];
+    
     [super dealloc];
 }
 
 -(IBAction)setStateServer:(id)sender
 {
-	[self.networking sendOSCMsgWithIntValue:"/saga/state\0":12:mStateServerSegControl.selectedSegmentIndex];
+	if ([sender isKindOfClass:[UIButton class]]) {
+        NSLog(@"%@",[[sender titleLabel]text]);
+        
+        if ( [[[sender titleLabel]text] isEqualToString:@"rec"]) {
+            [self.networking sendOSCMsgWithIntValue:"/fz/state\0\0\0":12:0];
+        }
+        else if ( [[[sender titleLabel]text] isEqualToString:@"stop"] ) {
+            [self.networking sendOSCMsgWithIntValue:"/fz/state\0\0\0":12:1];
+        }
+        else if ( [[[sender titleLabel]text] isEqualToString:@"play"] ) {
+            [self.networking sendOSCMsgWithIntValue:"/fz/state\0\0\0":12:2];
+        }
+    }
 }
 
 -(IBAction)setStateClient:(id)sender
 {
-	switch (mStateClientSegControl.selectedSegmentIndex)
-	{
-		case 0: /* stop */
-			[mAudioQueuePlayer Stop];
-			break;
-		case 1: /* play */
-			[mAudioQueuePlayer Start];
-			break;
-		case 2:	/* download */
-            //	singleton.nextAudioIndex = 0;
-#if 0
-			[networking SendOSCMsgWithIntValue:"/saga/audio\0":12:singleton.nextAudioIndex];
-#else
-			[self.networking startReceiveTCP]; /* Question: hasn't the TCP thread already started? What call this here? */
-            [mDownloadIndicator startAnimating];
-            [self.networking sendOSCMsg:"/saga/download\0\0":16];
-            
-#endif
-			break;
-	}
+    if ([sender isKindOfClass:[UIButton class]]) {
+        NSLog(@"%@",[[sender titleLabel]text]);
+
+        if ( [[[sender titleLabel]text] isEqualToString:@"rec"] ) {
+            NSLog(@"client recording is not yet supported");
+        }
+        else if ( [[[sender titleLabel]text] isEqualToString:@"stop"] ) {
+            [self.aqPlayer Stop];        
+        }
+        else if ( [[[sender titleLabel]text] isEqualToString:@"play"] ) {
+            [self.aqPlayer Start];
+        }
+    }
+}
+
+-(IBAction)downloadAudioFile 
+{
+    [self.networking startReceiveTCP]; /* Question: hasn't the TCP thread already started? What call this here? */
+    [self.downloadIndicator startAnimating];
+    [self.networking sendOSCMsg:"/fz/download\0\0\0\0":16];
 }
 
 -(IBAction)setEnvPeriod:(id)sender
 {
-	[self.networking sendOSCMsgWithIntValue:"/saga/period\0\0\0\0":16:FLOAT_TO_MRMR_INT([mEnvPeriodSlider value])];
+	//[self.networking sendOSCMsgWithIntValue:"/fz/period\0\0\0\0":16:FLOAT_TO_MRMR_INT([mEnvPeriodSlider value])];
 }
 
 -(IBAction)setDelayLevel:(id)sender
 {
-	[self.networking sendOSCMsgWithIntValue:"/saga/delay\0":12:FLOAT_TO_MRMR_INT([mDelayLevelSlider value])];
+	//[self.networking sendOSCMsgWithIntValue:"/fz/delay\0":12:FLOAT_TO_MRMR_INT([mDelayLevelSlider value])];
 }
 
 -(IBAction)setPan:(id)sender
 {
-	[self.networking sendOSCMsgWithIntValue:"/saga/pan\0\0\0":12:FLOAT_TO_MRMR_INT([mPanSlider value])];
+	//[self.networking sendOSCMsgWithIntValue:"/fz/pan\0\0\0":12:FLOAT_TO_MRMR_INT([mPanSlider value])];
 }
 
 -(IBAction)setVolumeServer:(id)sender
 {
-	//	NSLog(@"%f\n",[mVolumeServerSlider value]);
-	[self.networking sendOSCMsgWithIntValue:"/saga/vol_s\0\0\0":12:FLOAT_TO_MRMR_INT([mVolumeServerSlider value])];
+	if ([sender isKindOfClass:[UISlider class]]) {
+        // NSLog(@"%f\n",[(UISlider*)sender value]);
+        [self.networking sendOSCMsgWithIntValue:"/fz/vol_s\0\0\0":12:FLOAT_TO_MRMR_INT([(UISlider*)sender value])];
+    }
 }
 
 -(IBAction)setVolumeClient:(id)sender
 {
-	//	NSLog(@"%f\n",[mVolumeClientSlider value]);
-	//	[self sendOSCMsgWithIntValue:"/saga/vol_c\0\0\0":12:FLOAT_TO_MRMR_INT([mVolumeClientSlider value])];
-	mAudioQueuePlayer->mAmp = [mVolumeClientSlider value];
+    if ([sender isKindOfClass:[UISlider class]]) {
+        // NSLog(@"%f\n",[(UISlider*)sender value]);
+        self.aqPlayer.mAmp = [(UISlider*)sender value];
+    }
 }
 
 -(IBAction)requestHint
 {
-	[self.networking sendOSCMsg:"/saga/hint\0\0":12];
+	[self.networking sendOSCMsg:"/fz/hint\0\0\0\0":12];
 }
 
 -(void) setCue:(int)cue_num
 {
+    /*
 	mStateServerSegControl.hidden = cue_num < 2;
 	mRecProgView.hidden = cue_num < 2;
 	
@@ -171,31 +251,28 @@
 	mVolumeClientLabel.hidden = YES;
 	
 	//	NSLog(@"setting cue number to %d\n",cue_num);
+     */
 }
 
 -(void)updateDownloadProg {
     
     if (self.networking->mOSCMsg_DownloadProg >= 0.)
 	{
-		mDownloadProgView.progress = self.networking->mOSCMsg_DownloadProg;
+		self.downloadProgView.progress = self.networking->mOSCMsg_DownloadProg;
 		self.networking->mOSCMsg_DownloadProg = -1.;
 	}
 }
 
 #define __VINNIE__	0
 
--(void)downloadEnded {
-
+-(void)downloadEnded 
+{
     NSLog(@"Download ended");
-#if __VINNIE__
-    [singleton->mAudioQueuePlayer->mWaveTable->mArray writeToFile:@"SagarihaAudio.aif" atomically:YES];
-    mStateClientSegControl.selectedSegmentIndex = 0;
-#else
-    [mDownloadIndicator stopAnimating];
-    mStateClientSegControl.selectedSegmentIndex = 1;
-    [mAudioQueuePlayer Start];
-#endif
-		
+    
+    [self.downloadIndicator stopAnimating];
+    
+    self.clientPlayButt.highlighted = YES; // not sure this will actually activate the button.
+    [self.aqPlayer Start];		
 }
     
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
@@ -217,13 +294,19 @@
 	x = [mPanView GetX] * 2. - 1.;
 	y = (1. - [mPanView GetY]) * 2. - 1.;
     	
-	[self.networking sendOSCMsgWithFloatValue:"/saga/accelx\0\0\0\0":16:x];
-	[self.networking sendOSCMsgWithFloatValue:"/saga/accely\0\0\0\0":16:y];
-    //	[self.networking SendOSCMsgWithFloatValue:"/saga/accelz\0\0\0\0":16:z];
+	[self.networking sendOSCMsgWithFloatValue:"/fz/accelx\0\0":12:x];
+	[self.networking sendOSCMsgWithFloatValue:"/fz/accely\0\0":12:y];
+    //	[self.networking SendOSCMsgWithFloatValue:"/fz/accelz\0\0\0\0":16:z];
 	
 #if 0
 	printf("%f, %f\n",x,y);
 #endif
+}
+
+#pragma mark - SagarihaAudioQueuePlayerDelegate Method Implementations
+
+- (void)audioQueueError:(NSString *)msg {
+    [self displayAlertMessage:msg];
 }
 
 @end

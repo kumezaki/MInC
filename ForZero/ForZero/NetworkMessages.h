@@ -31,7 +31,7 @@
 	BOOL			mOSCMsg_Stop;
 }
 @property(nonatomic,assign) id<NetworkMessagesDelegate> delegate;
-@property(nonatomic,assign) SagarihaAudioQueuePlayer *mAudioQueuePlayer;
+@property(nonatomic,assign) SagarihaAudioQueuePlayer *aqPlayer;
 
 -(void)sendOSCMsg:(const char*)osc_str:(int)osc_str_length;
 -(void)sendOSCMsgWithIntValue:(const char*)osc_str:(int)osc_str_length:(int)val;

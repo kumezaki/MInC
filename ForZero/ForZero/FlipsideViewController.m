@@ -110,22 +110,22 @@
 
 -(IBAction)ForZero_Start:(id)sender
 {
-    [self.networking sendOSCMsg:"/saga/fz_start\0\0":16];    
+    [self.networking sendOSCMsg:"/fz/start\0\0\0":12];    
 }
 
 -(IBAction)ForZero_Subtract:(id)sender
 {
-	[self.networking sendOSCMsg:"/saga/fz_sub\0\0\0\0":16];
+	[self.networking sendOSCMsg:"/fz/sub\0":8];
 }
 
 -(IBAction)ForZero_Stop:(id)sender
 {    
-	[self.networking sendOSCMsg:"/saga/fz_stop\0\0\0":16];
+	[self.networking sendOSCMsg:"/fz/stop\0\0\0\0":12];
 }
 
 -(IBAction)ForZero_Panic:(id)sender
 {
-	[self.networking sendOSCMsg:"/saga/fz_panic\0\0":16];
+	[self.networking sendOSCMsg:"/fz/panic\0\0\0":12];
 }
 
 @end

@@ -16,6 +16,12 @@
 #define kNumberBuffers	3
 #define kBufferDurationSeconds .5
 
+@class SagarihaAudioQueuePlayer;
+
+@protocol SagarihaAudioQueuePlayerDelegate
+- (void) audioQueueError:(NSString*)msg;
+@end
+
 @interface SagarihaAudioQueuePlayer : NSObject {
     
     AudioStreamBasicDescription	mDataFormat;
@@ -43,8 +49,10 @@
 	double				mLoopStart;
 	double				mLoopEnd;
 }
+@property (nonatomic, assign) id<SagarihaAudioQueuePlayerDelegate> delegate;
 
 @property (nonatomic, retain) NSString *theFile;
+@property (nonatomic) double mAmp;
 
 -(void)		createAQ;
 -(void)     readAudioFile;

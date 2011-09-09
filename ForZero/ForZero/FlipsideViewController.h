@@ -25,7 +25,7 @@
 
 @property (nonatomic, assign) id <FlipsideViewControllerDelegate>   delegate;
 
-@property (nonatomic, assign) NetworkMessages                    *networking;
+@property (nonatomic, assign) NetworkMessages   *networking;
 
 - (IBAction)done:(id)sender;
 

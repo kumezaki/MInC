@@ -13,56 +13,50 @@
 #import "NetworkMessages.h"
 #import "SagarihaAudioQueuePlayer.h"
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIAccelerometerDelegate, NetworkMessagesDelegate> {
-    
-    IBOutlet UISegmentedControl         *mStateServerSegControl;
-	IBOutlet UISegmentedControl         *mStateClientSegControl;
-    IBOutlet UIActivityIndicatorView    *mDownloadIndicator;
-    
-	IBOutlet UILabel			*mEnvPeriodLabel;
-	IBOutlet UISlider			*mEnvPeriodSlider;
-	IBOutlet UILabel			*mDelayLevelLabel;
-	IBOutlet UISlider			*mDelayLevelSlider;
-	IBOutlet UILabel			*mPanLabel;
-	IBOutlet UISlider			*mPanSlider;
-	IBOutlet UILabel			*mVolumeServerLabel;
-	IBOutlet UISlider			*mVolumeServerSlider;
-	IBOutlet UILabel			*mVolumeClientLabel;
-	IBOutlet UISlider			*mVolumeClientSlider;
+@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIAccelerometerDelegate, NetworkMessagesDelegate, SagarihaAudioQueuePlayerDelegate> {
     
 	IBOutlet UIButton			*mHintButton;
-    
-	IBOutlet UIProgressView		*mRecProgView;
-	IBOutlet UIProgressView		*mDownloadProgView;
-    
 	IBOutlet SagarihaPanView	*mPanView;
-    
-@public    
-    SagarihaAudioQueuePlayer    *mAudioQueuePlayer;
 
 }
-@property(nonatomic,retain) IBOutlet UISegmentedControl        *mStateServerSegControl;
-@property(nonatomic,retain) IBOutlet UISegmentedControl        *mStateClientSegControl;
+// elements in top layer of MainView
+@property (nonatomic, retain) IBOutlet UIView                   *serverView;
+@property (nonatomic, retain) IBOutlet UIView                   *clientView;
+@property (nonatomic, retain) IBOutlet UIButton                 *uploadButt;
+@property (nonatomic, retain) IBOutlet UIButton                 *downloadButt;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView  *downloadIndicator;
 
-@property(nonatomic,retain) IBOutlet UIProgressView            *mRecProgView;
-@property(nonatomic,retain) IBOutlet UIProgressView            *mDownloadProgView;
-@property(nonatomic,retain) IBOutlet UIActivityIndicatorView   *mDownloadIndicator;
+// elements in sub layers of MainView
+@property (nonatomic, retain) IBOutlet UIButton *serverRecButt;
+@property (nonatomic, retain) IBOutlet UIButton *serverStopButt;
+@property (nonatomic, retain) IBOutlet UIButton *serverPlayButt;
 
-@property(nonatomic,retain) NetworkMessages                     *networking;
+@property (nonatomic, retain) IBOutlet UIButton *clientRecButt;
+@property (nonatomic, retain) IBOutlet UIButton *clientStopButt;
+@property (nonatomic, retain) IBOutlet UIButton *clientPlayButt;
+
+@property (nonatomic, retain) IBOutlet UIProgressView   *recProgView;
+@property (nonatomic, retain) IBOutlet UIProgressView   *downloadProgView;
+
+// model objects
+@property (nonatomic, retain) NetworkMessages   *networking;
+@property (nonatomic, retain) SagarihaAudioQueuePlayer *aqPlayer;
 
 
 - (IBAction)showInfo:(id)sender;
 
-- (IBAction)setStateServer:(id)sender;
-- (IBAction)setStateClient:(id)sender;
+- (IBAction)setStateServer: (id)sender;
+- (IBAction)setStateClient: (id)sender;
 
-- (IBAction)setEnvPeriod:(id)sender;
-- (IBAction)setDelayLevel:(id)sender;
-- (IBAction)setPan:(id)sender;
+- (IBAction)setEnvPeriod:   (id)sender;
+- (IBAction)setDelayLevel:  (id)sender;
+- (IBAction)setPan:         (id)sender;
 - (IBAction)setVolumeServer:(id)sender;
 - (IBAction)setVolumeClient:(id)sender;
 
 - (IBAction)requestHint;
+
+- (IBAction)downloadAudioFile;
 
 - (void)setCue:(int)cue_num;
 - (void)updateDownloadProg;
