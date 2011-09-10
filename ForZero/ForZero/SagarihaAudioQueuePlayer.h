@@ -52,6 +52,7 @@
 @property (nonatomic, assign) id<SagarihaAudioQueuePlayerDelegate> delegate;
 
 @property (nonatomic, retain) NSString *theFile;
+
 @property (nonatomic) double mAmp;
 
 -(void)		createAQ;

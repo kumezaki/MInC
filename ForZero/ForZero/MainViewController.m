@@ -90,7 +90,6 @@
 	if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation))
 	{
 		//----- GOING TO PORTRAIT -----
-		//[[self view] setBackgroundColor:[UIColor blueColor]];
         self.serverView.frame = CGRectMake(0, 0, 320, 200);
         self.clientView.frame = CGRectMake(0, 260, 320, 200);
         self.uploadButt.frame = CGRectMake(88, 150, 45, 160);
@@ -99,7 +98,6 @@
 	else
 	{
 		//----- GOING TO LANDSCAPE -----
-		//[[self view] setBackgroundColor:[UIColor redColor]];
         self.serverView.frame = CGRectMake(0, 0, 480, 140);
         self.clientView.frame = CGRectMake(0, 160, 480, 140);
         self.uploadButt.frame = CGRectMake(139, 123, 45, 55);
@@ -229,26 +227,27 @@
 -(void) setCue:(int)cue_num
 {
     /*
-	mStateServerSegControl.hidden = cue_num < 2;
-	mRecProgView.hidden = cue_num < 2;
+     // old stuff
+     mStateServerSegControl.hidden = cue_num < 2;
+     mRecProgView.hidden = cue_num < 2;
 	
-	mEnvPeriodSlider.hidden = cue_num < 3;
-	mEnvPeriodLabel.hidden = cue_num < 3;
+     mEnvPeriodSlider.hidden = cue_num < 3;
+     mEnvPeriodLabel.hidden = cue_num < 3;
 	
-	//mPanView.hidden = NO; cue_num < 4;
-	//mPanLabel.hidden = NO; cue_num < 4;
+     //mPanView.hidden = NO; cue_num < 4;
+     //mPanLabel.hidden = NO; cue_num < 4;
 	
-	mDelayLevelSlider.hidden = cue_num < 5;
-	mDelayLevelLabel.hidden = cue_num < 5;
+     mDelayLevelSlider.hidden = cue_num < 5;
+     mDelayLevelLabel.hidden = cue_num < 5;
 	
-	mStateClientSegControl.hidden = YES;
-	mDownloadProgView.hidden = YES;
+     mStateClientSegControl.hidden = YES;
+     mDownloadProgView.hidden = YES;
 	
-	mVolumeServerSlider.hidden = cue_num < 7;
-	mVolumeServerLabel.hidden = cue_num < 7;
+     mVolumeServerSlider.hidden = cue_num < 7;
+     mVolumeServerLabel.hidden = cue_num < 7;
 	
-	mVolumeClientSlider.hidden = YES;
-	mVolumeClientLabel.hidden = YES;
+     mVolumeClientSlider.hidden = YES;
+     mVolumeClientLabel.hidden = YES;
 	
 	//	NSLog(@"setting cue number to %d\n",cue_num);
      */
@@ -263,8 +262,6 @@
 	}
 }
 
-#define __VINNIE__	0
-
 -(void)downloadEnded 
 {
     NSLog(@"Download ended");
@@ -277,6 +274,7 @@
     
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
+/*
 #if 0
 	NSLog(@"%f, %f, %f\n", acceleration.x, acceleration.y, acceleration.z);
 #endif
@@ -301,6 +299,7 @@
 #if 0
 	printf("%f, %f\n",x,y);
 #endif
+*/
 }
 
 #pragma mark - SagarihaAudioQueuePlayerDelegate Method Implementations

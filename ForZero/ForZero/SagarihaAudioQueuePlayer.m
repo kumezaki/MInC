@@ -10,7 +10,7 @@
 
 
 @implementation SagarihaAudioQueuePlayer
-@synthesize delegate = _delegate;
+@synthesize delegate;
 @synthesize theFile = _theFile;
 @synthesize mAmp;
 

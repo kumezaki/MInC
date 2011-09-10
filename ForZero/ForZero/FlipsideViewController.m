@@ -10,8 +10,8 @@
 
 @implementation FlipsideViewController
 
-@synthesize delegate=_delegate;
-@synthesize networking = _networking;
+@synthesize delegate;
+@synthesize networking;
 
 - (void)dealloc
 {
