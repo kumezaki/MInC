@@ -47,22 +47,37 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-        
+    if (self) {        
+        // create image array
         mImageArray = [[NSArray alloc] initWithObjects:
                        [UIImage imageNamed:@"image_0.jpg"],
                        [UIImage imageNamed:@"image_1.jpg"],
                        nil
                        ];
         
+        // set properties for the view
         self.backgroundColor = [UIColor blackColor];
         self.clearsContextBeforeDrawing = YES;
         
         self.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);
         
+        // create a static label
+        UILabel *text = [[UILabel alloc]initWithFrame:CGRectMake(10, 450, 310, 20)];
+        
+        text.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);
+        
+        [text setTextAlignment:UITextAlignmentCenter];
+        [text setFont:[UIFont systemFontOfSize:12.0]];
+        [text setTextColor:[UIColor whiteColor]];
+        [text setBackgroundColor:[UIColor clearColor]];
+        text.text = @"Touch the screen to dismiss this message.";
+        
+        [self addSubview: text];
+        [text release];
+
         /*
-         // if a button is preferred for removing the view
+         // this button would replace the above label
+         // thus the label & touches methods should be commented out if the button is perferred
         backButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [backButton addTarget:self 
                        action:@selector(done) 
@@ -81,7 +96,7 @@
 {
     label = [[UILabel alloc]initWithFrame:self.frame];
     
-    label.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);
+    label.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     
     [label setTextAlignment:UITextAlignmentCenter];
     [label setFont:[UIFont boldSystemFontOfSize:22.0]];
@@ -98,7 +113,7 @@
 {
     image = [[UIImageView alloc] initWithImage:[mImageArray objectAtIndex:image_pos]];
     
-    image.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);
+    image.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     
     [self addSubview:image];
     [image release];

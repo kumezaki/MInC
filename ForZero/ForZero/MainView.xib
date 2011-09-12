@@ -345,7 +345,6 @@
 						<string key="NSFrame">{{141, 210}, {37, 37}}</string>
 						<reference key="NSSuperview" ref="500346482"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIStyle">0</int>
@@ -356,7 +355,6 @@
 						<string key="NSFrame">{{186, 150}, {45, 160}}</string>
 						<reference key="NSSuperview" ref="500346482"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="312492925">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4yMjUzMDg2NDIgMC4yMjUzMDg2NDIgMC4yMjUzMDg2NDIAA</bytes>
@@ -383,7 +381,6 @@
 						<string key="NSFrame">{{88, 150}, {45, 160}}</string>
 						<reference key="NSSuperview" ref="500346482"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<reference key="IBUIBackgroundColor" ref="312492925"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -951,6 +948,7 @@
 							<string>setVolumeClient:</string>
 							<string>setVolumeServer:</string>
 							<string>showInfo:</string>
+							<string>testButton:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -964,6 +962,7 @@
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
+							<string>UIButton</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
@@ -980,6 +979,7 @@
 							<string>setVolumeClient:</string>
 							<string>setVolumeServer:</string>
 							<string>showInfo:</string>
+							<string>testButton:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1022,6 +1022,10 @@
 							<object class="IBActionInfo">
 								<string key="name">showInfo:</string>
 								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">testButton:</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 						</object>
 					</object>
