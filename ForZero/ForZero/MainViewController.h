@@ -11,12 +11,14 @@
 #import "FlipsideViewController.h"
 #import "SagarihaPanView.h"
 #import "NetworkMessages.h"
+#import "InterstitialMessageView.h"
 #import "SagarihaAudioQueuePlayer.h"
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIAccelerometerDelegate, NetworkMessagesDelegate, SagarihaAudioQueuePlayerDelegate> {
+@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIAccelerometerDelegate, NetworkMessagesDelegate, SagarihaAudioQueuePlayerDelegate, InterstitialMessageViewDelegate> {
     
 	IBOutlet UIButton			*mHintButton;
 	IBOutlet SagarihaPanView	*mPanView;
+    
 
 }
 // elements in top layer of MainView
@@ -39,8 +41,8 @@
 @property (nonatomic, retain) IBOutlet UIProgressView   *downloadProgView;
 
 // model objects
-@property (nonatomic, retain) NetworkMessages   *networking;
-@property (nonatomic, retain) SagarihaAudioQueuePlayer *aqPlayer;
+@property (nonatomic, retain) NetworkMessages           *networking;
+@property (nonatomic, retain) SagarihaAudioQueuePlayer  *aqPlayer;
 
 
 - (IBAction)showInfo:(id)sender;
@@ -55,10 +57,11 @@
 - (IBAction)setVolumeClient:(id)sender;
 
 - (IBAction)requestHint;
-
 - (IBAction)downloadAudioFile;
 
 - (void)setCue:(int)cue_num;
 - (void)updateDownloadProg;
+
+- (IBAction)testButton:(UIButton*)sender;
 
 @end

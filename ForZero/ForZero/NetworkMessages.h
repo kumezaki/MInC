@@ -14,6 +14,7 @@
 
 @protocol NetworkMessagesDelegate
 - (void)downloadEnded;
+- (void)displayInterstitialMessage:(NSString*)msg;
 @end
 
 @interface NetworkMessages : NetworkConnections {
@@ -23,9 +24,7 @@
 	float			mOSCMsg_RecProg;
 	float			mOSCMsg_DownloadProg;
 	int				mOSCMsg_InterstitialMsgDur;
-	
-    NSString        *mOSCMsg_InterstitialMsg;
-	
+    
     int				mOSCMsg_Cue;
 	BOOL			mOSCMsg_Play;
 	BOOL			mOSCMsg_Stop;
@@ -39,5 +38,7 @@
 
 - (void)udpParse;
 - (void)tcpParse;
+
+- (void)handleInterstialMessageFromSecondaryThread:(NSString*)msg;
 
 @end

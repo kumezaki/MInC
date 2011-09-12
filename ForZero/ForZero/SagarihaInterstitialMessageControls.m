@@ -75,7 +75,8 @@
 
 -(void)displayMessage
 {
-	[self turnInterstitialMsgOn];
+	/*
+    [self turnInterstitialMsgOn];
 	
 	int image_pos = -1;
     
@@ -93,6 +94,7 @@
 		mInterstitialLabel.text = @"";
 		mInterstitialView.image = [mImageArray objectAtIndex:image_pos];
 	}
+     */
 }
 
 @end

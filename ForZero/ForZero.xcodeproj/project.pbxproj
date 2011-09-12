@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B493EC3B14084EC300E85E4B /* NetworkMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = B493EC3A14084EC300E85E4B /* NetworkMessages.m */; };
+		B4AE96A4141D4A45008A6295 /* InterstitialMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */; };
+		B4AE96CF141D563E008A6295 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4AE96CE141D563E008A6295 /* QuartzCore.framework */; };
 		B4DE2AC81407555100F9C4A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2AC71407555100F9C4A0 /* UIKit.framework */; };
 		B4DE2ACA1407555100F9C4A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2AC91407555100F9C4A0 /* Foundation.framework */; };
 		B4DE2ACC1407555100F9C4A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2ACB1407555100F9C4A0 /* CoreGraphics.framework */; };
@@ -33,6 +35,9 @@
 /* Begin PBXFileReference section */
 		B493EC3914084EC300E85E4B /* NetworkMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkMessages.h; sourceTree = "<group>"; };
 		B493EC3A14084EC300E85E4B /* NetworkMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkMessages.m; sourceTree = "<group>"; };
+		B4AE96A2141D4A45008A6295 /* InterstitialMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterstitialMessageView.h; sourceTree = "<group>"; };
+		B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterstitialMessageView.m; sourceTree = "<group>"; };
+		B4AE96CE141D563E008A6295 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B4DE2AC31407555100F9C4A0 /* ForZero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForZero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4DE2AC71407555100F9C4A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B4DE2AC91407555100F9C4A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4AE96CF141D563E008A6295 /* QuartzCore.framework in Frameworks */,
 				B4DE2B1A14075F0B00F9C4A0 /* AudioToolbox.framework in Frameworks */,
 				B4DE2B1814075F0400F9C4A0 /* CoreFoundation.framework in Frameworks */,
 				B4DE2AC81407555100F9C4A0 /* UIKit.framework in Frameworks */,
@@ -85,6 +91,8 @@
 		B493EC2F1408253200E85E4B /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				B4AE96A2141D4A45008A6295 /* InterstitialMessageView.h */,
+				B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */,
 				B4DE2AF41407599000F9C4A0 /* SagarihaInterstitialMessageControls.h */,
 				B4DE2AF51407599000F9C4A0 /* SagarihaInterstitialMessageControls.m */,
 				B4DE2AFC1407599000F9C4A0 /* SagarihaPanView.h */,
@@ -107,8 +115,6 @@
 		B4DE2AB81407555100F9C4A0 = {
 			isa = PBXGroup;
 			children = (
-				B4DE2B1914075F0A00F9C4A0 /* AudioToolbox.framework */,
-				B4DE2B1714075F0400F9C4A0 /* CoreFoundation.framework */,
 				B4DE2ACD1407555100F9C4A0 /* ForZero */,
 				B4DE2AC61407555100F9C4A0 /* Frameworks */,
 				B4DE2AC41407555100F9C4A0 /* Products */,
@@ -126,6 +132,9 @@
 		B4DE2AC61407555100F9C4A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B4AE96CE141D563E008A6295 /* QuartzCore.framework */,
+				B4DE2B1914075F0A00F9C4A0 /* AudioToolbox.framework */,
+				B4DE2B1714075F0400F9C4A0 /* CoreFoundation.framework */,
 				B4DE2AC71407555100F9C4A0 /* UIKit.framework */,
 				B4DE2AC91407555100F9C4A0 /* Foundation.framework */,
 				B4DE2ACB1407555100F9C4A0 /* CoreGraphics.framework */,
@@ -258,6 +267,7 @@
 				B4DE2B091407599000F9C4A0 /* SagarihaPanView.m in Sources */,
 				B4DE2B0B1407599000F9C4A0 /* SagarihaWaveTable.m in Sources */,
 				B493EC3B14084EC300E85E4B /* NetworkMessages.m in Sources */,
+				B4AE96A4141D4A45008A6295 /* InterstitialMessageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

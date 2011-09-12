@@ -74,7 +74,9 @@ union {
 	//if (singleton == nil) return;
 	
     // printf("mUDPInBuffer: %s\n", mUDPInBuffer);
-	
+    
+    NSAutoreleasePool *udpThreadPool = [[NSAutoreleasePool alloc] init];
+
     ssize_t pos = 0;
     int msg_type = 0;
     int add_type = 0;
@@ -115,9 +117,9 @@ union {
                     case 5:
 					{
 						// printf("audio_end received\n");
-						[self performSelectorOnMainThread:@selector(downloadEnd) 
+						/*[self performSelectorOnMainThread:@selector(downloadEnd) 
 											   withObject:nil 
-											waitUntilDone:NO];
+											waitUntilDone:NO];*/
 						break;
 					}
 					case 7:
@@ -154,12 +156,18 @@ union {
                     }
                     case 3:
                     {
+                        /*
                         OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                         mOSCMsg_InterstitialMsgDur = u.int_val;
                         pos += 4;
-						
-                        //printf("hint %s\n",mUDPInBuffer+pos);
-                        mOSCMsg_InterstitialMsg = [[NSString alloc] initWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
+						*/
+                        //NSLog(@"NetworkMessages:%s\n",mUDPInBuffer+pos);
+                        NSString *interstitialMsg = [[[NSString alloc] initWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding]autorelease];
+                        [self performSelectorOnMainThread:@selector(handleInterstialMessageFromSecondaryThread:) 
+                                               withObject:interstitialMsg 
+                                            waitUntilDone:NO];
+                        
+                        //[self.delegate displayInterstitialMessage:interstitialMsg];
                         break;
                     }
                     case 4:
@@ -246,6 +254,7 @@ union {
         //printf("%s: %s\n",msg_type_str,mUDPInBuffer+pos);
         pos += ((strlen(mUDPInBuffer+pos) / 4) + 1)* 4;            
     }
+    [udpThreadPool drain];
 }
 
 - (void)tcpParse {
@@ -265,5 +274,10 @@ union {
         
     //[tcpThreadPool drain];
 
+}
+
+- (void)handleInterstialMessageFromSecondaryThread:(NSString *)msg
+{
+    [self.delegate displayInterstitialMessage:msg];
 }
 @end

@@ -6,8 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "MainViewController.h"
 
+#define kCrossfadeDuration 1.0
 #define FLOAT_TO_MRMR_INT(v) (int)(v * 1000. + 0.5)
 
 @implementation MainViewController
@@ -38,32 +40,14 @@
     [[UIAccelerometer sharedAccelerometer] setDelegate:self];
 	[UIAccelerometer sharedAccelerometer].updateInterval = 0.1;
         
-    _aqPlayer = [[SagarihaAudioQueuePlayer alloc]init];
-    _aqPlayer.delegate = self;
+    self.aqPlayer = [[SagarihaAudioQueuePlayer alloc]init];
+    self.aqPlayer.delegate = self;
     
-    _networking = [[NetworkMessages alloc] init];
-    _networking.delegate = self;
-    _networking.aqPlayer = self.aqPlayer;
+    self.networking = [[NetworkMessages alloc] init];
+    self.networking.delegate = self;
+    self.networking.aqPlayer = self.aqPlayer;
     
     [super viewDidLoad];
-}
-
-
-- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
-{
-    [self dismissModalViewControllerAnimated:YES];
-}
-
-- (IBAction)showInfo:(id)sender
-{    
-    FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
-    controller.delegate = self;
-    controller.networking = self.networking;
-    
-    controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentModalViewController:controller animated:YES];
-    
-    [controller release];
 }
 
 // Override to allow orientations other than the default portrait orientation.
@@ -123,9 +107,9 @@
 
 - (void)dealloc
 {
-    [mPanView release];
+    // [mPanView release]; // currently not included in .xib file
 
-    // release the IBOutlets
+    // release IBOutlets
     [_downloadProgView release];
     [_recProgView release];
     [_clientPlayButt release];
@@ -145,6 +129,20 @@
     [_aqPlayer release];
     
     [super dealloc];
+}
+
+#pragma mark - IBActions
+
+- (IBAction)showInfo:(id)sender
+{    
+    FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
+    controller.delegate = self;
+    controller.networking = self.networking;
+    
+    controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentModalViewController:controller animated:YES];
+    
+    [controller release];
 }
 
 -(IBAction)setStateServer:(id)sender
@@ -190,17 +188,17 @@
 
 -(IBAction)setEnvPeriod:(id)sender
 {
-	//[self.networking sendOSCMsgWithIntValue:"/fz/period\0\0\0\0":16:FLOAT_TO_MRMR_INT([mEnvPeriodSlider value])];
+	//[self.networking sendOSCMsgWithIntValue:"/fz/period\0\0":12:FLOAT_TO_MRMR_INT([mEnvPeriodSlider value])];
 }
 
 -(IBAction)setDelayLevel:(id)sender
 {
-	//[self.networking sendOSCMsgWithIntValue:"/fz/delay\0":12:FLOAT_TO_MRMR_INT([mDelayLevelSlider value])];
+	//[self.networking sendOSCMsgWithIntValue:"/fz/delay\0\0\0":12:FLOAT_TO_MRMR_INT([mDelayLevelSlider value])];
 }
 
 -(IBAction)setPan:(id)sender
 {
-	//[self.networking sendOSCMsgWithIntValue:"/fz/pan\0\0\0":12:FLOAT_TO_MRMR_INT([mPanSlider value])];
+	//[self.networking sendOSCMsgWithIntValue:"/fz/pan\0":8:FLOAT_TO_MRMR_INT([mPanSlider value])];
 }
 
 -(IBAction)setVolumeServer:(id)sender
@@ -224,54 +222,16 @@
 	[self.networking sendOSCMsg:"/fz/hint\0\0\0\0":12];
 }
 
--(void) setCue:(int)cue_num
-{
-    /*
-     // old stuff
-     mStateServerSegControl.hidden = cue_num < 2;
-     mRecProgView.hidden = cue_num < 2;
-	
-     mEnvPeriodSlider.hidden = cue_num < 3;
-     mEnvPeriodLabel.hidden = cue_num < 3;
-	
-     //mPanView.hidden = NO; cue_num < 4;
-     //mPanLabel.hidden = NO; cue_num < 4;
-	
-     mDelayLevelSlider.hidden = cue_num < 5;
-     mDelayLevelLabel.hidden = cue_num < 5;
-	
-     mStateClientSegControl.hidden = YES;
-     mDownloadProgView.hidden = YES;
-	
-     mVolumeServerSlider.hidden = cue_num < 7;
-     mVolumeServerLabel.hidden = cue_num < 7;
-	
-     mVolumeClientSlider.hidden = YES;
-     mVolumeClientLabel.hidden = YES;
-	
-	//	NSLog(@"setting cue number to %d\n",cue_num);
-     */
-}
+#pragma mark - void methods
 
--(void)updateDownloadProg {
-    
+-(void)updateDownloadProg 
+{
     if (self.networking->mOSCMsg_DownloadProg >= 0.)
 	{
 		self.downloadProgView.progress = self.networking->mOSCMsg_DownloadProg;
 		self.networking->mOSCMsg_DownloadProg = -1.;
 	}
-}
-
--(void)downloadEnded 
-{
-    NSLog(@"Download ended");
-    
-    [self.downloadIndicator stopAnimating];
-    
-    self.clientPlayButt.highlighted = YES; // not sure this will actually activate the button.
-    [self.aqPlayer Start];		
-}
-    
+}    
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
 /*
@@ -302,10 +262,97 @@
 */
 }
 
+-(void) setCue:(int)cue_num
+{
+    /*
+     // obsolete methodology
+     mStateServerSegControl.hidden = cue_num < 2;
+     mRecProgView.hidden = cue_num < 2;
+     
+     mEnvPeriodSlider.hidden = cue_num < 3;
+     mEnvPeriodLabel.hidden = cue_num < 3;
+     
+     //mPanView.hidden = NO; cue_num < 4;
+     //mPanLabel.hidden = NO; cue_num < 4;
+     
+     mDelayLevelSlider.hidden = cue_num < 5;
+     mDelayLevelLabel.hidden = cue_num < 5;
+     
+     mStateClientSegControl.hidden = YES;
+     mDownloadProgView.hidden = YES;
+     
+     mVolumeServerSlider.hidden = cue_num < 7;
+     mVolumeServerLabel.hidden = cue_num < 7;
+     
+     mVolumeClientSlider.hidden = YES;
+     mVolumeClientLabel.hidden = YES;
+     
+     //	NSLog(@"setting cue number to %d\n",cue_num);
+     */
+}
+
+#pragma mark - FlipsideViewControllerDelegate Method Implementations
+
+- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark - NetworkMessagesDelegate Method Implementations
+
+-(void)downloadEnded 
+{
+    NSLog(@"Download ended");
+    
+    [self.downloadIndicator stopAnimating];
+    
+    self.clientPlayButt.highlighted = YES; // not sure this will actually activate the button.
+    [self.aqPlayer Start];		
+}
+
+- (void) testButton:(UIButton *)sender
+{
+    [self displayInterstitialMessage:sender.titleLabel.text];
+}
+-(void)displayInterstitialMessage:(NSString*)msg
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    
+    InterstitialMessageView *interstitialView = [[InterstitialMessageView alloc]initWithFrame:CGRectMake(0,-20, [UIApplication sharedApplication].keyWindow.bounds.size.width, [UIApplication sharedApplication].keyWindow.bounds.size.height)];
+    
+    interstitialView.delegate = self;
+    interstitialView.msg = msg;
+    
+	[self.view addSubview:interstitialView];
+    
+	CATransition *animation = [CATransition animation];
+	[animation setDuration:kCrossfadeDuration];
+	[animation setType:kCATransitionFade];    
+	[self.view.layer addAnimation:animation forKey:nil];
+    
+    [interstitialView release];
+}
+
 #pragma mark - SagarihaAudioQueuePlayerDelegate Method Implementations
 
-- (void)audioQueueError:(NSString *)msg {
+- (void)audioQueueError:(NSString *)msg 
+{
     [self displayAlertMessage:msg];
+}
+
+#pragma mark - InterstitialMessageViewDelegate Method Implementations
+
+- (void) interstitialViewDidFinish:(InterstitialMessageView *)interstitialView
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+
+    [interstitialView removeFromSuperview];
+    
+	CATransition *animation = [CATransition animation];
+	[animation setDuration:kCrossfadeDuration];
+	[animation setType:kCATransitionFade];    
+	[self.view.layer addAnimation:animation forKey:nil];
+    
 }
 
 @end

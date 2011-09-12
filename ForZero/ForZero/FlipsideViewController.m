@@ -41,8 +41,9 @@
     
 	mPortNumTextField.text = [NSString stringWithFormat:@"%d",((NetworkConnections*)self.networking).mSendPortNum];
     
+    self.view.backgroundColor = [UIColor viewFlipsideBackgroundColor]; 
+    
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor viewFlipsideBackgroundColor];  
 }
 
 - (void)viewDidUnload
@@ -55,7 +56,20 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    if (
+        (interfaceOrientation == UIInterfaceOrientationPortrait) ||
+        (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) ||
+        (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||
+        (interfaceOrientation == UIInterfaceOrientationLandscapeRight)
+        )
+	{
+		return YES;
+	}
+	else
+	{
+		return NO;
+	}
+
 }
 
 #pragma mark - Actions

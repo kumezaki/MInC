@@ -295,7 +295,8 @@ function send_interstitial_msg(pos,dur,msg)
 {
     messnamed("fz_osc_out_msg","host",gIPAddress[pos]);
     messnamed("fz_osc_out_msg","port",gPortNum_Client_UDP);
-    messnamed("fz_osc_out_msg","/fz/interstitial",dur,msg);
+    //messnamed("fz_osc_out_msg","/fz/interstitial",dur,msg);
+	messnamed("fz_osc_out_msg","/fz/interstitial",msg);
 }
 
 function send_audio_msg(pos,index,size,v)
