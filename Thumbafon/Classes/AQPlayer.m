@@ -64,12 +64,12 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	OSStatus result = AudioQueueNewOutput(&mDataFormat, AQBufferCallback, self, nil, nil, 0, &mQueue);
 
 	if (result != noErr)
-		printf("AudioQueueNewOutput \n",result);
+		printf("AudioQueueNewOutput %ld\n",result);
 	
 	for (UInt8 i = 0; i < kNumberBuffers; ++i) {
 		result = AudioQueueAllocateBuffer(mQueue, kAudioDataByteSize, &mBuffers[i]);
 		if (result != noErr)
-			printf("AudioQueueAllocateBuffer \n",result);
+			printf("AudioQueueAllocateBuffer %ld\n",result);
 	}
 }
 

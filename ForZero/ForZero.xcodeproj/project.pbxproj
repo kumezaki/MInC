@@ -22,7 +22,6 @@
 		B4DE2AE31407555100F9C4A0 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2AE21407555100F9C4A0 /* FlipsideViewController.m */; };
 		B4DE2AE51407555100F9C4A0 /* FlipsideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4DE2AE41407555100F9C4A0 /* FlipsideView.xib */; };
 		B4DE2B031407599000F9C4A0 /* SagarihaAudioQueuePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2AF11407599000F9C4A0 /* SagarihaAudioQueuePlayer.m */; };
-		B4DE2B051407599000F9C4A0 /* SagarihaInterstitialMessageControls.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2AF51407599000F9C4A0 /* SagarihaInterstitialMessageControls.m */; };
 		B4DE2B081407599000F9C4A0 /* NetworkConnections.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2AFB1407599000F9C4A0 /* NetworkConnections.m */; };
 		B4DE2B091407599000F9C4A0 /* SagarihaPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2AFD1407599000F9C4A0 /* SagarihaPanView.m */; };
 		B4DE2B0B1407599000F9C4A0 /* SagarihaWaveTable.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2B011407599000F9C4A0 /* SagarihaWaveTable.m */; };
@@ -57,8 +56,6 @@
 		B4DE2AE41407555100F9C4A0 /* FlipsideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlipsideView.xib; sourceTree = "<group>"; };
 		B4DE2AF01407599000F9C4A0 /* SagarihaAudioQueuePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaAudioQueuePlayer.h; sourceTree = "<group>"; };
 		B4DE2AF11407599000F9C4A0 /* SagarihaAudioQueuePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaAudioQueuePlayer.m; sourceTree = "<group>"; };
-		B4DE2AF41407599000F9C4A0 /* SagarihaInterstitialMessageControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaInterstitialMessageControls.h; sourceTree = "<group>"; };
-		B4DE2AF51407599000F9C4A0 /* SagarihaInterstitialMessageControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaInterstitialMessageControls.m; sourceTree = "<group>"; };
 		B4DE2AFA1407599000F9C4A0 /* NetworkConnections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkConnections.h; sourceTree = "<group>"; };
 		B4DE2AFB1407599000F9C4A0 /* NetworkConnections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkConnections.m; sourceTree = "<group>"; };
 		B4DE2AFC1407599000F9C4A0 /* SagarihaPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaPanView.h; sourceTree = "<group>"; };
@@ -93,8 +90,6 @@
 			children = (
 				B4AE96A2141D4A45008A6295 /* InterstitialMessageView.h */,
 				B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */,
-				B4DE2AF41407599000F9C4A0 /* SagarihaInterstitialMessageControls.h */,
-				B4DE2AF51407599000F9C4A0 /* SagarihaInterstitialMessageControls.m */,
 				B4DE2AFC1407599000F9C4A0 /* SagarihaPanView.h */,
 				B4DE2AFD1407599000F9C4A0 /* SagarihaPanView.m */,
 			);
@@ -262,7 +257,6 @@
 				B4DE2ADE1407555100F9C4A0 /* MainViewController.m in Sources */,
 				B4DE2AE31407555100F9C4A0 /* FlipsideViewController.m in Sources */,
 				B4DE2B031407599000F9C4A0 /* SagarihaAudioQueuePlayer.m in Sources */,
-				B4DE2B051407599000F9C4A0 /* SagarihaInterstitialMessageControls.m in Sources */,
 				B4DE2B081407599000F9C4A0 /* NetworkConnections.m in Sources */,
 				B4DE2B091407599000F9C4A0 /* SagarihaPanView.m in Sources */,
 				B4DE2B0B1407599000F9C4A0 /* SagarihaWaveTable.m in Sources */,
