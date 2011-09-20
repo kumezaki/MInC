@@ -97,6 +97,33 @@
 	return address;
 }
 
+-(void)newServerIPAddress:(NSString *)str
+{
+	NSArray* ip_add_array = [str componentsSeparatedByString:@"."];
+	
+	if ([ip_add_array count] != 4)
+	{
+		NSLog(@"IP address must have 4 components");
+		return;
+	}
+	else
+	{
+		int i = 0;
+		UInt32 ip_add = 0;
+		for (NSString* s in ip_add_array)
+		{
+#if 0
+			NSLog([NSString stringWithFormat:@"s=%@", s]);
+#endif
+			ip_add |= [s intValue] << (8 * (4 - ++i));
+		}
+		mSendIPAddress = ip_add;
+		[self writeDataFile];
+		printf("IPAddressChanged to %08lx\n",mSendIPAddress);
+	}
+	
+}
+
 -(void)send_udp
 {
 	int sock;

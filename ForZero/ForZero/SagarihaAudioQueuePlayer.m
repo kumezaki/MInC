@@ -12,7 +12,16 @@
 @implementation SagarihaAudioQueuePlayer
 @synthesize delegate;
 @synthesize theFile = _theFile;
-@synthesize mAmp;
+@synthesize mAmp, isPlaying=_isPlaying;
+
+- (void)setIsPlaying:(BOOL)isPlaying
+{
+    // NSLog(@"%@", isPlaying == YES ? @"isPlaying YES" : @"isPlaying NO");
+    if (isPlaying != _isPlaying) {
+        _isPlaying = isPlaying;
+        [self.delegate audioQueuePlayingState:_isPlaying];
+    }
+}
 
 #if _old_AQ_
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
@@ -104,11 +113,11 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	mLoopEnd = 1.;
 
 #else    
-    mIsDone = NO;
-    mIsLooping = YES;
+    mIsDone = false;
+    mIsLooping = true;
     
 #endif
-    mIsPlaying = NO;
+    self.isPlaying = NO;
 	mWaveTable = [[SagarihaWaveTable alloc] init];
     
 	return self;
@@ -262,15 +271,23 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     if (mQueue == nil)
         [self createAQ];
     
-	if (!mIsPlaying && self.theFile != nil)
+    if (mPaused) 
+    {
+        AudioQueueStart(mQueue, nil);
+        self.isPlaying = YES;
+        mPaused = NO;
+    }
+	
+    else if (!self.isPlaying && self.theFile != nil)
 	{
+        mCurrentPacket = 0;
 		// prime the queue with some data before starting
 		for (int i = 0; i < kNumberBuffers; ++i)
-			AQBufferCallback(self, mQueue, mBuffers[i]);            
+			AQBufferCallback(self, mQueue, mBuffers[i]);         
         
 		result = AudioQueueStart(mQueue, nil);
         
-		mIsPlaying = YES;
+		self.isPlaying = YES;
 	}
 
 #if _old_AQ_
@@ -290,19 +307,39 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	OSStatus result = noErr;
     
-	if (mIsPlaying)
+	if (self.isPlaying)
 	{
-		result = AudioQueueFlush(mQueue);            
+        result = AudioQueueFlush(mQueue); // redundant if AudioQueueStop inImmediate = false          
 		//NSLog(@"AudioQueueFlush %ld",result);
 		
 		result = AudioQueueStop(mQueue, true);
 		//NSLog(@"AudioQueueStop %ld",result);
-        
-		mIsPlaying = NO;
+        /*
+        result = AudioQueueDispose(mQueue, true);
+        mQueue = nil;
+        */
+		self.isPlaying = NO;
 	}
     
 	return result;
 }
+
+-(OSStatus)Pause
+{
+	OSStatus result = noErr;
+    
+	if (!mPaused)
+	{
+		result = AudioQueuePause(mQueue);
+		//NSLog(@"AudioQueuePause %ld",result);
+        
+        self.isPlaying = NO;
+		mPaused = YES;
+	}
+    
+	return result;
+}
+
 
 -(double)GetSample
 {

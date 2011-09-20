@@ -56,13 +56,16 @@
                        ];
         
         // set properties for the view
-        self.backgroundColor = [UIColor blackColor];
+        self.backgroundColor = [UIColor blueColor];
         self.clearsContextBeforeDrawing = YES;
         
         self.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);
         
         // create a static label
-        UILabel *text = [[UILabel alloc]initWithFrame:CGRectMake(10, 450, 310, 20)];
+        UILabel *text = [[UILabel alloc]initWithFrame:CGRectMake(0, 
+                                                                 self.frame.size.height - 20, 
+                                                                 self.frame.size.width, 
+                                                                 20)];
         
         text.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);
         

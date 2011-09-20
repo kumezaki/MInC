@@ -98,7 +98,7 @@ union {
                 OSC_MSG_COMPARE("/fz/state",1)
                 else OSC_MSG_COMPARE("/fz/rec_prog",2)
 					else OSC_MSG_COMPARE("/fz/interstitial",3)
-						else OSC_MSG_COMPARE("/fz/audio",4)
+						else OSC_MSG_COMPARE("/fz/hb",4)
 							else OSC_MSG_COMPARE("/fz/audio_end",5)
 								else OSC_MSG_COMPARE("/fz/cue",6)
 									else OSC_MSG_COMPARE("/fz/play",7)
@@ -116,6 +116,7 @@ union {
                 {
                     case 5:
 					{
+                        // this is now called from self tcpParse
 						// printf("audio_end received\n");
 						/*[self performSelectorOnMainThread:@selector(downloadEnd) 
 											   withObject:nil 
@@ -124,12 +125,12 @@ union {
 					}
 					case 7:
 					{
-						NSLog(@"play received");
+						NSLog(@"received /fz/play\n");
 						mOSCMsg_Play = YES;
 						break;
 					}
 					case 8:
-						NSLog(@"stop received");
+						NSLog(@"received /fz/stop\n");
 						mOSCMsg_Stop = YES;
 						break;
                 }
@@ -142,6 +143,7 @@ union {
                 {
                     case 1:
                     {
+                        NSLog(@"received /fz/state:%s\n",mUDPInBuffer+pos);
                         OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                         //printf("state %d\n",u.int_val);
                         mOSCMsg_State = u.int_val;
@@ -149,6 +151,7 @@ union {
                     }
                     case 2:
                     {
+                        NSLog(@"received /fz/rec_prog:%s\n",mUDPInBuffer+pos);
                         OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                         //printf("rec_prog %d\n",u.int_val);
                         mOSCMsg_RecProg = (float)u.int_val / 1000.;
@@ -156,62 +159,29 @@ union {
                     }
                     case 3:
                     {
-                        /*
-                        OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
-                        mOSCMsg_InterstitialMsgDur = u.int_val;
-                        pos += 4;
-						*/
-                        //NSLog(@"NetworkMessages:%s\n",mUDPInBuffer+pos);
-                        NSString *interstitialMsg = [[[NSString alloc] initWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding]autorelease];
+                        //NSLog(@"received /fz/interstitial:%s\n",mUDPInBuffer+pos);
+                        NSString *interstitialMsg = [[NSString alloc] initWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
+                        
                         [self performSelectorOnMainThread:@selector(handleInterstialMessageFromSecondaryThread:) 
                                                withObject:interstitialMsg 
                                             waitUntilDone:NO];
+                        [interstitialMsg release];
                         
-                        //[self.delegate displayInterstitialMessage:interstitialMsg];
                         break;
                     }
                     case 4:
                     {
-                        OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
-                        int audio_index = u.int_val;
-                        pos += 4;
+                        //NSLog(@"received /fz/hb:%s\n",mUDPInBuffer+pos);
+                        NSString *serverIP = [[NSString alloc] initWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
                         
-                        // NSLog(@"audio_index %i", audio_index);
+                        [self newServerIPAddress:serverIP];
+                        [serverIP release];
                         
-                        OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
-                        int size = u.int_val;
-                        pos += 4;
-                        
-                        // NSLog(@"size %i", size);
-                        
-                        for (int i = 0; i < size; i++)
-                        {
-                            OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
-                            float audio_sample = u.flt_val;
-                            [self.aqPlayer SetSample:audio_index+i:audio_sample];
-                            pos += 4;
-                        }
-                        /*
-                         if (audio_index == singleton.nextAudioIndex)
-                         {
-                         mOSCMsg_DownloadProg = audio_index / (22050 * 5.);
-                         singleton.nextAudioIndex = audio_index + size;
-                         
-                         [self performSelectorOnMainThread:@selector(RequestAudio) 
-                         withObject:nil 
-                         waitUntilDone:NO];
-                         
-                         [self performSelectorOnMainThread:@selector(updateDownloadProg) 
-                         withObject:nil 
-                         waitUntilDone:NO];
-                         }
-                         else
-                         printf("missing audio index %d\n",audio_index);
-                         */
                         break;
                     }
                     case 6:
                     {
+                        //NSLog(@"received /fz/cue:%s\n",mUDPInBuffer+pos);
                         OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                         // printf("cue %d\n",u.int_val);
                         mOSCMsg_Cue = u.int_val;
@@ -219,6 +189,8 @@ union {
                     }
 					case 9:
 					{
+                        //currently disabled in Max patch
+                        //NSLog(@"received /fz/loop:%s\n",mUDPInBuffer+pos);
 						OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
 						float loop_start = u.int_val;
 						pos += 4;

@@ -20,6 +20,7 @@
 
 @protocol SagarihaAudioQueuePlayerDelegate
 - (void) audioQueueError:(NSString*)msg;
+- (void) audioQueuePlayingState:(BOOL)state;
 @end
 
 @interface SagarihaAudioQueuePlayer : NSObject {
@@ -33,13 +34,12 @@
     UInt32          mNumPacketsToRead;
     SInt64          mCurrentPacket;
         
-    BOOL            mIsDone;
-    BOOL            mIsLooping;
+    bool            mIsDone; // C99 boolean inherited from exampl code
+    bool            mIsLooping;
     
 @public
     
-	BOOL				mIsPlaying;
-	
+	BOOL                mPaused;
 	double				mSR;
 	double				mFreq;
 	double				mAmp;
@@ -50,16 +50,16 @@
 	double				mLoopEnd;
 }
 @property (nonatomic, assign) id<SagarihaAudioQueuePlayerDelegate> delegate;
-
 @property (nonatomic, retain) NSString *theFile;
-
 @property (nonatomic) double mAmp;
+@property (nonatomic) BOOL isPlaying;
 
 -(void)		createAQ;
 -(void)     readAudioFile;
 
 -(OSStatus)	Start;
 -(OSStatus)	Stop;
+-(OSStatus) Pause;
 
 -(double)	GetSample;
 -(void)		SetSample:(UInt32)index:(double)value;

@@ -4,20 +4,18 @@ var gNumVoices = 2;
 
 var gBufSize = 5000;
 var gBufFileName = "audsound.aif";
-
-function Audio()
-{
-    this.file = undefined;
-    this.buf = new Array;
-    this.buf_index = 0;
-}
-var gAudio = new Array;
-var gTransmitAudioBufSize = 64;
+var gFadeDur = 500;
 
 var gIPAddress = new Array;
 var gPortNum_Client_UDP = 31337;
 var gPortNum_Client_TCP = 41337;
 
+function buffer_set()
+{
+	messnamed("fz_poly_in_1_msg","target",0);
+    messnamed("fz_poly_in_2_msg","size",gBufSize);
+    messnamed("fz_poly_in_2_msg","set","fz_buf");
+}
 function loadbang()
 {
     reset();
@@ -31,9 +29,6 @@ function reset()
     {
         messnamed("fz_poly_in_1_msg","target",i+1);
         messnamed("fz_poly_in_2_msg","buf","fz_buf_"+(i+1));
-    
-        /* audio index */
-        gAudio[i] = new Audio();
         
         /* IP address */
         gIPAddress[i] = undefined;
@@ -45,6 +40,7 @@ function reset()
 
     messnamed("fz_poly_in_1_msg","target",0);
     messnamed("fz_poly_in_2_msg","size",gBufSize);
+    messnamed("fz_poly_in_2_msg","fade",gFadeDur);
     messnamed("fz_poly_in_2_msg","read",gBufFileName);
 }
 
@@ -88,7 +84,7 @@ function osc_msg()
        // osc_msg_accely(pos,val);
 
     else if (osc_add == "/state")
-        osc_msg_state(pos,val);
+        osc_msg_transport_state(pos,val);
 
     else if (osc_add == "/period")
         osc_msg_period(pos,val);
@@ -127,21 +123,25 @@ function osc_msg()
         osc_msg_download(pos);
 }
 
-function osc_msg_state(pos,val)
+function osc_msg_transport_state(pos,val)
 {
     if (pos != -1)
     {
         switch (val)
         {
             case 0:
-            	post("server record not supported in this version\n");
+            	messnamed("fz_poly_in_1_msg","target",pos+1);
+            	messnamed("fz_poly_in_2_msg","play",0);
+				messnamed("fz_poly_in_2_msg","rec",1);
                 break;
             case 1:
-            	messnamed("fz_poly_in_1_msg","target",pos+1);
+                messnamed("fz_poly_in_1_msg","target",pos+1);
+				messnamed("fz_poly_in_2_msg","rec",0);
                 messnamed("fz_poly_in_2_msg","play",0);
                 break;
             case 2:
-            	messnamed("fz_poly_in_1_msg","target",pos+1);
+                messnamed("fz_poly_in_1_msg","target",pos+1);
+				messnamed("fz_poly_in_2_msg","rec",0);
                 messnamed("fz_poly_in_2_msg","play",1);
                 break;
         }
@@ -193,22 +193,6 @@ function osc_msg_hint(pos)
     if (pos != -1)
     {
         post("hint not supported in this version\n");
-    }
-}
-
-function osc_msg_audio(pos,val)
-{
-    if (pos != -1)
-    {
-        if (val == 0)
-        {
-            messnamed("fz_poly_in_1_msg","target",pos+1);
-            messnamed("fz_poly_in_2_msg","write","samptype","float32");
-            messnamed("fz_poly_in_2_msg","write","writeraw","fz_buf_"+(pos+1));
-        }
-
-        gAudio[pos].buf_index = val;
-        audio_func(pos,val);
     }
 }
 
@@ -299,14 +283,6 @@ function send_interstitial_msg(pos,dur,msg)
 	messnamed("fz_osc_out_msg","/fz/interstitial",msg);
 }
 
-function send_audio_msg(pos,index,size,v)
-{
-    messnamed("fz_osc_out_msg","host",gIPAddress[pos]);
-    messnamed("fz_osc_out_msg","port",gPortNum_Client_UDP);
-    messnamed("fz_osc_out_msg","/fz/audio",index,size,v);
-//    post("audio_sample_value:",v,"\n");
-}
-
 function send_audio_end_msg(pos)
 {
     messnamed("fz_osc_out_msg","host",gIPAddress[pos]);
@@ -333,51 +309,6 @@ function send_client_stop(pos)
     messnamed("fz_osc_out_msg","host",gIPAddress[pos]);
     messnamed("fz_osc_out_msg","port",gPortNum_Client_UDP);
     messnamed("fz_osc_out_msg","/fz/stop");
-}
-
-function send_client_loop(pos,start,stop)
-{
-    messnamed("fz_osc_out_msg","host",gIPAddress[pos]);
-    messnamed("fz_osc_out_msg","port",gPortNum_Client_UDP);
-    messnamed("fz_osc_out_msg","/fz/loop",parseInt(start),parseInt(stop));
-}
-
-
-/*** FUNCTION FOR TRANSMITTING AUDIO (GOING OBSOLETE) ***/
-
-function audio_func(pos,val)
-{
-    if (gAudio[pos].file == undefined)
-    {
-        gAudio[pos].file = new File("fz_buf_"+(pos+1));
-        //gAudio[pos].file = new File("audsound.mp3");
-        gAudio[pos].file.byteorder = "big";
-    }
-    
-//    post("gAudio[",+pos,"].file.filename =",gAudio[pos].file.filename,"\n");
-    
-    gAudio[pos].file.position = gAudio[pos].buf_index * 4 * 2;
-    
-//    post("gAudio[pos].buf_index:",gAudio[pos].buf_index,"\n");
-//    post("gAudio[pos].file.position:",gAudio[pos].file.position,"\n");
-    
-    buf = gAudio[pos].file.readfloat32(gTransmitAudioBufSize*2);
-    
-    for (i = 0; i < gTransmitAudioBufSize*2; i+= 2)
-        gAudio[pos].buf[i>>1] = buf[i];
-
-    if (gAudio[pos].file.position == gAudio[pos].file.eof)
-    {
-        post("reached audio file eof\n");
-        gAudio[pos].file.close();
-        gAudio[pos].file = undefined;
-        send_audio_end_msg(pos);
-    }
-    else
-    {
-//        post(gAudio[pos].buf_index,gAudio[pos].buf,"\n");
-        send_audio_msg(pos,gAudio[pos].buf_index,gTransmitAudioBufSize,gAudio[pos].buf);
-    }
 }
 
 /*** FUNCTIONS FOR SENDING MESSAGES INTERNALY WITHIN MAXMSP PATCHES ***/

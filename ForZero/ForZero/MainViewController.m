@@ -148,7 +148,7 @@
 -(IBAction)setStateServer:(id)sender
 {
 	if ([sender isKindOfClass:[UIButton class]]) {
-        NSLog(@"%@",[[sender titleLabel]text]);
+        NSLog(@"server: %@",[[sender titleLabel]text]);
         
         if ( [[[sender titleLabel]text] isEqualToString:@"rec"]) {
             [self.networking sendOSCMsgWithIntValue:"/fz/state\0\0\0":12:0];
@@ -165,13 +165,13 @@
 -(IBAction)setStateClient:(id)sender
 {
     if ([sender isKindOfClass:[UIButton class]]) {
-        NSLog(@"%@",[[sender titleLabel]text]);
+        // NSLog(@"client: %@",[[sender titleLabel]text]);
 
         if ( [[[sender titleLabel]text] isEqualToString:@"rec"] ) {
             NSLog(@"client recording is not yet supported");
         }
         else if ( [[[sender titleLabel]text] isEqualToString:@"stop"] ) {
-            [self.aqPlayer Stop];        
+            [self.aqPlayer Stop];
         }
         else if ( [[[sender titleLabel]text] isEqualToString:@"play"] ) {
             [self.aqPlayer Start];
@@ -305,8 +305,6 @@
     NSLog(@"Download ended");
     
     [self.downloadIndicator stopAnimating];
-    
-    self.clientPlayButt.highlighted = YES; // not sure this will actually activate the button.
     [self.aqPlayer Start];		
 }
 
@@ -316,9 +314,12 @@
 }
 -(void)displayInterstitialMessage:(NSString*)msg
 {
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
-    InterstitialMessageView *interstitialView = [[InterstitialMessageView alloc]initWithFrame:CGRectMake(0,-20, [UIApplication sharedApplication].keyWindow.bounds.size.width, [UIApplication sharedApplication].keyWindow.bounds.size.height)];
+    InterstitialMessageView *interstitialView = 
+            [[InterstitialMessageView alloc]initWithFrame:CGRectMake(0,
+                                                                     0, 
+                                                                     self.view.bounds.size.width, 
+                                                                     self.view.bounds.size.height)];
     
     interstitialView.delegate = self;
     interstitialView.msg = msg;
@@ -331,6 +332,7 @@
 	[self.view.layer addAnimation:animation forKey:nil];
     
     [interstitialView release];
+    
 }
 
 #pragma mark - SagarihaAudioQueuePlayerDelegate Method Implementations
@@ -340,12 +342,21 @@
     [self displayAlertMessage:msg];
 }
 
+- (void)audioQueuePlayingState:(BOOL)state
+{
+    /*
+     this is for control of button hightlighting.
+     the button highlighted property of the stock UIButton defaults
+     to NO with TouchUpInside and similar calls
+     for this to work we'll have to subclass UIButton (or UIControl)
+     and customize the behaviour.
+    */
+}
+
 #pragma mark - InterstitialMessageViewDelegate Method Implementations
 
 - (void) interstitialViewDidFinish:(InterstitialMessageView *)interstitialView
 {
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-
     [interstitialView removeFromSuperview];
     
 	CATransition *animation = [CATransition animation];

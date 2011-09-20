@@ -99,9 +99,6 @@
 		UInt32 ip_add = 0;
 		for (NSString* s in ip_add_array)
 		{
-#if 0
-			NSLog([NSString stringWithFormat:@"s=%@", s]);
-#endif
 			ip_add |= [s intValue] << (8 * (4 - ++i));
 		}
 		((NetworkConnections*)self.networking).mSendIPAddress = ip_add;

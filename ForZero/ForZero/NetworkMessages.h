@@ -19,15 +19,17 @@
 
 @interface NetworkMessages : NetworkConnections {
 
-@public
     int				mOSCMsg_State;
 	float			mOSCMsg_RecProg;
-	float			mOSCMsg_DownloadProg;
 	int				mOSCMsg_InterstitialMsgDur;
     
     int				mOSCMsg_Cue;
 	BOOL			mOSCMsg_Play;
 	BOOL			mOSCMsg_Stop;
+
+@public
+    float			mOSCMsg_DownloadProg;
+
 }
 @property(nonatomic,assign) id<NetworkMessagesDelegate> delegate;
 @property(nonatomic,assign) SagarihaAudioQueuePlayer *aqPlayer;

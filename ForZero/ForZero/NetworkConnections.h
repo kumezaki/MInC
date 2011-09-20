@@ -37,21 +37,22 @@
 @property (nonatomic) SInt16 mUDPReceivePortNum;
 @property (nonatomic) SInt16 mTCPReceivePortNum;
 
-- (NSString *)getIPAddress;
+- (NSString *)  getIPAddress;
+- (void)        newServerIPAddress:(NSString *)str;
 
--(void)send_udp;
--(void)receive_udp;
+- (void)        send_udp;
+- (void)        receive_udp;
 
--(void)startReceiveTCP;
--(void)receive_tcp;
+- (void)        startReceiveTCP;
+- (void)        receive_tcp;
 
-- (void)udpParse;
-- (void)tcpParse;
+- (void)        udpParse;
+- (void)        tcpParse;
 
-+(NSString *)dataFilePath;
++ (NSString *)  dataFilePath;
 
--(BOOL) dataFileExists;
--(void) readDataFile;
--(void) writeDataFile;
+- (BOOL)        dataFileExists;
+- (void)        readDataFile;
+- (void)        writeDataFile;
 
 @end
