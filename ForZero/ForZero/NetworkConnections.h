@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface NetworkConnections : NSObject {
-
+@public
 	char			ip_add_buf[32];
 	int				ip_add_size;
-	
+@protected	
 	char			mOutBuffer[1024];
 	ssize_t			mOutBufferLength;
 
@@ -32,6 +32,7 @@
     SInt16          mTCPReceivePortNum;
 
 }
+@property (nonatomic, retain) NSString  *devIP;
 @property (nonatomic) UInt32 mSendIPAddress;
 @property (nonatomic) SInt16 mSendPortNum;
 @property (nonatomic) SInt16 mUDPReceivePortNum;

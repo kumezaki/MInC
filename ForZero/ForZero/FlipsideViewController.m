@@ -12,9 +12,21 @@
 
 @synthesize delegate;
 @synthesize networking;
+@synthesize serverView=_serverView,clientView=_clientView;
+@synthesize ipAddressTextField=_ipAddressTextField,ipLabel=_ipLabel;
+@synthesize portNumTextField=_portNumTextField, portLabel=_portLabel;
+@synthesize devIPLabel=_devIPLabel;
 
 - (void)dealloc
 {
+    [_serverView release];
+    [_clientView release];
+    [_ipAddressTextField release];
+    [_portNumTextField release];
+    [_devIPLabel release];
+    [_ipLabel release];
+    [_portLabel release];
+    
     [super dealloc];
 }
 
@@ -30,16 +42,20 @@
 
 - (void)viewDidLoad
 {    
-	mIPAddressTextField.delegate = self;
-	mPortNumTextField.delegate = self;
+	self.ipAddressTextField.delegate = self;
+	self.portNumTextField.delegate = self;
 	
-	mIPAddressTextField.text = [NSString stringWithFormat:@"%d.%d.%d.%d"
+	self.ipAddressTextField.text = [NSString stringWithFormat:@"%d.%d.%d.%d"
                                 ,(((NetworkConnections*)self.networking).mSendIPAddress&0xFF000000)>>24
 								,(((NetworkConnections*)self.networking).mSendIPAddress&0x00FF0000)>>16
 								,(((NetworkConnections*)self.networking).mSendIPAddress&0x0000FF00)>>8
 								,(((NetworkConnections*)self.networking).mSendIPAddress&0x000000FF)>>0];
     
-	mPortNumTextField.text = [NSString stringWithFormat:@"%d",((NetworkConnections*)self.networking).mSendPortNum];
+	self.portNumTextField.text = [NSString stringWithFormat:@"%d",((NetworkConnections*)self.networking).mSendPortNum];
+    
+    // tried to get an NSString for the devIP label but that would cause a crash;
+    // only primitives would work.
+    self.devIPLabel.text = [NSString stringWithFormat:@"%s",((NetworkConnections*)self.networking)->ip_add_buf];
     
     self.view.backgroundColor = [UIColor viewFlipsideBackgroundColor]; 
     
@@ -72,6 +88,32 @@
 
 }
 
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+										 duration:(NSTimeInterval)duration
+{
+	if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation))
+	{
+		//----- GOING TO PORTRAIT -----
+        self.serverView.frame = CGRectMake(0, 44, 320, 200);
+        self.clientView.frame = CGRectMake(0, 260, 320, 200);
+        self.ipAddressTextField.frame = CGRectMake(20, 75, 175, 31);
+        self.portNumTextField.frame = CGRectMake(215, 75, 85, 31);
+        self.ipLabel.frame = CGRectMake(20, 50, 85, 21);
+        self.portLabel.frame = CGRectMake(215, 50, 85, 21);
+	}
+	else
+	{
+		//----- GOING TO LANDSCAPE -----
+        self.serverView.frame = CGRectMake(0, 44, 480, 125);
+        self.clientView.frame = CGRectMake(0, 175, 480, 125);
+        self.ipAddressTextField.frame = CGRectMake(20, 55, 260, 31);
+        self.portNumTextField.frame = CGRectMake(330, 55, 125, 31);
+        self.ipLabel.frame = CGRectMake(20, 30, 85, 21);
+        self.portLabel.frame = CGRectMake(330, 30, 85, 21);
+	}
+}
+
+
 #pragma mark - Actions
 
 - (IBAction)done:(id)sender
@@ -86,12 +128,12 @@
 
 -(IBAction)IPAddressChanged:(id)sender
 {
-	NSArray* ip_add_array = [mIPAddressTextField.text componentsSeparatedByString:@"."];
+	NSArray* ip_add_array = [self.ipAddressTextField.text componentsSeparatedByString:@"."];
 	
 	if ([ip_add_array count] != 4)
 	{
 		NSLog(@"IP address must have 4 components");
-		mIPAddressTextField.text = @"";
+		self.ipAddressTextField.text = @"";
 	}
 	else
 	{
@@ -111,12 +153,12 @@
 {
 #if 0
 	char buffer[16];
-	[mPortNumTextField.text getCString:buffer maxLength:16 encoding:NSASCIIStringEncoding];
+	[self.portNumTextField.text getCString:buffer maxLength:16 encoding:NSASCIIStringEncoding];
 #endif
 	
-	((NetworkConnections*)self.networking).mSendPortNum = [mPortNumTextField.text intValue];
+	((NetworkConnections*)self.networking).mSendPortNum = [self.portNumTextField.text intValue];
     [(NetworkConnections*)self.networking writeDataFile];
-	NSLog(@"PortNumChanged to %d\n",self.networking.mSendPortNum);
+	NSLog(@"portNumChanged to %d\n",self.networking.mSendPortNum);
 }
 
 -(IBAction)ForZero_Start:(id)sender

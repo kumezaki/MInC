@@ -13,19 +13,19 @@
 
 @interface FlipsideViewController : UIViewController <UITextFieldDelegate>{
 
-    IBOutlet UITextField		*mIPAddressTextField;
-	IBOutlet UITextField		*mPortNumTextField;
-    
-    IBOutlet UIButton			*mStartButton;
-	IBOutlet UIButton			*mSubtractButton;
-	IBOutlet UIButton			*mStopButton;
-	IBOutlet UIButton			*mPanicButton;
-
 }
-
 @property (nonatomic, assign) id <FlipsideViewControllerDelegate>   delegate;
-
 @property (nonatomic, assign) NetworkMessages   *networking;
+
+@property (nonatomic, retain) IBOutlet UIView       *serverView;
+@property (nonatomic, retain) IBOutlet UIView       *clientView;
+@property (nonatomic, retain) IBOutlet UITextField  *ipAddressTextField;
+@property (nonatomic, retain) IBOutlet UILabel      *ipLabel;
+@property (nonatomic, retain) IBOutlet UITextField  *portNumTextField;
+@property (nonatomic, retain) IBOutlet UILabel      *portLabel;
+@property (nonatomic, retain) IBOutlet UILabel      *devIPLabel;
+
+
 
 - (IBAction)done:(id)sender;
 

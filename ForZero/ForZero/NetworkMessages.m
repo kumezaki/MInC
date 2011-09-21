@@ -174,7 +174,7 @@ union {
                         //NSLog(@"received /fz/hb:%s\n",mUDPInBuffer+pos);
                         NSString *serverIP = [[NSString alloc] initWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
                         
-                        [self newServerIPAddress:serverIP];
+                        [self newServerIPAddress:serverIP]; // in super
                         [serverIP release];
                         
                         break;
