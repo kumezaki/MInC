@@ -300,7 +300,7 @@
 
 #pragma mark - NetworkMessagesDelegate Method Implementations
 
--(void)downloadEnded 
+- (void)downloadEnded 
 {
     NSLog(@"Download ended");
     
@@ -308,11 +308,18 @@
     [self.aqPlayer Start];		
 }
 
-- (void) testButton:(UIButton *)sender
+- (void)displayServerRecordProgress:(NSNumber *)val
 {
-    [self displayInterstitialMessage:sender.titleLabel.text];
+    float progVal = [val floatValue];
+    NSLog(@"progress value:%f",progVal);
+    
+    if (progVal <= 0. || progVal >= 1.) self.recProgView.hidden = YES;
+    else if (self.recProgView.hidden == YES) self.recProgView.hidden = NO;
+    
+    self.recProgView.progress = progVal;
 }
--(void)displayInterstitialMessage:(NSString*)msg
+
+- (void)displayInterstitialMessage:(NSString*)msg
 {
     
     InterstitialMessageView *interstitialView = 

@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface NetworkConnections : NSObject {
-@public
+
 	char			ip_add_buf[32];
 	int				ip_add_size;
-@protected	
+	
 	char			mOutBuffer[1024];
 	ssize_t			mOutBufferLength;
 

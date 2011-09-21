@@ -143,18 +143,18 @@ union {
                 {
                     case 1:
                     {
-                        NSLog(@"received /fz/state:%s\n",mUDPInBuffer+pos);
                         OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
-                        //printf("state %d\n",u.int_val);
+                        NSLog(@"received /fz/state:%d",u.int_val);
                         mOSCMsg_State = u.int_val;
                         break;
                     }
                     case 2:
                     {
-                        NSLog(@"received /fz/rec_prog:%s\n",mUDPInBuffer+pos);
                         OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
-                        //printf("rec_prog %d\n",u.int_val);
-                        mOSCMsg_RecProg = (float)u.int_val / 1000.;
+                        //NSLog(@"received /fz/rec_prog:%d",u.int_val);
+                        [self performSelectorOnMainThread:@selector(serverRecordIsProgressing:)
+                                               withObject:[NSNumber numberWithFloat:(float)u.int_val / 1000.] 
+                                            waitUntilDone:NO];
                         break;
                     }
                     case 3:
@@ -181,9 +181,8 @@ union {
                     }
                     case 6:
                     {
-                        //NSLog(@"received /fz/cue:%s\n",mUDPInBuffer+pos);
                         OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
-                        // printf("cue %d\n",u.int_val);
+                        // NSLog(@"received /fz/cue:%d\n",u.int_val);
                         mOSCMsg_Cue = u.int_val;
                         break;
                     }
@@ -252,4 +251,10 @@ union {
 {
     [self.delegate displayInterstitialMessage:msg];
 }
+
+- (void)serverRecordIsProgressing:(NSNumber*)val
+{
+    [self.delegate displayServerRecordProgress:val];
+}
+
 @end

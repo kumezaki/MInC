@@ -62,6 +62,4 @@
 - (void)setCue:(int)cue_num;
 - (void)updateDownloadProg;
 
-- (IBAction)testButton:(UIButton*)sender;
-
 @end

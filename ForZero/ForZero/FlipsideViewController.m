@@ -52,11 +52,9 @@
 								,(((NetworkConnections*)self.networking).mSendIPAddress&0x000000FF)>>0];
     
 	self.portNumTextField.text = [NSString stringWithFormat:@"%d",((NetworkConnections*)self.networking).mSendPortNum];
-    
-    // tried to get an NSString for the devIP label but that would cause a crash;
-    // only primitives would work.
-    self.devIPLabel.text = [NSString stringWithFormat:@"%s",((NetworkConnections*)self.networking)->ip_add_buf];
-    
+
+    self.devIPLabel.text = [NSString stringWithFormat:@"%@",((NetworkConnections*)self.networking).devIP];
+
     self.view.backgroundColor = [UIColor viewFlipsideBackgroundColor]; 
     
     [super viewDidLoad];

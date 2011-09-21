@@ -44,6 +44,12 @@ function reset()
     messnamed("fz_poly_in_2_msg","read",gBufFileName);
 }
 
+var gDump = false;
+function dump(enable)
+{
+	gDump = enable;
+	post("gDump",gDump,"\n");
+}
 
 /*** FUNCTIONS FOR HANDING INCOMING OSC MESSAGES ***/
 
@@ -129,17 +135,17 @@ function osc_msg_transport_state(pos,val)
     {
         switch (val)
         {
-            case 0:
+            case 0: // record
             	messnamed("fz_poly_in_1_msg","target",pos+1);
             	messnamed("fz_poly_in_2_msg","play",0);
 				messnamed("fz_poly_in_2_msg","rec",1);
                 break;
-            case 1:
+            case 1: // stop
                 messnamed("fz_poly_in_1_msg","target",pos+1);
 				messnamed("fz_poly_in_2_msg","rec",0);
                 messnamed("fz_poly_in_2_msg","play",0);
                 break;
-            case 2:
+            case 2: // play
                 messnamed("fz_poly_in_1_msg","target",pos+1);
 				messnamed("fz_poly_in_2_msg","rec",0);
                 messnamed("fz_poly_in_2_msg","play",1);
@@ -267,7 +273,21 @@ function exit_tcp_script()
 
 
 /*** FUNCTIONS FOR HANDING OUTGOING OSC MESSAGES ***/
+function rec_prog(target_pos,v)
+{
+	var pos = target_pos - 1;
+	if (gIPAddress[pos] == undefined)
+	{
+		if (gDump)
+			post("rec_prog",target_pos,v,"\n");
+	}
+	else
+	{
+		send_rec_prog_msg(pos,v);
+	}
+}
 
+/*** FUNCTIONS FOR OUTPUTTING OSC MESSAGES TO DEVICES***/
 function send_rec_prog_msg(pos,v)
 {
     messnamed("fz_osc_out_msg","host",gIPAddress[pos]);

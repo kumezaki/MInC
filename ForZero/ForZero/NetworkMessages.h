@@ -15,6 +15,7 @@
 @protocol NetworkMessagesDelegate
 - (void)downloadEnded;
 - (void)displayInterstitialMessage:(NSString*)msg;
+- (void)displayServerRecordProgress:(NSNumber*)val;
 @end
 
 @interface NetworkMessages : NetworkConnections {

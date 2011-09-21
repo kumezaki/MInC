@@ -25,7 +25,7 @@
 @synthesize mSendPortNum;
 @synthesize mUDPReceivePortNum;
 @synthesize mTCPReceivePortNum;
-@synthesize devIP;
+@synthesize devIP=_devIP;
 
 - (id)init
 {
@@ -35,8 +35,8 @@
 	mSendPortNum = 1337;
 
 	memset(ip_add_buf,0,32);
-    devIP = [self getIPAddress];
-	[devIP getCString:ip_add_buf maxLength:32 encoding:NSASCIIStringEncoding];
+    self.devIP = [self getIPAddress];//self.devIP is simply for storing the device IP 4 others to access. 
+	[self.devIP getCString:ip_add_buf maxLength:32 encoding:NSASCIIStringEncoding];
 	ip_add_size = (strlen(ip_add_buf) / 4 + 1) * 4;
 	NSLog(@"%s\n",ip_add_buf);
 
@@ -62,7 +62,7 @@
 
     //    [mTCPThread release];
 	[mUDPThread release];
-    [devIP release];
+    [_devIP release];
     
 	[super dealloc];
 }

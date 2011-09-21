@@ -17,6 +17,7 @@
 			<string>IBProxyObject</string>
 			<string>IBUILabel</string>
 			<string>IBUIActivityIndicatorView</string>
+			<string>IBUIProgressView</string>
 			<string>IBUISlider</string>
 			<string>IBUIButton</string>
 		</object>
@@ -183,6 +184,15 @@
 								<reference key="IBUIBackgroundColor" ref="944993633"/>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+							</object>
+							<object class="IBUIProgressView" id="16357696">
+								<reference key="NSNextResponder" ref="639129046"/>
+								<int key="NSvFlags">-2147483356</int>
+								<string key="NSFrame">{{56, 136}, {208, 9}}</string>
+								<reference key="NSSuperview" ref="639129046"/>
+								<reference key="NSWindow"/>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<float key="IBUIProgress">0.5</float>
 							</object>
 						</object>
 						<string key="NSFrameSize">{320, 200}</string>
@@ -621,6 +631,14 @@
 					</object>
 					<int key="connectionID">150</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">recProgView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="16357696"/>
+					</object>
+					<int key="connectionID">159</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -686,6 +704,7 @@
 							<reference ref="645848704"/>
 							<reference ref="312912048"/>
 							<reference ref="1044921633"/>
+							<reference ref="16357696"/>
 						</object>
 						<reference key="parent" ref="500346482"/>
 						<string key="objectName">Server View</string>
@@ -791,6 +810,11 @@
 						<reference key="parent" ref="639129046"/>
 						<string key="objectName">Server Label</string>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">157</int>
+						<reference key="object" ref="16357696"/>
+						<reference key="parent" ref="639129046"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -807,6 +831,7 @@
 					<string>102.IBViewBoundsToFrameTransform</string>
 					<string>103.IBPluginDependency</string>
 					<string>103.IBViewBoundsToFrameTransform</string>
+					<string>157.IBPluginDependency</string>
 					<string>83.IBEditorWindowLastContentRect</string>
 					<string>83.IBPluginDependency</string>
 					<string>84.IBPluginDependency</string>
@@ -858,6 +883,7 @@
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">P4AAAL+AAABDDAAAwZgAAA</bytes>
 					</object>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{659, 378}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -926,7 +952,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">156</int>
+			<int key="maxID">159</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -948,7 +974,6 @@
 							<string>setVolumeClient:</string>
 							<string>setVolumeServer:</string>
 							<string>showInfo:</string>
-							<string>testButton:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -962,7 +987,6 @@
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
-							<string>UIButton</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
@@ -979,7 +1003,6 @@
 							<string>setVolumeClient:</string>
 							<string>setVolumeServer:</string>
 							<string>showInfo:</string>
-							<string>testButton:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1022,10 +1045,6 @@
 							<object class="IBActionInfo">
 								<string key="name">showInfo:</string>
 								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">testButton:</string>
-								<string key="candidateClassName">UIButton</string>
 							</object>
 						</object>
 					</object>
