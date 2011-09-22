@@ -42,6 +42,8 @@
 
 - (void)viewDidLoad
 {    
+    [super viewDidLoad];
+    
 	self.ipAddressTextField.delegate = self;
 	self.portNumTextField.delegate = self;
 	
@@ -57,7 +59,6 @@
 
     self.view.backgroundColor = [UIColor viewFlipsideBackgroundColor]; 
     
-    [super viewDidLoad];
 }
 
 - (void)viewDidUnload

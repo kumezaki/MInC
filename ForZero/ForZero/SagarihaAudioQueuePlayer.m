@@ -19,28 +19,10 @@
     // NSLog(@"%@", isPlaying == YES ? @"isPlaying YES" : @"isPlaying NO");
     if (isPlaying != _isPlaying) {
         _isPlaying = isPlaying;
-        [self.delegate audioQueuePlayingState:_isPlaying];
+        [self.delegate audioQueuePlayingState:self];
     }
 }
 
-#if _old_AQ_
-void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
-{
-    SagarihaAudioQueuePlayer *aqp = (SagarihaAudioQueuePlayer *)inUserData;
-	
-	int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
-    
-	for (int i = 0; i < numFrames; i++)
-		((SInt16 *)inAQBuffer->mAudioData)[i] = 0.5 * [aqp GetSample] * (SInt16)0x7FFF;
-	
-	inAQBuffer->mAudioDataByteSize = 512;
-	inAQBuffer->mPacketDescriptionCount = 0;
-	
-	AudioQueueEnqueueBuffer(inAQ, inAQBuffer, 0, nil);
-}
-
-
-#else
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inCompleteAQBuffer) 
 {
 	SagarihaAudioQueuePlayer *THIS = (SagarihaAudioQueuePlayer *)inUserData;
@@ -84,17 +66,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		}
 	}
 }
-#endif
-
-
 
 - (void)dealloc {
     
 	[_theFile release];
     self.theFile = nil;
-    [self Stop];
-	[mWaveTable dealloc];
-    
+    [self stop];
+
 	[super dealloc];
 }
 
@@ -102,61 +80,16 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	[super init];
 
-#if _old_AQ_	
-	//gAQP = self;
-	mSR = 22050.;
-	mFreq = 880.;
-	mAmp = 1.0;
-	mTheta = 0.;
-    
-	mLoopStart = 0.;
-	mLoopEnd = 1.;
-
-#else    
     mIsDone = false;
     mIsLooping = true;
     
-#endif
     self.isPlaying = NO;
-	mWaveTable = [[SagarihaWaveTable alloc] init];
     
 	return self;
 }
 
 -(void)createAQ
-#if _old_AQ_
 {
-	mDataFormat.mFormatID = kAudioFormatLinearPCM;
-	mDataFormat.mFormatFlags = kAudioFormatFlagIsSignedInteger;
-	mDataFormat.mChannelsPerFrame = 1;
-	mDataFormat.mSampleRate = mSR;
-	mDataFormat.mBitsPerChannel = 16;
-	mDataFormat.mFramesPerPacket = 1;
-	mDataFormat.mBytesPerPacket = sizeof(SInt16);
-	mDataFormat.mBytesPerFrame = sizeof(SInt16);
-    
-    OSStatus result = AudioQueueNewOutput(&mDataFormat,
-                                          AQBufferCallback,
-                                          self,
-                                          nil,
-                                          nil,
-                                          0,
-                                          &mQueue);
-	
-	if (result != noErr)
-		NSLog(@"AudioQueueNewOutput %ld\n",result);
-	
-    for (int i = 0; i < kNumberBuffers; ++i)
-	{
-		result = AudioQueueAllocateBuffer(mQueue, 512, &mBuffers[i]);
-		if (result != noErr)
-			NSLog(@"AudioQueueAllocateBuffer %ld\n",result);
-	}
-}
-
-#else
-{
-    
     OSStatus result = AudioQueueNewOutput(&mDataFormat,
                                           AQBufferCallback, 
                                           self, 
@@ -228,7 +161,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     
 	printf("new AQ created.\n");
 }
-#endif
 
 - (void)readAudioFile {
     
@@ -260,7 +192,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 }
 
-- (OSStatus)Start
+- (OSStatus)start
 {
 	OSStatus result = noErr;
     
@@ -289,21 +221,11 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
         
 		self.isPlaying = YES;
 	}
-
-#if _old_AQ_
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *docDirectory = [paths objectAtIndex:0];
-	NSFileManager *fileManager = [NSFileManager defaultManager];
-	bool file_exists = [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"Sagariha.mp3"]];
-    
-	NSLog(file_exists?@"audio file downloaded":@"audio file did NOT download");
-#else
-#endif    
 	
     return result;
 }
 
--(OSStatus)Stop
+-(OSStatus)stop
 {
 	OSStatus result = noErr;
     
@@ -324,7 +246,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	return result;
 }
 
--(OSStatus)Pause
+-(OSStatus)pause
 {
 	OSStatus result = noErr;
     
@@ -340,27 +262,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	return result;
 }
 
-
--(double)GetSample
-{
-	double sample = [mWaveTable Get:mTheta] * mAmp;
-#if 0
-	mTheta += mFreq / mSR;
-#else
-	mTheta += 1. / kWaveTableSize;
-	if (mTheta > mLoopEnd) mTheta = mLoopStart + (mTheta - mLoopEnd);
-#endif
-	return sample;
-}
-
--(void)SetSample:(UInt32)index:(double)value
-{
-	[mWaveTable Set:index:value];
-}
-
-#if _old_AQ_
-
-#else
 - (void)CalculateBytesForTime:(AudioStreamBasicDescription)inDesc
                              :(UInt32)inMaxPacketSize
                              :(Float64)inSeconds
@@ -392,6 +293,5 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	}
 	*outNumPackets = *outBufferSize / inMaxPacketSize;
 }
-#endif
 
 @end

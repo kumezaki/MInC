@@ -9,9 +9,6 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <Foundation/Foundation.h>
 
-#import "SagarihaWaveTable.h"
-
-#define _old_AQ_ 0
 
 #define kNumberBuffers	3
 #define kBufferDurationSeconds .5
@@ -20,7 +17,7 @@
 
 @protocol SagarihaAudioQueuePlayerDelegate
 - (void) audioQueueError:(NSString*)msg;
-- (void) audioQueuePlayingState:(BOOL)state;
+- (void) audioQueuePlayingState:(SagarihaAudioQueuePlayer*)requestor;
 @end
 
 @interface SagarihaAudioQueuePlayer : NSObject {
@@ -44,7 +41,6 @@
 	double				mFreq;
 	double				mAmp;
 	double				mTheta;
-	SagarihaWaveTable   *mWaveTable;
 	
 	double				mLoopStart;
 	double				mLoopEnd;
@@ -57,19 +53,13 @@
 -(void)		createAQ;
 -(void)     readAudioFile;
 
--(OSStatus)	Start;
--(OSStatus)	Stop;
--(OSStatus) Pause;
+-(OSStatus)	start;
+-(OSStatus)	stop;
+-(OSStatus) pause;
 
--(double)	GetSample;
--(void)		SetSample:(UInt32)index:(double)value;
-
-#if _old_AQ_
-#else
 -(void)    CalculateBytesForTime:(AudioStreamBasicDescription)inDesc
                                 :(UInt32)inMaxPacketSize
                                 :(Float64)inSeconds
                                 :(UInt32*)outBufferSize
                                 :(UInt32*)outNumPackets;
-#endif
 @end

@@ -70,9 +70,7 @@ union {
 }
 
 - (void)udpParse
-{
-	//if (singleton == nil) return;
-	
+{	
     // printf("mUDPInBuffer: %s\n", mUDPInBuffer);
     
     NSAutoreleasePool *udpThreadPool = [[NSAutoreleasePool alloc] init];
@@ -99,15 +97,13 @@ union {
                 else OSC_MSG_COMPARE("/fz/rec_prog",2)
 					else OSC_MSG_COMPARE("/fz/interstitial",3)
 						else OSC_MSG_COMPARE("/fz/hb",4)
-							else OSC_MSG_COMPARE("/fz/audio_end",5)
-								else OSC_MSG_COMPARE("/fz/cue",6)
-									else OSC_MSG_COMPARE("/fz/play",7)
-										else OSC_MSG_COMPARE("/fz/stop",8)
-											else OSC_MSG_COMPARE("/fz/loop",9)
-												
-												// [buf_str release];
-												// NSLog(@"add_type %d", add_type);
-												break;
+							else OSC_MSG_COMPARE("/fz/play",5)
+								else OSC_MSG_COMPARE("/fz/stop",6)
+									else OSC_MSG_COMPARE("/fz/cue",7)
+										else OSC_MSG_COMPARE("/fz/loop",8)
+                                            // [buf_str release];
+                                            // NSLog(@"add_type %d", add_type);
+                                            break;
             }
 				
             case 1:
@@ -116,23 +112,16 @@ union {
                 {
                     case 5:
 					{
-                        // this is now called from self tcpParse
-						// printf("audio_end received\n");
-						/*[self performSelectorOnMainThread:@selector(downloadEnd) 
-											   withObject:nil 
-											waitUntilDone:NO];*/
-						break;
+                        NSLog(@"received /fz/play\n");
+						mOSCMsg_Play = YES;						
+                        break;
 					}
-					case 7:
+					case 6:
 					{
-						NSLog(@"received /fz/play\n");
-						mOSCMsg_Play = YES;
-						break;
-					}
-					case 8:
-						NSLog(@"received /fz/stop\n");
+                        NSLog(@"received /fz/stop\n");
 						mOSCMsg_Stop = YES;
 						break;
+					}
                 }
                 break;
             }
@@ -179,14 +168,14 @@ union {
                         
                         break;
                     }
-                    case 6:
+                    case 7:
                     {
                         OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                         // NSLog(@"received /fz/cue:%d\n",u.int_val);
                         mOSCMsg_Cue = u.int_val;
                         break;
                     }
-					case 9:
+					case 8:
 					{
                         //currently disabled in Max patch
                         //NSLog(@"received /fz/loop:%s\n",mUDPInBuffer+pos);
@@ -241,7 +230,7 @@ union {
     
     [raw writeToFile:filePath atomically:YES];
         
-    [self.delegate downloadEnded];
+    [self.delegate downloadEnded:self];
         
     //[tcpThreadPool drain];
 

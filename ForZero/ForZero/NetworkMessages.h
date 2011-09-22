@@ -13,7 +13,7 @@
 @class NetworkMessages;
 
 @protocol NetworkMessagesDelegate
-- (void)downloadEnded;
+- (void)downloadEnded:(NetworkMessages*)requestor;
 - (void)displayInterstitialMessage:(NSString*)msg;
 - (void)displayServerRecordProgress:(NSNumber*)val;
 @end

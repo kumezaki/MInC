@@ -23,6 +23,8 @@
 
 @synthesize networking=_networking, aqPlayer=_aqPlayer;
 
+@synthesize progVal=_progVal;
+
 - (void)displayAlertMessage:(NSString*)msg
 {
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Oops!" 
@@ -37,6 +39,8 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     [[UIAccelerometer sharedAccelerometer] setDelegate:self];
 	[UIAccelerometer sharedAccelerometer].updateInterval = 0.1;
         
@@ -47,7 +51,8 @@
     self.networking.delegate = self;
     self.networking.aqPlayer = self.aqPlayer;
     
-    [super viewDidLoad];
+    self.serverView.delegate = self;
+    
 }
 
 // Override to allow orientations other than the default portrait orientation.
@@ -171,10 +176,10 @@
             NSLog(@"client recording is not yet supported");
         }
         else if ( [[[sender titleLabel]text] isEqualToString:@"stop"] ) {
-            [self.aqPlayer Stop];
+            [self.aqPlayer stop];
         }
         else if ( [[[sender titleLabel]text] isEqualToString:@"play"] ) {
-            [self.aqPlayer Start];
+            [self.aqPlayer start];
         }
     }
 }
@@ -226,11 +231,14 @@
 
 -(void)updateDownloadProg 
 {
+    /*
+     //obsolete
     if (self.networking->mOSCMsg_DownloadProg >= 0.)
 	{
 		self.downloadProgView.progress = self.networking->mOSCMsg_DownloadProg;
 		self.networking->mOSCMsg_DownloadProg = -1.;
 	}
+     */
 }    
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
@@ -300,23 +308,45 @@
 
 #pragma mark - NetworkMessagesDelegate Method Implementations
 
-- (void)downloadEnded 
+- (void)downloadEnded:(NetworkConnections*)requestor 
 {
     NSLog(@"Download ended");
-    
     [self.downloadIndicator stopAnimating];
-    [self.aqPlayer Start];		
+    [self.aqPlayer start];		
+}
+
+- (void)setProgVal:(float)newProgVal
+{
+    if (newProgVal < 0.) newProgVal = 0.;
+	if (newProgVal > 1.) newProgVal = 1.;
+	_progVal = newProgVal;
+	[self.serverView setNeedsDisplay];
+}
+
+- (IBAction) testSlider:(UISlider*)sender
+{
+    [self displayServerRecordProgress:[NSNumber numberWithFloat:sender.value]];
 }
 
 - (void)displayServerRecordProgress:(NSNumber *)val
 {
-    float progVal = [val floatValue];
-    NSLog(@"progress value:%f",progVal);
-    
+    self.progVal = [val floatValue];
+    // NSLog(@"progress value:%f",self.progVal);
+    /*
     if (progVal <= 0. || progVal >= 1.) self.recProgView.hidden = YES;
     else if (self.recProgView.hidden == YES) self.recProgView.hidden = NO;
     
-    self.recProgView.progress = progVal;
+    self.recProgView.progress = progVal;*/
+}
+
+- (float)recordProgressForServerView:(ServerControlView *)requestor
+{
+	float prog = 0;
+	if (requestor == self.serverView) {
+		prog = self.progVal;
+        //NSLog(@"progress value:%f",prog);
+	}
+	return prog;
 }
 
 - (void)displayInterstitialMessage:(NSString*)msg
@@ -349,14 +379,12 @@
     [self displayAlertMessage:msg];
 }
 
-- (void)audioQueuePlayingState:(BOOL)state
+- (void)audioQueuePlayingState:(SagarihaAudioQueuePlayer*)requestor
 {
     /*
-     this is for control of button hightlighting.
-     the button highlighted property of the stock UIButton defaults
-     to NO with TouchUpInside and similar calls
-     for this to work we'll have to subclass UIButton (or UIControl)
-     and customize the behaviour.
+     This method is for control of button hightlighting (ie. keep play or rec buttons highlighted while working).
+     The button highlighted property of the stock UIButton defaults to NO with TouchUpInside and similar calls.
+     For this to work we'll probably need to subclass UIButton (or UIControl) and customize the behaviour.
     */
 }
 

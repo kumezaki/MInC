@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4625710142BAF6A00592CFC /* ServerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = B462570F142BAF6A00592CFC /* ServerControlView.m */; };
 		B493EC3B14084EC300E85E4B /* NetworkMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = B493EC3A14084EC300E85E4B /* NetworkMessages.m */; };
 		B4AE96A4141D4A45008A6295 /* InterstitialMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */; };
 		B4AE96CF141D563E008A6295 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4AE96CE141D563E008A6295 /* QuartzCore.framework */; };
@@ -23,8 +24,6 @@
 		B4DE2AE51407555100F9C4A0 /* FlipsideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4DE2AE41407555100F9C4A0 /* FlipsideView.xib */; };
 		B4DE2B031407599000F9C4A0 /* SagarihaAudioQueuePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2AF11407599000F9C4A0 /* SagarihaAudioQueuePlayer.m */; };
 		B4DE2B081407599000F9C4A0 /* NetworkConnections.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2AFB1407599000F9C4A0 /* NetworkConnections.m */; };
-		B4DE2B091407599000F9C4A0 /* SagarihaPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2AFD1407599000F9C4A0 /* SagarihaPanView.m */; };
-		B4DE2B0B1407599000F9C4A0 /* SagarihaWaveTable.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DE2B011407599000F9C4A0 /* SagarihaWaveTable.m */; };
 		B4DE2B1814075F0400F9C4A0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2B1714075F0400F9C4A0 /* CoreFoundation.framework */; };
 		B4DE2B1A14075F0B00F9C4A0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2B1914075F0A00F9C4A0 /* AudioToolbox.framework */; };
 		B4DE2B1D140779CE00F9C4A0 /* image_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4DE2B1B140779CE00F9C4A0 /* image_0.jpg */; };
@@ -32,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B462570E142BAF6A00592CFC /* ServerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerControlView.h; sourceTree = "<group>"; };
+		B462570F142BAF6A00592CFC /* ServerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerControlView.m; sourceTree = "<group>"; };
 		B493EC3914084EC300E85E4B /* NetworkMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkMessages.h; sourceTree = "<group>"; };
 		B493EC3A14084EC300E85E4B /* NetworkMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkMessages.m; sourceTree = "<group>"; };
 		B4AE96A2141D4A45008A6295 /* InterstitialMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterstitialMessageView.h; sourceTree = "<group>"; };
@@ -58,10 +59,6 @@
 		B4DE2AF11407599000F9C4A0 /* SagarihaAudioQueuePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaAudioQueuePlayer.m; sourceTree = "<group>"; };
 		B4DE2AFA1407599000F9C4A0 /* NetworkConnections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkConnections.h; sourceTree = "<group>"; };
 		B4DE2AFB1407599000F9C4A0 /* NetworkConnections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkConnections.m; sourceTree = "<group>"; };
-		B4DE2AFC1407599000F9C4A0 /* SagarihaPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaPanView.h; sourceTree = "<group>"; };
-		B4DE2AFD1407599000F9C4A0 /* SagarihaPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaPanView.m; sourceTree = "<group>"; };
-		B4DE2B001407599000F9C4A0 /* SagarihaWaveTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaWaveTable.h; sourceTree = "<group>"; };
-		B4DE2B011407599000F9C4A0 /* SagarihaWaveTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaWaveTable.m; sourceTree = "<group>"; };
 		B4DE2B1714075F0400F9C4A0 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		B4DE2B1914075F0A00F9C4A0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B4DE2B1B140779CE00F9C4A0 /* image_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_0.jpg; sourceTree = "<group>"; };
@@ -88,10 +85,10 @@
 		B493EC2F1408253200E85E4B /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				B462570E142BAF6A00592CFC /* ServerControlView.h */,
+				B462570F142BAF6A00592CFC /* ServerControlView.m */,
 				B4AE96A2141D4A45008A6295 /* InterstitialMessageView.h */,
 				B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */,
-				B4DE2AFC1407599000F9C4A0 /* SagarihaPanView.h */,
-				B4DE2AFD1407599000F9C4A0 /* SagarihaPanView.m */,
 			);
 			name = UIViews;
 			sourceTree = "<group>";
@@ -150,8 +147,6 @@
 				B4DE2AE21407555100F9C4A0 /* FlipsideViewController.m */,
 				B493EC56140879D600E85E4B /* Networking Classes */,
 				B493EC2F1408253200E85E4B /* UIViews */,
-				B4DE2B001407599000F9C4A0 /* SagarihaWaveTable.h */,
-				B4DE2B011407599000F9C4A0 /* SagarihaWaveTable.m */,
 				B4DE2ACE1407555100F9C4A0 /* Supporting Files */,
 			);
 			path = ForZero;
@@ -258,10 +253,9 @@
 				B4DE2AE31407555100F9C4A0 /* FlipsideViewController.m in Sources */,
 				B4DE2B031407599000F9C4A0 /* SagarihaAudioQueuePlayer.m in Sources */,
 				B4DE2B081407599000F9C4A0 /* NetworkConnections.m in Sources */,
-				B4DE2B091407599000F9C4A0 /* SagarihaPanView.m in Sources */,
-				B4DE2B0B1407599000F9C4A0 /* SagarihaWaveTable.m in Sources */,
 				B493EC3B14084EC300E85E4B /* NetworkMessages.m in Sources */,
 				B4AE96A4141D4A45008A6295 /* InterstitialMessageView.m in Sources */,
+				B4625710142BAF6A00592CFC /* ServerControlView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

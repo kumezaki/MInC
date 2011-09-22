@@ -9,20 +9,18 @@
 #import <Foundation/Foundation.h>
 
 #import "FlipsideViewController.h"
-#import "SagarihaPanView.h"
 #import "NetworkMessages.h"
 #import "InterstitialMessageView.h"
 #import "SagarihaAudioQueuePlayer.h"
+#import "ServerControlView.h"
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIAccelerometerDelegate, NetworkMessagesDelegate, SagarihaAudioQueuePlayerDelegate, InterstitialMessageViewDelegate> {
+@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIAccelerometerDelegate, NetworkMessagesDelegate, SagarihaAudioQueuePlayerDelegate, InterstitialMessageViewDelegate, ServerControlViewDelegate> {
     
-	IBOutlet UIButton			*mHintButton;
-	IBOutlet SagarihaPanView	*mPanView;
-    
+	IBOutlet UIButton			*mHintButton;    
 
 }
 // elements in top layer of MainView
-@property (nonatomic, retain) IBOutlet UIView                   *serverView;
+@property (nonatomic, retain) IBOutlet ServerControlView        *serverView;
 @property (nonatomic, retain) IBOutlet UIView                   *clientView;
 @property (nonatomic, retain) IBOutlet UIButton                 *uploadButt;
 @property (nonatomic, retain) IBOutlet UIButton                 *downloadButt;
@@ -43,6 +41,8 @@
 // model objects
 @property (nonatomic, retain) NetworkMessages           *networking;
 @property (nonatomic, retain) SagarihaAudioQueuePlayer  *aqPlayer;
+
+@property (nonatomic) float progVal;
 
 
 - (IBAction)showInfo:(id)sender;
