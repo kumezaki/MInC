@@ -51,8 +51,7 @@
     self.networking.delegate = self;
     self.networking.aqPlayer = self.aqPlayer;
     
-    self.serverView.delegate = self;
-    
+    self.serverView.delegate = self;    
 }
 
 // Override to allow orientations other than the default portrait orientation.

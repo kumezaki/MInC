@@ -140,7 +140,7 @@ union {
                     case 2:
                     {
                         OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
-                        //NSLog(@"received /fz/rec_prog:%d",u.int_val);
+                        // NSLog(@"received /fz/rec_prog:%d",u.int_val);
                         [self performSelectorOnMainThread:@selector(serverRecordIsProgressing:)
                                                withObject:[NSNumber numberWithFloat:(float)u.int_val / 1000.] 
                                             waitUntilDone:NO];

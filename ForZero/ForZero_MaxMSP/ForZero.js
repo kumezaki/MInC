@@ -283,6 +283,8 @@ function rec_prog(target_pos,v)
 	}
 	else
 	{
+		if (gDump)
+			post("rec_prog",target_pos,v,"\n");
 		send_rec_prog_msg(pos,v);
 	}
 }

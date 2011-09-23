@@ -5,20 +5,16 @@
 //  Created by Chris Lavender on 9/22/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
-
+#import <QuartzCore/QuartzCore.h>
 #import "ServerControlView.h"
-
 
 @implementation ServerControlView
 @synthesize delegate=_delegate;
 
 - (void)awakeFromNib
-{   
-    width = self.bounds.size.width;
-    height = self.bounds.size.height;
-    perimeter = (width*2) + (height*2);
+{
+    self.layer.cornerRadius = 20;
 }
-
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
@@ -29,6 +25,10 @@
     
     // ask the delegate for a value
     float prog = [self.delegate recordProgressForServerView:self];
+    
+    CGFloat width = self.bounds.size.width;
+    CGFloat height = self.bounds.size.height;
+    CGFloat perimeter = (width*2) + (height*2);
     
     // scale 0. to 1. values to the perimeter of the view
     prog = perimeter * prog;

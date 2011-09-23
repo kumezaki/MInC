@@ -16,9 +16,7 @@
 @end
 
 @interface ServerControlView : UIView {
-    CGFloat width;
-    CGFloat height;
-    CGFloat perimeter;
+    
 }
 
 @property (assign) id <ServerControlViewDelegate> delegate;
