@@ -20,30 +20,6 @@
     [super dealloc];
 }
 
-- (void) setMsg:(NSString *)msg
-{   
-    if (msg != _msg)
-    {
-        [_msg release];
-        _msg = [msg retain];
-    }
-    
-    NSLog(@"InterstitialMessageView:%@",_msg);
-    
-    int image_pos = -1;
-    
-    if ([_msg isEqualToString:@"image_0"])
-        image_pos = 0;
-    else if ([_msg isEqualToString:@"image_1"])
-        image_pos = 1;
-    
-    if (image_pos == -1) 
-        [self displayText];
-    else 
-        [self displayImage:image_pos];
-}
-
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -93,6 +69,29 @@
          */
     }
     return self;
+}
+// setter override
+- (void) setMsg:(NSString *)msg
+{   
+    if (msg != _msg)
+    {
+        [_msg release];
+        _msg = [msg retain];
+    }
+    
+    NSLog(@"InterstitialMessageView:%@",_msg);
+    
+    int image_pos = -1;
+    
+    if ([_msg isEqualToString:@"image_0"])
+        image_pos = 0;
+    else if ([_msg isEqualToString:@"image_1"])
+        image_pos = 1;
+    
+    if (image_pos == -1) 
+        [self displayText];
+    else 
+        [self displayImage:image_pos];
 }
 
 - (void) displayText

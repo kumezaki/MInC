@@ -31,8 +31,8 @@
 {
 	[super init];
 	
-	mSendIPAddress = 0x7F000001; /* IP address: 127.0.0.1 */
-	mSendPortNum = 1337;
+	self.mSendIPAddress = 0x7F000001; /* IP address: 127.0.0.1 */
+	self.mSendPortNum = 1337;
 
 	memset(ip_add_buf,0,32);
     self.devIP = [self getIPAddress];//self.devIP is simply for storing the device IP 4 others to access. 
@@ -120,9 +120,9 @@
 #endif
 			ip_add |= [s intValue] << (8 * (4 - ++i));
 		}
-		mSendIPAddress = ip_add;
+		self.mSendIPAddress = ip_add;
 		[self writeDataFile];
-		printf("IPAddressChanged to %08lx\n",mSendIPAddress);
+		printf("IPAddressChanged to %08lx\n",self.mSendIPAddress);
 	}
 	
 }
@@ -142,8 +142,8 @@
 	
 	memset(&sa, 0, sizeof(sa));
 	sa.sin_family = AF_INET;
-	sa.sin_addr.s_addr = htonl(mSendIPAddress);
-	sa.sin_port = htons(mSendPortNum);
+	sa.sin_addr.s_addr = htonl(self.mSendIPAddress);
+	sa.sin_port = htons(self.mSendPortNum);
 	
 	bytes_sent = sendto(sock, mOutBuffer, mOutBufferLength, 0,(struct sockaddr*)&sa, sizeof (struct sockaddr_in));
 	if (bytes_sent < 0)
@@ -279,7 +279,7 @@
 	NSString *docDirectory = [paths objectAtIndex:0];
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	bool file_exists = [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"Sagariha.dat"]];
-	NSLog(file_exists?@"exists":@"does not exist");
+	// NSLog(file_exists?@"exists":@"does not exist");
 	//	[fileManager removeItemAtPath:[docDirectory stringByAppendingPathComponent:@"Sagariha.dat"] error:NULL];
 	return file_exists;
 }
@@ -288,16 +288,16 @@
 {
 	NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithContentsOfFile:[NetworkConnections dataFilePath]];
     // NSLog(@"%@",[self dataFilePath]);
-	mSendIPAddress = [[dict valueForKey:@"server_ip_address"] unsignedIntValue];
-	mSendPortNum = [[dict valueForKey:@"server_port_num"] unsignedIntValue];
-	NSLog(@"%lu %d",mSendIPAddress,mSendPortNum);
+	self.mSendIPAddress = [[dict valueForKey:@"server_ip_address"] unsignedIntValue];
+	self.mSendPortNum = [[dict valueForKey:@"server_port_num"] unsignedIntValue];
+	NSLog(@"%lu %d",self.mSendIPAddress,self.mSendPortNum);
 }
 
 -(void)writeDataFile
 {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setValue:[NSNumber numberWithUnsignedInt:mSendIPAddress] forKey:@"server_ip_address"];
-	[dict setValue:[NSNumber numberWithUnsignedInt:mSendPortNum] forKey:@"server_port_num"];
+	[dict setValue:[NSNumber numberWithUnsignedInt:self.mSendIPAddress] forKey:@"server_ip_address"];
+	[dict setValue:[NSNumber numberWithUnsignedInt:self.mSendPortNum] forKey:@"server_port_num"];
 	[dict writeToFile:[NetworkConnections dataFilePath] atomically:YES];
 	[dict release];
 }

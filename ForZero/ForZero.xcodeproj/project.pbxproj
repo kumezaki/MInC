@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4341297142D8FA500CAF95F /* ProgressBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4341296142D8FA500CAF95F /* ProgressBarView.m */; };
+		B434129A142D9A1100CAF95F /* ServerControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4341299142D9A1100CAF95F /* ServerControlView.xib */; };
+		B43412A1142D9E8100CAF95F /* ClientControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = B43412A0142D9E8100CAF95F /* ClientControlView.m */; };
+		B45F7BD2142E6E590036A882 /* ControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = B45F7BD1142E6E590036A882 /* ControlView.m */; };
+		B45F7BD6142E89470036A882 /* ClientControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B45F7BD5142E89470036A882 /* ClientControlView.xib */; };
 		B4625710142BAF6A00592CFC /* ServerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = B462570F142BAF6A00592CFC /* ServerControlView.m */; };
 		B493EC3B14084EC300E85E4B /* NetworkMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = B493EC3A14084EC300E85E4B /* NetworkMessages.m */; };
 		B4AE96A4141D4A45008A6295 /* InterstitialMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */; };
@@ -31,6 +36,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B4341295142D8FA500CAF95F /* ProgressBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressBarView.h; sourceTree = "<group>"; };
+		B4341296142D8FA500CAF95F /* ProgressBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressBarView.m; sourceTree = "<group>"; };
+		B4341299142D9A1100CAF95F /* ServerControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerControlView.xib; sourceTree = "<group>"; };
+		B434129F142D9E8100CAF95F /* ClientControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientControlView.h; sourceTree = "<group>"; };
+		B43412A0142D9E8100CAF95F /* ClientControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientControlView.m; sourceTree = "<group>"; };
+		B45F7BD0142E6E590036A882 /* ControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlView.h; sourceTree = "<group>"; };
+		B45F7BD1142E6E590036A882 /* ControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlView.m; sourceTree = "<group>"; };
+		B45F7BD5142E89470036A882 /* ClientControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientControlView.xib; sourceTree = "<group>"; };
 		B462570E142BAF6A00592CFC /* ServerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerControlView.h; sourceTree = "<group>"; };
 		B462570F142BAF6A00592CFC /* ServerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerControlView.m; sourceTree = "<group>"; };
 		B493EC3914084EC300E85E4B /* NetworkMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkMessages.h; sourceTree = "<group>"; };
@@ -82,18 +95,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B493EC2F1408253200E85E4B /* UIViews */ = {
-			isa = PBXGroup;
-			children = (
-				B462570E142BAF6A00592CFC /* ServerControlView.h */,
-				B462570F142BAF6A00592CFC /* ServerControlView.m */,
-				B4AE96A2141D4A45008A6295 /* InterstitialMessageView.h */,
-				B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */,
-			);
-			name = UIViews;
-			sourceTree = "<group>";
-		};
-		B493EC56140879D600E85E4B /* Networking Classes */ = {
+		B4341298142D996900CAF95F /* Networking Family */ = {
 			isa = PBXGroup;
 			children = (
 				B4DE2AFA1407599000F9C4A0 /* NetworkConnections.h */,
@@ -101,7 +103,31 @@
 				B493EC3914084EC300E85E4B /* NetworkMessages.h */,
 				B493EC3A14084EC300E85E4B /* NetworkMessages.m */,
 			);
-			name = "Networking Classes";
+			name = "Networking Family";
+			sourceTree = "<group>";
+		};
+		B45F7BD4142E75C80036A882 /* ControlView Family */ = {
+			isa = PBXGroup;
+			children = (
+				B45F7BD0142E6E590036A882 /* ControlView.h */,
+				B45F7BD1142E6E590036A882 /* ControlView.m */,
+				B462570E142BAF6A00592CFC /* ServerControlView.h */,
+				B462570F142BAF6A00592CFC /* ServerControlView.m */,
+				B434129F142D9E8100CAF95F /* ClientControlView.h */,
+				B43412A0142D9E8100CAF95F /* ClientControlView.m */,
+			);
+			name = "ControlView Family";
+			sourceTree = "<group>";
+		};
+		B493EC2F1408253200E85E4B /* Utility UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				B4AE96A2141D4A45008A6295 /* InterstitialMessageView.h */,
+				B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */,
+				B4341295142D8FA500CAF95F /* ProgressBarView.h */,
+				B4341296142D8FA500CAF95F /* ProgressBarView.m */,
+			);
+			name = "Utility UIViews";
 			sourceTree = "<group>";
 		};
 		B4DE2AB81407555100F9C4A0 = {
@@ -141,12 +167,13 @@
 				B4DE2AD71407555100F9C4A0 /* ForZeroAppDelegate.m */,
 				B4DE2ADC1407555100F9C4A0 /* MainViewController.h */,
 				B4DE2ADD1407555100F9C4A0 /* MainViewController.m */,
-				B4DE2AF01407599000F9C4A0 /* SagarihaAudioQueuePlayer.h */,
-				B4DE2AF11407599000F9C4A0 /* SagarihaAudioQueuePlayer.m */,
 				B4DE2AE11407555100F9C4A0 /* FlipsideViewController.h */,
 				B4DE2AE21407555100F9C4A0 /* FlipsideViewController.m */,
-				B493EC56140879D600E85E4B /* Networking Classes */,
-				B493EC2F1408253200E85E4B /* UIViews */,
+				B45F7BD4142E75C80036A882 /* ControlView Family */,
+				B4341298142D996900CAF95F /* Networking Family */,
+				B4DE2AF01407599000F9C4A0 /* SagarihaAudioQueuePlayer.h */,
+				B4DE2AF11407599000F9C4A0 /* SagarihaAudioQueuePlayer.m */,
+				B493EC2F1408253200E85E4B /* Utility UIViews */,
 				B4DE2ACE1407555100F9C4A0 /* Supporting Files */,
 			);
 			path = ForZero;
@@ -158,6 +185,8 @@
 				B4DE2AD91407555100F9C4A0 /* MainWindow.xib */,
 				B4DE2ADF1407555100F9C4A0 /* MainView.xib */,
 				B4DE2AE41407555100F9C4A0 /* FlipsideView.xib */,
+				B4341299142D9A1100CAF95F /* ServerControlView.xib */,
+				B45F7BD5142E89470036A882 /* ClientControlView.xib */,
 				B4DE2AED140755A000F9C4A0 /* Sound Files */,
 				B4DE2AEC1407559300F9C4A0 /* Images */,
 				B4DE2ACF1407555100F9C4A0 /* ForZero-Info.plist */,
@@ -237,6 +266,8 @@
 				B4DE2AE51407555100F9C4A0 /* FlipsideView.xib in Resources */,
 				B4DE2B1D140779CE00F9C4A0 /* image_0.jpg in Resources */,
 				B4DE2B1E140779CE00F9C4A0 /* image_1.jpg in Resources */,
+				B434129A142D9A1100CAF95F /* ServerControlView.xib in Resources */,
+				B45F7BD6142E89470036A882 /* ClientControlView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +287,9 @@
 				B493EC3B14084EC300E85E4B /* NetworkMessages.m in Sources */,
 				B4AE96A4141D4A45008A6295 /* InterstitialMessageView.m in Sources */,
 				B4625710142BAF6A00592CFC /* ServerControlView.m in Sources */,
+				B4341297142D8FA500CAF95F /* ProgressBarView.m in Sources */,
+				B43412A1142D9E8100CAF95F /* ClientControlView.m in Sources */,
+				B45F7BD2142E6E590036A882 /* ControlView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -46,6 +46,7 @@ union {
 
 -(void)sendOSCMsgWithIntValue:(const char*)osc_str:(int)osc_str_length:(int)val
 {
+    // printf("sendOSCMsgWithIntValue\n");
 	char buf[128]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",si\0",4);
 	val = htonl(val);
 	
@@ -160,10 +161,10 @@ union {
                     }
                     case 4:
                     {
-                        //NSLog(@"received /fz/hb:%s\n",mUDPInBuffer+pos);
+                        NSLog(@"received /fz/hb:%s\n",mUDPInBuffer+pos);
                         NSString *serverIP = [[NSString alloc] initWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
                         
-                        [self newServerIPAddress:serverIP]; // in super
+                        [super newServerIPAddress:serverIP]; // in super
                         [serverIP release];
                         
                         break;

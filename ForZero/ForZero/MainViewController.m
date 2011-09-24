@@ -6,24 +6,27 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <QuartzCore/QuartzCore.h>
+#import <QuartzCore/QuartzCore.h> // for animated view transitions
 #import "MainViewController.h"
 
 #define kCrossfadeDuration 1.0
-#define FLOAT_TO_MRMR_INT(v) (int)(v * 1000. + 0.5)
 
 @implementation MainViewController
 
-@synthesize serverView=_serverView, clientView=_clientView;
+@synthesize serverViewContainer=_serverViewContainer, clientViewContainer=_clientViewContainer;
 @synthesize uploadButt=_uploadButt, downloadButt=_downloadButt, downloadIndicator=_downloadIndicator;
-@synthesize serverRecButt=_serverRecButt, serverStopButt=_serverStopButt, serverPlayButt=_serverPlayButt;
-@synthesize clientRecButt=_clientRecButt, clientStopButt=_clientStopButt, clientPlayButt=_clientPlayButt;
-
-@synthesize recProgView=_recProgView, downloadProgView=_downloadProgView;
-
+@synthesize downloadProgView=_downloadProgView;
 @synthesize networking=_networking, aqPlayer=_aqPlayer;
-
 @synthesize progVal=_progVal;
+
+- (void)setProgVal:(float)newProgVal
+{
+    if (newProgVal < 0.) newProgVal = 0.;
+	if (newProgVal > 1.) newProgVal = 1.;
+	_progVal = newProgVal;
+	[self.serverViewContainer displayProgress];
+}
+
 
 - (void)displayAlertMessage:(NSString*)msg
 {
@@ -36,6 +39,30 @@
     [alert release];
 }
 
+- (void)setupSelf
+{
+    self.aqPlayer = [[SagarihaAudioQueuePlayer alloc]init];
+    self.aqPlayer.delegate = self;
+    
+    self.networking = [[NetworkMessages alloc] init];
+    self.networking.delegate = self;
+    self.networking.aqPlayer = self.aqPlayer;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    if (self) 
+    {
+        [self setupSelf];
+    }
+    return self;
+}
+
+- (void)awakeFromNib
+{
+    [self setupSelf];
+}
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
@@ -43,15 +70,12 @@
     
     [[UIAccelerometer sharedAccelerometer] setDelegate:self];
 	[UIAccelerometer sharedAccelerometer].updateInterval = 0.1;
-        
-    self.aqPlayer = [[SagarihaAudioQueuePlayer alloc]init];
-    self.aqPlayer.delegate = self;
     
-    self.networking = [[NetworkMessages alloc] init];
-    self.networking.delegate = self;
-    self.networking.aqPlayer = self.aqPlayer;
+    self.serverViewContainer.delegate = self;
+    self.serverViewContainer.networking = self.networking;
     
-    self.serverView.delegate = self;    
+    self.clientViewContainer.delegate = self;
+    self.clientViewContainer.aqPlayer = self.aqPlayer;
 }
 
 // Override to allow orientations other than the default portrait orientation.
@@ -78,17 +102,19 @@
 	if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation))
 	{
 		//----- GOING TO PORTRAIT -----
-        self.serverView.frame = CGRectMake(0, 0, 320, 200);
-        self.clientView.frame = CGRectMake(0, 260, 320, 200);
-        self.uploadButt.frame = CGRectMake(88, 150, 45, 160);
+        //[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+        self.serverViewContainer.frame  = CGRectMake(0, 0, 320, 200);
+        self.clientViewContainer.frame  = CGRectMake(0, 260, 320, 200);
+        self.uploadButt.frame   = CGRectMake(88, 150, 45, 160);
         self.downloadButt.frame = CGRectMake(186, 150, 45, 160);
 	}
 	else
 	{
 		//----- GOING TO LANDSCAPE -----
-        self.serverView.frame = CGRectMake(0, 0, 480, 140);
-        self.clientView.frame = CGRectMake(0, 160, 480, 140);
-        self.uploadButt.frame = CGRectMake(139, 123, 45, 55);
+        //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+        self.serverViewContainer.frame  = CGRectMake(0, 0, 480, 140);
+        self.clientViewContainer.frame  = CGRectMake(0, 160, 480, 140);
+        self.uploadButt.frame   = CGRectMake(139, 123, 45, 55);
         self.downloadButt.frame = CGRectMake(294, 123, 45, 55);
 	}
 }
@@ -107,30 +133,29 @@
 
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.downloadProgView   =nil;
+    self.downloadIndicator  =nil;
+    self.uploadButt         =nil;
+    self.downloadButt       =nil;
+    self.clientViewContainer        =nil;
+    self.serverViewContainer        =nil;
 }
 
 - (void)dealloc
 {
     // [mPanView release]; // currently not included in .xib file
 
-    // release IBOutlets
-    [_downloadProgView release];
-    [_recProgView release];
-    [_clientPlayButt release];
-    [_clientStopButt release];
-    [_clientRecButt release];
-    [_serverPlayButt release];
-    [_serverStopButt release];
-    [_serverRecButt release];
-    [_downloadIndicator release];
-    [_uploadButt release];
-    [_downloadButt release];
-    [_clientView release];
-    [_serverView release];
-    
+    // release IBOutlet variables
+    [_downloadProgView      release];
+    [_downloadIndicator     release];
+    [_uploadButt            release];
+    [_downloadButt          release];
+    [_clientViewContainer   release];
+    [_serverViewContainer   release];
+        
     // release model objects
-    [_networking release];
-    [_aqPlayer release];
+    [_networking        release];
+    [_aqPlayer          release];
     
     [super dealloc];
 }
@@ -149,76 +174,11 @@
     [controller release];
 }
 
--(IBAction)setStateServer:(id)sender
-{
-	if ([sender isKindOfClass:[UIButton class]]) {
-        NSLog(@"server: %@",[[sender titleLabel]text]);
-        
-        if ( [[[sender titleLabel]text] isEqualToString:@"rec"]) {
-            [self.networking sendOSCMsgWithIntValue:"/fz/state\0\0\0":12:0];
-        }
-        else if ( [[[sender titleLabel]text] isEqualToString:@"stop"] ) {
-            [self.networking sendOSCMsgWithIntValue:"/fz/state\0\0\0":12:1];
-        }
-        else if ( [[[sender titleLabel]text] isEqualToString:@"play"] ) {
-            [self.networking sendOSCMsgWithIntValue:"/fz/state\0\0\0":12:2];
-        }
-    }
-}
-
--(IBAction)setStateClient:(id)sender
-{
-    if ([sender isKindOfClass:[UIButton class]]) {
-        // NSLog(@"client: %@",[[sender titleLabel]text]);
-
-        if ( [[[sender titleLabel]text] isEqualToString:@"rec"] ) {
-            NSLog(@"client recording is not yet supported");
-        }
-        else if ( [[[sender titleLabel]text] isEqualToString:@"stop"] ) {
-            [self.aqPlayer stop];
-        }
-        else if ( [[[sender titleLabel]text] isEqualToString:@"play"] ) {
-            [self.aqPlayer start];
-        }
-    }
-}
-
 -(IBAction)downloadAudioFile 
 {
     [self.networking startReceiveTCP]; /* Question: hasn't the TCP thread already started? What call this here? */
     [self.downloadIndicator startAnimating];
     [self.networking sendOSCMsg:"/fz/download\0\0\0\0":16];
-}
-
--(IBAction)setEnvPeriod:(id)sender
-{
-	//[self.networking sendOSCMsgWithIntValue:"/fz/period\0\0":12:FLOAT_TO_MRMR_INT([mEnvPeriodSlider value])];
-}
-
--(IBAction)setDelayLevel:(id)sender
-{
-	//[self.networking sendOSCMsgWithIntValue:"/fz/delay\0\0\0":12:FLOAT_TO_MRMR_INT([mDelayLevelSlider value])];
-}
-
--(IBAction)setPan:(id)sender
-{
-	//[self.networking sendOSCMsgWithIntValue:"/fz/pan\0":8:FLOAT_TO_MRMR_INT([mPanSlider value])];
-}
-
--(IBAction)setVolumeServer:(id)sender
-{
-	if ([sender isKindOfClass:[UISlider class]]) {
-        // NSLog(@"%f\n",[(UISlider*)sender value]);
-        [self.networking sendOSCMsgWithIntValue:"/fz/vol_s\0\0\0":12:FLOAT_TO_MRMR_INT([(UISlider*)sender value])];
-    }
-}
-
--(IBAction)setVolumeClient:(id)sender
-{
-    if ([sender isKindOfClass:[UISlider class]]) {
-        // NSLog(@"%f\n",[(UISlider*)sender value]);
-        self.aqPlayer.mAmp = [(UISlider*)sender value];
-    }
 }
 
 -(IBAction)requestHint
@@ -231,7 +191,7 @@
 -(void)updateDownloadProg 
 {
     /*
-     //obsolete
+     // obsolete
     if (self.networking->mOSCMsg_DownloadProg >= 0.)
 	{
 		self.downloadProgView.progress = self.networking->mOSCMsg_DownloadProg;
@@ -314,39 +274,18 @@
     [self.aqPlayer start];		
 }
 
-- (void)setProgVal:(float)newProgVal
-{
-    if (newProgVal < 0.) newProgVal = 0.;
-	if (newProgVal > 1.) newProgVal = 1.;
-	_progVal = newProgVal;
-	[self.serverView setNeedsDisplay];
-}
-
-- (IBAction) testSlider:(UISlider*)sender
-{
-    [self displayServerRecordProgress:[NSNumber numberWithFloat:sender.value]];
-}
-
 - (void)displayServerRecordProgress:(NSNumber *)val
 {
-    self.progVal = [val floatValue];
-    // NSLog(@"progress value:%f",self.progVal);
-    /*
-    if (progVal <= 0. || progVal >= 1.) self.recProgView.hidden = YES;
-    else if (self.recProgView.hidden == YES) self.recProgView.hidden = NO;
+    // progVal setter calls displayProgress in self.serverControlView
+    self.progVal = [val floatValue]; 
     
+    // the below is to automatically show/hide & update a standard UIProgressView
+    // NSLog(@"progress value:%f",self.progVal);
+ /* if (progVal <= 0. || progVal >= 1.) self.recProgView.hidden = YES;
+    else if (self.recProgView.hidden == YES) self.recProgView.hidden = NO;
     self.recProgView.progress = progVal;*/
 }
 
-- (float)recordProgressForServerView:(ServerControlView *)requestor
-{
-	float prog = 0;
-	if (requestor == self.serverView) {
-		prog = self.progVal;
-        //NSLog(@"progress value:%f",prog);
-	}
-	return prog;
-}
 
 - (void)displayInterstitialMessage:(NSString*)msg
 {
@@ -369,6 +308,23 @@
     
     [interstitialView release];
     
+}
+
+#pragma mark - ControlViewDelegate Method Implementations
+
+- (IBAction) testSlider:(UISlider*)sender
+{
+    [self displayServerRecordProgress:[NSNumber numberWithFloat:sender.value]];
+}
+
+- (float)progressValueForControlView:(ControlView *)requestor
+{
+	float prog = 0;
+	if (requestor == self.serverViewContainer) {
+		prog = self.progVal;
+        // NSLog(@"progress value:%f",prog);
+	}
+	return prog;
 }
 
 #pragma mark - SagarihaAudioQueuePlayerDelegate Method Implementations

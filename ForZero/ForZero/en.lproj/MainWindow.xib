@@ -49,8 +49,8 @@
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">1</int>
-					<bytes key="NSRGB">MCAwIDAAA</bytes>
+					<int key="NSColorSpace">3</int>
+					<bytes key="NSWhite">MAA</bytes>
 				</object>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -180,11 +180,126 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">26</int>
+			<int key="maxID">31</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<object class="IBPartialClassDescription">
+					<string key="className">ClientControlView</string>
+					<string key="superclassName">ControlView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/ClientControlView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">ControlView</string>
+					<string key="superclassName">UIView</string>
+					<object class="NSMutableDictionary" key="actions">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>flipServerControls:</string>
+							<string>setTransportState:</string>
+							<string>setVolume:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>flipServerControls:</string>
+							<string>setTransportState:</string>
+							<string>setVolume:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">flipServerControls:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">setTransportState:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">setVolume:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>flipView</string>
+							<string>frontView</string>
+							<string>playButton</string>
+							<string>recButton</string>
+							<string>stopButton</string>
+							<string>viewLabel</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UIView</string>
+							<string>ProgressBarView</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
+							<string>UILabel</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>flipView</string>
+							<string>frontView</string>
+							<string>playButton</string>
+							<string>recButton</string>
+							<string>stopButton</string>
+							<string>viewLabel</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">flipView</string>
+								<string key="candidateClassName">UIView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">frontView</string>
+								<string key="candidateClassName">ProgressBarView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">playButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">recButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">stopButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">viewLabel</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/ControlView.h</string>
+					</object>
+				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">ForZeroAppDelegate</string>
 					<string key="superclassName">NSObject</string>
@@ -232,24 +347,12 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>RequestHint</string>
-							<string>SetDelayLevel:</string>
-							<string>SetEnvPeriod:</string>
-							<string>SetPan:</string>
-							<string>SetStateClient:</string>
-							<string>SetStateServer:</string>
-							<string>SetVolumeClient:</string>
-							<string>SetVolumeServer:</string>
+							<string>downloadAudioFile</string>
+							<string>requestHint</string>
 							<string>showInfo:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -259,48 +362,18 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>RequestHint</string>
-							<string>SetDelayLevel:</string>
-							<string>SetEnvPeriod:</string>
-							<string>SetPan:</string>
-							<string>SetStateClient:</string>
-							<string>SetStateServer:</string>
-							<string>SetVolumeClient:</string>
-							<string>SetVolumeServer:</string>
+							<string>downloadAudioFile</string>
+							<string>requestHint</string>
 							<string>showInfo:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
-								<string key="name">RequestHint</string>
+								<string key="name">downloadAudioFile</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">SetDelayLevel:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">SetEnvPeriod:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">SetPan:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">SetStateClient:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">SetStateServer:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">SetVolumeClient:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">SetVolumeServer:</string>
+								<string key="name">requestHint</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -313,136 +386,59 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>mDelayLevelLabel</string>
-							<string>mDelayLevelSlider</string>
-							<string>mDownloadIndicator</string>
-							<string>mDownloadProgView</string>
-							<string>mEnvPeriodLabel</string>
-							<string>mEnvPeriodSlider</string>
-							<string>mHintButton</string>
-							<string>mPanLabel</string>
-							<string>mPanSlider</string>
-							<string>mPanView</string>
-							<string>mRecProgView</string>
-							<string>mStateClientSegControl</string>
-							<string>mStateServerSegControl</string>
-							<string>mVolumeClientLabel</string>
-							<string>mVolumeClientSlider</string>
-							<string>mVolumeServerLabel</string>
-							<string>mVolumeServerSlider</string>
+							<string>clientViewContainer</string>
+							<string>downloadButt</string>
+							<string>downloadIndicator</string>
+							<string>downloadProgView</string>
+							<string>serverViewContainer</string>
+							<string>uploadButt</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UILabel</string>
-							<string>UISlider</string>
+							<string>ClientControlView</string>
+							<string>UIButton</string>
 							<string>UIActivityIndicatorView</string>
 							<string>UIProgressView</string>
-							<string>UILabel</string>
-							<string>UISlider</string>
+							<string>ServerControlView</string>
 							<string>UIButton</string>
-							<string>UILabel</string>
-							<string>UISlider</string>
-							<string>SagarihaPanView</string>
-							<string>UIProgressView</string>
-							<string>UISegmentedControl</string>
-							<string>UISegmentedControl</string>
-							<string>UILabel</string>
-							<string>UISlider</string>
-							<string>UILabel</string>
-							<string>UISlider</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>mDelayLevelLabel</string>
-							<string>mDelayLevelSlider</string>
-							<string>mDownloadIndicator</string>
-							<string>mDownloadProgView</string>
-							<string>mEnvPeriodLabel</string>
-							<string>mEnvPeriodSlider</string>
-							<string>mHintButton</string>
-							<string>mPanLabel</string>
-							<string>mPanSlider</string>
-							<string>mPanView</string>
-							<string>mRecProgView</string>
-							<string>mStateClientSegControl</string>
-							<string>mStateServerSegControl</string>
-							<string>mVolumeClientLabel</string>
-							<string>mVolumeClientSlider</string>
-							<string>mVolumeServerLabel</string>
-							<string>mVolumeServerSlider</string>
+							<string>clientViewContainer</string>
+							<string>downloadButt</string>
+							<string>downloadIndicator</string>
+							<string>downloadProgView</string>
+							<string>serverViewContainer</string>
+							<string>uploadButt</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
-								<string key="name">mDelayLevelLabel</string>
-								<string key="candidateClassName">UILabel</string>
+								<string key="name">clientViewContainer</string>
+								<string key="candidateClassName">ClientControlView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">mDelayLevelSlider</string>
-								<string key="candidateClassName">UISlider</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">mDownloadIndicator</string>
-								<string key="candidateClassName">UIActivityIndicatorView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">mDownloadProgView</string>
-								<string key="candidateClassName">UIProgressView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">mEnvPeriodLabel</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">mEnvPeriodSlider</string>
-								<string key="candidateClassName">UISlider</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">mHintButton</string>
+								<string key="name">downloadButt</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">mPanLabel</string>
-								<string key="candidateClassName">UILabel</string>
+								<string key="name">downloadIndicator</string>
+								<string key="candidateClassName">UIActivityIndicatorView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">mPanSlider</string>
-								<string key="candidateClassName">UISlider</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">mPanView</string>
-								<string key="candidateClassName">SagarihaPanView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">mRecProgView</string>
+								<string key="name">downloadProgView</string>
 								<string key="candidateClassName">UIProgressView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">mStateClientSegControl</string>
-								<string key="candidateClassName">UISegmentedControl</string>
+								<string key="name">serverViewContainer</string>
+								<string key="candidateClassName">ServerControlView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">mStateServerSegControl</string>
-								<string key="candidateClassName">UISegmentedControl</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">mVolumeClientLabel</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">mVolumeClientSlider</string>
-								<string key="candidateClassName">UISlider</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">mVolumeServerLabel</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">mVolumeServerSlider</string>
-								<string key="candidateClassName">UISlider</string>
+								<string key="name">uploadButt</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 						</object>
 					</object>
@@ -452,11 +448,58 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">SagarihaPanView</string>
+					<string key="className">ProgressBarView</string>
 					<string key="superclassName">UIView</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/SagarihaPanView.h</string>
+						<string key="minorKey">./Classes/ProgressBarView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">ServerControlView</string>
+					<string key="superclassName">ControlView</string>
+					<object class="NSMutableDictionary" key="actions">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>setDelayLevel:</string>
+							<string>setEnvPeriod:</string>
+							<string>setPan:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>setDelayLevel:</string>
+							<string>setEnvPeriod:</string>
+							<string>setPan:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">setDelayLevel:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">setEnvPeriod:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">setPan:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/ServerControlView.h</string>
 					</object>
 				</object>
 			</object>

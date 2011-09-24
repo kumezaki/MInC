@@ -7,18 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ControlView.h"
+#import "NetworkMessages.h"
 
-
-@class ServerControlView;
-
-@protocol ServerControlViewDelegate
-- (float)recordProgressForServerView:(ServerControlView *)requestor;  // -1.0 (frown) to 1.0 (smile)
-@end
-
-@interface ServerControlView : UIView {
+@interface ServerControlView : ControlView {
     
 }
+@property (nonatomic, retain) NetworkMessages   *networking;
 
-@property (assign) id <ServerControlViewDelegate> delegate;
+- (IBAction)setPan:         (id)sender;
+- (IBAction)setEnvPeriod:   (id)sender;
+- (IBAction)setDelayLevel:  (id)sender;
 
 @end
