@@ -29,7 +29,7 @@
 
 - (void)setupSelf
 {
-    // views are tagged in the .xib incase it's needed to reference by tag.
+    // views are tagged in the .xib in case it's needed to reference them by tag.
     // frontView = 1 & flipView = 2
     [self addSubview:self.frontView];
     [self addSubview:self.flipView];
@@ -38,8 +38,9 @@
         self.frontView.delegate = self;
     }
     self.backgroundColor = [UIColor clearColor];
+    
     //kCornerRadius is set in the ProgressView
-    //it's used here so that the flipView will match
+    //it's used here so that the flipView will match the front facing ProgressView
     self.flipView.layer.cornerRadius = kCornerRadius;
 
     [self bringSubviewToFront:self.frontView];
@@ -90,14 +91,14 @@
 -(IBAction)setTransportState:(id)sender
 {
     if ([sender isKindOfClass:[UIButton class]]) {
-        NSLog(@"server: %@",[[sender titleLabel]text]);
+        NSLog(@"ControlView setTransportState: %@",[[sender titleLabel]text]);
     }
 }
 
 -(IBAction)setVolume:(id)sender
 {
 	if ([sender isKindOfClass:[UISlider class]]) {
-        NSLog(@"%f\n",[(UISlider*)sender value]);
+        NSLog(@"ControlView setVolume value:%f\n",[(UISlider*)sender value]);
     }
 }
 

@@ -8,10 +8,16 @@
 
 #import "NetworkMessages.h"
 
+@interface NetworkMessages ()
+@property (nonatomic, readwrite, retain) NSString *interstitialMsg;
+@property (nonatomic, readwrite, retain) NSNumber *recProgress;
+@end
+
 @implementation NetworkMessages
 
 @synthesize delegate;
-@synthesize aqPlayer;
+@synthesize aqPlayer=_aqPlayer;
+@synthesize interstitialMsg=_interstitialMsg, recProgress=_recProgress;
 
 #define OSC_START mOutBufferLength = 0;
 #define OSC_END [self send_udp];
@@ -30,10 +36,32 @@ union {
 
 - (void)dealloc {
     
-    
+    [_aqPlayer          release];
+    [_interstitialMsg   release];
+    [_recProgress     release];
     [super dealloc];
 }
 
+#pragma mark - setter overrides
+- (void)setInterstitialMsg:(NSString *)interstitialMsg
+{
+    if (interstitialMsg != _interstitialMsg) {
+        [_interstitialMsg release];
+        _interstitialMsg = [interstitialMsg retain];
+        [self.delegate displayInterstitialMessage:self];
+    }
+}
+
+- (void)setProgressValue:(NSNumber *)recProgress
+{
+    if (recProgress != _recProgress) {
+        [_recProgress release];
+        _recProgress = [recProgress retain];
+        [self.delegate displayServerRecordProgress:self:nil];
+    }
+}
+
+#pragma mark- OSC packing methods
 -(void)sendOSCMsg:(const char*)osc_str:(int)osc_str_length
 {
 	char buf[128]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",s\0\0",4);
@@ -70,6 +98,7 @@ union {
 	OSC_END
 }
 
+#pragma mark- UDP & TCP message parsing
 - (void)udpParse
 {	
     // printf("mUDPInBuffer: %s\n", mUDPInBuffer);
@@ -142,17 +171,20 @@ union {
                     {
                         OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
                         // NSLog(@"received /fz/rec_prog:%d",u.int_val);
-                        [self performSelectorOnMainThread:@selector(serverRecordIsProgressing:)
-                                               withObject:[NSNumber numberWithFloat:(float)u.int_val / 1000.] 
+                        NSNumber *progVal = [[NSNumber alloc]initWithFloat:((float)u.int_val / 1000.)];
+                        [self performSelectorOnMainThread:@selector(setProgressValue:)
+                                               withObject:progVal 
                                             waitUntilDone:NO];
+                        [progVal release];
                         break;
                     }
                     case 3:
                     {
                         //NSLog(@"received /fz/interstitial:%s\n",mUDPInBuffer+pos);
+                        
                         NSString *interstitialMsg = [[NSString alloc] initWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
                         
-                        [self performSelectorOnMainThread:@selector(handleInterstialMessageFromSecondaryThread:) 
+                        [self performSelectorOnMainThread:@selector(setInterstitialMsg:) 
                                                withObject:interstitialMsg 
                                             waitUntilDone:NO];
                         [interstitialMsg release];
@@ -178,6 +210,7 @@ union {
                     }
 					case 8:
 					{
+                        /*
                         //currently disabled in Max patch
                         //NSLog(@"received /fz/loop:%s\n",mUDPInBuffer+pos);
 						OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
@@ -195,6 +228,7 @@ union {
 							self.aqPlayer->mLoopStart = loop_start / 5000.;
 							self.aqPlayer->mLoopEnd = loop_end / 5000.;
 						}
+                        */
 					}
                 }
                 break;
@@ -235,16 +269,6 @@ union {
         
     //[tcpThreadPool drain];
 
-}
-
-- (void)handleInterstialMessageFromSecondaryThread:(NSString *)msg
-{
-    [self.delegate displayInterstitialMessage:msg];
-}
-
-- (void)serverRecordIsProgressing:(NSNumber*)val
-{
-    [self.delegate displayServerRecordProgress:val];
 }
 
 @end

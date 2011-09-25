@@ -267,17 +267,22 @@
 
 #pragma mark - NetworkMessagesDelegate Method Implementations
 
-- (void)downloadEnded:(NetworkConnections*)requestor 
+- (void)downloadEnded:(NetworkMessages*)requestor 
 {
     NSLog(@"Download ended");
     [self.downloadIndicator stopAnimating];
     [self.aqPlayer start];		
 }
 
-- (void)displayServerRecordProgress:(NSNumber *)val
+- (void)displayServerRecordProgress:(NetworkMessages*)requestor:(NSNumber *)val
 {
     // progVal setter calls displayProgress in self.serverControlView
-    self.progVal = [val floatValue]; 
+    if (requestor != nil) {
+        self.progVal = [requestor.recProgress floatValue];
+    }
+    else if (val != nil) {
+        self.progVal = [val floatValue];
+    }
     
     // the below is to automatically show/hide & update a standard UIProgressView
     // NSLog(@"progress value:%f",self.progVal);
@@ -287,8 +292,9 @@
 }
 
 
-- (void)displayInterstitialMessage:(NSString*)msg
+- (void)displayInterstitialMessage:(NetworkMessages*)requestor
 {
+    NSString *msg = requestor.interstitialMsg;
     
     InterstitialMessageView *interstitialView = 
             [[InterstitialMessageView alloc]initWithFrame:CGRectMake(0,
@@ -314,7 +320,7 @@
 
 - (IBAction) testSlider:(UISlider*)sender
 {
-    [self displayServerRecordProgress:[NSNumber numberWithFloat:sender.value]];
+    [self displayServerRecordProgress:nil:[NSNumber numberWithFloat:sender.value]];
 }
 
 - (float)progressValueForControlView:(ControlView *)requestor
@@ -334,7 +340,7 @@
     [self displayAlertMessage:msg];
 }
 
-- (void)audioQueuePlayingState:(SagarihaAudioQueuePlayer*)requestor
+- (void)audioQueueTransportState:(SagarihaAudioQueuePlayer*)requestor
 {
     /*
      This method is for control of button hightlighting (ie. keep play or rec buttons highlighted while working).

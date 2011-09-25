@@ -17,26 +17,18 @@
 	ssize_t			mOutBufferLength;
 
 	NSThread		*mUDPThread;
-
 	char			mUDPInBuffer[1024];
 	ssize_t			mUDPInBufferLength;
 
     NSThread		*mTCPThread;
-	
     NSMutableData	*incomingDataBuffer;
-    
-    UInt32          mSendIPAddress;
-    SInt16          mSendPortNum;
-    
-    SInt16          mUDPReceivePortNum;
-    SInt16          mTCPReceivePortNum;
-
 }
-@property (nonatomic, retain) NSString  *devIP;
-@property (nonatomic) UInt32 mSendIPAddress;
-@property (nonatomic) SInt16 mSendPortNum;
-@property (nonatomic) SInt16 mUDPReceivePortNum;
-@property (nonatomic) SInt16 mTCPReceivePortNum;
+
+@property (nonatomic, retain)   NSString    *devIP;
+@property (nonatomic)           UInt32      mSendIPAddress;
+@property (nonatomic)           SInt16      mSendPortNum;
+@property (nonatomic)           SInt16      mUDPReceivePortNum;
+@property (nonatomic)           SInt16      mTCPReceivePortNum;
 
 - (NSString *)  getIPAddress;
 - (void)        newServerIPAddress:(NSString *)str;

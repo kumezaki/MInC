@@ -14,26 +14,27 @@
 
 @protocol NetworkMessagesDelegate
 - (void)downloadEnded:(NetworkMessages*)requestor;
-- (void)displayInterstitialMessage:(NSString*)msg;
-- (void)displayServerRecordProgress:(NSNumber*)val;
+- (void)displayInterstitialMessage:(NetworkMessages*)requestor;
+- (void)displayServerRecordProgress:(NetworkMessages*)requestor:(NSNumber*)val;
 @end
 
 @interface NetworkMessages : NetworkConnections {
 
     int				mOSCMsg_State;
-	float			mOSCMsg_RecProg;
 	int				mOSCMsg_InterstitialMsgDur;
     
     int				mOSCMsg_Cue;
 	BOOL			mOSCMsg_Play;
 	BOOL			mOSCMsg_Stop;
 
-@public
     float			mOSCMsg_DownloadProg;
 
 }
-@property(nonatomic,assign) id<NetworkMessagesDelegate> delegate;
-@property(nonatomic,assign) SagarihaAudioQueuePlayer *aqPlayer;
+@property (nonatomic,assign) id<NetworkMessagesDelegate> delegate;
+@property (nonatomic,retain) SagarihaAudioQueuePlayer *aqPlayer;
+
+@property (nonatomic,readonly, retain)  NSString    *interstitialMsg;
+@property (nonatomic,readonly, retain)  NSNumber    *recProgress;
 
 -(void)sendOSCMsg:(const char*)osc_str:(int)osc_str_length;
 -(void)sendOSCMsgWithIntValue:(const char*)osc_str:(int)osc_str_length:(int)val;
@@ -41,7 +42,5 @@
 
 - (void)udpParse;
 - (void)tcpParse;
-
-- (void)handleInterstialMessageFromSecondaryThread:(NSString*)msg;
 
 @end

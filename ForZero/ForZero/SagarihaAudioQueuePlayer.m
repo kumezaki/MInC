@@ -19,7 +19,7 @@
     // NSLog(@"%@", isPlaying == YES ? @"isPlaying YES" : @"isPlaying NO");
     if (isPlaying != _isPlaying) {
         _isPlaying = isPlaying;
-        [self.delegate audioQueuePlayingState:self];
+        [self.delegate audioQueueTransportState:self];
     }
 }
 

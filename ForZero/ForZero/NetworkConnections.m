@@ -253,13 +253,15 @@
 }
 
 - (void)tcpParse{
+    NSLog(@"NetworkConnections tcpParse called.");
 }
 
 - (void)udpParse {
+    NSLog(@"NetworkConnections udpParse called.");
 }
 
 
-#pragma mark - Temporary File Handling
+#pragma mark - save user data
 
 // all of the below can probably be replace by NSUserDefaults.
 +(NSString *)dataFilePath

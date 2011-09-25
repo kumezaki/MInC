@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "ControlView.h"
 #import "SagarihaAudioQueuePlayer.h"
-#import "ProgressBarView.h"
 
 
 @interface ClientControlView : ControlView {

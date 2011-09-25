@@ -79,13 +79,13 @@
     }
     else left = -1;
     // DON'T LEAVE THIS PRINTF ON!!! testing purposes only.
-    //printf("top:%f right:%f bottom:%f left:%f\n", top, right, bottom, left);
+    // printf("top:%f right:%f bottom:%f left:%f\n", top, right, bottom, left);
     
     CGContextBeginPath(context);
     CGContextMoveToPoint(context, 0, 0);
     
     CGContextAddLineToPoint(context,top,0);
-    if (right != -1) CGContextAddLineToPoint(context, width, right);
+    if (right != -1)CGContextAddLineToPoint(context, width, right);
     if (bottom != -1)CGContextAddLineToPoint(context, bottom, height);
     if (left != -1) CGContextAddLineToPoint(context, 0, left);    
     CGContextStrokePath(context);
