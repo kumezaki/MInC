@@ -14,6 +14,7 @@
 @synthesize recButton=_recButton, stopButton=_stopButton, playButton=_playButton;
 @synthesize viewLabel=_viewLabel;
 
+
 - (void)dealloc
 {
     [_viewLabel             release];
@@ -26,44 +27,38 @@
     [super dealloc];
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (void)setupSelf
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // views are tagged in the .xib incase it's needed to reference by tag.
-        // frontView = 1 & flipView = 2
-        [self addSubview:self.frontView];
-        [self addSubview:self.flipView];
-        
-        if ([self.frontView isKindOfClass:[ProgressBarView class]]) {
-            self.frontView.delegate = self;
-        }
-        self.backgroundColor = [UIColor clearColor];
-        
-        //kCornerRadius is set in the ProgressView
-        //it's used here so that the flipView will match
-        self.flipView.layer.cornerRadius = kCornerRadius;
-        
-        [self bringSubviewToFront:self.frontView];
-        self.currentDisplayedView = self.frontView;
-    }
-    return self;
-}
-
-- (void)awakeFromNib
-{
+    // views are tagged in the .xib incase it's needed to reference by tag.
+    // frontView = 1 & flipView = 2
     [self addSubview:self.frontView];
     [self addSubview:self.flipView];
     
     if ([self.frontView isKindOfClass:[ProgressBarView class]]) {
         self.frontView.delegate = self;
     }
-    
     self.backgroundColor = [UIColor clearColor];
+    //kCornerRadius is set in the ProgressView
+    //it's used here so that the flipView will match
     self.flipView.layer.cornerRadius = kCornerRadius;
-    
+
     [self bringSubviewToFront:self.frontView];
     self.currentDisplayedView = self.frontView;
+
+}
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setupSelf];
+    }
+    return self;
+}
+
+- (void)awakeFromNib
+{
+    [self setupSelf];
 }
 
 #pragma mark - IBActions
@@ -107,6 +102,14 @@
 }
 
 #pragma mark - void Method Implementations
+
+- (void)updateFrameSize:(CGRect)frame
+{
+    self.frame  = frame;
+    CGRect newSize = CGRectMake(0, 0, frame.size.width, frame.size.height);
+    self.frontView.frame = newSize;
+    self.flipView.frame = newSize;
+}
 
 - (void)displayProgress
 {

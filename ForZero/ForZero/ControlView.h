@@ -35,6 +35,7 @@
 - (IBAction)setTransportState:  (id)sender;
 - (IBAction)setVolume:          (id)sender;
 
+- (void)updateFrameSize:(CGRect)frame;
 - (void)displayProgress;
 
 @end

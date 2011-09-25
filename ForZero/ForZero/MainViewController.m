@@ -103,8 +103,8 @@
 	{
 		//----- GOING TO PORTRAIT -----
         //[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-        self.serverViewContainer.frame  = CGRectMake(0, 0, 320, 200);
-        self.clientViewContainer.frame  = CGRectMake(0, 260, 320, 200);
+        [self.serverViewContainer updateFrameSize:CGRectMake(0, 0, 320, 200)];
+        [self.clientViewContainer updateFrameSize:CGRectMake(0, 260, 320, 200)];
         self.uploadButt.frame   = CGRectMake(88, 150, 45, 160);
         self.downloadButt.frame = CGRectMake(186, 150, 45, 160);
 	}
@@ -112,8 +112,8 @@
 	{
 		//----- GOING TO LANDSCAPE -----
         //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-        self.serverViewContainer.frame  = CGRectMake(0, 0, 480, 140);
-        self.clientViewContainer.frame  = CGRectMake(0, 160, 480, 140);
+        [self.serverViewContainer updateFrameSize:CGRectMake(0, 0, 480, 140)];
+        [self.clientViewContainer updateFrameSize:CGRectMake(0, 160, 480, 140)];
         self.uploadButt.frame   = CGRectMake(139, 123, 45, 55);
         self.downloadButt.frame = CGRectMake(294, 123, 45, 55);
 	}

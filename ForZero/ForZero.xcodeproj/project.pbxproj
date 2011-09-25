@@ -14,6 +14,8 @@
 		B45F7BD6142E89470036A882 /* ClientControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B45F7BD5142E89470036A882 /* ClientControlView.xib */; };
 		B4625710142BAF6A00592CFC /* ServerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = B462570F142BAF6A00592CFC /* ServerControlView.m */; };
 		B493EC3B14084EC300E85E4B /* NetworkMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = B493EC3A14084EC300E85E4B /* NetworkMessages.m */; };
+		B49D193E142E9EAF007A27D7 /* arrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = B49D193D142E9EAF007A27D7 /* arrowRight.png */; };
+		B49D1941142E9F1B007A27D7 /* arrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = B49D1940142E9F1B007A27D7 /* arrowLeft.png */; };
 		B4AE96A4141D4A45008A6295 /* InterstitialMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */; };
 		B4AE96CF141D563E008A6295 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4AE96CE141D563E008A6295 /* QuartzCore.framework */; };
 		B4DE2AC81407555100F9C4A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2AC71407555100F9C4A0 /* UIKit.framework */; };
@@ -48,6 +50,8 @@
 		B462570F142BAF6A00592CFC /* ServerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerControlView.m; sourceTree = "<group>"; };
 		B493EC3914084EC300E85E4B /* NetworkMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkMessages.h; sourceTree = "<group>"; };
 		B493EC3A14084EC300E85E4B /* NetworkMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkMessages.m; sourceTree = "<group>"; };
+		B49D193D142E9EAF007A27D7 /* arrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowRight.png; sourceTree = "<group>"; };
+		B49D1940142E9F1B007A27D7 /* arrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowLeft.png; sourceTree = "<group>"; };
 		B4AE96A2141D4A45008A6295 /* InterstitialMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterstitialMessageView.h; sourceTree = "<group>"; };
 		B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterstitialMessageView.m; sourceTree = "<group>"; };
 		B4AE96CE141D563E008A6295 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -200,6 +204,8 @@
 		B4DE2AEC1407559300F9C4A0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B49D1940142E9F1B007A27D7 /* arrowLeft.png */,
+				B49D193D142E9EAF007A27D7 /* arrowRight.png */,
 				B4DE2B1B140779CE00F9C4A0 /* image_0.jpg */,
 				B4DE2B1C140779CE00F9C4A0 /* image_1.jpg */,
 			);
@@ -268,6 +274,8 @@
 				B4DE2B1E140779CE00F9C4A0 /* image_1.jpg in Resources */,
 				B434129A142D9A1100CAF95F /* ServerControlView.xib in Resources */,
 				B45F7BD6142E89470036A882 /* ClientControlView.xib in Resources */,
+				B49D193E142E9EAF007A27D7 /* arrowRight.png in Resources */,
+				B49D1941142E9F1B007A27D7 /* arrowLeft.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
