@@ -193,7 +193,7 @@ union {
                     }
                     case 4:
                     {
-                        NSLog(@"received /fz/hb:%s\n",mUDPInBuffer+pos);
+                        // NSLog(@"received /fz/hb:%s\n",mUDPInBuffer+pos);
                         NSString *serverIP = [[NSString alloc] initWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
                         
                         [super newServerIPAddress:serverIP]; // in super

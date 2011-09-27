@@ -24,6 +24,7 @@
 - (void)awakeFromNib
 {
     [super  awakeFromNib];
+#if 0 // optional overlay?
     UIView *overlay = [[UIView alloc]initWithFrame:CGRectMake(self.bounds.origin.x+10, 
                                                              self.bounds.origin.y+10, 
                                                              self.bounds.size.width-20, 
@@ -32,8 +33,9 @@
     overlay.layer.cornerRadius = kCornerRadius;
     [self addSubview:overlay];
     [self sendSubviewToBack:overlay];
-    self.layer.cornerRadius = kCornerRadius;
     [overlay release];
+#endif
+    self.layer.cornerRadius = kCornerRadius;
 }
 
 #define kLineOffset 10
@@ -41,8 +43,8 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    CGContextRef context = UIGraphicsGetCurrentContext();
-	CGContextSetLineWidth(context, 20.0);
+    CGContextRef c = UIGraphicsGetCurrentContext();
+	CGContextSetLineWidth(c, 20.0);
 	[[UIColor greenColor] setStroke];
     
     // ask the delegate for a value
@@ -55,59 +57,41 @@
     // scale 0. to 1. values to the perimeter of the view
     prog = perimeter * prog;
     
-    float top;
-    float right;
-    float bottom;
-    float left;
+    CGContextBeginPath(c);
+    CGContextMoveToPoint(c, 0, kLineOffset);
+    // top line
+    if (prog <= width) {
+        CGContextAddLineToPoint(c,prog,kLineOffset);
+    }
+    else CGContextAddLineToPoint(c, width, kLineOffset);
     
-    // set top line progress
-    if (prog < width) {
-        top = prog; // top is an X value
+    //right line
+    if (prog >= width - (kLineOffset*4) && prog <= width+height) {
+        CGContextMoveToPoint(c, width-kLineOffset, 0);
+        CGContextAddLineToPoint(c, width-kLineOffset, prog - CGContextGetPathCurrentPoint(c).x);
     }
-    else top = width;
+    else if (prog > width+height) {
+        CGContextMoveToPoint(c, width-kLineOffset, 0);
+        CGContextAddLineToPoint(c, width-kLineOffset, height);
+    }
+    // bottom line
+    if (prog >= width - (kLineOffset*4) && prog >= width + (height - kLineOffset*2)) {
+        CGContextMoveToPoint(c, width, height-kLineOffset);
+        CGContextAddLineToPoint(c, 
+                                width - (prog-(width + height - kLineOffset*2)), 
+                                height-kLineOffset);
+    }
+    else if (prog >= perimeter - (height - kLineOffset*2)){
+        CGContextMoveToPoint(c, 0, height-kLineOffset);
+        CGContextAddLineToPoint(c, 0, height-kLineOffset);
+    }
     
-    // set right line progress
-    if ((prog - width) < height) {
-        right = prog - width; // right is a Y value
+    // left line
+    if (prog >= perimeter - (height+kLineOffset*4)) {
+        CGContextMoveToPoint(c, kLineOffset, height);
+        CGContextAddLineToPoint(c, kLineOffset, height - (prog - (perimeter - height-kLineOffset*2)));
     }
-    else right = height;
-    
-    if (right < 0) {
-        right = -1;
-    }
-    
-    // set bottom line progress
-    if (prog >= (width + height) && prog < (perimeter - height)) {
-        bottom = width - (prog - (width + height));
-    }
-    else if (right == height) bottom = 0;// bottom is an X value
-    else bottom = -1;
-    
-    // set left line progress
-    if (prog >= (perimeter - height)) {
-        left = height - (prog - (perimeter - height));
-    }
-    else left = -1;
-    // DON'T LEAVE THIS PRINTF ON!!! testing purposes only.
-    // printf("top:%f right:%f bottom:%f left:%f\n", top, right, bottom, left);
-    
-    CGContextBeginPath(context);
-    
-    CGContextMoveToPoint(context, 0, kLineOffset);
-    CGContextAddLineToPoint(context,top,kLineOffset);
-    if (right != -1) {
-        CGContextMoveToPoint(context, width-kLineOffset, 0);
-        CGContextAddLineToPoint(context, width-kLineOffset, right);
-    }
-    if (bottom != -1){
-        CGContextMoveToPoint(context, width-kLineOffset,height-kLineOffset);
-        CGContextAddLineToPoint(context, bottom, height-kLineOffset); 
-    }
-    if (left != -1){
-        CGContextMoveToPoint(context, kLineOffset, height-kLineOffset);
-        CGContextAddLineToPoint(context, kLineOffset, left);
-    }
-    CGContextStrokePath(context);
+    CGContextStrokePath(c);
 }
 
 - (void)dealloc

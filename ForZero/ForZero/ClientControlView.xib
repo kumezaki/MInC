@@ -184,7 +184,7 @@
 					<object class="IBUILabel" id="960902661">
 						<reference key="NSNextResponder" ref="1049684127"/>
 						<int key="NSvFlags">269</int>
-						<string key="NSFrame">{{134, 175}, {51, 20}}</string>
+						<string key="NSFrame">{{130, 180}, {60, 20}}</string>
 						<reference key="NSSuperview" ref="1049684127"/>
 						<reference key="NSWindow"/>
 						<reference key="IBUIBackgroundColor" ref="246745635"/>
@@ -413,8 +413,8 @@
 							<reference ref="307471974"/>
 							<reference ref="1047421688"/>
 							<reference ref="854649602"/>
-							<reference ref="960902661"/>
 							<reference ref="584539858"/>
+							<reference ref="960902661"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">ProgressBarView Front</string>

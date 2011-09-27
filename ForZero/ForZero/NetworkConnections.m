@@ -30,9 +30,14 @@
 - (id)init
 {
 	[super init];
-	
-	self.mSendIPAddress = 0x7F000001; /* IP address: 127.0.0.1 */
-	self.mSendPortNum = 1337;
+
+    if ([self dataFileExists]) {
+        [self readDataFile];
+    }
+    else {
+        self.mSendIPAddress = 0x7F000001; /* IP address: 127.0.0.1 */
+        self.mSendPortNum = 1337;
+    }
 
 	memset(ip_add_buf,0,32);
     self.devIP = [self getIPAddress];//self.devIP is simply for storing the device IP 4 others to access. 
@@ -43,8 +48,6 @@
 	mUDPReceivePortNum = 31337;
     mTCPReceivePortNum = 41337;
 
-	if ([self dataFileExists]) [self readDataFile];
-    
     incomingDataBuffer = [[NSMutableData alloc]init];
     
     mUDPThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_udp) object:nil];
@@ -154,6 +157,7 @@
 
 -(void)receive_udp
 {
+    printf("receive_udp started\n");
 	int sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	struct sockaddr_in sa; 
 	socklen_t fromlen;
@@ -175,7 +179,7 @@
 		mUDPInBufferLength = recvfrom(sock, (void *)mUDPInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);
 		if (mUDPInBufferLength < 0)
 			fprintf(stderr,"%s\n",strerror(errno));
-        //NSLog(@"mInBuffer contents:%s\n", mInBuffer);
+        // NSLog(@"mUDPInBuffer contents:%s\n", mUDPInBuffer);
 		[self udpParse];
 	}
 	
@@ -281,7 +285,7 @@
 	NSString *docDirectory = [paths objectAtIndex:0];
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	bool file_exists = [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"Sagariha.dat"]];
-	// NSLog(file_exists?@"exists":@"does not exist");
+	NSLog(file_exists?@"exists":@"does not exist");
 	//	[fileManager removeItemAtPath:[docDirectory stringByAppendingPathComponent:@"Sagariha.dat"] error:NULL];
 	return file_exists;
 }
