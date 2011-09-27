@@ -52,6 +52,10 @@
 						<reference key="NSSuperview" ref="13634354"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="477757541"/>
+						<object class="NSColor" key="IBUIBackgroundColor" id="694715766">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MCAwAA</bytes>
+						</object>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -86,10 +90,7 @@
 						<reference key="NSSuperview" ref="13634354"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="111277881"/>
-						<object class="NSColor" key="IBUIBackgroundColor" id="625084476">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4yMjUzMDg2NDIgMC4yMjUzMDg2NDIgMC4yMjUzMDg2NDIAA</bytes>
-						</object>
+						<reference key="IBUIBackgroundColor" ref="694715766"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -113,7 +114,7 @@
 						<reference key="NSSuperview" ref="13634354"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="389642487"/>
-						<reference key="IBUIBackgroundColor" ref="625084476"/>
+						<reference key="IBUIBackgroundColor" ref="694715766"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -134,7 +135,7 @@
 						<reference key="NSSuperview" ref="13634354"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1032242693"/>
-						<reference key="IBUIBackgroundColor" ref="625084476"/>
+						<reference key="IBUIBackgroundColor" ref="694715766"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -155,6 +156,7 @@
 						<reference key="NSSuperview" ref="13634354"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="213129535"/>
+						<reference key="IBUIBackgroundColor" ref="694715766"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -165,8 +167,7 @@
 						<string key="NSFrame">{{278, 95}, {22, 85}}</string>
 						<reference key="NSSuperview" ref="13634354"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
-						<reference key="IBUIBackgroundColor" ref="459452004"/>
+						<reference key="IBUIBackgroundColor" ref="694715766"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
@@ -177,7 +178,7 @@
 						<reference key="NSSuperview" ref="13634354"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="377129152"/>
-						<reference key="IBUIBackgroundColor" ref="459452004"/>
+						<reference key="IBUIBackgroundColor" ref="694715766"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
@@ -188,10 +189,7 @@
 						<reference key="NSSuperview" ref="13634354"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1048761398"/>
-						<object class="NSColor" key="IBUIBackgroundColor" id="694715766">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MCAwAA</bytes>
-						</object>
+						<reference key="IBUIBackgroundColor" ref="694715766"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -214,9 +212,9 @@
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="66033067"/>
-				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">1</int>
-					<bytes key="NSRGB">MC4yMjUzMDg2NDIgMC4yMjUzMDg2NDIgMC4yMjUzMDg2NDIAA</bytes>
+				<object class="NSColor" key="IBUIBackgroundColor" id="355209093">
+					<int key="NSColorSpace">3</int>
+					<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
 				</object>
 				<bool key="IBUIClipsSubviews">YES</bool>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -234,6 +232,7 @@
 						<string key="NSFrame">{{270, 0}, {50, 50}}</string>
 						<reference key="NSSuperview" ref="639183268"/>
 						<reference key="NSWindow"/>
+						<reference key="IBUIBackgroundColor" ref="694715766"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -254,7 +253,6 @@
 						<string key="NSFrame">{{78, 89}, {164, 21}}</string>
 						<reference key="NSSuperview" ref="639183268"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<reference key="IBUIBackgroundColor" ref="694715766"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -273,11 +271,7 @@
 				<string key="NSFrameSize">{320, 200}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
-				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">1</int>
-					<bytes key="NSRGB">MC4yMjUzMDg2NDIgMC4yMjUzMDg2NDIgMC4yMjUzMDg2NDIAA</bytes>
-				</object>
+				<reference key="IBUIBackgroundColor" ref="355209093"/>
 				<bool key="IBUIClipsSubviews">YES</bool>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<int key="IBUITag">2</int>
@@ -574,14 +568,6 @@
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBPartialClassDescription">
-					<string key="className">ClientControlView</string>
-					<string key="superclassName">ControlView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/ClientControlView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
 					<string key="className">ControlView</string>
 					<string key="superclassName">UIView</string>
 					<object class="NSMutableDictionary" key="actions">
@@ -689,165 +675,11 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">MainViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>downloadAudioFile</string>
-							<string>requestHint</string>
-							<string>showInfo:</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>downloadAudioFile</string>
-							<string>requestHint</string>
-							<string>showInfo:</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">downloadAudioFile</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">requestHint</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">showInfo:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="outlets">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>clientViewContainer</string>
-							<string>downloadButt</string>
-							<string>downloadIndicator</string>
-							<string>downloadProgView</string>
-							<string>serverViewContainer</string>
-							<string>uploadButt</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>ClientControlView</string>
-							<string>UIButton</string>
-							<string>UIActivityIndicatorView</string>
-							<string>UIProgressView</string>
-							<string>ServerControlView</string>
-							<string>UIButton</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>clientViewContainer</string>
-							<string>downloadButt</string>
-							<string>downloadIndicator</string>
-							<string>downloadProgView</string>
-							<string>serverViewContainer</string>
-							<string>uploadButt</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">clientViewContainer</string>
-								<string key="candidateClassName">ClientControlView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">downloadButt</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">downloadIndicator</string>
-								<string key="candidateClassName">UIActivityIndicatorView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">downloadProgView</string>
-								<string key="candidateClassName">UIProgressView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">serverViewContainer</string>
-								<string key="candidateClassName">ServerControlView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">uploadButt</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/MainViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
 					<string key="className">ProgressBarView</string>
 					<string key="superclassName">UIView</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/ProgressBarView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">ServerControlView</string>
-					<string key="superclassName">ControlView</string>
-					<object class="NSMutableDictionary" key="actions">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>setDelayLevel:</string>
-							<string>setEnvPeriod:</string>
-							<string>setPan:</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>setDelayLevel:</string>
-							<string>setEnvPeriod:</string>
-							<string>setPan:</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">setDelayLevel:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">setEnvPeriod:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">setPan:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/ServerControlView.h</string>
 					</object>
 				</object>
 			</object>
