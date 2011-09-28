@@ -190,7 +190,9 @@ function osc_msg_pan(pos,val)
 {
     if (pos != -1)
     {
-        post("pan not supported in this version\n");
+        post("pan received value:",val,"\n");
+        var pan = (val / 1000.) * 1.0;
+		send_pan_x_msg(pos+1,pan);
     }
 }
 

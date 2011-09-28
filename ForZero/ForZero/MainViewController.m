@@ -78,22 +78,8 @@
     self.clientViewContainer.aqPlayer = self.aqPlayer;
 }
 
-// Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    //Set which orientations we allow
-	if (
-        (interfaceOrientation == UIInterfaceOrientationPortrait) ||
-        (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) ||
-        (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||
-        (interfaceOrientation == UIInterfaceOrientationLandscapeRight)
-        )
-	{
-		return YES;
-	}
-	else
-	{
-		return NO;
-	}
+    return YES;
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
@@ -102,16 +88,14 @@
 	if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation))
 	{
 		//----- GOING TO PORTRAIT -----
-        //[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
         [self.serverViewContainer updateFrameSize:CGRectMake(0, 0, 320, 200)];
         [self.clientViewContainer updateFrameSize:CGRectMake(0, 260, 320, 200)];
-        self.uploadButt.frame   = CGRectMake(88, 150, 45, 160);
-        self.downloadButt.frame = CGRectMake(186, 150, 45, 160);
+        self.uploadButt.frame   = CGRectMake(88, 174, 45, 110);
+        self.downloadButt.frame = CGRectMake(186, 174, 45, 110);
 	}
 	else
 	{
 		//----- GOING TO LANDSCAPE -----
-        //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
         [self.serverViewContainer updateFrameSize:CGRectMake(0, 0, 480, 140)];
         [self.clientViewContainer updateFrameSize:CGRectMake(0, 160, 480, 140)];
         self.uploadButt.frame   = CGRectMake(139, 123, 45, 55);
@@ -317,7 +301,8 @@
 }
 
 #pragma mark - ControlViewDelegate Method Implementations
-
+// this method is for testing the custom progress view
+// connect any UISlider to First Responder of testSlider
 - (IBAction) testSlider:(UISlider*)sender
 {
     [self displayServerRecordProgress:nil:[NSNumber numberWithFloat:sender.value]];
@@ -326,7 +311,8 @@
 - (float)progressValueForControlView:(ControlView *)requestor
 {
 	float prog = 0;
-	if (requestor == self.serverViewContainer) {
+	if (requestor == self.serverViewContainer) 
+    {
 		prog = self.progVal;
         // NSLog(@"progress value:%f",prog);
 	}

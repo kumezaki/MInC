@@ -13,6 +13,7 @@
 @implementation ServerControlView
 
 @synthesize networking=_networking;
+@synthesize panSlider=_panSlider;
 
 - (void)dealloc
 {
@@ -69,7 +70,9 @@
 
 -(IBAction)setPan:(id)sender
 {
-	//[self.networking sendOSCMsgWithIntValue:"/fz/pan\0":8:FLOAT_TO_MRMR_INT([mPanSlider value])];
+    if ([sender isKindOfClass:[UISlider class]]) {
+        [self.networking sendOSCMsgWithIntValue:"/fz/pan\0":8:FLOAT_TO_MRMR_INT([(UISlider*)sender value])];
+    }
 }
 
 -(IBAction)setVolume:(id)sender

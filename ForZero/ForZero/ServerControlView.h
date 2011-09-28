@@ -14,6 +14,7 @@
     
 }
 @property (nonatomic, retain) NetworkMessages   *networking;
+@property (nonatomic, retain) IBOutlet UISlider *panSlider;
 
 - (IBAction)setPan:         (id)sender;
 - (IBAction)setEnvPeriod:   (id)sender;
