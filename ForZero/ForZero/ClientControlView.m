@@ -16,7 +16,7 @@
     [[NSBundle mainBundle] loadNibNamed:@"ClientControlView" owner:self options:nil];
     self = [super initWithFrame:frame];
     if (self) {
-        self.viewLabel.text = @"Client";
+        self.viewLabel.text = @"Device";
     }
     return self;
 
@@ -26,7 +26,7 @@
 {
     [[NSBundle mainBundle] loadNibNamed:@"ClientControlView" owner:self options:nil];
     [super awakeFromNib];
-    self.viewLabel.text = @"Client";
+    self.viewLabel.text = @"Device";
 }
 
 - (void)dealloc

@@ -89,17 +89,17 @@
 	{
 		//----- GOING TO PORTRAIT -----
         [self.serverViewContainer updateFrameSize:CGRectMake(0, 0, 320, 200)];
-        [self.clientViewContainer updateFrameSize:CGRectMake(0, 260, 320, 200)];
-        self.uploadButt.frame   = CGRectMake(88, 174, 45, 110);
-        self.downloadButt.frame = CGRectMake(186, 174, 45, 110);
+        [self.clientViewContainer updateFrameSize:CGRectMake(0, 280, 320, 200)];
+        self.uploadButt.frame   = CGRectMake(88, 184, 45, 110);
+        self.downloadButt.frame = CGRectMake(186, 184, 45, 110);
 	}
 	else
 	{
 		//----- GOING TO LANDSCAPE -----
-        [self.serverViewContainer updateFrameSize:CGRectMake(0, 0, 480, 140)];
-        [self.clientViewContainer updateFrameSize:CGRectMake(0, 160, 480, 140)];
-        self.uploadButt.frame   = CGRectMake(139, 123, 45, 55);
-        self.downloadButt.frame = CGRectMake(294, 123, 45, 55);
+        [self.serverViewContainer updateFrameSize:CGRectMake(0, 0, 480, 150)];
+        [self.clientViewContainer updateFrameSize:CGRectMake(0, 170, 480, 150)];
+        self.uploadButt.frame   = CGRectMake(139, 133, 45, 55);
+        self.downloadButt.frame = CGRectMake(294, 133, 45, 55);
 	}
 }
 
@@ -278,6 +278,8 @@
 
 - (void)displayInterstitialMessage:(NetworkMessages*)requestor
 {
+    //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+
     NSString *msg = requestor.interstitialMsg;
     
     InterstitialMessageView *interstitialView = 
@@ -340,10 +342,13 @@
 - (void) interstitialViewDidFinish:(InterstitialMessageView *)interstitialView
 {
     [interstitialView removeFromSuperview];
-    
+
 	CATransition *animation = [CATransition animation];
 	[animation setDuration:kCrossfadeDuration];
-	[animation setType:kCATransitionFade];    
+	[animation setType:kCATransitionFade];   
+    
+    //[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+
 	[self.view.layer addAnimation:animation forKey:nil];
     
 }

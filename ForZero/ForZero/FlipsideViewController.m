@@ -55,10 +55,7 @@
     
 	self.portNumTextField.text = [NSString stringWithFormat:@"%d",((NetworkConnections*)self.networking).mSendPortNum];
 
-    self.devIPLabel.text = [NSString stringWithFormat:@"%@",((NetworkConnections*)self.networking).devIP];
-
-    self.view.backgroundColor = [UIColor viewFlipsideBackgroundColor]; 
-    
+    self.devIPLabel.text = [NSString stringWithFormat:@"%@",((NetworkConnections*)self.networking).devIP];    
 }
 
 - (void)viewDidUnload
@@ -70,21 +67,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-    if (
-        (interfaceOrientation == UIInterfaceOrientationPortrait) ||
-        (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) ||
-        (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||
-        (interfaceOrientation == UIInterfaceOrientationLandscapeRight)
-        )
-	{
-		return YES;
-	}
-	else
-	{
-		return NO;
-	}
-
+    return YES;
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
@@ -94,7 +77,7 @@
 	{
 		//----- GOING TO PORTRAIT -----
         self.serverView.frame = CGRectMake(0, 44, 320, 200);
-        self.clientView.frame = CGRectMake(0, 260, 320, 200);
+        self.clientView.frame = CGRectMake(0, 280, 320, 200);
         self.ipAddressTextField.frame = CGRectMake(20, 75, 175, 31);
         self.portNumTextField.frame = CGRectMake(215, 75, 85, 31);
         self.ipLabel.frame = CGRectMake(20, 50, 85, 21);
@@ -103,8 +86,8 @@
 	else
 	{
 		//----- GOING TO LANDSCAPE -----
-        self.serverView.frame = CGRectMake(0, 44, 480, 125);
-        self.clientView.frame = CGRectMake(0, 175, 480, 125);
+        self.serverView.frame = CGRectMake(0, 44, 480, 135);
+        self.clientView.frame = CGRectMake(0, 185, 480, 135);
         self.ipAddressTextField.frame = CGRectMake(20, 55, 260, 31);
         self.portNumTextField.frame = CGRectMake(330, 55, 125, 31);
         self.ipLabel.frame = CGRectMake(20, 30, 85, 21);

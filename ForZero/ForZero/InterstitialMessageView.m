@@ -23,7 +23,7 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {        
+    if (self) {
         // create image array
         mImageArray = [[NSArray alloc] initWithObjects:
                        [UIImage imageNamed:@"image_0.jpg"],
@@ -32,15 +32,15 @@
                        ];
         
         // set properties for the view
-        self.backgroundColor = [UIColor blueColor];
+        self.backgroundColor = [UIColor blackColor];
         self.clearsContextBeforeDrawing = YES;
         
         self.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);
         
         // create a static label
         UILabel *text = [[UILabel alloc]initWithFrame:CGRectMake(0, 
-                                                                 self.frame.size.height - 20, 
-                                                                 self.frame.size.width, 
+                                                                 self.bounds.size.height - 20, 
+                                                                 self.bounds.size.width, 
                                                                  20)];
         
         text.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);
@@ -51,7 +51,7 @@
         [text setBackgroundColor:[UIColor clearColor]];
         text.text = @"Touch the screen to dismiss this message.";
         
-        [self addSubview: text];
+        [self insertSubview:text atIndex:1];
         [text release];
 
         /*
@@ -107,17 +107,20 @@
     label.numberOfLines = 10;
     label.text = self.msg;
     
-    [self addSubview: label];
+    [self insertSubview:label atIndex:0];
     [label release];
 }
 
 - (void) displayImage:(int)image_pos
 {
-    image = [[UIImageView alloc] initWithImage:[mImageArray objectAtIndex:image_pos]];
+    image = [[UIImageView alloc] initWithFrame:self.bounds];
+    image.image = [mImageArray objectAtIndex:image_pos];
     
     image.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    image.contentMode = UIViewContentModeScaleAspectFit;
     
-    [self addSubview:image];
+    [self insertSubview:image atIndex:0];
+
     [image release];
 }
 
