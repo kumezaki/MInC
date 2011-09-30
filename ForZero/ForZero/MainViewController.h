@@ -43,5 +43,6 @@
 
 - (void)setCue:(int)cue_num;
 - (void)updateDownloadProg;
+- (void)displayAlertMessage:(NSString*)msg;
 
 @end

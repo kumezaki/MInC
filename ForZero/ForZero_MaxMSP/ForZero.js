@@ -256,7 +256,8 @@ function osc_msg_download(pos)
                 post("raw audio file created for pos:",pos,"\n");
 
         f = new File("fz_download.txt","write", "TEXT");
-        	 	post("fz_download.txt created for pos:",pos,"\n");
+		f.open();
+        		post("fz_download.txt created for pos:",pos,"\n");
         f.writeline(gIPAddress[pos]+", "+tcp_port_num+", ../ForZero_MaxMSP/"+file_name);
         		post("script file written for pos:",pos,"\n");
         f.close();

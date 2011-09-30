@@ -69,7 +69,7 @@
 {    
     
     [UIView transitionWithView:self
-                      duration:.5
+                      duration:1.0 
                        options:UIViewAnimationOptionTransitionFlipFromLeft
                     animations:^{
                         if (self.currentDisplayedView == self.frontView) {

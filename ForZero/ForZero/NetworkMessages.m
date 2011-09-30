@@ -7,9 +7,11 @@
 //
 
 #import "NetworkMessages.h"
+#import "MainViewController.h"
 
 @interface NetworkMessages ()
 @property (nonatomic, readwrite, retain) NSString *interstitialMsg;
+@property (nonatomic, readwrite, retain) NSString *errorMsg;
 @property (nonatomic, readwrite, retain) NSNumber *recProgress;
 @end
 
@@ -17,7 +19,7 @@
 
 @synthesize delegate;
 @synthesize aqPlayer=_aqPlayer;
-@synthesize interstitialMsg=_interstitialMsg, recProgress=_recProgress;
+@synthesize interstitialMsg=_interstitialMsg, errorMsg=_errorMsg, recProgress=_recProgress;
 
 #define OSC_START mOutBufferLength = 0;
 #define OSC_END [self send_udp];
@@ -38,7 +40,8 @@ union {
     
     [_aqPlayer          release];
     [_interstitialMsg   release];
-    [_recProgress     release];
+    [_errorMsg          release];
+    [_recProgress       release];
     [super dealloc];
 }
 
@@ -270,5 +273,15 @@ union {
     //[tcpThreadPool drain];
 
 }
+
+- (void)downloadFailed:(NSTimer*)timer
+{
+    //NSLog(@"downloadFailed called");
+    close(clntSock);
+    close(servSock);
+    self.errorMsg = @"Something went wrong. Either you are not connected to a performace server or there was a problem downloading. Please try again";
+    [self.delegate downloadFailed:self];
+}
+
 
 @end

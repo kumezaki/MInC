@@ -26,6 +26,7 @@
 @synthesize mUDPReceivePortNum;
 @synthesize mTCPReceivePortNum;
 @synthesize devIP=_devIP;
+@synthesize tcpTimer=_tcpTimer;
 
 - (id)init
 {
@@ -61,12 +62,14 @@
 
 -(void)dealloc
 {    
-	[incomingDataBuffer release];
+    if ([self.tcpTimer isValid]) {
+        [self.tcpTimer invalidate];
+    }
+    [incomingDataBuffer release];
 
     //    [mTCPThread release];
 	[mUDPThread release];
     [_devIP release];
-    
 	[super dealloc];
 }
 	
@@ -176,6 +179,7 @@
 	
 	for (;;) 
 	{
+        //printf("receive_udp is waiting\n");
 		mUDPInBufferLength = recvfrom(sock, (void *)mUDPInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);
 		if (mUDPInBufferLength < 0)
 			fprintf(stderr,"%s\n",strerror(errno));
@@ -186,22 +190,32 @@
 	close(sock); /* close the socket */
 }
 
--(void)startReceiveTCP
+- (void)downloadFailed:(NSTimer*)timer
 {
-    mTCPThread = [[NSThread alloc] initWithTarget:self 
-                                          selector:@selector(receive_tcp) 
-                                            object:nil];
-    [mTCPThread start];
+    NSLog(@"NetworkConnections downloadFailed called.");
 }
 
--(void)receive_tcp
+- (void)startReceiveTCP
 {
-    int servSock, clntSock;
-    
+    if (mTCPThread == nil) {
+        mTCPThread = [[NSThread alloc] initWithTarget:self 
+                                             selector:@selector(receive_tcp) 
+                                               object:nil];
+        [mTCPThread start];
+    }
+    self.tcpTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 
+                                                     target:self 
+                                                   selector:@selector (downloadFailed:) 
+                                                   userInfo:nil 
+                                                    repeats:NO]; 
+}  
+
+- (void)receive_tcp
+{    
     struct sockaddr_in servAddr, clntAddr;
     
     servSock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
-    
+        
     if (servSock < 0)
         NSLog(@"ERROR opening TCP socket");
     
@@ -232,8 +246,12 @@
         memset(buffer, 0, 256);
         
         bytesRcvd = recv(clntSock, buffer, sizeof(buffer)-1, 0);
+        [self.tcpTimer invalidate];
         
-        if (bytesRcvd < 0) NSLog(@"ERROR reading from TCP socket\n");
+        if (bytesRcvd < 0) {
+            NSLog(@"ERROR reading from TCP socket\n");
+            done = YES;
+        }
         
         if (bytesRcvd  > 0) {
             //printf("bytesRead: %d; buffer contents: %s\n", bytesRcvd, buffer);
@@ -244,16 +262,25 @@
         if (bytesRcvd == 0) {
             //NSLog(@"total bytes recieved: %u",[incomingDataBuffer length]);
             [self performSelectorOnMainThread:@selector(tcpParse) withObject:nil waitUntilDone:YES];
-            
-            [mTCPThread release];
             done = YES;
             break;
         }
     }
     NSRange resetRange = {0, [incomingDataBuffer length]};
     [incomingDataBuffer replaceBytesInRange:resetRange withBytes:NULL length:0];
-    close(clntSock);	
-    close(servSock);
+    
+    if (!(clntSock < 0)) {
+        close(clntSock);
+        printf("close clntSock\n");
+    }
+    if (!(servSock < 0)) {
+        close(servSock);
+        printf("close servSock\n");
+    }
+    
+    [mTCPThread cancel];
+    [mTCPThread release];
+    mTCPThread = nil;
 }
 
 - (void)tcpParse{

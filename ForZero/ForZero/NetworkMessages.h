@@ -14,6 +14,7 @@
 
 @protocol NetworkMessagesDelegate
 - (void)downloadEnded:(NetworkMessages*)requestor;
+- (void)downloadFailed:(NetworkMessages *)requestor;
 - (void)displayInterstitialMessage:(NetworkMessages*)requestor;
 - (void)displayServerRecordProgress:(NetworkMessages*)requestor:(NSNumber*)val;
 @end
@@ -34,6 +35,7 @@
 @property (nonatomic,retain) SagarihaAudioQueuePlayer *aqPlayer;
 
 @property (nonatomic,readonly, retain)  NSString    *interstitialMsg;
+@property (nonatomic,readonly, retain)  NSString    *errorMsg;
 @property (nonatomic,readonly, retain)  NSNumber    *recProgress;
 
 -(void)sendOSCMsg:(const char*)osc_str:(int)osc_str_length;

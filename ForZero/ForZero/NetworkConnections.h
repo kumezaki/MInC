@@ -22,6 +22,8 @@
 
     NSThread		*mTCPThread;
     NSMutableData	*incomingDataBuffer;
+    
+    int servSock, clntSock;// tcp sockets
 }
 
 @property (nonatomic, retain)   NSString    *devIP;
@@ -29,6 +31,7 @@
 @property (nonatomic)           SInt16      mSendPortNum;
 @property (nonatomic)           SInt16      mUDPReceivePortNum;
 @property (nonatomic)           SInt16      mTCPReceivePortNum;
+@property (nonatomic, retain)   NSTimer     *tcpTimer;
 
 - (NSString *)  getIPAddress;
 - (void)        newServerIPAddress:(NSString *)str;

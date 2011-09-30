@@ -160,7 +160,7 @@
 
 -(IBAction)downloadAudioFile 
 {
-    [self.networking startReceiveTCP]; /* Question: hasn't the TCP thread already started? What call this here? */
+    [self.networking startReceiveTCP]; /* Question: hasn't the TCP thread already started? Why call this here? */
     [self.downloadIndicator startAnimating];
     [self.networking sendOSCMsg:"/fz/download\0\0\0\0":16];
 }
@@ -256,6 +256,13 @@
     NSLog(@"Download ended");
     [self.downloadIndicator stopAnimating];
     [self.aqPlayer start];		
+}
+
+- (void)downloadFailed:(NetworkMessages *)requestor
+{
+    NSLog(@"Download failed");
+    [self.downloadIndicator stopAnimating];
+    [self displayAlertMessage:requestor.errorMsg];
 }
 
 - (void)displayServerRecordProgress:(NetworkMessages*)requestor:(NSNumber *)val
