@@ -16,7 +16,7 @@
 @class SagarihaAudioQueuePlayer;
 
 @protocol SagarihaAudioQueuePlayerDelegate
-- (void) audioQueueError:(NSString*)msg;
+- (void) audioQueueError:(NSString*)errorMsg;
 - (void) audioQueueTransportState:(SagarihaAudioQueuePlayer*)requestor;
 @end
 

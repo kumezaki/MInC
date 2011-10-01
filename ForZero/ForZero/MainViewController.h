@@ -15,14 +15,21 @@
 #import "ServerControlView.h"
 #import "ClientControlView.h"
 
+#define _AlphaInterstitial_ 1
 
-@interface MainViewController : UIViewController <UIAccelerometerDelegate, FlipsideViewControllerDelegate, NetworkMessagesDelegate, SagarihaAudioQueuePlayerDelegate, InterstitialMessageViewDelegate, ControlViewDelegate> {
+#define kCrossfadeDuration 1.0
 
+@interface MainViewController : UIViewController <UIAccelerometerDelegate, FlipsideViewControllerDelegate, NetworkMessagesDelegate, SagarihaAudioQueuePlayerDelegate, InterstitialMessageViewDelegate, ControlViewDelegate> 
+{
 }
 
 // elements in top layer of MainView
 @property (nonatomic, retain) IBOutlet ServerControlView        *serverViewContainer;
 @property (nonatomic, retain) IBOutlet ClientControlView        *clientViewContainer;
+
+#if _AlphaInterstitial_
+@property (nonatomic, retain) IBOutlet InterstitialMessageView  *interstitialView; 
+#endif
 
 @property (nonatomic, retain) IBOutlet UIButton                 *uploadButt;
 @property (nonatomic, retain) IBOutlet UIButton                 *downloadButt;
@@ -43,6 +50,6 @@
 
 - (void)setCue:(int)cue_num;
 - (void)updateDownloadProg;
-- (void)displayAlertMessage:(NSString*)msg;
+- (void)displayAlertMessage:(NSString*)alertMsg;
 
 @end

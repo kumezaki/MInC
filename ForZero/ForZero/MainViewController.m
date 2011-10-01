@@ -9,9 +9,11 @@
 #import <QuartzCore/QuartzCore.h> // for animated view transitions
 #import "MainViewController.h"
 
-#define kCrossfadeDuration 1.0
-
 @implementation MainViewController
+
+#if _AlphaInterstitial_
+@synthesize interstitialView=_interstitialView;
+#endif
 
 @synthesize serverViewContainer=_serverViewContainer, clientViewContainer=_clientViewContainer;
 @synthesize uploadButt=_uploadButt, downloadButt=_downloadButt, downloadIndicator=_downloadIndicator;
@@ -28,10 +30,10 @@
 }
 
 
-- (void)displayAlertMessage:(NSString*)msg
+- (void)displayAlertMessage:(NSString*)alertMsg
 {
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Oops!" 
-                                                    message:msg 
+                                                    message:alertMsg 
                                                    delegate:nil 
                                           cancelButtonTitle:@"Ok" 
                                           otherButtonTitles:nil];
@@ -47,6 +49,14 @@
     self.networking = [[NetworkMessages alloc] init];
     self.networking.delegate = self;
     self.networking.aqPlayer = self.aqPlayer;
+
+#if _AlphaInterstitial_    
+    self.interstitialView = [[InterstitialMessageView alloc]initWithFrame:CGRectMake(0,0,
+                                                                                     self.view.bounds.size.width,
+                                                                                     self.view.bounds.size.height)];
+    self.interstitialView.delegate = self;
+    self.interstitialView.alpha = 0.0;
+#endif
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -121,8 +131,12 @@
     self.downloadIndicator  =nil;
     self.uploadButt         =nil;
     self.downloadButt       =nil;
-    self.clientViewContainer        =nil;
-    self.serverViewContainer        =nil;
+    self.clientViewContainer    =nil;
+    self.serverViewContainer    =nil;
+
+#if _AlphaInterstitial_
+    self.interstitialView   =nil;
+#endif
 }
 
 - (void)dealloc
@@ -130,6 +144,9 @@
     // [mPanView release]; // currently not included in .xib file
 
     // release IBOutlet variables
+#if _AlphaInterstitial_
+    [_interstitialView release];
+#endif    
     [_downloadProgView      release];
     [_downloadIndicator     release];
     [_uploadButt            release];
@@ -286,7 +303,21 @@
 - (void)displayInterstitialMessage:(NetworkMessages*)requestor
 {
     //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+#if _AlphaInterstitial_
+    printf("AlphaInterstitial fade in\n");
 
+    if (![requestor.interstitialMsg isEqualToString:self.interstitialView.msg]) {
+        self.interstitialView.msg = requestor.interstitialMsg;
+        [self.view addSubview:self.interstitialView];
+    }
+    if (self.interstitialView.alpha > 1.0) self.interstitialView.alpha = 1.0;
+    else if (self.interstitialView.alpha < 1.0) self.interstitialView.alpha += 0.05;
+    
+    if (self.interstitialView.alpha < 1.0)
+        [self performSelector:@selector(displayInterstitialMessage:) withObject:requestor afterDelay:0.1];
+
+#else
+    printf("Quartz Animated Interstitial fade in\n");
     NSString *msg = requestor.interstitialMsg;
     
     InterstitialMessageView *interstitialView = 
@@ -306,6 +337,7 @@
 	[self.view.layer addAnimation:animation forKey:nil];
     
     [interstitialView release];
+#endif
     
 }
 
@@ -330,9 +362,9 @@
 
 #pragma mark - SagarihaAudioQueuePlayerDelegate Method Implementations
 
-- (void)audioQueueError:(NSString *)msg 
+- (void)audioQueueError:(NSString *)errorMsg 
 {
-    [self displayAlertMessage:msg];
+    [self displayAlertMessage:errorMsg];
 }
 
 - (void)audioQueueTransportState:(SagarihaAudioQueuePlayer*)requestor
@@ -346,18 +378,34 @@
 
 #pragma mark - InterstitialMessageViewDelegate Method Implementations
 
-- (void) interstitialViewDidFinish:(InterstitialMessageView *)interstitialView
+- (void) interstitialViewDidFinish:(InterstitialMessageView *)requestor
 {
-    [interstitialView removeFromSuperview];
+
+#if _AlphaInterstitial_
+    
+    printf("AlphaInterstitial fade out\n");
+    if (self.interstitialView.alpha < 0.0) self.interstitialView.alpha = 0.0;
+    else if (self.interstitialView.alpha > 0.0) self.interstitialView.alpha -= 0.05;
+        
+    if (self.interstitialView.alpha > 0.0)
+    [self performSelector:@selector(interstitialViewDidFinish:) withObject:requestor afterDelay:0.1];
+    
+    if (self.interstitialView.alpha == 0.0) {
+        [self.interstitialView removeFromSuperview];
+    }
+
+#else
+    printf("Quartz Animated Interstitial fadeout\n");
+    [requestor removeFromSuperview];
 
 	CATransition *animation = [CATransition animation];
 	[animation setDuration:kCrossfadeDuration];
 	[animation setType:kCATransitionFade];   
     
     //[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-
-	[self.view.layer addAnimation:animation forKey:nil];
     
+	[self.view.layer addAnimation:animation forKey:nil];
+#endif
 }
 
 @end
