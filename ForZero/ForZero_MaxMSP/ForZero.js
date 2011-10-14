@@ -174,7 +174,9 @@ function osc_msg_vol_s(pos,val)
 {
     if (pos != -1)
     {
-        post("server volume not supported in this version\n");
+        post("vol received value:",val,"\n");
+        var vol = (val / 1000.) * 1.0;
+		send_vol_msg(pos+1,vol);
     }
 }
 
@@ -341,7 +343,7 @@ function send_client_stop(pos)
 function send_vol_msg(target_pos,val)
 {
     messnamed("fz_poly_in_1_msg","target",target_pos);
-    messnamed("fz_poly_in_2_msg","vol",val);
+    messnamed("fz_poly_in_2_msg","vol",val,50);
 }
 
 function send_pan_x_msg(target_pos,val)
