@@ -51,6 +51,13 @@ function dump(enable)
 	post("gDump",gDump,"\n");
 }
 
+var gAudio = false;
+function audio(enable)
+{
+	gAudio = enable;
+	post("gAudio",gAudio,"\n");
+}
+
 /*** FUNCTIONS FOR HANDING INCOMING OSC MESSAGES ***/
 
 function find_ip_address_pos(ip_add)
@@ -267,6 +274,7 @@ function osc_msg_download(pos)
     }		
 }
 
+
 /*** MISCELLANEOUS FUNCTIONS ***/
 
 function exit_tcp_script()
@@ -278,28 +286,61 @@ function exit_tcp_script()
 
 
 /*** FUNCTIONS FOR HANDING OUTGOING OSC MESSAGES ***/
+
 function rec_prog(target_pos,v)
 {
 	var pos = target_pos - 1;
 	if (gIPAddress[pos] == undefined)
 	{
-//		if (gDump)
-			// post("rec_prog",target_pos,v,"\n");
+//		if (gDump) post("rec_prog",target_pos,v,"\n");
 	}
 	else
 	{
-//		if (gDump)
-			// post("rec_prog",target_pos,v,"\n");
+//		if (gDump) post("rec_prog",target_pos,v,"\n");
 		send_rec_prog_msg(pos,v);
 	}
 }
 
+function audio_in(v)
+{
+	if (!gAudio) return;
+
+    for (pos = 0; pos < gNumVoices; pos++)
+        if (gIPAddress[pos] != undefined)
+        	send_audio_in_msg(pos,v);
+}
+
+function audio_out(target_pos,v)
+{
+	if (!gAudio) return;
+	
+	var pos = target_pos - 1;
+	if (gIPAddress[pos] != undefined)
+		send_audio_out_msg(pos,v);
+}
+
+
 /*** FUNCTIONS FOR OUTPUTTING OSC MESSAGES TO DEVICES***/
+
 function send_rec_prog_msg(pos,v)
 {
     messnamed("fz_osc_out_msg","host",gIPAddress[pos]);
     messnamed("fz_osc_out_msg","port",gPortNum_Client_UDP);
     messnamed("fz_osc_out_msg","/fz/rec_prog",parseInt(v * 1000.));
+}
+
+function send_audio_in_msg(pos,v)
+{
+    messnamed("fz_osc_out_msg","host",gIPAddress[pos]);
+    messnamed("fz_osc_out_msg","port",gPortNum_Client_UDP);
+    messnamed("fz_osc_out_msg","/fz/audio_in",parseInt(v * 1000.));
+}
+
+function send_audio_out_msg(pos,v)
+{
+    messnamed("fz_osc_out_msg","host",gIPAddress[pos]);
+    messnamed("fz_osc_out_msg","port",gPortNum_Client_UDP);
+    messnamed("fz_osc_out_msg","/fz/audio_out",parseInt(v * 1000.));
 }
 
 function send_interstitial_msg(pos,dur,msg)
@@ -337,6 +378,7 @@ function send_client_stop(pos)
     messnamed("fz_osc_out_msg","port",gPortNum_Client_UDP);
     messnamed("fz_osc_out_msg","/fz/stop");
 }
+
 
 /*** FUNCTIONS FOR SENDING MESSAGES INTERNALY WITHIN MAXMSP PATCHES ***/
 
