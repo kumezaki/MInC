@@ -11,7 +11,7 @@
 #import "NetworkMessages.h"
 #import "SagarihaPanView.h"
 
-@interface ServerControlView : ControlView <UIAccelerometerDelegate> {
+@interface ServerControlView : ControlView <UIAccelerometerDelegate, SagarihaPanViewDelegate> {
     
 }
 @property (nonatomic, retain) NetworkMessages           *networking;

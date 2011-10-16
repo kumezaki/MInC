@@ -190,7 +190,7 @@ extern Networking *gNetwork;
 	//NSLog(@"touchDict END %i",[touchDict count]);
 }
 
-- (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
 	
 	for (UInt8 i = 0 ; i < kNumberVoices; i ++) {
 		[self stopSound:slickButton[i]];

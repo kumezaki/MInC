@@ -10,8 +10,22 @@
 
 
 @implementation SagarihaPanView
+@synthesize delegate;
+@synthesize touchPoint =_touchPoint;
 
-
+- (void)setTouchPoint:(CGPoint)newTouchPoint {
+    if (!CGPointEqualToPoint(newTouchPoint, _touchPoint)) {
+        _touchPoint.x = newTouchPoint.x < 0 ? 0 : newTouchPoint.x > self.bounds.size.width ? self.bounds.size.width : newTouchPoint.x;
+        _touchPoint.y = newTouchPoint.y < 0 ? 0 : newTouchPoint.y > self.bounds.size.height ? self.bounds.size.height : newTouchPoint.y;
+        
+        mX = _touchPoint.x;
+        mY = _touchPoint.y;
+        
+        [self setNeedsDisplay];
+        
+        [self.delegate panViewTouchPadValuesDidChange:self];
+    }
+}
 - (void)awakeFromNib {
 	[self Set:0.5:0.5];
     self.backgroundColor    = [UIColor blackColor];
@@ -42,7 +56,7 @@
     UIGraphicsPushContext(context);
 	
     CGContextBeginPath(context);
-	CGContextAddArc(context, mX, mY, 20, 0, 2*M_PI, YES);
+	CGContextAddArc(context, mX, mY, 25, 0, 2*M_PI, YES);
     CGContextFillPath(context);
 }
 
@@ -75,6 +89,25 @@
 	
 	mX = mX < 0 ? 0 : mX > self.bounds.size.width ? self.bounds.size.width : mX;
 	mY = mY < 0 ? 0 : mY > self.bounds.size.height ? self.bounds.size.height : mY;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+	self.touchPoint = [touch locationInView:self];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+	self.touchPoint = [touch locationInView:self];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+	self.touchPoint = [touch locationInView:self];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    
 }
 
 @end

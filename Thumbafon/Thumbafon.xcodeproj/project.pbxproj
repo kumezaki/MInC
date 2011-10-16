@@ -434,6 +434,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Thumbafon" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -550,6 +553,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Thumbafon_Prefix.pch;
 				INFOPLIST_FILE = "Thumbafon-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = Thumbafon;
 			};
 			name = Debug;
@@ -562,6 +566,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Thumbafon_Prefix.pch;
 				INFOPLIST_FILE = "Thumbafon-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = Thumbafon;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -570,14 +575,19 @@
 		B47358D0131B1F5E00FDF099 /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Christopher Lavender";
+				ARCHS = (
+					armv7,
+					armv6,
+				);
+				CODE_SIGN_IDENTITY = "iPhone Developer: Christopher Lavender (LE5HQ5MQLM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Christopher Lavender (LE5HQ5MQLM)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8E01B352-FC60-492A-93A0-4F0AB72186F1";
+				PROVISIONING_PROFILE = "1EBE457B-16A6-4BD5-9C85-BFA55AB60B1A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1EBE457B-16A6-4BD5-9C85-BFA55AB60B1A";
 				SDKROOT = iphoneos;
 			};
 			name = Distribution;
@@ -590,6 +600,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Thumbafon_Prefix.pch;
 				INFOPLIST_FILE = "Thumbafon-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = Thumbafon;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -598,15 +609,20 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ARCHS = (
+					armv7,
+					armv6,
+				);
+				CODE_SIGN_IDENTITY = "iPhone Developer: Christopher Lavender (LE5HQ5MQLM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Christopher Lavender (LE5HQ5MQLM)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_FEEDBACK_DIRECTED_OPTIMIZATION = Off;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PROVISIONING_PROFILE = "1EBE457B-16A6-4BD5-9C85-BFA55AB60B1A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1EBE457B-16A6-4BD5-9C85-BFA55AB60B1A";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -614,13 +630,19 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ARCHS = (
+					armv7,
+					armv6,
+				);
+				CODE_SIGN_IDENTITY = "iPhone Developer: Christopher Lavender (LE5HQ5MQLM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Christopher Lavender (LE5HQ5MQLM)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
+				PROVISIONING_PROFILE = "1EBE457B-16A6-4BD5-9C85-BFA55AB60B1A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1EBE457B-16A6-4BD5-9C85-BFA55AB60B1A";
 				SDKROOT = iphoneos;
 			};
 			name = Release;

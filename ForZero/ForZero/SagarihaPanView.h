@@ -9,13 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "Constants.h"
 
+@class SagarihaPanView;
+
+@protocol SagarihaPanViewDelegate
+- (void)panViewTouchPadValuesDidChange:(SagarihaPanView*)requestor;
+@end
+
 @interface SagarihaPanView : UIView {
 
 	double	mX;
 	double	mY;
-
-@public
 }
+@property (nonatomic, assign) id<SagarihaPanViewDelegate>delegate;
+@property (nonatomic) CGPoint touchPoint;
 
 -(double)GetX;
 -(double)GetY;

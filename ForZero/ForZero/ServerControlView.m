@@ -25,9 +25,12 @@
 }
 
 - (void) setup {
+    /*
     [[UIAccelerometer sharedAccelerometer] setDelegate:self];
 	[UIAccelerometer sharedAccelerometer].updateInterval = 0.1;
+     */
     self.viewLabel.text = @"The Server";
+    self.panView.delegate = self;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -47,7 +50,8 @@
     [self setup];
  }
 
-#pragma mark - IBActions
+#pragma mark -
+#pragma mark IBActions
 
 -(IBAction)setTransportState:(id)sender
 {
@@ -79,9 +83,14 @@
 
 -(IBAction)setPan:(id)sender
 {
+    float panVal = 0.0;
     if ([sender isKindOfClass:[UISlider class]]) {
-        [self.networking sendOSCMsgWithIntValue:"/fz/pan\0":8:FLOAT_TO_MRMR_INT([(UISlider*)sender value])];
+        panVal = [(UISlider*)sender value];
     }
+    else if ([sender isKindOfClass:[NSNumber class]]) {
+        panVal = [(NSNumber*)sender floatValue];
+    }
+    [self.networking sendOSCMsgWithIntValue:"/fz/pan\0":8:FLOAT_TO_MRMR_INT(panVal)];
 }
 
 -(IBAction)setVolume:(id)sender
@@ -92,9 +101,22 @@
     }
 }
 
+#pragma mark -
+#pragma mark SagarihaPanView Method Implementations
+
+- (void)panViewTouchPadValuesDidChange:(SagarihaPanView *)requestor {
+    float x = requestor.touchPoint.x / self.panView.bounds.size.width;
+    //float y = requestor.touchPoint.y / self.panView.bounds.size.height;
+    
+    [self setPan:[NSNumber numberWithFloat:x]];
+}
+
+#pragma mark -
+#pragma mark UIAccelerometerDelegate Method Implementations
+
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
-    
+/*    
 #if 0
 	NSLog(@"%f, %f, %f\n", acceleration.x, acceleration.y, acceleration.z);
 #endif
@@ -120,7 +142,7 @@
 #if 0
 	printf("%f, %f\n",x,y);
 #endif
-    
+*/    
 }
 
 @end
