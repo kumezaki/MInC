@@ -31,13 +31,15 @@
 					"hidden" : 0,
 					"id" : "obj-55",
 					"ignoreclick" : 0,
+					"linecount" : 3,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 451.0, 454.0, 289.0, 18.0 ],
+					"patching_rect" : [ 451.0, 454.0, 289.0, 46.0 ],
 					"presentation" : 0,
 					"presentation_rect" : [ 0.0, 0.0, 0.0, 0.0 ],
+					"text" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/minc_unfuddle/ForZero/ForZero_MaxMSP/fz_download_script1.sh",
 					"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 
@@ -241,7 +243,7 @@
 					"patching_rect" : [ 328.0, 80.0, 74.0, 48.0 ],
 					"presentation" : 0,
 					"presentation_rect" : [ 0.0, 0.0, 0.0, 0.0 ],
-					"text" : "OSC messages in and out",
+					"text" : "OSC Messages In and Out",
 					"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"underline" : 0
 				}
