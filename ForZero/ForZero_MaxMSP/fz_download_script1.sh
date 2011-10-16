@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#! cd ~/Docs/Music/Mobile_In_C/minc_unfuddle/ForZero/ForZero_MaxMSP/
+# cd ~/Docs/Music/Mobile_In_C/minc_unfuddle/ForZero/ForZero_MaxMSP/
 cd ~/minc_minc/ForZero/ForZero_MaxMSP/
 pwd
 
