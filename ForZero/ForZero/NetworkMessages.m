@@ -21,9 +21,9 @@
 @synthesize aqPlayer=_aqPlayer;
 @synthesize interstitialMsg=_interstitialMsg, errorMsg=_errorMsg, recProgress=_recProgress;
 
-#define OSC_START mOutBufferLength = 0;
+#define OSC_START self->mOutBufferLength = 0;
 #define OSC_END [self send_udp];
-#define OSC_ADD(msg,num_msg_bytes) memcpy(mOutBuffer+mOutBufferLength,msg,num_msg_bytes);mOutBufferLength+=num_msg_bytes;
+#define OSC_ADD(msg,num_msg_bytes) memcpy(self->mOutBuffer+self->mOutBufferLength,msg,num_msg_bytes);self->mOutBufferLength+=num_msg_bytes;
 
 #define OSC_VAL_BYTE_SWAP(val_ptr) memcpy(&u.int_val,val_ptr,4); u.int_val = htonl(u.int_val);
 union {
@@ -71,7 +71,7 @@ union {
 	    
 	OSC_START
 	OSC_ADD(buf,osc_str_length+4);
-	OSC_ADD(ip_add_buf,ip_add_size)
+	OSC_ADD(self->ip_add_buf,self->ip_add_size)
 	OSC_END
 }
 
@@ -83,7 +83,7 @@ union {
 	
 	OSC_START
 	OSC_ADD(buf,osc_str_length+4);
-	OSC_ADD(ip_add_buf,ip_add_size);
+	OSC_ADD(self->ip_add_buf,self->ip_add_size);
 	OSC_ADD(&val,4);
 	OSC_END
 }
@@ -96,7 +96,7 @@ union {
 	
 	OSC_START
 	OSC_ADD(buf,osc_str_length+4);
-	OSC_ADD(ip_add_buf,ip_add_size);
+	OSC_ADD(self->ip_add_buf,self->ip_add_size);
 	OSC_ADD(&u.flt_val,4);
 	OSC_END
 }
@@ -104,7 +104,7 @@ union {
 #pragma mark- UDP & TCP message parsing
 - (void)udpParse
 {	
-    // printf("mUDPInBuffer: %s\n", mUDPInBuffer);
+    // printf("mUDPInBuffer: %s\n", self->mUDPInBuffer);
     
     NSAutoreleasePool *udpThreadPool = [[NSAutoreleasePool alloc] init];
 
@@ -112,7 +112,7 @@ union {
     int msg_type = 0;
     int add_type = 0;
 	
-    while (pos < mUDPInBufferLength)
+    while (pos < self->mUDPInBufferLength)
     {
         switch (msg_type)
         {
@@ -122,7 +122,7 @@ union {
 #if 0
 #define OSC_MSG_COMPARE(osc_add,add_type_val) if ([buf_str isEqualToString:@osc_add]) add_type = add_type_val;
 #else
-#define	OSC_MSG_COMPARE(osc_add,add_type_val) if (strcmp(mUDPInBuffer,osc_add)==0) add_type = add_type_val;
+#define	OSC_MSG_COMPARE(osc_add,add_type_val) if (strcmp(self->mUDPInBuffer,osc_add)==0) add_type = add_type_val;
 #endif
                 // NSString* buf_str = [NSString stringWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
 				
@@ -165,14 +165,14 @@ union {
                 {
                     case 1:
                     {
-                        OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
+                        OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
                         NSLog(@"received /fz/state:%d",u.int_val);
                         mOSCMsg_State = u.int_val;
                         break;
                     }
                     case 2:
                     {
-                        OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
+                        OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
                         // NSLog(@"received /fz/rec_prog:%d",u.int_val);
                         NSNumber *progVal = [[NSNumber alloc]initWithFloat:((float)u.int_val / 1000.)];
                         [self performSelectorOnMainThread:@selector(setProgressValue:)
@@ -185,7 +185,7 @@ union {
                     {
                         //NSLog(@"received /fz/interstitial:%s\n",mUDPInBuffer+pos);
                         
-                        NSString *interstitialMsg = [[NSString alloc] initWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
+                        NSString *interstitialMsg = [[NSString alloc] initWithCString:self->mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
                         
                         [self performSelectorOnMainThread:@selector(setInterstitialMsg:) 
                                                withObject:interstitialMsg 
@@ -197,7 +197,7 @@ union {
                     case 4:
                     {
                         // NSLog(@"received /fz/hb:%s\n",mUDPInBuffer+pos);
-                        NSString *serverIP = [[NSString alloc] initWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
+                        NSString *serverIP = [[NSString alloc] initWithCString:self->mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
                         
                         [super newServerIPAddress:serverIP]; // in super
                         [serverIP release];
@@ -206,7 +206,7 @@ union {
                     }
                     case 7:
                     {
-                        OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
+                        OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
                         // NSLog(@"received /fz/cue:%d\n",u.int_val);
                         mOSCMsg_Cue = u.int_val;
                         break;
@@ -215,12 +215,12 @@ union {
 					{
                         /*
                         //currently disabled in Max patch
-                        //NSLog(@"received /fz/loop:%s\n",mUDPInBuffer+pos);
-						OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
+                        //NSLog(@"received /fz/loop:%s\n",self->mUDPInBuffer+pos);
+						OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
 						float loop_start = u.int_val;
 						pos += 4;
 						
-						OSC_VAL_BYTE_SWAP(mUDPInBuffer+pos)
+						OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
 						float loop_end = u.int_val;
 						pos += 4;
 						
@@ -249,8 +249,8 @@ union {
             default: msg_type_str = "OSC Data"; break;
         }
 		
-        //printf("%s: %s\n",msg_type_str,mUDPInBuffer+pos);
-        pos += ((strlen(mUDPInBuffer+pos) / 4) + 1)* 4;            
+        //printf("%s: %s\n",msg_type_str,self->mUDPInBuffer+pos);
+        pos += ((strlen(self->mUDPInBuffer+pos) / 4) + 1)* 4;            
     }
     [udpThreadPool drain];
 }
@@ -259,7 +259,7 @@ union {
         
     //NSAutoreleasePool *tcpThreadPool = [[NSAutoreleasePool alloc] init];
     
-    NSData* raw = [NSData dataWithBytes:[incomingDataBuffer bytes] length:[incomingDataBuffer length]];
+    NSData* raw = [NSData dataWithBytes:[self->incomingDataBuffer bytes] length:[self->incomingDataBuffer length]];
     
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *filePath = [documentsPath stringByAppendingPathComponent:@"forZero.mp3"];
@@ -277,8 +277,8 @@ union {
 - (void)downloadFailed:(NSTimer*)timer
 {
     //NSLog(@"downloadFailed called");
-    close(clntSock);
-    close(servSock);
+    close(self->clntSock);
+    close(self->servSock);
     self.errorMsg = @"Something went wrong. Either you are not connected to a performace server or there was a problem downloading. Please try again";
     [self.delegate downloadFailed:self];
 }
