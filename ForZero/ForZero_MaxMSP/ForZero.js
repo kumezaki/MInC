@@ -283,12 +283,12 @@ function rec_prog(target_pos,v)
 	var pos = target_pos - 1;
 	if (gIPAddress[pos] == undefined)
 	{
-		if (gDump)
+//		if (gDump)
 			// post("rec_prog",target_pos,v,"\n");
 	}
 	else
 	{
-		if (gDump)
+//		if (gDump)
 			// post("rec_prog",target_pos,v,"\n");
 		send_rec_prog_msg(pos,v);
 	}
@@ -343,7 +343,7 @@ function send_client_stop(pos)
 function send_vol_msg(target_pos,val)
 {
     messnamed("fz_poly_in_1_msg","target",target_pos);
-    messnamed("fz_poly_in_2_msg","vol",val,50);
+    messnamed("fz_poly_in_2_msg","vol",val);
 }
 
 function send_pan_x_msg(target_pos,val)
