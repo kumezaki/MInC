@@ -1,7 +1,8 @@
 #!/bin/bash
 
-cd ~/Docs/Music/Mobile_In_C/minc_unfuddle/ForZero/ForZero_MaxMSP/
-#cd ~/minc_minc/ForZero/ForZero_MaxMSP/
+PARENT_DIR=$(dirname $0)
+echo $PARENT_DIR
+cd $PARENT_DIR
 pwd
 
 DONE=0
@@ -15,7 +16,7 @@ while [ $DONE = 0 ]; do
 	if [ -e $FILE_NAME ]; then
 		awk -f fz_download_awk0.txt $FILE_NAME
 		if [ $? = 1 ]; then
-			echo exiting fz_download_script0.sh
+			echo exiting download script
 			DONE=1
 		fi
 		echo $FILE_NAME created!
