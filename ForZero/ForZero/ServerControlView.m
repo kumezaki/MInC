@@ -12,13 +12,22 @@
 
 @implementation ServerControlView
 
-@synthesize networking=_networking;
-@synthesize panSlider=_panSlider;
+@synthesize networking  =_networking;
+@synthesize panSlider   =_panSlider;
+@synthesize panView     =_panView;
 
 - (void)dealloc
 {
     [_networking    release];
+    [_panView       release];
+    [_panSlider     release];
     [super dealloc];
+}
+
+- (void) setup {
+    [[UIAccelerometer sharedAccelerometer] setDelegate:self];
+	[UIAccelerometer sharedAccelerometer].updateInterval = 0.1;
+    self.viewLabel.text = @"The Server";
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -26,7 +35,7 @@
     [[NSBundle mainBundle] loadNibNamed:@"ServerControlView" owner:self options:nil];
     self = [super initWithFrame:frame];
     if (self) {
-        self.viewLabel.text = @"Server";
+        [self setup];
     }
     return self;
 }
@@ -35,8 +44,8 @@
 {
     [[NSBundle mainBundle] loadNibNamed:@"ServerControlView" owner:self options:nil];
     [super awakeFromNib];
-    self.viewLabel.text = @"Server";
-}
+    [self setup];
+ }
 
 #pragma mark - IBActions
 
@@ -82,4 +91,36 @@
         [self.networking sendOSCMsgWithIntValue:"/fz/vol_s\0\0\0":12:FLOAT_TO_MRMR_INT([(UISlider*)sender value])];
     }
 }
+
+- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
+{
+    
+#if 0
+	NSLog(@"%f, %f, %f\n", acceleration.x, acceleration.y, acceleration.z);
+#endif
+	
+#define LIMIT_ACC_VAL(n)	n < -1. ? -1. : n > 1. ? 1. : n
+	
+	float x = LIMIT_ACC_VAL(acceleration.x);
+	float y = LIMIT_ACC_VAL(acceleration.y+0.35);
+    //float z = LIMIT_ACC_VAL(acceleration.z);
+	
+	//	[mPanView Set:(x+1.)/2:1.-((y+1.)/2)];
+	[self.panView SetVelocity:x:-y];
+	[self.panView setNeedsDisplay];
+	
+	x = [self.panView GetX] * 2. - 1.;
+	y = (1. - [self.panView GetY]) * 2. - 1.;
+    
+	// [self.networking sendOSCMsgWithFloatValue:"/fz/accelx\0\0":12:x];
+	// [self.networking sendOSCMsgWithFloatValue:"/fz/accely\0\0":12:y];
+    //	[self.networking SendOSCMsgWithFloatValue:"/fz/accelz\0\0\0\0":16:z];
+    
+    [self.networking sendOSCMsgWithIntValue:"/fz/pan\0":8:FLOAT_TO_MRMR_INT(x)];	
+#if 0
+	printf("%f, %f\n",x,y);
+#endif
+    
+}
+
 @end

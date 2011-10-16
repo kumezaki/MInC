@@ -23,6 +23,17 @@
     }
 }
 
+- (void)setMAmp:(double)newMAmp {
+    if (newMAmp != mAmp) {
+        mAmp = newMAmp;
+        AudioQueueSetParameter (
+                                mQueue,
+                                kAudioQueueParam_Volume,
+                                mAmp
+                                );
+    }
+}
+
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inCompleteAQBuffer) 
 {
 	SagarihaAudioQueuePlayer *THIS = (SagarihaAudioQueuePlayer *)inUserData;

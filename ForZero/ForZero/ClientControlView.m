@@ -16,7 +16,7 @@
     [[NSBundle mainBundle] loadNibNamed:@"ClientControlView" owner:self options:nil];
     self = [super initWithFrame:frame];
     if (self) {
-        self.viewLabel.text = @"Device";
+        self.viewLabel.text = @"Your Device";
     }
     return self;
 
@@ -26,7 +26,7 @@
 {
     [[NSBundle mainBundle] loadNibNamed:@"ClientControlView" owner:self options:nil];
     [super awakeFromNib];
-    self.viewLabel.text = @"Device";
+    self.viewLabel.text = @"Your Device";
 }
 
 - (void)dealloc
@@ -50,6 +50,12 @@
         else if ( [[[sender titleLabel]text] isEqualToString:@"play"] ) {
             [self.aqPlayer start];
         }
+    }
+}
+
+- (IBAction)setVolume:(id)sender {
+    if ([sender isKindOfClass:[UISlider class]]) {
+        self.aqPlayer.mAmp = ((UISlider*)sender).value;
     }
 }
 

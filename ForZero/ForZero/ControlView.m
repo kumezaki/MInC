@@ -9,10 +9,15 @@
 
 @implementation ControlView
 
-@synthesize delegate=_delegate;
-@synthesize frontView=_frontView, flipView=_flipView, currentDisplayedView=_currentDisplayedView;
-@synthesize recButton=_recButton, stopButton=_stopButton, playButton=_playButton;
-@synthesize viewLabel=_viewLabel;
+@synthesize delegate;
+@synthesize frontView               =_frontView;
+@synthesize flipView                =_flipView;
+@synthesize recButton               =_recButton;
+@synthesize stopButton              =_stopButton;
+@synthesize playButton              =_playButton;
+@synthesize viewLabel               =_viewLabel;
+@synthesize volumerSlider           =_volumerSlider;
+@synthesize currentDisplayedView    =_currentDisplayedView;
 
 
 - (void)dealloc
@@ -23,7 +28,9 @@
     [_playButton            release];
     [_frontView             release];
     [_flipView              release];
+    [_volumerSlider         release];
     [_currentDisplayedView  release];
+    
     [super dealloc];
 }
 
@@ -45,7 +52,6 @@
 
     [self bringSubviewToFront:self.frontView];
     self.currentDisplayedView = self.frontView;
-
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -69,7 +75,7 @@
 {    
     
     [UIView transitionWithView:self
-                      duration:1.0 
+                      duration:kCrossfadeDuration 
                        options:UIViewAnimationOptionTransitionFlipFromLeft
                     animations:^{
                         if (self.currentDisplayedView == self.frontView) {

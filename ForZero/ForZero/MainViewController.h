@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Constants.h"
 #import "FlipsideViewController.h"
 #import "NetworkMessages.h"
 #import "InterstitialMessageView.h"
@@ -15,11 +15,7 @@
 #import "ServerControlView.h"
 #import "ClientControlView.h"
 
-#define _AlphaInterstitial_ 1
-
-#define kCrossfadeDuration 1.0
-
-@interface MainViewController : UIViewController <UIAccelerometerDelegate, FlipsideViewControllerDelegate, NetworkMessagesDelegate, SagarihaAudioQueuePlayerDelegate, InterstitialMessageViewDelegate, ControlViewDelegate> 
+@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, NetworkMessagesDelegate, SagarihaAudioQueuePlayerDelegate, InterstitialMessageViewDelegate, ControlViewDelegate> 
 {
 }
 

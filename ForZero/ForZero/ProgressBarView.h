@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#define kCornerRadius 15
+#import "Constants.h"
 
 @class ProgressBarView;
 @protocol ProgressBarViewDelegate

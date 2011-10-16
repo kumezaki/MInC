@@ -12,14 +12,17 @@
 @implementation MainViewController
 
 #if _AlphaInterstitial_
-@synthesize interstitialView=_interstitialView;
+@synthesize interstitialView    =_interstitialView;
 #endif
-
-@synthesize serverViewContainer=_serverViewContainer, clientViewContainer=_clientViewContainer;
-@synthesize uploadButt=_uploadButt, downloadButt=_downloadButt, downloadIndicator=_downloadIndicator;
-@synthesize downloadProgView=_downloadProgView;
-@synthesize networking=_networking, aqPlayer=_aqPlayer;
-@synthesize progVal=_progVal;
+@synthesize serverViewContainer =_serverViewContainer;
+@synthesize clientViewContainer =_clientViewContainer;
+@synthesize downloadIndicator   =_downloadIndicator;
+@synthesize downloadProgView    =_downloadProgView;
+@synthesize downloadButt        =_downloadButt;
+@synthesize uploadButt          =_uploadButt;
+@synthesize networking          =_networking;
+@synthesize aqPlayer            =_aqPlayer;
+@synthesize progVal             =_progVal;
 
 - (void)setProgVal:(float)newProgVal
 {
@@ -77,10 +80,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [[UIAccelerometer sharedAccelerometer] setDelegate:self];
-	[UIAccelerometer sharedAccelerometer].updateInterval = 0.1;
-    
+
     self.serverViewContainer.delegate = self;
     self.serverViewContainer.networking = self.networking;
     
@@ -100,16 +100,18 @@
 		//----- GOING TO PORTRAIT -----
         [self.serverViewContainer updateFrameSize:CGRectMake(0, 0, 320, 200)];
         [self.clientViewContainer updateFrameSize:CGRectMake(0, 280, 320, 200)];
-        self.uploadButt.frame   = CGRectMake(88, 184, 45, 110);
-        self.downloadButt.frame = CGRectMake(186, 184, 45, 110);
+        // self.uploadButt.frame   = CGRectMake(88, 184, 45, 110);
+        // self.downloadButt.frame = CGRectMake(186, 184, 45, 110);
+        self.downloadButt.frame = CGRectMake(115, 185, 90, 110);
 	}
 	else
 	{
 		//----- GOING TO LANDSCAPE -----
         [self.serverViewContainer updateFrameSize:CGRectMake(0, 0, 480, 150)];
         [self.clientViewContainer updateFrameSize:CGRectMake(0, 170, 480, 150)];
-        self.uploadButt.frame   = CGRectMake(139, 133, 45, 55);
-        self.downloadButt.frame = CGRectMake(294, 133, 45, 55);
+        // self.uploadButt.frame   = CGRectMake(139, 133, 45, 55);
+        // self.downloadButt.frame = CGRectMake(294, 133, 45, 55);
+        self.downloadButt.frame = CGRectMake(195, 134, 90, 55);
 	}
 }
 
@@ -127,36 +129,35 @@
 
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    self.downloadProgView   =nil;
-    self.downloadIndicator  =nil;
-    self.uploadButt         =nil;
-    self.downloadButt       =nil;
+    self.uploadButt             =nil;
+    self.downloadButt           =nil;
+    self.downloadProgView       =nil;
+    self.downloadIndicator      =nil;
     self.clientViewContainer    =nil;
     self.serverViewContainer    =nil;
-
 #if _AlphaInterstitial_
-    self.interstitialView   =nil;
+    self.interstitialView       =nil;
 #endif
 }
 
-- (void)dealloc
+- (void)dealloc 
 {
     // [mPanView release]; // currently not included in .xib file
 
     // release IBOutlet variables
 #if _AlphaInterstitial_
-    [_interstitialView release];
+    [_interstitialView      release];
 #endif    
     [_downloadProgView      release];
     [_downloadIndicator     release];
-    [_uploadButt            release];
-    [_downloadButt          release];
     [_clientViewContainer   release];
     [_serverViewContainer   release];
+    [_downloadButt          release];
+    [_uploadButt            release];
         
     // release model objects
-    [_networking        release];
-    [_aqPlayer          release];
+    [_networking            release];
+    [_aqPlayer              release];
     
     [super dealloc];
 }
@@ -200,35 +201,6 @@
 	}
      */
 }    
-- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
-{
-/*
-#if 0
-	NSLog(@"%f, %f, %f\n", acceleration.x, acceleration.y, acceleration.z);
-#endif
-	
-#define LIMIT_ACC_VAL(n)	n < -1. ? -1. : n > 1. ? 1. : n
-	
-	float x = LIMIT_ACC_VAL(acceleration.x);
-	float y = LIMIT_ACC_VAL(acceleration.y+0.35);
-    //float z = LIMIT_ACC_VAL(acceleration.z);
-	
-	//	[mPanView Set:(x+1.)/2:1.-((y+1.)/2)];
-	[mPanView SetVelocity:x:-y];
-	[mPanView setNeedsDisplay];
-	
-	x = [mPanView GetX] * 2. - 1.;
-	y = (1. - [mPanView GetY]) * 2. - 1.;
-    	
-	[self.networking sendOSCMsgWithFloatValue:"/fz/accelx\0\0":12:x];
-	[self.networking sendOSCMsgWithFloatValue:"/fz/accely\0\0":12:y];
-    //	[self.networking SendOSCMsgWithFloatValue:"/fz/accelz\0\0\0\0":16:z];
-	
-#if 0
-	printf("%f, %f\n",x,y);
-#endif
-*/
-}
 
 -(void) setCue:(int)cue_num
 {
@@ -373,6 +345,9 @@
      This method is for control of button hightlighting (ie. keep play or rec buttons highlighted while working).
      The button highlighted property of the stock UIButton defaults to NO with TouchUpInside and similar calls.
      For this to work we'll probably need to subclass UIButton (or UIControl) and customize the behaviour.
+     
+     Alternatively, another implementation would change the default state image to something different than the 
+     highlighted image.  This behaviour is probably closer to what a user might expect.
     */
 }
 
@@ -384,7 +359,7 @@
 #if _AlphaInterstitial_
     
     printf("AlphaInterstitial fade out\n");
-    if (self.interstitialView.alpha < 0.0) self.interstitialView.alpha = 0.0;
+    if (self.interstitialView.alpha < 0.0)      self.interstitialView.alpha = 0.0;
     else if (self.interstitialView.alpha > 0.0) self.interstitialView.alpha -= 0.05;
         
     if (self.interstitialView.alpha > 0.0)

@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "ControlView.h"
 #import "NetworkMessages.h"
+#import "SagarihaPanView.h"
 
-@interface ServerControlView : ControlView {
+@interface ServerControlView : ControlView <UIAccelerometerDelegate> {
     
 }
-@property (nonatomic, retain) NetworkMessages   *networking;
-@property (nonatomic, retain) IBOutlet UISlider *panSlider;
+@property (nonatomic, retain) NetworkMessages           *networking;
+@property (nonatomic, retain) IBOutlet UISlider         *panSlider;
+@property (nonatomic, retain) IBOutlet SagarihaPanView  *panView;
 
 - (IBAction)setPan:         (id)sender;
 - (IBAction)setEnvPeriod:   (id)sender;

@@ -30,6 +30,8 @@
 @property (nonatomic, retain) IBOutlet UIButton *stopButton;
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
 @property (nonatomic, retain) IBOutlet UILabel  *viewLabel;
+@property (nonatomic, retain) IBOutlet UISlider *volumerSlider;
+
 
 - (IBAction)flipServerControls: (id)sender;
 

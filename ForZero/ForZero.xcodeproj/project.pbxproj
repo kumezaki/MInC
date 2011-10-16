@@ -16,6 +16,7 @@
 		B493EC3B14084EC300E85E4B /* NetworkMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = B493EC3A14084EC300E85E4B /* NetworkMessages.m */; };
 		B49D193E142E9EAF007A27D7 /* arrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = B49D193D142E9EAF007A27D7 /* arrowRight.png */; };
 		B49D1941142E9F1B007A27D7 /* arrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = B49D1940142E9F1B007A27D7 /* arrowLeft.png */; };
+		B4A00108144A4FC70084D331 /* SagarihaPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A00107144A4FC70084D331 /* SagarihaPanView.m */; };
 		B4AE96A4141D4A45008A6295 /* InterstitialMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */; };
 		B4AE96CF141D563E008A6295 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4AE96CE141D563E008A6295 /* QuartzCore.framework */; };
 		B4DE2AC81407555100F9C4A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2AC71407555100F9C4A0 /* UIKit.framework */; };
@@ -52,6 +53,9 @@
 		B493EC3A14084EC300E85E4B /* NetworkMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkMessages.m; sourceTree = "<group>"; };
 		B49D193D142E9EAF007A27D7 /* arrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowRight.png; sourceTree = "<group>"; };
 		B49D1940142E9F1B007A27D7 /* arrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowLeft.png; sourceTree = "<group>"; };
+		B4A000FE144A460F0084D331 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		B4A00106144A4FC70084D331 /* SagarihaPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaPanView.h; sourceTree = "<group>"; };
+		B4A00107144A4FC70084D331 /* SagarihaPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaPanView.m; sourceTree = "<group>"; };
 		B4AE96A2141D4A45008A6295 /* InterstitialMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterstitialMessageView.h; sourceTree = "<group>"; };
 		B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterstitialMessageView.m; sourceTree = "<group>"; };
 		B4AE96CE141D563E008A6295 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -126,6 +130,8 @@
 		B493EC2F1408253200E85E4B /* Utility UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				B4A00106144A4FC70084D331 /* SagarihaPanView.h */,
+				B4A00107144A4FC70084D331 /* SagarihaPanView.m */,
 				B4AE96A2141D4A45008A6295 /* InterstitialMessageView.h */,
 				B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */,
 				B4341295142D8FA500CAF95F /* ProgressBarView.h */,
@@ -167,6 +173,7 @@
 		B4DE2ACD1407555100F9C4A0 /* ForZero */ = {
 			isa = PBXGroup;
 			children = (
+				B4A000FE144A460F0084D331 /* Constants.h */,
 				B4DE2AD61407555100F9C4A0 /* ForZeroAppDelegate.h */,
 				B4DE2AD71407555100F9C4A0 /* ForZeroAppDelegate.m */,
 				B4DE2ADC1407555100F9C4A0 /* MainViewController.h */,
@@ -244,6 +251,9 @@
 /* Begin PBXProject section */
 		B4DE2ABA1407555100F9C4A0 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = B4DE2ABD1407555100F9C4A0 /* Build configuration list for PBXProject "ForZero" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -298,6 +308,7 @@
 				B4341297142D8FA500CAF95F /* ProgressBarView.m in Sources */,
 				B43412A1142D9E8100CAF95F /* ClientControlView.m in Sources */,
 				B45F7BD2142E6E590036A882 /* ControlView.m in Sources */,
+				B4A00108144A4FC70084D331 /* SagarihaPanView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,19 +337,20 @@
 		B4DE2AE61407555100F9C4A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					armv7,
+				);
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PROVISIONING_PROFILE = "559BE332-94C9-4975-B88F-B41DBE250D7C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "559BE332-94C9-4975-B88F-B41DBE250D7C";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -346,17 +358,18 @@
 		B4DE2AE71407555100F9C4A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					armv7,
+				);
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "559BE332-94C9-4975-B88F-B41DBE250D7C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "559BE332-94C9-4975-B88F-B41DBE250D7C";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -372,7 +385,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ForZero/ForZero-Prefix.pch";
 				INFOPLIST_FILE = "ForZero/ForZero-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -390,7 +403,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ForZero/ForZero-Prefix.pch";
 				INFOPLIST_FILE = "ForZero/ForZero-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

@@ -174,7 +174,7 @@ function osc_msg_vol_s(pos,val)
 {
     if (pos != -1)
     {
-        post("vol received value:",val,"\n");
+        // post("vol received value:",val,"\n");
         var vol = (val / 1000.) * 1.0;
 		send_vol_msg(pos+1,vol);
     }
@@ -192,8 +192,8 @@ function osc_msg_pan(pos,val)
 {
     if (pos != -1)
     {
-        post("pan received value:",val,"\n");
         var pan = (val / 1000.) * 1.0;
+		// post("pan received value:",pan,"\n");
 		send_pan_x_msg(pos+1,pan);
     }
 }
@@ -255,15 +255,15 @@ function osc_msg_download(pos)
         messnamed("fz_poly_in_2_msg","write","samptype","int16");
         messnamed("fz_poly_in_2_msg","write","writeraw",file_name);
                 
-                post("raw audio file created for pos:",pos,"\n");
+                // post("raw audio file created for pos:",pos,"\n");
 
         f = new File("fz_download.txt","write", "TEXT");
 		f.open();
-        		post("fz_download.txt created for pos:",pos,"\n");
+        		// post("fz_download.txt created for pos:",pos,"\n");
         f.writeline(gIPAddress[pos]+", "+tcp_port_num+", ../ForZero_MaxMSP/"+file_name);
         		post("script file written for pos:",pos,"\n");
         f.close();
-        	 	post("txt file closed for pos:",pos,"\n");
+        	 	// post("txt file closed for pos:",pos,"\n");
     }		
 }
 
@@ -284,12 +284,12 @@ function rec_prog(target_pos,v)
 	if (gIPAddress[pos] == undefined)
 	{
 		if (gDump)
-			post("rec_prog",target_pos,v,"\n");
+			// post("rec_prog",target_pos,v,"\n");
 	}
 	else
 	{
 		if (gDump)
-			post("rec_prog",target_pos,v,"\n");
+			// post("rec_prog",target_pos,v,"\n");
 		send_rec_prog_msg(pos,v);
 	}
 }
