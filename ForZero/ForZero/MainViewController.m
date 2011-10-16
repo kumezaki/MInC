@@ -276,7 +276,6 @@
 {
     //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 #if _AlphaInterstitial_
-    printf("AlphaInterstitial fade in\n");
 
     if (![requestor.interstitialMsg isEqualToString:self.interstitialView.msg]) {
         self.interstitialView.msg = requestor.interstitialMsg;
@@ -289,7 +288,6 @@
         [self performSelector:@selector(displayInterstitialMessage:) withObject:requestor afterDelay:0.1];
 
 #else
-    printf("Quartz Animated Interstitial fade in\n");
     NSString *msg = requestor.interstitialMsg;
     
     InterstitialMessageView *interstitialView = 
@@ -358,7 +356,6 @@
 
 #if _AlphaInterstitial_
     
-    printf("AlphaInterstitial fade out\n");
     if (self.interstitialView.alpha < 0.0)      self.interstitialView.alpha = 0.0;
     else if (self.interstitialView.alpha > 0.0) self.interstitialView.alpha -= 0.05;
         
@@ -370,7 +367,6 @@
     }
 
 #else
-    printf("Quartz Animated Interstitial fadeout\n");
     [requestor removeFromSuperview];
 
 	CATransition *animation = [CATransition animation];

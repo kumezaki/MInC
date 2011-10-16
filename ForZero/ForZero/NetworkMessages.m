@@ -18,8 +18,10 @@
 @implementation NetworkMessages
 
 @synthesize delegate;
-@synthesize aqPlayer=_aqPlayer;
-@synthesize interstitialMsg=_interstitialMsg, errorMsg=_errorMsg, recProgress=_recProgress;
+@synthesize aqPlayer        =_aqPlayer;
+@synthesize interstitialMsg =_interstitialMsg;
+@synthesize errorMsg        =_errorMsg;
+@synthesize recProgress     =_recProgress;
 
 #define OSC_START self->mOutBufferLength = 0;
 #define OSC_END [self send_udp];
@@ -71,7 +73,7 @@ union {
 	    
 	OSC_START
 	OSC_ADD(buf,osc_str_length+4);
-	OSC_ADD(self->ip_add_buf,self->ip_add_size)
+	OSC_ADD(ip_add_buf,ip_add_size)
 	OSC_END
 }
 
@@ -83,7 +85,7 @@ union {
 	
 	OSC_START
 	OSC_ADD(buf,osc_str_length+4);
-	OSC_ADD(self->ip_add_buf,self->ip_add_size);
+	OSC_ADD(ip_add_buf,ip_add_size);
 	OSC_ADD(&val,4);
 	OSC_END
 }

@@ -116,7 +116,7 @@
 	// [self.networking sendOSCMsgWithFloatValue:"/fz/accely\0\0":12:y];
     //	[self.networking SendOSCMsgWithFloatValue:"/fz/accelz\0\0\0\0":16:z];
     
-    [self.networking sendOSCMsgWithIntValue:"/fz/pan\0":8:FLOAT_TO_MRMR_INT(x)];	
+    // [self.networking sendOSCMsgWithIntValue:"/fz/pan\0":8:FLOAT_TO_MRMR_INT(x)];	
 #if 0
 	printf("%f, %f\n",x,y);
 #endif

@@ -25,7 +25,7 @@
 @synthesize mSendPortNum;
 @synthesize mUDPReceivePortNum;
 @synthesize mTCPReceivePortNum;
-@synthesize devIP=_devIP;
+@synthesize devIP   =_devIP;
 @synthesize tcpTimer=_tcpTimer;
 
 - (id)init
