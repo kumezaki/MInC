@@ -128,9 +128,7 @@
 		}
 		self.mSendIPAddress = ip_add;
 		[self writeDataFile];
-		printf("IPAddressChanged to %08lx\n",self.mSendIPAddress);
 	}
-	
 }
 
 -(void)send_udp
@@ -179,11 +177,10 @@
 	
 	for (;;) 
 	{
-        //printf("receive_udp is waiting\n");
+        // recvfrom blocks the thread
 		mUDPInBufferLength = recvfrom(sock, (void *)mUDPInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);
 		if (mUDPInBufferLength < 0)
 			fprintf(stderr,"%s\n",strerror(errno));
-        // NSLog(@"mUDPInBuffer contents:%s\n", mUDPInBuffer);
 		[self udpParse];
 	}
 	
@@ -254,13 +251,11 @@
         }
         
         if (bytesRcvd  > 0) {
-            //printf("bytesRead: %d; buffer contents: %s\n", bytesRcvd, buffer);
             [incomingDataBuffer appendBytes:buffer length:bytesRcvd];
             ++count;
             //printf("receive packet count: %d\n",count);
         }
         if (bytesRcvd == 0) {
-            //NSLog(@"total bytes recieved: %u",[incomingDataBuffer length]);
             [self performSelectorOnMainThread:@selector(tcpParse) withObject:nil waitUntilDone:YES];
             done = YES;
             break;

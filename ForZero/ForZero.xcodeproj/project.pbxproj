@@ -19,6 +19,7 @@
 		B4A00108144A4FC70084D331 /* SagarihaPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A00107144A4FC70084D331 /* SagarihaPanView.m */; };
 		B4AE96A4141D4A45008A6295 /* InterstitialMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */; };
 		B4AE96CF141D563E008A6295 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4AE96CE141D563E008A6295 /* QuartzCore.framework */; };
+		B4C0B633144BEB4100FF84A0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C0B632144BEB4100FF84A0 /* Icon.png */; };
 		B4DE2AC81407555100F9C4A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2AC71407555100F9C4A0 /* UIKit.framework */; };
 		B4DE2ACA1407555100F9C4A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2AC91407555100F9C4A0 /* Foundation.framework */; };
 		B4DE2ACC1407555100F9C4A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2ACB1407555100F9C4A0 /* CoreGraphics.framework */; };
@@ -59,6 +60,7 @@
 		B4AE96A2141D4A45008A6295 /* InterstitialMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterstitialMessageView.h; sourceTree = "<group>"; };
 		B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterstitialMessageView.m; sourceTree = "<group>"; };
 		B4AE96CE141D563E008A6295 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B4C0B632144BEB4100FF84A0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		B4DE2AC31407555100F9C4A0 /* ForZero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForZero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4DE2AC71407555100F9C4A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B4DE2AC91407555100F9C4A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -211,6 +213,7 @@
 		B4DE2AEC1407559300F9C4A0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B4C0B632144BEB4100FF84A0 /* Icon.png */,
 				B49D1940142E9F1B007A27D7 /* arrowLeft.png */,
 				B49D193D142E9EAF007A27D7 /* arrowRight.png */,
 				B4DE2B1B140779CE00F9C4A0 /* image_0.jpg */,
@@ -286,6 +289,7 @@
 				B45F7BD6142E89470036A882 /* ClientControlView.xib in Resources */,
 				B49D193E142E9EAF007A27D7 /* arrowRight.png in Resources */,
 				B49D1941142E9F1B007A27D7 /* arrowLeft.png in Resources */,
+				B4C0B633144BEB4100FF84A0 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

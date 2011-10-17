@@ -142,7 +142,6 @@
 		}
 		((NetworkConnections*)self.networking).mSendIPAddress = ip_add;
 		[(NetworkConnections*)self.networking writeDataFile];
-		NSLog(@"IPAddressChanged to %08lx\n",((NetworkConnections*)self.networking).mSendIPAddress);
 	}
 }
 
@@ -155,7 +154,6 @@
 	
 	((NetworkConnections*)self.networking).mSendPortNum = [self.portNumTextField.text intValue];
     [(NetworkConnections*)self.networking writeDataFile];
-	NSLog(@"portNumChanged to %d\n",self.networking.mSendPortNum);
 }
 
 -(IBAction)ForZero_Start:(id)sender

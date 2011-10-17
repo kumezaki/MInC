@@ -15,6 +15,14 @@
 @property (nonatomic, readwrite, retain) NSNumber *recProgress;
 @end
 
+// just some practice using blocks
+int (^oscValByteSwap)(char*) = ^(char* num) {
+    int swapped = 0;
+    memcpy(&swapped,num,4);
+    swapped = htonl(swapped);
+    return swapped;
+};
+
 @implementation NetworkMessages
 
 @synthesize delegate;
@@ -28,6 +36,7 @@
 #define OSC_ADD(msg,num_msg_bytes) memcpy(self->mOutBuffer+self->mOutBufferLength,msg,num_msg_bytes);self->mOutBufferLength+=num_msg_bytes;
 
 #define OSC_VAL_BYTE_SWAP(val_ptr) memcpy(&u.int_val,val_ptr,4); u.int_val = htonl(u.int_val);
+
 union {
 	float	flt_val;
 	int		int_val;
@@ -174,9 +183,13 @@ union {
                     }
                     case 2:
                     {
-                        OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
-                        // NSLog(@"received /fz/rec_prog:%d",u.int_val);
-                        NSNumber *progVal = [[NSNumber alloc]initWithFloat:((float)u.int_val / 1000.)];
+                        // OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
+                        // NSNumber *progVal = [[NSNumber alloc]initWithFloat:((float)u.int_val / 1000.)];
+                        
+                        // practice with blocks
+                        float newVal = (float)oscValByteSwap(mUDPInBuffer+pos) / 1000;
+                        NSNumber *progVal = [[NSNumber alloc]initWithFloat:newVal];
+                        
                         [self performSelectorOnMainThread:@selector(setProgressValue:)
                                                withObject:progVal 
                                             waitUntilDone:NO];
