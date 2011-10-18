@@ -26,8 +26,20 @@
         [self.delegate panViewTouchPadValuesDidChange:self];
     }
 }
+
+- (void)detectOrientationChange:(NSNotification*)notification {
+    [self setNeedsDisplay];
+}
+
 - (void)awakeFromNib {
-	[self Set:0.5:0.5];
+    /*
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(detectOrientationChange:) 
+                                                 name:@"UIDeviceOrientationDidChangeNotification" 
+                                               object:nil]; 
+	*/
+    [self Set:0.5:0.5];
     self.backgroundColor    = [UIColor blackColor];
     self.layer.cornerRadius = kCornerRadius;
 }
@@ -62,6 +74,10 @@
 
 
 - (void)dealloc {
+    /*
+    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+     */
     [super dealloc];
 }
 

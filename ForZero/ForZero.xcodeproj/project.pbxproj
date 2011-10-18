@@ -19,6 +19,7 @@
 		B4A00108144A4FC70084D331 /* SagarihaPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A00107144A4FC70084D331 /* SagarihaPanView.m */; };
 		B4AE96A4141D4A45008A6295 /* InterstitialMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */; };
 		B4AE96CF141D563E008A6295 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4AE96CE141D563E008A6295 /* QuartzCore.framework */; };
+		B4B62DF4144CE9BC00530453 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B62DF3144CE9BB00530453 /* Constants.m */; };
 		B4C0B633144BEB4100FF84A0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C0B632144BEB4100FF84A0 /* Icon.png */; };
 		B4DE2AC81407555100F9C4A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2AC71407555100F9C4A0 /* UIKit.framework */; };
 		B4DE2ACA1407555100F9C4A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2AC91407555100F9C4A0 /* Foundation.framework */; };
@@ -37,6 +38,7 @@
 		B4DE2B1A14075F0B00F9C4A0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE2B1914075F0A00F9C4A0 /* AudioToolbox.framework */; };
 		B4DE2B1D140779CE00F9C4A0 /* image_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4DE2B1B140779CE00F9C4A0 /* image_0.jpg */; };
 		B4DE2B1E140779CE00F9C4A0 /* image_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4DE2B1C140779CE00F9C4A0 /* image_1.jpg */; };
+		B4E09EEC144CC92A00D02ABA /* MeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E09EEB144CC92900D02ABA /* MeterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,12 +56,13 @@
 		B493EC3A14084EC300E85E4B /* NetworkMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkMessages.m; sourceTree = "<group>"; };
 		B49D193D142E9EAF007A27D7 /* arrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowRight.png; sourceTree = "<group>"; };
 		B49D1940142E9F1B007A27D7 /* arrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowLeft.png; sourceTree = "<group>"; };
-		B4A000FE144A460F0084D331 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		B4A00106144A4FC70084D331 /* SagarihaPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SagarihaPanView.h; sourceTree = "<group>"; };
 		B4A00107144A4FC70084D331 /* SagarihaPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SagarihaPanView.m; sourceTree = "<group>"; };
 		B4AE96A2141D4A45008A6295 /* InterstitialMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterstitialMessageView.h; sourceTree = "<group>"; };
 		B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterstitialMessageView.m; sourceTree = "<group>"; };
 		B4AE96CE141D563E008A6295 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B4B62DF2144CE9BB00530453 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		B4B62DF3144CE9BB00530453 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		B4C0B632144BEB4100FF84A0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		B4DE2AC31407555100F9C4A0 /* ForZero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForZero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4DE2AC71407555100F9C4A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -86,6 +89,8 @@
 		B4DE2B1914075F0A00F9C4A0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B4DE2B1B140779CE00F9C4A0 /* image_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_0.jpg; sourceTree = "<group>"; };
 		B4DE2B1C140779CE00F9C4A0 /* image_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_1.jpg; sourceTree = "<group>"; };
+		B4E09EEA144CC92900D02ABA /* MeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeterView.h; sourceTree = "<group>"; };
+		B4E09EEB144CC92900D02ABA /* MeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeterView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +143,8 @@
 				B4AE96A3141D4A45008A6295 /* InterstitialMessageView.m */,
 				B4341295142D8FA500CAF95F /* ProgressBarView.h */,
 				B4341296142D8FA500CAF95F /* ProgressBarView.m */,
+				B4E09EEA144CC92900D02ABA /* MeterView.h */,
+				B4E09EEB144CC92900D02ABA /* MeterView.m */,
 			);
 			name = "Utility UIViews";
 			sourceTree = "<group>";
@@ -175,7 +182,8 @@
 		B4DE2ACD1407555100F9C4A0 /* ForZero */ = {
 			isa = PBXGroup;
 			children = (
-				B4A000FE144A460F0084D331 /* Constants.h */,
+				B4B62DF2144CE9BB00530453 /* Constants.h */,
+				B4B62DF3144CE9BB00530453 /* Constants.m */,
 				B4DE2AD61407555100F9C4A0 /* ForZeroAppDelegate.h */,
 				B4DE2AD71407555100F9C4A0 /* ForZeroAppDelegate.m */,
 				B4DE2ADC1407555100F9C4A0 /* MainViewController.h */,
@@ -313,6 +321,8 @@
 				B43412A1142D9E8100CAF95F /* ClientControlView.m in Sources */,
 				B45F7BD2142E6E590036A882 /* ControlView.m in Sources */,
 				B4A00108144A4FC70084D331 /* SagarihaPanView.m in Sources */,
+				B4E09EEC144CC92A00D02ABA /* MeterView.m in Sources */,
+				B4B62DF4144CE9BC00530453 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

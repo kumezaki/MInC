@@ -8,9 +8,11 @@
 #import "ControlView.h"
 
 @implementation ControlView
-
 @synthesize delegate;
+
 @synthesize frontView               =_frontView;
+@synthesize leftMeterView           =_leftMeterView;
+@synthesize rightMeterView          =_rightMeterView;
 @synthesize flipView                =_flipView;
 @synthesize recButton               =_recButton;
 @synthesize stopButton              =_stopButton;
@@ -27,6 +29,8 @@
     [_stopButton            release];
     [_playButton            release];
     [_frontView             release];
+    [_leftMeterView         release];
+    [_rightMeterView        release];
     [_flipView              release];
     [_volumerSlider         release];
     [_currentDisplayedView  release];
@@ -40,10 +44,7 @@
     // frontView = 1 & flipView = 2
     [self addSubview:self.frontView];
     [self addSubview:self.flipView];
-    
-    if ([self.frontView isKindOfClass:[ProgressBarView class]]) {
-        self.frontView.delegate = self;
-    }
+
     self.backgroundColor = [UIColor clearColor];
     
     //kCornerRadius is set in the ProgressView
@@ -52,6 +53,10 @@
 
     [self bringSubviewToFront:self.frontView];
     self.currentDisplayedView = self.frontView;
+    
+    self.frontView.delegate = self;
+    self.leftMeterView.delegate = self;
+    self.rightMeterView.delegate = self;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -118,16 +123,23 @@
     self.flipView.frame = newSize;
 }
 
-- (void)displayProgress
-{
-    [self.frontView setNeedsDisplay];
+#pragma mark - MeterViewDelegate Method Implementations
+
+- (float)floatValueForMeterView:(MeterView *)requestor {
+    float val = [self.delegate floatValueForControlViewMeters:self];
+    return val;
 }
 
-#pragma mark - ProgressBarView Delegate Method Implementations
+
+#pragma mark - ProgressBarViewDelegate Method Implementations
+
 - (float)progressValueForProgressBarView:(ProgressBarView *)requestor
 {
-    float prog = [self.delegate progressValueForControlView:self];
-    return prog;
+	float prog = 0;
+	if (requestor == self.frontView) {
+		prog = [self.delegate progressValueForControlView:self];
+	}
+	return prog;
 }
 
 @end

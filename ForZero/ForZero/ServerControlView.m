@@ -111,8 +111,7 @@
     [self setPan:[NSNumber numberWithFloat:x]];
 }
 
-#pragma mark -
-#pragma mark UIAccelerometerDelegate Method Implementations
+#pragma mark - UIAccelerometerDelegate Method Implementations
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {

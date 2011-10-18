@@ -45,6 +45,23 @@
 
 #pragma mark - View lifecycle
 
+- (void)layoutPortraitOrientation {
+    self.ipLabel.frame              = CGRectMake(20, 40, 85, 21);
+    self.portLabel.frame            = CGRectMake(215, 40, 85, 21);
+    self.serverView.frame           = CGRectMake(0, 44, 320, 156);
+    self.clientView.frame           = CGRectMake(0, 280, 320, 200);
+    self.portNumTextField.frame     = CGRectMake(215, 85, 85, 31);
+    self.ipAddressTextField.frame   = CGRectMake(20, 85, 175, 31);
+}
+- (void)layoutLandscapeOrientation {
+    self.ipLabel.frame              = CGRectMake(20, 45, 85, 21);
+    self.portLabel.frame            = CGRectMake(330, 45, 85, 21);
+    self.serverView.frame           = CGRectMake(0, 44, 480, 121);
+    self.clientView.frame           = CGRectMake(0, 185, 480, 135);
+    self.portNumTextField.frame     = CGRectMake(330, 65, 125, 31);
+    self.ipAddressTextField.frame   = CGRectMake(20, 65, 260, 31);
+}
+
 - (void)viewDidLoad
 {    
     [super viewDidLoad];
@@ -64,6 +81,15 @@
 	self.portNumTextField.text = [NSString stringWithFormat:@"%d",((NetworkConnections*)self.networking).mSendPortNum];
 
     self.devIPLabel.text = [NSString stringWithFormat:@"%@",((NetworkConnections*)self.networking).devIP];    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
+        [self layoutPortraitOrientation];
+    }
+	else if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
+		[self layoutLandscapeOrientation];
+	}
 }
 
 - (void)viewDidUnload
@@ -86,27 +112,13 @@
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-										 duration:(NSTimeInterval)duration
-{
-	if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation))
-	{
-		//----- GOING TO PORTRAIT -----
-        self.serverView.frame           = CGRectMake(0, 44, 320, 200);
-        self.clientView.frame           = CGRectMake(0, 280, 320, 200);
-        self.ipAddressTextField.frame   = CGRectMake(20, 75, 175, 31);
-        self.portNumTextField.frame     = CGRectMake(215, 75, 85, 31);
-        self.ipLabel.frame              = CGRectMake(20, 50, 85, 21);
-        self.portLabel.frame            = CGRectMake(215, 50, 85, 21);
-	}
-	else
-	{
-		//----- GOING TO LANDSCAPE -----
-        self.serverView.frame           = CGRectMake(0, 44, 480, 135);
-        self.clientView.frame           = CGRectMake(0, 185, 480, 135);
-        self.ipAddressTextField.frame   = CGRectMake(20, 55, 260, 31);
-        self.portNumTextField.frame     = CGRectMake(330, 55, 125, 31);
-        self.ipLabel.frame              = CGRectMake(20, 30, 85, 21);
-        self.portLabel.frame            = CGRectMake(330, 30, 85, 21);
+										 duration:(NSTimeInterval)duration {
+	
+    if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
+        [self layoutPortraitOrientation];
+    }
+	else if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+		[self layoutLandscapeOrientation];
 	}
 }
 

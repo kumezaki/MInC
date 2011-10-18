@@ -11,20 +11,24 @@
 #import <QuartzCore/QuartzCore.h> //for animated transitions & cornerRadius property
 #import "NetworkMessages.h"
 #import "ProgressBarView.h"
+#import "MeterView.h"
 
 @class ControlView;
 @protocol ControlViewDelegate
-- (float)progressValueForControlView:(ControlView *)requestor;
+- (float)floatValueForControlViewMeters:(ControlView*)requestor;
+- (float)progressValueForControlView:(ControlView*)requestor;
 @end
 
-@interface ControlView : UIView <ProgressBarViewDelegate> {
+@interface ControlView : UIView <MeterViewDelegate, ProgressBarViewDelegate>{
 
 }
-@property (nonatomic, assign) id <ControlViewDelegate> delegate;
+@property (nonatomic, assign) id<ControlViewDelegate> delegate;
 
-@property (nonatomic, retain) IBOutlet ProgressBarView   *frontView;
-@property (nonatomic, retain) IBOutlet UIView            *flipView;
-@property (nonatomic, retain)          UIView            *currentDisplayedView;
+@property (nonatomic, retain) IBOutlet ProgressBarView  *frontView;
+@property (nonatomic, retain) IBOutlet MeterView        *leftMeterView;
+@property (nonatomic, retain) IBOutlet MeterView        *rightMeterView;
+@property (nonatomic, retain) IBOutlet UIView           *flipView;
+@property (nonatomic, retain)          UIView           *currentDisplayedView;
 
 @property (nonatomic, retain) IBOutlet UIButton *recButton;
 @property (nonatomic, retain) IBOutlet UIButton *stopButton;
@@ -39,6 +43,5 @@
 - (IBAction)setVolume:          (id)sender;
 
 - (void)updateFrameSize:(CGRect)frame;
-- (void)displayProgress;
 
 @end

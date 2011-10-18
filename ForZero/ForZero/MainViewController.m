@@ -16,22 +16,30 @@
 #endif
 @synthesize serverViewContainer =_serverViewContainer;
 @synthesize clientViewContainer =_clientViewContainer;
+@synthesize serverRecordProgVal =_serverRecordProgVal;
 @synthesize downloadIndicator   =_downloadIndicator;
 @synthesize downloadProgView    =_downloadProgView;
+@synthesize serverMeterVal      =_serverMeterVal;
 @synthesize downloadButt        =_downloadButt;
 @synthesize uploadButt          =_uploadButt;
 @synthesize networking          =_networking;
 @synthesize aqPlayer            =_aqPlayer;
-@synthesize progVal             =_progVal;
 
-- (void)setProgVal:(float)newProgVal
+- (void)setServerRecordProgVal:(float)newProgVal
 {
     if (newProgVal < 0.) newProgVal = 0.;
 	if (newProgVal > 1.) newProgVal = 1.;
-	_progVal = newProgVal;
-	[self.serverViewContainer displayProgress];
+	_serverRecordProgVal = newProgVal;
+	[self.serverViewContainer.frontView setNeedsDisplay];
 }
 
+- (void)setServerMeterVal:(float)newServerMeterVal {
+    if (newServerMeterVal < 0.) newServerMeterVal = 0.;
+	if (newServerMeterVal > 1.) newServerMeterVal = 1.;
+	_serverMeterVal = newServerMeterVal;
+	[self.serverViewContainer.leftMeterView setNeedsDisplay];
+    [self.serverViewContainer.rightMeterView setNeedsDisplay];
+}
 
 - (void)displayAlertMessage:(NSString*)alertMsg
 {
@@ -76,16 +84,45 @@
     [self setupSelf];
 }
 
+- (void)layoutPortraitOrientation {
+
+    [self.serverViewContainer updateFrameSize:CGRectMake(0, 0, 320, 200)];
+    [self.clientViewContainer updateFrameSize:CGRectMake(0, 280, 320, 200)];
+    self.downloadButt.frame = CGRectMake(115, 185, 90, 110);
+    // for when upload is supported:
+    // self.uploadButt.frame   = CGRectMake(88, 184, 45, 110);
+    // self.downloadButt.frame = CGRectMake(186, 184, 45, 110);
+
+    
+}
+- (void)layoutLandscapeOrientation {
+
+    [self.serverViewContainer updateFrameSize:CGRectMake(0, 0, 480, 150)];
+    [self.clientViewContainer updateFrameSize:CGRectMake(0, 170, 480, 150)];
+    self.downloadButt.frame = CGRectMake(195, 134, 90, 55);
+    // for when upload is supported:
+    // self.uploadButt.frame   = CGRectMake(139, 133, 45, 55);
+    // self.downloadButt.frame = CGRectMake(294, 133, 45, 55);
+}
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.serverViewContainer.delegate = self;
     self.serverViewContainer.networking = self.networking;
     
-    self.clientViewContainer.delegate = self;
     self.clientViewContainer.aqPlayer = self.aqPlayer;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
+        [self layoutPortraitOrientation];
+    }
+	else if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
+		[self layoutLandscapeOrientation];
+	}
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -95,23 +132,11 @@
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 										 duration:(NSTimeInterval)duration
 {
-	if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation))
-	{
-		//----- GOING TO PORTRAIT -----
-        [self.serverViewContainer updateFrameSize:CGRectMake(0, 0, 320, 200)];
-        [self.clientViewContainer updateFrameSize:CGRectMake(0, 280, 320, 200)];
-        // self.uploadButt.frame   = CGRectMake(88, 184, 45, 110);
-        // self.downloadButt.frame = CGRectMake(186, 184, 45, 110);
-        self.downloadButt.frame = CGRectMake(115, 185, 90, 110);
-	}
-	else
-	{
-		//----- GOING TO LANDSCAPE -----
-        [self.serverViewContainer updateFrameSize:CGRectMake(0, 0, 480, 150)];
-        [self.clientViewContainer updateFrameSize:CGRectMake(0, 170, 480, 150)];
-        // self.uploadButt.frame   = CGRectMake(139, 133, 45, 55);
-        // self.downloadButt.frame = CGRectMake(294, 133, 45, 55);
-        self.downloadButt.frame = CGRectMake(195, 134, 90, 55);
+	if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
+        [self layoutPortraitOrientation];
+    }
+	else if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+		[self layoutLandscapeOrientation];
 	}
 }
 
@@ -256,21 +281,26 @@
 
 - (void)displayServerRecordProgress:(NetworkMessages*)requestor:(NSNumber *)val
 {
-    // progVal setter calls displayProgress in self.serverControlView
+    // serverRecordProgVal setter calls setNeedsDisplay
     if (requestor != nil) {
-        self.progVal = [requestor.recProgress floatValue];
+        self.serverRecordProgVal = [requestor.recProgress floatValue];
     }
     else if (val != nil) {
-        self.progVal = [val floatValue];
+        self.serverRecordProgVal = [val floatValue];
     }
-    
-    // the below is to automatically show/hide & update a standard UIProgressView
-    // NSLog(@"progress value:%f",self.progVal);
- /* if (progVal <= 0. || progVal >= 1.) self.recProgView.hidden = YES;
-    else if (self.recProgView.hidden == YES) self.recProgView.hidden = NO;
-    self.recProgView.progress = progVal;*/
 }
 
+- (void)displayServerAudioMeterValue:(NetworkMessages *)requestor :(NSNumber *)val
+{
+    // serverMeterVal setter calls setNeedsDisplay
+    if (requestor != nil) {
+        self.serverMeterVal = [requestor.meterValue floatValue];
+    }
+    else if (val != nil) {
+        self.serverMeterVal = [val floatValue];
+    }
+    
+}
 
 - (void)displayInterstitialMessage:(NetworkMessages*)requestor
 {
@@ -312,20 +342,25 @@
 }
 
 #pragma mark - ControlViewDelegate Method Implementations
-// this method is for testing the custom progress view
-// connect any UISlider to First Responder of testSlider
-- (IBAction) testSlider:(UISlider*)sender
-{
-    [self displayServerRecordProgress:nil:[NSNumber numberWithFloat:sender.value]];
+
+- (float)floatValueForControlViewMeters:(ControlView*)requestor {
+    
+    float val = 0.0;
+    
+	if (requestor == self.serverViewContainer) {
+        val = self.serverMeterVal;	
+    }
+    else if (requestor == self.clientViewContainer) {
+        val = self.aqPlayer.mAmp;
+    }
+    return val;
 }
 
 - (float)progressValueForControlView:(ControlView *)requestor
 {
 	float prog = 0;
-	if (requestor == self.serverViewContainer) 
-    {
-		prog = self.progVal;
-        // NSLog(@"progress value:%f",prog);
+	if (requestor == self.serverViewContainer) {
+		prog = self.serverRecordProgVal;
 	}
 	return prog;
 }

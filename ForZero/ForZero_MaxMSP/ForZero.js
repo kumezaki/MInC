@@ -334,13 +334,15 @@ function send_audio_in_msg(pos,v)
     messnamed("fz_osc_out_msg","host",gIPAddress[pos]);
     messnamed("fz_osc_out_msg","port",gPortNum_Client_UDP);
     messnamed("fz_osc_out_msg","/fz/audio_in",parseInt(v * 1000.));
+
 }
 
 function send_audio_out_msg(pos,v)
-{
+{	
     messnamed("fz_osc_out_msg","host",gIPAddress[pos]);
     messnamed("fz_osc_out_msg","port",gPortNum_Client_UDP);
     messnamed("fz_osc_out_msg","/fz/audio_out",parseInt(v * 1000.));
+
 }
 
 function send_interstitial_msg(pos,dur,msg)

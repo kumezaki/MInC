@@ -29,20 +29,6 @@
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "ForZero/NetworkMessages.m"
-         timestampString = "340503881.299317"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "193"
-         endingLineNumber = "193"
-         landmarkName = "-udpParse"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
          continueAfterRunningActions = "Yes"
          isPathRelative = "1"
          filePath = "ForZero/NetworkConnections.m"
@@ -58,6 +44,66 @@
                ActionType = "Xcode.BreakpointAction.Log">
                <ActionContent
                   message = "New server IP: @(char*)[str UTF8String]@"
+                  conveyanceType = "0">
+               </ActionContent>
+            </BreakpointActionProxy>
+         </Actions>
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "ForZero/NetworkMessages.m"
+         timestampString = "340587888.72233"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "159"
+         endingLineNumber = "159"
+         landmarkName = "-udpParse"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "Yes"
+         isPathRelative = "1"
+         filePath = "ForZero/NetworkMessages.m"
+         timestampString = "340588244.403726"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "214"
+         endingLineNumber = "214"
+         landmarkName = "-udpParse"
+         landmarkType = "5">
+         <Actions>
+            <BreakpointActionProxy
+               ActionType = "Xcode.BreakpointAction.Log">
+               <ActionContent
+                  message = "/fz/audio_in val:@(float)newVal@"
+                  conveyanceType = "0">
+               </ActionContent>
+            </BreakpointActionProxy>
+         </Actions>
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "Yes"
+         isPathRelative = "1"
+         filePath = "ForZero/MainViewController.m"
+         timestampString = "340590101.736274"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "-setServerMeterVal:"
+         landmarkType = "5">
+         <Actions>
+            <BreakpointActionProxy
+               ActionType = "Xcode.BreakpointAction.Log">
+               <ActionContent
+                  message = "new meter value @(float) _serverMeterVal@"
                   conveyanceType = "0">
                </ActionContent>
             </BreakpointActionProxy>

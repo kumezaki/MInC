@@ -10,9 +10,11 @@
 #import "MainViewController.h"
 
 @interface NetworkMessages ()
-@property (nonatomic, readwrite, retain) NSString *interstitialMsg;
-@property (nonatomic, readwrite, retain) NSString *errorMsg;
-@property (nonatomic, readwrite, retain) NSNumber *recProgress;
+@property (nonatomic, readwrite, retain) NSString       *interstitialMsg;
+@property (nonatomic, readwrite, retain) NSString       *errorMsg;
+@property (nonatomic, readwrite, retain) NSNumber       *recProgress;
+@property (nonatomic, readwrite, retain) NSNumber       *meterValue;
+@property (nonatomic, readwrite, retain) NSDictionary   *msgDictionary;
 @end
 
 // just some practice using blocks
@@ -26,10 +28,12 @@ int (^oscValByteSwap)(char*) = ^(char* num) {
 @implementation NetworkMessages
 
 @synthesize delegate;
+@synthesize msgDictionary   =_msgDictionary;
 @synthesize aqPlayer        =_aqPlayer;
 @synthesize interstitialMsg =_interstitialMsg;
 @synthesize errorMsg        =_errorMsg;
 @synthesize recProgress     =_recProgress;
+@synthesize meterValue      =_meterValue;
 
 #define OSC_START self->mOutBufferLength = 0;
 #define OSC_END [self send_udp];
@@ -53,13 +57,24 @@ union {
     [_interstitialMsg   release];
     [_errorMsg          release];
     [_recProgress       release];
+    [_msgDictionary     release];
+    [_meterValue        release];
+    
     [super dealloc];
 }
 
-#pragma mark - setter overrides
+#pragma mark - getter/setter overrides
+- (NSDictionary*)msgDictionary {
+    if (!_msgDictionary) {
+        // if the dictionary is nil than grab it from Constants
+        self.msgDictionary = [Constants messageDictionary];
+    }
+    return _msgDictionary;
+}
+
 - (void)setInterstitialMsg:(NSString *)interstitialMsg
 {
-    if (interstitialMsg != _interstitialMsg) {
+    if (![_interstitialMsg isEqualToString:interstitialMsg]) {
         [_interstitialMsg release];
         _interstitialMsg = [interstitialMsg retain];
         [self.delegate displayInterstitialMessage:self];
@@ -68,10 +83,19 @@ union {
 
 - (void)setProgressValue:(NSNumber *)recProgress
 {
-    if (recProgress != _recProgress) {
+    if (![_recProgress isEqualToNumber:recProgress]) {
         [_recProgress release];
         _recProgress = [recProgress retain];
         [self.delegate displayServerRecordProgress:self:nil];
+    }
+}
+
+- (void)setMeterValue:(NSNumber *)meterValue {
+    
+    if (![_meterValue isEqualToNumber:meterValue]) {
+        [_meterValue release];
+        _meterValue = [meterValue retain];
+        [self.delegate displayServerAudioMeterValue:self:nil];
     }
 }
 
@@ -129,39 +153,24 @@ union {
         {
             case 0:
             {
-                
-#if 0
-#define OSC_MSG_COMPARE(osc_add,add_type_val) if ([buf_str isEqualToString:@osc_add]) add_type = add_type_val;
-#else
-#define	OSC_MSG_COMPARE(osc_add,add_type_val) if (strcmp(self->mUDPInBuffer,osc_add)==0) add_type = add_type_val;
-#endif
-                // NSString* buf_str = [NSString stringWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
-				
-                OSC_MSG_COMPARE("/fz/state",1)
-                else OSC_MSG_COMPARE("/fz/rec_prog",2)
-					else OSC_MSG_COMPARE("/fz/interstitial",3)
-						else OSC_MSG_COMPARE("/fz/hb",4)
-							else OSC_MSG_COMPARE("/fz/play",5)
-								else OSC_MSG_COMPARE("/fz/stop",6)
-									else OSC_MSG_COMPARE("/fz/cue",7)
-										else OSC_MSG_COMPARE("/fz/loop",8)
-                                            // [buf_str release];
-                                            // NSLog(@"add_type %d", add_type);
-                                            break;
+                // reference the proper add_type by using the osc message as a key in an NSDictionary
+                // had to use an autorelease method for the string to live long enough for the key lookup.
+                NSString* buf_str = [NSString stringWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
+                add_type = [[self.msgDictionary objectForKey:buf_str]intValue];
             }
 				
             case 1:
             {
                 switch (add_type)
                 {
-                    case 5:
-					{
+                    case 6:
+					{   // /fz/play
                         NSLog(@"received /fz/play\n");
 						mOSCMsg_Play = YES;						
                         break;
 					}
-					case 6:
-					{
+					case 7:
+					{   // /fz/stop
                         NSLog(@"received /fz/stop\n");
 						mOSCMsg_Stop = YES;
 						break;
@@ -175,14 +184,15 @@ union {
                 switch (add_type)
                 {
                     case 1:
-                    {
+                    {   // /fz/state
                         OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
                         NSLog(@"received /fz/state:%d",u.int_val);
                         mOSCMsg_State = u.int_val;
                         break;
                     }
                     case 2:
-                    {
+                    {   // /fz/rec_prog
+                        
                         // OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
                         // NSNumber *progVal = [[NSNumber alloc]initWithFloat:((float)u.int_val / 1000.)];
                         
@@ -197,8 +207,19 @@ union {
                         break;
                     }
                     case 3:
-                    {
-                        //NSLog(@"received /fz/interstitial:%s\n",mUDPInBuffer+pos);
+                    {   // /fz/audio_out
+                        float newVal = (float)oscValByteSwap(mUDPInBuffer+pos) / 1000;
+                        NSNumber *serverMeterVal = [[NSNumber alloc]initWithFloat:newVal];
+                        
+                        [self performSelectorOnMainThread:@selector(setMeterValue:)
+                                               withObject:serverMeterVal 
+                                            waitUntilDone:NO];
+                        [serverMeterVal release];
+                        break;
+                    }
+
+                    case 4:
+                    {   // /fz/interstitial
                         
                         NSString *interstitialMsg = [[NSString alloc] initWithCString:self->mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
                         
@@ -209,8 +230,8 @@ union {
                         
                         break;
                     }
-                    case 4:
-                    {
+                    case 5:
+                    {   // /fz/hb
                         // NSLog(@"received /fz/hb:%s\n",mUDPInBuffer+pos);
                         NSString *serverIP = [[NSString alloc] initWithCString:self->mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
                         
@@ -219,15 +240,15 @@ union {
                         
                         break;
                     }
-                    case 7:
-                    {
+                    case 8:
+                    {   // /fz/cue
                         OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
                         // NSLog(@"received /fz/cue:%d\n",u.int_val);
                         mOSCMsg_Cue = u.int_val;
                         break;
                     }
-					case 8:
-					{
+					case 9:
+					{   // /fz/loop
                         /*
                         //currently disabled in Max patch
                         //NSLog(@"received /fz/loop:%s\n",self->mUDPInBuffer+pos);

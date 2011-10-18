@@ -17,6 +17,7 @@
 - (void)downloadFailed:(NetworkMessages *)requestor;
 - (void)displayInterstitialMessage:(NetworkMessages*)requestor;
 - (void)displayServerRecordProgress:(NetworkMessages*)requestor:(NSNumber*)val;
+- (void)displayServerAudioMeterValue:(NetworkMessages*)requestor:(NSNumber*)val;
 @end
 
 @interface NetworkMessages : NetworkConnections {
@@ -37,6 +38,7 @@
 @property (nonatomic,readonly, retain)  NSString    *interstitialMsg;
 @property (nonatomic,readonly, retain)  NSString    *errorMsg;
 @property (nonatomic,readonly, retain)  NSNumber    *recProgress;
+@property (nonatomic,readonly, retain)  NSNumber    *meterValue;
 
 -(void)sendOSCMsg:(const char*)osc_str:(int)osc_str_length;
 -(void)sendOSCMsgWithIntValue:(const char*)osc_str:(int)osc_str_length:(int)val;
