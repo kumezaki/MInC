@@ -18,8 +18,9 @@
         _touchPoint.x = newTouchPoint.x < 0 ? 0 : newTouchPoint.x > self.bounds.size.width ? self.bounds.size.width : newTouchPoint.x;
         _touchPoint.y = newTouchPoint.y < 0 ? 0 : newTouchPoint.y > self.bounds.size.height ? self.bounds.size.height : newTouchPoint.y;
         
-        mX = _touchPoint.x;
-        mY = _touchPoint.y;
+        // set to relative location
+        mX = _touchPoint.x / self.bounds.size.width; 
+        mY = _touchPoint.y / self.bounds.size.height;
         
         [self setNeedsDisplay];
         
@@ -37,7 +38,9 @@
                                              selector:@selector(detectOrientationChange:) 
                                                  name:@"UIDeviceOrientationDidChangeNotification" 
                                                object:nil]; 
-    [self Set:0.5:0.5];
+    mX = 0.5;
+    mY = 0.5;
+    
     self.backgroundColor    = [UIColor blackColor];
     self.layer.cornerRadius = kCornerRadius;
 }
@@ -58,6 +61,12 @@
 	UIRectFill(CGRectMake(mX-5., mY-5., 10.0, 10.0));
     */
 	
+    // convert relative location to absolute
+    // will be different depending on orientation
+    
+    int x = mX * self.bounds.size.width;
+    int y = mY * self.bounds.size.height;
+    
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	
 	CGContextSetLineWidth(context, 5.0);
@@ -66,20 +75,39 @@
     UIGraphicsPushContext(context);
 	
     CGContextBeginPath(context);
-	CGContextAddArc(context, mX, mY, 25, 0, 2*M_PI, YES);
+	CGContextAddArc(context, x, y, 25, 0, 2*M_PI, YES);
     CGContextFillPath(context);
 }
 
 
 - (void)dealloc {
-    /*
+    
     [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-     */
+     
     [super dealloc];
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+	self.touchPoint = [touch locationInView:self];
+}
 
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+	self.touchPoint = [touch locationInView:self];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+	self.touchPoint = [touch locationInView:self];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+}
+
+/*
 -(double)GetX
 {
 	return mX / self.bounds.size.width;
@@ -104,24 +132,5 @@
 	mX = mX < 0 ? 0 : mX > self.bounds.size.width ? self.bounds.size.width : mX;
 	mY = mY < 0 ? 0 : mY > self.bounds.size.height ? self.bounds.size.height : mY;
 }
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-	self.touchPoint = [touch locationInView:self];
-}
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-	self.touchPoint = [touch locationInView:self];
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-	self.touchPoint = [touch locationInView:self];
-}
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-}
-
+*/
 @end

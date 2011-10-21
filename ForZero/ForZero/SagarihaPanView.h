@@ -23,10 +23,13 @@
 @property (nonatomic, assign) id<SagarihaPanViewDelegate>delegate;
 @property (nonatomic) CGPoint touchPoint;
 
+/*
+// old methods to work with accelerometer
 -(double)GetX;
 -(double)GetY;
 
 -(void)Set:(double)x:(double)y;
 -(void)SetVelocity:(double)x:(double)y;
+*/
 
 @end
