@@ -32,13 +32,11 @@
 }
 
 - (void)awakeFromNib {
-    /*
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(detectOrientationChange:) 
                                                  name:@"UIDeviceOrientationDidChangeNotification" 
                                                object:nil]; 
-	*/
     [self Set:0.5:0.5];
     self.backgroundColor    = [UIColor blackColor];
     self.layer.cornerRadius = kCornerRadius;

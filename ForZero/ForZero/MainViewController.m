@@ -312,10 +312,10 @@
         [self.view addSubview:self.interstitialView];
     }
     if (self.interstitialView.alpha > 1.0) self.interstitialView.alpha = 1.0;
-    else if (self.interstitialView.alpha < 1.0) self.interstitialView.alpha += 0.05;
+    else if (self.interstitialView.alpha < 1.0) self.interstitialView.alpha += 0.025;
     
     if (self.interstitialView.alpha < 1.0)
-        [self performSelector:@selector(displayInterstitialMessage:) withObject:requestor afterDelay:0.1];
+        [self performSelector:@selector(displayInterstitialMessage:) withObject:requestor afterDelay:0.05];
 
 #else
     NSString *msg = requestor.interstitialMsg;
@@ -392,10 +392,10 @@
 #if _AlphaInterstitial_
     
     if (self.interstitialView.alpha < 0.0)      self.interstitialView.alpha = 0.0;
-    else if (self.interstitialView.alpha > 0.0) self.interstitialView.alpha -= 0.05;
+    else if (self.interstitialView.alpha > 0.0) self.interstitialView.alpha -= 0.025;
         
     if (self.interstitialView.alpha > 0.0)
-    [self performSelector:@selector(interstitialViewDidFinish:) withObject:requestor afterDelay:0.1];
+    [self performSelector:@selector(interstitialViewDidFinish:) withObject:requestor afterDelay:0.05];
     
     if (self.interstitialView.alpha == 0.0) {
         [self.interstitialView removeFromSuperview];

@@ -31,6 +31,7 @@
 }
 
 - (void)awakeFromNib {
+	self.backgroundColor = [UIColor blackColor];
     [self setup];
 }
 

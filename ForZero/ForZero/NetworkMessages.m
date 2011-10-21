@@ -106,7 +106,7 @@ union {
 	    
 	OSC_START
 	OSC_ADD(buf,osc_str_length+4);
-	OSC_ADD(ip_add_buf,ip_add_size)
+	OSC_ADD(self->ip_add_buf,self->ip_add_size)
 	OSC_END
 }
 
@@ -118,7 +118,7 @@ union {
 	
 	OSC_START
 	OSC_ADD(buf,osc_str_length+4);
-	OSC_ADD(ip_add_buf,ip_add_size);
+	OSC_ADD(self->ip_add_buf,self->ip_add_size);
 	OSC_ADD(&val,4);
 	OSC_END
 }
@@ -155,7 +155,7 @@ union {
             {
                 // reference the proper add_type by using the osc message as a key in an NSDictionary
                 // had to use an autorelease method for the string to live long enough for the key lookup.
-                NSString* buf_str = [NSString stringWithCString:mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
+                NSString* buf_str = [NSString stringWithCString:self->mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
                 add_type = [[self.msgDictionary objectForKey:buf_str]intValue];
             }
 				
@@ -197,7 +197,7 @@ union {
                         // NSNumber *progVal = [[NSNumber alloc]initWithFloat:((float)u.int_val / 1000.)];
                         
                         // practice with blocks
-                        float newVal = (float)oscValByteSwap(mUDPInBuffer+pos) / 1000;
+                        float newVal = (float)oscValByteSwap(self->mUDPInBuffer+pos) / 1000;
                         NSNumber *progVal = [[NSNumber alloc]initWithFloat:newVal];
                         
                         [self performSelectorOnMainThread:@selector(setProgressValue:)
@@ -208,7 +208,7 @@ union {
                     }
                     case 3:
                     {   // /fz/audio_out
-                        float newVal = (float)oscValByteSwap(mUDPInBuffer+pos) / 1000;
+                        float newVal = (float)oscValByteSwap(self->mUDPInBuffer+pos) / 1000;
                         NSNumber *serverMeterVal = [[NSNumber alloc]initWithFloat:newVal];
                         
                         [self performSelectorOnMainThread:@selector(setMeterValue:)
@@ -232,7 +232,7 @@ union {
                     }
                     case 5:
                     {   // /fz/hb
-                        // NSLog(@"received /fz/hb:%s\n",mUDPInBuffer+pos);
+                        //NSLog(@"received /fz/hb:%s\n",mUDPInBuffer+pos);
                         NSString *serverIP = [[NSString alloc] initWithCString:self->mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
                         
                         [super newServerIPAddress:serverIP]; // in super
