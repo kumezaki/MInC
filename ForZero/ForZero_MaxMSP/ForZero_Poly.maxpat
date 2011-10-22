@@ -22,12 +22,40 @@
 				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
+					"id" : "obj-38",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 3,
+					"outlettype" : [ "", "int", "int" ],
+					"patching_rect" : [ 50.0, 541.0, 50.0, 20.0 ],
+					"text" : "change"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-37",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 50.0, 512.0, 108.0, 20.0 ],
+					"text" : "js ForZeroMeter.js"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
 					"id" : "obj-47",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 50.0, 429.0, 85.0, 20.0 ],
+					"patching_rect" : [ 50.0, 419.0, 85.0, 20.0 ],
 					"text" : "loadmess 250"
 				}
 
@@ -41,7 +69,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 50.0, 593.0, 112.0, 20.0 ],
+					"patching_rect" : [ 50.0, 640.0, 112.0, 20.0 ],
 					"text" : "prepend audio_out"
 				}
 
@@ -55,8 +83,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 50.0, 570.0, 49.0, 20.0 ],
-					"text" : "pack i f"
+					"patching_rect" : [ 50.0, 617.0, 48.0, 20.0 ],
+					"text" : "pack i i"
 				}
 
 			}
@@ -68,9 +96,9 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 2,
-					"outlettype" : [ "bang", "float" ],
-					"patching_rect" : [ 50.0, 520.0, 32.5, 20.0 ],
-					"text" : "t b f"
+					"outlettype" : [ "bang", "int" ],
+					"patching_rect" : [ 50.0, 567.0, 32.5, 20.0 ],
+					"text" : "t b i"
 				}
 
 			}
@@ -83,7 +111,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "int" ],
-					"patching_rect" : [ 50.0, 544.0, 58.0, 20.0 ],
+					"patching_rect" : [ 50.0, 591.0, 58.0, 20.0 ],
 					"text" : "thispoly~"
 				}
 
@@ -96,7 +124,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 50.0, 616.0, 74.0, 20.0 ],
+					"patching_rect" : [ 50.0, 663.0, 74.0, 20.0 ],
 					"text" : "s fz_js_msg"
 				}
 
@@ -111,7 +139,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "bang" ],
-					"patching_rect" : [ 50.0, 454.0, 50.0, 20.0 ]
+					"patching_rect" : [ 50.0, 444.0, 50.0, 20.0 ]
 				}
 
 			}
@@ -124,7 +152,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 50.0, 480.0, 66.0, 18.0 ],
+					"patching_rect" : [ 50.0, 470.0, 66.0, 18.0 ],
 					"text" : "interval $1"
 				}
 
@@ -137,7 +165,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
-					"patching_rect" : [ 50.0, 503.0, 80.0, 13.0 ]
+					"patching_rect" : [ 50.0, 493.0, 80.0, 13.0 ]
 				}
 
 			}
@@ -1197,13 +1225,13 @@
 ,
 					"patching_rect" : [ 166.0, 522.0, 93.0, 20.0 ],
 					"saved_object_attributes" : 					{
-						"default_fontname" : "Arial",
-						"fontname" : "Arial",
 						"default_fontsize" : 12.0,
 						"globalpatchername" : "",
 						"fontface" : 0,
 						"fontsize" : 12.0,
-						"default_fontface" : 0
+						"default_fontface" : 0,
+						"default_fontname" : "Arial",
+						"fontname" : "Arial"
 					}
 ,
 					"text" : "p Pan"
@@ -1678,6 +1706,24 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-38", 0 ],
+					"hidden" : 0,
+					"midpoints" : [  ],
+					"source" : [ "obj-37", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-44", 0 ],
+					"hidden" : 0,
+					"midpoints" : [  ],
+					"source" : [ "obj-38", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-9", 0 ],
 					"hidden" : 0,
 					"midpoints" : [  ],
@@ -1687,7 +1733,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-44", 0 ],
+					"destination" : [ "obj-37", 0 ],
 					"hidden" : 0,
 					"midpoints" : [  ],
 					"source" : [ "obj-40", 0 ]

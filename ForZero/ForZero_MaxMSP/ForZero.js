@@ -284,7 +284,6 @@ function exit_tcp_script()
     f.close();
 }
 
-
 /*** FUNCTIONS FOR HANDING OUTGOING OSC MESSAGES ***/
 
 function rec_prog(target_pos,v)
@@ -333,7 +332,7 @@ function send_audio_in_msg(pos,v)
 {
     messnamed("fz_osc_out_msg","host",gIPAddress[pos]);
     messnamed("fz_osc_out_msg","port",gPortNum_Client_UDP);
-    messnamed("fz_osc_out_msg","/fz/audio_in",parseInt(v * 1000.));
+    messnamed("fz_osc_out_msg","/fz/audio_in",parseInt(v));
 
 }
 
@@ -341,7 +340,7 @@ function send_audio_out_msg(pos,v)
 {	
     messnamed("fz_osc_out_msg","host",gIPAddress[pos]);
     messnamed("fz_osc_out_msg","port",gPortNum_Client_UDP);
-    messnamed("fz_osc_out_msg","/fz/audio_out",parseInt(v * 1000.));
+    messnamed("fz_osc_out_msg","/fz/audio_out",parseInt(v));
 
 }
 

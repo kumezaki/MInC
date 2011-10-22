@@ -209,7 +209,8 @@ union {
                         // NSNumber *progVal = [[NSNumber alloc]initWithFloat:((float)u.int_val / 1000.)];
                         
                         // practice with blocks
-                        float newVal = (float)oscValByteSwap(self->mUDPInBuffer+pos) / 1000;
+						int newIntVal = oscValByteSwap(self->mUDPInBuffer+pos);
+                        float newVal = (float)newIntVal / 1000;
                         NSNumber *progVal = [[NSNumber alloc]initWithFloat:newVal];
                         
                         [self performSelectorOnMainThread:@selector(setProgressValue:)
@@ -220,7 +221,9 @@ union {
                     }
                     case 3:
                     {   // /fz/audio_out
-                        float newVal = (float)oscValByteSwap(self->mUDPInBuffer+pos) / 1000;
+						int newIntVal = oscValByteSwap(self->mUDPInBuffer+pos);
+						//NSLog(@"fz/audio_out %d",newIntVal);
+                        float newVal = (float)newIntVal / 7;
                         NSNumber *serverMeterVal = [[NSNumber alloc]initWithFloat:newVal];
                         
                         [self performSelectorOnMainThread:@selector(setPlayingMeterValue:)
@@ -231,7 +234,9 @@ union {
                     }
                     case 4:
                     {   // /fz/audio_in
-                        float newVal = (float)oscValByteSwap(self->mUDPInBuffer+pos) / 1000;
+						int newIntVal = oscValByteSwap(self->mUDPInBuffer+pos);
+						//NSLog(@"fz/audio_in %d",newIntVal);
+                        float newVal = (float)newIntVal / 7;
                         NSNumber *serverMeterVal = [[NSNumber alloc]initWithFloat:newVal];
                         
                         [self performSelectorOnMainThread:@selector(setRecordingMeterValue:)
