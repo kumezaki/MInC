@@ -9,16 +9,26 @@
 #import "MeterView.h"
 
 @implementation MeterView
+@synthesize meterVal    =_meterVal;
 
-@synthesize delegate;
+- (float)meterVal {
+    return _meterVal;
+}
 
+- (void)setMeterVal:(float)newMeterVal {
+    if (_meterVal != newMeterVal) {
+        _meterVal = newMeterVal;
+        
+        [self setNeedsDisplay];
+    }
+}
 - (void) dealloc {
     
      [super dealloc];
 }
 
 - (void)setup {
-    
+    self.backgroundColor = [UIColor blackColor];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -31,7 +41,6 @@
 }
 
 - (void)awakeFromNib {
-	self.backgroundColor = [UIColor blackColor];
     [self setup];
 }
 
@@ -47,8 +56,8 @@
 	CGContextSetLineWidth(c, width*4);
 	[[UIColor greenColor] setStroke];
     
-    // ask the delegate for a value
-    float val = [self.delegate floatValueForMeterView:self];
+    // get a value from the value property
+    float val = self.meterVal;
     
     // scale 0. to 1. values to the hieght of the view
     val = height * val;

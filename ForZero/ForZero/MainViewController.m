@@ -17,9 +17,10 @@
 @synthesize serverViewContainer =_serverViewContainer;
 @synthesize clientViewContainer =_clientViewContainer;
 @synthesize serverRecordProgVal =_serverRecordProgVal;
+@synthesize serverRecordMeterVal=_serverRecordMeterVal;
+@synthesize serverPlayMeterVal  =_serverPlayMeterVal;
 @synthesize downloadIndicator   =_downloadIndicator;
 @synthesize downloadProgView    =_downloadProgView;
-@synthesize serverMeterVal      =_serverMeterVal;
 @synthesize downloadButt        =_downloadButt;
 @synthesize uploadButt          =_uploadButt;
 @synthesize networking          =_networking;
@@ -30,15 +31,22 @@
     if (newProgVal < 0.) newProgVal = 0.;
 	if (newProgVal > 1.) newProgVal = 1.;
 	_serverRecordProgVal = newProgVal;
-	[self.serverViewContainer.frontView setNeedsDisplay];
+    self.serverViewContainer.frontView.progressVal = _serverRecordProgVal;
 }
 
-- (void)setServerMeterVal:(float)newServerMeterVal {
-    if (newServerMeterVal < 0.) newServerMeterVal = 0.;
-	if (newServerMeterVal > 1.) newServerMeterVal = 1.;
-	_serverMeterVal = newServerMeterVal;
-	[self.serverViewContainer.leftMeterView setNeedsDisplay];
-    [self.serverViewContainer.rightMeterView setNeedsDisplay];
+- (void)setServerPlayMeterVal:(float)newServerPlayMeterVal {
+    if (newServerPlayMeterVal < 0.) newServerPlayMeterVal = 0.;
+	if (newServerPlayMeterVal > 1.) newServerPlayMeterVal = 1.;
+	_serverPlayMeterVal = newServerPlayMeterVal;
+    self.serverViewContainer.rightMeterView.meterVal = _serverPlayMeterVal;
+}
+
+- (void)setServerRecordMeterVal:(float)newServerRecordMeterVal
+{
+    if (newServerRecordMeterVal < 0.) newServerRecordMeterVal = 0.;
+	if (newServerRecordMeterVal > 1.) newServerRecordMeterVal = 1.;
+	_serverRecordMeterVal = newServerRecordMeterVal;
+    self.serverViewContainer.leftMeterView.meterVal = _serverRecordMeterVal;
 }
 
 - (void)displayAlertMessage:(NSString*)alertMsg
@@ -68,6 +76,9 @@
     self.interstitialView.delegate = self;
     self.interstitialView.alpha = 0.0;
 #endif
+    
+    self.serverViewContainer.networking = self.networking;
+    self.clientViewContainer.aqPlayer = self.aqPlayer;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -88,32 +99,37 @@
 
     [self.serverViewContainer updateFrameSize:CGRectMake(0, 0, 320, 200)];
     [self.clientViewContainer updateFrameSize:CGRectMake(0, 280, 320, 200)];
-    self.downloadButt.frame = CGRectMake(115, 185, 90, 110);
-    // for when upload is supported:
-    // self.uploadButt.frame   = CGRectMake(88, 184, 45, 110);
-    // self.downloadButt.frame = CGRectMake(186, 184, 45, 110);
 
-    
+#define _no_upload_ 1
+
+#if _no_upload_
+    // one download button:
+    self.downloadButt.frame = CGRectMake(115, 185, 90, 110);
+#else
+    // for when upload is supported as well:
+    self.uploadButt.frame   = CGRectMake(88, 184, 45, 110);
+    self.downloadButt.frame = CGRectMake(186, 184, 45, 110);
+#endif
 }
+
 - (void)layoutLandscapeOrientation {
 
     [self.serverViewContainer updateFrameSize:CGRectMake(0, 0, 480, 150)];
     [self.clientViewContainer updateFrameSize:CGRectMake(0, 170, 480, 150)];
+
+#if _no_upload_
+    // one download button:
     self.downloadButt.frame = CGRectMake(195, 134, 90, 55);
-    // for when upload is supported:
-    // self.uploadButt.frame   = CGRectMake(139, 133, 45, 55);
-    // self.downloadButt.frame = CGRectMake(294, 133, 45, 55);
+#else
+    // for when upload is supported as well:
+    self.uploadButt.frame   = CGRectMake(139, 133, 45, 55);
+    self.downloadButt.frame = CGRectMake(294, 133, 45, 55);
+#endif
 }
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.serverViewContainer.delegate = self;
-    self.serverViewContainer.networking = self.networking;
-    
-    self.clientViewContainer.aqPlayer = self.aqPlayer;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -290,21 +306,33 @@
     }
 }
 
-- (void)displayServerAudioMeterValue:(NetworkMessages *)requestor :(NSNumber *)val
+- (void)displayServerPlayingMeterValue:(NetworkMessages *)requestor :(NSNumber *)val
 {
     // serverMeterVal setter calls setNeedsDisplay
     if (requestor != nil) {
-        self.serverMeterVal = [requestor.meterValue floatValue];
+        self.serverPlayMeterVal = [requestor.playingMeterValue floatValue];
     }
     else if (val != nil) {
-        self.serverMeterVal = [val floatValue];
+        self.serverPlayMeterVal = [val floatValue];
     }
     
 }
 
+- (void)displayServerRecordingMeterValue:(NetworkMessages *)requestor :(NSNumber *)val
+{
+    // serverMeterVal setter calls setNeedsDisplay
+    if (requestor != nil) {
+        self.serverRecordMeterVal = [requestor.recordingMeterValue floatValue];
+    }
+    else if (val != nil) {
+        self.serverRecordMeterVal = [val floatValue];
+    }
+    
+}
+
+
 - (void)displayInterstitialMessage:(NetworkMessages*)requestor
 {
-    //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 #if _AlphaInterstitial_
 
     if (![requestor.interstitialMsg isEqualToString:self.interstitialView.msg]) {
@@ -339,30 +367,6 @@
     [interstitialView release];
 #endif
     
-}
-
-#pragma mark - ControlViewDelegate Method Implementations
-
-- (float)floatValueForControlViewMeters:(ControlView*)requestor {
-    
-    float val = 0.0;
-    
-	if (requestor == self.serverViewContainer) {
-        val = self.serverMeterVal;	
-    }
-    else if (requestor == self.clientViewContainer) {
-        val = self.aqPlayer.mAmp;
-    }
-    return val;
-}
-
-- (float)progressValueForControlView:(ControlView *)requestor
-{
-	float prog = 0;
-	if (requestor == self.serverViewContainer) {
-		prog = self.serverRecordProgVal;
-	}
-	return prog;
 }
 
 #pragma mark - SagarihaAudioQueuePlayerDelegate Method Implementations
@@ -407,9 +411,7 @@
 	CATransition *animation = [CATransition animation];
 	[animation setDuration:kCrossfadeDuration];
 	[animation setType:kCATransitionFade];   
-    
-    //[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-    
+        
 	[self.view.layer addAnimation:animation forKey:nil];
 #endif
 }

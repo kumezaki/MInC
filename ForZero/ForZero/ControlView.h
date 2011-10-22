@@ -13,16 +13,9 @@
 #import "ProgressBarView.h"
 #import "MeterView.h"
 
-@class ControlView;
-@protocol ControlViewDelegate
-- (float)floatValueForControlViewMeters:(ControlView*)requestor;
-- (float)progressValueForControlView:(ControlView*)requestor;
-@end
-
-@interface ControlView : UIView <MeterViewDelegate, ProgressBarViewDelegate>{
+@interface ControlView : UIView {
 
 }
-@property (nonatomic, assign) id<ControlViewDelegate> delegate;
 
 @property (nonatomic, retain) IBOutlet ProgressBarView  *frontView;
 @property (nonatomic, retain) IBOutlet MeterView        *leftMeterView;

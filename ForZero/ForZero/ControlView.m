@@ -8,7 +8,6 @@
 #import "ControlView.h"
 
 @implementation ControlView
-@synthesize delegate;
 
 @synthesize frontView               =_frontView;
 @synthesize leftMeterView           =_leftMeterView;
@@ -53,10 +52,6 @@
 
     [self bringSubviewToFront:self.frontView];
     self.currentDisplayedView = self.frontView;
-    
-    self.frontView.delegate = self;
-    self.leftMeterView.delegate = self;
-    self.rightMeterView.delegate = self;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -121,25 +116,6 @@
     CGRect newSize = CGRectMake(0, 0, frame.size.width, frame.size.height);
     self.frontView.frame = newSize;
     self.flipView.frame = newSize;
-}
-
-#pragma mark - MeterViewDelegate Method Implementations
-
-- (float)floatValueForMeterView:(MeterView *)requestor {
-    float val = [self.delegate floatValueForControlViewMeters:self];
-    return val;
-}
-
-
-#pragma mark - ProgressBarViewDelegate Method Implementations
-
-- (float)progressValueForProgressBarView:(ProgressBarView *)requestor
-{
-	float prog = 0;
-	if (requestor == self.frontView) {
-		prog = [self.delegate progressValueForControlView:self];
-	}
-	return prog;
 }
 
 @end

@@ -9,14 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Constants.h"
 
-@class ProgressBarView;
-@protocol ProgressBarViewDelegate
-- (float)progressValueForProgressBarView:(ProgressBarView *)requestor;
-@end
-
-@interface ProgressBarView : UIView {
-    
-}
-@property (nonatomic, assign) id <ProgressBarViewDelegate> delegate;
-
+@interface ProgressBarView : UIView
+@property (nonatomic) float progressVal;
 @end

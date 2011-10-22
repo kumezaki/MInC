@@ -16,7 +16,7 @@
 #import "ClientControlView.h"
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate, NetworkMessagesDelegate, 
-SagarihaAudioQueuePlayerDelegate, InterstitialMessageViewDelegate, ControlViewDelegate> 
+SagarihaAudioQueuePlayerDelegate, InterstitialMessageViewDelegate> 
 
 // elements in top layer of MainView
 @property (nonatomic, retain) IBOutlet ServerControlView        *serverViewContainer;
@@ -37,7 +37,8 @@ SagarihaAudioQueuePlayerDelegate, InterstitialMessageViewDelegate, ControlViewDe
 @property (nonatomic, retain) SagarihaAudioQueuePlayer  *aqPlayer;
 
 @property (nonatomic) float serverRecordProgVal;
-@property (nonatomic) float serverMeterVal;
+@property (nonatomic) float serverPlayMeterVal;
+@property (nonatomic) float serverRecordMeterVal;
 
 - (IBAction)showInfo:(id)sender;
 

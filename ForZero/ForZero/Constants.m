@@ -14,13 +14,14 @@
     NSDictionary*messageDict = [NSDictionary dictionaryWithObjectsAndKeys:
                                 @"1" , @"/fz/state",        // not sure what this is for
                                 @"2" , @"/fz/rec_prog",     // server record progress
-                                @"3" , @"/fz/audio_out",     // data to drive server meter displays
-                                @"4" , @"/fz/interstitial", // interstitial messages
-                                @"5" , @"/fz/hb",           // fz heartbeat message
-                                @"6" , @"/fz/play",         // device play from server
-                                @"7" , @"/fz/stop",         // device stop from server
-                                @"8" , @"/fz/cue",          // formerly used to cue UI "scenes"
-                                @"9" , @"/fz/loop",         // too loop device playback?
+                                @"3" , @"/fz/audio_out",    // data to drive server play meter display
+                                @"4" , @"/fz/audio_in",     // data to driver server record meter display
+                                @"5" , @"/fz/interstitial", // interstitial messages
+                                @"6" , @"/fz/hb",           // fz heartbeat message
+                                @"7" , @"/fz/play",         // device play from server
+                                @"8" , @"/fz/stop",         // device stop from server
+                                @"9" , @"/fz/cue",          // formerly used to cue UI "scenes"
+                                @"10", @"/fz/loop",         // too loop device playback?
                                 nil];
     return messageDict;
 }

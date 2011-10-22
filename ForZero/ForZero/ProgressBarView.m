@@ -10,7 +10,18 @@
 
 @implementation ProgressBarView
 
-@synthesize delegate=_delegate;
+@synthesize progressVal =_progressVal;
+
+- (float)progressVal {
+    return _progressVal;
+}
+
+- (void)setProgressVal:(float)newProgressVal {
+    if (_progressVal != newProgressVal) {
+        _progressVal = newProgressVal;
+        [self setNeedsDisplay];
+    }
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -46,9 +57,9 @@
     CGContextRef c = UIGraphicsGetCurrentContext();
 	CGContextSetLineWidth(c, 20.0);
 	[[UIColor greenColor] setStroke];
-    
-    // ask the delegate for a value
-    float prog = [self.delegate progressValueForProgressBarView:self];
+
+    // get the value
+    float prog = self.progressVal;
     
     CGFloat width = self.bounds.size.width;
     CGFloat height = self.bounds.size.height;

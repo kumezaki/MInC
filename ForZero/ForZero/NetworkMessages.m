@@ -13,7 +13,8 @@
 @property (nonatomic, readwrite, retain) NSString       *interstitialMsg;
 @property (nonatomic, readwrite, retain) NSString       *errorMsg;
 @property (nonatomic, readwrite, retain) NSNumber       *recProgress;
-@property (nonatomic, readwrite, retain) NSNumber       *meterValue;
+@property (nonatomic, readwrite, retain) NSNumber       *playingMeterValue;
+@property (nonatomic, readwrite, retain) NSNumber       *recordingMeterValue;
 @property (nonatomic, readwrite, retain) NSDictionary   *msgDictionary;
 @end
 
@@ -28,12 +29,13 @@ int (^oscValByteSwap)(char*) = ^(char* num) {
 @implementation NetworkMessages
 
 @synthesize delegate;
-@synthesize msgDictionary   =_msgDictionary;
-@synthesize aqPlayer        =_aqPlayer;
-@synthesize interstitialMsg =_interstitialMsg;
-@synthesize errorMsg        =_errorMsg;
-@synthesize recProgress     =_recProgress;
-@synthesize meterValue      =_meterValue;
+@synthesize msgDictionary       =_msgDictionary;
+@synthesize aqPlayer            =_aqPlayer;
+@synthesize interstitialMsg     =_interstitialMsg;
+@synthesize errorMsg            =_errorMsg;
+@synthesize recProgress         =_recProgress;
+@synthesize playingMeterValue   =_playingMeterValue;
+@synthesize recordingMeterValue =_recordingMeterValue;
 
 #define OSC_START self->mOutBufferLength = 0;
 #define OSC_END [self send_udp];
@@ -53,12 +55,13 @@ union {
 
 - (void)dealloc {
     
-    [_aqPlayer          release];
-    [_interstitialMsg   release];
-    [_errorMsg          release];
-    [_recProgress       release];
-    [_msgDictionary     release];
-    [_meterValue        release];
+    [_aqPlayer              release];
+    [_interstitialMsg       release];
+    [_errorMsg              release];
+    [_recProgress           release];
+    [_msgDictionary         release];
+    [_playingMeterValue     release];
+    [_recordingMeterValue   release];
     
     [super dealloc];
 }
@@ -90,12 +93,21 @@ union {
     }
 }
 
-- (void)setMeterValue:(NSNumber *)meterValue {
+- (void)setPlayingMeterValue:(NSNumber *)playingMeterValue{
     
-    if (![_meterValue isEqualToNumber:meterValue]) {
-        [_meterValue release];
-        _meterValue = [meterValue retain];
-        [self.delegate displayServerAudioMeterValue:self:nil];
+    if (![_playingMeterValue isEqualToNumber:playingMeterValue]) {
+        [_playingMeterValue release];
+        _playingMeterValue = [playingMeterValue retain];
+        [self.delegate displayServerPlayingMeterValue:self:nil];
+    }
+}
+
+- (void)setRecordingMeterValue:(NSNumber *)recordingMeterValue {
+    
+    if (![_recordingMeterValue isEqualToNumber:recordingMeterValue]) {
+        [_recordingMeterValue release];
+        _recordingMeterValue = [recordingMeterValue retain];
+        [self.delegate displayServerRecordingMeterValue:self :nil];
     }
 }
 
@@ -163,13 +175,13 @@ union {
             {
                 switch (add_type)
                 {
-                    case 6:
+                    case 7:
 					{   // /fz/play
                         NSLog(@"received /fz/play\n");
 						mOSCMsg_Play = YES;						
                         break;
 					}
-					case 7:
+					case 8:
 					{   // /fz/stop
                         NSLog(@"received /fz/stop\n");
 						mOSCMsg_Stop = YES;
@@ -211,14 +223,24 @@ union {
                         float newVal = (float)oscValByteSwap(self->mUDPInBuffer+pos) / 1000;
                         NSNumber *serverMeterVal = [[NSNumber alloc]initWithFloat:newVal];
                         
-                        [self performSelectorOnMainThread:@selector(setMeterValue:)
+                        [self performSelectorOnMainThread:@selector(setPlayingMeterValue:)
                                                withObject:serverMeterVal 
                                             waitUntilDone:NO];
                         [serverMeterVal release];
                         break;
                     }
-
                     case 4:
+                    {   // /fz/audio_in
+                        float newVal = (float)oscValByteSwap(self->mUDPInBuffer+pos) / 1000;
+                        NSNumber *serverMeterVal = [[NSNumber alloc]initWithFloat:newVal];
+                        
+                        [self performSelectorOnMainThread:@selector(setRecordingMeterValue:)
+                                               withObject:serverMeterVal 
+                                            waitUntilDone:NO];
+                        [serverMeterVal release];
+                        break;
+                    }
+                    case 5:
                     {   // /fz/interstitial
                         
                         NSString *interstitialMsg = [[NSString alloc] initWithCString:self->mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
@@ -230,7 +252,7 @@ union {
                         
                         break;
                     }
-                    case 5:
+                    case 6:
                     {   // /fz/hb
                         //NSLog(@"received /fz/hb:%s\n",mUDPInBuffer+pos);
                         NSString *serverIP = [[NSString alloc] initWithCString:self->mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
@@ -240,14 +262,14 @@ union {
                         
                         break;
                     }
-                    case 8:
+                    case 9:
                     {   // /fz/cue
                         OSC_VAL_BYTE_SWAP(self->mUDPInBuffer+pos)
                         // NSLog(@"received /fz/cue:%d\n",u.int_val);
                         mOSCMsg_Cue = u.int_val;
                         break;
                     }
-					case 9:
+					case 10:
 					{   // /fz/loop
                         /*
                         //currently disabled in Max patch

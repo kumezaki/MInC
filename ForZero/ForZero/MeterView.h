@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class MeterView;
-@protocol MeterViewDelegate
-- (float)floatValueForMeterView:(MeterView*)requestor;
-@end
-
 @interface MeterView : UIView
-@property (nonatomic, assign) id<MeterViewDelegate> delegate;
+@property (nonatomic) float meterVal;
 @end
