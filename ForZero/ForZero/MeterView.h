@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MeterView : UIView
-@property (nonatomic) float meterVal;
+@property (nonatomic) int meterVal;
 @end

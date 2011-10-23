@@ -112,7 +112,7 @@
     }
     else i = 0;
     
-    self.rightMeterView.meterVal = (float)i / 7;
+    self.rightMeterView.meterVal = i;
     
 }
 @end

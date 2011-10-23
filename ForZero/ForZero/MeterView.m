@@ -11,11 +11,7 @@
 @implementation MeterView
 @synthesize meterVal    =_meterVal;
 
-- (float)meterVal {
-    return _meterVal;
-}
-
-- (void)setMeterVal:(float)newMeterVal {
+- (void)setMeterVal:(int)newMeterVal {
     if (_meterVal != newMeterVal) {
         _meterVal = newMeterVal;
         
@@ -53,19 +49,59 @@
     CGFloat width = self.bounds.size.width;
     CGFloat height = self.bounds.size.height;
     
-	CGContextSetLineWidth(c, width*4);
-	[[UIColor greenColor] setStroke];
-    
-    // get a value from the value property
-    float val = self.meterVal;
-    
-    // scale 0. to 1. values to the hieght of the view
-    val = height * val;
-    
-    CGContextBeginPath(c);
-    CGContextMoveToPoint(c, 0, height);
-    CGContextAddLineToPoint(c, 0, height - val);
-    CGContextStrokePath(c);
+    CGFloat borderWidth = 2;
+
+    CGFloat boxHeight = (height / 7) - (borderWidth * 2);
+    CGFloat boxWidth = width - (borderWidth * 2);
+;
+    // get the value from the value property
+    int val = self.meterVal;
+
+    if (val > 0) {
+        [[UIColor greenColor] setFill];
+        int boxNum = 1;
+        CGContextBeginPath(c);
+        CGContextFillRect(c, CGRectMake(borderWidth, height - ((boxHeight*boxNum) + (borderWidth*boxNum)), boxWidth, boxHeight));
+    }
+    if (val > 1) {
+        int boxNum = 2;
+        CGContextBeginPath(c);
+        CGContextFillRect(c, CGRectMake(borderWidth, height - ((boxHeight*boxNum) + (borderWidth*boxNum)), boxWidth, boxHeight));
+    }
+    if (val > 2) {
+        int boxNum = 3;
+        CGContextBeginPath(c);
+        CGContextFillRect(c, CGRectMake(borderWidth, height - ((boxHeight*boxNum) + (borderWidth*boxNum)), boxWidth, boxHeight));
+    }
+    if (val > 3) {
+        [[UIColor yellowColor] setFill];
+        int boxNum = 4;
+        CGContextBeginPath(c);
+        CGContextFillRect(c, CGRectMake(borderWidth, height - ((boxHeight*boxNum) + (borderWidth*boxNum)), boxWidth, boxHeight));
+    }
+    if (val > 4) {
+        int boxNum = 5;
+        CGContextBeginPath(c);
+        CGContextFillRect(c, CGRectMake(borderWidth, height - ((boxHeight*boxNum) + (borderWidth*boxNum)), boxWidth, boxHeight));
+    }
+    if (val > 5) {
+        [[UIColor orangeColor] setFill];
+        int boxNum = 6;
+        CGContextBeginPath(c);
+        CGContextFillRect(c, CGRectMake(borderWidth, height - ((boxHeight*boxNum) + (borderWidth*boxNum)), boxWidth, boxHeight));
+    }
+    if (val > 6) {
+        int boxNum = 7;
+        CGContextBeginPath(c);
+        CGContextFillRect(c, CGRectMake(borderWidth, height - ((boxHeight*boxNum) + (borderWidth*boxNum)), boxWidth, boxHeight));
+
+    }
+    if (val > 7) {
+        [[UIColor redColor] setFill];
+        int boxNum = 8;
+        CGContextBeginPath(c);
+        CGContextFillRect(c, CGRectMake(borderWidth, height - ((boxHeight*boxNum) + (borderWidth*boxNum)), boxWidth, boxHeight));
+    }
 }
 
 

@@ -34,17 +34,13 @@
     self.serverViewContainer.frontView.progressVal = _serverRecordProgVal;
 }
 
-- (void)setServerPlayMeterVal:(float)newServerPlayMeterVal {
-    if (newServerPlayMeterVal < 0.) newServerPlayMeterVal = 0.;
-	if (newServerPlayMeterVal > 1.) newServerPlayMeterVal = 1.;
+- (void)setServerPlayMeterVal:(int)newServerPlayMeterVal {
 	_serverPlayMeterVal = newServerPlayMeterVal;
     self.serverViewContainer.rightMeterView.meterVal = _serverPlayMeterVal;
 }
 
-- (void)setServerRecordMeterVal:(float)newServerRecordMeterVal
+- (void)setServerRecordMeterVal:(int)newServerRecordMeterVal
 {
-    if (newServerRecordMeterVal < 0.) newServerRecordMeterVal = 0.;
-	if (newServerRecordMeterVal > 1.) newServerRecordMeterVal = 1.;
 	_serverRecordMeterVal = newServerRecordMeterVal;
     self.serverViewContainer.leftMeterView.meterVal = _serverRecordMeterVal;
 }
@@ -310,10 +306,10 @@
 {
     // serverMeterVal setter calls setNeedsDisplay
     if (requestor != nil) {
-        self.serverPlayMeterVal = [requestor.playingMeterValue floatValue];
+        self.serverPlayMeterVal = [requestor.playingMeterValue intValue];
     }
     else if (val != nil) {
-        self.serverPlayMeterVal = [val floatValue];
+        self.serverPlayMeterVal = [val intValue];
     }
     
 }
@@ -322,10 +318,10 @@
 {
     // serverMeterVal setter calls setNeedsDisplay
     if (requestor != nil) {
-        self.serverRecordMeterVal = [requestor.recordingMeterValue floatValue];
+        self.serverRecordMeterVal = [requestor.recordingMeterValue intValue];
     }
     else if (val != nil) {
-        self.serverRecordMeterVal = [val floatValue];
+        self.serverRecordMeterVal = [val intValue];
     }
     
 }

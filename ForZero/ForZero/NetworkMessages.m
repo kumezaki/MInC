@@ -223,8 +223,8 @@ union {
                     {   // /fz/audio_out
 						int newIntVal = oscValByteSwap(self->mUDPInBuffer+pos);
 						//NSLog(@"fz/audio_out %d",newIntVal);
-                        float newVal = (float)newIntVal / 7;
-                        NSNumber *serverMeterVal = [[NSNumber alloc]initWithFloat:newVal];
+                        //float newVal = (float)newIntVal / 7;
+                        NSNumber *serverMeterVal = [[NSNumber alloc]initWithInt:newIntVal];
                         
                         [self performSelectorOnMainThread:@selector(setPlayingMeterValue:)
                                                withObject:serverMeterVal 
@@ -236,8 +236,8 @@ union {
                     {   // /fz/audio_in
 						int newIntVal = oscValByteSwap(self->mUDPInBuffer+pos);
 						//NSLog(@"fz/audio_in %d",newIntVal);
-                        float newVal = (float)newIntVal / 7;
-                        NSNumber *serverMeterVal = [[NSNumber alloc]initWithFloat:newVal];
+                        //float newVal = (float)newIntVal / 7;
+                        NSNumber *serverMeterVal = [[NSNumber alloc]initWithInt:newIntVal];
                         
                         [self performSelectorOnMainThread:@selector(setRecordingMeterValue:)
                                                withObject:serverMeterVal 

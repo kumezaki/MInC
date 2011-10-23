@@ -37,8 +37,8 @@ SagarihaAudioQueuePlayerDelegate, InterstitialMessageViewDelegate>
 @property (nonatomic, retain) SagarihaAudioQueuePlayer  *aqPlayer;
 
 @property (nonatomic) float serverRecordProgVal;
-@property (nonatomic) float serverPlayMeterVal;
-@property (nonatomic) float serverRecordMeterVal;
+@property (nonatomic) int serverPlayMeterVal;
+@property (nonatomic) int serverRecordMeterVal;
 
 - (IBAction)showInfo:(id)sender;
 
