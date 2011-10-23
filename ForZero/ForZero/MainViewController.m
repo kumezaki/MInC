@@ -115,7 +115,7 @@
 
 #if _no_upload_
     // one download button:
-    self.downloadButt.frame = CGRectMake(195, 134, 90, 55);
+    self.downloadButt.frame = CGRectMake((self.view.bounds.size.width*0.5)-45 , 134, 90, 55);
 #else
     // for when upload is supported as well:
     self.uploadButt.frame   = CGRectMake(139, 133, 45, 55);
