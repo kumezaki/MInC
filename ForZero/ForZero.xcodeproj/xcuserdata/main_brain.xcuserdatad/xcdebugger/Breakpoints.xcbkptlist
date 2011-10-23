@@ -69,18 +69,18 @@
          continueAfterRunningActions = "Yes"
          isPathRelative = "1"
          filePath = "ForZero/NetworkMessages.m"
-         timestampString = "340936354.155177"
+         timestampString = "341030399.194542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "236"
-         endingLineNumber = "236"
+         startingLineNumber = "226"
+         endingLineNumber = "226"
          landmarkName = "-udpParse"
          landmarkType = "5">
          <Actions>
             <BreakpointActionProxy
                ActionType = "Xcode.BreakpointAction.Log">
                <ActionContent
-                  message = "newVal:@(float)newVal@"
+                  message = "newIntVal:@(int)newIntVal@"
                   conveyanceType = "0">
                </ActionContent>
             </BreakpointActionProxy>
@@ -120,7 +120,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "21"
          endingLineNumber = "21"
-         landmarkName = "-setPlayMeterVal:"
+         landmarkName = "-setMeterVal:"
          landmarkType = "5">
          <Actions>
             <BreakpointActionProxy
@@ -161,11 +161,11 @@
          continueAfterRunningActions = "Yes"
          isPathRelative = "1"
          filePath = "ForZero/MainViewController.m"
-         timestampString = "340936724.29002"
+         timestampString = "341023364.235415"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "325"
-         endingLineNumber = "325"
+         startingLineNumber = "327"
+         endingLineNumber = "327"
          landmarkName = "-displayServerRecordingMeterValue::"
          landmarkType = "5">
          <Actions>
@@ -173,6 +173,75 @@
                ActionType = "Xcode.BreakpointAction.Log">
                <ActionContent
                   message = "@(float)[[requestor recordingMeterValue] floatValue]@"
+                  conveyanceType = "0">
+               </ActionContent>
+            </BreakpointActionProxy>
+         </Actions>
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "Yes"
+         isPathRelative = "1"
+         filePath = "ForZero/ClientControlView.m"
+         timestampString = "341029654.829483"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "75"
+         endingLineNumber = "75"
+         landmarkName = "-startPlaybackMetering:"
+         landmarkType = "5">
+         <Actions>
+            <BreakpointActionProxy
+               ActionType = "Xcode.BreakpointAction.Log">
+               <ActionContent
+                  message = "ClientControlView Notified that AQPlayer Started"
+                  conveyanceType = "0">
+               </ActionContent>
+            </BreakpointActionProxy>
+         </Actions>
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "Yes"
+         isPathRelative = "1"
+         filePath = "ForZero/ClientControlView.m"
+         timestampString = "341033920.463945"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "90"
+         endingLineNumber = "90"
+         landmarkName = "-stopPlaybackMetering:"
+         landmarkType = "5">
+         <Actions>
+            <BreakpointActionProxy
+               ActionType = "Xcode.BreakpointAction.Log">
+               <ActionContent
+                  message = "ClientControlView Notified that AQPlayer Stopped"
+                  conveyanceType = "0">
+               </ActionContent>
+            </BreakpointActionProxy>
+         </Actions>
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "Yes"
+         isPathRelative = "1"
+         filePath = "ForZero/ClientControlView.m"
+         timestampString = "341033920.463945"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "97"
+         endingLineNumber = "97"
+         landmarkName = "-refreshPlaybackMeter"
+         landmarkType = "5">
+         <Actions>
+            <BreakpointActionProxy
+               ActionType = "Xcode.BreakpointAction.Log">
+               <ActionContent
+                  message = "_level-&gt;mAveragePower:@(float)i / 7@"
                   conveyanceType = "0">
                </ActionContent>
             </BreakpointActionProxy>

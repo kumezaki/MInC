@@ -7,14 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 #import "ControlView.h"
 #import "SagarihaAudioQueuePlayer.h"
 
 
 @interface ClientControlView : ControlView {
+    AudioQueueLevelMeterState *_level;
     
+    NSTimer     *_updateTimer;
+    Float32     meterRefreshRate; // 1.0 = 1sec
 }
 @property (nonatomic, retain) SagarihaAudioQueuePlayer   *aqPlayer;
 
+- (void)startPlaybackMetering:(NSNotification*)notification;
+- (void)stopPlaybackMetering:(NSNotification*)notification;
+- (void)refreshPlaybackMeter;
 @end

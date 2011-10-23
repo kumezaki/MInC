@@ -11,26 +11,35 @@
 @implementation ClientControlView
 @synthesize aqPlayer=_aqPlayer;
 
-- (id)initWithFrame:(CGRect)frame
-{
-    [[NSBundle mainBundle] loadNibNamed:@"ClientControlView" owner:self options:nil];
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.viewLabel.text = @"Your Device";
-    }
-    return self;
-
-}
-
 - (void) awakeFromNib
 {
     [[NSBundle mainBundle] loadNibNamed:@"ClientControlView" owner:self options:nil];
     [super awakeFromNib];
     self.viewLabel.text = @"Your Device";
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(startPlaybackMetering:) 
+                                                 name:@"AudioQueuePlayerIsPlayingNotification" 
+                                               object:_aqPlayer];
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(stopPlaybackMetering:) 
+                                                 name:@"AudioQueuePlayerIsStoppedNotification" 
+                                               object:_aqPlayer];
+    
+    _level = (AudioQueueLevelMeterState*)malloc(sizeof(AudioQueueLevelMeterState));
+    
+    meterRefreshRate = 0.33;
 }
 
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                    name:@"AudioQueuePlayerIsPlayingNotification" 
+                                                  object:_aqPlayer];
+    [[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                    name:@"AudioQueuePlayerIsStoppedNotification" 
+                                                  object:_aqPlayer];
+
     [_aqPlayer release];
     [super dealloc];
 }
@@ -55,8 +64,55 @@
 
 - (IBAction)setVolume:(id)sender {
     if ([sender isKindOfClass:[UISlider class]]) {
-        self.aqPlayer.mAmp = ((UISlider*)sender).value;
+        self.aqPlayer.amp = ((UISlider*)sender).value;
     }
 }
 
+#pragma mark - void Methods
+
+- (void)startPlaybackMetering:(NSNotification*)notification
+{
+    if (_updateTimer != nil) [_updateTimer invalidate];
+    
+    _updateTimer = [NSTimer 
+                    scheduledTimerWithTimeInterval:meterRefreshRate 
+                    target:self 
+                    selector:@selector(refreshPlaybackMeter) 
+                    userInfo:nil 
+                    repeats:YES
+                    ];
+
+}
+- (void)stopPlaybackMetering:(NSNotification*)notification
+{
+    self.rightMeterView.meterVal = 0.0;
+    
+    [_updateTimer invalidate];
+    _updateTimer = nil;
+}
+- (void)refreshPlaybackMeter
+{
+    UInt32 data_sz = sizeof(AudioQueueLevelMeterState);
+    OSStatus result = AudioQueueGetProperty(self.aqPlayer.mQueue, kAudioQueueProperty_CurrentLevelMeter, _level, &data_sz);
+    if (result)
+        NSLog(@"metering failed: %ld\n",result);
+
+    float averageLevel = _level->mAveragePower;
+    
+    int n = (int)(averageLevel * 64.);
+    
+    int i;
+    
+    if (averageLevel > 0.) {
+        for (i = 1; i < 8; i++)
+        {
+            if (n == 0) break;
+            n >>= 1;
+        }
+    }
+    else i = 0;
+    
+    self.rightMeterView.meterVal = (float)i / 7;
+    
+}
 @end

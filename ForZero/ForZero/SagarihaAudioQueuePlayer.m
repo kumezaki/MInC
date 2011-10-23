@@ -7,12 +7,16 @@
 //
 
 #import "SagarihaAudioQueuePlayer.h"
-
-
+/*
+@interface SagarihaAudioQueuePlayer()
+@property (nonatomic, readwrite) AudioQueueRef mQueue;
+@end
+*/
 @implementation SagarihaAudioQueuePlayer
 @synthesize delegate;
+@synthesize mQueue;
 @synthesize theFile = _theFile;
-@synthesize mAmp, isPlaying=_isPlaying;
+@synthesize amp=_amp, isPlaying=_isPlaying;
 
 - (void)setIsPlaying:(BOOL)isPlaying
 {
@@ -20,16 +24,27 @@
     if (isPlaying != _isPlaying) {
         _isPlaying = isPlaying;
         [self.delegate audioQueueTransportState:self];
+        
+        if (isPlaying) {
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"AudioQueuePlayerIsPlayingNotification"
+             object:self];
+        }
+        else {
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"AudioQueuePlayerIsStoppedNotification"
+             object:self];
+        }
     }
 }
 
-- (void)setMAmp:(double)newMAmp {
-    if (newMAmp != mAmp) {
-        mAmp = newMAmp;
+- (void)setAmp:(double)amp {
+    if (_amp != amp) {
+        _amp = amp;
         AudioQueueSetParameter (
                                 mQueue,
                                 kAudioQueueParam_Volume,
-                                mAmp
+                                _amp
                                 );
     }
 }
@@ -170,7 +185,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     if (result != noErr)
         NSLog(@"set queue volume: %ld\n",result);
     
-	printf("new AQ created.\n");
+    // enable playback metering
+    UInt32 meterEnableVal = 1;
+    result = (AudioQueueSetProperty(mQueue, kAudioQueueProperty_EnableLevelMetering, &meterEnableVal, sizeof(UInt32)));
+    if (result != noErr)
+        NSLog(@"couldn't enable metering: %ld\n",result);
+	
+    printf("new AQ created.\n");
 }
 
 - (void)readAudioFile {

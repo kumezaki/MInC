@@ -39,16 +39,17 @@
 	BOOL                mPaused;
 	double				mSR;
 	double				mFreq;
-	double				mAmp;
 	double				mTheta;
 	
 	double				mLoopStart;
 	double				mLoopEnd;
 }
 @property (nonatomic, assign) id<SagarihaAudioQueuePlayerDelegate> delegate;
-@property (nonatomic, retain) NSString *theFile;
-@property (nonatomic) double mAmp;
-@property (nonatomic) BOOL isPlaying;
+@property (nonatomic, readonly) AudioQueueRef   mQueue;
+@property (nonatomic, retain)   NSString        *theFile;
+
+@property (nonatomic) double    amp;
+@property (nonatomic) BOOL      isPlaying;
 
 -(void)		createAQ;
 -(void)     readAudioFile;
