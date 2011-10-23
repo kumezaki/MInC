@@ -28,7 +28,7 @@
     
     _level = (AudioQueueLevelMeterState*)malloc(sizeof(AudioQueueLevelMeterState));
     
-    meterRefreshRate = 0.33;
+    _meterRefreshRate = 0.33;
 }
 
 - (void)dealloc
@@ -75,7 +75,7 @@
     if (_updateTimer != nil) [_updateTimer invalidate];
     
     _updateTimer = [NSTimer 
-                    scheduledTimerWithTimeInterval:meterRefreshRate 
+                    scheduledTimerWithTimeInterval:_meterRefreshRate 
                     target:self 
                     selector:@selector(refreshPlaybackMeter) 
                     userInfo:nil 
@@ -96,8 +96,13 @@
     OSStatus result = AudioQueueGetProperty(self.aqPlayer.mQueue, kAudioQueueProperty_CurrentLevelMeter, _level, &data_sz);
     if (result)
         NSLog(@"metering failed: %ld\n",result);
-
-    float averageLevel = _level->mAveragePower;
+    
+    result = AudioQueueGetParameter(self.aqPlayer.mQueue, kAudioQueueParam_Volume, &_volume);
+    
+    if (result)
+        NSLog(@"get volume failed: %ld\n",result);
+    
+    float averageLevel = _level->mAveragePower * _volume;
     
     int n = (int)(averageLevel * 64.);
     

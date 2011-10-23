@@ -14,10 +14,11 @@
 
 
 @interface ClientControlView : ControlView {
-    AudioQueueLevelMeterState *_level;
-    
+    AudioQueueLevelMeterState   *_level;    
     NSTimer     *_updateTimer;
-    Float32     meterRefreshRate; // 1.0 = 1sec
+    
+    Float32     _volume;
+    Float32     _meterRefreshRate; // 1.0 = 1sec
 }
 @property (nonatomic, retain) SagarihaAudioQueuePlayer   *aqPlayer;
 

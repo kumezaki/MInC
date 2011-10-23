@@ -207,41 +207,18 @@
          continueAfterRunningActions = "Yes"
          isPathRelative = "1"
          filePath = "ForZero/ClientControlView.m"
-         timestampString = "341033920.463945"
+         timestampString = "341099672.383182"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "90"
-         endingLineNumber = "90"
-         landmarkName = "-stopPlaybackMetering:"
-         landmarkType = "5">
-         <Actions>
-            <BreakpointActionProxy
-               ActionType = "Xcode.BreakpointAction.Log">
-               <ActionContent
-                  message = "ClientControlView Notified that AQPlayer Stopped"
-                  conveyanceType = "0">
-               </ActionContent>
-            </BreakpointActionProxy>
-         </Actions>
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "Yes"
-         isPathRelative = "1"
-         filePath = "ForZero/ClientControlView.m"
-         timestampString = "341033920.463945"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "97"
-         endingLineNumber = "97"
+         startingLineNumber = "101"
+         endingLineNumber = "101"
          landmarkName = "-refreshPlaybackMeter"
          landmarkType = "5">
          <Actions>
             <BreakpointActionProxy
                ActionType = "Xcode.BreakpointAction.Log">
                <ActionContent
-                  message = "_level-&gt;mAveragePower:@(float)i / 7@"
+                  message = "_volume: @(float)_volume@"
                   conveyanceType = "0">
                </ActionContent>
             </BreakpointActionProxy>
