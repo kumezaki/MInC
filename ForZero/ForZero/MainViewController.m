@@ -129,6 +129,19 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    // if there's no audio file to play shut off client controls
+    if (self.aqPlayer.theFile == nil) {
+        self.clientViewContainer.playButton.enabled = NO;
+        self.clientViewContainer.playButton.alpha = 0.5;
+        
+        self.clientViewContainer.stopButton.enabled = NO;
+        self.clientViewContainer.stopButton.alpha = 0.5;
+        
+        self.clientViewContainer.volumerSlider.enabled = NO;
+        self.clientViewContainer.volumerSlider.alpha = 0.5;
+    }
+    
     if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
         [self layoutPortraitOrientation];
     }
@@ -280,6 +293,19 @@
 - (void)downloadEnded:(NetworkMessages*)requestor 
 {
     NSLog(@"Download ended");
+    
+    // if there's an audio file to play turn on client controls
+    if (self.aqPlayer.theFile != nil) {
+        self.clientViewContainer.playButton.enabled = YES;
+        self.clientViewContainer.playButton.alpha = 1.0;
+        
+        self.clientViewContainer.stopButton.enabled = YES;
+        self.clientViewContainer.stopButton.alpha = 1.0;
+        
+        self.clientViewContainer.volumerSlider.enabled = YES;
+        self.clientViewContainer.volumerSlider.alpha = 1.0;
+    }
+    
     [self.downloadIndicator stopAnimating];
     [self.aqPlayer start];		
 }

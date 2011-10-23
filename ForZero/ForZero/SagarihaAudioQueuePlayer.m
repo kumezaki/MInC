@@ -111,6 +111,12 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     
     self.isPlaying = NO;
     
+    // enable playback metering
+    UInt32 val = 1;
+    OSStatus result = (AudioQueueSetProperty(mQueue, kAudioSessionCategory_MediaPlayback, &val, sizeof(UInt32)));
+    if (result != noErr)
+        NSLog(@"failed to enable kAudioSessionCategory_MediaPlayback: %ld\n",result);
+    
 	return self;
 }
 
