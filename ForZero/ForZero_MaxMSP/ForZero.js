@@ -134,6 +134,8 @@ function osc_msg()
 
     else if (osc_add == "/download")
         osc_msg_download(pos);
+    else if (osc_add == "/present")
+    	post(gIPAddress[pos],"is present\n");
 }
 
 function osc_msg_transport_state(pos,val)

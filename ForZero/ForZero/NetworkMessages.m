@@ -111,6 +111,10 @@ union {
     }
 }
 
+- (void)respondToServerHeartbeatMessage {
+    [self sendOSCMsg:"/fz/present\0":12];
+}
+
 #pragma mark- OSC packing methods
 -(void)sendOSCMsg:(const char*)osc_str:(int)osc_str_length
 {
@@ -261,10 +265,10 @@ union {
                     {   // /fz/hb
                         //NSLog(@"received /fz/hb:%s\n",mUDPInBuffer+pos);
                         NSString *serverIP = [[NSString alloc] initWithCString:self->mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
+                        [super newServerIPAddress:serverIP];
                         
-                        [super newServerIPAddress:serverIP]; // in super
+                        [self performSelectorOnMainThread:@selector(respondToServerHeartbeatMessage) withObject:nil waitUntilDone:NO];
                         [serverIP release];
-                        
                         break;
                     }
                     case 9:
