@@ -1,12 +1,14 @@
 autowatch = 1;
 
-var gNumVoices = 2;
+var gNumVoices = 10;
 
 var gBufSize = 5000;
 var gBufFileName = "audsound.aif";
 var gFadeDur = 500;
 
 var gIPAddress = new Array;
+var gOn = new Array;
+var gTask_AutoBump = new Array;
 var gPortNum_Client_UDP = 31337;
 var gPortNum_Client_TCP = 41337;
 
@@ -32,6 +34,10 @@ function reset()
         
         /* IP address */
         gIPAddress[i] = undefined;
+        gOn[i] = false;
+        
+        /* autobump tasks */
+        gTask_AutoBump[i] = new Task(player_leave,this,i);
 
         /* pan */
         send_pan_x_msg(i+1,0.5);
@@ -41,7 +47,7 @@ function reset()
     messnamed("fz_poly_in_1_msg","target",0);
     messnamed("fz_poly_in_2_msg","size",gBufSize);
     messnamed("fz_poly_in_2_msg","fade",gFadeDur);
-    messnamed("fz_poly_in_2_msg","read",gBufFileName);
+//    messnamed("fz_poly_in_2_msg","read",gBufFileName);
 }
 
 var gDump = false;
@@ -68,6 +74,30 @@ function find_ip_address_pos(ip_add)
     return -1;
 }
 
+function player_join(i,ip_add)
+{
+	post("player_join",ip_add,"at target pos",i+1,"\n");
+
+	gIPAddress[i] = ip_add;
+	gOn[i] = true;
+	
+	messnamed("fz_players_msg",gOn);
+}
+
+function player_leave(i)
+{
+	post("player_leave",gIPAddress[i],"at target pos",i+1,"\n");
+
+	osc_msg_transport_state(i,1);	/* send stop to the target */
+	audio_in(i+1,0)
+	audio_out(i+1,0)
+
+	gIPAddress[i] = undefined;
+	gOn[i] = false;
+
+	messnamed("fz_players_msg",gOn);
+}
+
 function osc_msg()
 {
 //    post(arguments[0],arguments[1],arguments[2],"\n");
@@ -82,19 +112,25 @@ function osc_msg()
     {
         pos = find_ip_address_pos(undefined);
         if (pos != -1)
-        {
-            gIPAddress[pos] = ip_add;
-            post("setting",ip_add,"to target pos",pos+1,"\n");
-        }
+        	player_join(pos,ip_add);
     }
 
-    if (pos == -1) return;
-    
+    if (pos != -1)
+    {
+    	do_msg(osc_add,pos,val);
+
+    	gTask_AutoBump[pos].cancel();
+    	gTask_AutoBump[pos].schedule(60000);
+    }
+}
+
+function do_msg(osc_add,pos,val)
+{
     if (osc_add == "/accelx");
-        //osc_msg_accelx(pos,val);
+//		osc_msg_accelx(pos,val);
 
     else if (osc_add == "/accely");
-       // osc_msg_accely(pos,val);
+//		osc_msg_accely(pos,val);
 
     else if (osc_add == "/state")
         osc_msg_transport_state(pos,val);
@@ -111,8 +147,11 @@ function osc_msg()
     else if (osc_add == "/vol_c")
         osc_msg_vol_c(pos,val);
 
-    else if (osc_add == "/pan")
-        osc_msg_pan(pos,val);
+    else if (osc_add == "/panx")
+        osc_msg_pan_x(pos,val);
+
+    else if (osc_add == "/pany")
+        osc_msg_pan_y(pos,val);
 
     else if (osc_add == "/hint")
         osc_msg_hint(pos);
@@ -134,6 +173,7 @@ function osc_msg()
 
     else if (osc_add == "/download")
         osc_msg_download(pos);
+
     else if (osc_add == "/present")
     	post(gIPAddress[pos],"is present\n");
 }
@@ -197,13 +237,23 @@ function osc_msg_vol_c(pos,val)
     }
 }
 
-function osc_msg_pan(pos,val)
+function osc_msg_pan_x(pos,val)
 {
     if (pos != -1)
     {
         var pan = (val / 1000.) * 1.0;
-		// post("pan received value:",pan,"\n");
+		// post("pan x received value:",pan,"\n");
 		send_pan_x_msg(pos+1,pan);
+    }
+}
+
+function osc_msg_pan_y(pos,val)
+{
+    if (pos != -1)
+    {
+        var pan = 1.0 - ((val / 1000.) * 1.0);
+		// post("pan y received value:",pan,"\n");
+		send_pan_y_msg(pos+1,pan);
     }
 }
 

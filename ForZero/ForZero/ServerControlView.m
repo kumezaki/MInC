@@ -81,7 +81,7 @@
 	//[self.networking sendOSCMsgWithIntValue:"/fz/delay\0\0\0":12:FLOAT_TO_MRMR_INT([mDelayLevelSlider value])];
 }
 
--(IBAction)setPan:(id)sender
+-(IBAction)setPanX:(id)sender
 {
     float panVal = 0.0;
     if ([sender isKindOfClass:[UISlider class]]) {
@@ -90,7 +90,19 @@
     else if ([sender isKindOfClass:[NSNumber class]]) {
         panVal = [(NSNumber*)sender floatValue];
     }
-    [self.networking sendOSCMsgWithIntValue:"/fz/pan\0":8:FLOAT_TO_MRMR_INT(panVal)];
+    [self.networking sendOSCMsgWithIntValue:"/fz/panx\0\0\0\0":12:FLOAT_TO_MRMR_INT(panVal)];
+}
+
+-(IBAction)setPanY:(id)sender
+{
+    float panVal = 0.0;
+    if ([sender isKindOfClass:[UISlider class]]) {
+        panVal = [(UISlider*)sender value];
+    }
+    else if ([sender isKindOfClass:[NSNumber class]]) {
+        panVal = [(NSNumber*)sender floatValue];
+    }
+    [self.networking sendOSCMsgWithIntValue:"/fz/pany\0\0\0\0":12:FLOAT_TO_MRMR_INT(panVal)];
 }
 
 -(IBAction)setVolume:(id)sender
@@ -106,9 +118,10 @@
 
 - (void)panViewTouchPadValuesDidChange:(SagarihaPanView *)requestor {
     float x = requestor.touchPoint.x / self.panView.bounds.size.width;
-    //float y = requestor.touchPoint.y / self.panView.bounds.size.height;
+    float y = requestor.touchPoint.y / self.panView.bounds.size.height;
     
-    [self setPan:[NSNumber numberWithFloat:x]];
+    [self setPanX:[NSNumber numberWithFloat:x]];
+    [self setPanY:[NSNumber numberWithFloat:y]];
 }
 
 #pragma mark - UIAccelerometerDelegate Method Implementations

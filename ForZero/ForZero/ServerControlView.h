@@ -18,7 +18,8 @@
 @property (nonatomic, retain) IBOutlet UISlider         *panSlider;
 @property (nonatomic, retain) IBOutlet SagarihaPanView  *panView;
 
-- (IBAction)setPan:         (id)sender;
+- (IBAction)setPanX:         (id)sender;
+- (IBAction)setPanY:         (id)sender;
 - (IBAction)setEnvPeriod:   (id)sender;
 - (IBAction)setDelayLevel:  (id)sender;
 
