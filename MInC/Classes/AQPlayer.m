@@ -72,6 +72,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	gAQP = self;
 	
 	mSequencer_Pri = [Sequencer new];
+
+#if 1
 	for (int i = 0; i < kNumSequences; i++)
 	{
 		mSequences[i] = [Sequence new];
@@ -133,6 +135,10 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 			default: break;
 		}
 	}
+#else
+    /*** Philip: here's where the XML version of loading the sequences can happen ***/
+#endif
+    
 	mSequencer_Pri->mAmpMultiplier = 0.5;
 	mSequencer_Pri->mDurMultiplier = 0.5;
 	
