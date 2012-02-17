@@ -26,6 +26,58 @@
     return self;
 }
 
+/*
+	NSData *document;
+	NSString *query;
+	xmlDocPtr doc;
+	
+    /* Load XML document *//*
+	doc = xmlReadMemory([document bytes], [document length], "", NULL, XML_PARSE_RECOVER);
+	
+    if (doc == NULL)
+	{
+		NSLog(@"Unable to parse.");
+		return nil;
+    }
+	xmlXPathContextPtr xpathCtx; 
+    xmlXPathObjectPtr xpathObj; 
+	
+    /* Create xpath evaluation context *//*
+    xpathCtx = xmlXPathNewContext(doc);
+    if(xpathCtx == NULL)
+	{
+		NSLog(@"Unable to create XPath context.");
+		return nil;
+    }
+    
+    /* Evaluate xpath expression *//*
+    xpathObj = xmlXPathEvalExpression((xmlChar *)[query cStringUsingEncoding:NSUTF8StringEncoding], xpathCtx);
+    if(xpathObj == NULL) {
+		NSLog(@"Unable to evaluate XPath.");
+		return nil;
+    }
+	
+	xmlNodeSetPtr nodes = xpathObj->nodesetval;
+	if (!nodes)
+	{
+		NSLog(@"Nodes was nil.");
+		return nil;
+	}
+	
+	//NSMutableArray *resultNodes = [NSMutableArray array];
+	for (NSInteger i = 0; i < nodes->nodeNr; i++)
+	{
+		/* NSDictionary *nodeDictionary = DictionaryForNode(nodes->nodeTab[i], nil);
+		 if (nodeDictionary)
+		 {
+		 [resultNodes addObject:nodeDictionary];
+		 } *//*
+	}
+	
+    /* Cleanup *//*
+    xmlXPathFreeObject(xpathObj);
+    xmlXPathFreeContext(xpathCtx);*/
+
 
 
 /*

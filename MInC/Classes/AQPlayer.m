@@ -9,6 +9,20 @@
 #import "AQPlayer.h"
 
 #import "Content.h"
+/*
+#import <libxml/tree.h>
+#import <libxml/parser.h>
+#import <libxml/HTMLparser.h>
+#import <libxml/xpath.h>
+#import <libxml/xpathInternals.h>*/
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <libxml/xmlmemory.h>
+#include <libxml/parser.h>
+
+#define FILE_NAME ""
+
 
 AQPlayer *gAQP = nil;
 
@@ -73,7 +87,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	mSequencer_Pri = [Sequencer new];
 
-#if 1
+#if 0
 	for (int i = 0; i < kNumSequences; i++)
 	{
 		mSequences[i] = [Sequence new];
@@ -136,7 +150,69 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		}
 	}
 #else
-    /*** Philip: here's where the XML version of loading the sequences can happen ***/
+	xmlDocPtr doc;
+	xmlNodePtr cur;
+	
+	doc = xmlParseFile("InC.xml");
+	
+	if (doc == NULL ) {
+		fprintf(stderr,"Document not parsed successfully. \n");
+		return self;
+	}
+	
+	cur = xmlDocGetRootElement(doc);
+	
+	if (cur == NULL) {
+		fprintf(stderr,"empty document\n");
+		xmlFreeDoc(doc);
+		return self;
+	}
+	
+	if (xmlStrcmp(cur->name, (const xmlChar *) "work")) {
+		fprintf(stderr,"document of the wrong type, root node != work");
+		xmlFreeDoc(doc);
+		return self;
+	}
+	
+	cur = cur->xmlChildrenNode;
+	xmlNodePtr cur2 = cur;
+	while (cur != NULL) {
+		if ((!xmlStrcmp(cur->name, (const xmlChar *)"part"))){
+			//xmlChar *key;
+			cur2 = cur2->xmlChildrenNode;
+			xmlNodePtr cur3 = cur2;
+			while (cur2 != NULL) {
+				if ((!xmlStrcmp(cur2->name, (const xmlChar *)"sequence"))) {
+					//xmlChar *num;
+					//xmlChar *numnote;
+					//num = xmlGetProp(cur2, "id");
+					//numnote = xmlGetProp(cur2, "numnote");
+					//double *notesequence;
+					//double *dursequence;
+					cur3 = cur3->xmlChildrenNode;
+					//for (int i = 0; i < (numnote * 2); i++) {
+					while (cur3 != NULL) {
+						if ((!xmlStrcmp(cur3->name, (const xmlChar *)"note"))) {
+							// Add notes
+							//notesequence[i] = xmlNodeListGetString(doc, cur->xmlChildrenNode, 1);
+						}
+						else if ((!xmlStrcmp(cur3->name, (const xmlChar *)"dur"))) {
+							// Add durs
+							//dursequence[i - numnote] = xmlNodeListGetString(doc, cur->xmlChildrenNode, 1);
+						}
+						cur3 = cur3->next;
+					}
+					//[mSequences[num] AssignNotes:numnote:notesequence:dursequence];
+				}
+				cur2 = cur2->next;
+			}
+		}
+		cur = cur->next;
+	}
+	
+	xmlFreeDoc(doc);
+	
+	
 #endif
     
 	mSequencer_Pri->mAmpMultiplier = 0.5;
