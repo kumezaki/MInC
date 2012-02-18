@@ -150,10 +150,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		}
 	}
 #else
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"InC" ofType:@"xml"];
+    NSLog(@"%s",[filePath cStringUsingEncoding:NSASCIIStringEncoding]);
+    
 	xmlDocPtr doc;
 	xmlNodePtr cur;
 	
-	doc = xmlParseFile("/Users/kojiroumezaki/Docs/Music/Mobile_In_C/minc_unfuddle/MInC/InC.xml");
+	doc = xmlParseFile([filePath cStringUsingEncoding:NSASCIIStringEncoding]);
 
 	if (doc == NULL ) {
 		fprintf(stderr,"Document not parsed successfully. \n");
