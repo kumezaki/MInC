@@ -182,12 +182,11 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
             int seq_i = 0;
 			while (cur2 != NULL) {
 				if ((!xmlStrcmp(cur2->name, (const xmlChar *)"sequence"))) {
-                    NSLog(@"sequence found");
-                    
+
                     int seq_id = atoi((char*)xmlGetProp(cur2, (xmlChar*)"id"));
                     int num_notes = atoi((char*)xmlGetProp(cur2, (xmlChar*)"numnote"));
 
-                    NSLog(@"%d %d",seq_id,num_notes);
+                    NSLog(@"sequence %d %d",seq_id,num_notes);
                     double *notesequence = (double*)malloc(sizeof(double)*num_notes);
 					double *dursequence = (double*)malloc(sizeof(double)*num_notes);
 
@@ -197,13 +196,11 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 						if ((!xmlStrcmp(cur3->name, (const xmlChar *)"note"))) {
 							// Add notes
                             float note_num = atof((char*)xmlNodeListGetString(doc, cur3->xmlChildrenNode, 1));
-                            NSLog(@"note [%d] %f",note_i,note_num);
                             notesequence[note_i++] = note_num;
 						}
 						else if ((!xmlStrcmp(cur3->name, (const xmlChar *)"dur"))) {
 							// Add durs
                             float duration = atof((char*)xmlNodeListGetString(doc, cur3->xmlChildrenNode, 1)); 
-                            NSLog(@"dur [%d] %f",dur_i,duration);
                             dursequence[dur_i++] = duration;
 						}
 						cur3 = cur3->next;
