@@ -575,10 +575,10 @@
 -(void)readDataFile
 {
 	NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithContentsOfFile:[MInCAppDelegate dataFilePath]];
-	NSLog(@"%s",[MInCAppDelegate dataFilePath]);
+	NSLog(@"%@",[MInCAppDelegate dataFilePath]);
 	mSendIPAddress = [[dict valueForKey:@"server_ip_address"] unsignedIntValue];
 	mSendPortNum = [[dict valueForKey:@"server_port_num"] unsignedIntValue];
-	NSLog(@"%d %d",mSendIPAddress,mSendPortNum);
+	NSLog(@"%ld %d",mSendIPAddress,mSendPortNum);
 }
 
 -(void)writeDataFile

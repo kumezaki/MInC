@@ -21,8 +21,6 @@
 #include <libxml/xmlmemory.h>
 #include <libxml/parser.h>
 
-#define FILE_NAME ""
-
 
 AQPlayer *gAQP = nil;
 
@@ -159,7 +157,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	doc = xmlParseFile([filePath cStringUsingEncoding:NSASCIIStringEncoding]);
 
-	if (doc == NULL ) {
+	if (doc == NULL) {
 		fprintf(stderr,"Document not parsed successfully. \n");
 		return self;
 	}
