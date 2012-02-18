@@ -90,7 +90,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 #if 0
 	for (int i = 0; i < kNumSequences; i++)
 	{
-		mSequences[i] = [Sequence new];
+		mSequences[i] = [[Sequence alloc] init];
 		switch (i)
 		{
 			case 0: [mSequences[i] AssignNotes:num_notes_01:note_sequence_01:dur_sequence_01]; break;
@@ -179,12 +179,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		if ((!xmlStrcmp(cur->name, (const xmlChar *)"part"))){
             NSLog(@"part found");
 			xmlNodePtr cur2 = cur->xmlChildrenNode;
+            int seq_i = 0;
 			while (cur2 != NULL) {
 				if ((!xmlStrcmp(cur2->name, (const xmlChar *)"sequence"))) {
                     NSLog(@"sequence found");
                     
-                    int seq_id = atoi(xmlGetProp(cur2, "id"));
-                    int num_notes = atoi(xmlGetProp(cur2, "numnote"));
+                    int seq_id = atoi((char*)xmlGetProp(cur2, (xmlChar*)"id"));
+                    int num_notes = atoi((char*)xmlGetProp(cur2, (xmlChar*)"numnote"));
 
                     NSLog(@"%d %d",seq_id,num_notes);
                     double *notesequence = (double*)malloc(sizeof(double)*num_notes);
@@ -195,22 +196,24 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 					while (cur3 != NULL) {
 						if ((!xmlStrcmp(cur3->name, (const xmlChar *)"note"))) {
 							// Add notes
-                            float note_num = atof(xmlNodeListGetString(doc, cur3->xmlChildrenNode, 1));
+                            float note_num = atof((char*)xmlNodeListGetString(doc, cur3->xmlChildrenNode, 1));
                             NSLog(@"note [%d] %f",note_i,note_num);
                             notesequence[note_i++] = note_num;
 						}
 						else if ((!xmlStrcmp(cur3->name, (const xmlChar *)"dur"))) {
 							// Add durs
-                            float duration = atof(xmlNodeListGetString(doc, cur3->xmlChildrenNode, 1)); 
+                            float duration = atof((char*)xmlNodeListGetString(doc, cur3->xmlChildrenNode, 1)); 
                             NSLog(@"dur [%d] %f",dur_i,duration);
                             dursequence[dur_i++] = duration;
 						}
 						cur3 = cur3->next;
 					}
-                    mSequences[seq_id] = [Sequence new];
-					[mSequences[seq_id] AssignNotes:num_notes:notesequence:dursequence];
+                    mSequences[seq_i] = [[Sequence alloc] init];
+                    for (int i = 0; i < num_notes; i++) { NSLog(@"[%d] %f %f",i,notesequence[i],dursequence[i]); }
+					[mSequences[seq_i] AssignNotes:num_notes:notesequence:dursequence];
                     free(notesequence);
                     free(dursequence);
+                    seq_i++;
 				}
 				cur2 = cur2->next;
 			}
