@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	1D3623240D0F684500981E51 /* KoDeepAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1062, 746}}";
+			sepNavSelRange = "{635, 0}";
+			sepNavVisRange = "{0, 805}";
+			sepNavWindowFrame = "{{399, 4}, {1121, 874}}";
+		};
+	};
+	1D3623250D0F684500981E51 /* KoDeepAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1062, 1036}}";
+			sepNavSelRange = "{792, 0}";
+			sepNavVisRange = "{307, 1141}";
+			sepNavWindowFrame = "{{176, 4}, {1121, 874}}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* KoDeep */ = {
+		activeExec = 0;
+		executables = (
+			21D6382A1211AE8000A77DC3 /* KoDeep */,
+		);
+	};
+	213E915912120EAD000510C3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21D638AD1211B72500A77DC3 /* KoDeep_Audio.m */;
+		name = "KoDeep_Audio.m: 60";
+		rLen = 0;
+		rLoc = 1705;
+		rType = 0;
+		vrLen = 838;
+		vrLoc = 926;
+	};
+	213E915A12120EAD000510C3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21D638AD1211B72500A77DC3 /* KoDeep_Audio.m */;
+		name = "KoDeep_Audio.m: 60";
+		rLen = 0;
+		rLoc = 1705;
+		rType = 0;
+		vrLen = 838;
+		vrLoc = 926;
+	};
+	21C5CFB01216E64E009BB7FE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* KoDeepAppDelegate.m */;
+		name = "KoDeepAppDelegate.m: 44";
+		rLen = 5;
+		rLoc = 782;
+		rType = 0;
+		vrLen = 841;
+		vrLoc = 212;
+	};
+	21C5CFB11216E64E009BB7FE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* KoDeepAppDelegate.m */;
+		name = "KoDeepAppDelegate.m: 44";
+		rLen = 0;
+		rLoc = 792;
+		rType = 0;
+		vrLen = 1141;
+		vrLoc = 307;
+	};
+	21C5CFB21216E64E009BB7FE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21D638AD1211B72500A77DC3 /* KoDeep_Audio.m */;
+		name = "KoDeep_Audio.m: 134";
+		rLen = 0;
+		rLoc = 3137;
+		rType = 0;
+		vrLen = 962;
+		vrLoc = 2340;
+	};
+	21C5CFB31216E64E009BB7FE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21D638AC1211B72500A77DC3 /* KoDeep_Audio.h */;
+		name = "KoDeep_Audio.h: 49";
+		rLen = 21;
+		rLoc = 837;
+		rType = 0;
+		vrLen = 907;
+		vrLoc = 0;
+	};
+	21C5CFB41216E64E009BB7FE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* KoDeepAppDelegate.h */;
+		name = "KoDeepAppDelegate.h: 31";
+		rLen = 0;
+		rLoc = 635;
+		rType = 0;
+		vrLen = 805;
+		vrLoc = 0;
+	};
+	21D6382A1211AE8000A77DC3 /* KoDeep */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = KoDeep;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+	};
+	21D638431211AE9200A77DC3 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	21D638441211AE9200A77DC3 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	21D638581211B1D600A77DC3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* KoDeepAppDelegate.h */;
+		name = "KoDeepAppDelegate.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 325;
+		vrLoc = 0;
+	};
+	21D638AC1211B72500A77DC3 /* KoDeep_Audio.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1062, 756}}";
+			sepNavSelRange = "{837, 21}";
+			sepNavVisRange = "{0, 907}";
+			sepNavWindowFrame = "{{402, 4}, {1121, 874}}";
+		};
+	};
+	21D638AD1211B72500A77DC3 /* KoDeep_Audio.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1062, 2072}}";
+			sepNavSelRange = "{3137, 0}";
+			sepNavVisRange = "{2340, 962}";
+			sepNavWindowFrame = "{{302, 4}, {1121, 874}}";
+		};
+	};
+	21D638F21211BA4500A77DC3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* KoDeepAppDelegate.m */;
+		name = "KoDeepAppDelegate.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 405;
+		vrLoc = 0;
+	};
+	21D638F31211BA4500A77DC3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21D638AC1211B72500A77DC3 /* KoDeep_Audio.h */;
+		name = "KoDeep_Audio.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 223;
+		vrLoc = 0;
+	};
+	21D6391F1211C11300A77DC3 /* Note.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1062, 1484}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 673}";
+			sepNavWindowFrame = "{{15, -1}, {1121, 874}}";
+		};
+	};
+	21D639221211C12D00A77DC3 /* Note.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1062, 746}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 756}";
+			sepNavWindowFrame = "{{15, -1}, {1121, 874}}";
+		};
+	};
+	21D639241211C14D00A77DC3 /* WaveFormTable.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {519, 308}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 322}";
+			sepNavWindowFrame = "{{15, -1}, {1121, 874}}";
+		};
+	};
+	21D639251211C14D00A77DC3 /* WaveFormTable.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1062, 746}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 612}";
+			sepNavWindowFrame = "{{15, -1}, {1121, 874}}";
+		};
+	};
+	21D6395F1211C47300A77DC3 /* ADSR.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {519, 574}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 332}";
+			sepNavWindowFrame = "{{15, -1}, {1121, 874}}";
+		};
+	};
+	21D639601211C47300A77DC3 /* ADSR.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {519, 1022}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 287}";
+			sepNavWindowFrame = "{{15, -1}, {1121, 874}}";
+		};
+	};
+	21D6397D1211C62600A77DC3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21D639241211C14D00A77DC3 /* WaveFormTable.h */;
+		name = "WaveFormTable.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 322;
+		vrLoc = 0;
+	};
+	21D6397F1211C62600A77DC3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21D6395F1211C47300A77DC3 /* ADSR.h */;
+		name = "ADSR.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 332;
+		vrLoc = 0;
+	};
+	21D639801211C62600A77DC3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21D638AC1211B72500A77DC3 /* KoDeep_Audio.h */;
+		name = "KoDeep_Audio.h: 11";
+		rLen = 0;
+		rLoc = 213;
+		rType = 0;
+		vrLen = 394;
+		vrLoc = 3;
+	};
+	21D639811211C62600A77DC3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21D639601211C47300A77DC3 /* ADSR.m */;
+		name = "ADSR.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 287;
+		vrLoc = 0;
+	};
+	21D639861211C62600A77DC3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21D639241211C14D00A77DC3 /* WaveFormTable.h */;
+		name = "WaveFormTable.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 322;
+		vrLoc = 0;
+	};
+	21D639881211C62600A77DC3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21D6395F1211C47300A77DC3 /* ADSR.h */;
+		name = "ADSR.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 332;
+		vrLoc = 0;
+	};
+	21D639891211C62600A77DC3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21D639601211C47300A77DC3 /* ADSR.m */;
+		name = "ADSR.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 287;
+		vrLoc = 0;
+	};
+	21FC59CE12143A5A005F052B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* KoDeepAppDelegate.h */;
+		name = "KoDeepAppDelegate.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 805;
+		vrLoc = 0;
+	};
+	21FC5A3412143EB8005F052B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* KoDeepAppDelegate.m */;
+		name = "KoDeepAppDelegate.m: 44";
+		rLen = 5;
+		rLoc = 782;
+		rType = 0;
+		vrLen = 841;
+		vrLoc = 212;
+	};
+	21FC5A3512143EB8005F052B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* KoDeepAppDelegate.m */;
+		name = "KoDeepAppDelegate.m: 44";
+		rLen = 0;
+		rLoc = 792;
+		rType = 0;
+		vrLen = 1072;
+		vrLoc = 382;
+	};
+	21FC5A3612143EB8005F052B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21D638AD1211B72500A77DC3 /* KoDeep_Audio.m */;
+		name = "KoDeep_Audio.m: 134";
+		rLen = 0;
+		rLoc = 3137;
+		rType = 0;
+		vrLen = 1144;
+		vrLoc = 2120;
+	};
+	21FC5A3712143EB8005F052B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 21D638AC1211B72500A77DC3 /* KoDeep_Audio.h */;
+		name = "KoDeep_Audio.h: 49";
+		rLen = 21;
+		rLoc = 837;
+		rType = 0;
+		vrLen = 907;
+		vrLoc = 0;
+	};
+	21FC5A3812143EB8005F052B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* KoDeepAppDelegate.h */;
+		name = "KoDeepAppDelegate.h: 31";
+		rLen = 0;
+		rLoc = 635;
+		rType = 0;
+		vrLen = 805;
+		vrLoc = 0;
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 21D6382A1211AE8000A77DC3 /* KoDeep */;
+		activeSDKPreference = iphoneos3.1.3;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* KoDeep */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* KoDeep */,
+		);
+		codeSenseManager = 21D638441211AE9200A77DC3 /* Code sense */;
+		executables = (
+			21D6382A1211AE8000A77DC3 /* KoDeep */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					993,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					953,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 303490561;
+			PBXWorkspaceStateSaveDate = 303490561;
+		};
+		perUserProjectItems = {
+			213E915912120EAD000510C3 /* PBXTextBookmark */ = 213E915912120EAD000510C3 /* PBXTextBookmark */;
+			213E915A12120EAD000510C3 /* PBXTextBookmark */ = 213E915A12120EAD000510C3 /* PBXTextBookmark */;
+			21C5CFB01216E64E009BB7FE /* PBXTextBookmark */ = 21C5CFB01216E64E009BB7FE /* PBXTextBookmark */;
+			21C5CFB11216E64E009BB7FE /* PBXTextBookmark */ = 21C5CFB11216E64E009BB7FE /* PBXTextBookmark */;
+			21C5CFB21216E64E009BB7FE /* PBXTextBookmark */ = 21C5CFB21216E64E009BB7FE /* PBXTextBookmark */;
+			21C5CFB31216E64E009BB7FE /* PBXTextBookmark */ = 21C5CFB31216E64E009BB7FE /* PBXTextBookmark */;
+			21C5CFB41216E64E009BB7FE /* PBXTextBookmark */ = 21C5CFB41216E64E009BB7FE /* PBXTextBookmark */;
+			21D638581211B1D600A77DC3 /* PBXTextBookmark */ = 21D638581211B1D600A77DC3 /* PBXTextBookmark */;
+			21D638F21211BA4500A77DC3 /* PBXTextBookmark */ = 21D638F21211BA4500A77DC3 /* PBXTextBookmark */;
+			21D638F31211BA4500A77DC3 /* PBXTextBookmark */ = 21D638F31211BA4500A77DC3 /* PBXTextBookmark */;
+			21D6397D1211C62600A77DC3 /* PBXTextBookmark */ = 21D6397D1211C62600A77DC3 /* PBXTextBookmark */;
+			21D6397F1211C62600A77DC3 /* PBXTextBookmark */ = 21D6397F1211C62600A77DC3 /* PBXTextBookmark */;
+			21D639801211C62600A77DC3 /* PBXTextBookmark */ = 21D639801211C62600A77DC3 /* PBXTextBookmark */;
+			21D639811211C62600A77DC3 /* PBXTextBookmark */ = 21D639811211C62600A77DC3 /* PBXTextBookmark */;
+			21D639861211C62600A77DC3 /* PBXTextBookmark */ = 21D639861211C62600A77DC3 /* PBXTextBookmark */;
+			21D639881211C62600A77DC3 /* PBXTextBookmark */ = 21D639881211C62600A77DC3 /* PBXTextBookmark */;
+			21D639891211C62600A77DC3 /* PBXTextBookmark */ = 21D639891211C62600A77DC3 /* PBXTextBookmark */;
+			21FC59CE12143A5A005F052B /* PBXTextBookmark */ = 21FC59CE12143A5A005F052B /* PBXTextBookmark */;
+			21FC5A3412143EB8005F052B /* PBXTextBookmark */ = 21FC5A3412143EB8005F052B /* PBXTextBookmark */;
+			21FC5A3512143EB8005F052B /* PBXTextBookmark */ = 21FC5A3512143EB8005F052B /* PBXTextBookmark */;
+			21FC5A3612143EB8005F052B /* PBXTextBookmark */ = 21FC5A3612143EB8005F052B /* PBXTextBookmark */;
+			21FC5A3712143EB8005F052B /* PBXTextBookmark */ = 21FC5A3712143EB8005F052B /* PBXTextBookmark */;
+			21FC5A3812143EB8005F052B /* PBXTextBookmark */ = 21FC5A3812143EB8005F052B /* PBXTextBookmark */;
+		};
+		sourceControlManager = 21D638431211AE9200A77DC3 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+}
