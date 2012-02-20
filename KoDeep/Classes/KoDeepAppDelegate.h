@@ -10,7 +10,7 @@
 
 #import "KoDeep_Audio.h"
 
-@interface KoDeepAppDelegate : NSObject <UIApplicationDelegate> {
+@interface KoDeepAppDelegate : NSObject <UIApplicationDelegate, UIAccelerometerDelegate> {
     UIWindow *window;
 	
 	IBOutlet UISlider*				mBeatSlider;
@@ -24,6 +24,8 @@
 	KoDeep_Audio*					mAudio;	
 	
 	UInt16							mNumBeats;
+    
+    BOOL                            accelTrackingOn;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -33,6 +35,12 @@
 -(IBAction)SetFraction:(id)sender;
 -(IBAction)SetTempo:(id)sender;
 -(IBAction)SetPitch:(id)sender;
+
+-(IBAction)tempoFineOn;
+-(IBAction)tempoFineOff;
+
+-(IBAction)pitchFineOn;
+-(IBAction)pitchFineOff;
 
 @end
 

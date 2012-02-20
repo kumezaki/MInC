@@ -25,7 +25,9 @@
 
 - (id)init {
 	[super init];
+	[[UIAccelerometer sharedAccelerometer] setDelegate:self];
 	mNumBeats = 1;
+    accelTrackingOn = NO;
 	return self;
 }
 
@@ -69,5 +71,17 @@
 	NSLog(@"%f",mPitchSlider.value);
 	[mAudio SetBaseMIDINote:(mPitchSlider.value * 12. + 69.)];
 }
+
+- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
+{
+    if (accelTrackingOn)
+        NSLog(@"%f, %f, %f", acceleration.x, acceleration.y, acceleration.z);
+}
+
+-(IBAction)tempoFineOn { NSLog(@"tempoFineOn"); accelTrackingOn = YES; }
+-(IBAction)tempoFineOff { NSLog(@"tempoFineOff"); accelTrackingOn = NO; }
+
+-(IBAction)pitchFineOn { NSLog(@"pitchFineOn"); accelTrackingOn = YES; }
+-(IBAction)pitchFineOff { NSLog(@"pitchFineOff"); accelTrackingOn = NO; }
 
 @end
