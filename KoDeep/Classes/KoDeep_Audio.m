@@ -22,28 +22,10 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	else
 		for (int i = 0; i < numFrames; i++)
 			((SInt16 *)inAQBuffer->mAudioData)[i] = [note GetSample] * (SInt16)0x7FFF;
-
-	{
-		double elapsed_time = numFrames / a->mSR;
-		a->mCurTime += (elapsed_time * a->mTempoMultiplier);
-		if (a->mCurTime >= a->mNextEventTime)
-		{
-			UInt16 num_notes = a->mNumBeats + (a->mFraction == 0 ? 0 : 1);
-			
-			a->mCurBeatNum = ++a->mCurBeatNum % num_notes;
-			
-			note->mFreq = [Note mtof:(a->mBaseMIDINote + (a->mCurBeatNum == 0 ? 12 : 0))];
-			[note Off];
-			if ((a->mFraction != 0.) && (a->mCurBeatNum == (num_notes-1)))
-				[note SetDuration:a->mFraction];
-			else
-				[note SetDuration:1.0];
-			[note SetPercentOn:0.2];
-			[note On:a->mWaveTable:a->mADSR];
-			a->mNextEventTime += [note GetDuration];
-			NSLog(@"%f",a->mCurTime);
-		}
-	}
+    
+    double elapsed_time = numFrames / a->mSR;
+    
+    [a UpdateScheduler:elapsed_time];
 	
 	inAQBuffer->mAudioDataByteSize = 512;
 	inAQBuffer->mPacketDescriptionCount = 0;
@@ -138,9 +120,36 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	mCurBeatNum = mNumBeats - 1 + (mFraction == 0. ? 0 : 1);
 }
 
+-(double)GetBaseMIDINote
+{
+    return mBaseMIDINote;
+}
+
 -(void)SetBaseMIDINote:(double)midi_note
 {
 	mBaseMIDINote = midi_note;
+}
+
+-(void)UpdateScheduler:(Float64)elapsed_time
+{
+    mCurTime += (elapsed_time * mTempoMultiplier);
+    if (mCurTime >= mNextEventTime)
+    {
+        UInt16 num_notes = mNumBeats + (mFraction == 0 ? 0 : 1);
+        
+        mCurBeatNum = ++mCurBeatNum % num_notes;
+        
+        mNote->mFreq = [Note mtof:(mBaseMIDINote + (mCurBeatNum == 0 ? 12 : 0))];
+        [mNote Off];
+        if ((mFraction != 0.) && (mCurBeatNum == (num_notes-1)))
+            [mNote SetDuration:mFraction];
+        else
+            [mNote SetDuration:1.0];
+        [mNote SetPercentOn:0.2];
+        [mNote On:mWaveTable:mADSR];
+        mNextEventTime += [mNote GetDuration];
+        NSLog(@"%f",mCurTime);
+    }
 }
 
 @end

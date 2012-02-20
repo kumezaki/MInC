@@ -25,7 +25,8 @@
 	
 	UInt16							mNumBeats;
     
-    BOOL                            accelTrackingOn;
+    BOOL                            tempoAccelTrackingOn;
+    BOOL                            pitchAccelTrackingOn;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -36,11 +37,18 @@
 -(IBAction)SetTempo:(id)sender;
 -(IBAction)SetPitch:(id)sender;
 
+-(IBAction)decrementBeat;
+-(IBAction)incrementBeat;
+
 -(IBAction)tempoFineOn;
 -(IBAction)tempoFineOff;
 
 -(IBAction)pitchFineOn;
 -(IBAction)pitchFineOff;
+
++(NSString *)dataFilePath;
+-(void) readDataFile;
+-(void) writeDataFile;
 
 @end
 

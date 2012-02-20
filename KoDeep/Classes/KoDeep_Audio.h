@@ -49,6 +49,9 @@
 -(void)SetNumBeats:(UInt16)num_beats:(double)fraction;
 -(void)ResetBeatNum;
 
+-(double)GetBaseMIDINote;
 -(void)SetBaseMIDINote:(double)midi_note;
+
+-(void)UpdateScheduler:(Float64)elapsed_time;
 
 @end
