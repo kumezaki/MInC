@@ -12,6 +12,10 @@
 
 #define GET_FRACTION	((double)mFractionControl.selectedSegmentIndex / 4)
 
+#define SET_NUM_BEATS   mBeatLabel.text = [[NSString alloc] initWithFormat:@"%d",mNumBeats]; \
+                        [mAudio SetNumBeats:mNumBeats:GET_FRACTION]; \
+                        [self writeDataFile];
+
 @synthesize window;
 
 
@@ -34,6 +38,7 @@
 	if (file_exists)
     {
 		[self readDataFile];
+        
         [mAudio SetNumBeats:mNumBeats:GET_FRACTION];
 
         mBeatLabel.text = [[NSString alloc] initWithFormat:@"%d",mNumBeats];
@@ -76,9 +81,7 @@
 {
 	mNumBeats = mBeatSlider.value * 24 + 1;
 	NSLog(@"%f %d",mBeatSlider.value,mNumBeats);
-	mBeatLabel.text = [[NSString alloc] initWithFormat:@"%d",mNumBeats];
-	[mAudio SetNumBeats:mNumBeats:GET_FRACTION];
-    [self writeDataFile];
+    SET_NUM_BEATS
 }
 
 -(IBAction)SetFraction:(id)sender
@@ -122,22 +125,20 @@
 
 -(IBAction)decrementBeat
 {
-    if (mNumBeats > 0) mNumBeats--;
+    if (mNumBeats > 1) mNumBeats--;
 
     mBeatSlider.value = (mNumBeats - 1.) / 24.;
-	mBeatLabel.text = [[NSString alloc] initWithFormat:@"%d",mNumBeats];
-	[mAudio SetNumBeats:mNumBeats:GET_FRACTION];
-    [self writeDataFile];
+
+    SET_NUM_BEATS
 }
 
 -(IBAction)incrementBeat
 {
-    if (mNumBeats < 24) mNumBeats++;
+    if (mNumBeats < 25) mNumBeats++;
 
     mBeatSlider.value = (mNumBeats - 1.) / 24.;
-	mBeatLabel.text = [[NSString alloc] initWithFormat:@"%d",mNumBeats];
-	[mAudio SetNumBeats:mNumBeats:GET_FRACTION];
-    [self writeDataFile];
+
+    SET_NUM_BEATS
 }
 
 -(IBAction)tempoFineOn { NSLog(@"tempoFineOn"); tempoAccelTrackingOn = YES; }
