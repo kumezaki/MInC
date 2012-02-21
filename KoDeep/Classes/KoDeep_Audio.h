@@ -35,8 +35,10 @@
 	Note*						mNote;
 	
 	UInt16						mNumBeats;
-	UInt16						mCurBeatNum;
+	UInt16						mBeatNum;
+
 	double						mFraction;
+    UInt16                      mCurFractNum;
 	
 	double						mBaseMIDINote;
 }
