@@ -107,7 +107,7 @@
     if (tempoAccelTrackingOn)
     {
         NSLog(@"%f, %f, %f", acceleration.x, acceleration.y, acceleration.z);
-        mAudio->mTempoMultiplier += acceleration.x * 0.1;
+        mAudio->mTempoMultiplier += acceleration.x * 0.05;
         mTempoSlider.value = (mAudio->mTempoMultiplier - 1.) / 2.;
         [self writeDataFile];
     }
