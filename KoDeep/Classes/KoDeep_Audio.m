@@ -53,7 +53,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	mBaseMIDINote = 0.5 * 12. + 69.;
     
-    mCurFractNum = 0;
+    mFractNum = 0;
 	
 	[self SetNumBeats:1:0.];
 
@@ -120,6 +120,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 -(void)ResetBeatNum
 {
 	mBeatNum = 1;
+    mFractNum = 0;
 }
 
 -(double)GetBaseMIDINote
@@ -140,27 +141,24 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     {
         [mNote Off];
         
-        BOOL advance_beat_num = YES;
+        mNote->mFreq = [Note mtof:(mBaseMIDINote + (mBeatNum == 1 ? 12 : 0))];
         
         Float64 dur = 1.0;
-  
-        if ((mBeatNum == mNumBeats) && (mFraction != 0.))
+
+        if (mBeatNum == mNumBeats)
         {
-            if (mCurFractNum == (UInt16)(mFraction * 4 + 0.5))
+            if (mFractNum++ != 0)
+                dur = 0.25;
+
+            if (mFractNum > (UInt16)(mFraction * 4 + 0.5))
             {
-                mCurFractNum = 0;
+                mFractNum = 0;
                 mBeatNum = 1;
             }
-            else
-            {
-                mCurFractNum++;
-                dur = 0.25;
-                advance_beat_num = NO;
-            }
         }
+        else
+            mBeatNum++;
         
-        mNote->mFreq = [Note mtof:(mBaseMIDINote + (mBeatNum == 1 ? 12 : 0))];
-
         [mNote SetDuration:dur];
         [mNote SetPercentOn:0.2];
 
@@ -168,12 +166,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
         mNextEventTime += [mNote GetDuration];
         
-        if (advance_beat_num)
-        {
-            mBeatNum++;
-            if (mBeatNum > mNumBeats) mBeatNum = 1;
-        }
-
         NSLog(@"%f",mCurTime);
     }
 }

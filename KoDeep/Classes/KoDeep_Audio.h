@@ -38,7 +38,7 @@
 	UInt16						mBeatNum;
 
 	double						mFraction;
-    UInt16                      mCurFractNum;
+    UInt16                      mFractNum;
 	
 	double						mBaseMIDINote;
 }
