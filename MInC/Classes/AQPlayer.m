@@ -179,7 +179,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	else {
 		fprintf(stderr,"correct document loaded");
 	}
-#if 0
+
 	cur = cur->xmlChildrenNode;
 	while (cur != NULL) {
 		if ((!xmlStrcmp(cur->name, (const xmlChar *)"part"))){
@@ -197,8 +197,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 					double *dursequence = (double*)malloc(sizeof(double)*num_notes);
 
 					xmlNodePtr cur3 = cur2->xmlChildrenNode;
-					int note_i = 0, dur_i = 0;
 					while (cur3 != NULL) {
+                        int note_i = 0;
 						if ((!xmlStrcmp(cur3->name, (const xmlChar *)"notes"))) {
 							xmlNodePtr cur4 = cur3->xmlChildrenNode;
 							while (cur4 != NULL) {
@@ -211,14 +211,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 							}
 						}
 						else if ((!xmlStrcmp(cur3->name, (const xmlChar *)"durs"))) {
-							xmlNodePtr cur5 = cur3->xmlChildrenNode;
-							while (cur5 != NULL) {
-								if ((!xmlStrcmp(cur5->name, (const xmlChar *)"dur"))) {
+							xmlNodePtr cur4 = cur3->xmlChildrenNode;
+							while (cur4 != NULL) {
+								if ((!xmlStrcmp(cur4->name, (const xmlChar *)"dur"))) {
 									// Add durations
-									float note_num = atof((char*)xmlNodeListGetString(doc, cur5->xmlChildrenNode, 1));
-									notesequence[note_i++] = note_num;
+									float dur = atof((char*)xmlNodeListGetString(doc, cur4->xmlChildrenNode, 1));
+									dursequence[note_i++] = dur;
 								}
-								cur5 = cur5->next;
+								cur4 = cur4->next;
 							}
 						}
 						cur3 = cur3->next;
@@ -235,7 +235,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		}
 		cur = cur->next;
 	}
-#endif
 	xmlFreeDoc(doc);
 	
 	
