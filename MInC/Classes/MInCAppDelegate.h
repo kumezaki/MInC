@@ -115,4 +115,6 @@
 -(void) readDataFile;
 -(void) writeDataFile;
 
+-(void) CreateImageArray;
+
 @end

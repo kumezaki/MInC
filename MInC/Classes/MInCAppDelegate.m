@@ -67,6 +67,8 @@
 	
 	[[UIAccelerometer sharedAccelerometer] setDelegate:self];
 	
+	[self CreateImageArray];
+	/*
 	mImageArray = [[NSArray alloc] initWithObjects:
 				   [UIImage imageNamed:@"InC01.jpg"],
 				   [UIImage imageNamed:@"InC02.jpg"],
@@ -122,7 +124,7 @@
 				   [UIImage imageNamed:@"InC52.jpg"],
 				   [UIImage imageNamed:@"InC53.jpg"],
 				   nil
-				   ];
+				   ];*/
 	
 	mSendIPAddress = 0x7F000001; /* IP address: 127.0.0.1 */
 	mSendPortNum = 1337;
@@ -588,6 +590,106 @@
 	[dict setValue:[NSNumber numberWithUnsignedInt:mSendPortNum] forKey:@"server_port_num"];
 	[dict writeToFile:[MInCAppDelegate dataFilePath] atomically:YES];
 	[dict release];
+}
+
+-(void) CreateImageArray
+{
+	if (mAQP->mPiece == 1)
+	{
+	mImageArray = [[NSArray alloc] initWithObjects:
+				   [UIImage imageNamed:@"InC01.jpg"],
+				   [UIImage imageNamed:@"InC02.jpg"],
+				   [UIImage imageNamed:@"InC03.jpg"],
+				   [UIImage imageNamed:@"InC04.jpg"],
+				   [UIImage imageNamed:@"InC05.jpg"],
+				   [UIImage imageNamed:@"InC06.jpg"],
+				   [UIImage imageNamed:@"InC07.jpg"],
+				   [UIImage imageNamed:@"InC08.jpg"],
+				   [UIImage imageNamed:@"InC09.jpg"],
+				   [UIImage imageNamed:@"InC10.jpg"],
+				   [UIImage imageNamed:@"InC11.jpg"],
+				   [UIImage imageNamed:@"InC12.jpg"],
+				   [UIImage imageNamed:@"InC13.jpg"],
+				   [UIImage imageNamed:@"InC14.jpg"],
+				   [UIImage imageNamed:@"InC15.jpg"],
+				   [UIImage imageNamed:@"InC16.jpg"],
+				   [UIImage imageNamed:@"InC17.jpg"],
+				   [UIImage imageNamed:@"InC18.jpg"],
+				   [UIImage imageNamed:@"InC19.jpg"],
+				   [UIImage imageNamed:@"InC20.jpg"],
+				   [UIImage imageNamed:@"InC21.jpg"],
+				   [UIImage imageNamed:@"InC22.jpg"],
+				   [UIImage imageNamed:@"InC23.jpg"],
+				   [UIImage imageNamed:@"InC24.jpg"],
+				   [UIImage imageNamed:@"InC25.jpg"],
+				   [UIImage imageNamed:@"InC26.jpg"],
+				   [UIImage imageNamed:@"InC27.jpg"],
+				   [UIImage imageNamed:@"InC28.jpg"],
+				   [UIImage imageNamed:@"InC29.jpg"],
+				   [UIImage imageNamed:@"InC30.jpg"],
+				   [UIImage imageNamed:@"InC31.jpg"],
+				   [UIImage imageNamed:@"InC32.jpg"],
+				   [UIImage imageNamed:@"InC33.jpg"],
+				   [UIImage imageNamed:@"InC34.jpg"],
+				   [UIImage imageNamed:@"InC35.jpg"],
+				   [UIImage imageNamed:@"InC36.jpg"],
+				   [UIImage imageNamed:@"InC37.jpg"],
+				   [UIImage imageNamed:@"InC38.jpg"],
+				   [UIImage imageNamed:@"InC39.jpg"],
+				   [UIImage imageNamed:@"InC40.jpg"],
+				   [UIImage imageNamed:@"InC41.jpg"],
+				   [UIImage imageNamed:@"InC42.jpg"],
+				   [UIImage imageNamed:@"InC43.jpg"],
+				   [UIImage imageNamed:@"InC44.jpg"],
+				   [UIImage imageNamed:@"InC45.jpg"],
+				   [UIImage imageNamed:@"InC46.jpg"],
+				   [UIImage imageNamed:@"InC47.jpg"],
+				   [UIImage imageNamed:@"InC48.jpg"],
+				   [UIImage imageNamed:@"InC49.jpg"],
+				   [UIImage imageNamed:@"InC50.jpg"],
+				   [UIImage imageNamed:@"InC51.jpg"],
+				   [UIImage imageNamed:@"InC52.jpg"],
+				   [UIImage imageNamed:@"InC53.jpg"],
+				   nil
+				   ];
+	}
+	else {
+		mImageArray = [[NSArray alloc] initWithObjects:
+					   [UIImage imageNamed:@"PP1.jpg"],
+					   [UIImage imageNamed:@"PP2.jpg"],
+					   [UIImage imageNamed:@"PP3.jpg"],
+					   [UIImage imageNamed:@"PP4.jpg"],
+					   [UIImage imageNamed:@"PP5.jpg"],
+					   [UIImage imageNamed:@"PP6.jpg"],
+					   [UIImage imageNamed:@"PP7.jpg"],
+					   [UIImage imageNamed:@"PP8.jpg"],
+					   [UIImage imageNamed:@"PP9.jpg"],
+					   [UIImage imageNamed:@"PP10.jpg"],
+					   [UIImage imageNamed:@"PP11.jpg"],
+					   [UIImage imageNamed:@"PP12.jpg"],
+					   [UIImage imageNamed:@"PP13.jpg"],
+					   [UIImage imageNamed:@"PP14.jpg"],
+					   [UIImage imageNamed:@"PP15.jpg"],
+					   [UIImage imageNamed:@"PP16.jpg"],
+					   [UIImage imageNamed:@"PP17.jpg"],
+					   [UIImage imageNamed:@"PP18.jpg"],
+					   [UIImage imageNamed:@"PP19.jpg"],
+					   [UIImage imageNamed:@"PP20.jpg"],
+					   [UIImage imageNamed:@"PP21.jpg"],
+					   [UIImage imageNamed:@"PP22.jpg"],
+					   [UIImage imageNamed:@"PP23.jpg"],
+					   [UIImage imageNamed:@"PP24.jpg"],
+					   [UIImage imageNamed:@"PP25.jpg"],
+					   [UIImage imageNamed:@"PP26.jpg"],
+					   [UIImage imageNamed:@"PP27.jpg"],
+					   [UIImage imageNamed:@"PP28.jpg"],
+					   [UIImage imageNamed:@"PP29.jpg"],
+					   [UIImage imageNamed:@"PP30.jpg"],
+					   [UIImage imageNamed:@"PP31.jpg"],
+					   [UIImage imageNamed:@"PP32.jpg"],
+					   nil
+					   ];
+	}
 }
 
 @end

@@ -31,6 +31,9 @@
 
 	int			mSeqNum;
 	Sequence	*mSequences[kNumSequences];
+	
+	int			mPiece;
+	int			mPart;
 }
 
 -(void)	New;
@@ -39,6 +42,8 @@
 -(OSStatus)	Stop;
 
 -(void) SetSequence:(int)seq_num;
+
+-(void) ParseFile;
 
 -(NSString*) GetModString;
 

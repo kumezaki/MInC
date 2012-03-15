@@ -17,6 +17,9 @@
 	IBOutlet UITextField	*mPortNumTextField;
 	IBOutlet UISwitch		*mWithServerSwitch;
 	IBOutlet UISwitch		*mPulseSwitch;
+	
+	IBOutlet UISegmentedControl *mPieceSwitch;
+	IBOutlet UISegmentedControl *mPartSwitch;
 
 	BOOL	mEditing;
 }
@@ -31,7 +34,11 @@
 
 -(IBAction)PulseToggle:(id)sender;
 
+-(IBAction)ChangePiece:(id)sender;
+
 -(void)SetIPAddress;
+
+
 
 -(BOOL)IsEditing;
 

@@ -110,6 +110,17 @@ extern AQPlayer *gAQP;
 		[gAQP->mSequencer_Sec Stop];
 }
 
+-(IBAction)ChangePiece:(id)sender;
+{
+	gAQP->mPiece = mPieceSwitch.selectedSegmentIndex + 1;
+	if(gAQP->mPiece == 2)
+		gAQP->mPart= mPartSwitch.selectedSegmentIndex + 1;
+	[gAQP ParseFile];
+	
+	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
+	[appDelegate CreateImageArray];
+}
+
 -(void)SetIPAddress;
 {
 	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -119,6 +130,7 @@ extern AQPlayer *gAQP;
 								,(appDelegate->mSendIPAddress&0x000000FF)>>0];
 	mPortNumTextField.text = [NSString stringWithFormat:@"%d",appDelegate->mSendPortNum];
 }
+
 
 -(BOOL)IsEditing
 {
