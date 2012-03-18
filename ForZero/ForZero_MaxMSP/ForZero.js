@@ -6,6 +6,8 @@ var gBufSize = 5000;
 var gBufFileName = "audsound.aif";
 var gFadeDur = 500;
 
+var gParentPath = "";
+
 var gIPAddress = new Array;
 var gOn = new Array;
 var gTask_AutoBump = new Array;
@@ -112,15 +114,19 @@ function osc_msg()
     {
         pos = find_ip_address_pos(undefined);
         if (pos != -1)
-        	player_join(pos,ip_add);
+			if (osc_add != "/present")	/* conditional is a kludge */
+				player_join(pos,ip_add);
     }
 
     if (pos != -1)
     {
     	do_msg(osc_add,pos,val);
 
-    	gTask_AutoBump[pos].cancel();
-    	gTask_AutoBump[pos].schedule(60000);
+		if (osc_add != "/present")	/* conditional is a kludge */
+		{
+			gTask_AutoBump[pos].cancel();
+			gTask_AutoBump[pos].schedule(60000);
+		}
     }
 }
 
@@ -312,26 +318,33 @@ function osc_msg_download(pos)
         
         messnamed("fz_poly_in_1_msg","target",pos+1);
         messnamed("fz_poly_in_2_msg","write","samptype","int16");
-        messnamed("fz_poly_in_2_msg","write","writeraw",file_name);
-                
-                // post("raw audio file created for pos:",pos,"\n");
+        messnamed("fz_poly_in_2_msg","write","writeraw",file_name);                
+//		post("raw audio file created for pos:",pos,"\n");
 
-        f = new File("fz_download.txt","write", "TEXT");
+        f = new File("fz_download.txt","write","TEXT");
 		f.open();
-        		// post("fz_download.txt created for pos:",pos,"\n");
+//		post("fz_download.txt created for pos:",pos,"\n");
+
         f.writeline(gIPAddress[pos]+", "+tcp_port_num+", ../ForZero_MaxMSP/"+file_name);
-        		post("script file written for pos:",pos,"\n");
+        post("script file written for pos:",pos,"\n");
+
         f.close();
-        	 	// post("txt file closed for pos:",pos,"\n");
+//		post("txt file closed for pos:",pos,"\n");
     }		
 }
 
 
 /*** MISCELLANEOUS FUNCTIONS ***/
 
+function parent_path(v)
+{
+	gParentPath = v;
+	post(gParentPath+"\n");
+}
+
 function exit_tcp_script()
 {
-    f = new File("fz_download.txt","w");
+    f = new File(gParentPath+"fz_download.txt","w");
     f.writeline("exit");
     f.close();
 }
