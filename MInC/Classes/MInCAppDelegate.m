@@ -537,7 +537,7 @@
 	
 	if (mNewMod == YES)
 	{
-		if (mAQP->mSeqNum >= 0 && mAQP->mSeqNum <= kNumSequences)
+		if (mAQP->mSeqNum >= 0 && mAQP->mSeqNum <= mAQP->mNumSequences)
 			mNotationView.image = [mImageArray objectAtIndex:mAQP->mSeqNum-1];
 		mNewMod = NO;
 	}
@@ -596,64 +596,68 @@
 {
 	if (mAQP->mPiece == 1)
 	{
-	mImageArray = [[NSArray alloc] initWithObjects:
-				   [UIImage imageNamed:@"InC01.jpg"],
-				   [UIImage imageNamed:@"InC02.jpg"],
-				   [UIImage imageNamed:@"InC03.jpg"],
-				   [UIImage imageNamed:@"InC04.jpg"],
-				   [UIImage imageNamed:@"InC05.jpg"],
-				   [UIImage imageNamed:@"InC06.jpg"],
-				   [UIImage imageNamed:@"InC07.jpg"],
-				   [UIImage imageNamed:@"InC08.jpg"],
-				   [UIImage imageNamed:@"InC09.jpg"],
-				   [UIImage imageNamed:@"InC10.jpg"],
-				   [UIImage imageNamed:@"InC11.jpg"],
-				   [UIImage imageNamed:@"InC12.jpg"],
-				   [UIImage imageNamed:@"InC13.jpg"],
-				   [UIImage imageNamed:@"InC14.jpg"],
-				   [UIImage imageNamed:@"InC15.jpg"],
-				   [UIImage imageNamed:@"InC16.jpg"],
-				   [UIImage imageNamed:@"InC17.jpg"],
-				   [UIImage imageNamed:@"InC18.jpg"],
-				   [UIImage imageNamed:@"InC19.jpg"],
-				   [UIImage imageNamed:@"InC20.jpg"],
-				   [UIImage imageNamed:@"InC21.jpg"],
-				   [UIImage imageNamed:@"InC22.jpg"],
-				   [UIImage imageNamed:@"InC23.jpg"],
-				   [UIImage imageNamed:@"InC24.jpg"],
-				   [UIImage imageNamed:@"InC25.jpg"],
-				   [UIImage imageNamed:@"InC26.jpg"],
-				   [UIImage imageNamed:@"InC27.jpg"],
-				   [UIImage imageNamed:@"InC28.jpg"],
-				   [UIImage imageNamed:@"InC29.jpg"],
-				   [UIImage imageNamed:@"InC30.jpg"],
-				   [UIImage imageNamed:@"InC31.jpg"],
-				   [UIImage imageNamed:@"InC32.jpg"],
-				   [UIImage imageNamed:@"InC33.jpg"],
-				   [UIImage imageNamed:@"InC34.jpg"],
-				   [UIImage imageNamed:@"InC35.jpg"],
-				   [UIImage imageNamed:@"InC36.jpg"],
-				   [UIImage imageNamed:@"InC37.jpg"],
-				   [UIImage imageNamed:@"InC38.jpg"],
-				   [UIImage imageNamed:@"InC39.jpg"],
-				   [UIImage imageNamed:@"InC40.jpg"],
-				   [UIImage imageNamed:@"InC41.jpg"],
-				   [UIImage imageNamed:@"InC42.jpg"],
-				   [UIImage imageNamed:@"InC43.jpg"],
-				   [UIImage imageNamed:@"InC44.jpg"],
-				   [UIImage imageNamed:@"InC45.jpg"],
-				   [UIImage imageNamed:@"InC46.jpg"],
-				   [UIImage imageNamed:@"InC47.jpg"],
-				   [UIImage imageNamed:@"InC48.jpg"],
-				   [UIImage imageNamed:@"InC49.jpg"],
-				   [UIImage imageNamed:@"InC50.jpg"],
-				   [UIImage imageNamed:@"InC51.jpg"],
-				   [UIImage imageNamed:@"InC52.jpg"],
-				   [UIImage imageNamed:@"InC53.jpg"],
-				   nil
-				   ];
+		UIImage *image = [UIImage imageNamed:@"InCCover.jpg"];
+		[mNotationView setImage:image];
+		mImageArray = [[NSArray alloc] initWithObjects:
+					   [UIImage imageNamed:@"InC01.jpg"],
+					   [UIImage imageNamed:@"InC02.jpg"],
+					   [UIImage imageNamed:@"InC03.jpg"],
+					   [UIImage imageNamed:@"InC04.jpg"],
+					   [UIImage imageNamed:@"InC05.jpg"],
+					   [UIImage imageNamed:@"InC06.jpg"],
+					   [UIImage imageNamed:@"InC07.jpg"],
+					   [UIImage imageNamed:@"InC08.jpg"],
+					   [UIImage imageNamed:@"InC09.jpg"],
+					   [UIImage imageNamed:@"InC10.jpg"],
+					   [UIImage imageNamed:@"InC11.jpg"],
+					   [UIImage imageNamed:@"InC12.jpg"],
+					   [UIImage imageNamed:@"InC13.jpg"],
+					   [UIImage imageNamed:@"InC14.jpg"],
+					   [UIImage imageNamed:@"InC15.jpg"],
+					   [UIImage imageNamed:@"InC16.jpg"],
+					   [UIImage imageNamed:@"InC17.jpg"],
+					   [UIImage imageNamed:@"InC18.jpg"],
+					   [UIImage imageNamed:@"InC19.jpg"],
+					   [UIImage imageNamed:@"InC20.jpg"],
+					   [UIImage imageNamed:@"InC21.jpg"],
+					   [UIImage imageNamed:@"InC22.jpg"],
+					   [UIImage imageNamed:@"InC23.jpg"],
+					   [UIImage imageNamed:@"InC24.jpg"],
+					   [UIImage imageNamed:@"InC25.jpg"],
+					   [UIImage imageNamed:@"InC26.jpg"],
+					   [UIImage imageNamed:@"InC27.jpg"],
+					   [UIImage imageNamed:@"InC28.jpg"],
+					   [UIImage imageNamed:@"InC29.jpg"],
+					   [UIImage imageNamed:@"InC30.jpg"],
+					   [UIImage imageNamed:@"InC31.jpg"],
+					   [UIImage imageNamed:@"InC32.jpg"],
+					   [UIImage imageNamed:@"InC33.jpg"],
+					   [UIImage imageNamed:@"InC34.jpg"],
+					   [UIImage imageNamed:@"InC35.jpg"],
+					   [UIImage imageNamed:@"InC36.jpg"],
+					   [UIImage imageNamed:@"InC37.jpg"],
+					   [UIImage imageNamed:@"InC38.jpg"],
+					   [UIImage imageNamed:@"InC39.jpg"],
+					   [UIImage imageNamed:@"InC40.jpg"],
+					   [UIImage imageNamed:@"InC41.jpg"],
+					   [UIImage imageNamed:@"InC42.jpg"],
+					   [UIImage imageNamed:@"InC43.jpg"],
+					   [UIImage imageNamed:@"InC44.jpg"],
+					   [UIImage imageNamed:@"InC45.jpg"],
+					   [UIImage imageNamed:@"InC46.jpg"],
+					   [UIImage imageNamed:@"InC47.jpg"],
+					   [UIImage imageNamed:@"InC48.jpg"],
+					   [UIImage imageNamed:@"InC49.jpg"],
+					   [UIImage imageNamed:@"InC50.jpg"],
+					   [UIImage imageNamed:@"InC51.jpg"],
+					   [UIImage imageNamed:@"InC52.jpg"],
+					   [UIImage imageNamed:@"InC53.jpg"],
+					   nil
+					   ];
 	}
 	else {
+		UIImage *image = [UIImage imageNamed:@"PPCover.jpg"];
+		[mNotationView setImage:image];
 		mImageArray = [[NSArray alloc] initWithObjects:
 					   [UIImage imageNamed:@"PP1.jpg"],
 					   [UIImage imageNamed:@"PP2.jpg"],

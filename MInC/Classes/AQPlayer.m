@@ -69,7 +69,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	[mSequencer_Pri Stop];
 	[self Stop];
 	
-	for (int i = 0; i < kNumSequences; i++)
+	for (int i = 0; i < mNumSequences; i++)
 		[mSequences[i] release];
 	
 	[mSequencer_Pri release];
@@ -153,6 +153,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 #else
 	
 	[self ParseFile];
+	
     /*
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"InC" ofType:@"xml"];
     NSLog(@"%s",[filePath cStringUsingEncoding:NSASCIIStringEncoding]);
@@ -319,7 +320,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void) SetSequence:(int)seq_num;
 {
-	if (seq_num >= 0 && seq_num <= kNumSequences)
+	if (seq_num >= 0 && seq_num <= mNumSequences)
 	{
 		mSeqNum = seq_num;
 		[mSequencer_Pri SetNextSequence:mSequences[mSeqNum-1]];
@@ -368,6 +369,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		if ((!xmlStrcmp(cur->name, (const xmlChar *)"part"))){
             NSLog(@"part found");
 			int part = atoi((char*)xmlGetProp(cur, (xmlChar*)"id"));
+			mNumSequences = atoi((char*)xmlGetProp(cur, (xmlChar*)"numsequences"));
 			if (mPiece == 1 || (mPiece == 2 && part == mPart))
 			{
 				xmlNodePtr cur2 = cur->xmlChildrenNode;

@@ -14,7 +14,6 @@
 
 #define kNumberBuffers	3
 
-#define kNumSequences	53
 
 @interface AQPlayer : NSObject {
 
@@ -30,10 +29,11 @@
 	Sequencer	*mSequencer_Sec;
 
 	int			mSeqNum;
-	Sequence	*mSequences[kNumSequences];
+	Sequence	*mSequences[53];
 	
 	int			mPiece;
 	int			mPart;
+	int			mNumSequences;
 }
 
 -(void)	New;
