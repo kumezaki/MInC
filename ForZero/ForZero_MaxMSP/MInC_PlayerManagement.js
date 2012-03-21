@@ -26,7 +26,6 @@ var gIPAddress_Broadcast = "0.0.0.0";
 
 var gMsg_PlayerJoin = "minc_player_join";
 var gMsg_PlayerLeave = "minc_player_leave";
-var gMsg_DoOSC = "minc_do_osc_msg";
 
 var gOSCAddress_Heartbeat = "/minc/hb";
 
@@ -73,12 +72,6 @@ function player_leave_msg_name(v)
 {
 	gMsg_PlayerLeave = v;
 	post("player leave message name set to "+gMsg_PlayerLeave+"\n");
-}
-
-function do_osc_msg_name(v)
-{
-	gMsg_DoOSC = v;
-	post("do osc message name set to "+gMsg_DoOSC+"\n");
 }
 
 function ip_address_local(v)
@@ -173,10 +166,6 @@ function osc()
 
 	if (pos != -1)
 	{
-		var a = new Array;
-		for (i = 0; i < arguments.length; i++) a[i] = arguments[i];
-		messnamed(gMsg_DoOSC,pos,a);
-
 		gPlayers.auto_bump[pos].cancel();
 		gPlayers.auto_bump[pos].schedule(gAutoBumpTime);
 	}
