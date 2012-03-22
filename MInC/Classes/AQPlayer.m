@@ -414,7 +414,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 							cur3 = cur3->next;
 						}
 						mSequences[seq_i] = [[Sequence alloc] init];
-						for (int i = 0; i < num_notes; i++) { NSLog(@"[%d] %f %f",i,notesequence[i],dursequence[i]); }
+						//for (int i = 0; i < num_notes; i++) { NSLog(@"[%d] %f %f",i,notesequence[i],dursequence[i]); }
 						[mSequences[seq_i] AssignNotes:num_notes:notesequence:dursequence];
 						free(notesequence);
 						free(dursequence);
