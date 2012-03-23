@@ -484,7 +484,7 @@ function set_module(dev_pos)
     
     if (mod <= gMaxNumModules)
     {
-        var prefix = "PP1";
+        var prefix = "PP2_";
         var filename = prefix + mod + "_seq.txt";
         post("module",dev_pos,mod,filename,"\n");
     
