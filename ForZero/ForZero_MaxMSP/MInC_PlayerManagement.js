@@ -5,8 +5,11 @@ autowatch = 1;
 var gPlayers = new Global("players");
 gPlayers.max_num = 10;
 gPlayers.ip_address = new Array;
-gPlayers.name = new Array;
 gPlayers.auto_bump = new Array;
+
+var gPlayersWaiting = new Global("players_waiting");
+gPlayersWaiting.ip_address = new Array;
+gPlayersWaiting.auto_bump = new Array;
 
 /*----------------------------------------------------------------------------*/
 
@@ -41,7 +44,6 @@ function reset()
 	for (i = 0; i < gPlayers.max_num; i++)
 	{
 		gPlayers.ip_address[i] = undefined;
-		gPlayers.name[i] = undefined;
 		gPlayers.auto_bump[i] = new Task(player_leave,this,i);
 	}
 }
