@@ -203,6 +203,22 @@ var gTask_ServerHeartbeat = new Task(heartbeat_func);
 var gHeartBeatTime = 1000;
 var gOSCAddress_Heartbeat = "/minc/hb";
 
+var gIPAddress_Local = "0.0.0.0";
+var gIPAddress_Broadcast = "0.0.0.0";
+
+function ip_address_local(v)
+{
+	gIPAddress_Local = v;
+	post("local IP address set to "+gIPAddress_Local+"\n");
+}
+
+function ip_address_broadcast(v)
+{
+	gIPAddress_Broadcast = v;
+	post("router broadcast IP address set to "+gIPAddress_Broadcast+"\n");
+	outlet(0,"host",gIPAddress_Broadcast);
+}
+
 function osc_address_heartbeat(v)
 {
 	gOSCAddress_Heartbeat = v;
@@ -225,44 +241,4 @@ function heartbeat_func()
 		outlet(0,gOSCAddress_Heartbeat,gIPAddress_Local);
 	}
 	gTask_ServerHeartbeat.schedule(gHeartBeatTime);
-}
-
-/*----------------------------------------------------------------------------*/
-
-var gIPAddress_Local = "0.0.0.0";
-var gIPAddress_Broadcast = "0.0.0.0";
-
-var gCount = 0;
-
-function ip_address_local(v)
-{
-	gIPAddress_Local = v;
-	post("local IP address set to "+gIPAddress_Local+"\n");
-}
-
-function ip_address_broadcast(v)
-{
-	gIPAddress_Broadcast = v;
-	post("router broadcast IP address set to "+gIPAddress_Broadcast+"\n");
-	outlet(0,"host",gIPAddress_Broadcast);
-}
-
-function clear()
-{
-    gCount = 0;
-}
-
-function append(v)
-{
-    if (gCount++ == 1)
-    {
-		gIPAddress_Local = v;
-        post("local IP address is "+v+"\n");
-
-        a = v.split(".")
-        a[3] = 255;
-        b = a[0]+"."+a[1]+"."+a[2]+"."+a[3];
-		gIPAddress_Broadcast = a;
-        post("router broadcast IP address is "+b+"\n");
-    }
 }
