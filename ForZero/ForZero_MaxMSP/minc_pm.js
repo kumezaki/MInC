@@ -13,7 +13,7 @@ gPlayersWaiting.auto_bump = new Array;
 
 var gAutoBumpTime = 0;
 
-var gMsg_PlayerUpdate = "";
+var gMsg_PMUpdate = "";
 
 /*----------------------------------------------------------------------------*/
 
@@ -28,7 +28,7 @@ function reset()
 	
 	gAutoBumpTime = 10000;
 
-	gMsg_PlayerUpdate = "minc_player_update";
+	gMsg_PMUpdate = "minc_pm_update";
 
 	for (i = 0; i < gPlayers.max_num; i++)
 	{
@@ -71,8 +71,8 @@ function auto_bump_time(v)
 
 function player_update_msg_name(v)
 {
-	gMsg_PlayerUpdate = v;
-	post("player update message name set to "+gMsg_PlayerUpdate+"\n");
+	gMsg_PMUpdate = v;
+	post("player update message name set to "+gMsg_PMUpdate+"\n");
 }
 
 /*----------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ function player_join(i,ip_add,from_wait)
 
 	gPlayers.ip_address[i] = ip_add;
 
-	messnamed(gMsg_PlayerUpdate,"join",i,ip_add,from_wait);
+	messnamed(gMsg_PMUpdate,"join",i,ip_add,from_wait);
 }
 
 function player_leave(i)
@@ -93,7 +93,7 @@ function player_leave(i)
 
 	gPlayers.ip_address[i] = undefined;
 	
-	messnamed(gMsg_PlayerUpdate,"leave",i);
+	messnamed(gMsg_PMUpdate,"leave",i);
 
 	if (gPlayersWaiting.ip_address.length)
 	{
@@ -117,7 +117,7 @@ function player_wait(ip_add)
 		gPlayersWaiting.ip_address.push(ip_add);
 		post("waiting list",gPlayersWaiting.ip_address,"\n");
 
-		messnamed(gMsg_PlayerUpdate,"wait_join",ip_add);
+		messnamed(gMsg_PMUpdate,"wait_join",ip_add);
 
 		if (gPlayersWaiting.auto_bump[ip_add] == undefined)
 			gPlayersWaiting.auto_bump[ip_add] = new Task(player_leave_waiting,this,ip_add);
@@ -138,7 +138,7 @@ function player_leave_waiting()
 	gPlayersWaiting.ip_address.splice(i,1);
 	post("waiting list",gPlayersWaiting.ip_address,"\n");
 	
-	messnamed(gMsg_PlayerUpdate,"wait_leave",ip_add);
+	messnamed(gMsg_PMUpdate,"wait_leave",ip_add);
 
 	/* should delete task and remove from gPlayersWaiting.auto_bump array here? */
 	post("gPlayersWaiting.auto_bump["+ip_add+"] "+gPlayersWaiting.auto_bump[ip_add]+"\n");

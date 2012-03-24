@@ -1,9 +1,9 @@
 {
 	"patcher" : 	{
 		"fileversion" : 1,
-		"rect" : [ 25.0, 69.0, 469.0, 283.0 ],
+		"rect" : [ 25.0, 69.0, 327.0, 216.0 ],
 		"bglocked" : 0,
-		"defrect" : [ 25.0, 69.0, 469.0, 283.0 ],
+		"defrect" : [ 25.0, 69.0, 327.0, 216.0 ],
 		"openrect" : [ 0.0, 0.0, 0.0, 0.0 ],
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -25,7 +25,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 99.0, 195.0, 25.0, 25.0 ]
+					"patching_rect" : [ 30.0, 168.0, 25.0, 25.0 ]
 				}
 
 			}
@@ -37,7 +37,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 99.0, 42.0, 25.0, 25.0 ]
+					"patching_rect" : [ 30.0, 15.0, 25.0, 25.0 ]
 				}
 
 			}
@@ -50,7 +50,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 218.0, 169.0, 145.0, 18.0 ],
+					"patching_rect" : [ 150.0, 142.0, 145.0, 18.0 ],
 					"text" : "ip_address_broadcast $1"
 				}
 
@@ -64,7 +64,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 99.0, 169.0, 117.0, 18.0 ],
+					"patching_rect" : [ 30.0, 142.0, 117.0, 18.0 ],
 					"text" : "ip_address_local $1"
 				}
 
@@ -78,8 +78,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 99.0, 143.0, 124.0, 20.0 ],
-					"text" : "js MInC_IPAddress.js"
+					"patching_rect" : [ 30.0, 116.0, 139.0, 20.0 ],
+					"text" : "js minc_pm_hb_ipadd.js"
 				}
 
 			}
@@ -90,7 +90,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 99.0, 70.0, 20.0, 20.0 ]
+					"patching_rect" : [ 30.0, 43.0, 20.0, 20.0 ]
 				}
 
 			}
@@ -103,7 +103,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "en1", "bang" ],
-					"patching_rect" : [ 99.0, 94.0, 47.0, 20.0 ],
+					"patching_rect" : [ 30.0, 67.0, 47.0, 20.0 ],
 					"text" : "t en1 b"
 				}
 
@@ -117,7 +117,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 99.0, 118.0, 77.0, 20.0 ],
+					"patching_rect" : [ 30.0, 91.0, 77.0, 20.0 ],
 					"text" : "mxj net.local"
 				}
 

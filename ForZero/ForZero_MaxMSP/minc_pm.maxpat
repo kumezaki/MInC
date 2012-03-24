@@ -1,9 +1,9 @@
 {
 	"patcher" : 	{
 		"fileversion" : 1,
-		"rect" : [ 336.0, 251.0, 509.0, 319.0 ],
+		"rect" : [ 336.0, 251.0, 494.0, 316.0 ],
 		"bglocked" : 0,
-		"defrect" : [ 336.0, 251.0, 509.0, 319.0 ],
+		"defrect" : [ 336.0, 251.0, 494.0, 316.0 ],
 		"openrect" : [ 0.0, 0.0, 0.0, 0.0 ],
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -46,7 +46,6 @@
 						"enablehscroll" : 1,
 						"enablevscroll" : 1,
 						"devicewidth" : 0.0,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"comment" : "",
@@ -228,7 +227,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 38.0, 56.0, 58.0, 20.0 ],
+					"patching_rect" : [ 43.0, 80.0, 58.0, 20.0 ],
 					"saved_object_attributes" : 					{
 						"fontname" : "Arial",
 						"default_fontsize" : 12.0,
@@ -253,7 +252,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 300.0, 155.0, 148.0, 20.0 ],
-					"text" : "js MInC_PlayersDisplay.js"
+					"text" : "js minc_pm_display.js"
 				}
 
 			}
@@ -281,8 +280,8 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 300.0, 128.0, 126.0, 20.0 ],
-					"text" : "r minc_player_update"
+					"patching_rect" : [ 300.0, 128.0, 110.0, 20.0 ],
+					"text" : "r minc_pm_update"
 				}
 
 			}
@@ -322,7 +321,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 130.0, 255.0, 187.0, 20.0 ],
+					"patching_rect" : [ 130.0, 263.0, 187.0, 20.0 ],
 					"text" : "udpsend 255.255.255.255 31337"
 				}
 
@@ -375,8 +374,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 149.0, 153.0, 100.0, 20.0 ],
-					"text" : "MInC_IPAddress"
+					"patching_rect" : [ 149.0, 153.0, 115.0, 20.0 ],
+					"text" : "minc_pm_hb_ipadd"
 				}
 
 			}
@@ -389,7 +388,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 89.0, 191.0, 37.0, 18.0 ],
+					"patching_rect" : [ 164.0, 179.0, 37.0, 18.0 ],
 					"text" : "reset"
 				}
 
@@ -403,8 +402,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 130.0, 190.0, 116.0, 20.0 ],
-					"text" : "js WaitingListTest.js"
+					"patching_rect" : [ 130.0, 205.0, 83.0, 20.0 ],
+					"text" : "js minc_pm.js"
 				}
 
 			}
@@ -416,7 +415,7 @@
 					"maxclass" : "panel",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 33.0, 110.0, 243.0, 119.0 ]
+					"patching_rect" : [ 33.0, 116.0, 243.0, 119.0 ]
 				}
 
 			}
@@ -426,7 +425,7 @@
 					"maxclass" : "panel",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 120.0, 238.0, 210.0, 54.0 ]
+					"patching_rect" : [ 120.0, 246.0, 210.0, 54.0 ]
 				}
 
 			}
