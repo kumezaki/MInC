@@ -17,20 +17,8 @@ var gAutoBumpTime = 10000;
 
 /*----------------------------------------------------------------------------*/
 
-var gTask_ServerHeartbeat = new Task(heartbeat_func);
-var gHeartBeatTime = 1000;
-
-/*----------------------------------------------------------------------------*/
-
-var gIPAddress_Local = "0.0.0.0";
-var gIPAddress_Broadcast = "0.0.0.0";
-
-/*----------------------------------------------------------------------------*/
-
 var gMsg_PlayerJoin = "minc_player_join";
 var gMsg_PlayerLeave = "minc_player_leave";
-
-var gOSCAddress_Heartbeat = "/minc/hb";
 
 /*----------------------------------------------------------------------------*/
 
@@ -76,43 +64,6 @@ function player_leave_msg_name(v)
 	post("player leave message name set to "+gMsg_PlayerLeave+"\n");
 }
 
-function ip_address_local(v)
-{
-	gIPAddress_Local = v;
-	post("local IP address set to "+gIPAddress_Local+"\n");
-}
-
-function ip_address_broadcast(v)
-{
-	gIPAddress_Broadcast = v;
-	post("router broadcast IP address set to "+gIPAddress_Broadcast+"\n");
-	outlet(0,"host",gIPAddress_Broadcast);
-}
-
-function osc_address_heartbeat(v)
-{
-	gOSCAddress_Heartbeat = v;
-	post("heartbeat OSC address set to "+gOSCAddress_Heartbeat+"\n");
-}
-
-/*----------------------------------------------------------------------------*/
-
-function filter_ip_address(v)
-{
-	var deny = false;
-	
-	/* deny IP addresses here (e.g. 0.0.0.0, non-local address) */
-	if (v == "0.0.0.0")
-		deny = true;
-
-	return deny;
-}
-
-function find_ip_address_pos(ip_add)
-{
-	return gPlayers.ip_address.indexOf(ip_add);
-}
-
 /*----------------------------------------------------------------------------*/
 
 function check_player_range(i)
@@ -129,7 +80,7 @@ function player_join(i,ip_add)
 {
 	if (!check_player_range(i)) return;
 
-	post("player_join",ip_add,"at index",i,"\n");
+	post("player "+ip_add+" joining at index "+i+"\n");
 
 	gPlayers.ip_address[i] = ip_add;
 	
@@ -140,7 +91,8 @@ function player_leave(i)
 {
 	if (!check_player_range(i)) return;
 
-	post("player_leave",gPlayers.ip_address[i],"at index",i,"\n");
+	var v = gPlayers.ip_address[i];
+	post("player "+v+" leaving at index "+i+"\n");
 
 	gPlayers.ip_address[i] = undefined;
 
@@ -148,6 +100,17 @@ function player_leave(i)
 }
 
 /*----------------------------------------------------------------------------*/
+
+function filter_ip_address(v)
+{
+	var deny = false;
+	
+	/* deny IP addresses here (e.g. 0.0.0.0, non-local address) */
+	if (v == "0.0.0.0")
+		deny = true;
+
+	return deny;
+}
 
 function osc()
 {
@@ -157,23 +120,33 @@ function osc()
 	
 	if (filter_ip_address(ip_add)) return;
 
-	pos = find_ip_address_pos(ip_add);
+	var i = gPlayers.ip_address.indexOf(ip_add);
 	
-	if (pos == -1)
+	if (i == -1)
 	{
-		pos = find_ip_address_pos(undefined);
-		if (pos != -1)
-			player_join(pos,ip_add);
+		i = gPlayers.ip_address.indexOf(undefined);
+		if (i != -1)
+			player_join(i,ip_add);
 	}
 
-	if (pos != -1)
+	if (i != -1)
 	{
-		gPlayers.auto_bump[pos].cancel();
-		gPlayers.auto_bump[pos].schedule(gAutoBumpTime);
+		gPlayers.auto_bump[i].cancel();
+		gPlayers.auto_bump[i].schedule(gAutoBumpTime);
 	}
 }
 
 /*----------------------------------------------------------------------------*/
+
+var gTask_ServerHeartbeat = new Task(heartbeat_func);
+var gHeartBeatTime = 1000;
+var gOSCAddress_Heartbeat = "/minc/hb";
+
+function osc_address_heartbeat(v)
+{
+	gOSCAddress_Heartbeat = v;
+	post("heartbeat OSC address set to "+gOSCAddress_Heartbeat+"\n");
+}
 
 function heartbeat(v)
 {
@@ -195,7 +168,23 @@ function heartbeat_func()
 
 /*----------------------------------------------------------------------------*/
 
-gCount = 0;
+var gIPAddress_Local = "0.0.0.0";
+var gIPAddress_Broadcast = "0.0.0.0";
+
+var gCount = 0;
+
+function ip_address_local(v)
+{
+	gIPAddress_Local = v;
+	post("local IP address set to "+gIPAddress_Local+"\n");
+}
+
+function ip_address_broadcast(v)
+{
+	gIPAddress_Broadcast = v;
+	post("router broadcast IP address set to "+gIPAddress_Broadcast+"\n");
+	outlet(0,"host",gIPAddress_Broadcast);
+}
 
 function clear()
 {

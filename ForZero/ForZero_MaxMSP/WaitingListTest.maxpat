@@ -1,9 +1,9 @@
 {
 	"patcher" : 	{
 		"fileversion" : 1,
-		"rect" : [ 244.0, 259.0, 502.0, 512.0 ],
+		"rect" : [ 406.0, 204.0, 502.0, 512.0 ],
 		"bglocked" : 0,
-		"defrect" : [ 244.0, 259.0, 502.0, 512.0 ],
+		"defrect" : [ 406.0, 204.0, 502.0, 512.0 ],
 		"openrect" : [ 0.0, 0.0, 0.0, 0.0 ],
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -27,8 +27,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 80.0, 118.0, 101.0, 20.0 ],
-					"text" : "sprintf 10.0.1.%d"
+					"patching_rect" : [ 80.0, 107.0, 134.0, 20.0 ],
+					"text" : "sprintf /minc 10.0.1.%d"
 				}
 
 			}
@@ -41,7 +41,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "bang" ],
-					"patching_rect" : [ 137.0, 155.0, 50.0, 20.0 ]
+					"patching_rect" : [ 152.0, 132.0, 50.0, 20.0 ]
 				}
 
 			}
@@ -54,7 +54,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 137.0, 191.0, 95.0, 18.0 ],
+					"patching_rect" : [ 152.0, 154.0, 95.0, 18.0 ],
 					"text" : "player_leave $1"
 				}
 
@@ -68,7 +68,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 34.0, 192.0, 37.0, 18.0 ],
+					"patching_rect" : [ 39.0, 223.0, 37.0, 18.0 ],
 					"text" : "reset"
 				}
 
@@ -82,8 +82,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 80.0, 191.0, 46.0, 18.0 ],
-					"text" : "osc $1"
+					"patching_rect" : [ 80.0, 154.0, 64.0, 18.0 ],
+					"text" : "osc $1 $2"
 				}
 
 			}
