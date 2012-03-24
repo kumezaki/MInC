@@ -3,7 +3,7 @@ autowatch = 1;
 /*----------------------------------------------------------------------------*/
 
 var gPlayers = new Global("players");
-gPlayers.max_num = 10;
+gPlayers.max_num = 0;
 gPlayers.ip_address = new Array;
 gPlayers.auto_bump = new Array;
 
@@ -11,14 +11,9 @@ var gPlayersWaiting = new Global("players_waiting");
 gPlayersWaiting.ip_address = new Array;
 gPlayersWaiting.auto_bump = new Array;
 
-/*----------------------------------------------------------------------------*/
+var gAutoBumpTime = 0;
 
-var gAutoBumpTime = 10000;
-
-/*----------------------------------------------------------------------------*/
-
-var gMsg_PlayerJoin = "minc_player_join";
-var gMsg_PlayerLeave = "minc_player_leave";
+var gMsg_PlayerUpdate = "";
 
 /*----------------------------------------------------------------------------*/
 
@@ -29,6 +24,12 @@ function loadbang()
 
 function reset()
 {
+	gPlayers.max_num = 10;
+	
+	gAutoBumpTime = 10000;
+
+	gMsg_PlayerUpdate = "minc_player_update";
+
 	for (i = 0; i < gPlayers.max_num; i++)
 	{
 		gPlayers.ip_address[i] = undefined;
@@ -38,8 +39,18 @@ function reset()
 	while ((v = gPlayersWaiting.ip_address.shift()) != undefined)
 	{
 		post(v,"\n");
-		delete_autobump_task(v);
+		gPlayersWaiting.auto_bump[v].cancel();
+		delete gPlayersWaiting.auto_bump[v];
+		gPlayersWaiting.auto_bump[v] = undefined;
 	}
+
+	heartbeat(0);
+	
+	gHeartBeatTime = 1000;
+	gOSCAddress_Heartbeat = "/minc/hb";
+
+	gIPAddress_Local = "0.0.0.0";
+	gIPAddress_Broadcast = "0.0.0.0";
 }
 
 /*----------------------------------------------------------------------------*/
@@ -58,118 +69,82 @@ function auto_bump_time(v)
 	post("auto bump time set to "+gAutoBumpTime+" msecs\n");
 }
 
-function player_join_msg_name(v)
+function player_update_msg_name(v)
 {
-	gMsg_PlayerJoin = v;
-	post("player join message name set to "+gMsg_PlayerJoin+"\n");
-}
-
-function player_leave_msg_name(v)
-{
-	gMsg_PlayerLeave = v;
-	post("player leave message name set to "+gMsg_PlayerLeave+"\n");
+	gMsg_PlayerUpdate = v;
+	post("player update message name set to "+gMsg_PlayerUpdate+"\n");
 }
 
 /*----------------------------------------------------------------------------*/
 
-function check_player_range(i)
+function player_join(i,ip_add,from_wait)
 {
-	if (i < 0)
-	{
-		post("player index "+i+" out of range\n");
-		return false;
-	}
-	return true; /* returns true if in range */
-}
-
-function player_join(i,ip_add)
-{
-	if (!check_player_range(i)) return;
-
-	post("player "+ip_add+" joining at index "+i+"\n");
+	post("player "+ip_add+" joining at index "+i+(from_wait?" from waiting list":"")+"\n");
 
 	gPlayers.ip_address[i] = ip_add;
 
-	messnamed(gMsg_PlayerJoin,i,ip_add);
+	messnamed(gMsg_PlayerUpdate,"join",i,ip_add,from_wait);
 }
 
 function player_leave(i)
 {
-	if (!check_player_range(i)) return;
-
-	var v = gPlayers.ip_address[i];
-	post("player "+v+" leaving at index "+i+"\n");
+	var ip_add = gPlayers.ip_address[i];
+	post("player "+ip_add+" leaving at index "+i+"\n");
 
 	gPlayers.ip_address[i] = undefined;
 	
-	messnamed(gMsg_PlayerLeave,i);
+	messnamed(gMsg_PlayerUpdate,"leave",i);
 
 	if (gPlayersWaiting.ip_address.length)
 	{
 		post("waiting list before",gPlayersWaiting.ip_address,"\n");
-		v = gPlayersWaiting.ip_address.shift();
+		ip_add = gPlayersWaiting.ip_address.shift();
 		post("waiting list after",gPlayersWaiting.ip_address,"\n");
 		
-		gPlayersWaiting.auto_bump[v].cancel();
+		gPlayersWaiting.auto_bump[ip_add].cancel();
 		
-		player_join(i,v);
+		player_join(i,ip_add,true);
 		gPlayers.auto_bump[i].cancel();
 		gPlayers.auto_bump[i].schedule(gAutoBumpTime);
 	}
 }
 
-function player_wait(v)
+function player_wait(ip_add)
 {
-	if (gPlayersWaiting.ip_address.indexOf(v) == -1)
+	if (gPlayersWaiting.ip_address.indexOf(ip_add) == -1)
 	{
-		post(v+" added to waiting list\n");
-		gPlayersWaiting.ip_address.push(v);
+		post(ip_add+" added to waiting list\n");
+		gPlayersWaiting.ip_address.push(ip_add);
 		post("waiting list",gPlayersWaiting.ip_address,"\n");
 
-		if (gPlayersWaiting.auto_bump[v] == undefined)
-			gPlayersWaiting.auto_bump[v] = new Task(player_leave_waiting,this,v);
+		messnamed(gMsg_PlayerUpdate,"wait_join",ip_add);
+
+		if (gPlayersWaiting.auto_bump[ip_add] == undefined)
+			gPlayersWaiting.auto_bump[ip_add] = new Task(player_leave_waiting,this,ip_add);
 	}
 	else
 	{
-		post(v+" still on waiting list\n");
-		gPlayersWaiting.auto_bump[v].cancel();
+		post(ip_add+" still on waiting list\n");
+		gPlayersWaiting.auto_bump[ip_add].cancel();
 	}
-	gPlayersWaiting.auto_bump[v].schedule(gAutoBumpTime);
+	gPlayersWaiting.auto_bump[ip_add].schedule(gAutoBumpTime);
 }
 
 function player_leave_waiting()
 {
-	var v = arguments[0];
-	post("player_leave_waiting",v,"\n");
-	var i = gPlayersWaiting.ip_address.indexOf(v);
+	var ip_add = arguments[0];
+	post("player_leave_waiting",ip_add,"\n");
+	var i = gPlayersWaiting.ip_address.indexOf(ip_add);
 	gPlayersWaiting.ip_address.splice(i,1);
 	post("waiting list",gPlayersWaiting.ip_address,"\n");
 	
+	messnamed(gMsg_PlayerUpdate,"wait_leave",ip_add);
+
 	/* should delete task and remove from gPlayersWaiting.auto_bump array here? */
-	post("gPlayersWaiting.auto_bump["+v+"] "+gPlayersWaiting.auto_bump[v]+"\n");
+	post("gPlayersWaiting.auto_bump["+ip_add+"] "+gPlayersWaiting.auto_bump[ip_add]+"\n");
 }
 
 /*----------------------------------------------------------------------------*/
-
-function delete_autobump_task(v)
-{
-	gPlayersWaiting.auto_bump[v].cancel();
-	delete gPlayersWaiting.auto_bump[v];
-	gPlayersWaiting.auto_bump[v] = undefined;
-}
-
-/*----------------------------------------------------------------------------*/
-
-function filter_ip_address(v)
-{
-	var deny = false;
-	
-	/* deny IP addresses here (e.g. 0.0.0.0, non-local address) */
-	if (v == "0.0.0.0")
-		deny = true;
-
-	return deny;
-}
 
 function osc()
 {
@@ -177,7 +152,7 @@ function osc()
 
 	var ip_add = arguments[1];
 	
-	if (filter_ip_address(ip_add)) return;
+	if (ip_add == "0.0.0.0") return;
 
 	var i = gPlayers.ip_address.indexOf(ip_add);
 
@@ -187,7 +162,7 @@ function osc()
 		if (i == -1 || i >= gPlayers.max_num)
 			player_wait(ip_add);
 		else
-			player_join(i,ip_add);
+			player_join(i,ip_add,false);
 	}
 
 	if (i != -1)
@@ -200,21 +175,21 @@ function osc()
 /*----------------------------------------------------------------------------*/
 
 var gTask_ServerHeartbeat = new Task(heartbeat_func);
-var gHeartBeatTime = 1000;
-var gOSCAddress_Heartbeat = "/minc/hb";
+var gHeartBeatTime = 0;
+var gOSCAddress_Heartbeat = "";
 
 var gIPAddress_Local = "0.0.0.0";
 var gIPAddress_Broadcast = "0.0.0.0";
 
-function ip_address_local(v)
+function ip_address_local(ip_add)
 {
-	gIPAddress_Local = v;
+	gIPAddress_Local = ip_add;
 	post("local IP address set to "+gIPAddress_Local+"\n");
 }
 
-function ip_address_broadcast(v)
+function ip_address_broadcast(ip_add)
 {
-	gIPAddress_Broadcast = v;
+	gIPAddress_Broadcast = ip_add;
 	post("router broadcast IP address set to "+gIPAddress_Broadcast+"\n");
 	outlet(0,"host",gIPAddress_Broadcast);
 }
