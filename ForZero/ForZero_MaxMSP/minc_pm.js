@@ -2,12 +2,12 @@ autowatch = 1;
 
 /*----------------------------------------------------------------------------*/
 
-var gPlayers = new Global("players");
+var gPlayers = new Global("minc_pm");
 gPlayers.max_num = 0;
 gPlayers.ip_address = new Array;
 gPlayers.auto_bump = new Array;
 
-var gPlayersWaiting = new Global("players_waiting");
+var gPlayersWaiting = new Global("minc_pm_waiting");
 gPlayersWaiting.ip_address = new Array;
 gPlayersWaiting.auto_bump = new Array;
 
@@ -181,6 +181,8 @@ var gOSCAddress_Heartbeat = "";
 var gIPAddress_Local = "0.0.0.0";
 var gIPAddress_Broadcast = "0.0.0.0";
 
+/*----------------------------------------------------------------------------*/
+
 function ip_address_local(ip_add)
 {
 	gIPAddress_Local = ip_add;
@@ -199,6 +201,8 @@ function osc_address_heartbeat(v)
 	gOSCAddress_Heartbeat = v;
 	post("heartbeat OSC address set to "+gOSCAddress_Heartbeat+"\n");
 }
+
+/*----------------------------------------------------------------------------*/
 
 function heartbeat(v)
 {

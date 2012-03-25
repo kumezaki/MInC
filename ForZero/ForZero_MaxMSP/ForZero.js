@@ -2,7 +2,7 @@ autowatch = 1;
 
 /*----------------------------------------------------------------------------*/
 
-var gPlayers = new Global("players");
+var gPlayers = new Global("minc_pm");
 
 /*----------------------------------------------------------------------------*/
 
@@ -144,7 +144,7 @@ function do_msg(osc_add,pos,val)
         osc_msg_download(pos);
 
     else if (osc_add == "/hb")
-    	post(gPlayers.ip_address[pos],"is present\n");
+    	post(gPlayers.ip_address[pos],"heartbeat\n");
 }
 
 function osc_msg_transport_state(pos,val)
@@ -297,12 +297,9 @@ function osc_msg_download(pos)
 }
 
 
-function player_join(i,ip_add)
-{
-	post("player_join",ip_add,"at target pos",i+1,"\n");
-}
+function join() {}
 
-function player_leave(i)
+function leave(i)
 {
 	post("player_leave",gPlayers.ip_address[i],"at target pos",i+1,"\n");
 
@@ -311,6 +308,8 @@ function player_leave(i)
 	audio_out(i+1,0)
 }
 
+function wait_join() {}
+function wait_leave() {}
 
 /*** MISCELLANEOUS FUNCTIONS ***/
 
