@@ -2,6 +2,10 @@ autowatch = 1;
 
 /*----------------------------------------------------------------------------*/
 
+var gPlayers = new Global("minc_pm");
+
+/*----------------------------------------------------------------------------*/
+
 function Device()
 {
     this.mod = 0;
@@ -14,27 +18,24 @@ function Device()
     this.filter_freq_delta = 0;
     this.rhythm_aug = 0;
     this.hint_pos = 0;
-    this.present = false;
-    this.loading = false;
 }
 
 /*----------------------------------------------------------------------------*/
 
-var gNumVoices = 21;
+var gNumVoices = 21;	/* this should be taken from gPlayers.max_num */
 
 var gMaxNumModules = 53;
 
 var gDeviceArray = [];
 var gDeviceNameArray = [];
 
-var gMsgIDArray = [];
-
 /*----------------------------------------------------------------------------*/
 /* initialization */
 
 function loadbang()
 {
-    read_mapping();
+    init_msg_id_array();
+
     read_hints();
     
     for (i = 0; i < gNumVoices; i++)
@@ -42,64 +43,81 @@ function loadbang()
         gDeviceNameArray.push(undefined);
         gDeviceArray.push(new Device());
     }
-
-    i = 0;    
-    gMsgIDArray["hb"] = i++;
-    gMsgIDArray["mod"] = i++;
-    gMsgIDArray["speak"] = i++;
-    gMsgIDArray["instr"] = i++;
-    gMsgIDArray["8va"] = i++;
-    gMsgIDArray["8vb"] = i++;
-    gMsgIDArray["2xslow"] = i++;
-    gMsgIDArray["2xfast"] = i++;
-    gMsgIDArray["dur"] = i++;
-    gMsgIDArray["filt"] = i++;
-    gMsgIDArray["wave"] = i++;
-    gMsgIDArray["vol"] = i++;
-    gMsgIDArray["hint"] = i++;
-    gMsgIDArray["status"] = i++;
-    gMsgIDArray["accX"] = i++;
-    gMsgIDArray["accY"] = i++;
-    gMsgIDArray["accZ"] = i++;
-
-    messnamed("InC_in1_msg","voices",gNumVoices);
     
-    heartbeat(true);
+    messnamed("InC_in1_msg","voices",gNumVoices);
 }    
+
+/*----------------------------------------------------------------------------*/
+
+function find_ip_address_pos(ip_add)
+{
+	return gPlayers.ip_address.indexOf(ip_add);
+}
+
+function osc()
+{
+	post(arguments[0],arguments[1],arguments[2],"\n");
+    
+    var osc_add = arguments[0];
+    var ip_add = arguments[1];
+    var val = arguments[2];
+    
+    if (osc_add.search("/MInC/") != 0)
+    	return;
+    	
+	osc_add = osc_add.slice(5);
+
+    pos = find_ip_address_pos(ip_add);
+    
+    if (pos != -1)
+    {
+    	do_msg(osc_add,pos,val);
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+/* player joining/leaving related code */
+
+function join(i,ip_add,from_wait)
+{
+	var dev_pos = i;
+	var dev_name = ip_add;
+
+	update_dev(dev_pos,dev_name);
+	messnamed("interface_msg","host",dev_name,dev_pos);
+}
+
+function leave(i)
+{
+	var dev_pos = i;
+	update_dev(i,"");
+}
+
+function wait_join() {}
+function wait_leave() {}
+
 
 /*----------------------------------------------------------------------------*/
 /* osc message parsing related code */
 
-function osc_minc()
+var gMsgIDArray = [];
+
+function do_msg(osc_add,pos,val)
 {
-    var a = arguments[0].split("/");
-    var val = arguments[arguments.length-1];
+	post(osc_add,pos,val,"\n");
 
-//    for (i = 0; i < arguments.length; i++) post(arguments[i],"\n");
-
-    var dev_name = arguments[1];
-
-    var dev_pos = gDeviceNameArray.indexOf(dev_name);
-    
-    if (dev_pos < 0)
-    {
-        dev_pos = get_free_dev_pos();
-        if (dev_pos < 0)
-        {
-            post("no free dev_pos available\n");
-            return;
-        }
-        update_dev(dev_pos,dev_name);
-        messnamed("interface_msg","host",dev_name,dev_pos);
-    }
+    var dev_pos = pos;
+    var dev_name = gPlayers.ip_address[pos];
     
     var dev = gDeviceArray[dev_pos];
+
+    var a = osc_add.split("/");
+	post(a,"\n");
 
     switch (gMsgIDArray[a[1]])
     {
         case gMsgIDArray["hb"]:
         {
-            dev.present = true;
             post("heartbeat",dev_name,"\n");
             break;
         }
@@ -165,13 +183,33 @@ function osc_minc()
     }
 }
 
+function init_msg_id_array()
+{
+    var i = 0;    
+    gMsgIDArray["hb"] = i++;
+    gMsgIDArray["mod"] = i++;
+    gMsgIDArray["speak"] = i++;
+    gMsgIDArray["instr"] = i++;
+    gMsgIDArray["8va"] = i++;
+    gMsgIDArray["8vb"] = i++;
+    gMsgIDArray["2xslow"] = i++;
+    gMsgIDArray["2xfast"] = i++;
+    gMsgIDArray["dur"] = i++;
+    gMsgIDArray["filt"] = i++;
+    gMsgIDArray["wave"] = i++;
+    gMsgIDArray["vol"] = i++;
+    gMsgIDArray["hint"] = i++;
+    gMsgIDArray["status"] = i++;
+    gMsgIDArray["accX"] = i++;
+    gMsgIDArray["accY"] = i++;
+    gMsgIDArray["accZ"] = i++;
+}
+
 /*----------------------------------------------------------------------------*/
 /* functions to set module */
 
 function set_module(dev_pos)
 {
-    autosense(!get_all_off());
-    
     var prev_all_at_last = get_all_at_last();
 
     var mod = ++gDeviceArray[dev_pos].mod;
@@ -268,7 +306,17 @@ function set_inst_sub(dev_pos)
 }
 
 /*----------------------------------------------------------------------------*/
-/* functions to set sequence speed (do we need seq_speed?) */
+/* functions to set sequence speed */
+
+function set_rhythm_aug(dev_pos,val)
+{
+    var dev = gDeviceArray[dev_pos];
+    dev.rhythm_aug = val;
+    send_speed_msg(dev_pos);
+}
+
+/*----------------------------------------------------------------------------*/
+/* messages from seq/synth */
 
 function seq_speed(dev_pos,s)
 {
@@ -279,15 +327,8 @@ function seq_speed(dev_pos,s)
     }
 }
 
-function set_rhythm_aug(dev_pos,val)
-{
-    var dev = gDeviceArray[dev_pos];
-    dev.rhythm_aug = val;
-    send_speed_msg(dev_pos);
-}
-
 /*----------------------------------------------------------------------------*/
-/* messages to seq/synth poly~ */
+/* messages to seq/synth */
 
 var gMaxVolume = 0.5;
 var gMaxCents = 50.; 
@@ -382,47 +423,6 @@ function send_dropout_msg(dev_pos,val)
 {
     messnamed("InC_in1_msg","target",dev_pos+1);
     messnamed("InC_in2_msg","dropout",val < 600 ? 1. : 0., 250);
-}
-
-/*----------------------------------------------------------------------------*/
-/* player management related code */
-
-function get_free_dev_pos()
-{
-    for (i = 0; i < gNumVoices; i++)
-        if (gDeviceNameArray[i] == undefined) return i;
-
-    return -1;
-}
-
-function update_dev(dev_pos,dev_name)
-{
-    if (dev_name == "") dev_name = undefined;
-    
-    dev_pos = parseInt(dev_pos);
-    
-    if (dev_name != gDeviceNameArray[dev_pos])
-    {
-        post("update_dev",dev_pos,dev_name,"\n");
-    
-        gDeviceNameArray[dev_pos] = dev_name;
-        
-        if (dev_name == undefined)
-        {
-            post("stopping poly target",dev_pos+1,"\n");
-            messnamed("InC_in1_msg","target",dev_pos+1);
-            messnamed("InC_in2_msg","seq","play",0);
-            messnamed("InC_in2_msg","adsr",0.);
-            delete gDeviceArray[dev_pos];
-            gDeviceArray[dev_pos] = new Device();
-        }
-        else
-        {
-            gDeviceArray[dev_pos].mod = get_avg_mod();
-            set_inst_mid(dev_pos);
-            send_volume_msg(dev_pos,500);
-        }
-    }
 }
 
 /*----------------------------------------------------------------------------*/
@@ -563,76 +563,21 @@ function hint(dev_pos)
 }
 
 /*----------------------------------------------------------------------------*/
-/* autosense related code */
-
-var gAutoSenseTask = new Task(autosense_func);
-var gAutoSenseTaskPeriod = 3000;
-
-function autosense(enable)
-{
-    if (enable)
-        gAutoSenseTask.schedule(gAutoSenseTaskPeriod);
-    else
-        gAutoSenseTask.cancel();
-}
-
-function autosense_func()
-{
-    var delete_array = [];
-
-    for (i = 0; i < gNumVoices; i++)
-    {
-        if (gDeviceArray[i].loading)
-        {
-//            post("loading",i,"\n");
-        }
-        else if (gDeviceNameArray[i] != undefined)
-        {
-//            post("present",i,gDeviceArray[i].present?"true":"false","\n");
-            if (gDeviceArray[i].present == false)
-                delete_array.push(i);
-            gDeviceArray[i].present = false;
-        }
-    }
-
-    while (delete_array.length > 0)
-        update_dev(delete_array.pop(),"");
-    
-    gAutoSenseTask.schedule(gAutoSenseTaskPeriod);
-}
-
-/*----------------------------------------------------------------------------*/
-/* heartbeat related code */
-
-var gHeartBeatTask = new Task(heartbeat_func);
-var gHeartBeatTaskPeriod = 1000;
-
-function heartbeat(enable)
-{
-    if (enable)
-        gHeartBeatTask.schedule(0);
-    else
-        gHeartBeatTask.cancel();
-}
-
-function heartbeat_func()
-{
-    messnamed("heartbeat_msg","bang");
-
-    gHeartBeatTask.schedule(gHeartBeatTaskPeriod);
-}
-
-/*----------------------------------------------------------------------------*/
 /* player display related code */
 
 function bang()
 {
-    player_list_update();
-//    for (dev_pos = 0; dev_pos < gNumVoices; dev_pos++)
-//        post("Device",dev_pos,gDeviceNameArray[dev_pos],gDeviceArray[dev_pos].mod,"\n");
+//	player_list_update_post();
+    player_list_update_lcd();
 }
 
-function player_list_update()
+function player_list_update_post()
+{
+	for (dev_pos = 0; dev_pos < gNumVoices; dev_pos++)
+		post("Device",dev_pos,gDeviceNameArray[dev_pos],gDeviceArray[dev_pos].mod,"\n");
+}
+
+function player_list_update_lcd()
 {
     messnamed("InC_lcd_msg","font","Arial",24);
     messnamed("InC_lcd_msg","border",0);
@@ -660,7 +605,7 @@ function player_list_update()
         
         messnamed("InC_lcd_msg","font","Arial",18);
         messnamed("InC_lcd_msg","moveto",130,y);
-        messnamed("InC_lcd_msg","write",gDeviceArray[i].loading?"L":gDeviceArray[i].mod);
+        messnamed("InC_lcd_msg","write",gDeviceArray[i].mod);
         
         messnamed("InC_lcd_msg","font","Arial",16);
         messnamed("InC_lcd_msg","moveto",190,y);
@@ -670,150 +615,34 @@ function player_list_update()
 }
 
 /*----------------------------------------------------------------------------*/
-/* loading specific code (mrmr only?) */
+/* player management related code */
 
-function loading_start(dev_pos)
+function update_dev(dev_pos,dev_name)
 {
-    gDeviceArray[dev_pos].loading = true;
-}
-
-function loading_end(dev_pos)
-{
-    gDeviceArray[dev_pos].loading = false;
-    gDeviceArray[dev_pos].present = true;
-}
-
-/*----------------------------------------------------------------------------*/
-/* mrmr specific code */
-
-var gIDMapFileName = "MInC_ID_Map.txt";
-
-var gWidgetIDArray = [];
-
-var gLastNotFound = "";
-
-function read_mapping(filename)
-{
-	var filename;
-	if (arguments.length == 0)
-		filename = gIDMapFileName;
-
-    post("reading",filename);
-    var f = new File(filename,"read");
-
-    while (f.position != f.eof)
+    if (dev_name == "") dev_name = undefined;
+    
+    dev_pos = parseInt(dev_pos);
+    
+    if (dev_name != gDeviceNameArray[dev_pos])
     {
-        var l = f.readline(1024);
-        var s = [];
-        s = l.split(" ");
+        post("update_dev",dev_pos,dev_name,"\n");
+    
+        gDeviceNameArray[dev_pos] = dev_name;
         
-        gWidgetIDArray[s[0]] = parseInt(s[1]);
-        post(s[0],"mapped to ID",gWidgetIDArray[s[0]],"\n");
-    }
-    
-    f.close();
-}
-
-function osc_mrmr()
-{
-    var a = arguments[0].split("/");
-    var val = arguments[arguments.length-1];
-    
-    var dev_name_pos = 3;
-    if (a[1] == "slider") dev_name_pos = 4;
-
-    var dev_name = a[dev_name_pos];
-    var dev_pos = gDeviceNameArray.indexOf(dev_name);
-    
-    if (dev_pos < 0) { if (dev_name != gLastNotFound) { post("could not find",dev_name,"in gDeviceNameArray\n"); gLastNotFound = dev_name; } return; }
-    
-    var dev = gDeviceArray[dev_pos];
-
-    if (a[1] == "accelerometerX")
-    {
-        dev.present = true;
-        switch (parseInt(a[2]))
+        if (dev_name == undefined)
         {
-            case gWidgetIDArray["speed"]:
-            {
-                var speed_mod = val < 400 ? -1 : val > 600 ? +1 : 0;
-                if (speed_mod != dev.speed_mod)
-                {
-                    dev.speed_mod = speed_mod;
-                    send_speed_msg(dev_pos);
-                }
-                break;
-            }
+            post("stopping poly target",dev_pos+1,"\n");
+            messnamed("InC_in1_msg","target",dev_pos+1);
+            messnamed("InC_in2_msg","seq","play",0);
+            messnamed("InC_in2_msg","adsr",0.);
+            delete gDeviceArray[dev_pos];
+            gDeviceArray[dev_pos] = new Device();
         }
-    }
-
-    else if (a[1] == "accelerometerY")
-    {
-        switch (parseInt(a[2]))
+        else
         {
-            case gWidgetIDArray["tuning"]: send_tuning_msg(dev_pos,val); break;
-        }
-    }
-
-    else if (a[1] == "accelerometerZ")
-    {
-        switch (parseInt(a[2]))
-        {
-            case gWidgetIDArray["dropout"]: send_dropout_msg(dev_pos,val); break;
-        }
-    }
-
-    else if (a[1] == "pushbutton")
-    {
-        switch (parseInt(a[2]))
-        {
-            case gWidgetIDArray["module"]: if (val != 0) set_module(dev_pos); break;
-            case gWidgetIDArray["spkr1"]: if (val != 0) send_dac_msg(dev_pos,1); break;
-            case gWidgetIDArray["spkr2"]: if (val != 0) send_dac_msg(dev_pos,2); break;
-            case gWidgetIDArray["spkr3"]: if (val != 0) send_dac_msg(dev_pos,3); break;
-            case gWidgetIDArray["spkr4"]: if (val != 0) send_dac_msg(dev_pos,4); break;
-            case gWidgetIDArray["inst_high"]: if (val != 0) set_inst_high(dev_pos); break;
-            case gWidgetIDArray["inst_mid"]: if (val != 0) set_inst_mid(dev_pos); break;
-            case gWidgetIDArray["inst_low"]: if (val != 0) set_inst_low(dev_pos); break;
-            case gWidgetIDArray["inst_sub"]: if (val != 0) set_inst_sub(dev_pos); break;
-            case gWidgetIDArray["octdown"]: send_oct_msg(dev_pos,val,dev.oct,-1); break;
-            case gWidgetIDArray["octup"]: send_oct_msg(dev_pos,val,dev.oct,+1); break;
-            case gWidgetIDArray["half_time"]: set_rhythm_aug(dev_pos,val==0?0:-1); break;
-            case gWidgetIDArray["double_time"]: set_rhythm_aug(dev_pos,val==0?0:+1); break;
-            case gWidgetIDArray["hint"]: if (val != 0) hint(dev_pos); break;
-            case gWidgetIDArray["status"]: if (val != 0) status(dev_pos); break;
-        }
-    }
-
-    else if (a[1] == "slider")
-    {
-        switch (parseInt(a[3]))
-        {
-            case gWidgetIDArray["release"]: send_release_msg(dev_pos,val); break;
-        }
-    }
-    
-    else if (a[1] == "tactile3DX")
-    {
-        switch (parseInt(a[2]))
-        {
-            case gWidgetIDArray["filter"]: send_filter_cutoff_msg(dev_pos,val); break;
-        }
-    }
-
-    else if (a[1] == "tactile3DY")
-    {
-        switch (parseInt(a[2]))
-        {
-            case gWidgetIDArray["waveform"]: send_waveform_msg(dev_pos,val); break;
-        }
-    }
-
-    else if (a[1] == "tactile3DZ")
-    {
-        switch (parseInt(a[2]))
-        {
-            case gWidgetIDArray["volume"]: send_volume_msg(dev_pos,val); break;
+            gDeviceArray[dev_pos].mod = get_avg_mod();
+            set_inst_mid(dev_pos);
+            send_volume_msg(dev_pos,500);
         }
     }
 }

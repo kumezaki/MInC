@@ -57,6 +57,8 @@ function port(num)
 
 function mod_msg(dev_pos,mod_num)
 {
+	post("mod_msg\n");
+
 	dev_pos = parseInt(dev_pos);
 
 	outlet(0,"host",gHost[dev_pos].host_name);
@@ -92,7 +94,6 @@ function player_list_update()
 
     for (i = 0; i < gNumVoices; i++)
     {
-        
         messnamed("InC_lcd_msg","font","Arial",16);
         messnamed("InC_lcd_msg","moveto",225,y);
         messnamed("InC_lcd_msg","write",gHost[i].host_name);
