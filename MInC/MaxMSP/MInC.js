@@ -22,9 +22,9 @@ function Device()
 
 /*----------------------------------------------------------------------------*/
 
-var gNumVoices = 21;	/* this should be taken from gPlayers.max_num */
+var gNumVoices = gPlayers.max_num;
 
-var gMaxNumModules = 53;
+var gMaxNumModules = 53;	/* this needs to change depending on the piece */
 
 var gDeviceArray = [];
 var gDeviceNameArray = [];
@@ -48,35 +48,7 @@ function loadbang()
 }    
 
 /*----------------------------------------------------------------------------*/
-
-function find_ip_address_pos(ip_add)
-{
-	return gPlayers.ip_address.indexOf(ip_add);
-}
-
-function osc()
-{
-	post(arguments[0],arguments[1],arguments[2],"\n");
-    
-    var osc_add = arguments[0];
-    var ip_add = arguments[1];
-    var val = arguments[2];
-    
-    if (osc_add.search("/MInC/") != 0)
-    	return;
-    	
-	osc_add = osc_add.slice(5);
-
-    pos = find_ip_address_pos(ip_add);
-    
-    if (pos != -1)
-    {
-    	do_msg(osc_add,pos,val);
-    }
-}
-
-/*----------------------------------------------------------------------------*/
-/* player joining/leaving related code */
+/* player joining/leaving */
 
 function join(i,ip_add,from_wait)
 {
@@ -84,7 +56,6 @@ function join(i,ip_add,from_wait)
 	var dev_name = ip_add;
 
 	update_dev(dev_pos,dev_name);
-	messnamed("interface_msg","host",dev_name,dev_pos);
 }
 
 function leave(i)
@@ -98,9 +69,30 @@ function wait_leave() {}
 
 
 /*----------------------------------------------------------------------------*/
-/* osc message parsing related code */
+/* osc message parsing */
 
 var gMsgIDArray = [];
+
+function osc()
+{
+//	post(arguments[0],arguments[1],arguments[2],"\n");
+    
+    var osc_add = arguments[0];
+    var ip_add = arguments[1];
+    var val = arguments[2];
+    
+    if (osc_add.search("/MInC/") != 0)
+    	return;
+    	
+	osc_add = osc_add.slice(5);
+
+    pos = gPlayers.ip_address.indexOf(ip_add);
+    
+    if (pos != -1)
+    {
+    	do_msg(osc_add,pos,val);
+    }
+}
 
 function do_msg(osc_add,pos,val)
 {
@@ -112,7 +104,7 @@ function do_msg(osc_add,pos,val)
     var dev = gDeviceArray[dev_pos];
 
     var a = osc_add.split("/");
-	post(a,"\n");
+//	post(a,"\n");
 
     switch (gMsgIDArray[a[1]])
     {
@@ -126,7 +118,7 @@ function do_msg(osc_add,pos,val)
         {
             set_module(dev_pos);
             var mod = gDeviceArray[dev_pos].mod;
-            messnamed("interface_msg","mod_msg",dev_pos,mod);
+            send_osc_mod_msg(dev_pos,mod);
             break;
         }
 
@@ -248,16 +240,16 @@ function set_module(dev_pos)
     {
         for (i = 0; i < gNumVoices; i++)
             if (gDeviceArray[i].mod != 0)
-                messnamed("interface_msg","interstitial_msg",i,msg);
+                send_osc_interstitial_msg(i,msg);
     }
     else
-        messnamed("interface_msg","interstitial_msg",dev_pos,msg);
+        send_osc_interstitial_msg(dev_pos,msg);
     
     /*** ahead/behind message ***/
     if (dif_mod > 3)
-        messnamed("interface_msg","alert_msg",dev_pos,"Ahead of group average.","Consider waiting.");
+        send_osc_alert_msg(dev_pos,"Ahead of group average.","Consider waiting.");
     else if (dif_mod < -3)
-        messnamed("interface_msg","alert_msg",dev_pos,"Behind group avergae.","Consider next module.");
+        send_osc_alert_msg(dev_pos,"Behind group avergae.","Consider next module.");
 }
 
 /*----------------------------------------------------------------------------*/
@@ -426,7 +418,33 @@ function send_dropout_msg(dev_pos,val)
 }
 
 /*----------------------------------------------------------------------------*/
-/* player status related code */
+/* messages to device */
+
+gPortNum = 31337;
+
+function send_osc_mod_msg(dev_pos,mod_num)
+{
+	outlet(0,"host",gPlayers.ip_address[dev_pos]);
+	outlet(0,"port",gPortNum);
+	outlet(0,"/MInC/mod",mod_num);
+}
+
+function send_osc_interstitial_msg(dev_pos,message)
+{
+	outlet(0,"host",gPlayers.ip_address[dev_pos]);
+	outlet(0,"port",gPortNum);
+	outlet(0,"/MInC/interstitial",message);
+}
+
+function send_osc_alert_msg(dev_pos,title,message)
+{
+	outlet(0,"host",gPlayers.ip_address[dev_pos]);
+	outlet(0,"port",gPortNum);
+	outlet(0,"/MInC/alert",title,message);
+}
+
+/*----------------------------------------------------------------------------*/
+/* status */
 
 function get_mod_message(mod,avg_mod,dif_mod)
 {
@@ -436,9 +454,9 @@ function get_mod_message(mod,avg_mod,dif_mod)
     {
         /*** at last module ***/
         if (get_all_at_last())
-            msg    += "You and everyone else are at the last module. As a group, crescendo and decrescendo a few times. Then, exit by quitting app.";
+            msg += "You and everyone else are at the last module. As a group, crescendo and decrescendo a few times. Then, exit by quitting app.";
         else
-            msg    += "You are at the last module. Wait for all others to catch up.";
+            msg += "You are at the last module. Wait for all others to catch up.";
     }
     else
     {
@@ -449,7 +467,7 @@ function get_mod_message(mod,avg_mod,dif_mod)
         if (dif_mod == 0)
             msg += " At the average."
         else
-            msg    += " "    
+            msg += " "    
                 + (dif_mod > 0 ? "+" : "")
                 + dif_mod
                 + " from average of "
@@ -482,11 +500,81 @@ function status(dev_pos)
     var avg_mod = get_avg_mod();
     var dif_mod = mod - avg_mod;
 
-    messnamed("interface_msg","interstitial_msg",dev_pos,get_mod_message(mod,avg_mod,dif_mod),2000);
+    send_osc_interstitial_msg(dev_pos,get_mod_message(mod,avg_mod,dif_mod),2000);
 }
 
 /*----------------------------------------------------------------------------*/
-/* player position related code */
+/* hints */
+
+var gHintsFileName = "MInC_Hints.txt";
+var gHintsArray = new Array;
+
+function read_hints()
+{
+    var filename;
+    if (arguments.length == 0)
+        filename = gHintsFileName;
+
+    post("reading",filename);
+    var f = new File(filename,"read");
+
+    if (f != undefined)
+    {
+        delete gHintsArray;
+        gHintsArray = new Array;
+        while (f.position != f.eof)
+        {
+            gHintsArray.push(f.readline(1024));
+            post(gHintsArray[gHintsArray.length-1],"\n");
+        }
+        
+        f.close();
+    }
+}
+
+function hint(dev_pos)
+{
+    var hint_pos = gDeviceArray[dev_pos].hint_pos++;
+//	post(gHintsArray[hint_pos],"\n");
+    send_osc_interstitial_msg(dev_pos,gHintsArray[hint_pos],5000);
+    gDeviceArray[dev_pos].hint_pos %= gHintsArray.length;
+}
+
+/*----------------------------------------------------------------------------*/
+/* player update */
+
+function update_dev(dev_pos,dev_name)
+{
+    if (dev_name == "") dev_name = undefined;
+    
+    dev_pos = parseInt(dev_pos);
+    
+    if (dev_name != gDeviceNameArray[dev_pos])
+    {
+        post("update_dev",dev_pos,dev_name,"\n");
+    
+        gDeviceNameArray[dev_pos] = dev_name;
+        
+        if (dev_name == undefined)
+        {
+            post("stopping poly target",dev_pos+1,"\n");
+            messnamed("InC_in1_msg","target",dev_pos+1);
+            messnamed("InC_in2_msg","seq","play",0);
+            messnamed("InC_in2_msg","adsr",0.);
+            delete gDeviceArray[dev_pos];
+            gDeviceArray[dev_pos] = new Device();
+        }
+        else
+        {
+            gDeviceArray[dev_pos].mod = get_avg_mod();
+            set_inst_mid(dev_pos);
+            send_volume_msg(dev_pos,500);
+        }
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+/* player statistics */
 
 function get_avg_mod()
 {
@@ -526,48 +614,11 @@ function get_all_at_last()
 }
 
 /*----------------------------------------------------------------------------*/
-/* hints related code */
-
-var gHintsFileName = "MInC_Hints.txt";
-var gHintsArray = new Array;
-
-function read_hints()
-{
-    var filename;
-    if (arguments.length == 0)
-        filename = gHintsFileName;
-
-    post("reading",filename);
-    var f = new File(filename,"read");
-
-    if (f != undefined)
-    {
-        delete gHintsArray;
-        gHintsArray = new Array;
-        while (f.position != f.eof)
-        {
-            gHintsArray.push(f.readline(1024));
-            post(gHintsArray[gHintsArray.length-1],"\n");
-        }
-        
-        f.close();
-    }
-}
-
-function hint(dev_pos)
-{
-    var hint_pos = gDeviceArray[dev_pos].hint_pos++;
-//    post(gHintsArray[hint_pos],"\n");
-    messnamed("interface_msg","interstitial_msg",dev_pos,gHintsArray[hint_pos],5000);
-    gDeviceArray[dev_pos].hint_pos %= gHintsArray.length;
-}
-
-/*----------------------------------------------------------------------------*/
-/* player display related code */
+/* player display */
 
 function bang()
 {
-//	player_list_update_post();
+	player_list_update_post();
     player_list_update_lcd();
 }
 
@@ -611,38 +662,5 @@ function player_list_update_lcd()
         messnamed("InC_lcd_msg","moveto",190,y);
         messnamed("InC_lcd_msg","write",i+1);
         y += 25;
-    }
-}
-
-/*----------------------------------------------------------------------------*/
-/* player management related code */
-
-function update_dev(dev_pos,dev_name)
-{
-    if (dev_name == "") dev_name = undefined;
-    
-    dev_pos = parseInt(dev_pos);
-    
-    if (dev_name != gDeviceNameArray[dev_pos])
-    {
-        post("update_dev",dev_pos,dev_name,"\n");
-    
-        gDeviceNameArray[dev_pos] = dev_name;
-        
-        if (dev_name == undefined)
-        {
-            post("stopping poly target",dev_pos+1,"\n");
-            messnamed("InC_in1_msg","target",dev_pos+1);
-            messnamed("InC_in2_msg","seq","play",0);
-            messnamed("InC_in2_msg","adsr",0.);
-            delete gDeviceArray[dev_pos];
-            gDeviceArray[dev_pos] = new Device();
-        }
-        else
-        {
-            gDeviceArray[dev_pos].mod = get_avg_mod();
-            set_inst_mid(dev_pos);
-            send_volume_msg(dev_pos,500);
-        }
     }
 }
