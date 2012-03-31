@@ -193,7 +193,7 @@
 -(IBAction)SetSequence
 {
 	if (mWithServer)
-		[self SendOSCMsg:"/MInC/mod\0\0\0":12];
+		[self SendOSCMsg:"/minc/mod\0\0\0":12];
 	else
 	{
 		[mAQP SetSequence:(++mAQP->mSeqNum)];
@@ -205,14 +205,14 @@
 {
 	printf("SetSpeaker %d\n",mSpeakerSegControl.selectedSegmentIndex);
 
-	[self SendOSCMsgWithIntValue:"/MInC/speak\0":12:mSpeakerSegControl.selectedSegmentIndex];
+	[self SendOSCMsgWithIntValue:"/minc/speak\0":12:mSpeakerSegControl.selectedSegmentIndex];
 }
 
 -(IBAction)SetInstrument:(id)sender
 {
 	printf("SetInstrument %d\n",mInstrSegControl.selectedSegmentIndex);
 
-	[self SendOSCMsgWithIntValue:"/MInC/instr\0":12:mInstrSegControl.selectedSegmentIndex];
+	[self SendOSCMsgWithIntValue:"/minc/instr\0":12:mInstrSegControl.selectedSegmentIndex];
 }
 
 -(IBAction)Set8vbDown:(id)sender
@@ -227,7 +227,7 @@
 
 -(IBAction)Send8vb:(BOOL)direction
 {
-	[self SendOSCMsgWithIntValue:"/MInC/8vb\0\0\0":12:direction?1:0];
+	[self SendOSCMsgWithIntValue:"/minc/8vb\0\0\0":12:direction?1:0];
 }
 
 -(IBAction)Set8vaDown:(id)sender
@@ -242,7 +242,7 @@
 
 -(IBAction)Send8va:(BOOL)direction
 {
-	[self SendOSCMsgWithIntValue:"/MInC/8va\0\0\0":12:direction?1:0];
+	[self SendOSCMsgWithIntValue:"/minc/8va\0\0\0":12:direction?1:0];
 }
 
 -(IBAction)Set2xSlowDown:(id)sender
@@ -257,7 +257,7 @@
 
 -(void)Send2xSlow:(BOOL)direction
 {
-	[self SendOSCMsgWithIntValue:"/MInC/2xslow\0\0\0\0":16:direction?1:0];
+	[self SendOSCMsgWithIntValue:"/minc/2xslow\0\0\0\0":16:direction?1:0];
 }
 
 -(IBAction)Set2xFastDown:(id)sender
@@ -272,7 +272,7 @@
 
 -(void)Send2xFast:(BOOL)direction
 {
-	[self SendOSCMsgWithIntValue:"/MInC/2xfast\0\0\0\0":16:direction?1:0];
+	[self SendOSCMsgWithIntValue:"/minc/2xfast\0\0\0\0":16:direction?1:0];
 }
 
 -(IBAction)SetNoteDuration:(id)sender
@@ -281,32 +281,32 @@
 	if (q != nil)
 		q->mDurMultiplier = [mNoteDurationSlider value];
 
-	[self SendOSCMsgWithIntValue:"/MInC/dur\0\0\0":12:FLOAT_TO_MRMR_INT([mNoteDurationSlider value])];
+	[self SendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([mNoteDurationSlider value])];
 }
 
 -(IBAction)Hint:(id)sender
 {
-	[self SendOSCMsg:"/MInC/hint\0\0":12];
+	[self SendOSCMsg:"/minc/hint\0\0":12];
 }
 
 -(IBAction)Status:(id)sender
 {
-	[self SendOSCMsg:"/MInC/status\0\0\0\0":16];
+	[self SendOSCMsg:"/minc/status\0\0\0\0":16];
 }
 
 -(void)SendOSC_Filter:(double)val
 {
-	[self SendOSCMsgWithIntValue:"/MInC/filt\0\0":12:FLOAT_TO_MRMR_INT(val)];
+	[self SendOSCMsgWithIntValue:"/minc/filt\0\0":12:FLOAT_TO_MRMR_INT(val)];
 }
 
 -(void)SendOSC_Volume:(double)val
 {
-	[self SendOSCMsgWithIntValue:"/MInC/vol\0\0\0":12:FLOAT_TO_MRMR_INT(val)];
+	[self SendOSCMsgWithIntValue:"/minc/vol\0\0\0":12:FLOAT_TO_MRMR_INT(val)];
 }
 
 -(void)SendOSC_Waveform:(double)val
 {
-	[self SendOSCMsgWithIntValue:"/MInC/wave\0\0":12:FLOAT_TO_MRMR_INT(val)];
+	[self SendOSCMsgWithIntValue:"/minc/wave\0\0":12:FLOAT_TO_MRMR_INT(val)];
 }
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
@@ -321,9 +321,9 @@
 	double y = LIMIT_ACC_VAL(acceleration.y);
 	double z = LIMIT_ACC_VAL(acceleration.z);
 
-	[self SendOSCMsgWithIntValue:"/MInC/accX\0\0":12:FLOAT_TO_MRMR_INT(x)];
-	[self SendOSCMsgWithIntValue:"/MInC/accY\0\0":12:FLOAT_TO_MRMR_INT(y)];
-	[self SendOSCMsgWithIntValue:"/MInC/accZ\0\0":12:FLOAT_TO_MRMR_INT(z)];
+	[self SendOSCMsgWithIntValue:"/minc/accX\0\0":12:FLOAT_TO_MRMR_INT(x)];
+	[self SendOSCMsgWithIntValue:"/minc/accY\0\0":12:FLOAT_TO_MRMR_INT(y)];
+	[self SendOSCMsgWithIntValue:"/minc/accZ\0\0":12:FLOAT_TO_MRMR_INT(z)];
 
 	x *= mAQP->mSequencer_Pri->mTempoSensitivity;
 	x = 1.0 - x;
@@ -403,9 +403,9 @@
 			case 0:
 			{
 				NSString* buf_str = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
-				if ([buf_str isEqualToString:@"/MInC/interstitial"]) add_type = 1;
-				else if ([buf_str isEqualToString:@"/MInC/mod"]) add_type = 2;
-				else if ([buf_str isEqualToString:@"/MInC/hb"]) add_type = 3;
+				if ([buf_str isEqualToString:@"/minc/interstitial"]) add_type = 1;
+				else if ([buf_str isEqualToString:@"/minc/mod"]) add_type = 2;
+				else if ([buf_str isEqualToString:@"/minc/hb"]) add_type = 3;
 				[buf_str release];
 				break;
 			}
@@ -558,7 +558,7 @@
 
 -(void)sendHeartBeat
 {
-	[self SendOSCMsg:"/MInC/hb\0\0\0\0":12];
+	[self SendOSCMsg:"/minc/hb\0\0\0\0":12];
 
 	[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(sendHeartBeat) userInfo:nil repeats:NO];  
 }
