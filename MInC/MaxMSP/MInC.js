@@ -22,12 +22,12 @@ function Device()
 
 /*----------------------------------------------------------------------------*/
 
-var gNumVoices = gPlayers.max_num;
-
-var gMaxNumModules = 53;	/* this needs to change depending on the piece */
-
 var gDeviceArray = [];
 var gDeviceNameArray = [];
+
+/*----------------------------------------------------------------------------*/
+
+var gMaxNumModules = 53;	/* this needs to change depending on the piece */
 
 /*----------------------------------------------------------------------------*/
 /* initialization */
@@ -35,33 +35,29 @@ var gDeviceNameArray = [];
 function loadbang()
 {
     init_msg_id_array();
-
-    read_hints();
     
-    for (i = 0; i < gNumVoices; i++)
+    for (i = 0; i < gPlayers.max_num; i++)
     {
-        gDeviceNameArray.push(undefined);
-        gDeviceArray.push(new Device());
+        gDeviceArray[i] = new Device();
+        gDeviceNameArray[i] = undefined;
     }
     
-    messnamed("InC_in1_msg","voices",gNumVoices);
-}    
+    read_hints();
+    
+    messnamed("InC_in1_msg","voices",gPlayers.max_num);
+}
 
 /*----------------------------------------------------------------------------*/
 /* player joining/leaving */
 
-function join(i,ip_add,from_wait)
+function join()
 {
-	var dev_pos = i;
-	var dev_name = ip_add;
-
-	update_dev(dev_pos,dev_name);
+	update_dev(arguments[0],arguments[1]);
 }
 
-function leave(i)
+function leave()
 {
-	var dev_pos = i;
-	update_dev(i,"");
+	update_dev(arguments[0],"");
 }
 
 function wait_join() {}
@@ -81,7 +77,7 @@ function osc()
     var ip_add = arguments[1];
     var val = arguments[2];
     
-    if (osc_add.search("/MInC/") != 0)
+    if (osc_add.search("/minc/") != 0)
     	return;
     	
 	osc_add = osc_add.slice(5);
@@ -226,7 +222,7 @@ function set_module(dev_pos)
     var avg_mod = get_avg_mod();
     var dif_mod = mod - avg_mod;
     
-    var msg = get_mod_message(mod,avg_mod,dif_mod);
+    var msg = mod_message(mod,avg_mod,dif_mod);
 
     var all = false;
     if (mod == gMaxNumModules)
@@ -238,7 +234,7 @@ function set_module(dev_pos)
     
     if (all)
     {
-        for (i = 0; i < gNumVoices; i++)
+        for (i = 0; i < gPlayers.max_num; i++)
             if (gDeviceArray[i].mod != 0)
                 send_osc_interstitial_msg(i,msg);
     }
@@ -426,27 +422,27 @@ function send_osc_mod_msg(dev_pos,mod_num)
 {
 	outlet(0,"host",gPlayers.ip_address[dev_pos]);
 	outlet(0,"port",gPortNum);
-	outlet(0,"/MInC/mod",mod_num);
+	outlet(0,"/minc/mod",mod_num);
 }
 
 function send_osc_interstitial_msg(dev_pos,message)
 {
 	outlet(0,"host",gPlayers.ip_address[dev_pos]);
 	outlet(0,"port",gPortNum);
-	outlet(0,"/MInC/interstitial",message);
+	outlet(0,"/minc/interstitial",message);
 }
 
 function send_osc_alert_msg(dev_pos,title,message)
 {
 	outlet(0,"host",gPlayers.ip_address[dev_pos]);
 	outlet(0,"port",gPortNum);
-	outlet(0,"/MInC/alert",title,message);
+	outlet(0,"/minc/alert",title,message);
 }
 
 /*----------------------------------------------------------------------------*/
 /* status */
 
-function get_mod_message(mod,avg_mod,dif_mod)
+function mod_message(mod,avg_mod,dif_mod)
 {
     var msg = "";
 
@@ -500,7 +496,7 @@ function status(dev_pos)
     var avg_mod = get_avg_mod();
     var dif_mod = mod - avg_mod;
 
-    send_osc_interstitial_msg(dev_pos,get_mod_message(mod,avg_mod,dif_mod),2000);
+    send_osc_interstitial_msg(dev_pos,mod_message(mod,avg_mod,dif_mod),2000);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -551,8 +547,6 @@ function update_dev(dev_pos,dev_name)
     
     if (dev_name != gDeviceNameArray[dev_pos])
     {
-        post("update_dev",dev_pos,dev_name,"\n");
-    
         gDeviceNameArray[dev_pos] = dev_name;
         
         if (dev_name == undefined)
@@ -580,7 +574,7 @@ function get_avg_mod()
 {
     var total = 0;
     var count = 0;
-    for (i = 0; i < gNumVoices; i++)
+    for (i = 0; i < gPlayers.max_num; i++)
     {
         if (gDeviceArray[i].mod != 0)
         {
@@ -595,7 +589,7 @@ function get_avg_mod()
 
 function get_all_off()
 {
-    for (i = 0; i < gNumVoices; i++)
+    for (i = 0; i < gPlayers.max_num; i++)
         if (gDeviceArray[i].mod > 0)
             return false;
     return true;
@@ -604,7 +598,7 @@ function get_all_off()
 function get_all_at_last()
 {
     var total = 0;
-    for (i = 0; i < gNumVoices; i++)
+    for (i = 0; i < gPlayers.max_num; i++)
     {
         total += gDeviceArray[i].mod;
         if ((gDeviceArray[i].mod > 0) && (gDeviceArray[i].mod < gMaxNumModules))
@@ -614,7 +608,7 @@ function get_all_at_last()
 }
 
 /*----------------------------------------------------------------------------*/
-/* player display */
+/* player display -- these can probably move out of this code module */
 
 function bang()
 {
@@ -624,7 +618,7 @@ function bang()
 
 function player_list_update_post()
 {
-	for (dev_pos = 0; dev_pos < gNumVoices; dev_pos++)
+	for (dev_pos = 0; dev_pos < gPlayers.max_num; dev_pos++)
 		post("Device",dev_pos,gDeviceNameArray[dev_pos],gDeviceArray[dev_pos].mod,"\n");
 }
 
@@ -647,7 +641,7 @@ function player_list_update_lcd()
 
     var y = 80;
 
-    for (i = 0; i < gNumVoices; i++)
+    for (i = 0; i < gPlayers.max_num; i++)
     {
         
         messnamed("InC_lcd_msg","font","Arial",20);
