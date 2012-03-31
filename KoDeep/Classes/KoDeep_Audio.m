@@ -145,6 +145,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
         
         Float64 dur = 1.0;
 
+#if 0
         if (mBeatNum == mNumBeats)
         {
             if (mFractNum++ != 0)
@@ -158,6 +159,40 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
         }
         else
             mBeatNum++;
+#else
+        UInt16 frac = (UInt16)(mFraction * 4 + 0.5);
+
+        UInt16 last_beat = mNumBeats;
+
+        switch (frac)
+        {
+            case 0:
+            case 1:
+            case 2: last_beat = mNumBeats; break;
+            case 3: last_beat = mNumBeats+1; break;
+        }
+        
+        if (mBeatNum == last_beat)
+        {
+            UInt16 num_subdivs = 0;
+
+            switch (frac)
+            {
+                case 0: dur = 1.00; num_subdivs = 1; break;
+                case 1: dur = 0.25; num_subdivs = 5; break;
+                case 2: dur = 0.50; num_subdivs = 3; break;
+                case 3: dur = 0.25; num_subdivs = 3; break;
+            }
+
+            if (++mFractNum == num_subdivs)
+            {
+                mFractNum = 0;
+                mBeatNum = 1;
+            }
+        }
+        else
+            mBeatNum++;
+#endif
         
         [mNote SetDuration:dur];
         [mNote SetPercentOn:0.2];
