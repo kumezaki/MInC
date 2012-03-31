@@ -20,13 +20,13 @@ function leave(i)
 function wait_join(ip_add)
 {
     update_players_waiting();
-    post("wait_join",ip_add,gPlayersWaiting.ip_address.length,"\n");
+//    post("wait_join",ip_add,gPlayersWaiting.ip_address.length,"\n");
 }
 
 function wait_leave(ip_add)
 {
     update_players_waiting();
-    post("wait_leave",ip_add,gPlayersWaiting.ip_address.length,"\n");
+//    post("wait_leave",ip_add,gPlayersWaiting.ip_address.length,"\n");
 }
 
 function update_players()

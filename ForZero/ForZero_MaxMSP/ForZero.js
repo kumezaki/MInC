@@ -296,7 +296,6 @@ function osc_msg_download(pos)
     }		
 }
 
-
 function join() {}
 
 function leave(i)

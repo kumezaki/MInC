@@ -38,7 +38,7 @@ function reset()
 	
 	while ((v = gPlayersWaiting.ip_address.shift()) != undefined)
 	{
-		post(v,"\n");
+//		post("removing",v,"from waiting list\n");
 		gPlayersWaiting.auto_bump[v].cancel();
 		delete gPlayersWaiting.auto_bump[v];
 		gPlayersWaiting.auto_bump[v] = undefined;
@@ -79,9 +79,8 @@ function player_update_msg_name(v)
 
 function player_join(i,ip_add,from_wait)
 {
-	post("player "+ip_add+" joining at index "+i+(from_wait?" from waiting list":"")+"\n");
-
 	gPlayers.ip_address[i] = ip_add;
+	post("player "+ip_add+" joining at index "+i+(from_wait?" from waiting list":"")+"\n");
 
 	messnamed(gMsg_PMUpdate,"join",i,ip_add,from_wait);
 }
@@ -97,9 +96,8 @@ function player_leave(i)
 
 	if (gPlayersWaiting.ip_address.length)
 	{
-		post("waiting list before",gPlayersWaiting.ip_address,"\n");
 		ip_add = gPlayersWaiting.ip_address.shift();
-		post("waiting list after",gPlayersWaiting.ip_address,"\n");
+//		post("waiting list",gPlayersWaiting.ip_address,"\n");
 		
 		gPlayersWaiting.auto_bump[ip_add].cancel();
 		
@@ -115,7 +113,7 @@ function player_wait(ip_add)
 	{
 		post(ip_add+" added to waiting list\n");
 		gPlayersWaiting.ip_address.push(ip_add);
-		post("waiting list",gPlayersWaiting.ip_address,"\n");
+//		post("waiting list",gPlayersWaiting.ip_address,"\n");
 
 		messnamed(gMsg_PMUpdate,"wait_join",ip_add);
 
@@ -136,7 +134,7 @@ function player_leave_waiting()
 	post("player_leave_waiting",ip_add,"\n");
 	var i = gPlayersWaiting.ip_address.indexOf(ip_add);
 	gPlayersWaiting.ip_address.splice(i,1);
-	post("waiting list",gPlayersWaiting.ip_address,"\n");
+//	post("waiting list",gPlayersWaiting.ip_address,"\n");
 	
 	messnamed(gMsg_PMUpdate,"wait_leave",ip_add);
 
@@ -217,6 +215,7 @@ function heartbeat_func()
 	if (gIPAddress_Local != "0.0.0.0")
 	{
 		post("heartbeat "+gIPAddress_Local+"\n");
+
 		outlet(0,gOSCAddress_Heartbeat,gIPAddress_Local);
 	}
 	gTask_ServerHeartbeat.schedule(gHeartBeatTime);
