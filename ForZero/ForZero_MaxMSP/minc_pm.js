@@ -4,12 +4,12 @@ autowatch = 1;
 
 var gPlayers = new Global("minc_pm");
 gPlayers.max_num = 0;
-gPlayers.ip_address = new Array;
-gPlayers.auto_bump = new Array;
+gPlayers.ip_address = [];
+gPlayers.auto_bump = [];
 
 var gPlayersWaiting = new Global("minc_pm_waiting");
-gPlayersWaiting.ip_address = new Array;
-gPlayersWaiting.auto_bump = new Array;
+gPlayersWaiting.ip_address = [];
+gPlayersWaiting.auto_bump = [];
 
 var gAutoBumpTime = 0;
 

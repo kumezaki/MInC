@@ -1,9 +1,9 @@
 {
 	"patcher" : 	{
 		"fileversion" : 1,
-		"rect" : [ 331.0, 274.0, 433.0, 281.0 ],
+		"rect" : [ 464.0, 514.0, 433.0, 281.0 ],
 		"bglocked" : 0,
-		"defrect" : [ 331.0, 274.0, 433.0, 281.0 ],
+		"defrect" : [ 464.0, 514.0, 433.0, 281.0 ],
 		"openrect" : [ 0.0, 0.0, 0.0, 0.0 ],
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -460,13 +460,13 @@
 ,
 					"patching_rect" : [ 275.0, 51.0, 58.0, 20.0 ],
 					"saved_object_attributes" : 					{
-						"default_fontsize" : 12.0,
-						"fontname" : "Arial",
-						"globalpatchername" : "",
 						"default_fontface" : 0,
+						"fontname" : "Arial",
+						"default_fontname" : "Arial",
+						"globalpatchername" : "",
+						"default_fontsize" : 12.0,
 						"fontface" : 0,
-						"fontsize" : 12.0,
-						"default_fontname" : "Arial"
+						"fontsize" : 12.0
 					}
 ,
 					"text" : "p Testing"
