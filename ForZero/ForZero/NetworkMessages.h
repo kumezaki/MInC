@@ -49,4 +49,6 @@
 - (void)udpParse;
 - (void)tcpParse;
 
+-(void)sendHeartBeat;
+
 @end

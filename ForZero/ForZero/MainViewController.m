@@ -58,7 +58,7 @@
 
 - (void)setupSelf
 {
-    self.aqPlayer = [[SagarihaAudioQueuePlayer alloc]init];
+    self.aqPlayer = [[SagarihaAudioQueuePlayer alloc] init];
     self.aqPlayer.delegate = self;
     
     self.networking = [[NetworkMessages alloc] init];

@@ -50,6 +50,7 @@ union {
 
 - (id)init {
     [super init];
+	[self sendHeartBeat];
     return self;
 }
 
@@ -112,7 +113,7 @@ union {
 }
 
 - (void)respondToServerHeartbeatMessage {
-    [self sendOSCMsg:"/fz/present\0":12];
+    [self sendOSCMsg:"/fz/hb\0\0":8];
 }
 
 #pragma mark- OSC packing methods
@@ -266,8 +267,7 @@ union {
                         //NSLog(@"received /fz/hb:%s\n",mUDPInBuffer+pos);
                         NSString *serverIP = [[NSString alloc] initWithCString:self->mUDPInBuffer+pos encoding:NSASCIIStringEncoding];
                         [super newServerIPAddress:serverIP];
-                        
-                        [self performSelectorOnMainThread:@selector(respondToServerHeartbeatMessage) withObject:nil waitUntilDone:NO];
+//                        [self performSelectorOnMainThread:@selector(respondToServerHeartbeatMessage) withObject:nil waitUntilDone:NO];
                         [serverIP release];
                         break;
                     }
@@ -350,5 +350,12 @@ union {
     [self.delegate downloadFailed:self];
 }
 
+
+#pragma mark- NSTimer heartbeat
+-(void)sendHeartBeat
+{
+    [self sendOSCMsg:"/fz/hb\0\0":8];
+	[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(sendHeartBeat) userInfo:nil repeats:NO];  
+}
 
 @end
