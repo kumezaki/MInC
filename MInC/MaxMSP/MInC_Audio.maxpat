@@ -22,6 +22,34 @@
 				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
+					"id" : "obj-4",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 466.0, 48.0, 96.0, 18.0 ],
+					"text" : "compile MInC.js"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-18",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 128.0, 11.0, 180.0, 18.0 ],
+					"text" : "patchername MInC_Synth_Poly"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
 					"id" : "obj-19",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -469,8 +497,8 @@
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 146.0, 95.0, 152.0, 20.0 ],
-					"text" : "poly~ MInC_Synth_Poly"
+					"patching_rect" : [ 147.0, 94.0, 169.0, 20.0 ],
+					"text" : "poly~ MInC_Synth_Poly_VST"
 				}
 
 			}
@@ -507,8 +535,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 498.0, 144.0, 63.0, 20.0 ],
-					"text" : "js MInC.js"
+					"patching_rect" : [ 498.0, 144.0, 92.0, 20.0 ],
+					"text" : "js MInC_VST.js"
 				}
 
 			}
@@ -636,6 +664,15 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-22", 0 ],
+					"hidden" : 0,
+					"midpoints" : [  ],
+					"source" : [ "obj-18", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-3", 0 ],
 					"hidden" : 0,
 					"midpoints" : [  ],
@@ -656,7 +693,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-22", 0 ],
 					"hidden" : 0,
-					"midpoints" : [ 155.5, 71.0, 155.5, 71.0 ],
+					"midpoints" : [ 155.5, 71.0, 156.5, 71.0 ],
 					"source" : [ "obj-21", 0 ]
 				}
 
@@ -793,6 +830,15 @@
 					"hidden" : 0,
 					"midpoints" : [  ],
 					"source" : [ "obj-39", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"hidden" : 0,
+					"midpoints" : [  ],
+					"source" : [ "obj-4", 0 ]
 				}
 
 			}

@@ -44,7 +44,12 @@ function loadbang()
     
     read_hints();
     
+	/* set the numbers of poly~ voices */
     messnamed("InC_in1_msg","voices",gPlayers.max_num);
+
+	/* set the VST program number */
+    messnamed("InC_in1_msg","target",0);
+    messnamed("InC_in2_msg","vst",35);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -275,22 +280,22 @@ function set_inst(dev_pos,oct,max_amp,a,d,s,r,freq_delta,q)
 
 function set_inst_high(dev_pos)
 {
-    set_inst(dev_pos,+1,0.8,30,1.0,0.0,0,-1000.,1.);
+    set_inst(dev_pos,+1,0.8,0.2,1.0,0.0,0,-1000.,0.2);
 }
 
 function set_inst_mid(dev_pos)
 {
-    set_inst(dev_pos,0,1.0,10,0.9,0.0,0,0.,2.);;
+    set_inst(dev_pos,0,1.0,0.1,0.9,0.0,0,0.,0.3);
 }
 
 function set_inst_low(dev_pos)
 {
-    set_inst(dev_pos,-1,1.0,40,0.8,0.,0,1000.,4.);
+    set_inst(dev_pos,-1,1.0,0.1,0.8,0.,0,1000.,0.5);
 }
 
 function set_inst_sub(dev_pos)
 {
-    set_inst(dev_pos,-2,0.8,2,0.5,0.0,0,500.,15.);
+    set_inst(dev_pos,-2,0.8,0.05,0.5,0.0,0,500.,0.75);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -318,8 +323,6 @@ function seq_speed(dev_pos,s)
 /*----------------------------------------------------------------------------*/
 /* messages to seq/synth */
 
-var gMaxVolume = 0.5;
-var gMaxCents = 50.; 
 var gSpeedAdjust = 1.02;
 
 function send_speed_msg(dev_pos)
@@ -341,16 +344,23 @@ function send_dac_msg(dev_pos,speaker_num)
     messnamed("InC_in2_msg","dac","set","dac"+speaker_num);
 }
 
-function send_oct_msg(dev_pos,val,base,direction)
+function send_dropout_msg(dev_pos,val)
 {
     messnamed("InC_in1_msg","target",dev_pos+1);
-    messnamed("InC_in2_msg","oct",base+(val==0?0:direction));
+    messnamed("InC_in2_msg","dropout",val < 600 ? 1. : 0., 250);
+}
+
+function send_oct_msg(dev_pos,val,base,direction)
+{
+	var vst_val = ((base+(val==0?0:direction)) * 0.166) + 0.5;
+    messnamed("InC_in1_msg","target",dev_pos+1);
+    messnamed("InC_in2_msg","vst","KeyboardOctave",vst_val);
 }
 
 function send_max_amp_msg(dev_pos,val)
 {
     messnamed("InC_in1_msg","target",dev_pos+1);
-    messnamed("InC_in2_msg","max_amp",val);
+    messnamed("InC_in2_msg","vst","OutputVolume",val);
 }
 
 function send_release_msg(dev_pos,val)
@@ -362,21 +372,18 @@ function send_release_msg(dev_pos,val)
     var sus = val > 900;
 
     messnamed("InC_in1_msg","target",dev_pos+1);
-    messnamed("InC_in2_msg","adsr", dev.adsr[0],
-                                    dev.adsr[1] * dev.release,
-                                    sus ? 1. : dev.adsr[2],
-                                    dev.adsr[3]);
+    messnamed("InC_in2_msg","vst","AEn1Atk",dev.adsr[0]);
+    messnamed("InC_in2_msg","vst","AEn1Dec",dev.adsr[1] * (dev.release/1000.));
+    messnamed("InC_in2_msg","vst","AEn1Sus",sus ? 1. : dev.adsr[2]);
+    messnamed("InC_in2_msg","vst","AEn1Rel",dev.adsr[3]);
 }
 
 function send_filter_cutoff_msg(dev_pos,val)
 {
     var dev = gDeviceArray[dev_pos];
 
-    var f = Math.pow(val/1000.,2.0)*20000.-dev.filter_freq_delta;
-    f = f < 200.? 200. : f;
-    
     messnamed("InC_in1_msg","target",dev_pos+1);
-    messnamed("InC_in2_msg","filter","freq",f);
+    messnamed("InC_in2_msg","vst","Flt1Frq",val/1000.);
 
     dev.filter_freq_pos = val;
 }
@@ -384,34 +391,28 @@ function send_filter_cutoff_msg(dev_pos,val)
 function send_filter_q_msg(dev_pos,q)
 {
     messnamed("InC_in1_msg","target",dev_pos+1);
-    messnamed("InC_in2_msg","filter","q",q);
+    messnamed("InC_in2_msg","vst","Filter1QFactor",q);
 }
 
 function send_volume_msg(dev_pos,val)
 {
-	post("send_volume_msg",dev_pos,val,"\n");
     if (val < 100) return;
     messnamed("InC_in1_msg","target",dev_pos+1);
-    messnamed("InC_in2_msg","volume",(val/1000.)*gMaxVolume);
+    messnamed("InC_in2_msg","vst","Oscillator1Level",val/1000.);
 }
 
+/* NOT DONE */
 function send_waveform_msg(dev_pos,val)
 {
     messnamed("InC_in1_msg","target",dev_pos+1);
-    messnamed("InC_in2_msg","saw",Math.cos((val/1000.) * (3.1415926/2)));
-    messnamed("InC_in2_msg","rect",Math.sin((val/1000.) * (3.1415926/2)));
+//    messnamed("InC_in2_msg","saw",Math.cos((val/1000.) * (3.1415926/2)));
+//    messnamed("InC_in2_msg","rect",Math.sin((val/1000.) * (3.1415926/2)));
 }
 
 function send_tuning_msg(dev_pos,val)
 {
     messnamed("InC_in1_msg","target",dev_pos+1);
-    messnamed("InC_in2_msg","tuning",(val/1000.-0.25)*gMaxCents/100.);
-}
-
-function send_dropout_msg(dev_pos,val)
-{
-    messnamed("InC_in1_msg","target",dev_pos+1);
-    messnamed("InC_in2_msg","dropout",val < 600 ? 1. : 0., 250);
+    messnamed("InC_in2_msg","vst","KeyboardTunningFine",((val/1000.)+1.)/2.);
 }
 
 /*----------------------------------------------------------------------------*/
