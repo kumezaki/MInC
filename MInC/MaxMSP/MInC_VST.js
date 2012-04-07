@@ -12,10 +12,9 @@ function Device()
     this.speed = 1.0;
     this.speed_mod = 0;
     this.oct = 0;
-    this.release = 100;
-    this.adsr = [10.,1.,0.,100.];	/* for now, decay is a percentage */
-    this.filter_freq_pos = 1000;	/* the slider position from 0 to 1000 */
-    this.filter_freq_delta = 0;
+    this.release = 500;			/* the slider position from 0 to 1000 */
+    this.adsr = [0.,0.,0.,0.];	/* all 0.0 to 1.0 */
+    this.filter_freq_pos = 500;	/* the slider position from 0 to 1000 */
     this.rhythm_aug = 0;
     this.hint_pos = 0;
 }
@@ -46,10 +45,6 @@ function loadbang()
     
 	/* set the numbers of poly~ voices */
     messnamed("InC_in1_msg","voices",gPlayers.max_num);
-
-	/* set the VST program number */
-    messnamed("InC_in1_msg","target",0);
-    messnamed("InC_in2_msg","vst",35);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -254,51 +249,6 @@ function set_module(dev_pos)
 }
 
 /*----------------------------------------------------------------------------*/
-/* functions to set instrument parameters */
-
-function set_inst(dev_pos,oct,max_amp,a,d,s,r,freq_delta,q)
-{
-    var dev = gDeviceArray[dev_pos];
-
-    dev.oct = oct;
-    send_oct_msg(dev_pos,0,dev.oct,0);
-    
-    send_max_amp_msg(dev_pos,max_amp);
-
-    dev.adsr[0] = a;
-    dev.adsr[1] = d;
-    dev.adsr[2] = s;
-    dev.adsr[3] = r;
-    send_release_msg(dev_pos,dev.release);
-
-    dev.filter_freq_delta = freq_delta;
-    send_filter_cutoff_msg(dev_pos,dev.filter_freq_pos);
-    send_filter_q_msg(dev_pos,q);
-    
-//    post("max_amp",max_amp,"adsr",a,d,s,r,"filt",freq_delta,q,"\n");
-}
-
-function set_inst_high(dev_pos)
-{
-    set_inst(dev_pos,+1,0.8,0.2,1.0,0.0,0,-1000.,0.2);
-}
-
-function set_inst_mid(dev_pos)
-{
-    set_inst(dev_pos,0,1.0,0.1,0.9,0.0,0,0.,0.3);
-}
-
-function set_inst_low(dev_pos)
-{
-    set_inst(dev_pos,-1,1.0,0.1,0.8,0.,0,1000.,0.5);
-}
-
-function set_inst_sub(dev_pos)
-{
-    set_inst(dev_pos,-2,0.8,0.05,0.5,0.0,0,500.,0.75);
-}
-
-/*----------------------------------------------------------------------------*/
 /* functions to set sequence speed */
 
 function set_rhythm_aug(dev_pos,val)
@@ -321,7 +271,55 @@ function seq_speed(dev_pos,s)
 }
 
 /*----------------------------------------------------------------------------*/
-/* messages to seq/synth */
+/* functions to set instrument parameters */
+
+function set_inst(dev_pos,oct,max_amp,a,d,s,r,q)
+{
+	/* set the VST program number */
+    messnamed("InC_in1_msg","target",0);
+    messnamed("InC_in2_msg","vst",35);	/* 35 is current custom program number */
+
+    var dev = gDeviceArray[dev_pos];
+
+    dev.oct = oct;
+    send_oct_msg(dev_pos,0,dev.oct,0);
+    
+    send_max_amp_msg(dev_pos,max_amp);
+
+    dev.adsr[0] = a;
+    dev.adsr[1] = d;
+    dev.adsr[2] = s;
+    dev.adsr[3] = r;
+    send_release_msg(dev_pos,dev.release);
+
+    send_filter_cutoff_msg(dev_pos,dev.filter_freq_pos);
+    send_filter_q_msg(dev_pos,q);
+    
+//    post("max_amp",max_amp,"adsr",a,d,s,r,"q",q,"\n");
+}
+
+function set_inst_high(dev_pos)
+{
+    set_inst(dev_pos,+1,0.8,0.2,1.0,0.0,0,0.2);
+}
+
+function set_inst_mid(dev_pos)
+{
+    set_inst(dev_pos,0,1.0,0.1,0.9,0.0,0,0.3);
+}
+
+function set_inst_low(dev_pos)
+{
+    set_inst(dev_pos,-1,1.0,0.1,0.8,0.,0,0.5);
+}
+
+function set_inst_sub(dev_pos)
+{
+    set_inst(dev_pos,-2,0.8,0.05,0.5,0.0,0,0.75);
+}
+
+/*----------------------------------------------------------------------------*/
+/* messages to seq/synth - general */
 
 var gSpeedAdjust = 1.02;
 
@@ -350,6 +348,9 @@ function send_dropout_msg(dev_pos,val)
     messnamed("InC_in2_msg","dropout",val < 600 ? 1. : 0., 250);
 }
 
+/*----------------------------------------------------------------------------*/
+/* messages to seq/synth - synth-specific */
+
 function send_oct_msg(dev_pos,val,base,direction)
 {
 	var vst_val = ((base+(val==0?0:direction)) * 0.166) + 0.5;
@@ -373,9 +374,13 @@ function send_release_msg(dev_pos,val)
 
     messnamed("InC_in1_msg","target",dev_pos+1);
     messnamed("InC_in2_msg","vst","AEn1Atk",dev.adsr[0]);
+    messnamed("InC_in2_msg","vst","AEn2Atk",dev.adsr[0]);
     messnamed("InC_in2_msg","vst","AEn1Dec",dev.adsr[1] * (dev.release/1000.));
+    messnamed("InC_in2_msg","vst","AEn2Dec",dev.adsr[1] * (dev.release/1000.));
     messnamed("InC_in2_msg","vst","AEn1Sus",sus ? 1. : dev.adsr[2]);
+    messnamed("InC_in2_msg","vst","AEn2Sus",sus ? 1. : dev.adsr[2]);
     messnamed("InC_in2_msg","vst","AEn1Rel",dev.adsr[3]);
+    messnamed("InC_in2_msg","vst","AEn2Rel",dev.adsr[3]);
 }
 
 function send_filter_cutoff_msg(dev_pos,val)
@@ -384,6 +389,7 @@ function send_filter_cutoff_msg(dev_pos,val)
 
     messnamed("InC_in1_msg","target",dev_pos+1);
     messnamed("InC_in2_msg","vst","Flt1Frq",val/1000.);
+    messnamed("InC_in2_msg","vst","Flt2Frq",val/1000.);
 
     dev.filter_freq_pos = val;
 }
@@ -392,6 +398,7 @@ function send_filter_q_msg(dev_pos,q)
 {
     messnamed("InC_in1_msg","target",dev_pos+1);
     messnamed("InC_in2_msg","vst","Filter1QFactor",q);
+    messnamed("InC_in2_msg","vst","Filter2QFactor",q);
 }
 
 function send_volume_msg(dev_pos,val)
@@ -399,14 +406,14 @@ function send_volume_msg(dev_pos,val)
     if (val < 100) return;
     messnamed("InC_in1_msg","target",dev_pos+1);
     messnamed("InC_in2_msg","vst","Oscillator1Level",val/1000.);
+    messnamed("InC_in2_msg","vst","Oscillator2Level",val/1000.);
 }
 
-/* NOT DONE */
 function send_waveform_msg(dev_pos,val)
 {
     messnamed("InC_in1_msg","target",dev_pos+1);
-//    messnamed("InC_in2_msg","saw",Math.cos((val/1000.) * (3.1415926/2)));
-//    messnamed("InC_in2_msg","rect",Math.sin((val/1000.) * (3.1415926/2)));
+    messnamed("InC_in2_msg","vst","Amplifier1Level",(val/1000.));
+    messnamed("InC_in2_msg","vst","Amplifier2Level",1. - (val/1000.));
 }
 
 function send_tuning_msg(dev_pos,val)

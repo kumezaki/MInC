@@ -44,6 +44,7 @@ function loadbang()
     
     read_hints();
     
+	/* set the numbers of poly~ voices */
     messnamed("InC_in1_msg","voices",gPlayers.max_num);
 }
 
@@ -249,6 +250,28 @@ function set_module(dev_pos)
 }
 
 /*----------------------------------------------------------------------------*/
+/* functions to set sequence speed */
+
+function set_rhythm_aug(dev_pos,val)
+{
+    var dev = gDeviceArray[dev_pos];
+    dev.rhythm_aug = val;
+    send_speed_msg(dev_pos);
+}
+
+/*----------------------------------------------------------------------------*/
+/* messages from seq/synth */
+
+function seq_speed(dev_pos,s)
+{
+    if (gDeviceArray[dev_pos].speed != s)
+    {
+        gDeviceArray[dev_pos].speed = s;
+        send_speed_msg(dev_pos);
+    }
+}
+
+/*----------------------------------------------------------------------------*/
 /* functions to set instrument parameters */
 
 function set_inst(dev_pos,oct,max_amp,a,d,s,r,freq_delta,q)
@@ -294,32 +317,8 @@ function set_inst_sub(dev_pos)
 }
 
 /*----------------------------------------------------------------------------*/
-/* functions to set sequence speed */
+/* messages to seq/synth - general */
 
-function set_rhythm_aug(dev_pos,val)
-{
-    var dev = gDeviceArray[dev_pos];
-    dev.rhythm_aug = val;
-    send_speed_msg(dev_pos);
-}
-
-/*----------------------------------------------------------------------------*/
-/* messages from seq/synth */
-
-function seq_speed(dev_pos,s)
-{
-    if (gDeviceArray[dev_pos].speed != s)
-    {
-        gDeviceArray[dev_pos].speed = s;
-        send_speed_msg(dev_pos);
-    }
-}
-
-/*----------------------------------------------------------------------------*/
-/* messages to seq/synth */
-
-var gMaxVolume = 0.5;
-var gMaxCents = 50.; 
 var gSpeedAdjust = 1.02;
 
 function send_speed_msg(dev_pos)
@@ -340,6 +339,18 @@ function send_dac_msg(dev_pos,speaker_num)
     messnamed("InC_in1_msg","target",dev_pos+1);
     messnamed("InC_in2_msg","dac","set","dac"+speaker_num);
 }
+
+function send_dropout_msg(dev_pos,val)
+{
+    messnamed("InC_in1_msg","target",dev_pos+1);
+    messnamed("InC_in2_msg","dropout",val < 600 ? 1. : 0., 250);
+}
+
+/*----------------------------------------------------------------------------*/
+/* messages to seq/synth - synth-specific */
+
+var gMaxVolume = 0.5;
+var gMaxCents = 50.; 
 
 function send_oct_msg(dev_pos,val,base,direction)
 {
@@ -389,7 +400,6 @@ function send_filter_q_msg(dev_pos,q)
 
 function send_volume_msg(dev_pos,val)
 {
-	post("send_volume_msg",dev_pos,val,"\n");
     if (val < 100) return;
     messnamed("InC_in1_msg","target",dev_pos+1);
     messnamed("InC_in2_msg","volume",(val/1000.)*gMaxVolume);
@@ -406,12 +416,6 @@ function send_tuning_msg(dev_pos,val)
 {
     messnamed("InC_in1_msg","target",dev_pos+1);
     messnamed("InC_in2_msg","tuning",(val/1000.-0.25)*gMaxCents/100.);
-}
-
-function send_dropout_msg(dev_pos,val)
-{
-    messnamed("InC_in1_msg","target",dev_pos+1);
-    messnamed("InC_in2_msg","dropout",val < 600 ? 1. : 0., 250);
 }
 
 /*----------------------------------------------------------------------------*/
