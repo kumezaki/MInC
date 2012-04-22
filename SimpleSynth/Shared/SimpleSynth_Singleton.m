@@ -18,7 +18,11 @@ AQPlayer* gAQP;
 {
 	[super init];
 
+#if 0
 	gAQP = [[AQPlayer_SimpleSynth alloc] init];
+#else
+	gAQP = [[AQPlayer_SimpleSF alloc] init];
+#endif
 
 	UIWindow* window = [self GetAppWindow];
 

@@ -49,7 +49,7 @@
 	UInt32 ioDataSize = 8;
 	UInt64 outPropertyType = 0;
 	result = AudioFileGetProperty(mFileID,kAudioFilePropertyAudioDataPacketCount,&ioDataSize,&outPropertyType);
-	NSLog(@"%ld %ld %ld",result,ioDataSize,outPropertyType);
+	NSLog(@"%ld %ld %lld",result,ioDataSize,outPropertyType);
 
 	mNumFileSamples = outPropertyType;
 	
