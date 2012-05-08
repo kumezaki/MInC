@@ -144,8 +144,8 @@ function do_msg(osc_add,pos,val)
         case gMsgIDArray["dur"]: send_release_msg(dev_pos,val); break;
 
         case gMsgIDArray["filt"]: send_filter_cutoff_msg(dev_pos,val); break;
-        case gMsgIDArray["wave"]: send_waveform_msg(dev_pos,val); break;
-        case gMsgIDArray["vol"]: send_volume_msg(dev_pos,val); break;
+        case gMsgIDArray["vol"]: send_waveform_msg(dev_pos,val); break;
+        case gMsgIDArray["wave"]: send_volume_msg(dev_pos,val); break;
 
         case gMsgIDArray["hint"]: hint(dev_pos); break;
 
@@ -275,10 +275,6 @@ function seq_speed(dev_pos,s)
 
 function set_inst(dev_pos,oct,max_amp,a,d,s,r,q)
 {
-	/* set the VST program number */
-    messnamed("InC_in1_msg","target",0);
-    messnamed("InC_in2_msg","vst",35);	/* 35 is current custom program number */
-
     var dev = gDeviceArray[dev_pos];
 
     dev.oct = oct;
@@ -383,8 +379,16 @@ function send_release_msg(dev_pos,val)
     messnamed("InC_in2_msg","vst","AEn2Rel",dev.adsr[3]);
 }
 
+function send_filter_q_msg(dev_pos,q)
+{
+    messnamed("InC_in1_msg","target",dev_pos+1);
+    messnamed("InC_in2_msg","vst","Filter1QFactor",q);
+    messnamed("InC_in2_msg","vst","Filter2QFactor",q);
+}
+
 function send_filter_cutoff_msg(dev_pos,val)
 {
+	post("send_filter_cutoff_msg",dev_pos,val,"\n");
     var dev = gDeviceArray[dev_pos];
 
     messnamed("InC_in1_msg","target",dev_pos+1);
@@ -394,15 +398,9 @@ function send_filter_cutoff_msg(dev_pos,val)
     dev.filter_freq_pos = val;
 }
 
-function send_filter_q_msg(dev_pos,q)
-{
-    messnamed("InC_in1_msg","target",dev_pos+1);
-    messnamed("InC_in2_msg","vst","Filter1QFactor",q);
-    messnamed("InC_in2_msg","vst","Filter2QFactor",q);
-}
-
 function send_volume_msg(dev_pos,val)
 {
+	post("send_volume_msg",dev_pos,val,"\n");
     if (val < 100) return;
     messnamed("InC_in1_msg","target",dev_pos+1);
     messnamed("InC_in2_msg","vst","Oscillator1Level",val/1000.);
@@ -411,6 +409,7 @@ function send_volume_msg(dev_pos,val)
 
 function send_waveform_msg(dev_pos,val)
 {
+	post("send_waveform_msg",dev_pos,val,"\n");
     messnamed("InC_in1_msg","target",dev_pos+1);
     messnamed("InC_in2_msg","vst","Amplifier1Level",(val/1000.));
     messnamed("InC_in2_msg","vst","Amplifier2Level",1. - (val/1000.));

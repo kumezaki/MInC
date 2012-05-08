@@ -18,6 +18,7 @@ function Device()
     this.filter_freq_delta = 0;
     this.rhythm_aug = 0;
     this.hint_pos = 0;
+    this.prefix = "A";
 }
 
 /*----------------------------------------------------------------------------*/
@@ -195,6 +196,18 @@ function init_msg_id_array()
 }
 
 /*----------------------------------------------------------------------------*/
+/* functions to set prefix */
+
+function set_prefix(dev_pos,p)
+{
+	if (gDeviceArray[dev_pos] != undefined)
+	{
+		post("setting device "+dev_pos+" prefix to "+p+"\n");
+		gDeviceArray[dev_pos].prefix = p;
+	}
+}
+
+/*----------------------------------------------------------------------------*/
 /* functions to set module */
 
 function set_module(dev_pos)
@@ -205,7 +218,7 @@ function set_module(dev_pos)
     
     if (mod <= gMaxNumModules)
     {
-        var prefix = "A";
+        var prefix = gDeviceArray[dev_pos].prefix;
         var filename = prefix + mod + "_seq.txt";
         post("module",dev_pos,mod,filename,"\n");
     
