@@ -311,7 +311,7 @@
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
-#if 1
+#if 0
 	NSLog(@"%f, %f, %f\n", acceleration.x, acceleration.y, acceleration.z);
 #endif
 
@@ -336,7 +336,7 @@
 	[mAQP->mSequencer_Pri SetTempo:x];
 
 #if 0
-	printf("%f\n",x);
+	NSLog(<#NSString *format, ...#>)(@"%f\n",x);
 #endif
 }
 
