@@ -85,10 +85,10 @@
 		</sequence>
 		<sequence id="3" numnote="14" name="Pattern 3">
 			<notes>
-				<note>79</note><note>79</note><note>79</note><note>79</note><note>79</note><note>79</note><note>0</note><note>79</note><note>79</note><note>79</note><note>77</note><note>77</note><note>77</note><note>79</note>
+				<note>79</note><note>0</note><note>79</note><note>79</note><note>79</note><note>79</note><note>79</note><note>0</note><note>79</note><note>79</note><note>79</note><note>77</note><note>0</note><note>77</note><note>77</note><note>79</note>
 			</notes>
 			<durs>
-				<dur>.75</dur><dur>.125</dur><dur>.125</dur><dur>.25</dur><dur>.25</dur><dur>.5</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.125</dur><dur>.125</dur><dur>.5</dur>
+				<dur>.70</dur><dur>.05</dur><dur>.125</dur><dur>.125</dur><dur>.25</dur><dur>.25</dur><dur>.5</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.20</dur><dur>.05</dur><dur>.125</dur><dur>.125</dur><dur>.5</dur>
 			</durs>
 		</sequence>
 		<sequence id="4" numnote="7" name="Pattern 4">
