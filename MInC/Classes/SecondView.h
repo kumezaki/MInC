@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SecondView : UIView <UITextFieldDelegate> {
+@interface SecondView : UIView <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate> {
 
 	IBOutlet UISlider		*mTempoSenseSlider;
 	IBOutlet UISlider		*mPulseVolSlider;
@@ -20,6 +20,10 @@
 	
 	IBOutlet UISegmentedControl *mPieceSwitch;
 	IBOutlet UISegmentedControl *mPartSwitch;
+	
+	IBOutlet UITextField *mPiece;
+	IBOutlet UITextField *mPart;
+	UIActionSheet *menu;
 
 	BOOL	mEditing;
 }
@@ -36,10 +40,13 @@
 
 -(IBAction)ChangePiece:(id)sender;
 
+-(IBAction)showMenu;
+
 -(void)SetIPAddress;
 
 
 
 -(BOOL)IsEditing;
+
 
 @end

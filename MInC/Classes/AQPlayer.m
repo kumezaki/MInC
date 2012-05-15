@@ -331,7 +331,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	NSString *title;
 	if (mPiece == 1) title = @"InC";
-	else title = @"PP";
+	else title = @"Comp";
 	
     NSString *filePath = [[NSBundle mainBundle] pathForResource:title ofType:@"xml"];
     NSLog(@"%s",[filePath cStringUsingEncoding:NSASCIIStringEncoding]);

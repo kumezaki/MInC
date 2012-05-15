@@ -121,6 +121,11 @@ extern AQPlayer *gAQP;
 	[appDelegate CreateImageArray];
 }
 
+-(void)showMenu
+{
+	
+}
+
 -(void)SetIPAddress;
 {
 	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -136,5 +141,7 @@ extern AQPlayer *gAQP;
 {
 	return mEditing;
 }
+
+
 
 @end

@@ -311,8 +311,8 @@
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
-#if 0
-	printf("%f, %f, %f\n", acceleration.x, acceleration.y, acceleration.z);
+#if 1
+	NSLog(@"%f, %f, %f\n", acceleration.x, acceleration.y, acceleration.z);
 #endif
 
 #define LIMIT_ACC_VAL(n)	n < -1. ? -1. : n > 1. ? 1. : n
@@ -324,6 +324,11 @@
 	[self SendOSCMsgWithIntValue:"/minc/accX\0\0":12:FLOAT_TO_MRMR_INT(x)];
 	[self SendOSCMsgWithIntValue:"/minc/accY\0\0":12:FLOAT_TO_MRMR_INT(y)];
 	[self SendOSCMsgWithIntValue:"/minc/accZ\0\0":12:FLOAT_TO_MRMR_INT(z)];
+	
+	// if z is 0 to 0.6 then it is right side up, otherwise it is flipped -> should drop out 
+	
+	if (z>0.6) mAQP->mSequencer_Pri->mAmpMultiplier = 0.;
+	else mAQP->mSequencer_Pri->mAmpMultiplier = 0.5;
 
 	x *= mAQP->mSequencer_Pri->mTempoSensitivity;
 	x = 1.0 - x;
