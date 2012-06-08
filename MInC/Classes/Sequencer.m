@@ -18,6 +18,7 @@
 	mCurTime = 0.;
 	mNextEventTime = 0.;
 	mTempoMultiplier = 1.;
+	mRitMultiplier = 1.;
 	mAmpMultiplier = 1.;
 	mDurMultiplier = 1.;
 	
@@ -65,15 +66,35 @@
 	mTempoMultiplier = multiplier;
 }
 
+-(void)MoltoRit
+{
+	mRitMultiplier = mRitMultiplier * 0.95;
+}
+
+-(void)ResetRit
+{
+	mRitMultiplier = 1.;
+}
+
 -(void)Update:(double)elapsed_time
 {
 	if (!mPlaying) return;
 	
-	mCurTime += (elapsed_time * mTempoMultiplier);
-
+	mCurTime += (elapsed_time * mTempoMultiplier * mRitMultiplier);
+	
 	if (mSeq_Next != nil)
 	{
 		mSeq_Cur = mSeq_Next;
+		
+		/*if (mSeq_Cur->mRit) {
+			[self MoltoRit];
+			NSLog(@"rit");
+		}
+		else {
+			[self ResetRit];
+			NSLog(@"resetrit");
+		}*/
+
 		[self Rewind];
 		mSeq_Next = nil;
 	}
@@ -90,6 +111,18 @@
 
 		/* recompute the next event time */
 		mNextEventTime += [note GetDuration];
+		
+		if (mSeq_Cur != nil)
+		{
+			if (mSeq_Cur->mRit) {
+				[self MoltoRit];
+			}
+			else {
+				[self ResetRit];
+			}
+			
+		}
+		
 	}
 }
 

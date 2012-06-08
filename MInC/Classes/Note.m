@@ -52,6 +52,7 @@
 	
 	mSamplesPlayed = 0;
 	
+	
 	[mEnv on];
 }
 

@@ -34,6 +34,7 @@
 	int			mPiece;
 	int			mPart;
 	int			mNumSequences;
+	BOOL		mRit;
 }
 
 -(void)	New;

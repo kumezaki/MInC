@@ -24,6 +24,7 @@
 	double	mNextEventTime;
 
 	double	mTempoMultiplier;
+	double	mRitMultiplier;
 	double	mAmpMultiplier;
 	double	mDurMultiplier;
 	
@@ -42,6 +43,8 @@
 -(void)Rewind;
 
 -(void)SetTempo:(double)multiplier;
+-(void)MoltoRit;
+-(void)ResetRit;
 
 -(void)Update:(double)elapsed_time;
 

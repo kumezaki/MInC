@@ -87,6 +87,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	mPiece = 1;
 	mPart = 1;
+	mRit = FALSE;
 
 #if 0
 	for (int i = 0; i < kNumSequences; i++)
@@ -154,98 +155,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	[self ParseFile];
 	
-    /*
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"InC" ofType:@"xml"];
-    NSLog(@"%s",[filePath cStringUsingEncoding:NSASCIIStringEncoding]);
-    
-	xmlDocPtr doc;
-	xmlNodePtr cur;
-	//doc = xmlParseFile("/Users/Philip/Documents/MInC/Unfuddle/MInC/InC.xml");
-	
-	doc = xmlParseFile([filePath cStringUsingEncoding:NSASCIIStringEncoding]);
-
-	if (doc == NULL) {
-		fprintf(stderr,"Document not parsed successfully. \n");
-		return self;
-	}
-	
-	cur = xmlDocGetRootElement(doc);
-	
-	if (cur == NULL) {
-		fprintf(stderr,"empty document\n");
-		xmlFreeDoc(doc);
-		return self;
-	}
-	
-	if (xmlStrcmp(cur->name, (const xmlChar *) "work")) {
-		fprintf(stderr,"document of the wrong type, root node != work");
-		xmlFreeDoc(doc);
-		return self;
-	}
-	else {
-		fprintf(stderr,"correct document loaded");
-	}
-
-	cur = cur->xmlChildrenNode;
-	while (cur != NULL) {
-		if ((!xmlStrcmp(cur->name, (const xmlChar *)"part"))){
-            NSLog(@"part found");
-			xmlNodePtr cur2 = cur->xmlChildrenNode;
-            int seq_i = 0;
-			while (cur2 != NULL) {
-				if ((!xmlStrcmp(cur2->name, (const xmlChar *)"sequence"))) {
-
-                    int seq_id = atoi((char*)xmlGetProp(cur2, (xmlChar*)"id"));
-                    int num_notes = atoi((char*)xmlGetProp(cur2, (xmlChar*)"numnote"));
-
-                    NSLog(@"sequence %d %d",seq_id,num_notes);
-                    double *notesequence = (double*)malloc(sizeof(double)*num_notes);
-					double *dursequence = (double*)malloc(sizeof(double)*num_notes);
-
-					xmlNodePtr cur3 = cur2->xmlChildrenNode;
-					while (cur3 != NULL) {
-                        int note_i = 0;
-						if ((!xmlStrcmp(cur3->name, (const xmlChar *)"notes"))) {
-							
-							xmlNodePtr cur4 = cur3->xmlChildrenNode;
-							while (cur4 != NULL) {
-								if ((!xmlStrcmp(cur4->name, (const xmlChar *)"note"))) {
-									// Add notes
-									NSLog(@"%s", (char*)xmlNodeListGetString(doc, cur4->xmlChildrenNode, 1));
-									float note_num = atof((char*)xmlNodeListGetString(doc, cur4->xmlChildrenNode, 1));
-									notesequence[note_i++] = note_num;
-								}
-								cur4 = cur4->next;
-							}
-						}
-						else if ((!xmlStrcmp(cur3->name, (const xmlChar *)"durs"))) {
-							xmlNodePtr cur4 = cur3->xmlChildrenNode;
-							while (cur4 != NULL) {
-								if ((!xmlStrcmp(cur4->name, (const xmlChar *)"dur"))) {
-									// Add durations
-									float dur = atof((char*)xmlNodeListGetString(doc, cur4->xmlChildrenNode, 1));
-									dursequence[note_i++] = dur;
-								}
-								cur4 = cur4->next;
-							}
-						}
-						cur3 = cur3->next;
-					}
-                    mSequences[seq_i] = [[Sequence alloc] init];
-                    for (int i = 0; i < num_notes; i++) { NSLog(@"[%d] %f %f",i,notesequence[i],dursequence[i]); }
-					[mSequences[seq_i] AssignNotes:num_notes:notesequence:dursequence];
-                    free(notesequence);
-                    free(dursequence);
-                    seq_i++;
-				}
-				cur2 = cur2->next;
-			}
-		}
-		cur = cur->next;
-	}
-	xmlFreeDoc(doc);
-	*/
-	
+    	
 #endif
     
 	mSequencer_Pri->mAmpMultiplier = 0.5;
@@ -331,7 +241,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	NSString *title;
 	if (mPiece == 1) title = @"InC";
-	else title = @"Comp";
+	else if (mPiece == 2) title = @"PP";
+	else if (mPiece == 3) title = @"Traffic";
 	
     NSString *filePath = [[NSBundle mainBundle] pathForResource:title ofType:@"xml"];
     NSLog(@"%s",[filePath cStringUsingEncoding:NSASCIIStringEncoding]);
@@ -370,7 +281,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
             NSLog(@"part found");
 			int part = atoi((char*)xmlGetProp(cur, (xmlChar*)"id"));
 			mNumSequences = atoi((char*)xmlGetProp(cur, (xmlChar*)"numsequences"));
-			if (mPiece == 1 || (mPiece == 2 && part == mPart))
+			if (mPiece == 1 || (mPiece == 2 && part == mPart) || (mPiece == 3 && part == mPart))
 			{
 				xmlNodePtr cur2 = cur->xmlChildrenNode;
 				int seq_i = 0;
@@ -416,6 +327,15 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 						mSequences[seq_i] = [[Sequence alloc] init];
 						//for (int i = 0; i < num_notes; i++) { NSLog(@"[%d] %f %f",i,notesequence[i],dursequence[i]); }
 						[mSequences[seq_i] AssignNotes:num_notes:notesequence:dursequence];
+						// if sequence is moltorit then set seq->mRit to TRUE
+						if (mPiece == 3)
+						{
+							if (atoi((char*)xmlGetProp(cur2, (xmlChar*)"moltorit")) == 1)
+							{
+								mSequences[seq_i]->mRit = TRUE;
+								NSLog(@"added rit");
+							}
+						}
 						free(notesequence);
 						free(dursequence);
 						seq_i++;

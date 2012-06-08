@@ -18,6 +18,8 @@
 	
 	int mPos;
 	int mNumNotes;
+@public
+	BOOL mRit;
 }
 
 -(void)AssignNotes:(int)num_notes:(double*)notes:(double*)durations;

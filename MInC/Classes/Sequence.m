@@ -21,6 +21,7 @@
 	
 	mPos = -1;
 	mNumNotes = 0;
+	mRit = FALSE;
 	
 	return self;
 }
