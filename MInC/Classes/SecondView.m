@@ -115,6 +115,8 @@ extern AQPlayer *gAQP;
 	gAQP->mPiece = mPieceSwitch.selectedSegmentIndex + 1;
 	if(gAQP->mPiece == 2)
 		gAQP->mPart= mPartSwitch.selectedSegmentIndex + 1;
+	if(gAQP->mPiece == 3)
+		gAQP->mPart = mPartSwitch.selectedSegmentIndex + 1;
 	[gAQP ParseFile];
 	
 	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
