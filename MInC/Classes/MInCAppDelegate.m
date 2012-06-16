@@ -660,7 +660,7 @@
 					   nil
 					   ];
 	}
-	else {
+	else if (mAQP->mPiece == 2) {
 		UIImage *image = [UIImage imageNamed:@"PPCover.jpg"];
 		[mNotationView setImage:image];
 		mImageArray = [[NSArray alloc] initWithObjects:
@@ -698,6 +698,50 @@
 					   [UIImage imageNamed:@"PP32.jpg"],
 					   nil
 					   ];
+	}
+	else if (mAQP->mPiece == 3) {
+		UIImage *image = [UIImage imageNamed:@"TrafficCover.jpg"];
+		[mNotationView setImage:image];
+		mImageArray = [[NSArray alloc] initWithObjects:
+					   [UIImage imageNamed:@"Traffic1.jpg"],
+					   [UIImage imageNamed:@"Traffic2.jpg"],
+					   [UIImage imageNamed:@"Traffic3.jpg"],
+					   [UIImage imageNamed:@"Traffic4.jpg"],
+					   [UIImage imageNamed:@"Traffic5.jpg"],
+					   [UIImage imageNamed:@"Traffic6.jpg"],
+					   [UIImage imageNamed:@"Traffic7.jpg"],
+					   [UIImage imageNamed:@"Traffic8.jpg"],
+					   [UIImage imageNamed:@"Traffic9.jpg"],
+					   [UIImage imageNamed:@"Traffic10.jpg"],
+					   [UIImage imageNamed:@"Traffic11.jpg"],
+					   [UIImage imageNamed:@"Traffic12.jpg"],
+					   [UIImage imageNamed:@"Traffic13.jpg"],
+					   [UIImage imageNamed:@"Traffic14.jpg"],
+					   [UIImage imageNamed:@"Traffic15.jpg"],
+					   [UIImage imageNamed:@"Traffic16.jpg"],
+					   [UIImage imageNamed:@"Traffic17.jpg"],
+					   [UIImage imageNamed:@"Traffic18.jpg"],
+					   [UIImage imageNamed:@"Traffic19.jpg"],
+					   [UIImage imageNamed:@"Traffic20.jpg"],
+					   [UIImage imageNamed:@"Traffic21.jpg"],
+					   [UIImage imageNamed:@"Traffic22.jpg"],
+					   [UIImage imageNamed:@"Traffic23.jpg"],
+					   [UIImage imageNamed:@"Traffic24.jpg"],
+					   [UIImage imageNamed:@"Traffic25.jpg"],
+					   [UIImage imageNamed:@"Traffic26.jpg"],
+					   [UIImage imageNamed:@"Traffic27.jpg"],
+					   [UIImage imageNamed:@"Traffic28.jpg"],
+					   [UIImage imageNamed:@"Traffic29.jpg"],
+					   [UIImage imageNamed:@"Traffic30.jpg"],
+					   [UIImage imageNamed:@"Traffic31.jpg"],
+					   [UIImage imageNamed:@"Traffic32.jpg"],
+					   [UIImage imageNamed:@"Traffic33.jpg"],
+					   [UIImage imageNamed:@"Traffic34.jpg"],
+					   [UIImage imageNamed:@"Traffic35.jpg"],
+					   [UIImage imageNamed:@"Traffic36.jpg"],
+					   nil
+					   ];
+		
 	}
 }
 

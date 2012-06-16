@@ -290,7 +290,7 @@
 			</durs>
 		</sequence>
 	</part>
-	<part id="2" name="Part 2" numsequences="33">
+	<part id="2" name="Part 2" numsequences="36">
 		<sequence id="1" numnote="1" name="Pattern 1" moltorit="0">
 			<notes>
 				<note>0</note>
@@ -307,25 +307,25 @@
 				<dur>1</dur>
 			</durs>
 		</sequence>
-		<sequence id="3" numnote="1" name="Pattern 3" moltorit="0">
-			<notes>
-				<note>65</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="4" numnote="1" name="Pattern 4" moltorit="1">
-			<notes>
-				<note>65</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="5" numnote="1" name="Pattern 5" moltorit="0">
+		<sequence id="3" numnote="1" name="Pattern 4" moltorit="0">
 			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="4" numnote="1" name="Pattern 4" moltorit="0">
+			<notes>
+				<note>65</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="5" numnote="1" name="Pattern 5" moltorit="1">
+			<notes>
+				<note>65</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -333,23 +333,23 @@
 		</sequence>
 		<sequence id="6" numnote="1" name="Pattern 6" moltorit="0">
 			<notes>
-				<note>65</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="7" numnote="1" name="Pattern 7" moltorit="1">
-			<notes>
-				<note>65</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="8" numnote="1" name="Pattern 8" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="7" numnote="1" name="Pattern 7" moltorit="0">
+			<notes>
+				<note>65</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="8" numnote="1" name="Pattern 8" moltorit="1">
+			<notes>
+				<note>65</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -357,23 +357,23 @@
 		</sequence>
 		<sequence id="9" numnote="1" name="Pattern 9" moltorit="0">
 			<notes>
-				<note>65</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="10" numnote="1" name="Pattern 10" moltorit="1">
-			<notes>
-				<note>65</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="11" numnote="1" name="Pattern 11" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="10" numnote="1" name="Pattern 10" moltorit="0">
+			<notes>
+				<note>65</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="11" numnote="1" name="Pattern 11" moltorit="1">
+			<notes>
+				<note>65</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -381,23 +381,23 @@
 		</sequence>
 		<sequence id="12" numnote="1" name="Pattern 12" moltorit="0">
 			<notes>
-				<note>65</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="13" numnote="1" name="Pattern 13" moltorit="1">
-			<notes>
-				<note>65</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="14" numnote="1" name="Pattern 14" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="13" numnote="1" name="Pattern 13" moltorit="0">
+			<notes>
+				<note>65</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="14" numnote="1" name="Pattern 14" moltorit="1">
+			<notes>
+				<note>65</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -405,23 +405,23 @@
 		</sequence>
 		<sequence id="15" numnote="1" name="Pattern 15" moltorit="0">
 			<notes>
-				<note>65</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="16" numnote="1" name="Pattern 16" moltorit="1">
-			<notes>
-				<note>65</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="17" numnote="1" name="Pattern 17" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="16" numnote="1" name="Pattern 16" moltorit="0">
+			<notes>
+				<note>65</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="17" numnote="1" name="Pattern 17" moltorit="1">
+			<notes>
+				<note>65</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -429,23 +429,23 @@
 		</sequence>
 		<sequence id="18" numnote="1" name="Pattern 18" moltorit="0">
 			<notes>
-				<note>71</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="19" numnote="1" name="Pattern 19" moltorit="1">
-			<notes>
-				<note>71</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="20" numnote="1" name="Pattern 20" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="19" numnote="1" name="Pattern 19" moltorit="0">
+			<notes>
+				<note>71</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="20" numnote="1" name="Pattern 20" moltorit="1">
+			<notes>
+				<note>71</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -453,23 +453,23 @@
 		</sequence>
 		<sequence id="21" numnote="1" name="Pattern 21" moltorit="0">
 			<notes>
-				<note>62</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="22" numnote="1" name="Pattern 22" moltorit="1">
-			<notes>
-				<note>62</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="23" numnote="1" name="Pattern 23" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="22" numnote="1" name="Pattern 22" moltorit="0">
+			<notes>
+				<note>62</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="23" numnote="1" name="Pattern 23" moltorit="1">
+			<notes>
+				<note>62</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -477,23 +477,23 @@
 		</sequence>
 		<sequence id="24" numnote="1" name="Pattern 24" moltorit="0">
 			<notes>
-				<note>66</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="25" numnote="1" name="Pattern 25" moltorit="1">
-			<notes>
-				<note>66</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="26" numnote="1" name="Pattern 26" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="25" numnote="1" name="Pattern 25" moltorit="0">
+			<notes>
+				<note>66</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="26" numnote="1" name="Pattern 26" moltorit="1">
+			<notes>
+				<note>66</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -501,23 +501,23 @@
 		</sequence>
 		<sequence id="27" numnote="1" name="Pattern 27" moltorit="0">
 			<notes>
-				<note>62</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="28" numnote="1" name="Pattern 28" moltorit="1">
-			<notes>
-				<note>62</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="29" numnote="1" name="Pattern 29" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="28" numnote="1" name="Pattern 28" moltorit="0">
+			<notes>
+				<note>62</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="29" numnote="1" name="Pattern 29" moltorit="1">
+			<notes>
+				<note>62</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -555,8 +555,32 @@
 				<dur>1</dur>
 			</durs>
 		</sequence>
+		<sequence id="34" numnote="1" name="Pattern 34" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="35" numnote="1" name="Pattern 35" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="36" numnote="1" name="Pattern 36" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
 	</part>
-	<part id="3" name="Part 3" numsequences="29">
+	<part id="3" name="Part 3" numsequences="36">
 		<sequence id="1" numnote="1" name="Pattern 1" moltorit="0">
 			<notes>
 				<note>0</note>
@@ -591,15 +615,15 @@
 		</sequence>
 		<sequence id="5" numnote="1" name="Pattern 5" moltorit="0">
 			<notes>
-				<note>68</note>
+				<note>0</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
 			</durs>
 		</sequence>
-		<sequence id="6" numnote="1" name="Pattern 6" moltorit="1">
+		<sequence id="6" numnote="1" name="Pattern 6" moltorit="0">
 			<notes>
-				<note>68</note>
+				<note>0</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -607,23 +631,23 @@
 		</sequence>
 		<sequence id="7" numnote="1" name="Pattern 7" moltorit="0">
 			<notes>
+				<note>68</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="8" numnote="1" name="Pattern 8" moltorit="1">
+			<notes>
+				<note>68</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="9" numnote="1" name="Pattern 9" moltorit="0">
+			<notes>
 				<note>0</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="8" numnote="1" name="Pattern 8" moltorit="0">
-			<notes>
-				<note>69</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="9" numnote="1" name="Pattern 9" moltorit="1">
-			<notes>
-				<note>69</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -631,23 +655,23 @@
 		</sequence>
 		<sequence id="10" numnote="1" name="Pattern 10" moltorit="0">
 			<notes>
+				<note>69</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="11" numnote="1" name="Pattern 11" moltorit="1">
+			<notes>
+				<note>69</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="12" numnote="1" name="Pattern 12" moltorit="0">
+			<notes>
 				<note>0</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="11" numnote="1" name="Pattern 11" moltorit="0">
-			<notes>
-				<note>71</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="12" numnote="1" name="Pattern 12" moltorit="1">
-			<notes>
-				<note>71</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -655,23 +679,23 @@
 		</sequence>
 		<sequence id="13" numnote="1" name="Pattern 13" moltorit="0">
 			<notes>
+				<note>71</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="14" numnote="1" name="Pattern 14" moltorit="1">
+			<notes>
+				<note>71</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="15" numnote="1" name="Pattern 15" moltorit="0">
+			<notes>
 				<note>0</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="14" numnote="1" name="Pattern 14" moltorit="0">
-			<notes>
-				<note>74</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="15" numnote="1" name="Pattern 15" moltorit="1">
-			<notes>
-				<note>74</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -679,15 +703,15 @@
 		</sequence>
 		<sequence id="16" numnote="1" name="Pattern 16" moltorit="0">
 			<notes>
-				<note>0</note>
+				<note>74</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
 			</durs>
 		</sequence>
-		<sequence id="17" numnote="1" name="Pattern 17" moltorit="0">
+		<sequence id="17" numnote="1" name="Pattern 17" moltorit="1">
 			<notes>
-				<note>0</note>
+				<note>74</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -703,15 +727,15 @@
 		</sequence>
 		<sequence id="19" numnote="1" name="Pattern 19" moltorit="0">
 			<notes>
-				<note>67</note>
+				<note>0</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
 			</durs>
 		</sequence>
-		<sequence id="20" numnote="1" name="Pattern 20" moltorit="1">
+		<sequence id="20" numnote="1" name="Pattern 20" moltorit="0">
 			<notes>
-				<note>67</note>
+				<note>0</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -727,15 +751,15 @@
 		</sequence>
 		<sequence id="22" numnote="1" name="Pattern 22" moltorit="0">
 			<notes>
-				<note>0</note>
+				<note>67</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
 			</durs>
 		</sequence>
-		<sequence id="23" numnote="1" name="Pattern 23" moltorit="0">
+		<sequence id="23" numnote="1" name="Pattern 23" moltorit="1">
 			<notes>
-				<note>0</note>
+				<note>67</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -782,6 +806,62 @@
 			</durs>
 		</sequence>
 		<sequence id="29" numnote="1" name="Pattern 29" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="30" numnote="1" name="Pattern 30" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="31" numnote="1" name="Pattern 31" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="32" numnote="1" name="Pattern 32" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="33" numnote="1" name="Pattern 33" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="34" numnote="1" name="Pattern 34" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="35" numnote="1" name="Pattern 35" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="36" numnote="1" name="Pattern 36" moltorit="0">
 			<notes>
 				<note>0</note>
 			</notes>
@@ -1080,7 +1160,7 @@
 			</durs>
 		</sequence>
 	</part>
-	<part id="5" name="Part 5" numsequences="33">
+	<part id="5" name="Part 5" numsequences="36">
 		<sequence id="1" numnote="1" name="Pattern 1" moltorit="0">
 			<notes>
 				<note>0</note>
@@ -1107,23 +1187,23 @@
 		</sequence>
 		<sequence id="4" numnote="1" name="Pattern 4" moltorit="0">
 			<notes>
-				<note>64</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="5" numnote="1" name="Pattern 5" moltorit="1">
-			<notes>
-				<note>64</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="6" numnote="1" name="Pattern 6" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="5" numnote="1" name="Pattern 5" moltorit="0">
+			<notes>
+				<note>64</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="6" numnote="1" name="Pattern 6" moltorit="1">
+			<notes>
+				<note>64</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -1131,23 +1211,23 @@
 		</sequence>
 		<sequence id="7" numnote="1" name="Pattern 7" moltorit="0">
 			<notes>
-				<note>64</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="8" numnote="1" name="Pattern 8" moltorit="1">
-			<notes>
-				<note>64</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="9" numnote="1" name="Pattern 9" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="8" numnote="1" name="Pattern 8" moltorit="0">
+			<notes>
+				<note>64</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="9" numnote="1" name="Pattern 9" moltorit="1">
+			<notes>
+				<note>64</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -1155,23 +1235,23 @@
 		</sequence>
 		<sequence id="10" numnote="1" name="Pattern 10" moltorit="0">
 			<notes>
-				<note>64</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="11" numnote="1" name="Pattern 11" moltorit="1">
-			<notes>
-				<note>64</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="12" numnote="1" name="Pattern 12" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="11" numnote="1" name="Pattern 11" moltorit="0">
+			<notes>
+				<note>64</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="12" numnote="1" name="Pattern 12" moltorit="1">
+			<notes>
+				<note>64</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -1179,23 +1259,23 @@
 		</sequence>
 		<sequence id="13" numnote="1" name="Pattern 13" moltorit="0">
 			<notes>
-				<note>67</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="14" numnote="1" name="Pattern 14" moltorit="1">
-			<notes>
-				<note>67</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="15" numnote="1" name="Pattern 15" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="14" numnote="1" name="Pattern 14" moltorit="0">
+			<notes>
+				<note>67</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="15" numnote="1" name="Pattern 15" moltorit="1">
+			<notes>
+				<note>67</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -1203,23 +1283,23 @@
 		</sequence>
 		<sequence id="16" numnote="1" name="Pattern 16" moltorit="0">
 			<notes>
-				<note>69</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="17" numnote="1" name="Pattern 17" moltorit="1">
-			<notes>
-				<note>69</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="18" numnote="1" name="Pattern 18" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="17" numnote="1" name="Pattern 17" moltorit="0">
+			<notes>
+				<note>69</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="18" numnote="1" name="Pattern 18" moltorit="1">
+			<notes>
+				<note>69</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -1227,23 +1307,23 @@
 		</sequence>
 		<sequence id="19" numnote="1" name="Pattern 19" moltorit="0">
 			<notes>
-				<note>69</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="20" numnote="1" name="Pattern 20" moltorit="1">
-			<notes>
-				<note>69</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="21" numnote="1" name="Pattern 21" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="20" numnote="1" name="Pattern 20" moltorit="0">
+			<notes>
+				<note>69</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="21" numnote="1" name="Pattern 21" moltorit="1">
+			<notes>
+				<note>69</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -1251,23 +1331,23 @@
 		</sequence>
 		<sequence id="22" numnote="1" name="Pattern 22" moltorit="0">
 			<notes>
-				<note>64</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="23" numnote="1" name="Pattern 23" moltorit="1">
-			<notes>
-				<note>64</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="24" numnote="1" name="Pattern 24" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="23" numnote="1" name="Pattern 23" moltorit="0">
+			<notes>
+				<note>64</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="24" numnote="1" name="Pattern 24" moltorit="1">
+			<notes>
+				<note>64</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -1275,23 +1355,23 @@
 		</sequence>
 		<sequence id="25" numnote="1" name="Pattern 25" moltorit="0">
 			<notes>
-				<note>64</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="26" numnote="1" name="Pattern 26" moltorit="1">
-			<notes>
-				<note>64</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="27" numnote="1" name="Pattern 27" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="26" numnote="1" name="Pattern 26" moltorit="0">
+			<notes>
+				<note>64</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="27" numnote="1" name="Pattern 27" moltorit="1">
+			<notes>
+				<note>64</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -1299,23 +1379,23 @@
 		</sequence>
 		<sequence id="28" numnote="1" name="Pattern 28" moltorit="0">
 			<notes>
-				<note>64</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="29" numnote="1" name="Pattern 29" moltorit="1">
-			<notes>
-				<note>64</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="30" numnote="1" name="Pattern 30" moltorit="0">
-			<notes>
 				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="29" numnote="1" name="Pattern 29" moltorit="0">
+			<notes>
+				<note>64</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="30" numnote="1" name="Pattern 30" moltorit="1">
+			<notes>
+				<note>64</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -1345,8 +1425,32 @@
 				<dur>1</dur>
 			</durs>
 		</sequence>
+		<sequence id="34" numnote="1" name="Pattern 34" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="35" numnote="1" name="Pattern 35" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="36" numnote="1" name="Pattern 36" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
 	</part>
-	<part id="6" name="Part 6" numsequences="29">
+	<part id="6" name="Part 6" numsequences="36">
 		<sequence id="1" numnote="1" name="Pattern 1" moltorit="0">
 			<notes>
 				<note>0</note>
@@ -1389,15 +1493,15 @@
 		</sequence>
 		<sequence id="6" numnote="1" name="Pattern 6" moltorit="0">
 			<notes>
-				<note>69</note>
+				<note>0</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
 			</durs>
 		</sequence>
-		<sequence id="7" numnote="1" name="Pattern 7" moltorit="1">
+		<sequence id="7" numnote="1" name="Pattern 7" moltorit="0">
 			<notes>
-				<note>69</note>
+				<note>0</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -1405,23 +1509,23 @@
 		</sequence>
 		<sequence id="8" numnote="1" name="Pattern 8" moltorit="0">
 			<notes>
+				<note>69</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="9" numnote="1" name="Pattern 9" moltorit="1">
+			<notes>
+				<note>69</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="10" numnote="1" name="Pattern 10" moltorit="0">
+			<notes>
 				<note>0</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="9" numnote="1" name="Pattern 9" moltorit="0">
-			<notes>
-				<note>67</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="10" numnote="1" name="Pattern 10" moltorit="1">
-			<notes>
-				<note>67</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -1429,23 +1533,23 @@
 		</sequence>
 		<sequence id="11" numnote="1" name="Pattern 11" moltorit="0">
 			<notes>
+				<note>67</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="12" numnote="1" name="Pattern 12" moltorit="1">
+			<notes>
+				<note>67</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="13" numnote="1" name="Pattern 13" moltorit="0">
+			<notes>
 				<note>0</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="12" numnote="1" name="Pattern 12" moltorit="0">
-			<notes>
-				<note>73</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="13" numnote="1" name="Pattern 13" moltorit="1">
-			<notes>
-				<note>73</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -1453,23 +1557,23 @@
 		</sequence>
 		<sequence id="14" numnote="1" name="Pattern 14" moltorit="0">
 			<notes>
+				<note>73</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="15" numnote="1" name="Pattern 15" moltorit="1">
+			<notes>
+				<note>73</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="16" numnote="1" name="Pattern 16" moltorit="0">
+			<notes>
 				<note>0</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="15" numnote="1" name="Pattern 15" moltorit="0">
-			<notes>
-				<note>72</note>
-			</notes>
-			<durs>
-				<dur>1</dur>
-			</durs>
-		</sequence>
-		<sequence id="16" numnote="1" name="Pattern 16" moltorit="1">
-			<notes>
-				<note>72</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -1477,15 +1581,15 @@
 		</sequence>
 		<sequence id="17" numnote="1" name="Pattern 17" moltorit="0">
 			<notes>
-				<note>0</note>
+				<note>72</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
 			</durs>
 		</sequence>
-		<sequence id="18" numnote="1" name="Pattern 18" moltorit="0">
+		<sequence id="18" numnote="1" name="Pattern 18" moltorit="1">
 			<notes>
-				<note>0</note>
+				<note>72</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -1501,15 +1605,15 @@
 		</sequence>
 		<sequence id="20" numnote="1" name="Pattern 20" moltorit="0">
 			<notes>
-				<note>66</note>
+				<note>0</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
 			</durs>
 		</sequence>
-		<sequence id="21" numnote="1" name="Pattern 21" moltorit="1">
+		<sequence id="21" numnote="1" name="Pattern 21" moltorit="0">
 			<notes>
-				<note>66</note>
+				<note>0</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -1525,15 +1629,15 @@
 		</sequence>
 		<sequence id="23" numnote="1" name="Pattern 23" moltorit="0">
 			<notes>
-				<note>0</note>
+				<note>66</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
 			</durs>
 		</sequence>
-		<sequence id="24" numnote="1" name="Pattern 24" moltorit="0">
+		<sequence id="24" numnote="1" name="Pattern 24" moltorit="1">
 			<notes>
-				<note>0</note>
+				<note>66</note>
 			</notes>
 			<durs>
 				<dur>1</dur>
@@ -1572,6 +1676,62 @@
 			</durs>
 		</sequence>
 		<sequence id="29" numnote="1" name="Pattern 29" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="30" numnote="1" name="Pattern 30" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="31" numnote="1" name="Pattern 31" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="32" numnote="1" name="Pattern 32" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="33" numnote="1" name="Pattern 33" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="34" numnote="1" name="Pattern 34" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="35" numnote="1" name="Pattern 35" moltorit="0">
+			<notes>
+				<note>0</note>
+			</notes>
+			<durs>
+				<dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="36" numnote="1" name="Pattern 36" moltorit="0">
 			<notes>
 				<note>0</note>
 			</notes>

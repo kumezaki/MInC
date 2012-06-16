@@ -281,6 +281,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
             NSLog(@"part found");
 			int part = atoi((char*)xmlGetProp(cur, (xmlChar*)"id"));
 			mNumSequences = atoi((char*)xmlGetProp(cur, (xmlChar*)"numsequences"));
+			NSLog(@"%d", mNumSequences);
 			if (mPiece == 1 || (mPiece == 2 && part == mPart) || (mPiece == 3 && part == mPart))
 			{
 				xmlNodePtr cur2 = cur->xmlChildrenNode;

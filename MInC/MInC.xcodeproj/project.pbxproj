@@ -81,6 +81,43 @@
 		282CCBFE0DB6C98000C4EA27 /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 282CCBFD0DB6C98000C4EA27 /* SecondView.xib */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
+		D42827BE158C379000FDB938 /* Traffic1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4282799158C379000FDB938 /* Traffic1.jpg */; };
+		D42827BF158C379000FDB938 /* Traffic2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D428279A158C379000FDB938 /* Traffic2.jpg */; };
+		D42827C0158C379000FDB938 /* Traffic3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D428279B158C379000FDB938 /* Traffic3.jpg */; };
+		D42827C1158C379000FDB938 /* Traffic4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D428279C158C379000FDB938 /* Traffic4.jpg */; };
+		D42827C2158C379000FDB938 /* Traffic5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D428279D158C379000FDB938 /* Traffic5.jpg */; };
+		D42827C3158C379000FDB938 /* Traffic6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D428279E158C379000FDB938 /* Traffic6.jpg */; };
+		D42827C4158C379000FDB938 /* Traffic7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D428279F158C379000FDB938 /* Traffic7.jpg */; };
+		D42827C5158C379000FDB938 /* Traffic8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827A0158C379000FDB938 /* Traffic8.jpg */; };
+		D42827C6158C379000FDB938 /* Traffic9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827A1158C379000FDB938 /* Traffic9.jpg */; };
+		D42827C7158C379000FDB938 /* Traffic10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827A2158C379000FDB938 /* Traffic10.jpg */; };
+		D42827C8158C379000FDB938 /* Traffic11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827A3158C379000FDB938 /* Traffic11.jpg */; };
+		D42827C9158C379000FDB938 /* Traffic12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827A4158C379000FDB938 /* Traffic12.jpg */; };
+		D42827CA158C379000FDB938 /* Traffic13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827A5158C379000FDB938 /* Traffic13.jpg */; };
+		D42827CB158C379000FDB938 /* Traffic14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827A6158C379000FDB938 /* Traffic14.jpg */; };
+		D42827CC158C379000FDB938 /* Traffic15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827A7158C379000FDB938 /* Traffic15.jpg */; };
+		D42827CD158C379000FDB938 /* Traffic16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827A8158C379000FDB938 /* Traffic16.jpg */; };
+		D42827CE158C379000FDB938 /* Traffic17.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827A9158C379000FDB938 /* Traffic17.jpg */; };
+		D42827CF158C379000FDB938 /* Traffic18.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827AA158C379000FDB938 /* Traffic18.jpg */; };
+		D42827D0158C379000FDB938 /* Traffic19.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827AB158C379000FDB938 /* Traffic19.jpg */; };
+		D42827D1158C379000FDB938 /* Traffic20.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827AC158C379000FDB938 /* Traffic20.jpg */; };
+		D42827D2158C379000FDB938 /* Traffic21.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827AD158C379000FDB938 /* Traffic21.jpg */; };
+		D42827D3158C379000FDB938 /* Traffic22.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827AE158C379000FDB938 /* Traffic22.jpg */; };
+		D42827D4158C379000FDB938 /* Traffic23.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827AF158C379000FDB938 /* Traffic23.jpg */; };
+		D42827D5158C379000FDB938 /* Traffic24.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827B0158C379000FDB938 /* Traffic24.jpg */; };
+		D42827D6158C379000FDB938 /* Traffic25.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827B1158C379000FDB938 /* Traffic25.jpg */; };
+		D42827D7158C379000FDB938 /* Traffic26.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827B2158C379000FDB938 /* Traffic26.jpg */; };
+		D42827D8158C379000FDB938 /* Traffic27.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827B3158C379000FDB938 /* Traffic27.jpg */; };
+		D42827D9158C379000FDB938 /* Traffic28.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827B4158C379000FDB938 /* Traffic28.jpg */; };
+		D42827DA158C379000FDB938 /* Traffic29.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827B5158C379000FDB938 /* Traffic29.jpg */; };
+		D42827DB158C379000FDB938 /* Traffic30.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827B6158C379000FDB938 /* Traffic30.jpg */; };
+		D42827DC158C379000FDB938 /* Traffic31.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827B7158C379000FDB938 /* Traffic31.jpg */; };
+		D42827DD158C379000FDB938 /* Traffic32.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827B8158C379000FDB938 /* Traffic32.jpg */; };
+		D42827DE158C379000FDB938 /* Traffic33.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827B9158C379000FDB938 /* Traffic33.jpg */; };
+		D42827DF158C379000FDB938 /* Traffic34.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827BA158C379000FDB938 /* Traffic34.jpg */; };
+		D42827E0158C379000FDB938 /* Traffic35.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827BB158C379000FDB938 /* Traffic35.jpg */; };
+		D42827E1158C379000FDB938 /* Traffic36.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827BC158C379000FDB938 /* Traffic36.jpg */; };
+		D42827E2158C379000FDB938 /* TrafficCover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D42827BD158C379000FDB938 /* TrafficCover.jpg */; };
 		D4524F8815531F8900825E03 /* Comp.xml in Resources */ = {isa = PBXBuildFile; fileRef = D4524F8715531F8900825E03 /* Comp.xml */; };
 		D45DB2131581E57800A2CCEF /* Traffic.xml in Resources */ = {isa = PBXBuildFile; fileRef = D45DB2121581E57800A2CCEF /* Traffic.xml */; };
 		D4DE34681511C2E500769B86 /* PP1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4DE34481511C2E500769B86 /* PP1.jpg */; };
@@ -211,6 +248,43 @@
 		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD73870D9D96C1002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D4282799158C379000FDB938 /* Traffic1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic1.jpg; path = Images/Traffic1.jpg; sourceTree = "<group>"; };
+		D428279A158C379000FDB938 /* Traffic2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic2.jpg; path = Images/Traffic2.jpg; sourceTree = "<group>"; };
+		D428279B158C379000FDB938 /* Traffic3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic3.jpg; path = Images/Traffic3.jpg; sourceTree = "<group>"; };
+		D428279C158C379000FDB938 /* Traffic4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic4.jpg; path = Images/Traffic4.jpg; sourceTree = "<group>"; };
+		D428279D158C379000FDB938 /* Traffic5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic5.jpg; path = Images/Traffic5.jpg; sourceTree = "<group>"; };
+		D428279E158C379000FDB938 /* Traffic6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic6.jpg; path = Images/Traffic6.jpg; sourceTree = "<group>"; };
+		D428279F158C379000FDB938 /* Traffic7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic7.jpg; path = Images/Traffic7.jpg; sourceTree = "<group>"; };
+		D42827A0158C379000FDB938 /* Traffic8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic8.jpg; path = Images/Traffic8.jpg; sourceTree = "<group>"; };
+		D42827A1158C379000FDB938 /* Traffic9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic9.jpg; path = Images/Traffic9.jpg; sourceTree = "<group>"; };
+		D42827A2158C379000FDB938 /* Traffic10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic10.jpg; path = Images/Traffic10.jpg; sourceTree = "<group>"; };
+		D42827A3158C379000FDB938 /* Traffic11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic11.jpg; path = Images/Traffic11.jpg; sourceTree = "<group>"; };
+		D42827A4158C379000FDB938 /* Traffic12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic12.jpg; path = Images/Traffic12.jpg; sourceTree = "<group>"; };
+		D42827A5158C379000FDB938 /* Traffic13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic13.jpg; path = Images/Traffic13.jpg; sourceTree = "<group>"; };
+		D42827A6158C379000FDB938 /* Traffic14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic14.jpg; path = Images/Traffic14.jpg; sourceTree = "<group>"; };
+		D42827A7158C379000FDB938 /* Traffic15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic15.jpg; path = Images/Traffic15.jpg; sourceTree = "<group>"; };
+		D42827A8158C379000FDB938 /* Traffic16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic16.jpg; path = Images/Traffic16.jpg; sourceTree = "<group>"; };
+		D42827A9158C379000FDB938 /* Traffic17.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic17.jpg; path = Images/Traffic17.jpg; sourceTree = "<group>"; };
+		D42827AA158C379000FDB938 /* Traffic18.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic18.jpg; path = Images/Traffic18.jpg; sourceTree = "<group>"; };
+		D42827AB158C379000FDB938 /* Traffic19.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic19.jpg; path = Images/Traffic19.jpg; sourceTree = "<group>"; };
+		D42827AC158C379000FDB938 /* Traffic20.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic20.jpg; path = Images/Traffic20.jpg; sourceTree = "<group>"; };
+		D42827AD158C379000FDB938 /* Traffic21.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic21.jpg; path = Images/Traffic21.jpg; sourceTree = "<group>"; };
+		D42827AE158C379000FDB938 /* Traffic22.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic22.jpg; path = Images/Traffic22.jpg; sourceTree = "<group>"; };
+		D42827AF158C379000FDB938 /* Traffic23.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic23.jpg; path = Images/Traffic23.jpg; sourceTree = "<group>"; };
+		D42827B0158C379000FDB938 /* Traffic24.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic24.jpg; path = Images/Traffic24.jpg; sourceTree = "<group>"; };
+		D42827B1158C379000FDB938 /* Traffic25.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic25.jpg; path = Images/Traffic25.jpg; sourceTree = "<group>"; };
+		D42827B2158C379000FDB938 /* Traffic26.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic26.jpg; path = Images/Traffic26.jpg; sourceTree = "<group>"; };
+		D42827B3158C379000FDB938 /* Traffic27.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic27.jpg; path = Images/Traffic27.jpg; sourceTree = "<group>"; };
+		D42827B4158C379000FDB938 /* Traffic28.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic28.jpg; path = Images/Traffic28.jpg; sourceTree = "<group>"; };
+		D42827B5158C379000FDB938 /* Traffic29.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic29.jpg; path = Images/Traffic29.jpg; sourceTree = "<group>"; };
+		D42827B6158C379000FDB938 /* Traffic30.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic30.jpg; path = Images/Traffic30.jpg; sourceTree = "<group>"; };
+		D42827B7158C379000FDB938 /* Traffic31.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic31.jpg; path = Images/Traffic31.jpg; sourceTree = "<group>"; };
+		D42827B8158C379000FDB938 /* Traffic32.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic32.jpg; path = Images/Traffic32.jpg; sourceTree = "<group>"; };
+		D42827B9158C379000FDB938 /* Traffic33.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic33.jpg; path = Images/Traffic33.jpg; sourceTree = "<group>"; };
+		D42827BA158C379000FDB938 /* Traffic34.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic34.jpg; path = Images/Traffic34.jpg; sourceTree = "<group>"; };
+		D42827BB158C379000FDB938 /* Traffic35.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic35.jpg; path = Images/Traffic35.jpg; sourceTree = "<group>"; };
+		D42827BC158C379000FDB938 /* Traffic36.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Traffic36.jpg; path = Images/Traffic36.jpg; sourceTree = "<group>"; };
+		D42827BD158C379000FDB938 /* TrafficCover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = TrafficCover.jpg; path = Images/TrafficCover.jpg; sourceTree = "<group>"; };
 		D4524F8715531F8900825E03 /* Comp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Comp.xml; sourceTree = "<group>"; };
 		D45DB2121581E57800A2CCEF /* Traffic.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Traffic.xml; sourceTree = "<group>"; };
 		D4DE34481511C2E500769B86 /* PP1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = PP1.jpg; path = Images/PP1.jpg; sourceTree = "<group>"; };
@@ -335,6 +409,43 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D4282799158C379000FDB938 /* Traffic1.jpg */,
+				D428279A158C379000FDB938 /* Traffic2.jpg */,
+				D428279B158C379000FDB938 /* Traffic3.jpg */,
+				D428279C158C379000FDB938 /* Traffic4.jpg */,
+				D428279D158C379000FDB938 /* Traffic5.jpg */,
+				D428279E158C379000FDB938 /* Traffic6.jpg */,
+				D428279F158C379000FDB938 /* Traffic7.jpg */,
+				D42827A0158C379000FDB938 /* Traffic8.jpg */,
+				D42827A1158C379000FDB938 /* Traffic9.jpg */,
+				D42827A2158C379000FDB938 /* Traffic10.jpg */,
+				D42827A3158C379000FDB938 /* Traffic11.jpg */,
+				D42827A4158C379000FDB938 /* Traffic12.jpg */,
+				D42827A5158C379000FDB938 /* Traffic13.jpg */,
+				D42827A6158C379000FDB938 /* Traffic14.jpg */,
+				D42827A7158C379000FDB938 /* Traffic15.jpg */,
+				D42827A8158C379000FDB938 /* Traffic16.jpg */,
+				D42827A9158C379000FDB938 /* Traffic17.jpg */,
+				D42827AA158C379000FDB938 /* Traffic18.jpg */,
+				D42827AB158C379000FDB938 /* Traffic19.jpg */,
+				D42827AC158C379000FDB938 /* Traffic20.jpg */,
+				D42827AD158C379000FDB938 /* Traffic21.jpg */,
+				D42827AE158C379000FDB938 /* Traffic22.jpg */,
+				D42827AF158C379000FDB938 /* Traffic23.jpg */,
+				D42827B0158C379000FDB938 /* Traffic24.jpg */,
+				D42827B1158C379000FDB938 /* Traffic25.jpg */,
+				D42827B2158C379000FDB938 /* Traffic26.jpg */,
+				D42827B3158C379000FDB938 /* Traffic27.jpg */,
+				D42827B4158C379000FDB938 /* Traffic28.jpg */,
+				D42827B5158C379000FDB938 /* Traffic29.jpg */,
+				D42827B6158C379000FDB938 /* Traffic30.jpg */,
+				D42827B7158C379000FDB938 /* Traffic31.jpg */,
+				D42827B8158C379000FDB938 /* Traffic32.jpg */,
+				D42827B9158C379000FDB938 /* Traffic33.jpg */,
+				D42827BA158C379000FDB938 /* Traffic34.jpg */,
+				D42827BB158C379000FDB938 /* Traffic35.jpg */,
+				D42827BC158C379000FDB938 /* Traffic36.jpg */,
+				D42827BD158C379000FDB938 /* TrafficCover.jpg */,
 				D45DB2121581E57800A2CCEF /* Traffic.xml */,
 				D4524F8715531F8900825E03 /* Comp.xml */,
 				D4ED56291516C53400F91609 /* PPCover.jpg */,
@@ -588,6 +699,43 @@
 				D4ED562A1516C53400F91609 /* PPCover.jpg in Resources */,
 				D4524F8815531F8900825E03 /* Comp.xml in Resources */,
 				D45DB2131581E57800A2CCEF /* Traffic.xml in Resources */,
+				D42827BE158C379000FDB938 /* Traffic1.jpg in Resources */,
+				D42827BF158C379000FDB938 /* Traffic2.jpg in Resources */,
+				D42827C0158C379000FDB938 /* Traffic3.jpg in Resources */,
+				D42827C1158C379000FDB938 /* Traffic4.jpg in Resources */,
+				D42827C2158C379000FDB938 /* Traffic5.jpg in Resources */,
+				D42827C3158C379000FDB938 /* Traffic6.jpg in Resources */,
+				D42827C4158C379000FDB938 /* Traffic7.jpg in Resources */,
+				D42827C5158C379000FDB938 /* Traffic8.jpg in Resources */,
+				D42827C6158C379000FDB938 /* Traffic9.jpg in Resources */,
+				D42827C7158C379000FDB938 /* Traffic10.jpg in Resources */,
+				D42827C8158C379000FDB938 /* Traffic11.jpg in Resources */,
+				D42827C9158C379000FDB938 /* Traffic12.jpg in Resources */,
+				D42827CA158C379000FDB938 /* Traffic13.jpg in Resources */,
+				D42827CB158C379000FDB938 /* Traffic14.jpg in Resources */,
+				D42827CC158C379000FDB938 /* Traffic15.jpg in Resources */,
+				D42827CD158C379000FDB938 /* Traffic16.jpg in Resources */,
+				D42827CE158C379000FDB938 /* Traffic17.jpg in Resources */,
+				D42827CF158C379000FDB938 /* Traffic18.jpg in Resources */,
+				D42827D0158C379000FDB938 /* Traffic19.jpg in Resources */,
+				D42827D1158C379000FDB938 /* Traffic20.jpg in Resources */,
+				D42827D2158C379000FDB938 /* Traffic21.jpg in Resources */,
+				D42827D3158C379000FDB938 /* Traffic22.jpg in Resources */,
+				D42827D4158C379000FDB938 /* Traffic23.jpg in Resources */,
+				D42827D5158C379000FDB938 /* Traffic24.jpg in Resources */,
+				D42827D6158C379000FDB938 /* Traffic25.jpg in Resources */,
+				D42827D7158C379000FDB938 /* Traffic26.jpg in Resources */,
+				D42827D8158C379000FDB938 /* Traffic27.jpg in Resources */,
+				D42827D9158C379000FDB938 /* Traffic28.jpg in Resources */,
+				D42827DA158C379000FDB938 /* Traffic29.jpg in Resources */,
+				D42827DB158C379000FDB938 /* Traffic30.jpg in Resources */,
+				D42827DC158C379000FDB938 /* Traffic31.jpg in Resources */,
+				D42827DD158C379000FDB938 /* Traffic32.jpg in Resources */,
+				D42827DE158C379000FDB938 /* Traffic33.jpg in Resources */,
+				D42827DF158C379000FDB938 /* Traffic34.jpg in Resources */,
+				D42827E0158C379000FDB938 /* Traffic35.jpg in Resources */,
+				D42827E1158C379000FDB938 /* Traffic36.jpg in Resources */,
+				D42827E2158C379000FDB938 /* TrafficCover.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
