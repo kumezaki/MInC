@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		213C67F715D951B6003C210F /* Download.png in Resources */ = {isa = PBXBuildFile; fileRef = 213C67F615D951B6003C210F /* Download.png */; };
+		21489EE415D166C00039A4C1 /* ForZero_Mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 21489EE315D166C00039A4C1 /* ForZero_Mask.png */; };
 		216409531468FDAB007C38B1 /* Record_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 216409501468FDAB007C38B1 /* Record_2.png */; };
 		216409541468FDAB007C38B1 /* Stop_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 216409511468FDAB007C38B1 /* Stop_2.png */; };
 		216409551468FDAB007C38B1 /* Play_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 216409521468FDAB007C38B1 /* Play_2.png */; };
-		21AF7D1E1454A3AD0027C943 /* Download.png in Resources */ = {isa = PBXBuildFile; fileRef = 21AF7D1D1454A3AD0027C943 /* Download.png */; };
 		21EC765014552E110070E8D3 /* Play_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EC764F14552E110070E8D3 /* Play_highlighted.png */; };
 		21EC7671145531AE0070E8D3 /* Stop_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EC7670145531AE0070E8D3 /* Stop_highlighted.png */; };
 		21EC767F145532930070E8D3 /* Record_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EC767E145532930070E8D3 /* Record_highlighted.png */; };
@@ -48,11 +49,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		213C67F615D951B6003C210F /* Download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Download.png; path = ForZeroGraphics/Download.png; sourceTree = SOURCE_ROOT; };
+		21489EE315D166C00039A4C1 /* ForZero_Mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ForZero_Mask.png; path = ForZeroGraphics/ForZero_Mask.png; sourceTree = SOURCE_ROOT; };
 		215C12991452A06E0034D632 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		216409501468FDAB007C38B1 /* Record_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Record_2.png; sourceTree = "<group>"; };
 		216409511468FDAB007C38B1 /* Stop_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stop_2.png; sourceTree = "<group>"; };
 		216409521468FDAB007C38B1 /* Play_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Play_2.png; sourceTree = "<group>"; };
-		21AF7D1D1454A3AD0027C943 /* Download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Download.png; path = ForZero/Download.png; sourceTree = "<group>"; };
 		21EC764F14552E110070E8D3 /* Play_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Play_highlighted.png; sourceTree = "<group>"; };
 		21EC7670145531AE0070E8D3 /* Stop_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stop_highlighted.png; sourceTree = "<group>"; };
 		21EC767E145532930070E8D3 /* Record_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Record_highlighted.png; sourceTree = "<group>"; };
@@ -171,7 +173,6 @@
 		B4DE2AB81407555100F9C4A0 = {
 			isa = PBXGroup;
 			children = (
-				21AF7D1D1454A3AD0027C943 /* Download.png */,
 				B4DE2ACD1407555100F9C4A0 /* ForZero */,
 				B4DE2AC61407555100F9C4A0 /* Frameworks */,
 				B4DE2AC41407555100F9C4A0 /* Products */,
@@ -241,6 +242,8 @@
 		B4DE2AEC1407559300F9C4A0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				213C67F615D951B6003C210F /* Download.png */,
+				21489EE315D166C00039A4C1 /* ForZero_Mask.png */,
 				216409501468FDAB007C38B1 /* Record_2.png */,
 				216409511468FDAB007C38B1 /* Stop_2.png */,
 				216409521468FDAB007C38B1 /* Play_2.png */,
@@ -295,7 +298,7 @@
 		B4DE2ABA1407555100F9C4A0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = B4DE2ABD1407555100F9C4A0 /* Build configuration list for PBXProject "ForZero" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -329,13 +332,14 @@
 				B45F7BD6142E89470036A882 /* ClientControlView.xib in Resources */,
 				B49D193E142E9EAF007A27D7 /* arrowRight.png in Resources */,
 				B49D1941142E9F1B007A27D7 /* arrowLeft.png in Resources */,
-				21AF7D1E1454A3AD0027C943 /* Download.png in Resources */,
 				21EC765014552E110070E8D3 /* Play_highlighted.png in Resources */,
 				21EC7671145531AE0070E8D3 /* Stop_highlighted.png in Resources */,
 				21EC767F145532930070E8D3 /* Record_highlighted.png in Resources */,
 				216409531468FDAB007C38B1 /* Record_2.png in Resources */,
 				216409541468FDAB007C38B1 /* Stop_2.png in Resources */,
 				216409551468FDAB007C38B1 /* Play_2.png in Resources */,
+				21489EE415D166C00039A4C1 /* ForZero_Mask.png in Resources */,
+				213C67F715D951B6003C210F /* Download.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +402,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -416,6 +421,7 @@
 				);
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Lavender (R4V59ZT39Y)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -436,6 +442,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ForZero/ForZero-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "ForZero/ForZero-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -454,6 +462,8 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ForZero/ForZero-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "ForZero/ForZero-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";

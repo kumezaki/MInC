@@ -5,13 +5,13 @@ autowatch = 1;
 var gPlayers = new Global("minc_pm");
 gPlayers.max_num = 0;
 gPlayers.ip_address = [];
-gPlayers.auto_bump = [];
+gPlayers.timer = [];
 
 var gPlayersWaiting = new Global("minc_pm_waiting");
 gPlayersWaiting.ip_address = [];
-gPlayersWaiting.auto_bump = [];
+gPlayersWaiting.timer = [];
 
-var gAutoBumpTime = 0;
+var gTimerDur = 0;
 
 var gMsg_PMUpdate = "";
 
@@ -26,22 +26,22 @@ function reset()
 {
 	gPlayers.max_num = 10;
 	
-	gAutoBumpTime = 10000;
+	gTimerDur = 10000;
 
 	gMsg_PMUpdate = "minc_pm_update";
 
 	for (i = 0; i < gPlayers.max_num; i++)
 	{
 		gPlayers.ip_address[i] = undefined;
-		gPlayers.auto_bump[i] = new Task(player_leave,this,i);
+		gPlayers.timer[i] = new Task(player_leave,this,i);
 	}
 	
 	while ((v = gPlayersWaiting.ip_address.shift()) != undefined)
 	{
 //		post("removing",v,"from waiting list\n");
-		gPlayersWaiting.auto_bump[v].cancel();
-		delete gPlayersWaiting.auto_bump[v];
-		gPlayersWaiting.auto_bump[v] = undefined;
+		gPlayersWaiting.timer[v].cancel();
+		delete gPlayersWaiting.timer[v];
+		gPlayersWaiting.timer[v] = undefined;
 	}
 
 	heartbeat(0);
@@ -55,23 +55,23 @@ function reset()
 
 /*----------------------------------------------------------------------------*/
 
-function max_num_players(v)
+function max_num_players(N) // positive integer
 {
-	gPlayers.max_num = v;
+	gPlayers.max_num = N;
 	post("maximum number of players set to "+gPlayers.max_num+"\n");
 	
 	reset();
 }
 
-function auto_bump_time(v)
+function timer_duration(dur) // milliseconds
 {
-	gAutoBumpTime = v;
-	post("auto bump time set to "+gAutoBumpTime+" msecs\n");
+	gTimerDur = dur;
+	post("auto bump time set to "+gTimerDur+" msecs\n");
 }
 
-function player_update_msg_name(v)
+function player_update_msg_name(name) // for receive MaxMSP objects
 {
-	gMsg_PMUpdate = v;
+	gMsg_PMUpdate = name;
 	post("player update message name set to "+gMsg_PMUpdate+"\n");
 }
 
@@ -99,15 +99,15 @@ function player_leave(i)
 		ip_add = gPlayersWaiting.ip_address.shift();
 //		post("waiting list",gPlayersWaiting.ip_address,"\n");
 		
-		gPlayersWaiting.auto_bump[ip_add].cancel();
+		gPlayersWaiting.timer[ip_add].cancel();
 		
 		player_join(i,ip_add,true);
-		gPlayers.auto_bump[i].cancel();
-		gPlayers.auto_bump[i].schedule(gAutoBumpTime);
+		gPlayers.timer[i].cancel();
+		gPlayers.timer[i].schedule(gTimerDur);
 	}
 }
 
-function player_wait(ip_add)
+function player_wait_join(ip_add)
 {
 	if (gPlayersWaiting.ip_address.indexOf(ip_add) == -1)
 	{
@@ -117,29 +117,29 @@ function player_wait(ip_add)
 
 		messnamed(gMsg_PMUpdate,"wait_join",ip_add);
 
-		if (gPlayersWaiting.auto_bump[ip_add] == undefined)
-			gPlayersWaiting.auto_bump[ip_add] = new Task(player_leave_waiting,this,ip_add);
+		if (gPlayersWaiting.timer[ip_add] == undefined)
+			gPlayersWaiting.timer[ip_add] = new Task(player_wait_leave,this,ip_add);
 	}
 	else
 	{
 		post(ip_add+" still on waiting list\n");
-		gPlayersWaiting.auto_bump[ip_add].cancel();
+		gPlayersWaiting.timer[ip_add].cancel();
 	}
-	gPlayersWaiting.auto_bump[ip_add].schedule(gAutoBumpTime);
+	gPlayersWaiting.timer[ip_add].schedule(gTimerDur);
 }
 
-function player_leave_waiting()
+function player_wait_leave()
 {
 	var ip_add = arguments[0];
-	post("player_leave_waiting",ip_add,"\n");
+	post("player_wait_leave",ip_add,"\n");
 	var i = gPlayersWaiting.ip_address.indexOf(ip_add);
 	gPlayersWaiting.ip_address.splice(i,1);
 //	post("waiting list",gPlayersWaiting.ip_address,"\n");
 	
 	messnamed(gMsg_PMUpdate,"wait_leave",ip_add);
 
-	/* should delete task and remove from gPlayersWaiting.auto_bump array here? */
-	post("gPlayersWaiting.auto_bump["+ip_add+"] "+gPlayersWaiting.auto_bump[ip_add]+"\n");
+	/* should delete task and remove from gPlayersWaiting.timer array here? */
+	post("gPlayersWaiting.timer["+ip_add+"] "+gPlayersWaiting.timer[ip_add]+"\n");
 }
 
 /*----------------------------------------------------------------------------*/
@@ -158,15 +158,15 @@ function osc()
 	{
 		i = gPlayers.ip_address.indexOf(undefined);
 		if (i == -1 || i >= gPlayers.max_num)
-			player_wait(ip_add);
+			player_wait_join(ip_add);
 		else
 			player_join(i,ip_add,false);
 	}
 
 	if (i != -1)
 	{
-		gPlayers.auto_bump[i].cancel();
-		gPlayers.auto_bump[i].schedule(gAutoBumpTime);
+		gPlayers.timer[i].cancel();
+		gPlayers.timer[i].schedule(gTimerDur);
 	}
 }
 
@@ -194,17 +194,17 @@ function ip_address_broadcast(ip_add)
 	outlet(0,"host",gIPAddress_Broadcast);
 }
 
-function osc_address_heartbeat(v)
+function osc_address_heartbeat(osc_add)
 {
-	gOSCAddress_Heartbeat = v;
+	gOSCAddress_Heartbeat = osc_add;
 	post("heartbeat OSC address set to "+gOSCAddress_Heartbeat+"\n");
 }
 
 /*----------------------------------------------------------------------------*/
 
-function heartbeat(v)
+function heartbeat(on) // 0 = off; 1 = on
 {
-	if (v == 0)
+	if (on == 0)
 		gTask_ServerHeartbeat.cancel();
 	else
 		gTask_ServerHeartbeat.schedule(0);
