@@ -201,6 +201,14 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<float key="IBUIValue">1</float>
+						<object class="NSCustomResource" key="IBUIMinimumValueImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">Speaker_0.png</string>
+						</object>
+						<object class="NSCustomResource" key="IBUIMaximumValueImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">Speaker_3.png</string>
+						</object>
 					</object>
 					<object class="IBUILabel" id="66033067">
 						<reference key="NSNextResponder" ref="13634354"/>
@@ -933,6 +941,8 @@
 				<string>Play_highlighted.png</string>
 				<string>Record_2.png</string>
 				<string>Record_highlighted.png</string>
+				<string>Speaker_0.png</string>
+				<string>Speaker_3.png</string>
 				<string>Stop_2.png</string>
 				<string>Stop_highlighted.png</string>
 				<string>arrowRight.png</string>
@@ -944,6 +954,8 @@
 				<string>{128, 128}</string>
 				<string>{128, 128}</string>
 				<string>{128, 128}</string>
+				<string>{23, 23}</string>
+				<string>{23, 23}</string>
 				<string>{136, 131}</string>
 				<string>{128, 128}</string>
 				<string>{128, 128}</string>
