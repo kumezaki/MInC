@@ -17,11 +17,18 @@
 
 @interface SagarihaPanView : UIView {
 
-	double	mX;
-	double	mY;
+	Float64	x;
+	Float64	y;
+    
+    BOOL    enabled;
+    
 }
+
 @property (nonatomic, assign) id<SagarihaPanViewDelegate>delegate;
 @property (nonatomic) CGPoint touchPoint;
+@property (nonatomic) BOOL enabled;
+
+-(void)doTouch:(NSSet *)touches withEvent:(UIEvent *)event;
 
 /*
 // old methods to work with accelerometer

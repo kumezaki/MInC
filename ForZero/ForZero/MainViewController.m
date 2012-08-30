@@ -21,8 +21,8 @@
 @synthesize serverPlayMeterVal  =_serverPlayMeterVal;
 @synthesize downloadIndicator   =_downloadIndicator;
 @synthesize downloadProgView    =_downloadProgView;
-@synthesize downloadButt        =_downloadButt;
-@synthesize uploadButt          =_uploadButt;
+@synthesize downloadButton      =_downloadButton;
+@synthesize uploadButton        =_uploadButton;
 @synthesize networking          =_networking;
 @synthesize aqPlayer            =_aqPlayer;
 
@@ -48,10 +48,10 @@
 - (void)displayAlertMessage:(NSString*)alertMsg
 {
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Oops!" 
-                                                    message:alertMsg 
-                                                   delegate:nil 
-                                          cancelButtonTitle:@"Ok" 
-                                          otherButtonTitles:nil];
+                                                message:alertMsg 
+                                                delegate:nil 
+                                                cancelButtonTitle:@"Ok" 
+                                                otherButtonTitles:nil];
     [alert show];
     [alert release];
 }
@@ -100,11 +100,11 @@
 
 #if _no_upload_
     // one download button:
-    self.downloadButt.frame = CGRectMake(115, 185, 90, 110);
+    self.downloadButton.frame = CGRectMake(115, 185, 90, 110);
 #else
     // for when upload is supported as well:
-    self.uploadButt.frame   = CGRectMake(88, 184, 45, 110);
-    self.downloadButt.frame = CGRectMake(186, 184, 45, 110);
+    self.uploadButton.frame   = CGRectMake(88, 184, 45, 110);
+    self.downloadButton.frame = CGRectMake(186, 184, 45, 110);
 #endif
 }
 
@@ -115,11 +115,11 @@
 
 #if _no_upload_
     // one download button:
-    self.downloadButt.frame = CGRectMake((self.view.bounds.size.width*0.5)-45 , 134, 90, 55);
+    self.downloadButton.frame = CGRectMake((self.view.bounds.size.width*0.5)-45 , 134, 90, 55);
 #else
     // for when upload is supported as well:
-    self.uploadButt.frame   = CGRectMake(139, 133, 45, 55);
-    self.downloadButt.frame = CGRectMake(294, 133, 45, 55);
+    self.uploadButton.frame   = CGRectMake(139, 133, 45, 55);
+    self.downloadButton.frame = CGRectMake(294, 133, 45, 55);
 #endif
 }
 
@@ -130,8 +130,21 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
+    self.serverViewContainer.playButton.enabled = NO;
+    self.serverViewContainer.playButton.alpha = 0.5;
+    self.serverViewContainer.stopButton.enabled = NO;
+    self.serverViewContainer.stopButton.alpha = 0.5;
+    self.serverViewContainer.recButton.enabled = NO;
+    self.serverViewContainer.recButton.alpha = 0.5;
+
+    self.serverViewContainer.volumerSlider.enabled = NO;
+    self.serverViewContainer.volumerSlider.alpha = 0.5;
+    
+    self.downloadButton.hidden = YES;
+
     // if there's no audio file to play shut off client controls
     if (self.aqPlayer.theFile == nil) {
+
         self.clientViewContainer.playButton.enabled = NO;
         self.clientViewContainer.playButton.alpha = 0.5;
         
@@ -179,8 +192,8 @@
 
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    self.uploadButt             =nil;
-    self.downloadButt           =nil;
+    self.uploadButton             =nil;
+    self.downloadButton           =nil;
     self.downloadProgView       =nil;
     self.downloadIndicator      =nil;
     self.clientViewContainer    =nil;
@@ -202,8 +215,8 @@
     [_downloadIndicator     release];
     [_clientViewContainer   release];
     [_serverViewContainer   release];
-    [_downloadButt          release];
-    [_uploadButt            release];
+    [_downloadButton          release];
+    [_uploadButton            release];
         
     // release model objects
     [_networking            release];
@@ -352,6 +365,40 @@
     
 }
 
+- (void)enableServerRecordButton
+{
+    self.serverViewContainer.recButton.enabled = YES;
+    self.serverViewContainer.recButton.alpha = 1.0;
+}
+
+- (void)enableServerStopButton
+{
+    self.serverViewContainer.stopButton.enabled = YES;
+    self.serverViewContainer.stopButton.alpha = 1.0;
+}
+
+- (void)enableServerPlayButton
+{
+    self.serverViewContainer.playButton.enabled = YES;
+    self.serverViewContainer.playButton.alpha = 1.0;
+}
+
+- (void)enableServerDownloadButton
+{
+    self.downloadButton.hidden = NO;
+}
+
+- (void)enableServerVolumeSlider
+{
+    self.serverViewContainer.volumerSlider.enabled = YES;
+    self.serverViewContainer.volumerSlider.alpha = 1.0;
+}
+
+- (void)enableServerPanView
+{
+    self.serverViewContainer.panView.enabled = YES;
+    [self.serverViewContainer.panView setNeedsDisplay];
+}
 
 - (void)displayInterstitialMessage:(NetworkMessages*)requestor
 {

@@ -83,6 +83,7 @@
                     ];
 
 }
+
 - (void)stopPlaybackMetering:(NSNotification*)notification
 {
     self.rightMeterView.meterVal = 0.0;
@@ -90,6 +91,7 @@
     [_updateTimer invalidate];
     _updateTimer = nil;
 }
+
 - (void)refreshPlaybackMeter
 {
     UInt32 data_sz = sizeof(AudioQueueLevelMeterState);
@@ -120,4 +122,5 @@
     self.rightMeterView.meterVal = i;
     
 }
+
 @end

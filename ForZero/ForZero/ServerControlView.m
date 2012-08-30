@@ -13,18 +13,20 @@
 @implementation ServerControlView
 
 @synthesize networking  =_networking;
+@synthesize flipButton  =_flipButton;
 @synthesize panSlider   =_panSlider;
 @synthesize panView     =_panView;
 
 - (void)dealloc
 {
     [_networking    release];
+    [_flipButton    release];
     [_panView       release];
     [_panSlider     release];
     [super dealloc];
 }
 
-- (void) setup {
+- (void)setup {
     /*
     [[UIAccelerometer sharedAccelerometer] setDelegate:self];
 	[UIAccelerometer sharedAccelerometer].updateInterval = 0.1;
@@ -43,20 +45,19 @@
     return self;
 }
 
-- (void) awakeFromNib
+- (void)awakeFromNib
 {
     [[NSBundle mainBundle] loadNibNamed:@"ServerControlView" owner:self options:nil];
     [super awakeFromNib];
     [self setup];
  }
 
-#pragma mark -
-#pragma mark IBActions
+#pragma mark - IBActions
 
 -(IBAction)setTransportState:(id)sender
 {
 	if ([sender isKindOfClass:[UIButton class]]) {
-        // NSLog(@"server: %@",[[sender titleLabel]text]);
+//        NSLog(@"server: %@",[[sender titleLabel]text]);
         
         if ( [[[sender titleLabel]text] isEqualToString:@"rec"]) {
             [self.networking sendOSCMsgWithIntValue:"/fz/state\0\0\0":12:0];
@@ -113,10 +114,10 @@
     }
 }
 
-#pragma mark -
-#pragma mark SagarihaPanView Method Implementations
+#pragma mark - SagarihaPanView Method Implementations
 
-- (void)panViewTouchPadValuesDidChange:(SagarihaPanView *)requestor {
+- (void)panViewTouchPadValuesDidChange:(SagarihaPanView *)requestor
+{
     float x = requestor.touchPoint.x / self.panView.bounds.size.width;
     float y = requestor.touchPoint.y / self.panView.bounds.size.height;
     
@@ -148,7 +149,7 @@
     
 	// [self.networking sendOSCMsgWithFloatValue:"/fz/accelx\0\0":12:x];
 	// [self.networking sendOSCMsgWithFloatValue:"/fz/accely\0\0":12:y];
-    //	[self.networking SendOSCMsgWithFloatValue:"/fz/accelz\0\0\0\0":16:z];
+    // [self.networking SendOSCMsgWithFloatValue:"/fz/accelz\0\0\0\0":16:z];
     
     // [self.networking sendOSCMsgWithIntValue:"/fz/pan\0":8:FLOAT_TO_MRMR_INT(x)];	
 #if 0

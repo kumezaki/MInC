@@ -3,7 +3,7 @@
 //  Sagariha
 //
 //  Created by Kojiro Umezaki on 10/4/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright 2010 __yCompanyName__. All rights reserved.
 //
 #import <QuartzCore/QuartzCore.h>
 #import "SagarihaPanView.h"
@@ -12,6 +12,7 @@
 @implementation SagarihaPanView
 @synthesize delegate;
 @synthesize touchPoint =_touchPoint;
+@synthesize enabled = _enabled;
 
 - (void)setTouchPoint:(CGPoint)newTouchPoint {
     if (!CGPointEqualToPoint(newTouchPoint, _touchPoint)) {
@@ -19,8 +20,8 @@
         _touchPoint.y = newTouchPoint.y < 0 ? 0 : newTouchPoint.y > self.bounds.size.height ? self.bounds.size.height : newTouchPoint.y;
         
         // set to relative location
-        mX = _touchPoint.x / self.bounds.size.width; 
-        mY = _touchPoint.y / self.bounds.size.height;
+        x = _touchPoint.x / self.bounds.size.width; 
+        y = _touchPoint.y / self.bounds.size.height;
         
         [self setNeedsDisplay];
         
@@ -38,8 +39,10 @@
                                              selector:@selector(detectOrientationChange:) 
                                                  name:@"UIDeviceOrientationDidChangeNotification" 
                                                object:nil]; 
-    mX = 0.5;
-    mY = 0.5;
+    x = 0.5;
+    y = 0.5;
+    
+    enabled = NO;
     
     self.backgroundColor    = [UIColor blackColor];
     self.layer.cornerRadius = kCornerRadius;
@@ -58,24 +61,26 @@
     /*
 	UIColor *rectColor = [UIColor greenColor];
 	[rectColor set];
-	UIRectFill(CGRectMake(mX-5., mY-5., 10.0, 10.0));
+	UIRectFill(CGRectMake(x-5., y-5., 10.0, 10.0));
     */
 	
     // convert relative location to absolute
     // will be different depending on orientation
     
-    int x = mX * self.bounds.size.width;
-    int y = mY * self.bounds.size.height;
+    int pix_x = x * self.bounds.size.width;
+    int pix_y = y * self.bounds.size.height;
     
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	
 	CGContextSetLineWidth(context, 5.0);
-	[[UIColor greenColor] setStroke];
-    [[UIColor greenColor] setFill];
+    UIColor* color = _enabled ? [UIColor greenColor] : [UIColor grayColor];
+	[color setStroke];
+    [color setFill];
     UIGraphicsPushContext(context);
 	
+    CGContextSetAlpha(context,_enabled ? 1.0 : 0.5);
     CGContextBeginPath(context);
-	CGContextAddArc(context, x, y, 25, 0, 2*M_PI, YES);
+	CGContextAddArc(context, pix_x, pix_y, 25, 0, 2*M_PI, YES);
     CGContextFillPath(context);
 }
 
@@ -88,19 +93,23 @@
     [super dealloc];
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+-(void)doTouch:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if (!_enabled) return;
     UITouch *touch = [touches anyObject];
 	self.touchPoint = [touch locationInView:self];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self doTouch:touches withEvent:event];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-	self.touchPoint = [touch locationInView:self];
+    [self doTouch:touches withEvent:event];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-	self.touchPoint = [touch locationInView:self];
+    [self doTouch:touches withEvent:event];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -108,29 +117,29 @@
 }
 
 /*
--(double)GetX
+-(Float64)GetX
 {
-	return mX / self.bounds.size.width;
+	return x / self.bounds.size.width;
 }
 
--(double)GetY
+-(Float64)GetY
 {
-	return mY / self.bounds.size.height;
+	return y / self.bounds.size.height;
 }
 
--(void)Set:(double)x:(double)y
+-(void)Set:(Float64)x:(Float64)y
 {
-	mX = x * self.bounds.size.width;
-	mY = y * self.bounds.size.height;
+	x = x * self.bounds.size.width;
+	y = y * self.bounds.size.height;
 }
 
--(void)SetVelocity:(double)x:(double)y
+-(void)SetVelocity:(Float64)x:(Float64)y
 {
-	mX += x * (self.bounds.size.width * 0.1);
-	mY += y * (self.bounds.size.height * 0.1);
+	x += x * (self.bounds.size.width * 0.1);
+	y += y * (self.bounds.size.height * 0.1);
 	
-	mX = mX < 0 ? 0 : mX > self.bounds.size.width ? self.bounds.size.width : mX;
-	mY = mY < 0 ? 0 : mY > self.bounds.size.height ? self.bounds.size.height : mY;
+	x = x < 0 ? 0 : x > self.bounds.size.width ? self.bounds.size.width : x;
+	y = y < 0 ? 0 : y > self.bounds.size.height ? self.bounds.size.height : y;
 }
 */
 @end

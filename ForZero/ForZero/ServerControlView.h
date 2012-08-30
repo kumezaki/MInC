@@ -12,15 +12,18 @@
 #import "SagarihaPanView.h"
 
 @interface ServerControlView : ControlView <UIAccelerometerDelegate, SagarihaPanViewDelegate> {
+    IBOutlet UIButton* flipButton;
     
 }
+
 @property (nonatomic, retain) NetworkMessages           *networking;
+@property (nonatomic, retain) IBOutlet UIButton         *flipButton;
 @property (nonatomic, retain) IBOutlet UISlider         *panSlider;
 @property (nonatomic, retain) IBOutlet SagarihaPanView  *panView;
 
-- (IBAction)setPanX:         (id)sender;
-- (IBAction)setPanY:         (id)sender;
-- (IBAction)setEnvPeriod:   (id)sender;
-- (IBAction)setDelayLevel:  (id)sender;
+- (IBAction)setPanX:(id)sender;
+- (IBAction)setPanY:(id)sender;
+- (IBAction)setEnvPeriod:(id)sender;
+- (IBAction)setDelayLevel:(id)sender;
 
 @end

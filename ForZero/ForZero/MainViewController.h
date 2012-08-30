@@ -26,8 +26,8 @@ SagarihaAudioQueuePlayerDelegate, InterstitialMessageViewDelegate>
 @property (nonatomic, retain) IBOutlet InterstitialMessageView  *interstitialView; 
 #endif
 
-@property (nonatomic, retain) IBOutlet UIButton                 *uploadButt;
-@property (nonatomic, retain) IBOutlet UIButton                 *downloadButt;
+@property (nonatomic, retain) IBOutlet UIButton                 *uploadButton;
+@property (nonatomic, retain) IBOutlet UIButton                 *downloadButton;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView  *downloadIndicator;
 
 @property (nonatomic, retain) IBOutlet UIProgressView           *downloadProgView;

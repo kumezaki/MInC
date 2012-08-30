@@ -49,8 +49,14 @@ union {
 } u;
 
 - (id)init {
+
     [super init];
+
 	[self sendHeartBeat];
+    
+    recMeterValueReceived = NO;
+    progressValueReceived = NO;
+    
     return self;
 }
 
@@ -91,6 +97,17 @@ union {
         [_recProgress release];
         _recProgress = [recProgress retain];
         [self.delegate displayServerRecordProgress:self:nil];
+
+        /* enable server play/stop/download buttons if we're receiving progress values */
+        if (!progressValueReceived)
+        {
+            [self.delegate enableServerStopButton];
+            [self.delegate enableServerPlayButton];
+            [self.delegate enableServerDownloadButton];
+            [self.delegate enableServerVolumeSlider];
+            [self.delegate enableServerPanView];
+            progressValueReceived = YES;
+        }
     }
 }
 
@@ -109,6 +126,13 @@ union {
         [_recordingMeterValue release];
         _recordingMeterValue = [recordingMeterValue retain];
         [self.delegate displayServerRecordingMeterValue:self :nil];
+        
+        /* enable server record button if we're receiving record meter values */
+        if (!recMeterValueReceived)
+        {
+            [self.delegate enableServerRecordButton];
+            recMeterValueReceived = YES;
+        }
     }
 }
 
@@ -356,6 +380,19 @@ union {
 {
     [self sendOSCMsg:"/fz/hb\0\0":8];
 	[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(sendHeartBeat) userInfo:nil repeats:NO];  
+}
+
+#pragma mark- join/leave messages
+-(void)sendJoin
+{
+    NSLog(@"sendJoin");
+    [self sendOSCMsg:"/fz/join\0\0\0\0":12];
+}
+
+-(void)sendLeave
+{
+    NSLog(@"sendLeave");
+    [self sendOSCMsg:"/minc/leave\0":12];
 }
 
 @end

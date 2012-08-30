@@ -19,6 +19,12 @@
 - (void)displayServerRecordProgress:(NetworkMessages*)requestor:(NSNumber*)val;
 - (void)displayServerPlayingMeterValue:(NetworkMessages*)requestor:(NSNumber*)val;
 - (void)displayServerRecordingMeterValue:(NetworkMessages*)requestor:(NSNumber*)val;
+- (void)enableServerRecordButton;
+- (void)enableServerStopButton;
+- (void)enableServerPlayButton;
+- (void)enableServerDownloadButton;
+- (void)enableServerVolumeSlider;
+- (void)enableServerPanView;
 @end
 
 @interface NetworkMessages : NetworkConnections {
@@ -32,6 +38,8 @@
 
     float			mOSCMsg_DownloadProg;
 
+    BOOL            recMeterValueReceived;
+    BOOL            progressValueReceived;
 }
 @property (nonatomic, assign) id<NetworkMessagesDelegate> delegate;
 @property (nonatomic, retain) SagarihaAudioQueuePlayer *aqPlayer;
@@ -50,5 +58,8 @@
 - (void)tcpParse;
 
 -(void)sendHeartBeat;
+
+-(void)sendJoin;
+-(void)sendLeave;
 
 @end
