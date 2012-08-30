@@ -1,6 +1,12 @@
 {
 	"patcher" : 	{
 		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 5,
+			"minor" : 1,
+			"revision" : 9
+		}
+,
 		"rect" : [ 336.0, 251.0, 312.0, 262.0 ],
 		"bglocked" : 0,
 		"defrect" : [ 336.0, 251.0, 312.0, 262.0 ],
@@ -94,20 +100,6 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 46.0, 151.0, 96.0, 20.0 ],
 					"text" : "r minc_pm_msg"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontname" : "Arial",
-					"fontsize" : 12.0,
-					"id" : "obj-37",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 130.0, 74.0, 77.0, 20.0 ],
-					"text" : "prepend osc"
 				}
 
 			}
@@ -234,7 +226,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-37", 0 ],
+					"destination" : [ "obj-1", 0 ],
 					"hidden" : 0,
 					"midpoints" : [  ],
 					"source" : [ "obj-12", 0 ]
@@ -265,15 +257,6 @@
 					"hidden" : 0,
 					"midpoints" : [  ],
 					"source" : [ "obj-28", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-1", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ],
-					"source" : [ "obj-37", 0 ]
 				}
 
 			}

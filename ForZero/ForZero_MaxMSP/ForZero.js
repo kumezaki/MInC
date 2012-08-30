@@ -65,29 +65,32 @@ function audio(enable)
 
 /*** FUNCTIONS FOR HANDING INCOMING OSC MESSAGES ***/
 
-function find_ip_address_pos(ip_add)
+function anything()
 {
-	return gPlayers.ip_address.indexOf(ip_add);
-}
+//	post(messagename,arguments[0],arguments[1],"\n");
+ 
+    var ip_add = arguments[0];
+    
+    var pos = gPlayers.ip_address.indexOf(ip_add);
+    
+	/* this is an exception all case for checking for an explicit leave message */
+	if (messagename == "/minc/leave")
+	{
+		if (pos == -1)
+			messnamed("minc_pm_msg","player_wait_leave",ip_add);
+		else
+			messnamed("minc_pm_msg","player_leave",pos);
+		return;
+	}
 
-function osc()
-{
-//    post(arguments[0],arguments[1],arguments[2],"\n");
-    
-    var osc_add = arguments[0];
-    var ip_add = arguments[1];
-    var val = arguments[2];
-    
+    var osc_add = messagename;
     if (osc_add.search("/fz/") != 0)
     	return;
-    	
 	osc_add = osc_add.slice(3);
 
-    pos = find_ip_address_pos(ip_add);
-    
     if (pos != -1)
     {
-    	do_msg(osc_add,pos,val);
+    	do_msg(osc_add,pos,arguments[1]);
     }
 }
 
@@ -145,6 +148,9 @@ function do_msg(osc_add,pos,val)
 
     else if (osc_add == "/hb")
     	post(gPlayers.ip_address[pos],"heartbeat\n");
+
+    else if (osc_add == "/leave")
+    	post(gPlayers.ip_address[pos],"leave\n");
 }
 
 function osc_msg_transport_state(pos,val)

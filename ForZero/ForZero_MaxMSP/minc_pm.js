@@ -133,6 +133,8 @@ function player_wait_leave()
 	var ip_add = arguments[0];
 	post("player_wait_leave",ip_add,"\n");
 	var i = gPlayersWaiting.ip_address.indexOf(ip_add);
+	if (i == -1) return;
+
 	gPlayersWaiting.ip_address.splice(i,1);
 //	post("waiting list",gPlayersWaiting.ip_address,"\n");
 	
@@ -144,11 +146,11 @@ function player_wait_leave()
 
 /*----------------------------------------------------------------------------*/
 
-function osc()
+function anything()
 {
-//	post(arguments[0],arguments[1],"\n");
+//	post(messagename,arguments[1],"\n");
 
-	var ip_add = arguments[1];
+	var ip_add = arguments[0];
 	
 	if (ip_add == "0.0.0.0") return;
 

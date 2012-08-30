@@ -28,26 +28,29 @@ function wait_leave(ip_add)
 /*----------------------------------------------------------------------------*/
 /* incoming osc messages */
 
-/* change the OSC address as needed */
-var gOSCAdd_PlayerLeave = "/minc/leave";
-
-function osc()
+function anything()
 {
-    var osc_add = arguments[0];
-    var ip_add = arguments[1];
+    var ip_add = arguments[0];
     
-    i = gPlayers.ip_address.indexOf(ip_add);
+    var pos = gPlayers.ip_address.indexOf(ip_add);
     
+	/* change the "leave" OSC address as needed */
+	if (messagename == "/minc/leave")
+	{
+		if (pos == -1)
+			messnamed("minc_pm_msg","player_wait_leave",ip_add);
+		else
+			messnamed("minc_pm_msg","player_leave",pos);
+		return;
+	}
+
     if (pos != -1)
     {
-    	do_msg(osc_add,i);
+    	do_msg(messagename,pos);
     }
 }
 
-function do_msg(osc_add,i)
+function do_msg(osc_add,pos)
 {
-	if (osc_add == gOSCAdd_PlayerLeave)
-	{
-		messnamed("minc_pm_msg","player_leave",i);
-	}
+//	post("do "+osc_add+" here\n");
 }
