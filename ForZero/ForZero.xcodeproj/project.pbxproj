@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2113E83815F7AB3700D4EBBD /* ForZero_Icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2113E83715F7AB3700D4EBBD /* ForZero_Icon_114.png */; };
+		2113E83A15F7AB3C00D4EBBD /* ForZero_Icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 2113E83915F7AB3C00D4EBBD /* ForZero_Icon_57.png */; };
 		213C67F715D951B6003C210F /* Download.png in Resources */ = {isa = PBXBuildFile; fileRef = 213C67F615D951B6003C210F /* Download.png */; };
 		21489EE415D166C00039A4C1 /* ForZero_Mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 21489EE315D166C00039A4C1 /* ForZero_Mask.png */; };
 		216409531468FDAB007C38B1 /* Record_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 216409501468FDAB007C38B1 /* Record_2.png */; };
@@ -16,6 +18,8 @@
 		2192C44915DD455400317549 /* Speaker_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2192C44515DD455400317549 /* Speaker_1.png */; };
 		2192C44A15DD455400317549 /* Speaker_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2192C44615DD455400317549 /* Speaker_2.png */; };
 		2192C44B15DD455400317549 /* Speaker_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2192C44715DD455400317549 /* Speaker_3.png */; };
+		21BBC7F615F658B000AFA938 /* ForZero_Icon_00.png in Resources */ = {isa = PBXBuildFile; fileRef = 21BBC7F515F658B000AFA938 /* ForZero_Icon_00.png */; };
+		21BBC7F815F658FA00AFA938 /* ForZero_Icon_00@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21BBC7F715F658FA00AFA938 /* ForZero_Icon_00@2x.png */; };
 		21EC765014552E110070E8D3 /* Play_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EC764F14552E110070E8D3 /* Play_highlighted.png */; };
 		21EC7671145531AE0070E8D3 /* Stop_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EC7670145531AE0070E8D3 /* Stop_highlighted.png */; };
 		21EC767F145532930070E8D3 /* Record_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EC767E145532930070E8D3 /* Record_highlighted.png */; };
@@ -53,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2113E83715F7AB3700D4EBBD /* ForZero_Icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ForZero_Icon_114.png; sourceTree = "<group>"; };
+		2113E83915F7AB3C00D4EBBD /* ForZero_Icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ForZero_Icon_57.png; sourceTree = "<group>"; };
 		213C67F615D951B6003C210F /* Download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Download.png; path = ForZeroGraphics/Download.png; sourceTree = SOURCE_ROOT; };
 		21489EE315D166C00039A4C1 /* ForZero_Mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ForZero_Mask.png; path = ForZeroGraphics/ForZero_Mask.png; sourceTree = SOURCE_ROOT; };
 		215C12991452A06E0034D632 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -63,6 +69,8 @@
 		2192C44515DD455400317549 /* Speaker_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Speaker_1.png; path = ForZeroGraphics/Speaker_1.png; sourceTree = SOURCE_ROOT; };
 		2192C44615DD455400317549 /* Speaker_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Speaker_2.png; path = ForZeroGraphics/Speaker_2.png; sourceTree = SOURCE_ROOT; };
 		2192C44715DD455400317549 /* Speaker_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Speaker_3.png; path = ForZeroGraphics/Speaker_3.png; sourceTree = SOURCE_ROOT; };
+		21BBC7F515F658B000AFA938 /* ForZero_Icon_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ForZero_Icon_00.png; sourceTree = "<group>"; };
+		21BBC7F715F658FA00AFA938 /* ForZero_Icon_00@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ForZero_Icon_00@2x.png"; sourceTree = "<group>"; };
 		21EC764F14552E110070E8D3 /* Play_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Play_highlighted.png; sourceTree = "<group>"; };
 		21EC7670145531AE0070E8D3 /* Stop_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stop_highlighted.png; sourceTree = "<group>"; };
 		21EC767E145532930070E8D3 /* Record_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Record_highlighted.png; sourceTree = "<group>"; };
@@ -181,6 +189,10 @@
 		B4DE2AB81407555100F9C4A0 = {
 			isa = PBXGroup;
 			children = (
+				2113E83915F7AB3C00D4EBBD /* ForZero_Icon_57.png */,
+				2113E83715F7AB3700D4EBBD /* ForZero_Icon_114.png */,
+				21BBC7F715F658FA00AFA938 /* ForZero_Icon_00@2x.png */,
+				21BBC7F515F658B000AFA938 /* ForZero_Icon_00.png */,
 				B4DE2ACD1407555100F9C4A0 /* ForZero */,
 				B4DE2AC61407555100F9C4A0 /* Frameworks */,
 				B4DE2AC41407555100F9C4A0 /* Products */,
@@ -356,6 +368,10 @@
 				2192C44915DD455400317549 /* Speaker_1.png in Resources */,
 				2192C44A15DD455400317549 /* Speaker_2.png in Resources */,
 				2192C44B15DD455400317549 /* Speaker_3.png in Resources */,
+				21BBC7F615F658B000AFA938 /* ForZero_Icon_00.png in Resources */,
+				21BBC7F815F658FA00AFA938 /* ForZero_Icon_00@2x.png in Resources */,
+				2113E83815F7AB3700D4EBBD /* ForZero_Icon_114.png in Resources */,
+				2113E83A15F7AB3C00D4EBBD /* ForZero_Icon_57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
