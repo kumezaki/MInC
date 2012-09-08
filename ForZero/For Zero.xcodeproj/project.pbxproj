@@ -101,13 +101,13 @@
 		B4AE96CE141D563E008A6295 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B4B62DF2144CE9BB00530453 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		B4B62DF3144CE9BB00530453 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		B4DE2AC31407555100F9C4A0 /* ForZero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForZero.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4DE2AC31407555100F9C4A0 /* For Zero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "For Zero.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4DE2AC71407555100F9C4A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B4DE2AC91407555100F9C4A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B4DE2ACB1407555100F9C4A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		B4DE2ACF1407555100F9C4A0 /* ForZero-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ForZero-Info.plist"; sourceTree = "<group>"; };
+		B4DE2ACF1407555100F9C4A0 /* For Zero-Info.plist */ = {isa = PBXFileReference; path = "For Zero-Info.plist"; sourceTree = "<group>"; };
 		B4DE2AD11407555100F9C4A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B4DE2AD31407555100F9C4A0 /* ForZero-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ForZero-Prefix.pch"; sourceTree = "<group>"; };
+		B4DE2AD31407555100F9C4A0 /* For Zero-Prefix.pch */ = {isa = PBXFileReference; path = "For Zero-Prefix.pch"; sourceTree = "<group>"; };
 		B4DE2AD41407555100F9C4A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B4DE2AD61407555100F9C4A0 /* ForZeroAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForZeroAppDelegate.h; sourceTree = "<group>"; };
 		B4DE2AD71407555100F9C4A0 /* ForZeroAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForZeroAppDelegate.m; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 		B4DE2AC41407555100F9C4A0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B4DE2AC31407555100F9C4A0 /* ForZero.app */,
+				B4DE2AC31407555100F9C4A0 /* For Zero.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -251,9 +251,9 @@
 				B45F7BD5142E89470036A882 /* ClientControlView.xib */,
 				B4DE2AED140755A000F9C4A0 /* Sound Files */,
 				B4DE2AEC1407559300F9C4A0 /* Images */,
-				B4DE2ACF1407555100F9C4A0 /* ForZero-Info.plist */,
+				B4DE2ACF1407555100F9C4A0 /* For Zero-Info.plist */,
 				B4DE2AD01407555100F9C4A0 /* InfoPlist.strings */,
-				B4DE2AD31407555100F9C4A0 /* ForZero-Prefix.pch */,
+				B4DE2AD31407555100F9C4A0 /* For Zero-Prefix.pch */,
 				B4DE2AD41407555100F9C4A0 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -299,9 +299,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B4DE2AC21407555100F9C4A0 /* ForZero */ = {
+		B4DE2AC21407555100F9C4A0 /* For Zero */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B4DE2AE81407555100F9C4A0 /* Build configuration list for PBXNativeTarget "ForZero" */;
+			buildConfigurationList = B4DE2AE81407555100F9C4A0 /* Build configuration list for PBXNativeTarget "For Zero" */;
 			buildPhases = (
 				B4DE2ABF1407555100F9C4A0 /* Sources */,
 				B4DE2AC01407555100F9C4A0 /* Frameworks */,
@@ -311,9 +311,9 @@
 			);
 			dependencies = (
 			);
-			name = ForZero;
+			name = "For Zero";
 			productName = ForZero;
-			productReference = B4DE2AC31407555100F9C4A0 /* ForZero.app */;
+			productReference = B4DE2AC31407555100F9C4A0 /* For Zero.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -324,7 +324,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = B4DE2ABD1407555100F9C4A0 /* Build configuration list for PBXProject "ForZero" */;
+			buildConfigurationList = B4DE2ABD1407555100F9C4A0 /* Build configuration list for PBXProject "For Zero" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -336,7 +336,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B4DE2AC21407555100F9C4A0 /* ForZero */,
+				B4DE2AC21407555100F9C4A0 /* For Zero */,
 			);
 		};
 /* End PBXProject section */
@@ -473,12 +473,12 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ForZero/ForZero-Prefix.pch";
+				GCC_PREFIX_HEADER = "ForZero/For Zero-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "ForZero/ForZero-Info.plist";
+				INFOPLIST_FILE = "ForZero/For Zero-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "For Zero";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
@@ -493,12 +493,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ForZero/ForZero-Prefix.pch";
+				GCC_PREFIX_HEADER = "ForZero/For Zero-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "ForZero/ForZero-Info.plist";
+				INFOPLIST_FILE = "ForZero/For Zero-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "For Zero";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALIDATE_PRODUCT = YES;
@@ -509,7 +509,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B4DE2ABD1407555100F9C4A0 /* Build configuration list for PBXProject "ForZero" */ = {
+		B4DE2ABD1407555100F9C4A0 /* Build configuration list for PBXProject "For Zero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B4DE2AE61407555100F9C4A0 /* Debug */,
@@ -518,7 +518,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B4DE2AE81407555100F9C4A0 /* Build configuration list for PBXNativeTarget "ForZero" */ = {
+		B4DE2AE81407555100F9C4A0 /* Build configuration list for PBXNativeTarget "For Zero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B4DE2AE91407555100F9C4A0 /* Debug */,

@@ -197,7 +197,6 @@
 						<string key="NSFrame">{{20, 48}, {278, 23}}</string>
 						<reference key="NSSuperview" ref="13634354"/>
 						<reference key="NSNextKeyView" ref="365863471"/>
-						<reference key="IBUIBackgroundColor" ref="694715766"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -209,6 +208,14 @@
 						<object class="NSCustomResource" key="IBUIMaximumValueImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">Speaker_3.png</string>
+						</object>
+						<object class="NSColor" key="IBUIMinimumTrackTintColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC40MDE4NDM5MzY2IDAuNDQzNTE1NTM2NiAwLjkwMjcwMjQ4NzIAA</bytes>
+						</object>
+						<object class="NSColor" key="IBUIMaximumTrackTintColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC40MDE4NDM5MzY2IDAuNDQzNTE1NTM2NiAwLjkwMjcwMjQ4NzIAA</bytes>
 						</object>
 					</object>
 					<object class="IBUILabel" id="66033067">
@@ -258,7 +265,6 @@
 						<int key="NSvFlags">313</int>
 						<string key="NSFrame">{{284, 90}, {14, 85}}</string>
 						<reference key="NSSuperview" ref="13634354"/>
-						<reference key="NSNextKeyView"/>
 						<reference key="IBUIBackgroundColor" ref="245865355"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
@@ -302,7 +308,6 @@
 						<int key="NSvFlags">297</int>
 						<string key="NSFrame">{{285, -10}, {50, 50}}</string>
 						<reference key="NSSuperview" ref="639183268"/>
-						<reference key="NSNextKeyView"/>
 						<reference key="IBUIBackgroundColor" ref="694715766"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">

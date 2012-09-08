@@ -14,7 +14,6 @@
 	<string>ForZero_Icon_57.png</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string></string>
 		<string>ForZero_Icon_57.png</string>
 		<string>ForZero_Icon_114.png</string>
 	</array>
@@ -33,7 +32,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>.edu.uci.arts.music.forzero</string>
+	<string>com.healthyboys.forzero</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
