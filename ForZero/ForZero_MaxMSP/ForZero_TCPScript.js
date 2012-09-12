@@ -2,8 +2,13 @@ autowatch = 1;
 
 function anything()
 {
-    a = messagename.split(":");
+	s = messagename == "bang" ? max.apppath + "/" : messagename;
+	
+    a = s.split(":");
+
     script_path = a[1];
-    post(script_path+"\n");
+
+    post("script path is: "+script_path+"\n");
+
     outlet(0,script_path);
 }

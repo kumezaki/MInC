@@ -294,7 +294,8 @@ function osc_msg_download(pos)
 		f.open();
 //		post("fz_download.txt created for pos:",pos,"\n");
 
-        f.writeline(gPlayers.ip_address[pos]+", "+tcp_port_num+", ../ForZero_MaxMSP/"+file_name);
+		f.writeline(gPlayers.ip_address[pos]+", "+tcp_port_num+", ./"+file_name);
+//		f.writeline(gPlayers.ip_address[pos]+", "+tcp_port_num+", ../ForZero_MaxMSP/"+file_name);
         post("script file written for pos:",pos,"\n");
 
         f.close();

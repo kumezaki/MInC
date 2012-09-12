@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 	FILE *fp = fopen(fileName,"rb");
 	size_t fileSize = sizeof(*fp);
 	
-	printf("size of file in bytes:%ld",fileSize);
+	printf("size of file in bytes: %ld\n",fileSize);
 	
 	if (fp == NULL)
 	{

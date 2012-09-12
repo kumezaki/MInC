@@ -90,6 +90,7 @@ function player_leave(i)
 	var ip_add = gPlayers.ip_address[i];
 	post("player "+ip_add+" leaving at index "+i+"\n");
 
+	gPlayers.timer[i].cancel();
 	gPlayers.ip_address[i] = undefined;
 	
 	messnamed(gMsg_PMUpdate,"leave",i);
@@ -102,7 +103,6 @@ function player_leave(i)
 		gPlayersWaiting.timer[ip_add].cancel();
 		
 		player_join(i,ip_add,true);
-		gPlayers.timer[i].cancel();
 		gPlayers.timer[i].schedule(gTimerDur);
 	}
 }
@@ -135,6 +135,7 @@ function player_wait_leave()
 	var i = gPlayersWaiting.ip_address.indexOf(ip_add);
 	if (i == -1) return;
 
+	gPlayersWaiting.timer[ip_add].cancel();
 	gPlayersWaiting.ip_address.splice(i,1);
 //	post("waiting list",gPlayersWaiting.ip_address,"\n");
 	
