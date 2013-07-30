@@ -22,7 +22,7 @@
 	BOOL mRit;
 }
 
--(void)AssignNotes:(int)num_notes:(double*)notes:(double*)durations;
+-(void)AssignNotes:(int)num_notes :(double*)notes :(double*)durations;
 
 -(Note*)GetNote;
 

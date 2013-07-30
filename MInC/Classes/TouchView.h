@@ -21,6 +21,6 @@
 }
 
 -(void)ProcessTouch:(NSSet *)touches;
--(void)UpdateCoordinates:(int)a_index:(int)b_index;
+-(void)UpdateCoordinates:(int)a_index :(int)b_index;
 
 @end

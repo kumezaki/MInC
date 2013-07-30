@@ -168,7 +168,7 @@
 	printf("SetWithServer %s\n",mWithServer?"ON":"OFF");
 }
 
--(void)SendOSCMsg:(const char*)osc_str:(int)osc_str_length
+-(void)SendOSCMsg:(const char*)osc_str :(int)osc_str_length
 {
 	char buf[128]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",s\0\0",4);
 
@@ -178,7 +178,7 @@
 	OSC_END
 }
 
--(void)SendOSCMsgWithIntValue:(const char*)osc_str:(int)osc_str_length:(int)val
+-(void)SendOSCMsgWithIntValue:(const char*)osc_str :(int)osc_str_length :(int)val
 {
 	char buf[128]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",si\0",4);
 	val = htonl(val);
@@ -225,7 +225,7 @@
 	[self Send8vb:false];
 }
 
--(IBAction)Send8vb:(BOOL)direction
+-(void)Send8vb:(BOOL)direction
 {
 	[self SendOSCMsgWithIntValue:"/minc/8vb\0\0\0":12:direction?1:0];
 }
@@ -240,7 +240,7 @@
 	[self Send8va:false];
 }
 
--(IBAction)Send8va:(BOOL)direction
+-(void)Send8va:(BOOL)direction
 {
 	[self SendOSCMsgWithIntValue:"/minc/8va\0\0\0":12:direction?1:0];
 }

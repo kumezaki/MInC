@@ -137,7 +137,7 @@ extern AQPlayer *gAQP;
 -(void)SetIPAddress;
 {
 	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
-	mIPAddressTextField.text = [NSString stringWithFormat:@"%d.%d.%d.%d",(appDelegate->mSendIPAddress&0xFF000000)>>24
+	mIPAddressTextField.text = [NSString stringWithFormat:@"%ld.%ld.%ld.%ld",(appDelegate->mSendIPAddress&0xFF000000)>>24
 								,(appDelegate->mSendIPAddress&0x00FF0000)>>16
 								,(appDelegate->mSendIPAddress&0x0000FF00)>>8
 								,(appDelegate->mSendIPAddress&0x000000FF)>>0];
@@ -150,6 +150,16 @@ extern AQPlayer *gAQP;
 	return mEditing;
 }
 
+// returns the number of 'columns' to display.
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 0;
+}
 
+// returns the # of rows in each component..
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return 0;
+}
 
 @end

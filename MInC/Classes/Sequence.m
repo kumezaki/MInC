@@ -34,7 +34,7 @@
 	[super dealloc];
 }
 
--(void)AssignNotes:(int)num_notes:(double*)notes:(double*)durations
+-(void)AssignNotes:(int)num_notes :(double*)notes :(double*)durations
 {
 	mNumNotes = num_notes;
 	for (int i = 0; i < mNumNotes; i++)

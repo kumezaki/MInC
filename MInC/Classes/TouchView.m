@@ -130,7 +130,7 @@ extern AQPlayer *gAQP;
 	[self setNeedsDisplay];
 }
 
--(void)UpdateCoordinates:(int)a_index:(int)b_index
+-(void)UpdateCoordinates:(int)a_index :(int)b_index
 {
 	if (mTouch[a_index] != nil)
 	{

@@ -66,8 +66,8 @@
 
 -(void)SetWithServer:(BOOL)on;
 
--(void)SendOSCMsg:(const char*)osc_str:(int)osc_str_length;
--(void)SendOSCMsgWithIntValue:(const char*)osc_str:(int)osc_str_length:(int)val;
+-(void)SendOSCMsg:(const char*)osc_str :(int)osc_str_length;
+-(void)SendOSCMsgWithIntValue:(const char*)osc_str :(int)osc_str_length :(int)val;
 
 -(IBAction)SetSequence;
 

@@ -45,7 +45,7 @@
 	return 440. * pow(2., (midi_note - 69) / 12.);
 }
 
--(void)	On:(WaveFormTable*)wavetable:(Envelope*)env;
+-(void)	On:(WaveFormTable*)wavetable :(Envelope*)env;
 {
 	mWaveTable = wavetable;
 	mEnv = env;
@@ -61,7 +61,7 @@
 	[mEnv off];
 }
 
--(double) AddSamples:(double*)buffer:(const int)num_frames:(double)scale:(double)theta
+-(double) AddSamples:(double*)buffer :(const int)num_frames :(double)scale :(double)theta
 {
 	if (mFreq == 0.) return theta;
 	

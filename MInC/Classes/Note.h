@@ -33,10 +33,10 @@
 
 +(double) mtof:(double)midi_note;
 
--(void)	On:(WaveFormTable*)wavetable:(Envelope*)env;
+-(void)	On:(WaveFormTable*)wavetable :(Envelope*)env;
 -(void) Off;
 
--(double) AddSamples:(double*)buffer:(const int)num_frames:(double)scale:(double)theta;
+-(double) AddSamples:(double*)buffer :(const int)num_frames :(double)scale :(double)theta;
 
 -(double)	GetDuration;
 -(void)		SetDuration:(double)duration;
