@@ -14,7 +14,8 @@
 #import <libxml/parser.h>
 #import <libxml/HTMLparser.h>
 #import <libxml/xpath.h>
-#import <libxml/xpathInternals.h>*/
+#import <libxml/xpathInternals.h>
+ */
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -167,7 +168,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	mSequencer_Sec->mAmpMultiplier = 0.5;
 	mSequencer_Sec->mDurMultiplier = 0.5;
 
-	mSR = 22050.;
+	mSR = 22050;
 	
 	mSeqNum = 0;
 	

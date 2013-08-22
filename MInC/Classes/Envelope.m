@@ -12,7 +12,7 @@
 
 -(id)init
 {
-	mSR = 22050.;
+	mSR = 22050;
 	mAmp = 0.;
 	mDelta = 0.;
 	mRampTime = mSR * 0.05;

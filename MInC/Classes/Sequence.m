@@ -7,6 +7,7 @@
 //
 
 #import "Sequence.h"
+#import "BLITSaw.h"
 
 @implementation Sequence
 
@@ -16,7 +17,7 @@
 	
 	for (int i = 0; i < kMaxNumNotes; i++)
 	{
-		mNotes[i] = [Note new];
+		mNotes[i] = [BLITSaw new];
 	}
 	
 	mPos = -1;
@@ -39,7 +40,7 @@
 	mNumNotes = num_notes;
 	for (int i = 0; i < mNumNotes; i++)
 	{
-		mNotes[i]->mFreq = [Note mtof:notes[i]];
+		[mNotes[i] SetFrequency:[Note mtof:notes[i]]];
 		[mNotes[i] SetDuration:durations[i]];
 	}
 }

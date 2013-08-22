@@ -23,7 +23,7 @@
 
 	mEnv = nil;
 	
-	mSR = 22050.;
+	mSR = 22050;
 	mFreq = 0.0;
 	mAmp = 1.0;
 
@@ -90,6 +90,11 @@
 -(void)	SetPercentOn:(double)percent
 {
 	mNumPlaySamples = mDuration * mSR * percent;
+}
+
+-(void) SetFrequency:(double)freq
+{
+    mFreq = freq;
 }
 
 @end

@@ -10,7 +10,7 @@
 
 #import "Note.h"
 
-#define kMaxNumNotes	32
+#define kMaxNumNotes 32
 
 @interface Sequence : NSObject {
 

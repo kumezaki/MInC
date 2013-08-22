@@ -77,6 +77,8 @@
 		21D9F8D611DA45E600D2C266 /* InC03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21D9F8CF11DA45E600D2C266 /* InC03.jpg */; };
 		21D9F8D711DA45E600D2C266 /* InC01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21D9F8D011DA45E600D2C266 /* InC01.jpg */; };
 		21D9F8D811DA45E600D2C266 /* InC06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21D9F8D111DA45E600D2C266 /* InC06.jpg */; };
+		272862F417C675C90079A969 /* BLIT.m in Sources */ = {isa = PBXBuildFile; fileRef = 272862F017C675C80079A969 /* BLIT.m */; };
+		272862F517C675C90079A969 /* BLITSaw.m in Sources */ = {isa = PBXBuildFile; fileRef = 272862F117C675C80079A969 /* BLITSaw.m */; };
 		27B3601A17C66B9E001FABF8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27B3601917C66B9E001FABF8 /* Default-568h@2x.png */; };
 		28216C970DB411BC00E5133A /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28216C960DB411BC00E5133A /* FirstViewController.m */; };
 		282CCBFE0DB6C98000C4EA27 /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 282CCBFD0DB6C98000C4EA27 /* SecondView.xib */; };
@@ -243,6 +245,10 @@
 		21D9F8CF11DA45E600D2C266 /* InC03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InC03.jpg; path = Images/InC03.jpg; sourceTree = "<group>"; };
 		21D9F8D011DA45E600D2C266 /* InC01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InC01.jpg; path = Images/InC01.jpg; sourceTree = "<group>"; };
 		21D9F8D111DA45E600D2C266 /* InC06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InC06.jpg; path = Images/InC06.jpg; sourceTree = "<group>"; };
+		272862F017C675C80079A969 /* BLIT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLIT.m; sourceTree = "<group>"; };
+		272862F117C675C80079A969 /* BLITSaw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLITSaw.m; sourceTree = "<group>"; };
+		272862F217C675C80079A969 /* BLIT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLIT.h; sourceTree = "<group>"; };
+		272862F317C675C80079A969 /* BLITSaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLITSaw.h; sourceTree = "<group>"; };
 		27B3601917C66B9E001FABF8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		28216C950DB411BC00E5133A /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		28216C960DB411BC00E5133A /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
@@ -351,27 +357,31 @@
 				211AB3C711B8098D00B41C09 /* ADSR.m */,
 				211AB3C811B8098D00B41C09 /* AQPlayer.h */,
 				211AB3C911B8098D00B41C09 /* AQPlayer.m */,
+				272862F217C675C80079A969 /* BLIT.h */,
+				272862F017C675C80079A969 /* BLIT.m */,
+				272862F317C675C80079A969 /* BLITSaw.h */,
+				272862F117C675C80079A969 /* BLITSaw.m */,
 				211AB3CA11B8098D00B41C09 /* Content.h */,
 				21C208EA12BBA90B0030FDA0 /* Envelope.h */,
 				21C208EB12BBA90B0030FDA0 /* Envelope.m */,
-				211AB3CB11B8098D00B41C09 /* Note.h */,
-				211AB3CC11B8098D00B41C09 /* Note.m */,
-				211AB3CD11B8098D00B41C09 /* Sequence.h */,
-				211AB3CE11B8098D00B41C09 /* Sequence.m */,
-				211AB3CF11B8098D00B41C09 /* Sequencer.h */,
-				211AB3D011B8098D00B41C09 /* Sequencer.m */,
-				211AB3D111B8098D00B41C09 /* TouchView.h */,
-				211AB3D211B8098D00B41C09 /* TouchView.m */,
-				211AB3D311B8098D00B41C09 /* WaveFormTable.h */,
-				211AB3D411B8098D00B41C09 /* WaveFormTable.m */,
-				2195D37311B6B6C3002E46FD /* SoundFile.h */,
-				2195D37411B6B6C3002E46FD /* SoundFile.m */,
 				28216C950DB411BC00E5133A /* FirstViewController.h */,
 				28216C960DB411BC00E5133A /* FirstViewController.m */,
 				1D3623240D0F684500981E51 /* MInCAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MInCAppDelegate.m */,
+				211AB3CB11B8098D00B41C09 /* Note.h */,
+				211AB3CC11B8098D00B41C09 /* Note.m */,
 				21B8AC9511B4208200C88C2D /* SecondView.h */,
 				21B8AC9611B4208200C88C2D /* SecondView.m */,
+				211AB3CD11B8098D00B41C09 /* Sequence.h */,
+				211AB3CE11B8098D00B41C09 /* Sequence.m */,
+				211AB3CF11B8098D00B41C09 /* Sequencer.h */,
+				211AB3D011B8098D00B41C09 /* Sequencer.m */,
+				2195D37311B6B6C3002E46FD /* SoundFile.h */,
+				2195D37411B6B6C3002E46FD /* SoundFile.m */,
+				211AB3D111B8098D00B41C09 /* TouchView.h */,
+				211AB3D211B8098D00B41C09 /* TouchView.m */,
+				211AB3D311B8098D00B41C09 /* WaveFormTable.h */,
+				211AB3D411B8098D00B41C09 /* WaveFormTable.m */,
 				D4DE915C14E291F900A56C8B /* XMLParser.h */,
 				D4DE915D14E291F900A56C8B /* XMLParser.m */,
 				D4DE917714E3341200A56C8B /* libxml2.dylib */,
@@ -764,6 +774,8 @@
 				211AB3DB11B8098D00B41C09 /* WaveFormTable.m in Sources */,
 				21C208EC12BBA90B0030FDA0 /* Envelope.m in Sources */,
 				D4DE915E14E291F900A56C8B /* XMLParser.m in Sources */,
+				272862F417C675C90079A969 /* BLIT.m in Sources */,
+				272862F517C675C90079A969 /* BLITSaw.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

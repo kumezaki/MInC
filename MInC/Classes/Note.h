@@ -43,4 +43,6 @@
 
 -(void)		SetPercentOn:(double)percent;
 
+-(void)     SetFrequency:(double)freq;
+
 @end
