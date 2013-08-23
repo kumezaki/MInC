@@ -22,7 +22,7 @@
 -(void) SetFrequency:(double)freq
 {
     [super SetFrequency:freq];
-
+    
     a_ = m_ / p_;
     C2_ = 1. / p_;
 }
@@ -35,23 +35,30 @@
     {
         Float64 s = 0.;
         
-        Float64 denominator = sin( phase_ );
-        
-        if ( fabs(denominator) <= 1e-12 ) {
-            s = a_;
+        // quick fix to make sure that the frequency is audible before
+        // calculating the sample values
+        if (mFreq > 20) {
+            Float64 denominator = sin( phase_ );
+            
+            if ( fabs(denominator) <= 1e-12 ) {
+                s = a_;
+            }
+            else if (p_ != 0) {
+                s =  sin( m_ * phase_ );
+                s /= p_ * denominator;
+            }
+            
+            s += state_ - C2_;
+            state_ = s * 0.995;
+            
+            buffer[i] += scale * mAmp * [mEnv get] * s;
+            
+            phase_ += rate_;
+            if ( phase_ >= M_PI ) phase_ -= M_PI;
         }
         else {
-            s =  sin( m_ * phase_ );
-            s /= p_ * denominator;
+            buffer[i] = 0;
         }
-        
-        s += state_ - C2_;
-        state_ = s * 0.995;
-        
-        buffer[i] += scale * mAmp * [mEnv get] * s;
-        
-        phase_ += rate_;
-        if ( phase_ >= M_PI ) phase_ -= M_PI;
         
         if (++mSamplesPlayed >= mNumPlaySamples) [self Off];
     }
