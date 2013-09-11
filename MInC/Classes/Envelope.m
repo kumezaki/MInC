@@ -29,7 +29,7 @@
 	mDelta = -1. / mRampTime;
 }
 
--(double)get
+-(Float64)get
 {
 	mAmp += mDelta;
 	

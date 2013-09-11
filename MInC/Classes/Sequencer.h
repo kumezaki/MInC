@@ -20,18 +20,18 @@
 	Sequence		*mSeq_Cur;
 	Sequence		*mSeq_Next;
 	
-	double	mCurTime;
-	double	mNextEventTime;
+	Float64	mCurTime;
+	Float64	mNextEventTime;
 
-	double	mTempoMultiplier;
-	double	mRitMultiplier;
-	double	mAmpMultiplier;
-	double	mDurMultiplier;
+	Float64	mTempoMultiplier;
+	Float64	mRitMultiplier;
+	Float64	mAmpMultiplier;
+	Float64	mDurMultiplier;
 	
-	double	mTempoSensitivity;
+	Float64	mTempoSensitivity;
 	
 	WaveFormTable	*mWaveTable;
-	double			mTheta;
+	Float64			mTheta;
 
 	Envelope		*mEnv;
 	
@@ -42,11 +42,11 @@
 -(void)Stop;
 -(void)Rewind;
 
--(void)SetTempo:(double)multiplier;
+-(void)SetTempo:(Float64)multiplier;
 -(void)MoltoRit;
 -(void)ResetRit;
 
--(void)Update:(double)elapsed_time;
+-(void)Update:(Float64)elapsed_time;
 
 -(Note*)GetNote;
 

@@ -95,9 +95,9 @@
 -(IBAction)Hint:(id)sender;
 -(IBAction)Status:(id)sender;
 
--(void)SendOSC_Filter:(double)val;
--(void)SendOSC_Volume:(double)val;
--(void)SendOSC_Waveform:(double)val;
+-(void)SendOSC_Filter:(Float64)val;
+-(void)SendOSC_Volume:(Float64)val;
+-(void)SendOSC_Waveform:(Float64)val;
 
 -(void)send_udp;
 -(void)receive_udp;

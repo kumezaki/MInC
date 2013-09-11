@@ -31,8 +31,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	const int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 	
-	double buffer[numFrames];
-	memset(buffer,0,sizeof(double)*numFrames);
+	Float64 buffer[numFrames];
+	memset(buffer,0,sizeof(Float64)*numFrames);
 
 	Sequencer* seqr_pri = aqp->mSequencer_Pri;
 	Sequencer* seqr_sec = aqp->mSequencer_Sec;
@@ -45,7 +45,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		seqr_sec->mTheta = [note_sec AddSamples:buffer:numFrames:seqr_sec->mAmpMultiplier:seqr_sec->mTheta];
 	}
 	
-	double max = 0.;
+	Float64 max = 0.;
 	for (int i = 0; i < numFrames; i++)
 	{
 		max = fabs(buffer[i]) > max ? fabs(buffer[i]) : max;
@@ -53,7 +53,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	}
 //	printf("%f\n",max);
 
-	double elapsed_time = numFrames / aqp->mSR;
+	Float64 elapsed_time = numFrames / aqp->mSR;
 	[seqr_pri Update:elapsed_time];
 	[seqr_sec Update:elapsed_time];
 
@@ -294,8 +294,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 						int num_notes = atoi((char*)xmlGetProp(cur2, (xmlChar*)"numnote"));
 						
 						NSLog(@"sequence %d %d",seq_id,num_notes);
-						double *notesequence = (double*)malloc(sizeof(double)*num_notes);
-						double *dursequence = (double*)malloc(sizeof(double)*num_notes);
+						Float64 *notesequence = (Float64*)malloc(sizeof(Float64)*num_notes);
+						Float64 *dursequence = (Float64*)malloc(sizeof(Float64)*num_notes);
 						
 						xmlNodePtr cur3 = cur2->xmlChildrenNode;
 						while (cur3 != NULL) {

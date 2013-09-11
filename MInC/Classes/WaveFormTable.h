@@ -12,10 +12,10 @@
 
 @interface WaveFormTable : NSObject {
 	
-	double mTable[kWaveFormTableSize];
+	Float64 mTable[kWaveFormTableSize];
 
 }
 
--(double) Get:(double)index;
+-(Float64) Get:(Float64)index;
 
 @end

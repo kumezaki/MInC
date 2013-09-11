@@ -14,32 +14,32 @@ typedef enum { kADSR_Off, kADSR_A, kADSR_D, kADSR_S, kADSR_R } ADSR_State;
 	
 	ADSR_State	mState;
 
-	double	mSR;
+	Float64	mSR;
 	
-	double	mNumSamples_A;
-	double	mNumSamples_D;
-	double	mNumSamples_R;
+	Float64	mNumSamples_A;
+	Float64	mNumSamples_D;
+	Float64	mNumSamples_R;
 	
-	double	mDelta_A;
-	double	mDelta_D;
-	double	mDelta_R;
+	Float64	mDelta_A;
+	Float64	mDelta_D;
+	Float64	mDelta_R;
 	
-	double	mLevel_S;
+	Float64	mLevel_S;
 
 	SInt32	mSampleCount;
 
-	double	mVal;
+	Float64	mVal;
 
 @public
 }
 
--(id)initWithADSR:(double)SR a:(double)a d:(double)d s:(double)s r:(double)r;
+-(id)initWithADSR:(Float64)SR a:(Float64)a d:(Float64)d s:(Float64)s r:(Float64)r;
 
 -(void)On;
 -(void)Off;
 
 -(BOOL)IsOn;
 
--(double)Get;
+-(Float64)Get;
 
 @end

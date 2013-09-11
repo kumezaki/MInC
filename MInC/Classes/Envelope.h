@@ -10,16 +10,16 @@
 
 @interface Envelope : NSObject {
 
-	double mSR;
-	double mRampTime;
+	Float64 mSR;
+	Float64 mRampTime;
 	
-	double mAmp;
-	double mDelta;
+	Float64 mAmp;
+	Float64 mDelta;
 
 }
 
 -(void)on;
 -(void)off;
--(double)get;
+-(Float64)get;
 
 @end

@@ -23,7 +23,7 @@
 	
 @public
 
-	double		mSR;
+	Float64		mSR;
 	
 	Sequencer	*mSequencer_Pri;
 	Sequencer	*mSequencer_Sec;

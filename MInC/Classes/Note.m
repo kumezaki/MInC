@@ -40,7 +40,7 @@
 	[super dealloc];
 }
 
-+(double) mtof:(double)midi_note
++(Float64) mtof:(Float64)midi_note
 {
 	return 440. * pow(2., (midi_note - 69) / 12.);
 }
@@ -61,11 +61,11 @@
 	[mEnv off];
 }
 
--(double) AddSamples:(double*)buffer :(const int)num_frames :(double)scale :(double)theta
+-(Float64) AddSamples:(Float64*)buffer :(const int)num_frames :(Float64)scale :(Float64)theta
 {
 	if (mFreq == 0.) return theta;
 	
-	double delta_theta = mFreq / mSR;
+	Float64 delta_theta = mFreq / mSR;
 	for (int i = 0; i < num_frames; i++)
 	{
 		buffer[i] += scale * mAmp * [mWaveTable Get:theta] * [mEnv get];
@@ -77,22 +77,22 @@
 	return theta;
 }
 
--(double) GetDuration
+-(Float64) GetDuration
 {
 	return mDuration;
 }
 	
--(void) SetDuration:(double)duration
+-(void) SetDuration:(Float64)duration
 {
 	mDuration = duration;
 }
 
--(void)	SetPercentOn:(double)percent
+-(void)	SetPercentOn:(Float64)percent
 {
 	mNumPlaySamples = mDuration * mSR * percent;
 }
 
--(void) SetFrequency:(double)freq
+-(void) SetFrequency:(Float64)freq
 {
     mFreq = freq;
 }

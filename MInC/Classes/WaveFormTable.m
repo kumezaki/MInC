@@ -18,7 +18,7 @@
 	
 	for (int i = 0; i < kWaveFormTableSize; i++)
 	{
-		const double t = (double)i / kWaveFormTableSize;
+		const Float64 t = (Float64)i / kWaveFormTableSize;
 
 #if 1
 		mTable[i] = sinf(t * 2 * M_PI);			/* sinusoid */
@@ -32,13 +32,13 @@
 	return self;
 }
 
--(double) Get:(double)index
+-(Float64) Get:(Float64)index
 {	
 	SInt32 i0 = (SInt32)(index * kWaveFormTableSize + 0.5) % kWaveFormTableSize;
 	SInt32 i1 = (i0 + 1) % kWaveFormTableSize;
-	double k = index - (SInt32)index;
-	double s0 = mTable[i0];
-	double s1 = mTable[i1];
+	Float64 k = index - (SInt32)index;
+	Float64 s0 = mTable[i0];
+	Float64 s1 = mTable[i1];
 	return s0 + (s1 - s0) * k;
 }
 @end

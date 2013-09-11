@@ -61,7 +61,7 @@
 	mNextEventTime = 0.;
 }
 
--(void)SetTempo:(double)multiplier
+-(void)SetTempo:(Float64)multiplier
 {
 	mTempoMultiplier = multiplier;
 }
@@ -76,7 +76,7 @@
 	mRitMultiplier = 1.;
 }
 
--(void)Update:(double)elapsed_time
+-(void)Update:(Float64)elapsed_time
 {
 	if (!mPlaying) return;
 	

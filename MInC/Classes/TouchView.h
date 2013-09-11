@@ -14,8 +14,8 @@
 
 @interface TouchView : UIView {
 
-	double	mX[MAX_NUM_TOUCHES];
-	double	mY[MAX_NUM_TOUCHES];
+	Float64	mX[MAX_NUM_TOUCHES];
+	Float64	mY[MAX_NUM_TOUCHES];
 	
 	UITouch*	mTouch[MAX_NUM_TOUCHES];
 }

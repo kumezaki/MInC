@@ -45,17 +45,17 @@ extern AQPlayer *gAQP;
 	UIRectFill(CGRectMake(mX[1]-5., mY[1]-5., 10.0, 10.0));
 #else
 #if 0
-	double x = mX[0] < mX[1] ? mX[0] : mX[1];
-	double y = mY[0] < mY[1] ? mY[0] : mY[1];
-	double w = fabs(mX[0] - mX[1]);
-	double h = fabs(mY[0] - mY[1]);
+	Float64 x = mX[0] < mX[1] ? mX[0] : mX[1];
+	Float64 y = mY[0] < mY[1] ? mY[0] : mY[1];
+	Float64 w = fabs(mX[0] - mX[1]);
+	Float64 h = fabs(mY[0] - mY[1]);
 	UIRectFill(CGRectMake(x,y,w,h));
 #else
-	double w = fabs(mX[0] - mX[1]);
-	double h = fabs(mY[0] - mY[1]);
+	Float64 w = fabs(mX[0] - mX[1]);
+	Float64 h = fabs(mY[0] - mY[1]);
 	w = h = w > h ? w : h;
-	double x = ((mX[0] + mX[1]) / 2.) - w / 2;
-	double y = ((mY[0] + mY[1]) / 2.) - h / 2;
+	Float64 x = ((mX[0] + mX[1]) / 2.) - w / 2;
+	Float64 y = ((mY[0] + mY[1]) / 2.) - h / 2;
 	
 	CGContextRef contextRef = UIGraphicsGetCurrentContext();
 	CGContextFillEllipseInRect(contextRef, CGRectMake(x,y,w,h));
@@ -117,9 +117,9 @@ extern AQPlayer *gAQP;
 		printf("mTouch[%d] (%f,%f)\n",i,mX[i],mY[i]);
 #endif
 
-	double x = mX[0]/self.bounds.size.width;
-	double y = 1. - (mY[0]/self.bounds.size.height);
-	double z = DIAGONAL(mX[1]-mX[0],mY[1]-mY[0]) / DIAGONAL(self.bounds.size.width,self.bounds.size.height);
+	Float64 x = mX[0]/self.bounds.size.width;
+	Float64 y = 1. - (mY[0]/self.bounds.size.height);
+	Float64 z = DIAGONAL(mX[1]-mX[0],mY[1]-mY[0]) / DIAGONAL(self.bounds.size.width,self.bounds.size.height);
 
 	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
 
@@ -137,7 +137,7 @@ extern AQPlayer *gAQP;
 		CGPoint pt = [mTouch[a_index] locationInView:self];
 		if (mTouch[b_index] == nil)
 		{
-			double dif;
+			Float64 dif;
 			
 #define UPDATE_COORD(member_coord,pt_coord) \
 	dif = pt_coord - (member_coord[0] + member_coord[1]) / 2.; \
@@ -156,17 +156,17 @@ extern AQPlayer *gAQP;
 
 #if 0
 #if 1
-	double amp = 1. - (pt.y/self.bounds.size.height);
+	Float64 amp = 1. - (pt.y/self.bounds.size.height);
 	amp *= amp;
 #else
-	double rel_pos_y = pt.y/self.bounds.size.height;
-	double db = rel_pos_y * -60.;
-	double amp = pow(10.,db/20.);		
+	Float64 rel_pos_y = pt.y/self.bounds.size.height;
+	Float64 db = rel_pos_y * -60.;
+	Float64 amp = pow(10.,db/20.);		
 #endif
 	amp = amp > 1.0 ? 1.0 : amp < 0.0 ? 0.0 : amp;
 	printf("Amp: %f\n",amp);
 
-	double dur = pt.x/self.bounds.size.width;
+	Float64 dur = pt.x/self.bounds.size.width;
 	dur = dur > 1.0 ? 1.0 : dur < 0.0 ? 0.0 : dur;
 	printf("Dur: %f\n",dur);
 

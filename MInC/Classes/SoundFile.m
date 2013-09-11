@@ -40,7 +40,7 @@
 {
 }
 
--(double) GetSample
+-(Float64) GetSample
 {
 	if (((SInt32)mSamplesPlayed % kIOBufferSize) == 0)
 	{
@@ -58,19 +58,19 @@
 	
 	mSamplesPlayed += 2.5;
 	
-	return (double)sample / (SInt16)0x7FFF;
+	return (Float64)sample / (SInt16)0x7FFF;
 }
 
--(double)	GetDuration
+-(Float64)	GetDuration
 {
 	return mDuration;
 }
 
--(void)		SetDuration:(double)duration
+-(void)		SetDuration:(Float64)duration
 {
 }
 
--(void)		SetPercentOn:(double)percent
+-(void)		SetPercentOn:(Float64)percent
 {
 }
 

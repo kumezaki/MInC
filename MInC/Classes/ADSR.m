@@ -11,7 +11,7 @@
 
 @implementation ADSR
 
--(id)initWithADSR:(double)SR a:(double)a d:(double)d s:(double)s r:(double)r
+-(id)initWithADSR:(Float64)SR a:(Float64)a d:(Float64)d s:(Float64)s r:(Float64)r
 {
 	mState = kADSR_Off;
 	
@@ -52,7 +52,7 @@
 	return mState != kADSR_Off;
 }
 
--(double)Get
+-(Float64)Get
 {
 
 #define ADR_UPDATE(delta,num_samples,next_state) mVal += delta; if (++mSampleCount >= num_samples) { mState = next_state; mSampleCount = 0; }

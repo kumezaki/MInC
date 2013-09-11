@@ -294,17 +294,17 @@
 	[self SendOSCMsg:"/minc/status\0\0\0\0":16];
 }
 
--(void)SendOSC_Filter:(double)val
+-(void)SendOSC_Filter:(Float64)val
 {
 	[self SendOSCMsgWithIntValue:"/minc/filt\0\0":12:FLOAT_TO_MRMR_INT(val)];
 }
 
--(void)SendOSC_Volume:(double)val
+-(void)SendOSC_Volume:(Float64)val
 {
 	[self SendOSCMsgWithIntValue:"/minc/vol\0\0\0":12:FLOAT_TO_MRMR_INT(val)];
 }
 
--(void)SendOSC_Waveform:(double)val
+-(void)SendOSC_Waveform:(Float64)val
 {
 	[self SendOSCMsgWithIntValue:"/minc/wave\0\0":12:FLOAT_TO_MRMR_INT(val)];
 }
@@ -317,9 +317,9 @@
 
 #define LIMIT_ACC_VAL(n)	n < -1. ? -1. : n > 1. ? 1. : n
 
-	double x = LIMIT_ACC_VAL(acceleration.x);
-	double y = LIMIT_ACC_VAL(acceleration.y);
-	double z = LIMIT_ACC_VAL(acceleration.z);
+	Float64 x = LIMIT_ACC_VAL(acceleration.x);
+	Float64 y = LIMIT_ACC_VAL(acceleration.y);
+	Float64 z = LIMIT_ACC_VAL(acceleration.z);
 
 	[self SendOSCMsgWithIntValue:"/minc/accX\0\0":12:FLOAT_TO_MRMR_INT(x)];
 	[self SendOSCMsgWithIntValue:"/minc/accY\0\0":12:FLOAT_TO_MRMR_INT(y)];

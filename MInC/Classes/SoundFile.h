@@ -17,7 +17,7 @@
 
 	AudioFileID		mFileID;
 
-	double			mDuration;
+	Float64			mDuration;
 	
 	ADSR			*mADSR;
 	
@@ -26,20 +26,20 @@
 @public
 	bool mOn;
 	
-	double mSR;
+	Float64 mSR;
 	
-	double mSamplesPlayed;
+	Float64 mSamplesPlayed;
 	SInt32 mNumPlaySamples;
 }
 
 -(void)	On:(ADSR*)adsr;
 -(void) Off;
 
--(double) GetSample;
+-(Float64) GetSample;
 
--(double)	GetDuration;
--(void)		SetDuration:(double)duration;
+-(Float64)	GetDuration;
+-(void)		SetDuration:(Float64)duration;
 
--(void)		SetPercentOn:(double)percent;
+-(void)		SetPercentOn:(Float64)percent;
 
 @end
