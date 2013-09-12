@@ -16,13 +16,13 @@
 
 	Note *mNotes[kMaxNumNotes];
 	
-	int mPos;
-	int mNumNotes;
+	SInt32 mPos;
+	SInt32 mNumNotes;
 @public
 	BOOL mRit;
 }
 
--(void)AssignNotes:(int)num_notes :(Float64*)notes :(Float64*)durations;
+-(void)AssignNotes:(SInt32)num_notes :(Float64*)notes :(Float64*)durations;
 
 -(Note*)GetNote;
 

@@ -27,7 +27,7 @@
     m_ = 2 * maxHarmonics + 1;
 }
 
--(Float64) AddSamples:(Float64 *)buffer :(const int)num_frames :(Float64)scale :(Float64)theta
+-(Float64) AddSamples:(Float64 *)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta
 {
     // was addToAudioBuffer
     // removed old method body
@@ -35,7 +35,7 @@
     // and it's reasonable to expect that other BLIT implementations would do
     // the same
     
-    for (int i = 0; i < num_frames; i++) {
+    for (SInt32 i = 0; i < num_frames; i++) {
         buffer[i] = 0;
     }
     

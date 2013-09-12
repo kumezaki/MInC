@@ -29,7 +29,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
     AQPlayer *aqp = (AQPlayer *)inUserData;
 	
-	const int numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
+	const SInt32 numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 	
 	Float64 buffer[numFrames];
 	memset(buffer,0,sizeof(Float64)*numFrames);
@@ -46,12 +46,12 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	}
 	
 	Float64 max = 0.;
-	for (int i = 0; i < numFrames; i++)
+	for (SInt32 i = 0; i < numFrames; i++)
 	{
 		max = fabs(buffer[i]) > max ? fabs(buffer[i]) : max;
 		((SInt16 *)inAQBuffer->mAudioData)[i] = buffer[i] * (SInt16)0x7FFF;
 	}
-//	printf("%f\n",max);
+//	NSLog(@"%f\n",max);
 
 	Float64 elapsed_time = numFrames / aqp->mSR;
 	[seqr_pri Update:elapsed_time];
@@ -70,7 +70,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	[mSequencer_Pri Stop];
 	[self Stop];
 	
-	for (int i = 0; i < mNumSequences; i++)
+	for (SInt32 i = 0; i < mNumSequences; i++)
 		[mSequences[i] release];
 	
 	[mSequencer_Pri release];
@@ -91,7 +91,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	mRit = FALSE;
 
 #if 0
-	for (int i = 0; i < kNumSequences; i++)
+	for (SInt32 i = 0; i < kNumSequences; i++)
 	{
 		mSequences[i] = [[Sequence alloc] init];
 		switch (i)
@@ -193,13 +193,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     OSStatus result = AudioQueueNewOutput(&mDataFormat, AQBufferCallback, self, nil, nil, 0, &mQueue);
 	
 	if (result != noErr)
-		printf("AudioQueueNewOutput %ld\n",result);
+		NSLog(@"AudioQueueNewOutput %ld\n",result);
 	
-    for (int i = 0; i < kNumberBuffers; ++i)
+    for (SInt32 i = 0; i < kNumberBuffers; ++i)
 	{
 		result = AudioQueueAllocateBuffer(mQueue, 512, &mBuffers[i]);
 		if (result != noErr)
-			printf("AudioQueueAllocateBuffer %ld\n",result);
+			NSLog(@"AudioQueueAllocateBuffer %ld\n",result);
 	}
 }
 
@@ -212,7 +212,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
         [self New];
     
     // prime the queue with some data before starting
-    for (int i = 0; i < kNumberBuffers; ++i)
+    for (SInt32 i = 0; i < kNumberBuffers; ++i)
         AQBufferCallback(self, mQueue, mBuffers[i]);            
 	
     result = AudioQueueStart(mQueue, nil);
@@ -229,7 +229,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	return result;
 }
 
--(void) SetSequence:(int)seq_num;
+-(void) SetSequence:(SInt32)seq_num;
 {
 	if (seq_num >= 0 && seq_num <= mNumSequences)
 	{
@@ -280,26 +280,26 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	while (cur != NULL) {
 		if ((!xmlStrcmp(cur->name, (const xmlChar *)"part"))){
             NSLog(@"part found");
-			int part = atoi((char*)xmlGetProp(cur, (xmlChar*)"id"));
+			SInt32 part = atoi((char*)xmlGetProp(cur, (xmlChar*)"id"));
 			mNumSequences = atoi((char*)xmlGetProp(cur, (xmlChar*)"numsequences"));
-			NSLog(@"%d", mNumSequences);
+			NSLog(@"%ld", mNumSequences);
 			if (mPiece == 1 || (mPiece == 2 && part == mPart) || (mPiece == 3 && part == mPart))
 			{
 				xmlNodePtr cur2 = cur->xmlChildrenNode;
-				int seq_i = 0;
+				SInt32 seq_i = 0;
 				while (cur2 != NULL) {
 					if ((!xmlStrcmp(cur2->name, (const xmlChar *)"sequence"))) {
 						
-						int seq_id = atoi((char*)xmlGetProp(cur2, (xmlChar*)"id"));
-						int num_notes = atoi((char*)xmlGetProp(cur2, (xmlChar*)"numnote"));
+						SInt32 seq_id = atoi((char*)xmlGetProp(cur2, (xmlChar*)"id"));
+						SInt32 num_notes = atoi((char*)xmlGetProp(cur2, (xmlChar*)"numnote"));
 						
-						NSLog(@"sequence %d %d",seq_id,num_notes);
+						NSLog(@"sequence %ld %ld",seq_id,num_notes);
 						Float64 *notesequence = (Float64*)malloc(sizeof(Float64)*num_notes);
 						Float64 *dursequence = (Float64*)malloc(sizeof(Float64)*num_notes);
 						
 						xmlNodePtr cur3 = cur2->xmlChildrenNode;
 						while (cur3 != NULL) {
-							int note_i = 0;
+							SInt32 note_i = 0;
 							if ((!xmlStrcmp(cur3->name, (const xmlChar *)"notes"))) {
 								
 								xmlNodePtr cur4 = cur3->xmlChildrenNode;
@@ -327,7 +327,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 							cur3 = cur3->next;
 						}
 						mSequences[seq_i] = [[Sequence alloc] init];
-						//for (int i = 0; i < num_notes; i++) { NSLog(@"[%d] %f %f",i,notesequence[i],dursequence[i]); }
+						//for (SInt32 i = 0; i < num_notes; i++) { NSLog(@"[%d] %f %f",i,notesequence[i],dursequence[i]); }
 						[mSequences[seq_i] AssignNotes:num_notes:notesequence:dursequence];
 						// if sequence is moltorit then set seq->mRit to TRUE
 						if (mPiece == 3)
@@ -353,7 +353,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(NSString*) GetModString;
 {
-	return [NSString stringWithFormat:@"%d",mSeqNum];
+	return [NSString stringWithFormat:@"%ld",mSeqNum];
 }
 
 @end

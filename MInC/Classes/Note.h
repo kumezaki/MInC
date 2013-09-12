@@ -36,7 +36,7 @@
 -(void)	On:(WaveFormTable*)wavetable :(Envelope*)env;
 -(void) Off;
 
--(Float64) AddSamples:(Float64*)buffer :(const int)num_frames :(Float64)scale :(Float64)theta;
+-(Float64) AddSamples:(Float64*)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta;
 
 -(Float64)	GetDuration;
 -(void)		SetDuration:(Float64)duration;

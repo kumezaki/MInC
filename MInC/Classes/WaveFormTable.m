@@ -16,7 +16,7 @@
 {
 	[super init];
 	
-	for (int i = 0; i < kWaveFormTableSize; i++)
+	for (SInt32 i = 0; i < kWaveFormTableSize; i++)
 	{
 		const Float64 t = (Float64)i / kWaveFormTableSize;
 

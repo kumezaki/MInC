@@ -61,12 +61,12 @@
 	[mEnv off];
 }
 
--(Float64) AddSamples:(Float64*)buffer :(const int)num_frames :(Float64)scale :(Float64)theta
+-(Float64) AddSamples:(Float64*)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta
 {
 	if (mFreq == 0.) return theta;
 	
 	Float64 delta_theta = mFreq / mSR;
-	for (int i = 0; i < num_frames; i++)
+	for (SInt32 i = 0; i < num_frames; i++)
 	{
 		buffer[i] += scale * mAmp * [mWaveTable Get:theta] * [mEnv get];
 		theta += delta_theta;

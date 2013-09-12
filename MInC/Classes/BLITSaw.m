@@ -27,11 +27,11 @@
     C2_ = 1. / p_;
 }
 
--(Float64) AddSamples:(Float64 *)buffer :(const int)num_frames :(Float64)scale :(Float64)theta
+-(Float64) AddSamples:(Float64 *)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta
 {
     phase_ = theta;
     
-    for (int i = 0; i < num_frames; i++)
+    for (SInt32 i = 0; i < num_frames; i++)
     {
         Float64 s = 0.;
         

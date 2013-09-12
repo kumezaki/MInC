@@ -19,7 +19,7 @@ extern AQPlayer *gAQP;
 
 - (void)awakeFromNib {
 
-	for (int i = 0; i < MAX_NUM_TOUCHES; i++)
+	for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++)
 	{
 		mX[i] = (0.5 + (i==0?-0.25:+0.25)) * self.bounds.size.width;
 		mY[i] = (0.5 + (i==0?-0.25:+0.25)) * self.bounds.size.height;
@@ -68,14 +68,14 @@ extern AQPlayer *gAQP;
     [super dealloc];
 }
 
-#define TOUCH_ASSIGN(lval,val) { lval = val; printf("assigning %s to %s\n",#val,#lval); break; }
+#define TOUCH_ASSIGN(lval,val) { lval = val; NSLog(@"assigning %s to %s\n",#val,#lval); break; }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	printf("touchesBegan count:%d\n",touches.count);
+	NSLog(@"touchesBegan count:%d\n",touches.count);
 	for (UITouch* t in touches)
 	{
-		for (int i = 0; i < MAX_NUM_TOUCHES; i++)
+		for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++)
 			if (mTouch[i] == nil) TOUCH_ASSIGN(mTouch[i],t)
 	}
 	[self ProcessTouch:touches];
@@ -83,16 +83,16 @@ extern AQPlayer *gAQP;
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	printf("touchesMoved count:%d\n",touches.count);
+	NSLog(@"touchesMoved count:%d\n",touches.count);
 	[self ProcessTouch:touches];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	printf("touchesEnded count:%d\n",touches.count);
+	NSLog(@"touchesEnded count:%d\n",touches.count);
 	for (UITouch* t in touches)
 	{
-		for (int i = 0; i < MAX_NUM_TOUCHES; i++)
+		for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++)
 			if (mTouch[i] == t) TOUCH_ASSIGN(mTouch[i],nil)
 	}
 	[self ProcessTouch:touches];
@@ -100,21 +100,21 @@ extern AQPlayer *gAQP;
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	printf("touchesCancelled\n");
+	NSLog(@"touchesCancelled\n");
 }
 
 -(void)ProcessTouch:(NSSet *)touches
 {
 #if 0
-	printf("UIView size: %f %f\n",self.bounds.size.width,self.bounds.size.height);
+	NSLog(@"UIView size: %f %f\n",self.bounds.size.width,self.bounds.size.height);
 #endif
 	
 	[self UpdateCoordinates:0:1];
 	[self UpdateCoordinates:1:0];
 
 #if 0
-	for (int i = 0; i < MAX_NUM_TOUCHES; i++)
-		printf("mTouch[%d] (%f,%f)\n",i,mX[i],mY[i]);
+	for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++)
+		NSLog(@"mTouch[%d] (%f,%f)\n",i,mX[i],mY[i]);
 #endif
 
 	Float64 x = mX[0]/self.bounds.size.width;
@@ -130,7 +130,7 @@ extern AQPlayer *gAQP;
 	[self setNeedsDisplay];
 }
 
--(void)UpdateCoordinates:(int)a_index :(int)b_index
+-(void)UpdateCoordinates:(SInt32)a_index :(SInt32)b_index
 {
 	if (mTouch[a_index] != nil)
 	{
@@ -141,7 +141,7 @@ extern AQPlayer *gAQP;
 			
 #define UPDATE_COORD(member_coord,pt_coord) \
 	dif = pt_coord - (member_coord[0] + member_coord[1]) / 2.; \
-	for (int i = 0; i < MAX_NUM_TOUCHES; i++) member_coord[i] += dif;
+	for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++) member_coord[i] += dif;
 	
 			UPDATE_COORD(mX,pt.x)
 			UPDATE_COORD(mY,pt.y)
@@ -164,11 +164,11 @@ extern AQPlayer *gAQP;
 	Float64 amp = pow(10.,db/20.);		
 #endif
 	amp = amp > 1.0 ? 1.0 : amp < 0.0 ? 0.0 : amp;
-	printf("Amp: %f\n",amp);
+	NSLog(@"Amp: %f\n",amp);
 
 	Float64 dur = pt.x/self.bounds.size.width;
 	dur = dur > 1.0 ? 1.0 : dur < 0.0 ? 0.0 : dur;
-	printf("Dur: %f\n",dur);
+	NSLog(@"Dur: %f\n",dur);
 
 	Sequencer* q = gAQP->mSequencer_Pri;
 	if (q != nil)

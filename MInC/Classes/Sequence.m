@@ -15,7 +15,7 @@
 {
 	[super init];
 	
-	for (int i = 0; i < kMaxNumNotes; i++)
+	for (SInt32 i = 0; i < kMaxNumNotes; i++)
 	{
 		mNotes[i] = [BLITSaw new];
 	}
@@ -29,16 +29,16 @@
 
 -(void)dealloc
 {
-	for (int i = 0; i < kMaxNumNotes; i++)
+	for (SInt32 i = 0; i < kMaxNumNotes; i++)
 		[mNotes[i] release];
 	
 	[super dealloc];
 }
 
--(void)AssignNotes:(int)num_notes :(Float64*)notes :(Float64*)durations
+-(void)AssignNotes:(SInt32)num_notes :(Float64*)notes :(Float64*)durations
 {
 	mNumNotes = num_notes;
-	for (int i = 0; i < mNumNotes; i++)
+	for (SInt32 i = 0; i < mNumNotes; i++)
 	{
 		[mNotes[i] SetFrequency:[Note mtof:notes[i]]];
 		[mNotes[i] SetDuration:durations[i]];

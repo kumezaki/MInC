@@ -18,7 +18,7 @@
 	
 	OSStatus result = noErr;
 	result = AudioFileOpenURL(mSoundFileURLRef,kAudioFileReadPermission,0,&mFileID);
-	printf("AudioFileOpenURL %ld\n",result);
+	NSLog(@"AudioFileOpenURL %ld\n",result);
 	
 	return self;
 }
@@ -27,7 +27,7 @@
 {
 	OSStatus result = noErr;
 	result = AudioFileClose(mFileID);
-	printf("AudioFileClose %ld\n",result);
+	NSLog(@"AudioFileClose %ld\n",result);
 	
 	[super dealloc];
 }
@@ -50,7 +50,7 @@
 		SInt64 inStartingPacket = mSamplesPlayed;
 		result = AudioFileReadPackets(mFileID,NO,&outNumBytes,NULL,inStartingPacket,&ioNumPackets,mOutBuffer);
 #if 0
-		printf("AudioFileReadPackets %d %d\n",result,ioNumPackets);
+		NSLog(@"AudioFileReadPackets %d %d\n",result,ioNumPackets);
 #endif
 		if (outNumBytes < kIOBufferSize) mSamplesPlayed = 0;
 	}

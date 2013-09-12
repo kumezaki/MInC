@@ -28,12 +28,12 @@
 	Sequencer	*mSequencer_Pri;
 	Sequencer	*mSequencer_Sec;
 
-	int			mSeqNum;
+	SInt32			mSeqNum;
 	Sequence	*mSequences[53];
 	
-	int			mPiece;
-	int			mPart;
-	int			mNumSequences;
+	SInt32			mPiece;
+	SInt32			mPart;
+	SInt32			mNumSequences;
 	BOOL		mRit;
 }
 
@@ -42,7 +42,7 @@
 -(OSStatus)	Start;
 -(OSStatus)	Stop;
 
--(void) SetSequence:(int)seq_num;
+-(void) SetSequence:(SInt32)seq_num;
 
 -(void) ParseFile;
 

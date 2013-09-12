@@ -53,14 +53,14 @@ extern AQPlayer *gAQP;
 -(IBAction)SetTempoSensitivity:(id)sender
 {
 	Float64 sense = [mTempoSenseSlider value];
-	printf("SetTempoSensitivity %f\n",sense);
+	NSLog(@"SetTempoSensitivity %f\n",sense);
 	gAQP->mSequencer_Pri->mTempoSensitivity = sense * sense;
 }
 
 -(IBAction)SetPulseVolume:(id)sender
 {
 	Float64 amp = [mPulseVolSlider value];
-	printf("SetPulseVolume %f\n",amp);
+	NSLog(@"SetPulseVolume %f\n",amp);
 	gAQP->mSequencer_Sec->mAmpMultiplier = amp * amp;
 }
 

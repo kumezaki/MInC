@@ -27,7 +27,7 @@
 #define OSC_END [self send_udp];
 #define OSC_ADD(msg,num_msg_bytes) memcpy(mOutBuffer+mOutBufferLength,msg,num_msg_bytes); mOutBufferLength+=num_msg_bytes;
 
-#define FLOAT_TO_MRMR_INT(v) (int)(v * 1000. + 0.5)
+#define FLOAT_TO_MRMR_INT(v) (SInt32)(v * 1000. + 0.5)
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
     
@@ -144,7 +144,7 @@
 	memset(ip_add_buf,0,32);
 	[[self getIPAddress] getCString:ip_add_buf maxLength:32 encoding:NSASCIIStringEncoding];
 	ip_add_size = (strlen(ip_add_buf) / 4 + 1) * 4;
-	printf("%s\n",ip_add_buf);
+	NSLog(@"%s\n",ip_add_buf);
 	
 	[self sendHeartBeat];
 
@@ -165,10 +165,10 @@
 -(void)SetWithServer:(BOOL)on
 {
 	mWithServer = on;
-	printf("SetWithServer %s\n",mWithServer?"ON":"OFF");
+	NSLog(@"SetWithServer %s\n",mWithServer?"ON":"OFF");
 }
 
--(void)SendOSCMsg:(const char*)osc_str :(int)osc_str_length
+-(void)SendOSCMsg:(const char*)osc_str :(SInt32)osc_str_length
 {
 	char buf[128]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",s\0\0",4);
 
@@ -178,7 +178,7 @@
 	OSC_END
 }
 
--(void)SendOSCMsgWithIntValue:(const char*)osc_str :(int)osc_str_length :(int)val
+-(void)SendOSCMsgWithIntValue:(const char*)osc_str :(SInt32)osc_str_length :(SInt32)val
 {
 	char buf[128]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",si\0",4);
 	val = htonl(val);
@@ -203,14 +203,14 @@
 
 -(IBAction)SetSpeaker:(id)sender
 {
-	printf("SetSpeaker %d\n",mSpeakerSegControl.selectedSegmentIndex);
+	NSLog(@"SetSpeaker %d\n",mSpeakerSegControl.selectedSegmentIndex);
 
 	[self SendOSCMsgWithIntValue:"/minc/speak\0":12:mSpeakerSegControl.selectedSegmentIndex];
 }
 
 -(IBAction)SetInstrument:(id)sender
 {
-	printf("SetInstrument %d\n",mInstrSegControl.selectedSegmentIndex);
+	NSLog(@"SetInstrument %d\n",mInstrSegControl.selectedSegmentIndex);
 
 	[self SendOSCMsgWithIntValue:"/minc/instr\0":12:mInstrSegControl.selectedSegmentIndex];
 }
@@ -342,9 +342,9 @@
 
 -(void)send_udp
 {
-	int sock;
+	SInt32 sock;
 	struct sockaddr_in sa;
-	int bytes_sent;
+	SInt32 bytes_sent;
 	
 	sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	if (-1 == sock) /* if socket failed to initialize, exit */
@@ -367,7 +367,7 @@
 
 - (void)receive_udp
 {
-	int sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
+	SInt32 sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	struct sockaddr_in sa; 
 	socklen_t fromlen;
 	
@@ -396,11 +396,11 @@
 
 - (void)parse_osc
 {
-	printf("mInBufferLength: %ld\n",mInBufferLength);
+	NSLog(@"mInBufferLength: %ld\n",mInBufferLength);
 
 	ssize_t pos = 0;
-	int msg_type = 0;
-	int add_type = 0;
+	SInt32 msg_type = 0;
+	SInt32 add_type = 0;
 	while (pos < mInBufferLength)
 	{
 		switch (msg_type)
@@ -423,10 +423,10 @@
 						break;
 					case 2:
 					{
-						int int_val;
+						SInt32 int_val;
 						memcpy(&int_val,mInBuffer+pos,4);
 						int_val = htonl(int_val);
-						printf("mod number %d\n",int_val);
+						NSLog(@"mod number %ld\n",int_val);
 						[mAQP SetSequence:int_val];
 						mNewMod = YES;
 						break;
@@ -436,7 +436,7 @@
 						mServerIPAddString = [[NSString alloc] initWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
 //						char buf[32];
 //						strcpy(buf,mInBuffer+pos);
-//						printf("server heartbeat IP address %s\n",buf);
+//						NSLog(@"server heartbeat IP address %s\n",buf);
 					}
 				}
 				break;
@@ -453,7 +453,7 @@
 			default: msg_type_str = "OSC Data"; break;
 		}
 
-		printf("%s: %s\n",msg_type_str,mInBuffer+pos);
+		NSLog(@"%s: %s\n",msg_type_str,mInBuffer+pos);
 
 		pos += ((strlen(mInBuffer+pos) / 4) + 1) * 4;
 	}
@@ -464,7 +464,7 @@
 	NSString *address = @"0.0.0.0";
 	struct ifaddrs *interfaces = NULL;
 	struct ifaddrs *temp_addr = NULL;
-	int success = 0;
+	SInt32 success = 0;
 	
 	// retrieve the current interfaces - returns 0 on success
 	success = getifaddrs(&interfaces);
@@ -503,7 +503,7 @@
 	}
 	else
 	{
-		int i = 0;
+		SInt32 i = 0;
 		UInt32 ip_add = 0;
 		for (NSString* s in ip_add_array)
 		{
@@ -514,7 +514,7 @@
 		}
 		mSendIPAddress = ip_add;
 		[self writeDataFile];
-		printf("IPAddressChanged to %08lx\n",mSendIPAddress);
+		NSLog(@"IPAddressChanged to %08lx\n",mSendIPAddress);
 	}
 	
 }
@@ -528,7 +528,7 @@
 	
 	mSendPortNum = [str intValue];
 	[self writeDataFile];
-	printf("PortNumChanged to %d\n",mSendPortNum);
+	NSLog(@"PortNumChanged to %d\n",mSendPortNum);
 }
 
 -(void)checkIncomingMessages
