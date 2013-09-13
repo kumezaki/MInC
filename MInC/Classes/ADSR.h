@@ -12,34 +12,32 @@ typedef enum { kADSR_Off, kADSR_A, kADSR_D, kADSR_S, kADSR_R } ADSR_State;
 
 @interface ADSR : NSObject {
 	
-	ADSR_State	mState;
+	ADSR_State	State;
 
-	Float64	mSR;
+	Float64	NumSamples_A;
+	Float64	NumSamples_D;
+	Float64	NumSamples_R;
 	
-	Float64	mNumSamples_A;
-	Float64	mNumSamples_D;
-	Float64	mNumSamples_R;
+	Float64	Delta_A;
+	Float64	Delta_D;
+	Float64	Delta_R;
 	
-	Float64	mDelta_A;
-	Float64	mDelta_D;
-	Float64	mDelta_R;
-	
-	Float64	mLevel_S;
+	Float64	Level_S;
 
-	SInt32	mSampleCount;
+	SInt32	SampleCount;
 
-	Float64	mVal;
+	Float64	NowVal;
 
 @public
 }
 
 -(id)initWithADSR:(Float64)SR a:(Float64)a d:(Float64)d s:(Float64)s r:(Float64)r;
 
--(void)On;
--(void)Off;
+-(void)on;
+-(void)off;
 
--(BOOL)IsOn;
+-(BOOL)isOn;
 
--(Float64)Get;
+-(Float64)getNowVal;
 
 @end

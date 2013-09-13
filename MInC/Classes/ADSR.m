@@ -13,60 +13,58 @@
 
 -(id)initWithADSR:(Float64)SR a:(Float64)a d:(Float64)d s:(Float64)s r:(Float64)r
 {
-	mState = kADSR_Off;
+	State = kADSR_Off;
 	
-	mSR = SR;
+	NumSamples_A = a == 0. ? 1 : a * SR;
+	NumSamples_D = d == 0. ? 1 : d * SR;
+	NumSamples_R = r == 0. ? 1 : r * SR;
 	
-	mNumSamples_A = a == 0. ? 1 : a * mSR;
-	mNumSamples_D = d == 0. ? 1 : d * mSR;
-	mNumSamples_R = r == 0. ? 1 : r * mSR;
+	Delta_A = (1.0 - 0.0) / NumSamples_A;
+	Delta_D = (s - 1.0) / NumSamples_D;
+	Delta_R = (0.0 - s) / NumSamples_R;
 	
-	mDelta_A = (1.0 - 0.0) / mNumSamples_A;
-	mDelta_D = (s - 1.0) / mNumSamples_D;
-	mDelta_R = (0.0 - s) / mNumSamples_R;
-	
-	mLevel_S = s;
+	Level_S = s;
 
-	mSampleCount = 0;
+	SampleCount = 0;
 	
-	mVal = 0.;
+	NowVal = 0.;
 	
 	return self;
 }
 
--(void)On
+-(void)on
 {
-	mState = kADSR_A;
-	mSampleCount = 0;
-	mVal = 0.;
+	State = kADSR_A;
+	SampleCount = 0;
+	NowVal = 0.;
 }
 
--(void)Off
+-(void)off
 {
-	mState = kADSR_R;
-	mSampleCount = 0;
+	State = kADSR_R;
+	SampleCount = 0;
 }
 
--(BOOL)IsOn
+-(BOOL)isOn
 {
-	return mState != kADSR_Off;
+	return State != kADSR_Off;
 }
 
--(Float64)Get
+-(Float64)getNowVal
 {
 
-#define ADR_UPDATE(delta,num_samples,next_state) mVal += delta; if (++mSampleCount >= num_samples) { mState = next_state; mSampleCount = 0; }
+#define ADR_UPDATE(delta,num_samples,next_state) NowVal += delta; if (++SampleCount >= num_samples) { State = next_state; SampleCount = 0; }
 
-	switch (mState)
+	switch (State)
 	{
-		case kADSR_A: ADR_UPDATE(mDelta_A,mNumSamples_A,kADSR_D) break;
-		case kADSR_D: ADR_UPDATE(mDelta_D,mNumSamples_D,kADSR_S) break;
-		case kADSR_S: mVal = mLevel_S; break;
-		case kADSR_R: ADR_UPDATE(mDelta_R,mNumSamples_R,kADSR_Off) break;
+		case kADSR_A: ADR_UPDATE(Delta_A,NumSamples_A,kADSR_D) break;
+		case kADSR_D: ADR_UPDATE(Delta_D,NumSamples_D,kADSR_S) break;
+		case kADSR_S: NowVal = Level_S; break;
+		case kADSR_R: ADR_UPDATE(Delta_R,NumSamples_R,kADSR_Off) break;
 		default: return 0.;
 	}
 	
-	return mVal > 1. ? 1. : mVal < 0. ? 0. : mVal;
+	return NowVal > 1. ? 1. : NowVal < 0. ? 0. : NowVal;
 }
 
 @end
