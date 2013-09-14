@@ -170,7 +170,7 @@ extern AQPlayer *gAQP;
 	dur = dur > 1.0 ? 1.0 : dur < 0.0 ? 0.0 : dur;
 	NSLog(@"Dur: %f\n",dur);
 
-	Sequencer* q = gAQP->mSequencer_Pri;
+	Sequencer* q = gAQP->Sequencer_Pri;
 	if (q != nil)
 	{
 		q->mAmpMultiplier = amp;

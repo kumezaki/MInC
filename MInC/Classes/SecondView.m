@@ -54,14 +54,14 @@ extern AQPlayer *gAQP;
 {
 	Float64 sense = [mTempoSenseSlider value];
 	NSLog(@"SetTempoSensitivity %f\n",sense);
-	gAQP->mSequencer_Pri->mTempoSensitivity = sense * sense;
+	gAQP->Sequencer_Pri->mTempoSensitivity = sense * sense;
 }
 
 -(IBAction)SetPulseVolume:(id)sender
 {
 	Float64 amp = [mPulseVolSlider value];
 	NSLog(@"SetPulseVolume %f\n",amp);
-	gAQP->mSequencer_Sec->mAmpMultiplier = amp * amp;
+	gAQP->Sequencer_Sec->mAmpMultiplier = amp * amp;
 }
 
 -(IBAction)IPAddressChanged:(id)sender
@@ -105,25 +105,25 @@ extern AQPlayer *gAQP;
 -(IBAction)PulseToggle:(id)sender;
 {
 	if (mPulseSwitch.on)
-		[gAQP->mSequencer_Sec Start];
+		[gAQP->Sequencer_Sec Start];
 	else
-		[gAQP->mSequencer_Sec Stop];
+		[gAQP->Sequencer_Sec Stop];
 }
 
 -(IBAction)ChangePiece:(id)sender;
 {
-	gAQP->mPiece = mPieceSwitch.selectedSegmentIndex + 1;
-	if(gAQP->mPiece == 2)
+	gAQP->Piece = mPieceSwitch.selectedSegmentIndex + 1;
+	if(gAQP->Piece == 2)
 	{
-		gAQP->mPart= mPartSwitch.selectedSegmentIndex + 1;
-		if (gAQP->mPart > 2)
-			gAQP->mPart = 2;
+		gAQP->Part= mPartSwitch.selectedSegmentIndex + 1;
+		if (gAQP->Part > 2)
+			gAQP->Part = 2;
 	}
-	if(gAQP->mPiece == 3)
+	if(gAQP->Piece == 3)
 	{
-		gAQP->mPart = mPartSwitch.selectedSegmentIndex + 1;
+		gAQP->Part = mPartSwitch.selectedSegmentIndex + 1;
 	}
-	[gAQP ParseFile];
+	[gAQP parseFile];
 	
 	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
 	[appDelegate CreateImageArray];

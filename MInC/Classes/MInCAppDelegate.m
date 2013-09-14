@@ -196,7 +196,7 @@
 		[self SendOSCMsg:"/minc/mod\0\0\0":12];
 	else
 	{
-		[mAQP SetSequence:(++mAQP->mSeqNum)];
+		[mAQP setSequence:(++mAQP->SeqNum)];
 		mNewMod = YES;
 	}
 }
@@ -277,7 +277,7 @@
 
 -(IBAction)SetNoteDuration:(id)sender
 {
-	Sequencer* q = mAQP->mSequencer_Pri;
+	Sequencer* q = mAQP->Sequencer_Pri;
 	if (q != nil)
 		q->mDurMultiplier = [mNoteDurationSlider value];
 
@@ -327,13 +327,13 @@
 	
 	// if z is 0 to 0.6 then it is right side up, otherwise it is flipped -> should drop out 
 	
-	if (z>0.6) mAQP->mSequencer_Pri->mAmpMultiplier = 0.;
-	else mAQP->mSequencer_Pri->mAmpMultiplier = 0.5;
+	if (z>0.6) mAQP->Sequencer_Pri->mAmpMultiplier = 0.;
+	else mAQP->Sequencer_Pri->mAmpMultiplier = 0.5;
 
-	x *= mAQP->mSequencer_Pri->mTempoSensitivity;
+	x *= mAQP->Sequencer_Pri->mTempoSensitivity;
 	x = 1.0 - x;
 	x *= 2.;
-	[mAQP->mSequencer_Pri SetTempo:x];
+	[mAQP->Sequencer_Pri SetTempo:x];
 
 #if 0
 	NSLog(<#NSString *format, ...#>)(@"%f\n",x);
@@ -427,7 +427,7 @@
 						memcpy(&int_val,mInBuffer+pos,4);
 						int_val = htonl(int_val);
 						NSLog(@"mod number %ld\n",int_val);
-						[mAQP SetSequence:int_val];
+						[mAQP setSequence:int_val];
 						mNewMod = YES;
 						break;
 					}
@@ -542,8 +542,8 @@
 	
 	if (mNewMod == YES)
 	{
-		if (mAQP->mSeqNum >= 0 && mAQP->mSeqNum <= mAQP->mNumSequences)
-			mNotationView.image = [mImageArray objectAtIndex:mAQP->mSeqNum-1];
+		if (mAQP->SeqNum >= 0 && mAQP->SeqNum <= mAQP->NumSequences)
+			mNotationView.image = [mImageArray objectAtIndex:mAQP->SeqNum-1];
 		mNewMod = NO;
 	}
 
@@ -599,7 +599,7 @@
 
 -(void) CreateImageArray
 {
-	if (mAQP->mPiece == 1)
+	if (mAQP->Piece == 1)
 	{
 		UIImage *image = [UIImage imageNamed:@"InCCover.jpg"];
 		[mNotationView setImage:image];
@@ -660,7 +660,7 @@
 					   nil
 					   ];
 	}
-	else if (mAQP->mPiece == 2) {
+	else if (mAQP->Piece == 2) {
 		UIImage *image = [UIImage imageNamed:@"PPCover.jpg"];
 		[mNotationView setImage:image];
 		mImageArray = [[NSArray alloc] initWithObjects:
@@ -699,7 +699,7 @@
 					   nil
 					   ];
 	}
-	else if (mAQP->mPiece == 3) {
+	else if (mAQP->Piece == 3) {
 		UIImage *image = [UIImage imageNamed:@"TrafficCover.jpg"];
 		[mNotationView setImage:image];
 		mImageArray = [[NSArray alloc] initWithObjects:

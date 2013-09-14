@@ -169,11 +169,11 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		211AB3C611B8098D00B41C09 /* ADSR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADSR.h; sourceTree = "<group>"; };
 		211AB3C711B8098D00B41C09 /* ADSR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADSR.m; sourceTree = "<group>"; };
-		211AB3C811B8098D00B41C09 /* AQPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQPlayer.h; sourceTree = "<group>"; };
+		211AB3C811B8098D00B41C09 /* AQPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AQPlayer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		211AB3C911B8098D00B41C09 /* AQPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AQPlayer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		211AB3CA11B8098D00B41C09 /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
-		211AB3CB11B8098D00B41C09 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
-		211AB3CC11B8098D00B41C09 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		211AB3CB11B8098D00B41C09 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Note.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		211AB3CC11B8098D00B41C09 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = Note.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		211AB3CD11B8098D00B41C09 /* Sequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequence.h; sourceTree = "<group>"; };
 		211AB3CE11B8098D00B41C09 /* Sequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sequence.m; sourceTree = "<group>"; };
 		211AB3CF11B8098D00B41C09 /* Sequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequencer.h; sourceTree = "<group>"; };
@@ -235,8 +235,8 @@
 		21C1B96C12C7F01700A87A86 /* InC12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InC12.jpg; path = Images/InC12.jpg; sourceTree = "<group>"; };
 		21C1B96D12C7F01700A87A86 /* InC13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InC13.jpg; path = Images/InC13.jpg; sourceTree = "<group>"; };
 		21C1B97112C7F02800A87A86 /* InC08.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InC08.jpg; path = Images/InC08.jpg; sourceTree = "<group>"; };
-		21C208EA12BBA90B0030FDA0 /* Envelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Envelope.h; sourceTree = "<group>"; };
-		21C208EB12BBA90B0030FDA0 /* Envelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Envelope.m; sourceTree = "<group>"; };
+		21C208EA12BBA90B0030FDA0 /* Envelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Envelope.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		21C208EB12BBA90B0030FDA0 /* Envelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = Envelope.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		21CF68BE14E33C2C001DB533 /* InC.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InC.xml; sourceTree = "<group>"; };
 		21D9F8CB11DA45E600D2C266 /* InCCover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InCCover.jpg; path = Images/InCCover.jpg; sourceTree = "<group>"; };
 		21D9F8CC11DA45E600D2C266 /* InC04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InC04.jpg; path = Images/InC04.jpg; sourceTree = "<group>"; };

@@ -17,35 +17,39 @@
 
 @interface AQPlayer : NSObject {
 
-	AudioQueueRef				mQueue;
-	AudioQueueBufferRef			mBuffers[kNumberBuffers];
-	AudioStreamBasicDescription	mDataFormat;
+	AudioQueueRef				Queue;
+	AudioQueueBufferRef			Buffers[kNumberBuffers];
+	AudioStreamBasicDescription	DataFormat;
 	
+	Sequence	*Sequences[53];
+
 @public
 
-	Float64		mSR;
+	Float64		SR;
 	
-	Sequencer	*mSequencer_Pri;
-	Sequencer	*mSequencer_Sec;
+	Sequencer	*Sequencer_Pri;
+	Sequencer	*Sequencer_Sec;
 
-	SInt32			mSeqNum;
-	Sequence	*mSequences[53];
+	SInt32		SeqNum;
 	
-	SInt32			mPiece;
-	SInt32			mPart;
-	SInt32			mNumSequences;
-	BOOL		mRit;
+	SInt32		Piece;
+	SInt32		Part;
+	SInt32		NumSequences;
+
+    // not sure if the following is needed
+	BOOL		Rit;
 }
 
--(void)	New;
+-(void)	setup;
 
--(OSStatus)	Start;
--(OSStatus)	Stop;
+-(OSStatus)	start;
+-(OSStatus)	stop;
 
--(void) SetSequence:(SInt32)seq_num;
+-(void) setSequence:(SInt32)seq_num;
 
--(void) ParseFile;
+-(void) parseFile;
 
--(NSString*) GetModString;
+// not sure if the following is needed
+-(NSString*) getModString;
 
 @end
