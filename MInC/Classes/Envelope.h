@@ -10,11 +10,11 @@
 
 @interface Envelope : NSObject {
 
-	Float64 mSR;
-	Float64 mRampTime;
+	Float64 SR;
+	Float64 RampTime;
 	
-	Float64 mAmp;
-	Float64 mDelta;
+	Float64 Amp;
+	Float64 Delta;
 
 }
 

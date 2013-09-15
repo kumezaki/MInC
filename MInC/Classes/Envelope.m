@@ -12,30 +12,30 @@
 
 -(id)init
 {
-	mSR = 22050;
-	mAmp = 0.;
-	mDelta = 0.;
-	mRampTime = mSR * 0.05;
+	SR = 22050;
+	Amp = 0.;
+	Delta = 0.;
+	RampTime = SR * 0.05;
 	return self;
 }
 
 -(void)on
 {
-	mDelta = 1. / mRampTime;
+	Delta = 1. / RampTime;
 }
 
 -(void)off
 {
-	mDelta = -1. / mRampTime;
+	Delta = -1. / RampTime;
 }
 
 -(Float64)get
 {
-	mAmp += mDelta;
+	Amp += Delta;
 	
-	if (mAmp >= 1.0) { mAmp = 1.; mDelta = 0.; }
-	else if (mAmp <= 0.0) { mAmp = 0.; mDelta = 0.; }
-	return mAmp;
+	if (Amp >= 1.0) { Amp = 1.; Delta = 0.; }
+	else if (Amp <= 0.0) { Amp = 0.; Delta = 0.; }
+	return Amp;
 }
 
 @end
