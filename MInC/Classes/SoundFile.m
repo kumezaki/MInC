@@ -63,7 +63,7 @@
 
 -(Float64)	GetDuration
 {
-	return mDuration;
+	return Duration;
 }
 
 -(void)		SetDuration:(Float64)duration

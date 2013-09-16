@@ -10,32 +10,33 @@
 
 
 @implementation Note
-@synthesize mAmp;
-@synthesize mFreq;
+@synthesize Duration;
+@synthesize Amp;
+@synthesize Freq;
 
 -(id)init
 {
 	[super init];
 
-	mDuration = 0.;
+	self.Duration = 0.;
 	
-	mWaveTable = nil;
+	WaveTable = nil;
 
-	mEnv = nil;
+	Env = nil;
 	
-	mSR = 22050;
-	mFreq = 0.0;
-	mAmp = 1.0;
+	SR = 22050;
+	Freq = 0.0;
+	Amp = 1.0;
 
-	mSamplesPlayed = 0;
-	mNumPlaySamples = 0;
+	SamplesPlayed = 0;
+	NumPlaySamples = 0;
 	
 	return self;
 }
 
 -(void)dealloc
 {
-	[mEnv release];
+	[Env release];
 
 	[super dealloc];
 }
@@ -45,56 +46,41 @@
 	return 440. * pow(2., (midi_note - 69) / 12.);
 }
 
--(void)	On:(WaveFormTable*)wavetable :(Envelope*)env;
+-(void)	on:(WaveFormTable*)wavetable :(Envelope*)env;
 {
-	mWaveTable = wavetable;
-	mEnv = env;
+	WaveTable = wavetable;
+
+	Env = env;
 	
-	mSamplesPlayed = 0;
+	SamplesPlayed = 0;
 	
-	
-	[mEnv on];
+	[Env on];
 }
 
--(void) Off
+-(void) off
 {
-	[mEnv off];
+	[Env off];
 }
 
--(Float64) AddSamples:(Float64*)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta
+-(Float64) addSamples:(Float64*)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta
 {
-	if (mFreq == 0.) return theta;
+	if (Freq == 0.) return theta;
 	
-	Float64 delta_theta = mFreq / mSR;
+	Float64 delta_theta = Freq / SR;
 	for (SInt32 i = 0; i < num_frames; i++)
 	{
-		buffer[i] += scale * mAmp * [mWaveTable Get:theta] * [mEnv get];
+		buffer[i] += scale * Amp * [WaveTable Get:theta] * [Env get];
 		theta += delta_theta;
 		
-		if (++mSamplesPlayed >= mNumPlaySamples) [self Off];
+		if (++SamplesPlayed >= NumPlaySamples) [self off];
 	}
 	
 	return theta;
 }
 
--(Float64) GetDuration
+-(void)	setPercentOn:(Float64)percent
 {
-	return mDuration;
-}
-	
--(void) SetDuration:(Float64)duration
-{
-	mDuration = duration;
-}
-
--(void)	SetPercentOn:(Float64)percent
-{
-	mNumPlaySamples = mDuration * mSR * percent;
-}
-
--(void) SetFrequency:(Float64)freq
-{
-    mFreq = freq;
+	NumPlaySamples = Duration * SR * percent;
 }
 
 @end

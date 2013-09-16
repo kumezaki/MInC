@@ -17,7 +17,7 @@
 
 	AudioFileID		mFileID;
 
-	Float64			mDuration;
+	Float64			Duration;
 	
 	ADSR			*mADSR;
 	

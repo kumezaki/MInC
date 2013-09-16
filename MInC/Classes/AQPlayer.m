@@ -41,8 +41,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	if ((note_pri != nil) || (note_sec != nil))
 	{
-		seqr_pri->mTheta = [note_pri AddSamples:buffer:numFrames:seqr_pri->mAmpMultiplier:seqr_pri->mTheta];
-		seqr_sec->mTheta = [note_sec AddSamples:buffer:numFrames:seqr_sec->mAmpMultiplier:seqr_sec->mTheta];
+		seqr_pri->mTheta = [note_pri addSamples:buffer:numFrames:seqr_pri->mAmpMultiplier:seqr_pri->mTheta];
+		seqr_sec->mTheta = [note_sec addSamples:buffer:numFrames:seqr_sec->mAmpMultiplier:seqr_sec->mTheta];
 	}
 	
 	Float64 max = 0.;

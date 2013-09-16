@@ -21,7 +21,7 @@
 
 -(void) SetFrequency:(Float64)freq
 {
-    [super SetFrequency:freq];
+    super.Freq = freq;
     
     a_ = m_ / p_;
     C2_ = 1. / p_;
@@ -37,7 +37,7 @@
         
         // quick fix to make sure that the frequency is audible before
         // calculating the sample values
-        if (mFreq > 20) {
+        if (Freq > 20) {
             Float64 denominator = sin( phase_ );
             
             if ( fabs(denominator) <= 1e-12 ) {
@@ -51,7 +51,7 @@
             s += state_ - C2_;
             state_ = s * 0.995;
             
-            buffer[i] += scale * mAmp * [mEnv get] * s;
+            buffer[i] += scale * Amp * [Env get] * s;
             
             phase_ += rate_;
             if ( phase_ >= M_PI ) phase_ -= M_PI;
@@ -60,7 +60,7 @@
             buffer[i] = 0;
         }
         
-        if (++mSamplesPlayed >= mNumPlaySamples) [self Off];
+        if (++SamplesPlayed >= NumPlaySamples) [self off];
     }
     
     return phase_;
@@ -91,7 +91,7 @@
         // update the envelope by one sample
         //[mEnv update:1];
         
-        buffer[i] += mAmp * [mEnv get] * s;
+        buffer[i] += Amp * [mEnv get] * s;
 
         phase_ += rate_;
         if ( phase_ >= M_PI ) phase_ -= M_PI;

@@ -30,7 +30,7 @@
 	
 	Float64	mTempoSensitivity;
 	
-	WaveFormTable	*mWaveTable;
+	WaveFormTable	*WaveTable;
 	Float64			mTheta;
 
 	Envelope		*mEnv;

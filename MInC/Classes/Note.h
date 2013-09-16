@@ -13,36 +13,33 @@
 
 @interface Note : NSObject {
 
-	Float64 mDuration;
+	Float64         Duration;
 
-	WaveFormTable	*mWaveTable;
-	Envelope		*mEnv;
+	Float64         Freq;
+	Float64         Amp;
+    
+	WaveFormTable	*WaveTable;
+	Envelope		*Env;
 
 @public
-	Float64 mSR;
 
-	Float64 mFreq;
-	Float64 mAmp;
+	Float64 SR;
 
-	SInt32 mSamplesPlayed;
-	SInt32 mNumPlaySamples;
+	SInt32 SamplesPlayed;
+	SInt32 NumPlaySamples;
 }
 
-@property (readwrite, nonatomic) Float64 mFreq;
-@property (readwrite, nonatomic) Float64 mAmp;
+@property (readwrite, nonatomic) Float64 Duration;
+@property (readwrite, nonatomic) Float64 Freq;
+@property (readwrite, nonatomic) Float64 Amp;
 
 +(Float64) mtof:(Float64)midi_note;
 
--(void)	On:(WaveFormTable*)wavetable :(Envelope*)env;
--(void) Off;
+-(void)	on:(WaveFormTable*)wavetable :(Envelope*)env;
+-(void) off;
 
--(Float64) AddSamples:(Float64*)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta;
+-(Float64) addSamples:(Float64*)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta;
 
--(Float64)	GetDuration;
--(void)		SetDuration:(Float64)duration;
-
--(void)		SetPercentOn:(Float64)percent;
-
--(void)     SetFrequency:(Float64)freq;
+-(void) setPercentOn:(Float64)percent;
 
 @end

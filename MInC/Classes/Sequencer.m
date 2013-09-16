@@ -24,7 +24,7 @@
 	
 	mTempoSensitivity = 0.5;
 
-	mWaveTable = [WaveFormTable new];
+	WaveTable = [WaveFormTable new];
 	mTheta = 0.;
 	
 	mEnv = [[Envelope alloc] init];
@@ -38,7 +38,7 @@
 
 - (void) dealloc
 {
- 	[mWaveTable release];
+ 	[WaveTable release];
 	[mNoteSet release];
 
 	[super dealloc];
@@ -106,11 +106,11 @@
 
 		/* get the new note */
 		Note* note = [mSeq_Cur GetNote];
-		[note SetPercentOn:mDurMultiplier];
-		[note On:mWaveTable:mEnv];
+		[note setPercentOn:mDurMultiplier];
+		[note on:WaveTable:mEnv];
 
 		/* recompute the next event time */
-		mNextEventTime += [note GetDuration];
+		mNextEventTime += note.Duration;
 		
 		if (mSeq_Cur != nil)
 		{

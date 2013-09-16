@@ -40,8 +40,8 @@
 	mNumNotes = num_notes;
 	for (SInt32 i = 0; i < mNumNotes; i++)
 	{
-		[mNotes[i] SetFrequency:[Note mtof:notes[i]]];
-		[mNotes[i] SetDuration:durations[i]];
+		mNotes[i].Freq = [Note mtof:notes[i]];
+		mNotes[i].Duration = durations[i];
 	}
 }
 
