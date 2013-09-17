@@ -69,7 +69,7 @@
 	Float64 delta_theta = Freq / SR;
 	for (SInt32 i = 0; i < num_frames; i++)
 	{
-		buffer[i] += scale * Amp * [WaveTable Get:theta] * [Env get];
+		buffer[i] += scale * Amp * [WaveTable get:theta] * [Env get];
 		theta += delta_theta;
 		
 		if (++SamplesPlayed >= NumPlaySamples) [self off];

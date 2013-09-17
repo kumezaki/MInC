@@ -14,18 +14,20 @@
 
 @interface Sequence : NSObject {
 
-	Note *mNotes[kMaxNumNotes];
+	Note    *Notes[kMaxNumNotes];
 	
-	SInt32 mPos;
-	SInt32 mNumNotes;
+	SInt32  Pos;
+	SInt32  NumNotes;
+
 @public
-	BOOL mRit;
+
+	BOOL Rit;
 }
 
--(void)AssignNotes:(SInt32)num_notes :(Float64*)notes :(Float64*)durations;
+-(void)assignNotes:(SInt32)num_notes :(Float64*)notes :(Float64*)durations;
 
--(Note*)GetNote;
+-(Note*)getNote;
 
--(void)AdvancePos;
+-(void)advancePos;
 
 @end

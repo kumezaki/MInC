@@ -48,7 +48,7 @@
 
 -(void)Update:(Float64)elapsed_time;
 
--(Note*)GetNote;
+-(Note*)getNote;
 
 -(void)SetNextSequence:(Sequence*)seq;
 

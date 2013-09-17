@@ -21,9 +21,9 @@ extern AQPlayer *gAQP;
 
 	for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++)
 	{
-		mX[i] = (0.5 + (i==0?-0.25:+0.25)) * self.bounds.size.width;
-		mY[i] = (0.5 + (i==0?-0.25:+0.25)) * self.bounds.size.height;
-		mTouch[i] = nil;
+		X[i] = (0.5 + (i==0?-0.25:+0.25)) * self.bounds.size.width;
+		Y[i] = (0.5 + (i==0?-0.25:+0.25)) * self.bounds.size.height;
+		Touch[i] = nil;
 	}
 }
 
@@ -41,21 +41,21 @@ extern AQPlayer *gAQP;
 	[rectColor set];
 
 #if 0
-	UIRectFill(CGRectMake(mX[0]-5., mY[0]-5., 10.0, 10.0));
-	UIRectFill(CGRectMake(mX[1]-5., mY[1]-5., 10.0, 10.0));
+	UIRectFill(CGRectMake(X[0]-5., Y[0]-5., 10.0, 10.0));
+	UIRectFill(CGRectMake(X[1]-5., Y[1]-5., 10.0, 10.0));
 #else
 #if 0
-	Float64 x = mX[0] < mX[1] ? mX[0] : mX[1];
-	Float64 y = mY[0] < mY[1] ? mY[0] : mY[1];
-	Float64 w = fabs(mX[0] - mX[1]);
-	Float64 h = fabs(mY[0] - mY[1]);
+	Float64 x = X[0] < X[1] ? X[0] : X[1];
+	Float64 y = Y[0] < Y[1] ? Y[0] : Y[1];
+	Float64 w = fabs(X[0] - X[1]);
+	Float64 h = fabs(Y[0] - Y[1]);
 	UIRectFill(CGRectMake(x,y,w,h));
 #else
-	Float64 w = fabs(mX[0] - mX[1]);
-	Float64 h = fabs(mY[0] - mY[1]);
+	Float64 w = fabs(X[0] - X[1]);
+	Float64 h = fabs(Y[0] - Y[1]);
 	w = h = w > h ? w : h;
-	Float64 x = ((mX[0] + mX[1]) / 2.) - w / 2;
-	Float64 y = ((mY[0] + mY[1]) / 2.) - h / 2;
+	Float64 x = ((X[0] + X[1]) / 2.) - w / 2;
+	Float64 y = ((Y[0] + Y[1]) / 2.) - h / 2;
 	
 	CGContextRef contextRef = UIGraphicsGetCurrentContext();
 	CGContextFillEllipseInRect(contextRef, CGRectMake(x,y,w,h));
@@ -76,15 +76,15 @@ extern AQPlayer *gAQP;
 	for (UITouch* t in touches)
 	{
 		for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++)
-			if (mTouch[i] == nil) TOUCH_ASSIGN(mTouch[i],t)
+			if (Touch[i] == nil) TOUCH_ASSIGN(Touch[i],t)
 	}
-	[self ProcessTouch:touches];
+	[self processTouch:touches];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	NSLog(@"touchesMoved count:%d\n",touches.count);
-	[self ProcessTouch:touches];
+	[self processTouch:touches];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -93,9 +93,9 @@ extern AQPlayer *gAQP;
 	for (UITouch* t in touches)
 	{
 		for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++)
-			if (mTouch[i] == t) TOUCH_ASSIGN(mTouch[i],nil)
+			if (Touch[i] == t) TOUCH_ASSIGN(Touch[i],nil)
 	}
-	[self ProcessTouch:touches];
+	[self processTouch:touches];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
@@ -103,23 +103,23 @@ extern AQPlayer *gAQP;
 	NSLog(@"touchesCancelled\n");
 }
 
--(void)ProcessTouch:(NSSet *)touches
+-(void)processTouch:(NSSet *)touches
 {
 #if 0
 	NSLog(@"UIView size: %f %f\n",self.bounds.size.width,self.bounds.size.height);
 #endif
 	
-	[self UpdateCoordinates:0:1];
-	[self UpdateCoordinates:1:0];
+	[self updateCoordinates:0:1];
+	[self updateCoordinates:1:0];
 
 #if 0
 	for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++)
-		NSLog(@"mTouch[%d] (%f,%f)\n",i,mX[i],mY[i]);
+		NSLog(@"Touch[%d] (%f,%f)\n",i,X[i],Y[i]);
 #endif
 
-	Float64 x = mX[0]/self.bounds.size.width;
-	Float64 y = 1. - (mY[0]/self.bounds.size.height);
-	Float64 z = DIAGONAL(mX[1]-mX[0],mY[1]-mY[0]) / DIAGONAL(self.bounds.size.width,self.bounds.size.height);
+	Float64 x = X[0]/self.bounds.size.width;
+	Float64 y = 1. - (Y[0]/self.bounds.size.height);
+	Float64 z = DIAGONAL(X[1]-X[0],Y[1]-Y[0]) / DIAGONAL(self.bounds.size.width,self.bounds.size.height);
 
 	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
 
@@ -130,12 +130,12 @@ extern AQPlayer *gAQP;
 	[self setNeedsDisplay];
 }
 
--(void)UpdateCoordinates:(SInt32)a_index :(SInt32)b_index
+-(void)updateCoordinates:(SInt32)a_index :(SInt32)b_index
 {
-	if (mTouch[a_index] != nil)
+	if (Touch[a_index] != nil)
 	{
-		CGPoint pt = [mTouch[a_index] locationInView:self];
-		if (mTouch[b_index] == nil)
+		CGPoint pt = [Touch[a_index] locationInView:self];
+		if (Touch[b_index] == nil)
 		{
 			Float64 dif;
 			
@@ -143,13 +143,13 @@ extern AQPlayer *gAQP;
 	dif = pt_coord - (member_coord[0] + member_coord[1]) / 2.; \
 	for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++) member_coord[i] += dif;
 	
-			UPDATE_COORD(mX,pt.x)
-			UPDATE_COORD(mY,pt.y)
+			UPDATE_COORD(X,pt.x)
+			UPDATE_COORD(Y,pt.y)
 		}
 		else
 		{
-			mX[a_index]=pt.x;
-			mY[a_index]=pt.y;
+			X[a_index]=pt.x;
+			Y[a_index]=pt.y;
 		}
 	}
 }

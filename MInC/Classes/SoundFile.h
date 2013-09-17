@@ -15,31 +15,32 @@
 
 @interface SoundFile : NSObject {
 
-	AudioFileID		mFileID;
+	AudioFileID		FileID;
 
 	Float64			Duration;
 	
-	ADSR			*mADSR;
+	ADSR			*ADSR;
 	
-	SInt16			mOutBuffer[kIOBufferSize];
+	SInt16			OutBuffer[kIOBufferSize];
 
 @public
-	bool mOn;
+
+	bool On;
 	
-	Float64 mSR;
+	Float64 SR;
 	
-	Float64 mSamplesPlayed;
-	SInt32 mNumPlaySamples;
+	Float64 SamplesPlayed;
+	SInt32 NumPlaySamples;
 }
 
--(void)	On:(ADSR*)adsr;
--(void) Off;
+-(void)	on:(ADSR*)adsr;
+-(void) off;
 
--(Float64) GetSample;
+-(Float64) getSample;
 
--(Float64)	GetDuration;
--(void)		SetDuration:(Float64)duration;
+-(Float64)	getDuration;
+-(void)		setDuration:(Float64)duration;
 
--(void)		SetPercentOn:(Float64)percent;
+-(void)		setPercentOn:(Float64)percent;
 
 @end

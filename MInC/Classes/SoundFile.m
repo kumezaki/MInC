@@ -17,7 +17,7 @@
 	CFURLRef mSoundFileURLRef = CFBundleCopyResourceURL(CFBundleGetMainBundle(),CFSTR("getout"),CFSTR("aif"),NULL);
 	
 	OSStatus result = noErr;
-	result = AudioFileOpenURL(mSoundFileURLRef,kAudioFileReadPermission,0,&mFileID);
+	result = AudioFileOpenURL(mSoundFileURLRef,kAudioFileReadPermission,0,&FileID);
 	NSLog(@"AudioFileOpenURL %ld\n",result);
 	
 	return self;
@@ -26,51 +26,51 @@
 -(void)dealloc
 {
 	OSStatus result = noErr;
-	result = AudioFileClose(mFileID);
+	result = AudioFileClose(FileID);
 	NSLog(@"AudioFileClose %ld\n",result);
 	
 	[super dealloc];
 }
 
--(void)	On:(ADSR*)adsr
+-(void)	on:(ADSR*)adsr
 {
 }
 
--(void) Off
+-(void) off
 {
 }
 
--(Float64) GetSample
+-(Float64) getSample
 {
-	if (((SInt32)mSamplesPlayed % kIOBufferSize) == 0)
+	if (((SInt32)SamplesPlayed % kIOBufferSize) == 0)
 	{
 		OSStatus result = noErr;
 		UInt32 outNumBytes = 0;
 		UInt32 ioNumPackets = kIOBufferSize;
-		SInt64 inStartingPacket = mSamplesPlayed;
-		result = AudioFileReadPackets(mFileID,NO,&outNumBytes,NULL,inStartingPacket,&ioNumPackets,mOutBuffer);
+		SInt64 inStartingPacket = SamplesPlayed;
+		result = AudioFileReadPackets(FileID,NO,&outNumBytes,NULL,inStartingPacket,&ioNumPackets,OutBuffer);
 #if 0
 		NSLog(@"AudioFileReadPackets %d %d\n",result,ioNumPackets);
 #endif
-		if (outNumBytes < kIOBufferSize) mSamplesPlayed = 0;
+		if (outNumBytes < kIOBufferSize) SamplesPlayed = 0;
 	}
-	SInt16 sample = CFSwapInt16BigToHost(mOutBuffer[((SInt32)mSamplesPlayed % kIOBufferSize)]);
+	SInt16 sample = CFSwapInt16BigToHost(OutBuffer[((SInt32)SamplesPlayed % kIOBufferSize)]);
 	
-	mSamplesPlayed += 2.5;
+	SamplesPlayed += 2.5;
 	
 	return (Float64)sample / (SInt16)0x7FFF;
 }
 
--(Float64)	GetDuration
+-(Float64)	getDuration
 {
 	return Duration;
 }
 
--(void)		SetDuration:(Float64)duration
+-(void)		setDuration:(Float64)duration
 {
 }
 
--(void)		SetPercentOn:(Float64)percent
+-(void)		setPercentOn:(Float64)percent
 {
 }
 

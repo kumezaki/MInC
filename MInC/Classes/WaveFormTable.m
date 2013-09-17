@@ -21,24 +21,24 @@
 		const Float64 t = (Float64)i / kWaveFormTableSize;
 
 #if 1
-		mTable[i] = sinf(t * 2 * M_PI);			/* sinusoid */
+		Table[i] = sinf(t * 2 * M_PI);			/* sinusoid */
 #elif 0
-		mTable[i] = 2 * (t - floor(t + 0.5));	/* sawtooth */
+		Table[i] = 2 * (t - floor(t + 0.5));	/* sawtooth */
 #elif 0
-		mTable[i] = SIGN(sinf(t * 2 * M_PI));	/* square */
+		Table[i] = SIGN(sinf(t * 2 * M_PI));	/* square */
 #endif
 	}
 
 	return self;
 }
 
--(Float64) Get:(Float64)index
+-(Float64) get:(Float64)index
 {	
 	SInt32 i0 = (SInt32)(index * kWaveFormTableSize + 0.5) % kWaveFormTableSize;
 	SInt32 i1 = (i0 + 1) % kWaveFormTableSize;
 	Float64 k = index - (SInt32)index;
-	Float64 s0 = mTable[i0];
-	Float64 s1 = mTable[i1];
+	Float64 s0 = Table[i0];
+	Float64 s1 = Table[i1];
 	return s0 + (s1 - s0) * k;
 }
 @end

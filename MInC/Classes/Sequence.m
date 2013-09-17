@@ -17,12 +17,12 @@
 	
 	for (SInt32 i = 0; i < kMaxNumNotes; i++)
 	{
-		mNotes[i] = [BLITSaw new];
+		Notes[i] = [BLITSaw new];
 	}
 	
-	mPos = -1;
-	mNumNotes = 0;
-	mRit = FALSE;
+	NumNotes = -1;
+	NumNotes = 0;
+	Rit = FALSE;
 	
 	return self;
 }
@@ -30,32 +30,32 @@
 -(void)dealloc
 {
 	for (SInt32 i = 0; i < kMaxNumNotes; i++)
-		[mNotes[i] release];
+		[Notes[i] release];
 	
 	[super dealloc];
 }
 
--(void)AssignNotes:(SInt32)num_notes :(Float64*)notes :(Float64*)durations
+-(void)assignNotes:(SInt32)num_notes :(Float64*)notes :(Float64*)durations
 {
-	mNumNotes = num_notes;
-	for (SInt32 i = 0; i < mNumNotes; i++)
+	NumNotes = num_notes;
+	for (SInt32 i = 0; i < NumNotes; i++)
 	{
-		mNotes[i].Freq = [Note mtof:notes[i]];
-		mNotes[i].Duration = durations[i];
+		Notes[i].Freq = [Note mtof:notes[i]];
+		Notes[i].Duration = durations[i];
 	}
 }
 
--(Note*)GetNote
+-(Note*)getNote
 {
-	if (mPos < 0) return nil;
+	if (NumNotes < 0) return nil;
 	
-	return mNotes[mPos];
+	return Notes[NumNotes];
 }
 
--(void)AdvancePos
+-(void)advancePos
 {
-	if (mNumNotes > 0)
-		mPos = ++mPos % mNumNotes;
+	if (NumNotes > 0)
+		NumNotes = ++NumNotes % NumNotes;
 }
 
 @end

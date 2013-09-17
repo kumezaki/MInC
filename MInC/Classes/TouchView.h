@@ -14,13 +14,13 @@
 
 @interface TouchView : UIView {
 
-	Float64	mX[MAX_NUM_TOUCHES];
-	Float64	mY[MAX_NUM_TOUCHES];
+	Float64     X[MAX_NUM_TOUCHES];
+	Float64     Y[MAX_NUM_TOUCHES];
 	
-	UITouch*	mTouch[MAX_NUM_TOUCHES];
+	UITouch*	Touch[MAX_NUM_TOUCHES];
 }
 
--(void)ProcessTouch:(NSSet *)touches;
--(void)UpdateCoordinates:(SInt32)a_index :(SInt32)b_index;
+-(void)processTouch:(NSSet *)touches;
+-(void)updateCoordinates:(SInt32)a_index :(SInt32)b_index;
 
 @end

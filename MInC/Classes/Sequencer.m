@@ -86,7 +86,7 @@
 	{
 		mSeq_Cur = mSeq_Next;
 		
-		/*if (mSeq_Cur->mRit) {
+		/*if (mSeq_Cur->Rit) {
 			[self MoltoRit];
 			NSLog(@"rit");
 		}
@@ -102,10 +102,10 @@
 	if (mCurTime >= mNextEventTime)
 	{
 		/* advance the sequencer postion */
-		[mSeq_Cur AdvancePos];
+		[mSeq_Cur advancePos];
 
 		/* get the new note */
-		Note* note = [mSeq_Cur GetNote];
+		Note* note = [mSeq_Cur getNote];
 		[note setPercentOn:mDurMultiplier];
 		[note on:WaveTable:mEnv];
 
@@ -114,7 +114,7 @@
 		
 		if (mSeq_Cur != nil)
 		{
-			if (mSeq_Cur->mRit) {
+			if (mSeq_Cur->Rit) {
 				[self MoltoRit];
 			}
 			else {
@@ -126,13 +126,13 @@
 	}
 }
 
--(Note*)GetNote;
+-(Note*)getNote;
 {
 	if (!mPlaying) return nil;
 
 	if (mSeq_Cur == nil) return nil;
 	
-	return [mSeq_Cur GetNote];
+	return [mSeq_Cur getNote];
 }
 
 -(void)SetNextSequence:(Sequence*)seq
