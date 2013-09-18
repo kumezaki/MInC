@@ -54,14 +54,14 @@ extern AQPlayer *gAQP;
 {
 	Float64 sense = [mTempoSenseSlider value];
 	NSLog(@"SetTempoSensitivity %f\n",sense);
-	gAQP->Sequencer_Pri->mTempoSensitivity = sense * sense;
+	gAQP->Sequencer_Pri->TempoSensitivity = sense * sense;
 }
 
 -(IBAction)SetPulseVolume:(id)sender
 {
 	Float64 amp = [mPulseVolSlider value];
 	NSLog(@"SetPulseVolume %f\n",amp);
-	gAQP->Sequencer_Sec->mAmpMultiplier = amp * amp;
+	gAQP->Sequencer_Sec->AmpMultiplier = amp * amp;
 }
 
 -(IBAction)IPAddressChanged:(id)sender
@@ -105,9 +105,9 @@ extern AQPlayer *gAQP;
 -(IBAction)PulseToggle:(id)sender;
 {
 	if (mPulseSwitch.on)
-		[gAQP->Sequencer_Sec Start];
+		[gAQP->Sequencer_Sec start];
 	else
-		[gAQP->Sequencer_Sec Stop];
+		[gAQP->Sequencer_Sec stop];
 }
 
 -(IBAction)ChangePiece:(id)sender;

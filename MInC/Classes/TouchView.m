@@ -173,8 +173,8 @@ extern AQPlayer *gAQP;
 	Sequencer* q = gAQP->Sequencer_Pri;
 	if (q != nil)
 	{
-		q->mAmpMultiplier = amp;
-		q->mDurMultiplier = dur;
+		q->AmpMultiplier = amp;
+		q->DurMultiplier = dur;
 	}
 #endif
 

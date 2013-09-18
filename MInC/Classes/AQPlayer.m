@@ -41,8 +41,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	if ((note_pri != nil) || (note_sec != nil))
 	{
-		seqr_pri->mTheta = [note_pri addSamples:buffer:numFrames:seqr_pri->mAmpMultiplier:seqr_pri->mTheta];
-		seqr_sec->mTheta = [note_sec addSamples:buffer:numFrames:seqr_sec->mAmpMultiplier:seqr_sec->mTheta];
+		seqr_pri->Theta = [note_pri addSamples:buffer:numFrames:seqr_pri->AmpMultiplier:seqr_pri->Theta];
+		seqr_sec->Theta = [note_sec addSamples:buffer:numFrames:seqr_sec->AmpMultiplier:seqr_sec->Theta];
 	}
 	
 	Float64 max = 0.;
@@ -54,8 +54,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 //	NSLog(@"%f\n",max);
 
 	Float64 elapsed_time = numFrames / aqp->SR;
-	[seqr_pri Update:elapsed_time];
-	[seqr_sec Update:elapsed_time];
+	[seqr_pri update:elapsed_time];
+	[seqr_sec update:elapsed_time];
 
 	inAQBuffer->mAudioDataByteSize = 512;
 	inAQBuffer->mPacketDescriptionCount = 0;
@@ -67,7 +67,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 - (void)dealloc {
 
-	[Sequencer_Pri Stop];
+	[Sequencer_Pri stop];
 	[self stop];
 	
 	for (SInt32 i = 0; i < NumSequences; i++)
@@ -159,14 +159,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     	
 #endif
     
-	Sequencer_Pri->mAmpMultiplier = 0.5;
-	Sequencer_Pri->mDurMultiplier = 0.5;
+	Sequencer_Pri->AmpMultiplier = 0.5;
+	Sequencer_Pri->DurMultiplier = 0.5;
 	
 	Sequencer_Sec = [Sequencer new];
-	Sequencer_Sec->mSeq_Cur = [Sequence new];
-	[Sequencer_Sec->mSeq_Cur assignNotes:num_notes_pulse:note_sequence_pulse:dur_sequence_pulse];
-	Sequencer_Sec->mAmpMultiplier = 0.5;
-	Sequencer_Sec->mDurMultiplier = 0.5;
+	Sequencer_Sec->Seq_Cur = [Sequence new];
+	[Sequencer_Sec->Seq_Cur assignNotes:num_notes_pulse:note_sequence_pulse:dur_sequence_pulse];
+	Sequencer_Sec->AmpMultiplier = 0.5;
+	Sequencer_Sec->DurMultiplier = 0.5;
 
 	SR = 22050;
 	
@@ -174,7 +174,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	[self start];
 
-	[Sequencer_Pri Start];
+	[Sequencer_Pri start];
 
 	return self;
 }
@@ -234,7 +234,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	if (seq_num >= 0 && seq_num <= NumSequences)
 	{
 		SeqNum = seq_num;
-		[Sequencer_Pri SetNextSequence:Sequences[SeqNum-1]];
+		[Sequencer_Pri setNextSequence:Sequences[SeqNum-1]];
 	}
 }
 

@@ -279,7 +279,7 @@
 {
 	Sequencer* q = mAQP->Sequencer_Pri;
 	if (q != nil)
-		q->mDurMultiplier = [mNoteDurationSlider value];
+		q->DurMultiplier = [mNoteDurationSlider value];
 
 	[self SendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([mNoteDurationSlider value])];
 }
@@ -327,13 +327,13 @@
 	
 	// if z is 0 to 0.6 then it is right side up, otherwise it is flipped -> should drop out 
 	
-	if (z>0.6) mAQP->Sequencer_Pri->mAmpMultiplier = 0.;
-	else mAQP->Sequencer_Pri->mAmpMultiplier = 0.5;
+	if (z>0.6) mAQP->Sequencer_Pri->AmpMultiplier = 0.;
+	else mAQP->Sequencer_Pri->AmpMultiplier = 0.5;
 
-	x *= mAQP->Sequencer_Pri->mTempoSensitivity;
+	x *= mAQP->Sequencer_Pri->TempoSensitivity;
 	x = 1.0 - x;
 	x *= 2.;
-	[mAQP->Sequencer_Pri SetTempo:x];
+    mAQP->Sequencer_Pri.TempoMultiplier = x;
 
 #if 0
 	NSLog(<#NSString *format, ...#>)(@"%f\n",x);

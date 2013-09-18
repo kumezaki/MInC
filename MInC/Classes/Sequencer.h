@@ -14,42 +14,44 @@
 
 @interface Sequencer : NSObject {
 	
-	BOOL	mPlaying;
+	BOOL	Playing;
 	
 @public
-	Sequence		*mSeq_Cur;
-	Sequence		*mSeq_Next;
-	
-	Float64	mCurTime;
-	Float64	mNextEventTime;
 
-	Float64	mTempoMultiplier;
-	Float64	mRitMultiplier;
-	Float64	mAmpMultiplier;
-	Float64	mDurMultiplier;
+	Sequence		*Seq_Cur;
+	Sequence		*Seq_Next;
 	
-	Float64	mTempoSensitivity;
+	Float64         CurTime;
+	Float64         NextEventTime;
+
+	Float64         TempoMultiplier;
+	Float64         RitMultiplier;
+	Float64         AmpMultiplier;
+	Float64         DurMultiplier;
+	
+	Float64         TempoSensitivity;
 	
 	WaveFormTable	*WaveTable;
-	Float64			mTheta;
+	Float64			Theta;
 
-	Envelope		*mEnv;
+	Envelope		*Env;
 	
-	NSSet			*mNoteSet;
+	NSSet			*NoteSet;
 }
 
--(void)Start;
--(void)Stop;
--(void)Rewind;
+@property (nonatomic,readwrite) Float64 TempoMultiplier;
 
--(void)SetTempo:(Float64)multiplier;
--(void)MoltoRit;
--(void)ResetRit;
+-(void)start;
+-(void)stop;
+-(void)rewind;
 
--(void)Update:(Float64)elapsed_time;
+-(void)moltoRit;
+-(void)resetRit;
+
+-(void)update:(Float64)elapsed_time;
 
 -(Note*)getNote;
 
--(void)SetNextSequence:(Sequence*)seq;
+-(void)setNextSequence:(Sequence*)seq;
 
 @end

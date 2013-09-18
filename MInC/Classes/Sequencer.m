@@ -10,28 +10,30 @@
 
 @implementation Sequencer
 
+@synthesize TempoMultiplier;
+
 -(id)init
 {
-	mPlaying = NO;
+	Playing = NO;
 	
-	mSeq_Cur = nil;
-	mCurTime = 0.;
-	mNextEventTime = 0.;
-	mTempoMultiplier = 1.;
-	mRitMultiplier = 1.;
-	mAmpMultiplier = 1.;
-	mDurMultiplier = 1.;
+	Seq_Cur = nil;
+	CurTime = 0.;
+	NextEventTime = 0.;
+	TempoMultiplier = 1.;
+	RitMultiplier = 1.;
+	AmpMultiplier = 1.;
+	DurMultiplier = 1.;
 	
-	mTempoSensitivity = 0.5;
+	TempoSensitivity = 0.5;
 
 	WaveTable = [WaveFormTable new];
-	mTheta = 0.;
+	Theta = 0.;
 	
-	mEnv = [[Envelope alloc] init];
+	Env = [[Envelope alloc] init];
 	
-	mNoteSet = [NSSet new];
+	NoteSet = [NSSet new];
 	
-	mSeq_Next = nil;
+	Seq_Next = nil;
 
 	return self;
 }
@@ -39,86 +41,81 @@
 - (void) dealloc
 {
  	[WaveTable release];
-	[mNoteSet release];
+	[NoteSet release];
 
 	[super dealloc];
 }
 
 
--(void)Start
+-(void)start
 {
-	mPlaying = YES;
+	Playing = YES;
 }
 
--(void)Stop
+-(void)stop
 {
-	mPlaying = NO;
+	Playing = NO;
 }
 
--(void)Rewind
+-(void)rewind
 {
-	mCurTime = 0.;
-	mNextEventTime = 0.;
+	CurTime = 0.;
+	NextEventTime = 0.;
 }
 
--(void)SetTempo:(Float64)multiplier
+-(void)moltoRit
 {
-	mTempoMultiplier = multiplier;
+	RitMultiplier = RitMultiplier * 0.95;
 }
 
--(void)MoltoRit
+-(void)resetRit
 {
-	mRitMultiplier = mRitMultiplier * 0.95;
+	RitMultiplier = 1.;
 }
 
--(void)ResetRit
+-(void)update:(Float64)elapsed_time
 {
-	mRitMultiplier = 1.;
-}
-
--(void)Update:(Float64)elapsed_time
-{
-	if (!mPlaying) return;
+	if (!Playing) return;
 	
-	mCurTime += (elapsed_time * mTempoMultiplier * mRitMultiplier);
+	CurTime += (elapsed_time * TempoMultiplier * RitMultiplier);
 	
-	if (mSeq_Next != nil)
+	if (Seq_Next != nil)
 	{
-		mSeq_Cur = mSeq_Next;
+		Seq_Cur = Seq_Next;
 		
-		/*if (mSeq_Cur->Rit) {
-			[self MoltoRit];
+		/*if (Seq_Cur->Rit) {
+			[self moltoRit];
 			NSLog(@"rit");
 		}
 		else {
-			[self ResetRit];
+			[self resetRit];
 			NSLog(@"resetrit");
 		}*/
 
-		[self Rewind];
-		mSeq_Next = nil;
+		[self rewind];
+		Seq_Next = nil;
 	}
 	
-	if (mCurTime >= mNextEventTime)
+	if (CurTime >= NextEventTime)
 	{
 		/* advance the sequencer postion */
-		[mSeq_Cur advancePos];
+		[Seq_Cur advancePos];
 
 		/* get the new note */
-		Note* note = [mSeq_Cur getNote];
-		[note setPercentOn:mDurMultiplier];
-		[note on:WaveTable:mEnv];
+		Note* note = [Seq_Cur getNote];
+		[note setPercentOn:DurMultiplier];
+		[note on:WaveTable:Env];
 
 		/* recompute the next event time */
-		mNextEventTime += note.Duration;
+		NextEventTime += note.Duration;
 		
-		if (mSeq_Cur != nil)
+		if (Seq_Cur != nil)
 		{
-			if (mSeq_Cur->Rit) {
-				[self MoltoRit];
+			if (Seq_Cur->Rit) {
+				[self moltoRit];
 			}
 			else {
-				[self ResetRit];
+				[self resetRit];
 			}
 			
 		}
@@ -128,16 +125,16 @@
 
 -(Note*)getNote;
 {
-	if (!mPlaying) return nil;
+	if (!Playing) return nil;
 
-	if (mSeq_Cur == nil) return nil;
+	if (Seq_Cur == nil) return nil;
 	
-	return [mSeq_Cur getNote];
+	return [Seq_Cur getNote];
 }
 
--(void)SetNextSequence:(Sequence*)seq
+-(void)setNextSequence:(Sequence*)seq
 {
-	mSeq_Next = seq;
+	Seq_Next = seq;
 }
 
 @end
