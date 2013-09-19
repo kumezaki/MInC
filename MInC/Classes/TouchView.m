@@ -123,9 +123,9 @@ extern AQPlayer *gAQP;
 
 	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
 
-	[appDelegate SendOSC_Filter:x];
-	[appDelegate SendOSC_Waveform:y];
-	[appDelegate SendOSC_Volume:z];
+	[appDelegate sendOSC_Filter:x];
+	[appDelegate sendOSC_Waveform:y];
+	[appDelegate sendOSC_Volume:z];
 
 	[self setNeedsDisplay];
 }

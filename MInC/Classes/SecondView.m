@@ -21,7 +21,7 @@ extern AQPlayer *gAQP;
 	mPortNumTextField.delegate = self;
 	
 	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
-	appDelegate.mSecondView = self;
+	appDelegate.SecondView = self;
 	
 	mEditing = NO;
 
@@ -68,14 +68,14 @@ extern AQPlayer *gAQP;
 {
 	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
 
-	[appDelegate SetServerIPAddress:mIPAddressTextField.text];
+	[appDelegate setServerIPAddress:mIPAddressTextField.text];
 }
 
 -(IBAction)PortNumChanged:(id)sender
 {
 	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
 	
-	[appDelegate SetServerPortNum:mPortNumTextField.text];
+	[appDelegate setServerPortNum:mPortNumTextField.text];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
@@ -99,7 +99,7 @@ extern AQPlayer *gAQP;
 -(IBAction)WithServerToggle:(id)sender;
 {
 	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
-	[appDelegate SetWithServer:mWithServerSwitch.on];
+	[appDelegate setWithServer:mWithServerSwitch.on];
 }
 
 -(IBAction)PulseToggle:(id)sender;
@@ -126,7 +126,7 @@ extern AQPlayer *gAQP;
 	[gAQP parseFile];
 	
 	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
-	[appDelegate CreateImageArray];
+	[appDelegate createImageArray];
 }
 
 -(void)showMenu
@@ -137,11 +137,11 @@ extern AQPlayer *gAQP;
 -(void)SetIPAddress;
 {
 	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
-	mIPAddressTextField.text = [NSString stringWithFormat:@"%ld.%ld.%ld.%ld",(appDelegate->mSendIPAddress&0xFF000000)>>24
-								,(appDelegate->mSendIPAddress&0x00FF0000)>>16
-								,(appDelegate->mSendIPAddress&0x0000FF00)>>8
-								,(appDelegate->mSendIPAddress&0x000000FF)>>0];
-	mPortNumTextField.text = [NSString stringWithFormat:@"%d",appDelegate->mSendPortNum];
+	mIPAddressTextField.text = [NSString stringWithFormat:@"%ld.%ld.%ld.%ld",(appDelegate->SendIPAddress&0xFF000000)>>24
+								,(appDelegate->SendIPAddress&0x00FF0000)>>16
+								,(appDelegate->SendIPAddress&0x0000FF00)>>8
+								,(appDelegate->SendIPAddress&0x000000FF)>>0];
+	mPortNumTextField.text = [NSString stringWithFormat:@"%d",appDelegate->SendPortNum];
 }
 
 

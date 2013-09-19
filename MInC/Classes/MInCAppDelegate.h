@@ -30,44 +30,44 @@
 	IBOutlet UIButton			*mHintButton;
 	IBOutlet UIButton			*mStatusButton;
 		
-	NSArray					*mImageArray;
+	NSArray					*ImageArray;
 	
-	AQPlayer				*mAQP;
+	AQPlayer				*AQP;
 	
-	BOOL					mWithServer;
+	BOOL					WithServer;
 	
 	char					ip_add_buf[32];
-	SInt32						ip_add_size;
+	SInt32					ip_add_size;
 	
-	char					mInBuffer[1024];
-	ssize_t					mInBufferLength;
+	char					InBuffer[1024];
+	ssize_t					InBufferLength;
 
-	char					mOutBuffer[1024];
-	SInt32						mOutBufferLength;
+	char					OutBuffer[1024];
+	SInt32					OutBufferLength;
 	
-	SInt16					mReceivePortNum;
+	SInt16					ReceivePortNum;
 	
-	NSThread				*mThread;
+	NSThread				*Thread;
 
-	NSString				*mInterstitialString;
-	BOOL					mNewMod;
-	NSString				*mServerIPAddString;
+	NSString				*InterstitialString;
+	BOOL					NewMod;
+	NSString				*ServerIPAddString;
 
 @public
-	UInt32					mSendIPAddress;
-	SInt16					mSendPortNum;
+	UInt32					SendIPAddress;
+	SInt16					SendPortNum;
 
-	SecondView				*mSecondView;
+	SecondView				*SecondView;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
-@property (nonatomic, retain) SecondView *mSecondView;
+@property (nonatomic, retain) SecondView *SecondView;
 
--(void)SetWithServer:(BOOL)on;
+-(void)setWithServer:(BOOL)on;
 
--(void)SendOSCMsg:(const char*)osc_str :(SInt32)osc_str_length;
--(void)SendOSCMsgWithIntValue:(const char*)osc_str :(SInt32)osc_str_length :(SInt32)val;
+-(void)sendOSCMsg:(const char*)osc_str :(SInt32)osc_str_length;
+-(void)sendOSCMsgWithIntValue:(const char*)osc_str :(SInt32)osc_str_length :(SInt32)val;
 
 -(IBAction)SetSequence;
 
@@ -76,36 +76,36 @@
 
 -(IBAction)Set8vbDown:(id)sender;
 -(IBAction)Set8vbUp:(id)sender;
--(void)Send8vb:(BOOL)direction;
+-(void)send8vb:(BOOL)direction;
 
 -(IBAction)Set8vaDown:(id)sender;
 -(IBAction)Set8vaUp:(id)sender;
--(void)Send8va:(BOOL)direction;
+-(void)send8va:(BOOL)direction;
 
 -(IBAction)Set2xSlowDown:(id)sender;
 -(IBAction)Set2xSlowUp:(id)sender;
--(void)Send2xSlow:(BOOL)direction;
+-(void)send2xSlow:(BOOL)direction;
 
 -(IBAction)Set2xFastDown:(id)sender;
 -(IBAction)Set2xFastUp:(id)sender;
--(void)Send2xFast:(BOOL)direction;
+-(void)send2xFast:(BOOL)direction;
 
 -(IBAction)SetNoteDuration:(id)sender;
 
 -(IBAction)Hint:(id)sender;
 -(IBAction)Status:(id)sender;
 
--(void)SendOSC_Filter:(Float64)val;
--(void)SendOSC_Volume:(Float64)val;
--(void)SendOSC_Waveform:(Float64)val;
+-(void)sendOSC_Filter:(Float64)val;
+-(void)sendOSC_Volume:(Float64)val;
+-(void)sendOSC_Waveform:(Float64)val;
 
 -(void)send_udp;
 -(void)receive_udp;
 -(void)parse_osc;
 
 -(NSString *)getIPAddress;
--(void)SetServerIPAddress:(NSString *)str;
--(void)SetServerPortNum:(NSString *)str;
+-(void)setServerIPAddress:(NSString *)str;
+-(void)setServerPortNum:(NSString *)str;
 
 -(void)checkIncomingMessages;
 
@@ -115,6 +115,6 @@
 -(void) readDataFile;
 -(void) writeDataFile;
 
--(void) CreateImageArray;
+-(void) createImageArray;
 
 @end

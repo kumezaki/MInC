@@ -21,11 +21,11 @@
 
 @synthesize window;
 @synthesize tabBarController;
-@synthesize mSecondView;
+@synthesize SecondView;
 
-#define OSC_START mOutBufferLength = 0;
+#define OSC_START OutBufferLength = 0;
 #define OSC_END [self send_udp];
-#define OSC_ADD(msg,num_msg_bytes) memcpy(mOutBuffer+mOutBufferLength,msg,num_msg_bytes); mOutBufferLength+=num_msg_bytes;
+#define OSC_ADD(msg,num_msg_bytes) memcpy(OutBuffer+OutBufferLength,msg,num_msg_bytes); OutBufferLength+=num_msg_bytes;
 
 #define FLOAT_TO_MRMR_INT(v) (SInt32)(v * 1000. + 0.5)
 
@@ -52,9 +52,9 @@
 
 
 - (void)dealloc {
-	[mThread release];
-	[mImageArray release];
-	[mAQP release];
+	[Thread release];
+	[ImageArray release];
+	[AQP release];
     [tabBarController release];
     [window release];
     [super dealloc];
@@ -63,13 +63,13 @@
 -(id)init {
 	[super init];
 	
-	mAQP = [AQPlayer new];
+	AQP = [AQPlayer new];
 	
 	[[UIAccelerometer sharedAccelerometer] setDelegate:self];
 	
-	[self CreateImageArray];
+	[self createImageArray];
 	/*
-	mImageArray = [[NSArray alloc] initWithObjects:
+	ImageArray = [[NSArray alloc] initWithObjects:
 				   [UIImage imageNamed:@"InC01.jpg"],
 				   [UIImage imageNamed:@"InC02.jpg"],
 				   [UIImage imageNamed:@"InC03.jpg"],
@@ -126,9 +126,9 @@
 				   nil
 				   ];*/
 	
-	mSendIPAddress = 0x7F000001; /* IP address: 127.0.0.1 */
-	mSendPortNum = 1337;
-	mReceivePortNum = 31337;
+	SendIPAddress = 0x7F000001; /* IP address: 127.0.0.1 */
+	SendPortNum = 1337;
+	ReceivePortNum = 31337;
 	
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *docDirectory = [paths objectAtIndex:0];
@@ -139,7 +139,7 @@
 	if (file_exists)
 		[self readDataFile];
 
-	mWithServer = YES;
+	WithServer = YES;
 	
 	memset(ip_add_buf,0,32);
 	[[self getIPAddress] getCString:ip_add_buf maxLength:32 encoding:NSASCIIStringEncoding];
@@ -148,27 +148,27 @@
 	
 	[self sendHeartBeat];
 
-	mThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_udp) object:nil];
-	[mThread start];
+	Thread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_udp) object:nil];
+	[Thread start];
 
-	mInterstitialString = nil;
-	mNewMod = NO;
-	mServerIPAddString = nil;
+	InterstitialString = nil;
+	NewMod = NO;
+	ServerIPAddString = nil;
 	
-	mSecondView = nil;
+	self.SecondView = nil;
 	
 	[self checkIncomingMessages];
 
 	return self;
 }
 
--(void)SetWithServer:(BOOL)on
+-(void)setWithServer:(BOOL)on
 {
-	mWithServer = on;
-	NSLog(@"SetWithServer %s\n",mWithServer?"ON":"OFF");
+	WithServer = on;
+	NSLog(@"setWithServer %s\n",WithServer?"ON":"OFF");
 }
 
--(void)SendOSCMsg:(const char*)osc_str :(SInt32)osc_str_length
+-(void)sendOSCMsg:(const char*)osc_str :(SInt32)osc_str_length
 {
 	char buf[128]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",s\0\0",4);
 
@@ -178,7 +178,7 @@
 	OSC_END
 }
 
--(void)SendOSCMsgWithIntValue:(const char*)osc_str :(SInt32)osc_str_length :(SInt32)val
+-(void)sendOSCMsgWithIntValue:(const char*)osc_str :(SInt32)osc_str_length :(SInt32)val
 {
 	char buf[128]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",si\0",4);
 	val = htonl(val);
@@ -192,12 +192,12 @@
 
 -(IBAction)SetSequence
 {
-	if (mWithServer)
-		[self SendOSCMsg:"/minc/mod\0\0\0":12];
+	if (WithServer)
+		[self sendOSCMsg:"/minc/mod\0\0\0":12];
 	else
 	{
-		[mAQP setSequence:(++mAQP->SeqNum)];
-		mNewMod = YES;
+		[AQP setSequence:(++AQP->SeqNum)];
+		NewMod = YES;
 	}
 }
 
@@ -205,108 +205,108 @@
 {
 	NSLog(@"SetSpeaker %d\n",mSpeakerSegControl.selectedSegmentIndex);
 
-	[self SendOSCMsgWithIntValue:"/minc/speak\0":12:mSpeakerSegControl.selectedSegmentIndex];
+	[self sendOSCMsgWithIntValue:"/minc/speak\0":12:mSpeakerSegControl.selectedSegmentIndex];
 }
 
 -(IBAction)SetInstrument:(id)sender
 {
 	NSLog(@"SetInstrument %d\n",mInstrSegControl.selectedSegmentIndex);
 
-	[self SendOSCMsgWithIntValue:"/minc/instr\0":12:mInstrSegControl.selectedSegmentIndex];
+	[self sendOSCMsgWithIntValue:"/minc/instr\0":12:mInstrSegControl.selectedSegmentIndex];
 }
 
 -(IBAction)Set8vbDown:(id)sender
 {
-	[self Send8vb:true];
+	[self send8vb:true];
 }
 
 -(IBAction)Set8vbUp:(id)sender
 {
-	[self Send8vb:false];
+	[self send8vb:false];
 }
 
--(void)Send8vb:(BOOL)direction
+-(void)send8vb:(BOOL)direction
 {
-	[self SendOSCMsgWithIntValue:"/minc/8vb\0\0\0":12:direction?1:0];
+	[self sendOSCMsgWithIntValue:"/minc/8vb\0\0\0":12:direction?1:0];
 }
 
 -(IBAction)Set8vaDown:(id)sender
 {
-	[self Send8va:true];
+	[self send8va:true];
 }
 
 -(IBAction)Set8vaUp:(id)sender
 {
-	[self Send8va:false];
+	[self send8va:false];
 }
 
--(void)Send8va:(BOOL)direction
+-(void)send8va:(BOOL)direction
 {
-	[self SendOSCMsgWithIntValue:"/minc/8va\0\0\0":12:direction?1:0];
+	[self sendOSCMsgWithIntValue:"/minc/8va\0\0\0":12:direction?1:0];
 }
 
 -(IBAction)Set2xSlowDown:(id)sender
 {
-	[self Send2xSlow:true];
+	[self send2xSlow:true];
 }
 
 -(IBAction)Set2xSlowUp:(id)sender
 {
-	[self Send2xSlow:false];
+	[self send2xSlow:false];
 }
 
--(void)Send2xSlow:(BOOL)direction
+-(void)send2xSlow:(BOOL)direction
 {
-	[self SendOSCMsgWithIntValue:"/minc/2xslow\0\0\0\0":16:direction?1:0];
+	[self sendOSCMsgWithIntValue:"/minc/2xslow\0\0\0\0":16:direction?1:0];
 }
 
 -(IBAction)Set2xFastDown:(id)sender
 {
-	[self Send2xFast:true];
+	[self send2xFast:true];
 }
 
 -(IBAction)Set2xFastUp:(id)sender
 {
-	[self Send2xFast:false];
+	[self send2xFast:false];
 }
 
--(void)Send2xFast:(BOOL)direction
+-(void)send2xFast:(BOOL)direction
 {
-	[self SendOSCMsgWithIntValue:"/minc/2xfast\0\0\0\0":16:direction?1:0];
+	[self sendOSCMsgWithIntValue:"/minc/2xfast\0\0\0\0":16:direction?1:0];
 }
 
 -(IBAction)SetNoteDuration:(id)sender
 {
-	Sequencer* q = mAQP->Sequencer_Pri;
+	Sequencer* q = AQP->Sequencer_Pri;
 	if (q != nil)
 		q->DurMultiplier = [mNoteDurationSlider value];
 
-	[self SendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([mNoteDurationSlider value])];
+	[self sendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([mNoteDurationSlider value])];
 }
 
 -(IBAction)Hint:(id)sender
 {
-	[self SendOSCMsg:"/minc/hint\0\0":12];
+	[self sendOSCMsg:"/minc/hint\0\0":12];
 }
 
 -(IBAction)Status:(id)sender
 {
-	[self SendOSCMsg:"/minc/status\0\0\0\0":16];
+	[self sendOSCMsg:"/minc/status\0\0\0\0":16];
 }
 
--(void)SendOSC_Filter:(Float64)val
+-(void)sendOSC_Filter:(Float64)val
 {
-	[self SendOSCMsgWithIntValue:"/minc/filt\0\0":12:FLOAT_TO_MRMR_INT(val)];
+	[self sendOSCMsgWithIntValue:"/minc/filt\0\0":12:FLOAT_TO_MRMR_INT(val)];
 }
 
--(void)SendOSC_Volume:(Float64)val
+-(void)sendOSC_Volume:(Float64)val
 {
-	[self SendOSCMsgWithIntValue:"/minc/vol\0\0\0":12:FLOAT_TO_MRMR_INT(val)];
+	[self sendOSCMsgWithIntValue:"/minc/vol\0\0\0":12:FLOAT_TO_MRMR_INT(val)];
 }
 
--(void)SendOSC_Waveform:(Float64)val
+-(void)sendOSC_Waveform:(Float64)val
 {
-	[self SendOSCMsgWithIntValue:"/minc/wave\0\0":12:FLOAT_TO_MRMR_INT(val)];
+	[self sendOSCMsgWithIntValue:"/minc/wave\0\0":12:FLOAT_TO_MRMR_INT(val)];
 }
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
@@ -321,19 +321,19 @@
 	Float64 y = LIMIT_ACC_VAL(acceleration.y);
 	Float64 z = LIMIT_ACC_VAL(acceleration.z);
 
-	[self SendOSCMsgWithIntValue:"/minc/accX\0\0":12:FLOAT_TO_MRMR_INT(x)];
-	[self SendOSCMsgWithIntValue:"/minc/accY\0\0":12:FLOAT_TO_MRMR_INT(y)];
-	[self SendOSCMsgWithIntValue:"/minc/accZ\0\0":12:FLOAT_TO_MRMR_INT(z)];
+	[self sendOSCMsgWithIntValue:"/minc/accX\0\0":12:FLOAT_TO_MRMR_INT(x)];
+	[self sendOSCMsgWithIntValue:"/minc/accY\0\0":12:FLOAT_TO_MRMR_INT(y)];
+	[self sendOSCMsgWithIntValue:"/minc/accZ\0\0":12:FLOAT_TO_MRMR_INT(z)];
 	
 	// if z is 0 to 0.6 then it is right side up, otherwise it is flipped -> should drop out 
 	
-	if (z>0.6) mAQP->Sequencer_Pri->AmpMultiplier = 0.;
-	else mAQP->Sequencer_Pri->AmpMultiplier = 0.5;
+	if (z>0.6) AQP->Sequencer_Pri->AmpMultiplier = 0.;
+	else AQP->Sequencer_Pri->AmpMultiplier = 0.5;
 
-	x *= mAQP->Sequencer_Pri->TempoSensitivity;
+	x *= AQP->Sequencer_Pri->TempoSensitivity;
 	x = 1.0 - x;
 	x *= 2.;
-    mAQP->Sequencer_Pri.TempoMultiplier = x;
+    AQP->Sequencer_Pri.TempoMultiplier = x;
 
 #if 0
 	NSLog(<#NSString *format, ...#>)(@"%f\n",x);
@@ -355,10 +355,10 @@
 	
 	memset(&sa, 0, sizeof(sa));
 	sa.sin_family = AF_INET;
-	sa.sin_addr.s_addr = htonl(mSendIPAddress);
-	sa.sin_port = htons(mSendPortNum);
+	sa.sin_addr.s_addr = htonl(SendIPAddress);
+	sa.sin_port = htons(SendPortNum);
 	
-	bytes_sent = sendto(sock, mOutBuffer, mOutBufferLength, 0,(struct sockaddr*)&sa, sizeof (struct sockaddr_in));
+	bytes_sent = sendto(sock, OutBuffer, OutBufferLength, 0,(struct sockaddr*)&sa, sizeof (struct sockaddr_in));
 	if (bytes_sent < 0)
 		fprintf(stderr,"Error sending packet: %s\n",strerror(errno));
 	
@@ -374,7 +374,7 @@
 	memset(&sa, 0, sizeof(sa));
 	sa.sin_family = AF_INET;
 	sa.sin_addr.s_addr = INADDR_ANY;
-	sa.sin_port = htons(mReceivePortNum);
+	sa.sin_port = htons(ReceivePortNum);
 	
 	if (-1 == bind(sock,(struct sockaddr *)&sa, sizeof(struct sockaddr)))
 	{
@@ -385,8 +385,8 @@
 	
 	for (;;) 
 	{
-		mInBufferLength = recvfrom(sock, (void *)mInBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);
-		if (mInBufferLength < 0)
+		InBufferLength = recvfrom(sock, (void *)InBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);
+		if (InBufferLength < 0)
 			fprintf(stderr,"%s\n",strerror(errno));
 		[self parse_osc];
 	}
@@ -396,18 +396,18 @@
 
 - (void)parse_osc
 {
-	NSLog(@"mInBufferLength: %ld\n",mInBufferLength);
+	NSLog(@"InBufferLength: %ld\n",InBufferLength);
 
 	ssize_t pos = 0;
 	SInt32 msg_type = 0;
 	SInt32 add_type = 0;
-	while (pos < mInBufferLength)
+	while (pos < InBufferLength)
 	{
 		switch (msg_type)
 		{
 			case 0:
 			{
-				NSString* buf_str = [NSString stringWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
+				NSString* buf_str = [NSString stringWithCString:InBuffer+pos encoding:NSASCIIStringEncoding];
 				if ([buf_str isEqualToString:@"/minc/interstitial"]) add_type = 1;
 				else if ([buf_str isEqualToString:@"/minc/mod"]) add_type = 2;
 				else if ([buf_str isEqualToString:@"/minc/hb"]) add_type = 3;
@@ -419,23 +419,23 @@
 				switch (add_type)
 				{
 					case 1:
-						mInterstitialString = [[NSString alloc] initWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
+						InterstitialString = [[NSString alloc] initWithCString:InBuffer+pos encoding:NSASCIIStringEncoding];
 						break;
 					case 2:
 					{
 						SInt32 int_val;
-						memcpy(&int_val,mInBuffer+pos,4);
+						memcpy(&int_val,InBuffer+pos,4);
 						int_val = htonl(int_val);
 						NSLog(@"mod number %ld\n",int_val);
-						[mAQP setSequence:int_val];
-						mNewMod = YES;
+						[AQP setSequence:int_val];
+						NewMod = YES;
 						break;
 					}
 					case 3:
 					{
-						mServerIPAddString = [[NSString alloc] initWithCString:mInBuffer+pos encoding:NSASCIIStringEncoding];
+						ServerIPAddString = [[NSString alloc] initWithCString:InBuffer+pos encoding:NSASCIIStringEncoding];
 //						char buf[32];
-//						strcpy(buf,mInBuffer+pos);
+//						strcpy(buf,InBuffer+pos);
 //						NSLog(@"server heartbeat IP address %s\n",buf);
 					}
 				}
@@ -453,9 +453,9 @@
 			default: msg_type_str = "OSC Data"; break;
 		}
 
-		NSLog(@"%s: %s\n",msg_type_str,mInBuffer+pos);
+		NSLog(@"%s: %s\n",msg_type_str,InBuffer+pos);
 
-		pos += ((strlen(mInBuffer+pos) / 4) + 1) * 4;
+		pos += ((strlen(InBuffer+pos) / 4) + 1) * 4;
 	}
 }
 
@@ -492,7 +492,7 @@
 	return address;
 }
 
--(void)SetServerIPAddress:(NSString *)str
+-(void)setServerIPAddress:(NSString *)str
 {
 	NSArray* ip_add_array = [str componentsSeparatedByString:@"."];
 	
@@ -512,50 +512,50 @@
 #endif
 			ip_add |= [s intValue] << (8 * (4 - ++i));
 		}
-		mSendIPAddress = ip_add;
+		SendIPAddress = ip_add;
 		[self writeDataFile];
-		NSLog(@"IPAddressChanged to %08lx\n",mSendIPAddress);
+		NSLog(@"IPAddressChanged to %08lx\n",SendIPAddress);
 	}
 	
 }
 
--(void)SetServerPortNum:(NSString *)str
+-(void)setServerPortNum:(NSString *)str
 {
 #if 0
 	char buffer[16];
 	[mPortNumTextField.text getCString:buffer maxLength:16 encoding:NSASCIIStringEncoding];
 #endif
 	
-	mSendPortNum = [str intValue];
+	SendPortNum = [str intValue];
 	[self writeDataFile];
-	NSLog(@"PortNumChanged to %d\n",mSendPortNum);
+	NSLog(@"PortNumChanged to %d\n",SendPortNum);
 }
 
 -(void)checkIncomingMessages
 {
-	if (mInterstitialString != nil)
+	if (InterstitialString != nil)
 	{
-		[mStatusLabel setText:mInterstitialString];
-		[mInterstitialString release];
-		mInterstitialString = nil;
+		[mStatusLabel setText:InterstitialString];
+		[InterstitialString release];
+		InterstitialString = nil;
 	}
 	
-	if (mNewMod == YES)
+	if (NewMod == YES)
 	{
-		if (mAQP->SeqNum >= 0 && mAQP->SeqNum <= mAQP->NumSequences)
-			mNotationView.image = [mImageArray objectAtIndex:mAQP->SeqNum-1];
-		mNewMod = NO;
+		if (AQP->SeqNum >= 0 && AQP->SeqNum <= AQP->NumSequences)
+			mNotationView.image = [ImageArray objectAtIndex:AQP->SeqNum-1];
+		NewMod = NO;
 	}
 
-	if (mServerIPAddString != nil)
+	if (ServerIPAddString != nil)
 	{
-		[self SetServerIPAddress:mServerIPAddString];
+		[self setServerIPAddress:ServerIPAddString];
 		
-		if ((mSecondView != nil) && ![mSecondView IsEditing])
-			[mSecondView SetIPAddress];
+		if ((self.SecondView != nil) && ![self.SecondView IsEditing])
+			[self.SecondView SetIPAddress];
 		
-		[mServerIPAddString release];
-		mServerIPAddString = nil;
+		[ServerIPAddString release];
+		ServerIPAddString = nil;
 	}
 	
 	[NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkIncomingMessages) userInfo:nil repeats:NO];  
@@ -563,7 +563,7 @@
 
 -(void)sendHeartBeat
 {
-	[self SendOSCMsg:"/minc/hb\0\0\0\0":12];
+	[self sendOSCMsg:"/minc/hb\0\0\0\0":12];
 
 	[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(sendHeartBeat) userInfo:nil repeats:NO];  
 }
@@ -583,27 +583,27 @@
 {
 	NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithContentsOfFile:[MInCAppDelegate dataFilePath]];
 	NSLog(@"%@",[MInCAppDelegate dataFilePath]);
-	mSendIPAddress = [[dict valueForKey:@"server_ip_address"] unsignedIntValue];
-	mSendPortNum = [[dict valueForKey:@"server_port_num"] unsignedIntValue];
-	NSLog(@"%ld %d",mSendIPAddress,mSendPortNum);
+	SendIPAddress = [[dict valueForKey:@"server_ip_address"] unsignedIntValue];
+	SendPortNum = [[dict valueForKey:@"server_port_num"] unsignedIntValue];
+	NSLog(@"%ld %d",SendIPAddress,SendPortNum);
 }
 
 -(void)writeDataFile
 {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setValue:[NSNumber numberWithUnsignedInt:mSendIPAddress] forKey:@"server_ip_address"];
-	[dict setValue:[NSNumber numberWithUnsignedInt:mSendPortNum] forKey:@"server_port_num"];
+	[dict setValue:[NSNumber numberWithUnsignedInt:SendIPAddress] forKey:@"server_ip_address"];
+	[dict setValue:[NSNumber numberWithUnsignedInt:SendPortNum] forKey:@"server_port_num"];
 	[dict writeToFile:[MInCAppDelegate dataFilePath] atomically:YES];
 	[dict release];
 }
 
--(void) CreateImageArray
+-(void) createImageArray
 {
-	if (mAQP->Piece == 1)
+	if (AQP->Piece == 1)
 	{
 		UIImage *image = [UIImage imageNamed:@"InCCover.jpg"];
 		[mNotationView setImage:image];
-		mImageArray = [[NSArray alloc] initWithObjects:
+		ImageArray = [[NSArray alloc] initWithObjects:
 					   [UIImage imageNamed:@"InC01.jpg"],
 					   [UIImage imageNamed:@"InC02.jpg"],
 					   [UIImage imageNamed:@"InC03.jpg"],
@@ -660,10 +660,10 @@
 					   nil
 					   ];
 	}
-	else if (mAQP->Piece == 2) {
+	else if (AQP->Piece == 2) {
 		UIImage *image = [UIImage imageNamed:@"PPCover.jpg"];
 		[mNotationView setImage:image];
-		mImageArray = [[NSArray alloc] initWithObjects:
+		ImageArray = [[NSArray alloc] initWithObjects:
 					   [UIImage imageNamed:@"PP1.jpg"],
 					   [UIImage imageNamed:@"PP2.jpg"],
 					   [UIImage imageNamed:@"PP3.jpg"],
@@ -699,10 +699,10 @@
 					   nil
 					   ];
 	}
-	else if (mAQP->Piece == 3) {
+	else if (AQP->Piece == 3) {
 		UIImage *image = [UIImage imageNamed:@"TrafficCover.jpg"];
 		[mNotationView setImage:image];
-		mImageArray = [[NSArray alloc] initWithObjects:
+		ImageArray = [[NSArray alloc] initWithObjects:
 					   [UIImage imageNamed:@"Traffic1.jpg"],
 					   [UIImage imageNamed:@"Traffic2.jpg"],
 					   [UIImage imageNamed:@"Traffic3.jpg"],
