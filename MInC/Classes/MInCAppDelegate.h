@@ -16,7 +16,6 @@
 	UIWindow *window;
 	UITabBarController *tabBarController;
 
-	IBOutlet UIButton			*mNextButton;
 	IBOutlet UIImageView		*mNotationView;
 	IBOutlet UISlider			*mNoteDurationSlider;
 	IBOutlet UIView				*mTouchView;
@@ -34,10 +33,8 @@
 	
 	AQPlayer				*AQP;
 	
-	BOOL					WithServer;
-	
-	char					ip_add_buf[32];
-	SInt32					ip_add_size;
+	char					IPAddBuf[32];
+	SInt32					IPAddSize;
 	
 	char					InBuffer[1024];
 	ssize_t					InBufferLength;
@@ -50,7 +47,6 @@
 	NSThread				*Thread;
 
 	NSString				*InterstitialString;
-	BOOL					NewMod;
 	NSString				*ServerIPAddString;
 
 @public
@@ -64,12 +60,8 @@
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain) SecondView *SecondView;
 
--(void)setWithServer:(BOOL)on;
-
 -(void)sendOSCMsg:(const char*)osc_str :(SInt32)osc_str_length;
 -(void)sendOSCMsgWithIntValue:(const char*)osc_str :(SInt32)osc_str_length :(SInt32)val;
-
--(IBAction)SetSequence;
 
 -(IBAction)SetSpeaker:(id)sender;
 -(IBAction)SetInstrument:(id)sender;

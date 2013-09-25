@@ -17,6 +17,9 @@
 #include <ifaddrs.h>
 #include <arpa/inet.h>
 
+#import "FirstView.h"
+extern FirstView *gFirstView;
+
 @implementation MInCAppDelegate
 
 @synthesize window;
@@ -139,12 +142,12 @@
 	if (file_exists)
 		[self readDataFile];
 
-	WithServer = YES;
+//	WithServer = YES;
 	
-	memset(ip_add_buf,0,32);
-	[[self getIPAddress] getCString:ip_add_buf maxLength:32 encoding:NSASCIIStringEncoding];
-	ip_add_size = (strlen(ip_add_buf) / 4 + 1) * 4;
-	NSLog(@"%s\n",ip_add_buf);
+	memset(IPAddBuf,0,32);
+	[[self getIPAddress] getCString:IPAddBuf maxLength:32 encoding:NSASCIIStringEncoding];
+	IPAddSize = (strlen(IPAddBuf) / 4 + 1) * 4;
+	NSLog(@"%s\n",IPAddBuf);
 	
 	[self sendHeartBeat];
 
@@ -152,7 +155,7 @@
 	[Thread start];
 
 	InterstitialString = nil;
-	NewMod = NO;
+//	NewMod = NO;
 	ServerIPAddString = nil;
 	
 	self.SecondView = nil;
@@ -162,19 +165,13 @@
 	return self;
 }
 
--(void)setWithServer:(BOOL)on
-{
-	WithServer = on;
-	NSLog(@"setWithServer %s\n",WithServer?"ON":"OFF");
-}
-
 -(void)sendOSCMsg:(const char*)osc_str :(SInt32)osc_str_length
 {
 	char buf[128]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",s\0\0",4);
 
 	OSC_START
 	OSC_ADD(buf,osc_str_length+4);
-	OSC_ADD(ip_add_buf,ip_add_size)
+	OSC_ADD(IPAddBuf,IPAddSize)
 	OSC_END
 }
 
@@ -185,20 +182,9 @@
 	
 	OSC_START
 	OSC_ADD(buf,osc_str_length+4);
-	OSC_ADD(ip_add_buf,ip_add_size);
+	OSC_ADD(IPAddBuf,IPAddSize);
 	OSC_ADD(&val,4);
 	OSC_END
-}
-
--(IBAction)SetSequence
-{
-	if (WithServer)
-		[self sendOSCMsg:"/minc/mod\0\0\0":12];
-	else
-	{
-		[AQP setSequence:(++AQP->SeqNum)];
-		NewMod = YES;
-	}
 }
 
 -(IBAction)SetSpeaker:(id)sender
@@ -428,7 +414,7 @@
 						int_val = htonl(int_val);
 						NSLog(@"mod number %ld\n",int_val);
 						[AQP setSequence:int_val];
-						NewMod = YES;
+						gFirstView.NewMod = YES;
 						break;
 					}
 					case 3:
@@ -540,11 +526,11 @@
 		InterstitialString = nil;
 	}
 	
-	if (NewMod == YES)
+	if (gFirstView.NewMod == YES)
 	{
 		if (AQP->SeqNum >= 0 && AQP->SeqNum <= AQP->NumSequences)
 			mNotationView.image = [ImageArray objectAtIndex:AQP->SeqNum-1];
-		NewMod = NO;
+		gFirstView.NewMod = NO;
 	}
 
 	if (ServerIPAddString != nil)

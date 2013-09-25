@@ -9,9 +9,11 @@
 #import "SecondView.h"
 
 #import "AQPlayer.h"
+#import "FirstView.h"
 #import "MInCAppDelegate.h"
 
 extern AQPlayer *gAQP;
+extern FirstView *gFirstView;
 
 @implementation SecondView
 
@@ -98,8 +100,8 @@ extern AQPlayer *gAQP;
 
 -(IBAction)WithServerToggle:(id)sender;
 {
-	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
-	[appDelegate setWithServer:mWithServerSwitch.on];
+//	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
+	[gFirstView setWithServer:mWithServerSwitch.on];
 }
 
 -(IBAction)PulseToggle:(id)sender;

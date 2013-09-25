@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "NetworkMessages.h"
 
 @interface FirstViewController : UIViewController {
 
 }
+// model objects
+@property (nonatomic, retain) NetworkMessages           *networking;
 
 @end

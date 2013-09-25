@@ -8,9 +8,9 @@
 
 #import "FirstViewController.h"
 
+FirstViewController *gViewController = nil;
 
 @implementation FirstViewController
-
 
 /*
 // The designated initializer. Override to perform setup that is required before the view is loaded.
@@ -42,6 +42,18 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 */
+
+- (void)setupSelf
+{
+    gViewController = self;
+
+    self.networking = [[NetworkMessages alloc] init];
+}
+
+- (void)awakeFromNib
+{
+    [self setupSelf];
+}
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
