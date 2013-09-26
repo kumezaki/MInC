@@ -10,7 +10,7 @@
 
 #import "NetworkMessages.h"
 
-@interface FirstViewController : UIViewController {
+@interface FirstViewController : UIViewController <UIAccelerometerDelegate> {
 
 }
 // model objects
