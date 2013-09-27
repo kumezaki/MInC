@@ -20,6 +20,9 @@
 #import "FirstView.h"
 extern FirstView *gFirstView;
 
+#import "FirstViewController.h"
+extern FirstViewController *gViewController;
+
 @implementation MInCAppDelegate
 
 @synthesize window;
@@ -126,11 +129,7 @@ extern FirstView *gFirstView;
 				   [UIImage imageNamed:@"InC53.jpg"],
 				   nil
 				   ];*/
-	
-	SendIPAddress = 0x7F000001; /* IP address: 127.0.0.1 */
-	SendPortNum = 1337;
-	ReceivePortNum = 31337;
-	
+
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *docDirectory = [paths objectAtIndex:0];
 	NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -141,11 +140,6 @@ extern FirstView *gFirstView;
 		[self readDataFile];
 
 //	WithServer = YES;
-	
-	memset(IPAddBuf,0,32);
-	[[self getIPAddress] getCString:IPAddBuf maxLength:32 encoding:NSASCIIStringEncoding];
-	IPAddSize = (strlen(IPAddBuf) / 4 + 1) * 4;
-	NSLog(@"%s\n",IPAddBuf);
 	
 	[self sendHeartBeat];
 
@@ -163,40 +157,18 @@ extern FirstView *gFirstView;
 	return self;
 }
 
--(void)sendOSCMsg:(const char*)osc_str :(SInt32)osc_str_length
-{
-	char buf[128]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",s\0\0",4);
-
-	OSC_START
-	OSC_ADD(buf,osc_str_length+4);
-	OSC_ADD(IPAddBuf,IPAddSize)
-	OSC_END
-}
-
--(void)sendOSCMsgWithIntValue:(const char*)osc_str :(SInt32)osc_str_length :(SInt32)val
-{
-	char buf[128]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",si\0",4);
-	val = htonl(val);
-	
-	OSC_START
-	OSC_ADD(buf,osc_str_length+4);
-	OSC_ADD(IPAddBuf,IPAddSize);
-	OSC_ADD(&val,4);
-	OSC_END
-}
-
 -(IBAction)SetSpeaker:(id)sender
 {
 	NSLog(@"SetSpeaker %d\n",mSpeakerSegControl.selectedSegmentIndex);
 
-	[self sendOSCMsgWithIntValue:"/minc/speak\0":12:mSpeakerSegControl.selectedSegmentIndex];
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/speak\0":12:mSpeakerSegControl.selectedSegmentIndex];
 }
 
 -(IBAction)SetInstrument:(id)sender
 {
 	NSLog(@"SetInstrument %d\n",mInstrSegControl.selectedSegmentIndex);
 
-	[self sendOSCMsgWithIntValue:"/minc/instr\0":12:mInstrSegControl.selectedSegmentIndex];
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/instr\0":12:mInstrSegControl.selectedSegmentIndex];
 }
 
 -(IBAction)Set8vbDown:(id)sender
@@ -211,7 +183,7 @@ extern FirstView *gFirstView;
 
 -(void)send8vb:(BOOL)direction
 {
-	[self sendOSCMsgWithIntValue:"/minc/8vb\0\0\0":12:direction?1:0];
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/8vb\0\0\0":12:direction?1:0];
 }
 
 -(IBAction)Set8vaDown:(id)sender
@@ -226,7 +198,7 @@ extern FirstView *gFirstView;
 
 -(void)send8va:(BOOL)direction
 {
-	[self sendOSCMsgWithIntValue:"/minc/8va\0\0\0":12:direction?1:0];
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/8va\0\0\0":12:direction?1:0];
 }
 
 -(IBAction)Set2xSlowDown:(id)sender
@@ -241,7 +213,7 @@ extern FirstView *gFirstView;
 
 -(void)send2xSlow:(BOOL)direction
 {
-	[self sendOSCMsgWithIntValue:"/minc/2xslow\0\0\0\0":16:direction?1:0];
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/2xslow\0\0\0\0":16:direction?1:0];
 }
 
 -(IBAction)Set2xFastDown:(id)sender
@@ -256,7 +228,7 @@ extern FirstView *gFirstView;
 
 -(void)send2xFast:(BOOL)direction
 {
-	[self sendOSCMsgWithIntValue:"/minc/2xfast\0\0\0\0":16:direction?1:0];
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/2xfast\0\0\0\0":16:direction?1:0];
 }
 
 -(IBAction)SetNoteDuration:(id)sender
@@ -265,151 +237,32 @@ extern FirstView *gFirstView;
 	if (q != nil)
 		q->DurMultiplier = [mNoteDurationSlider value];
 
-	[self sendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([mNoteDurationSlider value])];
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([mNoteDurationSlider value])];
 }
 
 -(IBAction)Hint:(id)sender
 {
-	[self sendOSCMsg:"/minc/hint\0\0":12];
+	[gViewController.networking sendOSCMsg:"/minc/hint\0\0":12];
 }
 
 -(IBAction)Status:(id)sender
 {
-	[self sendOSCMsg:"/minc/status\0\0\0\0":16];
+	[gViewController.networking sendOSCMsg:"/minc/status\0\0\0\0":16];
 }
 
 -(void)sendOSC_Filter:(Float64)val
 {
-	[self sendOSCMsgWithIntValue:"/minc/filt\0\0":12:FLOAT_TO_MRMR_INT(val)];
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/filt\0\0":12:FLOAT_TO_MRMR_INT(val)];
 }
 
 -(void)sendOSC_Volume:(Float64)val
 {
-	[self sendOSCMsgWithIntValue:"/minc/vol\0\0\0":12:FLOAT_TO_MRMR_INT(val)];
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/vol\0\0\0":12:FLOAT_TO_MRMR_INT(val)];
 }
 
 -(void)sendOSC_Waveform:(Float64)val
 {
-	[self sendOSCMsgWithIntValue:"/minc/wave\0\0":12:FLOAT_TO_MRMR_INT(val)];
-}
-
--(void)send_udp
-{
-	SInt32 sock;
-	struct sockaddr_in sa;
-	SInt32 bytes_sent;
-	
-	sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
-	if (-1 == sock) /* if socket failed to initialize, exit */
-    {
-		fprintf(stderr,"Error creating socket: %s\n",strerror(errno));
-		exit(EXIT_FAILURE);
-    }
-	
-	memset(&sa, 0, sizeof(sa));
-	sa.sin_family = AF_INET;
-	sa.sin_addr.s_addr = htonl(SendIPAddress);
-	sa.sin_port = htons(SendPortNum);
-	
-	bytes_sent = sendto(sock, OutBuffer, OutBufferLength, 0,(struct sockaddr*)&sa, sizeof (struct sockaddr_in));
-	if (bytes_sent < 0)
-		fprintf(stderr,"Error sending packet: %s\n",strerror(errno));
-	
-	close(sock); /* close the socket */
-}
-
-- (void)receive_udp
-{
-	SInt32 sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
-	struct sockaddr_in sa; 
-	socklen_t fromlen;
-	
-	memset(&sa, 0, sizeof(sa));
-	sa.sin_family = AF_INET;
-	sa.sin_addr.s_addr = INADDR_ANY;
-	sa.sin_port = htons(ReceivePortNum);
-	
-	if (-1 == bind(sock,(struct sockaddr *)&sa, sizeof(struct sockaddr)))
-	{
-		perror("error bind failed");
-		close(sock);
-		exit(EXIT_FAILURE);
-	} 
-	
-	for (;;) 
-	{
-		InBufferLength = recvfrom(sock, (void *)InBuffer, 1024, 0, (struct sockaddr *)&sa, &fromlen);
-		if (InBufferLength < 0)
-			fprintf(stderr,"%s\n",strerror(errno));
-		[self parse_osc];
-	}
-	
-	close(sock); /* close the socket */
-}
-
-- (void)parse_osc
-{
-	NSLog(@"InBufferLength: %ld\n",InBufferLength);
-
-	ssize_t pos = 0;
-	SInt32 msg_type = 0;
-	SInt32 add_type = 0;
-	while (pos < InBufferLength)
-	{
-		switch (msg_type)
-		{
-			case 0:
-			{
-				NSString* buf_str = [NSString stringWithCString:InBuffer+pos encoding:NSASCIIStringEncoding];
-				if ([buf_str isEqualToString:@"/minc/interstitial"]) add_type = 1;
-				else if ([buf_str isEqualToString:@"/minc/mod"]) add_type = 2;
-				else if ([buf_str isEqualToString:@"/minc/hb"]) add_type = 3;
-				[buf_str release];
-				break;
-			}
-			case 2:
-			{
-				switch (add_type)
-				{
-					case 1:
-						InterstitialString = [[NSString alloc] initWithCString:InBuffer+pos encoding:NSASCIIStringEncoding];
-						break;
-					case 2:
-					{
-						SInt32 int_val;
-						memcpy(&int_val,InBuffer+pos,4);
-						int_val = htonl(int_val);
-						NSLog(@"mod number %ld\n",int_val);
-						[AQP setSequence:int_val];
-						gFirstView.NewMod = YES;
-						break;
-					}
-					case 3:
-					{
-						ServerIPAddString = [[NSString alloc] initWithCString:InBuffer+pos encoding:NSASCIIStringEncoding];
-//						char buf[32];
-//						strcpy(buf,InBuffer+pos);
-//						NSLog(@"server heartbeat IP address %s\n",buf);
-					}
-				}
-				break;
-			}
-			default:
-				break;
-		}
-		
-		const char* msg_type_str = "";
-		switch (msg_type)
-		{
-			case 0: msg_type_str = "OSC Address Pattern"; msg_type = 1; break;
-			case 1: msg_type_str = "OSC Type Tags"; msg_type = 2; break;
-			default: msg_type_str = "OSC Data"; break;
-		}
-
-		NSLog(@"%s: %s\n",msg_type_str,InBuffer+pos);
-
-		pos += ((strlen(InBuffer+pos) / 4) + 1) * 4;
-	}
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/wave\0\0":12:FLOAT_TO_MRMR_INT(val)];
 }
 
 - (NSString *)getIPAddress
@@ -465,9 +318,9 @@ extern FirstView *gFirstView;
 #endif
 			ip_add |= [s intValue] << (8 * (4 - ++i));
 		}
-		SendIPAddress = ip_add;
+		gViewController.networking.SendIPAddress = ip_add;
 		[self writeDataFile];
-		NSLog(@"IPAddressChanged to %08lx\n",SendIPAddress);
+		NSLog(@"IPAddressChanged to %08lx\n",gViewController.networking.SendIPAddress);
 	}
 	
 }
@@ -479,9 +332,9 @@ extern FirstView *gFirstView;
 	[mPortNumTextField.text getCString:buffer maxLength:16 encoding:NSASCIIStringEncoding];
 #endif
 	
-	SendPortNum = [str intValue];
+	gViewController.networking.SendPortNum = [str intValue];
 	[self writeDataFile];
-	NSLog(@"PortNumChanged to %d\n",SendPortNum);
+	NSLog(@"PortNumChanged to %d\n",gViewController.networking.SendPortNum);
 }
 
 -(void)checkIncomingMessages
@@ -516,7 +369,7 @@ extern FirstView *gFirstView;
 
 -(void)sendHeartBeat
 {
-	[self sendOSCMsg:"/minc/hb\0\0\0\0":12];
+	[gViewController.networking sendOSCMsg:"/minc/hb\0\0\0\0":12];
 
 	[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(sendHeartBeat) userInfo:nil repeats:NO];  
 }
@@ -536,16 +389,16 @@ extern FirstView *gFirstView;
 {
 	NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithContentsOfFile:[MInCAppDelegate dataFilePath]];
 	NSLog(@"%@",[MInCAppDelegate dataFilePath]);
-	SendIPAddress = [[dict valueForKey:@"server_ip_address"] unsignedIntValue];
-	SendPortNum = [[dict valueForKey:@"server_port_num"] unsignedIntValue];
-	NSLog(@"%ld %d",SendIPAddress,SendPortNum);
+	gViewController.networking.SendIPAddress = [[dict valueForKey:@"server_ip_address"] unsignedIntValue];
+	gViewController.networking.SendPortNum = [[dict valueForKey:@"server_port_num"] unsignedIntValue];
+	NSLog(@"%ld %d",gViewController.networking.SendIPAddress,gViewController.networking.SendPortNum);
 }
 
 -(void)writeDataFile
 {
 	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setValue:[NSNumber numberWithUnsignedInt:SendIPAddress] forKey:@"server_ip_address"];
-	[dict setValue:[NSNumber numberWithUnsignedInt:SendPortNum] forKey:@"server_port_num"];
+	[dict setValue:[NSNumber numberWithUnsignedInt:gViewController.networking.SendIPAddress] forKey:@"server_ip_address"];
+	[dict setValue:[NSNumber numberWithUnsignedInt:gViewController.networking.SendPortNum] forKey:@"server_port_num"];
 	[dict writeToFile:[MInCAppDelegate dataFilePath] atomically:YES];
 	[dict release];
 }

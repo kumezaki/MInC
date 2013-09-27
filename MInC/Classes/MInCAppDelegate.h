@@ -32,36 +32,20 @@
 	NSArray					*ImageArray;
 	
 	AQPlayer				*AQP;
-	
-	char					IPAddBuf[32];
-	SInt32					IPAddSize;
-	
-	char					InBuffer[1024];
-	ssize_t					InBufferLength;
 
-	char					OutBuffer[1024];
-	SInt32					OutBufferLength;
-	
-	SInt16					ReceivePortNum;
-	
 	NSThread				*Thread;
 
 	NSString				*InterstitialString;
 	NSString				*ServerIPAddString;
 
 @public
-	UInt32					SendIPAddress;
-	SInt16					SendPortNum;
-
+    
 	SecondView				*SecondView;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain) SecondView *SecondView;
-
--(void)sendOSCMsg:(const char*)osc_str :(SInt32)osc_str_length;
--(void)sendOSCMsgWithIntValue:(const char*)osc_str :(SInt32)osc_str_length :(SInt32)val;
 
 -(IBAction)SetSpeaker:(id)sender;
 -(IBAction)SetInstrument:(id)sender;
@@ -90,10 +74,6 @@
 -(void)sendOSC_Filter:(Float64)val;
 -(void)sendOSC_Volume:(Float64)val;
 -(void)sendOSC_Waveform:(Float64)val;
-
--(void)send_udp;
--(void)receive_udp;
--(void)parse_osc;
 
 -(NSString *)getIPAddress;
 -(void)setServerIPAddress:(NSString *)str;

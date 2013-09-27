@@ -8,12 +8,16 @@
 
 #import "SecondView.h"
 
-#import "AQPlayer.h"
-#import "FirstView.h"
 #import "MInCAppDelegate.h"
 
+#import "AQPlayer.h"
 extern AQPlayer *gAQP;
+
+#import "FirstView.h"
 extern FirstView *gFirstView;
+
+#import "FirstViewController.h"
+extern FirstViewController *gViewController;
 
 @implementation SecondView
 
@@ -138,12 +142,11 @@ extern FirstView *gFirstView;
 
 -(void)SetIPAddress;
 {
-	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
-	mIPAddressTextField.text = [NSString stringWithFormat:@"%ld.%ld.%ld.%ld",(appDelegate->SendIPAddress&0xFF000000)>>24
-								,(appDelegate->SendIPAddress&0x00FF0000)>>16
-								,(appDelegate->SendIPAddress&0x0000FF00)>>8
-								,(appDelegate->SendIPAddress&0x000000FF)>>0];
-	mPortNumTextField.text = [NSString stringWithFormat:@"%d",appDelegate->SendPortNum];
+	mIPAddressTextField.text = [NSString stringWithFormat:@"%ld.%ld.%ld.%ld",(gViewController.networking.SendIPAddress&0xFF000000)>>24
+								,(gViewController.networking.SendIPAddress&0x00FF0000)>>16
+								,(gViewController.networking.SendIPAddress&0x0000FF00)>>8
+								,(gViewController.networking.SendIPAddress&0x000000FF)>>0];
+	mPortNumTextField.text = [NSString stringWithFormat:@"%d",gViewController.networking.SendPortNum];
 }
 
 
