@@ -33,8 +33,10 @@
 	
 	AQPlayer				*AQP;
 
+#if 0
 	NSThread				*Thread;
-
+#endif
+    
 	NSString				*InterstitialString;
 	NSString				*ServerIPAddString;
 

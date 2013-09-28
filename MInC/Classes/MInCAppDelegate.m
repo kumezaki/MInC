@@ -58,7 +58,9 @@ extern FirstViewController *gViewController;
 
 
 - (void)dealloc {
+#if 0
 	[Thread release];
+#endif
 	[ImageArray release];
 	[AQP release];
     [tabBarController release];
@@ -143,9 +145,11 @@ extern FirstViewController *gViewController;
 	
 	[self sendHeartBeat];
 
+#if 0
 	Thread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_udp) object:nil];
 	[Thread start];
-
+#endif
+    
 	InterstitialString = nil;
 //	NewMod = NO;
 	ServerIPAddString = nil;
