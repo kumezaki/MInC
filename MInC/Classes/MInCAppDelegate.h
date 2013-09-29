@@ -22,10 +22,6 @@
 	IBOutlet UILabel			*mStatusLabel;
 	IBOutlet UISegmentedControl	*mSpeakerSegControl;
 	IBOutlet UISegmentedControl	*mInstrSegControl;
-	IBOutlet UIButton			*m8vbButton;
-	IBOutlet UIButton			*m8vaButton;
-	IBOutlet UIButton			*m2xSlowButton;
-	IBOutlet UIButton			*m2xFastButton;
 	IBOutlet UIButton			*mHintButton;
 	IBOutlet UIButton			*mStatusButton;
 		
@@ -33,10 +29,6 @@
 	
 	AQPlayer				*AQP;
 
-#if 0
-	NSThread				*Thread;
-#endif
-    
 	NSString				*InterstitialString;
 	NSString				*ServerIPAddString;
 
@@ -51,22 +43,6 @@
 
 -(IBAction)SetSpeaker:(id)sender;
 -(IBAction)SetInstrument:(id)sender;
-
--(IBAction)Set8vbDown:(id)sender;
--(IBAction)Set8vbUp:(id)sender;
--(void)send8vb:(BOOL)direction;
-
--(IBAction)Set8vaDown:(id)sender;
--(IBAction)Set8vaUp:(id)sender;
--(void)send8va:(BOOL)direction;
-
--(IBAction)Set2xSlowDown:(id)sender;
--(IBAction)Set2xSlowUp:(id)sender;
--(void)send2xSlow:(BOOL)direction;
-
--(IBAction)Set2xFastDown:(id)sender;
--(IBAction)Set2xFastUp:(id)sender;
--(void)send2xFast:(BOOL)direction;
 
 -(IBAction)SetNoteDuration:(id)sender;
 

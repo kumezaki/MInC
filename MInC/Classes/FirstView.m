@@ -57,7 +57,7 @@ FirstView *gFirstView = nil;
 	NSLog(@"setWithServer %s\n",WithServer?"ON":"OFF");
 }
 
--(IBAction)SetSequence
+-(IBAction)setSequence
 {
 	if (WithServer)
 		[gViewController.networking sendOSCMsg:"/minc/mod\0\0\0":12];
@@ -66,6 +66,66 @@ FirstView *gFirstView = nil;
 		[gAQP setSequence:(++gAQP->SeqNum)];
 		NewMod = YES;
 	}
+}
+
+-(IBAction)set8vbDown:(id)sender
+{
+	[self send8vb:true];
+}
+
+-(IBAction)set8vbUp:(id)sender
+{
+	[self send8vb:false];
+}
+
+-(void)send8vb:(BOOL)direction
+{
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/8vb\0\0\0":12:direction?1:0];
+}
+
+-(IBAction)set8vaDown:(id)sender
+{
+	[self send8va:true];
+}
+
+-(IBAction)set8vaUp:(id)sender
+{
+	[self send8va:false];
+}
+
+-(void)send8va:(BOOL)direction
+{
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/8va\0\0\0":12:direction?1:0];
+}
+
+-(IBAction)set2xSlowDown:(id)sender
+{
+	[self send2xSlow:true];
+}
+
+-(IBAction)set2xSlowUp:(id)sender
+{
+	[self send2xSlow:false];
+}
+
+-(void)send2xSlow:(BOOL)direction
+{
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/2xslow\0\0\0\0":16:direction?1:0];
+}
+
+-(IBAction)set2xFastDown:(id)sender
+{
+	[self send2xFast:true];
+}
+
+-(IBAction)set2xFastUp:(id)sender
+{
+	[self send2xFast:false];
+}
+
+-(void)send2xFast:(BOOL)direction
+{
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/2xfast\0\0\0\0":16:direction?1:0];
 }
 
 @end

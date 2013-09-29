@@ -619,38 +619,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">m8vbButton</string>
-						<reference key="source" ref="664661524"/>
-						<reference key="destination" ref="775833163"/>
-					</object>
-					<int key="connectionID">174</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">m8vaButton</string>
-						<reference key="source" ref="664661524"/>
-						<reference key="destination" ref="525344180"/>
-					</object>
-					<int key="connectionID">175</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">m2xSlowButton</string>
-						<reference key="source" ref="664661524"/>
-						<reference key="destination" ref="655418954"/>
-					</object>
-					<int key="connectionID">178</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">m2xFastButton</string>
-						<reference key="source" ref="664661524"/>
-						<reference key="destination" ref="477193786"/>
-					</object>
-					<int key="connectionID">179</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">NextButton</string>
 						<reference key="source" ref="434903890"/>
 						<reference key="destination" ref="872922856"/>
@@ -658,13 +626,45 @@
 					<int key="connectionID">226</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">EightVbButton</string>
+						<reference key="source" ref="434903890"/>
+						<reference key="destination" ref="775833163"/>
+					</object>
+					<int key="connectionID">227</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">EightVaButton</string>
+						<reference key="source" ref="434903890"/>
+						<reference key="destination" ref="525344180"/>
+					</object>
+					<int key="connectionID">228</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">TwoTimesSlowButton</string>
+						<reference key="source" ref="434903890"/>
+						<reference key="destination" ref="655418954"/>
+					</object>
+					<int key="connectionID">229</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">TwoTimesFastButton</string>
+						<reference key="source" ref="434903890"/>
+						<reference key="destination" ref="477193786"/>
+					</object>
+					<int key="connectionID">230</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">SetSequence</string>
+						<string key="label">setSequence</string>
 						<reference key="source" ref="872922856"/>
 						<reference key="destination" ref="434903890"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">224</int>
+					<int key="connectionID">231</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -686,111 +686,111 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">Set8vbDown:</string>
+						<string key="label">set8vbDown:</string>
 						<reference key="source" ref="775833163"/>
-						<reference key="destination" ref="664661524"/>
+						<reference key="destination" ref="434903890"/>
 						<int key="IBEventType">1</int>
 					</object>
-					<int key="connectionID">182</int>
+					<int key="connectionID">233</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">Set8vbUp:</string>
+						<string key="label">set8vbUp:</string>
 						<reference key="source" ref="775833163"/>
-						<reference key="destination" ref="664661524"/>
+						<reference key="destination" ref="434903890"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">183</int>
+					<int key="connectionID">234</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">Set8vaUp:</string>
+						<string key="label">set8vbUp:</string>
 						<reference key="source" ref="775833163"/>
-						<reference key="destination" ref="664661524"/>
+						<reference key="destination" ref="434903890"/>
 						<int key="IBEventType">8</int>
 					</object>
-					<int key="connectionID">184</int>
+					<int key="connectionID">235</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">Set8vaDown:</string>
+						<string key="label">set8vaDown:</string>
 						<reference key="source" ref="525344180"/>
-						<reference key="destination" ref="664661524"/>
+						<reference key="destination" ref="434903890"/>
 						<int key="IBEventType">1</int>
 					</object>
-					<int key="connectionID">185</int>
+					<int key="connectionID">239</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">Set8vaUp:</string>
+						<string key="label">set8vaUp:</string>
 						<reference key="source" ref="525344180"/>
-						<reference key="destination" ref="664661524"/>
+						<reference key="destination" ref="434903890"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">186</int>
+					<int key="connectionID">240</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">Set8vaUp:</string>
+						<string key="label">set8vaUp:</string>
 						<reference key="source" ref="525344180"/>
-						<reference key="destination" ref="664661524"/>
+						<reference key="destination" ref="434903890"/>
 						<int key="IBEventType">8</int>
 					</object>
-					<int key="connectionID">187</int>
+					<int key="connectionID">241</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">Set2xSlowDown:</string>
+						<string key="label">set2xSlowDown:</string>
 						<reference key="source" ref="655418954"/>
-						<reference key="destination" ref="664661524"/>
+						<reference key="destination" ref="434903890"/>
 						<int key="IBEventType">1</int>
 					</object>
-					<int key="connectionID">188</int>
+					<int key="connectionID">236</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">Set2xSlowUp:</string>
+						<string key="label">set2xSlowUp:</string>
 						<reference key="source" ref="655418954"/>
-						<reference key="destination" ref="664661524"/>
+						<reference key="destination" ref="434903890"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">189</int>
+					<int key="connectionID">237</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">Set2xSlowUp:</string>
+						<string key="label">set2xSlowUp:</string>
 						<reference key="source" ref="655418954"/>
-						<reference key="destination" ref="664661524"/>
+						<reference key="destination" ref="434903890"/>
 						<int key="IBEventType">8</int>
 					</object>
-					<int key="connectionID">190</int>
+					<int key="connectionID">238</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">Set2xFastDown:</string>
+						<string key="label">set2xFastDown:</string>
 						<reference key="source" ref="477193786"/>
-						<reference key="destination" ref="664661524"/>
+						<reference key="destination" ref="434903890"/>
 						<int key="IBEventType">1</int>
 					</object>
-					<int key="connectionID">192</int>
+					<int key="connectionID">242</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">Set2xFastUp:</string>
+						<string key="label">set2xFastUp:</string>
 						<reference key="source" ref="477193786"/>
-						<reference key="destination" ref="664661524"/>
+						<reference key="destination" ref="434903890"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">194</int>
+					<int key="connectionID">243</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">Set2xFastUp:</string>
+						<string key="label">set2xFastUp:</string>
 						<reference key="source" ref="477193786"/>
-						<reference key="destination" ref="664661524"/>
+						<reference key="destination" ref="434903890"/>
 						<int key="IBEventType">8</int>
 					</object>
-					<int key="connectionID">195</int>
+					<int key="connectionID">244</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -1100,7 +1100,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">226</int>
+			<int key="maxID">244</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

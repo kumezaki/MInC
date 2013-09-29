@@ -58,9 +58,6 @@ extern FirstViewController *gViewController;
 
 
 - (void)dealloc {
-#if 0
-	[Thread release];
-#endif
 	[ImageArray release];
 	[AQP release];
     [tabBarController release];
@@ -141,17 +138,9 @@ extern FirstViewController *gViewController;
 	if (file_exists)
 		[self readDataFile];
 
-//	WithServer = YES;
-	
 	[self sendHeartBeat];
 
-#if 0
-	Thread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_udp) object:nil];
-	[Thread start];
-#endif
-    
 	InterstitialString = nil;
-//	NewMod = NO;
 	ServerIPAddString = nil;
 	
 	self.SecondView = nil;
@@ -173,66 +162,6 @@ extern FirstViewController *gViewController;
 	NSLog(@"SetInstrument %d\n",mInstrSegControl.selectedSegmentIndex);
 
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/instr\0":12:mInstrSegControl.selectedSegmentIndex];
-}
-
--(IBAction)Set8vbDown:(id)sender
-{
-	[self send8vb:true];
-}
-
--(IBAction)Set8vbUp:(id)sender
-{
-	[self send8vb:false];
-}
-
--(void)send8vb:(BOOL)direction
-{
-	[gViewController.networking sendOSCMsgWithIntValue:"/minc/8vb\0\0\0":12:direction?1:0];
-}
-
--(IBAction)Set8vaDown:(id)sender
-{
-	[self send8va:true];
-}
-
--(IBAction)Set8vaUp:(id)sender
-{
-	[self send8va:false];
-}
-
--(void)send8va:(BOOL)direction
-{
-	[gViewController.networking sendOSCMsgWithIntValue:"/minc/8va\0\0\0":12:direction?1:0];
-}
-
--(IBAction)Set2xSlowDown:(id)sender
-{
-	[self send2xSlow:true];
-}
-
--(IBAction)Set2xSlowUp:(id)sender
-{
-	[self send2xSlow:false];
-}
-
--(void)send2xSlow:(BOOL)direction
-{
-	[gViewController.networking sendOSCMsgWithIntValue:"/minc/2xslow\0\0\0\0":16:direction?1:0];
-}
-
--(IBAction)Set2xFastDown:(id)sender
-{
-	[self send2xFast:true];
-}
-
--(IBAction)Set2xFastUp:(id)sender
-{
-	[self send2xFast:false];
-}
-
--(void)send2xFast:(BOOL)direction
-{
-	[gViewController.networking sendOSCMsgWithIntValue:"/minc/2xfast\0\0\0\0":16:direction?1:0];
 }
 
 -(IBAction)SetNoteDuration:(id)sender

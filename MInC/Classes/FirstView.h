@@ -12,6 +12,11 @@
 
     IBOutlet UIButton	*NextButton;
 
+	IBOutlet UIButton	*EightVbButton;
+	IBOutlet UIButton	*EightVaButton;
+	IBOutlet UIButton	*TwoTimesSlowButton;
+	IBOutlet UIButton	*TwoTimesFastButton;
+
 	BOOL				WithServer;
 }
 
@@ -19,6 +24,22 @@
 
 -(void)setWithServer:(BOOL)on;
 
--(IBAction)SetSequence;
+-(IBAction)setSequence;
+
+-(IBAction)set8vbDown:(id)sender;
+-(IBAction)set8vbUp:(id)sender;
+-(void)send8vb:(BOOL)direction;
+
+-(IBAction)set8vaDown:(id)sender;
+-(IBAction)set8vaUp:(id)sender;
+-(void)send8va:(BOOL)direction;
+
+-(IBAction)set2xSlowDown:(id)sender;
+-(IBAction)set2xSlowUp:(id)sender;
+-(void)send2xSlow:(BOOL)direction;
+
+-(IBAction)set2xFastDown:(id)sender;
+-(IBAction)set2xFastUp:(id)sender;
+-(void)send2xFast:(BOOL)direction;
 
 @end
