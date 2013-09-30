@@ -173,16 +173,6 @@ extern FirstViewController *gViewController;
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([mNoteDurationSlider value])];
 }
 
--(IBAction)Hint:(id)sender
-{
-	[gViewController.networking sendOSCMsg:"/minc/hint\0\0":12];
-}
-
--(IBAction)Status:(id)sender
-{
-	[gViewController.networking sendOSCMsg:"/minc/status\0\0\0\0":16];
-}
-
 -(void)sendOSC_Filter:(Float64)val
 {
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/filt\0\0":12:FLOAT_TO_MRMR_INT(val)];

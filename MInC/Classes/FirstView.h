@@ -16,6 +16,8 @@
 	IBOutlet UIButton	*EightVaButton;
 	IBOutlet UIButton	*TwoTimesSlowButton;
 	IBOutlet UIButton	*TwoTimesFastButton;
+	IBOutlet UIButton	*HintButton;
+	IBOutlet UIButton	*StatusButton;
 
 	BOOL				WithServer;
 }
@@ -41,5 +43,8 @@
 -(IBAction)set2xFastDown:(id)sender;
 -(IBAction)set2xFastUp:(id)sender;
 -(void)send2xFast:(BOOL)direction;
+
+-(IBAction)requestHint:(id)sender;
+-(IBAction)requestStatus:(id)sender;
 
 @end

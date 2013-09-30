@@ -22,8 +22,6 @@
 	IBOutlet UILabel			*mStatusLabel;
 	IBOutlet UISegmentedControl	*mSpeakerSegControl;
 	IBOutlet UISegmentedControl	*mInstrSegControl;
-	IBOutlet UIButton			*mHintButton;
-	IBOutlet UIButton			*mStatusButton;
 		
 	NSArray					*ImageArray;
 	
@@ -45,9 +43,6 @@
 -(IBAction)SetInstrument:(id)sender;
 
 -(IBAction)SetNoteDuration:(id)sender;
-
--(IBAction)Hint:(id)sender;
--(IBAction)Status:(id)sender;
 
 -(void)sendOSC_Filter:(Float64)val;
 -(void)sendOSC_Volume:(Float64)val;

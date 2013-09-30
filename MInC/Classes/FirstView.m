@@ -128,4 +128,14 @@ FirstView *gFirstView = nil;
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/2xfast\0\0\0\0":16:direction?1:0];
 }
 
+-(IBAction)requestHint:(id)sender
+{
+	[gViewController.networking sendOSCMsg:"/minc/hint\0\0":12];
+}
+
+-(IBAction)requestStatus:(id)sender
+{
+	[gViewController.networking sendOSCMsg:"/minc/status\0\0\0\0":16];
+}
+
 @end
