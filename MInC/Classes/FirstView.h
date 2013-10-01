@@ -19,6 +19,9 @@
 	IBOutlet UIButton	*HintButton;
 	IBOutlet UIButton	*StatusButton;
 
+	IBOutlet UISegmentedControl	*SpeakerSegControl;
+	IBOutlet UISegmentedControl	*InstrSegControl;
+
 	BOOL				WithServer;
 }
 
@@ -46,5 +49,8 @@
 
 -(IBAction)requestHint:(id)sender;
 -(IBAction)requestStatus:(id)sender;
+
+-(IBAction)setSpeaker:(id)sender;
+-(IBAction)setInstrument:(id)sender;
 
 @end

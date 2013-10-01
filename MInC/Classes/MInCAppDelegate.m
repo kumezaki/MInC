@@ -150,20 +150,6 @@ extern FirstViewController *gViewController;
 	return self;
 }
 
--(IBAction)SetSpeaker:(id)sender
-{
-	NSLog(@"SetSpeaker %d\n",mSpeakerSegControl.selectedSegmentIndex);
-
-	[gViewController.networking sendOSCMsgWithIntValue:"/minc/speak\0":12:mSpeakerSegControl.selectedSegmentIndex];
-}
-
--(IBAction)SetInstrument:(id)sender
-{
-	NSLog(@"SetInstrument %d\n",mInstrSegControl.selectedSegmentIndex);
-
-	[gViewController.networking sendOSCMsgWithIntValue:"/minc/instr\0":12:mInstrSegControl.selectedSegmentIndex];
-}
-
 -(IBAction)SetNoteDuration:(id)sender
 {
 	Sequencer* q = AQP->Sequencer_Pri;

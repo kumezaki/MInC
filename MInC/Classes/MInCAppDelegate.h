@@ -20,8 +20,6 @@
 	IBOutlet UISlider			*mNoteDurationSlider;
 	IBOutlet UIView				*mTouchView;
 	IBOutlet UILabel			*mStatusLabel;
-	IBOutlet UISegmentedControl	*mSpeakerSegControl;
-	IBOutlet UISegmentedControl	*mInstrSegControl;
 		
 	NSArray					*ImageArray;
 	
@@ -38,9 +36,6 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain) SecondView *SecondView;
-
--(IBAction)SetSpeaker:(id)sender;
--(IBAction)SetInstrument:(id)sender;
 
 -(IBAction)SetNoteDuration:(id)sender;
 
