@@ -33,14 +33,10 @@ extern FirstViewController *gViewController;
 #define OSC_END [self send_udp];
 #define OSC_ADD(msg,num_msg_bytes) memcpy(OutBuffer+OutBufferLength,msg,num_msg_bytes); OutBufferLength+=num_msg_bytes;
 
-#define FLOAT_TO_MRMR_INT(v) (SInt32)(v * 1000. + 0.5)
-
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
     
     // Add the tab bar controller's current view as a subview of the window
     [window addSubview:tabBarController.view];
-
-	mTouchView.multipleTouchEnabled = YES;
 }
 
 
@@ -150,15 +146,6 @@ extern FirstViewController *gViewController;
 	return self;
 }
 
--(IBAction)SetNoteDuration:(id)sender
-{
-	Sequencer* q = AQP->Sequencer_Pri;
-	if (q != nil)
-		q->DurMultiplier = [mNoteDurationSlider value];
-
-	[gViewController.networking sendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([mNoteDurationSlider value])];
-}
-
 -(void)sendOSC_Filter:(Float64)val
 {
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/filt\0\0":12:FLOAT_TO_MRMR_INT(val)];
@@ -250,7 +237,7 @@ extern FirstViewController *gViewController;
 {
 	if (InterstitialString != nil)
 	{
-		[mStatusLabel setText:InterstitialString];
+		[gFirstView.mStatusLabel setText:InterstitialString];
 		[InterstitialString release];
 		InterstitialString = nil;
 	}
@@ -258,7 +245,7 @@ extern FirstViewController *gViewController;
 	if (gFirstView.NewMod == YES)
 	{
 		if (AQP->SeqNum >= 0 && AQP->SeqNum <= AQP->NumSequences)
-			mNotationView.image = [ImageArray objectAtIndex:AQP->SeqNum-1];
+			gFirstView.mNotationView.image = [ImageArray objectAtIndex:AQP->SeqNum-1];
 		gFirstView.NewMod = NO;
 	}
 
@@ -317,7 +304,7 @@ extern FirstViewController *gViewController;
 	if (AQP->Piece == 1)
 	{
 		UIImage *image = [UIImage imageNamed:@"InCCover.jpg"];
-		[mNotationView setImage:image];
+		[gFirstView.mNotationView setImage:image];
 		ImageArray = [[NSArray alloc] initWithObjects:
 					   [UIImage imageNamed:@"InC01.jpg"],
 					   [UIImage imageNamed:@"InC02.jpg"],
@@ -377,7 +364,7 @@ extern FirstViewController *gViewController;
 	}
 	else if (AQP->Piece == 2) {
 		UIImage *image = [UIImage imageNamed:@"PPCover.jpg"];
-		[mNotationView setImage:image];
+		[gFirstView.mNotationView setImage:image];
 		ImageArray = [[NSArray alloc] initWithObjects:
 					   [UIImage imageNamed:@"PP1.jpg"],
 					   [UIImage imageNamed:@"PP2.jpg"],
@@ -416,7 +403,7 @@ extern FirstViewController *gViewController;
 	}
 	else if (AQP->Piece == 3) {
 		UIImage *image = [UIImage imageNamed:@"TrafficCover.jpg"];
-		[mNotationView setImage:image];
+		[gFirstView.mNotationView setImage:image];
 		ImageArray = [[NSArray alloc] initWithObjects:
 					   [UIImage imageNamed:@"Traffic1.jpg"],
 					   [UIImage imageNamed:@"Traffic2.jpg"],

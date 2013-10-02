@@ -10,6 +10,9 @@
 
 @interface FirstView : UIView {
 
+	IBOutlet UISlider			*mNoteDurationSlider;
+	IBOutlet UIView				*mTouchView;
+    
     IBOutlet UIButton	*NextButton;
 
 	IBOutlet UIButton	*EightVbButton;
@@ -26,6 +29,9 @@
 }
 
 @property (readwrite) BOOL NewMod;
+
+@property (nonatomic, retain)   IBOutlet UIImageView	*mNotationView;
+@property (nonatomic, retain)   IBOutlet UILabel		*mStatusLabel;
 
 -(void)setWithServer:(BOOL)on;
 
@@ -52,5 +58,7 @@
 
 -(IBAction)setSpeaker:(id)sender;
 -(IBAction)setInstrument:(id)sender;
+
+-(IBAction)SetNoteDuration:(id)sender;
 
 @end

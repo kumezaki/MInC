@@ -79,8 +79,6 @@ extern AQPlayer *gAQP;
 
 #pragma mark - accelerometer
 
-#define FLOAT_TO_MRMR_INT(v) (SInt32)(v * 1000. + 0.5)
-
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
 #if 0

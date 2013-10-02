@@ -48,6 +48,8 @@ FirstView *gFirstView = nil;
 
 	NewMod = NO;
 
+	mTouchView.multipleTouchEnabled = YES;
+
     return self;
 }
 
@@ -150,6 +152,15 @@ FirstView *gFirstView = nil;
 	NSLog(@"setInstrument %d\n",InstrSegControl.selectedSegmentIndex);
     
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/instr\0":12:InstrSegControl.selectedSegmentIndex];
+}
+
+-(IBAction)SetNoteDuration:(id)sender
+{
+	Sequencer* q = gAQP->Sequencer_Pri;
+	if (q != nil)
+		q->DurMultiplier = [mNoteDurationSlider value];
+    
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([mNoteDurationSlider value])];
 }
 
 @end

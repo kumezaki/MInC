@@ -10,6 +10,8 @@
 
 #import "NetworkMessages.h"
 
+#define FLOAT_TO_MRMR_INT(v) (SInt32)(v * 1000. + 0.5)
+
 @interface FirstViewController : UIViewController <UIAccelerometerDelegate> {
 
 }

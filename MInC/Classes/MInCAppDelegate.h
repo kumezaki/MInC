@@ -16,11 +16,6 @@
 	UIWindow *window;
 	UITabBarController *tabBarController;
 
-	IBOutlet UIImageView		*mNotationView;
-	IBOutlet UISlider			*mNoteDurationSlider;
-	IBOutlet UIView				*mTouchView;
-	IBOutlet UILabel			*mStatusLabel;
-		
 	NSArray					*ImageArray;
 	
 	AQPlayer				*AQP;
@@ -36,8 +31,6 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain) SecondView *SecondView;
-
--(IBAction)SetNoteDuration:(id)sender;
 
 -(void)sendOSC_Filter:(Float64)val;
 -(void)sendOSC_Volume:(Float64)val;
