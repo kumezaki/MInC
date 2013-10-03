@@ -33,6 +33,8 @@
 @property (nonatomic, retain)   IBOutlet UIImageView	*mNotationView;
 @property (nonatomic, retain)   IBOutlet UILabel		*mStatusLabel;
 
+@property (nonatomic, retain)   NSArray					*ImageArray;
+
 -(void)setWithServer:(BOOL)on;
 
 -(IBAction)setSequence;
@@ -60,5 +62,7 @@
 -(IBAction)setInstrument:(id)sender;
 
 -(IBAction)SetNoteDuration:(id)sender;
+
+-(void) createImageArray;
 
 @end

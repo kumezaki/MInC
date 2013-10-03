@@ -131,8 +131,7 @@ extern FirstViewController *gViewController;
 	}
 	[gAQP parseFile];
 	
-	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
-	[appDelegate createImageArray];
+	[gFirstView createImageArray];
 }
 
 -(void)showMenu

@@ -16,16 +16,10 @@
 	UIWindow *window;
 	UITabBarController *tabBarController;
 
-	NSArray					*ImageArray;
-	
 	AQPlayer				*AQP;
 
 	NSString				*InterstitialString;
 	NSString				*ServerIPAddString;
-
-@public
-    
-	SecondView				*SecondView;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -47,7 +41,5 @@
 +(NSString *)dataFilePath;
 -(void) readDataFile;
 -(void) writeDataFile;
-
--(void) createImageArray;
 
 @end

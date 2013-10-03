@@ -48,9 +48,18 @@ FirstView *gFirstView = nil;
 
 	NewMod = NO;
 
+	[self createImageArray];
+
 	mTouchView.multipleTouchEnabled = YES;
 
     return self;
+}
+
+- (void)dealloc
+{
+	[_ImageArray release];
+    
+    [super dealloc];
 }
 
 -(void)setWithServer:(BOOL)on
@@ -161,6 +170,156 @@ FirstView *gFirstView = nil;
 		q->DurMultiplier = [mNoteDurationSlider value];
     
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([mNoteDurationSlider value])];
+}
+
+#pragma mark - image array
+
+-(void) createImageArray
+{
+	if (gAQP->Piece == 1)
+	{
+		UIImage *image = [UIImage imageNamed:@"InCCover.jpg"];
+		[gFirstView.mNotationView setImage:image];
+		_ImageArray = [[NSArray alloc] initWithObjects:
+                      [UIImage imageNamed:@"InC01.jpg"],
+                      [UIImage imageNamed:@"InC02.jpg"],
+                      [UIImage imageNamed:@"InC03.jpg"],
+                      [UIImage imageNamed:@"InC04.jpg"],
+                      [UIImage imageNamed:@"InC05.jpg"],
+                      [UIImage imageNamed:@"InC06.jpg"],
+                      [UIImage imageNamed:@"InC07.jpg"],
+                      [UIImage imageNamed:@"InC08.jpg"],
+                      [UIImage imageNamed:@"InC09.jpg"],
+                      [UIImage imageNamed:@"InC10.jpg"],
+                      [UIImage imageNamed:@"InC11.jpg"],
+                      [UIImage imageNamed:@"InC12.jpg"],
+                      [UIImage imageNamed:@"InC13.jpg"],
+                      [UIImage imageNamed:@"InC14.jpg"],
+                      [UIImage imageNamed:@"InC15.jpg"],
+                      [UIImage imageNamed:@"InC16.jpg"],
+                      [UIImage imageNamed:@"InC17.jpg"],
+                      [UIImage imageNamed:@"InC18.jpg"],
+                      [UIImage imageNamed:@"InC19.jpg"],
+                      [UIImage imageNamed:@"InC20.jpg"],
+                      [UIImage imageNamed:@"InC21.jpg"],
+                      [UIImage imageNamed:@"InC22.jpg"],
+                      [UIImage imageNamed:@"InC23.jpg"],
+                      [UIImage imageNamed:@"InC24.jpg"],
+                      [UIImage imageNamed:@"InC25.jpg"],
+                      [UIImage imageNamed:@"InC26.jpg"],
+                      [UIImage imageNamed:@"InC27.jpg"],
+                      [UIImage imageNamed:@"InC28.jpg"],
+                      [UIImage imageNamed:@"InC29.jpg"],
+                      [UIImage imageNamed:@"InC30.jpg"],
+                      [UIImage imageNamed:@"InC31.jpg"],
+                      [UIImage imageNamed:@"InC32.jpg"],
+                      [UIImage imageNamed:@"InC33.jpg"],
+                      [UIImage imageNamed:@"InC34.jpg"],
+                      [UIImage imageNamed:@"InC35.jpg"],
+                      [UIImage imageNamed:@"InC36.jpg"],
+                      [UIImage imageNamed:@"InC37.jpg"],
+                      [UIImage imageNamed:@"InC38.jpg"],
+                      [UIImage imageNamed:@"InC39.jpg"],
+                      [UIImage imageNamed:@"InC40.jpg"],
+                      [UIImage imageNamed:@"InC41.jpg"],
+                      [UIImage imageNamed:@"InC42.jpg"],
+                      [UIImage imageNamed:@"InC43.jpg"],
+                      [UIImage imageNamed:@"InC44.jpg"],
+                      [UIImage imageNamed:@"InC45.jpg"],
+                      [UIImage imageNamed:@"InC46.jpg"],
+                      [UIImage imageNamed:@"InC47.jpg"],
+                      [UIImage imageNamed:@"InC48.jpg"],
+                      [UIImage imageNamed:@"InC49.jpg"],
+                      [UIImage imageNamed:@"InC50.jpg"],
+                      [UIImage imageNamed:@"InC51.jpg"],
+                      [UIImage imageNamed:@"InC52.jpg"],
+                      [UIImage imageNamed:@"InC53.jpg"],
+                      nil
+                      ];
+	}
+	else if (gAQP->Piece == 2) {
+		UIImage *image = [UIImage imageNamed:@"PPCover.jpg"];
+		[gFirstView.mNotationView setImage:image];
+		_ImageArray = [[NSArray alloc] initWithObjects:
+                      [UIImage imageNamed:@"PP1.jpg"],
+                      [UIImage imageNamed:@"PP2.jpg"],
+                      [UIImage imageNamed:@"PP3.jpg"],
+                      [UIImage imageNamed:@"PP4.jpg"],
+                      [UIImage imageNamed:@"PP5.jpg"],
+                      [UIImage imageNamed:@"PP6.jpg"],
+                      [UIImage imageNamed:@"PP7.jpg"],
+                      [UIImage imageNamed:@"PP8.jpg"],
+                      [UIImage imageNamed:@"PP9.jpg"],
+                      [UIImage imageNamed:@"PP10.jpg"],
+                      [UIImage imageNamed:@"PP11.jpg"],
+                      [UIImage imageNamed:@"PP12.jpg"],
+                      [UIImage imageNamed:@"PP13.jpg"],
+                      [UIImage imageNamed:@"PP14.jpg"],
+                      [UIImage imageNamed:@"PP15.jpg"],
+                      [UIImage imageNamed:@"PP16.jpg"],
+                      [UIImage imageNamed:@"PP17.jpg"],
+                      [UIImage imageNamed:@"PP18.jpg"],
+                      [UIImage imageNamed:@"PP19.jpg"],
+                      [UIImage imageNamed:@"PP20.jpg"],
+                      [UIImage imageNamed:@"PP21.jpg"],
+                      [UIImage imageNamed:@"PP22.jpg"],
+                      [UIImage imageNamed:@"PP23.jpg"],
+                      [UIImage imageNamed:@"PP24.jpg"],
+                      [UIImage imageNamed:@"PP25.jpg"],
+                      [UIImage imageNamed:@"PP26.jpg"],
+                      [UIImage imageNamed:@"PP27.jpg"],
+                      [UIImage imageNamed:@"PP28.jpg"],
+                      [UIImage imageNamed:@"PP29.jpg"],
+                      [UIImage imageNamed:@"PP30.jpg"],
+                      [UIImage imageNamed:@"PP31.jpg"],
+                      [UIImage imageNamed:@"PP32.jpg"],
+                      nil
+                      ];
+	}
+	else if (gAQP->Piece == 3) {
+		UIImage *image = [UIImage imageNamed:@"TrafficCover.jpg"];
+		[gFirstView.mNotationView setImage:image];
+		_ImageArray = [[NSArray alloc] initWithObjects:
+                      [UIImage imageNamed:@"Traffic1.jpg"],
+                      [UIImage imageNamed:@"Traffic2.jpg"],
+                      [UIImage imageNamed:@"Traffic3.jpg"],
+                      [UIImage imageNamed:@"Traffic4.jpg"],
+                      [UIImage imageNamed:@"Traffic5.jpg"],
+                      [UIImage imageNamed:@"Traffic6.jpg"],
+                      [UIImage imageNamed:@"Traffic7.jpg"],
+                      [UIImage imageNamed:@"Traffic8.jpg"],
+                      [UIImage imageNamed:@"Traffic9.jpg"],
+                      [UIImage imageNamed:@"Traffic10.jpg"],
+                      [UIImage imageNamed:@"Traffic11.jpg"],
+                      [UIImage imageNamed:@"Traffic12.jpg"],
+                      [UIImage imageNamed:@"Traffic13.jpg"],
+                      [UIImage imageNamed:@"Traffic14.jpg"],
+                      [UIImage imageNamed:@"Traffic15.jpg"],
+                      [UIImage imageNamed:@"Traffic16.jpg"],
+                      [UIImage imageNamed:@"Traffic17.jpg"],
+                      [UIImage imageNamed:@"Traffic18.jpg"],
+                      [UIImage imageNamed:@"Traffic19.jpg"],
+                      [UIImage imageNamed:@"Traffic20.jpg"],
+                      [UIImage imageNamed:@"Traffic21.jpg"],
+                      [UIImage imageNamed:@"Traffic22.jpg"],
+                      [UIImage imageNamed:@"Traffic23.jpg"],
+                      [UIImage imageNamed:@"Traffic24.jpg"],
+                      [UIImage imageNamed:@"Traffic25.jpg"],
+                      [UIImage imageNamed:@"Traffic26.jpg"],
+                      [UIImage imageNamed:@"Traffic27.jpg"],
+                      [UIImage imageNamed:@"Traffic28.jpg"],
+                      [UIImage imageNamed:@"Traffic29.jpg"],
+                      [UIImage imageNamed:@"Traffic30.jpg"],
+                      [UIImage imageNamed:@"Traffic31.jpg"],
+                      [UIImage imageNamed:@"Traffic32.jpg"],
+                      [UIImage imageNamed:@"Traffic33.jpg"],
+                      [UIImage imageNamed:@"Traffic34.jpg"],
+                      [UIImage imageNamed:@"Traffic35.jpg"],
+                      [UIImage imageNamed:@"Traffic36.jpg"],
+                      nil
+                      ];
+		
+	}
 }
 
 @end
