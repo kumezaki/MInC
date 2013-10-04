@@ -172,6 +172,21 @@ FirstView *gFirstView = nil;
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([mNoteDurationSlider value])];
 }
 
+-(void)sendOSC_Filter:(Float64)val
+{
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/filt\0\0":12:FLOAT_TO_MRMR_INT(val)];
+}
+
+-(void)sendOSC_Volume:(Float64)val
+{
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/vol\0\0\0":12:FLOAT_TO_MRMR_INT(val)];
+}
+
+-(void)sendOSC_Waveform:(Float64)val
+{
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/wave\0\0":12:FLOAT_TO_MRMR_INT(val)];
+}
+
 #pragma mark - image array
 
 -(void) createImageArray

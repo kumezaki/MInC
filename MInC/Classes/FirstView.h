@@ -63,6 +63,10 @@
 
 -(IBAction)SetNoteDuration:(id)sender;
 
+-(void)sendOSC_Filter:(Float64)val;
+-(void)sendOSC_Volume:(Float64)val;
+-(void)sendOSC_Waveform:(Float64)val;
+
 -(void) createImageArray;
 
 @end

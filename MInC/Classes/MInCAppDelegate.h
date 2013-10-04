@@ -26,10 +26,6 @@
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain) SecondView *SecondView;
 
--(void)sendOSC_Filter:(Float64)val;
--(void)sendOSC_Volume:(Float64)val;
--(void)sendOSC_Waveform:(Float64)val;
-
 -(NSString *)getIPAddress;
 -(void)setServerIPAddress:(NSString *)str;
 -(void)setServerPortNum:(NSString *)str;

@@ -86,21 +86,6 @@ extern FirstViewController *gViewController;
 	return self;
 }
 
--(void)sendOSC_Filter:(Float64)val
-{
-	[gViewController.networking sendOSCMsgWithIntValue:"/minc/filt\0\0":12:FLOAT_TO_MRMR_INT(val)];
-}
-
--(void)sendOSC_Volume:(Float64)val
-{
-	[gViewController.networking sendOSCMsgWithIntValue:"/minc/vol\0\0\0":12:FLOAT_TO_MRMR_INT(val)];
-}
-
--(void)sendOSC_Waveform:(Float64)val
-{
-	[gViewController.networking sendOSCMsgWithIntValue:"/minc/wave\0\0":12:FLOAT_TO_MRMR_INT(val)];
-}
-
 - (NSString *)getIPAddress
 {
 	NSString *address = @"0.0.0.0";

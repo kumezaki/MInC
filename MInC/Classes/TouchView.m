@@ -13,6 +13,9 @@
 
 extern AQPlayer *gAQP;
 
+#import "FirstView.h"
+extern FirstView *gFirstView;
+
 #define DIAGONAL(x,y) sqrt(((x) * (x)) + ((y) * (y)))
 
 @implementation TouchView
@@ -121,11 +124,9 @@ extern AQPlayer *gAQP;
 	Float64 y = 1. - (Y[0]/self.bounds.size.height);
 	Float64 z = DIAGONAL(X[1]-X[0],Y[1]-Y[0]) / DIAGONAL(self.bounds.size.width,self.bounds.size.height);
 
-	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
-
-	[appDelegate sendOSC_Filter:x];
-	[appDelegate sendOSC_Waveform:y];
-	[appDelegate sendOSC_Volume:z];
+	[gFirstView sendOSC_Filter:x];
+	[gFirstView sendOSC_Waveform:y];
+	[gFirstView sendOSC_Volume:z];
 
 	[self setNeedsDisplay];
 }
