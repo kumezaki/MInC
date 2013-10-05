@@ -44,9 +44,13 @@
 
 -(void)SetIPAddress;
 
-
-
 -(BOOL)IsEditing;
 
+-(void)setServerIPAddress:(NSString *)str;
+-(void)setServerPortNum:(NSString *)str;
+
++(NSString *)dataFilePath;
+-(void) readDataFile;
+-(void) writeDataFile;
 
 @end

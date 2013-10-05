@@ -8,11 +8,15 @@
 
 #import "FirstView.h"
 
-#import "FirstViewController.h"
 #import "MInCAppDelegate.h"
 
-extern AQPlayer *gAQP;
+#import "FirstViewController.h"
 extern FirstViewController *gViewController;
+
+#import "SecondView.h"
+extern SecondView *gSecondView;
+
+extern AQPlayer *gAQP;
 
 FirstView *gFirstView = nil;
 
@@ -50,8 +54,13 @@ FirstView *gFirstView = nil;
 
 	[self createImageArray];
 
-	mTouchView.multipleTouchEnabled = YES;
+	TouchView.multipleTouchEnabled = YES;
 
+	_InterstitialString = nil;
+	_ServerIPAddString = nil;
+	
+	[self checkIncomingMessages];
+    
     return self;
 }
 
@@ -163,13 +172,13 @@ FirstView *gFirstView = nil;
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/instr\0":12:InstrSegControl.selectedSegmentIndex];
 }
 
--(IBAction)SetNoteDuration:(id)sender
+-(IBAction)setNoteDuration:(id)sender
 {
 	Sequencer* q = gAQP->Sequencer_Pri;
 	if (q != nil)
-		q->DurMultiplier = [mNoteDurationSlider value];
+		q->DurMultiplier = [NoteDurationSlider value];
     
-	[gViewController.networking sendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([mNoteDurationSlider value])];
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([NoteDurationSlider value])];
 }
 
 -(void)sendOSC_Filter:(Float64)val
@@ -194,7 +203,7 @@ FirstView *gFirstView = nil;
 	if (gAQP->Piece == 1)
 	{
 		UIImage *image = [UIImage imageNamed:@"InCCover.jpg"];
-		[gFirstView.mNotationView setImage:image];
+		[gFirstView.NotationView setImage:image];
 		_ImageArray = [[NSArray alloc] initWithObjects:
                       [UIImage imageNamed:@"InC01.jpg"],
                       [UIImage imageNamed:@"InC02.jpg"],
@@ -254,7 +263,7 @@ FirstView *gFirstView = nil;
 	}
 	else if (gAQP->Piece == 2) {
 		UIImage *image = [UIImage imageNamed:@"PPCover.jpg"];
-		[gFirstView.mNotationView setImage:image];
+		[gFirstView.NotationView setImage:image];
 		_ImageArray = [[NSArray alloc] initWithObjects:
                       [UIImage imageNamed:@"PP1.jpg"],
                       [UIImage imageNamed:@"PP2.jpg"],
@@ -293,7 +302,7 @@ FirstView *gFirstView = nil;
 	}
 	else if (gAQP->Piece == 3) {
 		UIImage *image = [UIImage imageNamed:@"TrafficCover.jpg"];
-		[gFirstView.mNotationView setImage:image];
+		[gFirstView.NotationView setImage:image];
 		_ImageArray = [[NSArray alloc] initWithObjects:
                       [UIImage imageNamed:@"Traffic1.jpg"],
                       [UIImage imageNamed:@"Traffic2.jpg"],
@@ -335,6 +344,36 @@ FirstView *gFirstView = nil;
                       ];
 		
 	}
+}
+
+-(void)checkIncomingMessages
+{
+	if (_InterstitialString != nil)
+	{
+		[_StatusLabel setText:_InterstitialString];
+		[_InterstitialString release];
+		_InterstitialString = nil;
+	}
+	
+	if (NewMod == YES)
+	{
+		if (gAQP->SeqNum >= 0 && gAQP->SeqNum <= gAQP->NumSequences)
+			_NotationView.image = [_ImageArray objectAtIndex:gAQP->SeqNum-1];
+		NewMod = NO;
+	}
+    
+	if (_ServerIPAddString != nil)
+	{
+		[gSecondView setServerIPAddress:_ServerIPAddString];
+		
+		if ((gSecondView != nil) && ![gSecondView IsEditing])
+			[gSecondView SetIPAddress];
+		
+		[_ServerIPAddString release];
+		_ServerIPAddString = nil;
+	}
+	
+	[NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkIncomingMessages) userInfo:nil repeats:NO];
 }
 
 @end

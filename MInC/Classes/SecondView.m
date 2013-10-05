@@ -19,6 +19,8 @@ extern FirstView *gFirstView;
 #import "FirstViewController.h"
 extern FirstViewController *gViewController;
 
+SecondView *gSecondView = nil;
+
 @implementation SecondView
 
 - (void)awakeFromNib {
@@ -26,8 +28,7 @@ extern FirstViewController *gViewController;
 	mIPAddressTextField.delegate = self;
 	mPortNumTextField.delegate = self;
 	
-	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
-	appDelegate.SecondView = self;
+	gSecondView = self;
 	
 	mEditing = NO;
 
@@ -49,6 +50,15 @@ extern FirstViewController *gViewController;
 - (id)init {
 	[super init];
 	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *docDirectory = [paths objectAtIndex:0];
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	bool file_exists = [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"MInC.dat"]];
+	NSLog(file_exists?@"exists":@"does not exist");
+    //	[fileManager removeItemAtPath:[docDirectory stringByAppendingPathComponent:@"MInC.dat"] error:NULL];
+	if (file_exists)
+		[self readDataFile];
+    
 	return self;
 }
 
@@ -72,16 +82,12 @@ extern FirstViewController *gViewController;
 
 -(IBAction)IPAddressChanged:(id)sender
 {
-	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
-
-	[appDelegate setServerIPAddress:mIPAddressTextField.text];
+	[self setServerIPAddress:mIPAddressTextField.text];
 }
 
 -(IBAction)PortNumChanged:(id)sender
 {
-	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
-	
-	[appDelegate setServerPortNum:mPortNumTextField.text];
+	[self setServerPortNum:mPortNumTextField.text];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
@@ -164,6 +170,76 @@ extern FirstViewController *gViewController;
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     return 0;
+}
+
+-(void)setServerIPAddress:(NSString *)str
+{
+	NSArray* ip_add_array = [str componentsSeparatedByString:@"."];
+	
+	if ([ip_add_array count] != 4)
+	{
+		NSLog(@"IP address must have 4 components");
+		return;
+	}
+	else
+	{
+		SInt32 i = 0;
+		UInt32 ip_add = 0;
+		for (NSString* s in ip_add_array)
+		{
+#if 0
+			NSLog([NSString stringWithFormat:@"s=%@", s]);
+#endif
+			ip_add |= [s intValue] << (8 * (4 - ++i));
+		}
+		gViewController.networking.SendIPAddress = ip_add;
+		[self writeDataFile];
+		NSLog(@"IPAddressChanged to %08lx\n",gViewController.networking.SendIPAddress);
+	}
+	
+}
+
+-(void)setServerPortNum:(NSString *)str
+{
+#if 0
+	char buffer[16];
+	[mPortNumTextField.text getCString:buffer maxLength:16 encoding:NSASCIIStringEncoding];
+#endif
+	
+	gViewController.networking.SendPortNum = [str intValue];
+	[self writeDataFile];
+	NSLog(@"PortNumChanged to %d\n",gViewController.networking.SendPortNum);
+}
+
+#pragma mark - data file
+
++(NSString *)dataFilePath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docDirectory = [paths objectAtIndex:0];
+	return [docDirectory stringByAppendingPathComponent:@"MInC.dat"];
+#if 0
+	/* to delete the file */
+	[fileManager removeItemAtPath:[docDirectory stringByAppendingPathComponent:@"MInC.dat"] error:NULL];
+#endif
+}
+
+-(void)readDataFile
+{
+	NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithContentsOfFile:[SecondView dataFilePath]];
+	NSLog(@"%@",[SecondView dataFilePath]);
+	gViewController.networking.SendIPAddress = [[dict valueForKey:@"server_ip_address"] unsignedIntValue];
+	gViewController.networking.SendPortNum = [[dict valueForKey:@"server_port_num"] unsignedIntValue];
+	NSLog(@"%ld %d",gViewController.networking.SendIPAddress,gViewController.networking.SendPortNum);
+}
+
+-(void)writeDataFile
+{
+	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+	[dict setValue:[NSNumber numberWithUnsignedInt:gViewController.networking.SendIPAddress] forKey:@"server_ip_address"];
+	[dict setValue:[NSNumber numberWithUnsignedInt:gViewController.networking.SendPortNum] forKey:@"server_port_num"];
+	[dict writeToFile:[SecondView dataFilePath] atomically:YES];
+	[dict release];
 }
 
 @end

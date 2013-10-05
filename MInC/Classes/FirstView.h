@@ -10,8 +10,8 @@
 
 @interface FirstView : UIView {
 
-	IBOutlet UISlider			*mNoteDurationSlider;
-	IBOutlet UIView				*mTouchView;
+	IBOutlet UISlider	*NoteDurationSlider;
+	IBOutlet UIView		*TouchView;
     
     IBOutlet UIButton	*NextButton;
 
@@ -30,10 +30,13 @@
 
 @property (readwrite) BOOL NewMod;
 
-@property (nonatomic, retain)   IBOutlet UIImageView	*mNotationView;
-@property (nonatomic, retain)   IBOutlet UILabel		*mStatusLabel;
+@property (nonatomic, retain)   IBOutlet UIImageView	*NotationView;
+@property (nonatomic, retain)   IBOutlet UILabel		*StatusLabel;
 
 @property (nonatomic, retain)   NSArray					*ImageArray;
+
+@property (nonatomic, retain)   NSString				*InterstitialString;
+@property (nonatomic, retain)   NSString				*ServerIPAddString;
 
 -(void)setWithServer:(BOOL)on;
 
@@ -61,12 +64,14 @@
 -(IBAction)setSpeaker:(id)sender;
 -(IBAction)setInstrument:(id)sender;
 
--(IBAction)SetNoteDuration:(id)sender;
+-(IBAction)setNoteDuration:(id)sender;
 
 -(void)sendOSC_Filter:(Float64)val;
 -(void)sendOSC_Volume:(Float64)val;
 -(void)sendOSC_Waveform:(Float64)val;
 
 -(void) createImageArray;
+
+-(void)checkIncomingMessages;
 
 @end

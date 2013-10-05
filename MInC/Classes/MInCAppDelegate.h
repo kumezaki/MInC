@@ -15,27 +15,9 @@
 
 	UIWindow *window;
 	UITabBarController *tabBarController;
-
-	AQPlayer				*AQP;
-
-	NSString				*InterstitialString;
-	NSString				*ServerIPAddString;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
-@property (nonatomic, retain) SecondView *SecondView;
-
--(NSString *)getIPAddress;
--(void)setServerIPAddress:(NSString *)str;
--(void)setServerPortNum:(NSString *)str;
-
--(void)checkIncomingMessages;
-
--(void)sendHeartBeat;
-
-+(NSString *)dataFilePath;
--(void) readDataFile;
--(void) writeDataFile;
 
 @end
