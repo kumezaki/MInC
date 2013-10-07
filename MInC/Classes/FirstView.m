@@ -366,8 +366,8 @@ FirstView *gFirstView = nil;
 	{
 		[gSecondView setServerIPAddress:_ServerIPAddString];
 		
-		if ((gSecondView != nil) && ![gSecondView IsEditing])
-			[gSecondView SetIPAddress];
+		if ((gSecondView != nil) && ![gSecondView isEditing])
+			[gSecondView setIPAddress];
 		
 		[_ServerIPAddString release];
 		_ServerIPAddString = nil;

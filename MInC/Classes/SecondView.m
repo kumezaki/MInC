@@ -25,14 +25,14 @@ SecondView *gSecondView = nil;
 
 - (void)awakeFromNib {
 
-	mIPAddressTextField.delegate = self;
-	mPortNumTextField.delegate = self;
+	IPAddressTextField.delegate = self;
+	PortNumTextField.delegate = self;
 	
 	gSecondView = self;
 	
-	mEditing = NO;
+	Editing = NO;
 
-	[self SetIPAddress];
+	[self setIPAddress];
 	
 }
 
@@ -66,40 +66,40 @@ SecondView *gSecondView = nil;
     [super dealloc];
 }
 
--(IBAction)SetTempoSensitivity:(id)sender
+-(IBAction)setTempoSensitivity:(id)sender
 {
-	Float64 sense = [mTempoSenseSlider value];
-	NSLog(@"SetTempoSensitivity %f\n",sense);
+	Float64 sense = [TempoSenseSlider value];
+	NSLog(@"setTempoSensitivity %f\n",sense);
 	gAQP->Sequencer_Pri->TempoSensitivity = sense * sense;
 }
 
--(IBAction)SetPulseVolume:(id)sender
+-(IBAction)setPulseVolume:(id)sender
 {
-	Float64 amp = [mPulseVolSlider value];
-	NSLog(@"SetPulseVolume %f\n",amp);
+	Float64 amp = [PulseVolSlider value];
+	NSLog(@"setPulseVolume %f\n",amp);
 	gAQP->Sequencer_Sec->AmpMultiplier = amp * amp;
 }
 
--(IBAction)IPAddressChanged:(id)sender
+-(IBAction)iPAddressChanged:(id)sender
 {
-	[self setServerIPAddress:mIPAddressTextField.text];
+	[self setServerIPAddress:IPAddressTextField.text];
 }
 
--(IBAction)PortNumChanged:(id)sender
+-(IBAction)portNumChanged:(id)sender
 {
-	[self setServerPortNum:mPortNumTextField.text];
+	[self setServerPortNum:PortNumTextField.text];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
 	NSLog(@"textFieldDidBeginEditing");
-	mEditing = YES;
+	Editing = YES;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
 	NSLog(@"textFieldDidEndEditing");
-	mEditing = NO;
+	Editing = NO;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField
@@ -108,32 +108,32 @@ SecondView *gSecondView = nil;
 	return YES;
 }
 
--(IBAction)WithServerToggle:(id)sender;
+-(IBAction)withServerToggle:(id)sender;
 {
 //	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
-	[gFirstView setWithServer:mWithServerSwitch.on];
+	[gFirstView setWithServer:WithServerSwitch.on];
 }
 
--(IBAction)PulseToggle:(id)sender;
+-(IBAction)pulseToggle:(id)sender;
 {
-	if (mPulseSwitch.on)
+	if (PulseSwitch.on)
 		[gAQP->Sequencer_Sec start];
 	else
 		[gAQP->Sequencer_Sec stop];
 }
 
--(IBAction)ChangePiece:(id)sender;
+-(IBAction)changePiece:(id)sender;
 {
-	gAQP->Piece = mPieceSwitch.selectedSegmentIndex + 1;
+	gAQP->Piece = PieceSwitch.selectedSegmentIndex + 1;
 	if(gAQP->Piece == 2)
 	{
-		gAQP->Part= mPartSwitch.selectedSegmentIndex + 1;
+		gAQP->Part= PartSwitch.selectedSegmentIndex + 1;
 		if (gAQP->Part > 2)
 			gAQP->Part = 2;
 	}
 	if(gAQP->Piece == 3)
 	{
-		gAQP->Part = mPartSwitch.selectedSegmentIndex + 1;
+		gAQP->Part = PartSwitch.selectedSegmentIndex + 1;
 	}
 	[gAQP parseFile];
 	
@@ -145,19 +145,19 @@ SecondView *gSecondView = nil;
 	
 }
 
--(void)SetIPAddress;
+-(void)setIPAddress;
 {
-	mIPAddressTextField.text = [NSString stringWithFormat:@"%ld.%ld.%ld.%ld",(gViewController.networking.SendIPAddress&0xFF000000)>>24
+	IPAddressTextField.text = [NSString stringWithFormat:@"%ld.%ld.%ld.%ld",(gViewController.networking.SendIPAddress&0xFF000000)>>24
 								,(gViewController.networking.SendIPAddress&0x00FF0000)>>16
 								,(gViewController.networking.SendIPAddress&0x0000FF00)>>8
 								,(gViewController.networking.SendIPAddress&0x000000FF)>>0];
-	mPortNumTextField.text = [NSString stringWithFormat:@"%d",gViewController.networking.SendPortNum];
+	PortNumTextField.text = [NSString stringWithFormat:@"%d",gViewController.networking.SendPortNum];
 }
 
 
--(BOOL)IsEditing
+-(BOOL)isEditing
 {
-	return mEditing;
+	return Editing;
 }
 
 // returns the number of 'columns' to display.
@@ -194,7 +194,7 @@ SecondView *gSecondView = nil;
 		}
 		gViewController.networking.SendIPAddress = ip_add;
 		[self writeDataFile];
-		NSLog(@"IPAddressChanged to %08lx\n",gViewController.networking.SendIPAddress);
+		NSLog(@"iPAddressChanged to %08lx\n",gViewController.networking.SendIPAddress);
 	}
 	
 }
@@ -203,12 +203,12 @@ SecondView *gSecondView = nil;
 {
 #if 0
 	char buffer[16];
-	[mPortNumTextField.text getCString:buffer maxLength:16 encoding:NSASCIIStringEncoding];
+	[PortNumTextField.text getCString:buffer maxLength:16 encoding:NSASCIIStringEncoding];
 #endif
 	
 	gViewController.networking.SendPortNum = [str intValue];
 	[self writeDataFile];
-	NSLog(@"PortNumChanged to %d\n",gViewController.networking.SendPortNum);
+	NSLog(@"portNumChanged to %d\n",gViewController.networking.SendPortNum);
 }
 
 #pragma mark - data file

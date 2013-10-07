@@ -11,40 +11,39 @@
 
 @interface SecondView : UIView <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate> {
 
-	IBOutlet UISlider		*mTempoSenseSlider;
-	IBOutlet UISlider		*mPulseVolSlider;
-	IBOutlet UITextField	*mIPAddressTextField;
-	IBOutlet UITextField	*mPortNumTextField;
-	IBOutlet UISwitch		*mWithServerSwitch;
-	IBOutlet UISwitch		*mPulseSwitch;
+	IBOutlet UISlider		*TempoSenseSlider;
+	IBOutlet UISlider		*PulseVolSlider;
+	IBOutlet UITextField	*IPAddressTextField;
+	IBOutlet UITextField	*PortNumTextField;
+	IBOutlet UISwitch		*WithServerSwitch;
+	IBOutlet UISwitch		*PulseSwitch;
 	
-	IBOutlet UISegmentedControl *mPieceSwitch;
-	IBOutlet UISegmentedControl *mPartSwitch;
+	IBOutlet UISegmentedControl *PieceSwitch;
+	IBOutlet UISegmentedControl *PartSwitch;
 	
-	IBOutlet UITextField *mPiece;
-	IBOutlet UITextField *mPart;
-	UIActionSheet *menu;
+	IBOutlet UITextField *Piece;
+	IBOutlet UITextField *Part;
 
-	BOOL	mEditing;
+	BOOL	Editing;
 }
 
--(IBAction)SetTempoSensitivity:(id)sender;
--(IBAction)SetPulseVolume:(id)sender;
+-(IBAction)setTempoSensitivity:(id)sender;
+-(IBAction)setPulseVolume:(id)sender;
 
--(IBAction)IPAddressChanged:(id)sender;
--(IBAction)PortNumChanged:(id)sender;
+-(IBAction)iPAddressChanged:(id)sender;
+-(IBAction)portNumChanged:(id)sender;
 
--(IBAction)WithServerToggle:(id)sender;
+-(IBAction)withServerToggle:(id)sender;
 
--(IBAction)PulseToggle:(id)sender;
+-(IBAction)pulseToggle:(id)sender;
 
--(IBAction)ChangePiece:(id)sender;
+-(IBAction)changePiece:(id)sender;
 
 -(IBAction)showMenu;
 
--(void)SetIPAddress;
+-(void)setIPAddress;
 
--(BOOL)IsEditing;
+-(BOOL)isEditing;
 
 -(void)setServerIPAddress:(NSString *)str;
 -(void)setServerPortNum:(NSString *)str;
