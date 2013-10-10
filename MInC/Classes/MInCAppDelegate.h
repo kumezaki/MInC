@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "AQPlayer.h"
-#import "SecondView.h"
+#import "MInC_AQPlayer.h"
+#import "MInC_SecondView.h"
 
 @interface MInCAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
 
