@@ -8,7 +8,7 @@
 
 #import "MInC_FirstView.h"
 
-#import "MInCAppDelegate.h"
+#import "MInC_AppDelegate.h"
 
 #import "MInC_FirstViewController.h"
 extern MInC_FirstViewController *gViewController;

@@ -9,7 +9,7 @@
 #import "MInC_TouchView.h"
 
 #import "MInC_AQPlayer.h"
-#import "MInCAppDelegate.h"
+#import "MInC_AppDelegate.h"
 
 extern MInC_AQPlayer *gAQP;
 

@@ -11,7 +11,7 @@
 #import "MInC_AQPlayer.h"
 #import "MInC_SecondView.h"
 
-@interface MInCAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
+@interface MInC_AppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
 
 	UIWindow *window;
 	UITabBarController *tabBarController;

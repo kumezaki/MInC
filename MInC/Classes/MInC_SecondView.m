@@ -8,7 +8,7 @@
 
 #import "MInC_SecondView.h"
 
-#import "MInCAppDelegate.h"
+#import "MInC_AppDelegate.h"
 
 #import "MInC_AQPlayer.h"
 extern MInC_AQPlayer *gAQP;

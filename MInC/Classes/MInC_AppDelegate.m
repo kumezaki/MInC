@@ -6,9 +6,9 @@
 //  Copyright __MyCompanyName__ 2010. All rights reserved.
 //
 
-#import "MInCAppDelegate.h"
+#import "MInC_AppDelegate.h"
 
-@implementation MInCAppDelegate
+@implementation MInC_AppDelegate
 
 @synthesize window;
 @synthesize tabBarController;
