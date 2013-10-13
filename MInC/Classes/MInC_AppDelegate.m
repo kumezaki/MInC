@@ -8,6 +8,8 @@
 
 #import "MInC_AppDelegate.h"
 
+#import "MInC_AQPlayer.h"
+
 @implementation MInC_AppDelegate
 
 @synthesize window;
@@ -44,7 +46,9 @@
 -(id)init {
 
 	[super init];
-		
+    
+    [[MInC_AQPlayer alloc] init];
+    
 	return self;
 }
 
