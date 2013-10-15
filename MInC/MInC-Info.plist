@@ -25,7 +25,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMainNibFile</key>
-	<string>MainWindow</string>
+	<string>MInC_MainWindow</string>
 	<key>UIStatusBarHidden</key>
 	<true/>
 </dict>

@@ -25,10 +25,10 @@ MInC_SecondView *gSecondView = nil;
 
 - (void)awakeFromNib {
 
+	gSecondView = self;
+	
 	IPAddressTextField.delegate = self;
 	PortNumTextField.delegate = self;
-	
-	gSecondView = self;
 	
 	Editing = NO;
 
