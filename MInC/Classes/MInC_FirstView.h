@@ -24,8 +24,6 @@
 
 	IBOutlet UISegmentedControl	*SpeakerSegControl;
 	IBOutlet UISegmentedControl	*InstrSegControl;
-
-	BOOL				WithServer;
 }
 
 @property (readwrite) BOOL NewMod;
@@ -37,8 +35,6 @@
 
 @property (nonatomic, retain)   NSString				*InterstitialString;
 @property (nonatomic, retain)   NSString				*ServerIPAddString;
-
--(void)setWithServer:(BOOL)on;
 
 -(IBAction)setSequence;
 

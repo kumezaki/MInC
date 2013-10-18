@@ -23,6 +23,8 @@ MInC_SecondView *gSecondView = nil;
 
 @implementation MInC_SecondView
 
+@synthesize WithServer;
+
 - (void)awakeFromNib {
 
 	gSecondView = self;
@@ -32,6 +34,8 @@ MInC_SecondView *gSecondView = nil;
 	
 	Editing = NO;
 
+	WithServer = YES;
+    
 	[self setIPAddress];
 	
 }
@@ -111,7 +115,8 @@ MInC_SecondView *gSecondView = nil;
 -(IBAction)withServerToggle:(id)sender;
 {
 //	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
-	[gFirstView setWithServer:WithServerSwitch.on];
+	WithServer = WithServerSwitch.on;
+	NSLog(@"WithServer %s\n",WithServer?"ON":"OFF");
 }
 
 -(IBAction)pulseToggle:(id)sender;

@@ -48,8 +48,6 @@ MInC_FirstView *gFirstView = nil;
     
     gFirstView = self;
 
-	WithServer = YES;
-
 	NewMod = NO;
 
 	[self createImageArray];
@@ -71,15 +69,9 @@ MInC_FirstView *gFirstView = nil;
     [super dealloc];
 }
 
--(void)setWithServer:(BOOL)on
-{
-	WithServer = on;
-	NSLog(@"setWithServer %s\n",WithServer?"ON":"OFF");
-}
-
 -(IBAction)setSequence
 {
-	if (WithServer)
+	if (gSecondView.WithServer)
 		[gViewController.networking sendOSCMsg:"/minc/mod\0\0\0":12];
 	else
 	{
