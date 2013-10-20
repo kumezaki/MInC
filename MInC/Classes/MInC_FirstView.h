@@ -27,6 +27,7 @@
 }
 
 @property (readwrite) BOOL NewMod;
+@property (readwrite) BOOL WithServer;
 
 @property (nonatomic, retain)   IBOutlet UIImageView	*NotationView;
 @property (nonatomic, retain)   IBOutlet UILabel		*StatusLabel;

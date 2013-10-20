@@ -23,6 +23,7 @@ MInC_FirstView *gFirstView = nil;
 @implementation MInC_FirstView
 
 @synthesize NewMod;
+@synthesize WithServer;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -42,24 +43,21 @@ MInC_FirstView *gFirstView = nil;
 }
 */
 
--(id)init
+-(void)awakeFromNib
 {
-    [super init];
-    
     gFirstView = self;
-
+    
 	NewMod = NO;
-
+	WithServer = YES;
+    
 	[self createImageArray];
-
+    
 	TouchView.multipleTouchEnabled = YES;
-
+    
 	_InterstitialString = nil;
 	_ServerIPAddString = nil;
 	
 	[self checkIncomingMessages];
-    
-    return self;
 }
 
 - (void)dealloc
@@ -71,13 +69,18 @@ MInC_FirstView *gFirstView = nil;
 
 -(IBAction)setSequence
 {
-	if (gSecondView.WithServer)
+	if (WithServer)
+    {
 		[gViewController.networking sendOSCMsg:"/minc/mod\0\0\0":12];
-	else
+	}
+    else
 	{
 		[gAQP setSequence:(++gAQP->SeqNum)];
 		NewMod = YES;
 	}
+
+    NSLog(@"WithServer %s",WithServer?"ON":"OFF");
+    NSLog(@"gAQP->SeqNum %ld",gAQP->SeqNum);
 }
 
 -(IBAction)set8vbDown:(id)sender

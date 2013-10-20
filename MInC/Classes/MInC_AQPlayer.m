@@ -84,7 +84,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	gAQP = self;
 	
-	Sequencer_Pri = [MInC_Sequencer new];
+	Sequencer_Pri = [[MInC_Sequencer alloc] init];
 	
 	Piece = 1;
 	Part = 1;

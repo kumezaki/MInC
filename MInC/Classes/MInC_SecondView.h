@@ -27,8 +27,6 @@
 	BOOL	Editing;
 }
 
-@property (readwrite) BOOL WithServer;
-
 -(IBAction)setTempoSensitivity:(id)sender;
 -(IBAction)setPulseVolume:(id)sender;
 
