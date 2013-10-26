@@ -40,8 +40,9 @@
 	NumNotes = num_notes;
 	for (SInt32 i = 0; i < NumNotes; i++)
 	{
-		Notes[i].Freq = [MInC_Note mtof:notes[i]];
+		Notes[i].Freq = notes[i] < 0 ? 0. : [MInC_Note mtof:notes[i]]; // note number of -1 means rest
 		Notes[i].Duration = durations[i];
+        NSLog(@"%f %f",Notes[i].Freq,Notes[i].Duration);
 	}
 }
 

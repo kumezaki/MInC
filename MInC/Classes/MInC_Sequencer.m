@@ -105,21 +105,18 @@
 		MInC_Note* note = [Seq_Cur getNote];
 		[note setPercentOn:DurMultiplier];
 		[note on:WaveTable:Env];
+        NSLog(@"%f",note.Freq);
 
 		/* recompute the next event time */
 		NextEventTime += note.Duration;
 		
 		if (Seq_Cur != nil)
 		{
-			if (Seq_Cur->Rit) {
+			if (Seq_Cur->Rit)
 				[self moltoRit];
-			}
-			else {
+			else
 				[self resetRit];
-			}
-			
 		}
-		
 	}
 }
 

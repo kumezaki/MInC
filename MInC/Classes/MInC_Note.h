@@ -13,11 +13,6 @@
 
 @interface MInC_Note : NSObject {
 
-	Float64         Duration;
-
-	Float64         Freq;
-	Float64         Amp;
-    
 	MInC_WaveFormTable	*WaveTable;
 	MInC_Envelope		*Env;
 

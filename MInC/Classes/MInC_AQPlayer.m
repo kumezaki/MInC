@@ -91,9 +91,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	Rit = FALSE;
 
 #if 0
-	for (SInt32 i = 0; i < kNumSequences; i++)
+	for (SInt32 i = 0; i < 53; i++)
 	{
-		Sequences[i] = [[Sequence alloc] init];
+		Sequences[i] = [[MInC_Sequence alloc] init];
 		switch (i)
 		{
 			case 0: [Sequences[i] assignNotes:num_notes_01:note_sequence_01:dur_sequence_01]; break;
@@ -153,10 +153,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		}
 	}
 #else
-	
 	[self parseFile];
-	
-    	
 #endif
     
 	Sequencer_Pri->AmpMultiplier = 0.5;

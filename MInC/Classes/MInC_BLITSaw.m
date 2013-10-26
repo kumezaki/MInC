@@ -37,7 +37,7 @@
         
         // quick fix to make sure that the frequency is audible before
         // calculating the sample values
-        if (Freq > 20) {
+        if (super.Freq > 20) {
             Float64 denominator = sin( phase_ );
             
             if ( fabs(denominator) <= 1e-12 ) {
@@ -51,7 +51,7 @@
             s += state_ - C2_;
             state_ = s * 0.995;
             
-            buffer[i] += scale * Amp * [Env get] * s;
+            buffer[i] += scale * super.Amp * [Env get] * s;
             
             phase_ += rate_;
             if ( phase_ >= M_PI ) phase_ -= M_PI;
