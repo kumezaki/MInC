@@ -20,7 +20,7 @@
 		Notes[i] = [MInC_BLITSaw new];
 	}
 	
-	NumNotes = -1;
+	Pos = -1;
 	NumNotes = 0;
 	Rit = FALSE;
 	
@@ -50,13 +50,14 @@
 {
 	if (NumNotes < 0) return nil;
 	
-	return Notes[NumNotes];
+	return Notes[Pos];
 }
 
 -(void)advancePos
 {
 	if (NumNotes > 0)
-		NumNotes = ++NumNotes % NumNotes;
+		Pos = ++Pos % NumNotes;
+    NSLog(@"%ld",Pos);
 }
 
 @end

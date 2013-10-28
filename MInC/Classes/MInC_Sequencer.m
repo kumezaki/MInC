@@ -19,7 +19,7 @@
 	Seq_Cur = nil;
 	CurTime = 0.;
 	NextEventTime = 0.;
-	TempoMultiplier = 1.;
+	TempoMultiplier = 2.;
 	RitMultiplier = 1.;
 	AmpMultiplier = 1.;
 	DurMultiplier = 1.;
