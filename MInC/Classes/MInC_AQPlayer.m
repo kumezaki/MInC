@@ -35,15 +35,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	memset(buffer,0,sizeof(Float64)*numFrames);
 
 	MInC_Sequencer* seqr_pri = aqp->Sequencer_Pri;
-	MInC_Sequencer* seqr_sec = aqp->Sequencer_Sec;
 	MInC_Note* note_pri = [seqr_pri getNote];
-	MInC_Note* note_sec = [seqr_sec getNote];
-	
-	if ((note_pri != nil) || (note_sec != nil))
-	{
+	if (note_pri != nil)
 		seqr_pri->Theta = [note_pri addSamples:buffer:numFrames:seqr_pri->AmpMultiplier:seqr_pri->Theta];
+
+	MInC_Sequencer* seqr_sec = aqp->Sequencer_Sec;
+	MInC_Note* note_sec = [seqr_sec getNote];
+	if (note_sec != nil)
 		seqr_sec->Theta = [note_sec addSamples:buffer:numFrames:seqr_sec->AmpMultiplier:seqr_sec->Theta];
-	}
 	
 	Float64 max = 0.;
 	for (SInt32 i = 0; i < numFrames; i++)
@@ -159,8 +158,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	Sequencer_Pri->AmpMultiplier = 0.5;
 	Sequencer_Pri->DurMultiplier = 0.5;
 	
-	Sequencer_Sec = [MInC_Sequencer new];
-	Sequencer_Sec->Seq_Cur = [MInC_Sequence new];
+	Sequencer_Sec = [[MInC_Sequencer alloc] init];
+	Sequencer_Sec->Seq_Cur = [[MInC_Sequence alloc] init];
 	[Sequencer_Sec->Seq_Cur assignNotes:num_notes_pulse:note_sequence_pulse:dur_sequence_pulse];
 	Sequencer_Sec->AmpMultiplier = 0.5;
 	Sequencer_Sec->DurMultiplier = 0.5;

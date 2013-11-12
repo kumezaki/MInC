@@ -20,7 +20,8 @@
 		Notes[i] = [MInC_BLITSaw new];
 	}
 	
-	Pos = -1;
+	Pos = 0;
+//	Pos = -1;
 	NumNotes = 0;
 	Rit = FALSE;
 	
