@@ -162,7 +162,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	Sequencer_Sec->Seq_Cur = [[MInC_Sequence alloc] init];
 	[Sequencer_Sec->Seq_Cur assignNotes:num_notes_pulse:note_sequence_pulse:dur_sequence_pulse];
 	Sequencer_Sec->AmpMultiplier = 0.5;
-	Sequencer_Sec->DurMultiplier = 0.5;
+	Sequencer_Sec->DurMultiplier = 0.1;
 
 	SR = 22050;
 	

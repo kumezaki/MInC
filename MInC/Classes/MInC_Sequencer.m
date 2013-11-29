@@ -105,7 +105,7 @@
 		MInC_Note* note = [Seq_Cur getNote];
 		[note setPercentOn:DurMultiplier];
 		[note on:WaveTable:Env];
-        NSLog(@"%f",note.Freq);
+//        NSLog(@"%f",note.Freq);
 
 		/* recompute the next event time */
 		NextEventTime += note.Duration;

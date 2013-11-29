@@ -8,7 +8,7 @@
 
 #import "MInC_Note.h"
 
-@interface BLIT : MInC_Note {
+@interface MInC_BLIT : MInC_Note {
     Float64 p_;
     Float64 rate_;
     Float64 m_;

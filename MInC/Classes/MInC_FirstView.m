@@ -173,7 +173,7 @@ MInC_FirstView *gFirstView = nil;
 	if (q != nil)
 		q->DurMultiplier = [NoteDurationSlider value];
     
-	[gViewController.networking sendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([NoteDurationSlider value])];
+    [gViewController.networking sendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([NoteDurationSlider value])];
 }
 
 -(void)sendOSC_Filter:(Float64)val

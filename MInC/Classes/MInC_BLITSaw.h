@@ -8,7 +8,7 @@
 
 #import "MInC_BLIT.h"
 
-@interface MInC_BLITSaw : BLIT {
+@interface MInC_BLITSaw : MInC_BLIT {
     Float64 C2_;
     Float64 state_;
 }

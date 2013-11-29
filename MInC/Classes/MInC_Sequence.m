@@ -7,7 +7,7 @@
 //
 
 #import "MInC_Sequence.h"
-#import "MInC_BLITSaw.h"
+#import "MInC_Note.h"
 
 @implementation MInC_Sequence
 
@@ -17,7 +17,7 @@
 	
 	for (SInt32 i = 0; i < kMaxNumNotes; i++)
 	{
-		Notes[i] = [MInC_BLITSaw new];
+		Notes[i] = [[MInC_Note alloc] init];
 	}
 	
 	Pos = 0;
@@ -58,7 +58,7 @@
 {
 	if (NumNotes > 0)
 		Pos = ++Pos % NumNotes;
-    NSLog(@"%ld",Pos);
+//    NSLog(@"%ld",Pos);
 }
 
 @end

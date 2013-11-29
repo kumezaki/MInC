@@ -35,6 +35,9 @@
 	
 	if (Amp >= 1.0) { Amp = 1.; Delta = 0.; }
 	else if (Amp <= 0.0) { Amp = 0.; Delta = 0.; }
+    
+//    NSLog(@"%f",Amp);
+    
 	return Amp;
 }
 

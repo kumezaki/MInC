@@ -72,7 +72,7 @@
 		buffer[i] += scale * Amp * [WaveTable get:theta] * [Env get];
 		theta += delta_theta;
 		
-		if (++SamplesPlayed >= NumPlaySamples) [self off];
+		if (++SamplesPlayed >= NumPlaySamples) { /* NSLog(@"Envelope off"); */ [self off]; }
 	}
 	
 	return theta;
@@ -81,6 +81,7 @@
 -(void)	setPercentOn:(Float64)percent
 {
 	NumPlaySamples = Duration * SR * percent;
+    NSLog(@"%ld %f %f",NumPlaySamples,Duration,percent);
 }
 
 @end

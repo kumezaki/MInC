@@ -8,7 +8,7 @@
 
 #import "MInC_BLIT.h"
 
-@implementation BLIT
+@implementation MInC_BLIT
 
 -(id)init
 {
