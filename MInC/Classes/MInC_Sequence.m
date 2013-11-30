@@ -7,7 +7,7 @@
 //
 
 #import "MInC_Sequence.h"
-#import "MInC_Note.h"
+#import "MInC_BLITSaw.h"
 
 @implementation MInC_Sequence
 
@@ -17,7 +17,7 @@
 	
 	for (SInt32 i = 0; i < kMaxNumNotes; i++)
 	{
-		Notes[i] = [[MInC_Note alloc] init];
+		Notes[i] = [[MInC_BLITSaw alloc] init];
 	}
 	
 	Pos = 0;

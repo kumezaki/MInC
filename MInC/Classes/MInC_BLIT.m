@@ -17,7 +17,7 @@
     return self;
 }
 
--(void) SetFrequency:(Float64)freq
+-(void)setFreq:(Float64)freq
 {
     super.Freq = freq;
     
@@ -27,7 +27,7 @@
     m_ = 2 * maxHarmonics + 1;
 }
 
--(Float64) AddSamples:(Float64 *)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta
+-(Float64)addSamples:(Float64 *)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta
 {
     // was addToAudioBuffer
     // removed old method body
