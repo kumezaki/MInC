@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MInC_Envelope.h"
+
 typedef enum { kADSR_Off, kADSR_A, kADSR_D, kADSR_S, kADSR_R } ADSR_State;
 
-@interface MInC_ADSR : NSObject {
+@interface MInC_ADSR : MInC_Envelope {
 	
 	ADSR_State	State;
 
@@ -27,17 +29,10 @@ typedef enum { kADSR_Off, kADSR_A, kADSR_D, kADSR_S, kADSR_R } ADSR_State;
 	SInt32	SampleCount;
 
 	Float64	NowVal;
-
-@public
 }
 
 -(id)initWithADSR:(Float64)SR a:(Float64)a d:(Float64)d s:(Float64)s r:(Float64)r;
 
--(void)on;
--(void)off;
-
 -(BOOL)isOn;
-
--(Float64)getNowVal;
 
 @end

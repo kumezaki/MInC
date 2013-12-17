@@ -52,7 +52,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	}
 //	NSLog(@"%f\n",max);
 
-	Float64 elapsed_time = numFrames / aqp->SR;
+	Float64 elapsed_time = (Float64)numFrames / kSR;
 	[seqr_pri update:elapsed_time];
 	[seqr_sec update:elapsed_time];
 
@@ -163,8 +163,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	[Sequencer_Sec->Seq_Cur assignNotes:num_notes_pulse:note_sequence_pulse:dur_sequence_pulse];
 	Sequencer_Sec->AmpMultiplier = 0.5;
 	Sequencer_Sec->DurMultiplier = 0.1;
-
-	SR = 22050;
 	
 	SeqNum = 0;
 	
@@ -180,7 +178,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	DataFormat.mFormatID = kAudioFormatLinearPCM;
 	DataFormat.mFormatFlags = kAudioFormatFlagIsSignedInteger;
 	DataFormat.mChannelsPerFrame = 1;
-	DataFormat.mSampleRate = SR;
+	DataFormat.mSampleRate = kSR;
 	DataFormat.mBitsPerChannel = 16;
 	DataFormat.mFramesPerPacket = 1;
 	DataFormat.mBytesPerPacket = sizeof(SInt16);

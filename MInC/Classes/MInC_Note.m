@@ -8,6 +8,7 @@
 
 #import "MInC_Note.h"
 
+#import "MInC_AQPlayer.h"
 
 @implementation MInC_Note
 @synthesize Duration;
@@ -24,7 +25,6 @@
 
 	Env = nil;
 	
-	SR = 22050;
 	Freq = 0.0;
 	Amp = 1.0;
 
@@ -66,7 +66,7 @@
 {
 	if (Freq == 0.) return theta;
 	
-	Float64 delta_theta = Freq / SR;
+	Float64 delta_theta = Freq / kSR;
 	for (SInt32 i = 0; i < num_frames; i++)
 	{
 		buffer[i] += scale * Amp * [WaveTable get:theta] * [Env get];
@@ -80,7 +80,7 @@
 
 -(void)	setPercentOn:(Float64)percent
 {
-	NumPlaySamples = Duration * SR * percent;
+	NumPlaySamples = Duration * kSR * percent;
     NSLog(@"%ld %f %f",NumPlaySamples,Duration,percent);
 }
 

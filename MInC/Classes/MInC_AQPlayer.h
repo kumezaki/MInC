@@ -14,6 +14,7 @@
 
 #define kNumberBuffers	3
 
+#define kSR 22050.
 
 @interface MInC_AQPlayer : NSObject {
 
@@ -25,8 +26,6 @@
 
 @public
 
-	Float64		SR;
-	
 	MInC_Sequencer	*Sequencer_Pri;
 	MInC_Sequencer	*Sequencer_Sec;
 

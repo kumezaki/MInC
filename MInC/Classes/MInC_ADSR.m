@@ -50,7 +50,7 @@
 	return State != kADSR_Off;
 }
 
--(Float64)getNowVal
+-(Float64)get
 {
 
 #define ADR_UPDATE(delta,num_samples,next_state) NowVal += delta; if (++SampleCount >= num_samples) { State = next_state; SampleCount = 0; }

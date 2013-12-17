@@ -8,6 +8,8 @@
 
 #import "MInC_BLIT.h"
 
+#import "MInC_AQPlayer.h"
+
 @implementation MInC_BLIT
 
 -(id)init
@@ -21,7 +23,7 @@
 {
     super.Freq = freq;
     
-    p_ = 22050 / super.Freq;
+    p_ = kSR / super.Freq;
     rate_ = M_PI / p_;
     UInt32 maxHarmonics = (UInt32) floor( 0.5 * p_ );
     m_ = 2 * maxHarmonics + 1;

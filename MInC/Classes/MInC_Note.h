@@ -18,8 +18,6 @@
 
 @public
 
-	Float64 SR;
-
 	SInt32 SamplesPlayed;
 	SInt32 NumPlaySamples;
 }

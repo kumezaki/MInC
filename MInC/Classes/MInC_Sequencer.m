@@ -8,6 +8,9 @@
 
 #import "MInC_Sequencer.h"
 
+#import "MInC_ADSR.h"
+#import "MInC_AQPlayer.h"
+
 @implementation MInC_Sequencer
 
 @synthesize TempoMultiplier;
@@ -29,7 +32,7 @@
 	WaveTable = [MInC_WaveFormTable new];
 	Theta = 0.;
 	
-	Env = [[MInC_Envelope alloc] init];
+	Env = [[MInC_ADSR alloc] initWithADSR:kSR a:0.01 d:0.05 s:0.5 r:0.2];
 	
 	NoteSet = [NSSet new];
 	

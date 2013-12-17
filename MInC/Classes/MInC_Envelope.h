@@ -10,7 +10,6 @@
 
 @interface MInC_Envelope : NSObject {
 
-	Float64 SR;
 	Float64 RampTime;
 	
 	Float64 Amp;

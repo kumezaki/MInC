@@ -27,8 +27,6 @@
 
 	bool On;
 	
-	Float64 SR;
-	
 	Float64 SamplesPlayed;
 	SInt32 NumPlaySamples;
 }

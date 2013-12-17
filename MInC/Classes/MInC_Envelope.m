@@ -8,14 +8,15 @@
 
 #import "MInC_Envelope.h"
 
+#import "MInC_AQPlayer.h"
+
 @implementation MInC_Envelope
 
 -(id)init
 {
-	SR = 22050;
 	Amp = 0.;
 	Delta = 0.;
-	RampTime = SR * 0.05;
+	RampTime = kSR * 0.05;
 	return self;
 }
 
