@@ -18,12 +18,6 @@
 	IBOutlet UISwitch		*WithServerSwitch;
 	IBOutlet UISwitch		*PulseSwitch;
 	
-	IBOutlet UISegmentedControl *PieceSwitch;
-	IBOutlet UISegmentedControl *PartSwitch;
-	
-	IBOutlet UITextField *Piece;
-	IBOutlet UITextField *Part;
-
 	BOOL	Editing;
 }
 
@@ -36,10 +30,6 @@
 -(IBAction)withServerToggle:(id)sender;
 
 -(IBAction)pulseToggle:(id)sender;
-
--(IBAction)changePiece:(id)sender;
-
--(IBAction)showMenu;
 
 -(void)setIPAddress;
 

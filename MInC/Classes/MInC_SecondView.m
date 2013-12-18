@@ -123,29 +123,6 @@ MInC_SecondView *gSecondView = nil;
 		[gAQP->Sequencer_Sec stop];
 }
 
--(IBAction)changePiece:(id)sender;
-{
-	gAQP->Piece = PieceSwitch.selectedSegmentIndex + 1;
-	if(gAQP->Piece == 2)
-	{
-		gAQP->Part= PartSwitch.selectedSegmentIndex + 1;
-		if (gAQP->Part > 2)
-			gAQP->Part = 2;
-	}
-	if(gAQP->Piece == 3)
-	{
-		gAQP->Part = PartSwitch.selectedSegmentIndex + 1;
-	}
-	[gAQP parseFile];
-	
-	[gFirstView createImageArray];
-}
-
--(void)showMenu
-{
-	
-}
-
 -(void)setIPAddress;
 {
 	IPAddressTextField.text = [NSString stringWithFormat:@"%ld.%ld.%ld.%ld",(gViewController.networking.SendIPAddress&0xFF000000)>>24
