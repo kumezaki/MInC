@@ -23,7 +23,6 @@
 	Pos = 0;
 //	Pos = -1;
 	NumNotes = 0;
-	Rit = FALSE;
 	
 	return self;
 }
@@ -41,9 +40,10 @@
 	NumNotes = num_notes;
 	for (SInt32 i = 0; i < NumNotes; i++)
 	{
-		Notes[i].Freq = notes[i] < 0 ? 0. : [MInC_Note mtof:notes[i]]; // note number of -1 means rest
+//		Notes[i].Freq = notes[i] < 0 ? 0. : [MInC_Note mtof:notes[i]]; // note number of -1 means rest
+        Notes[i].MIDINote = notes[i]; // note number of -1 means rest
 		Notes[i].Duration = durations[i];
-        NSLog(@"%f %f",Notes[i].Freq,Notes[i].Duration);
+        NSLog(@"%f %f",Notes[i].MIDINote,Notes[i].Duration);
 	}
 }
 

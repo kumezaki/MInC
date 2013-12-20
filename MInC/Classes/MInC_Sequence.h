@@ -18,10 +18,6 @@
 	
 	SInt32  Pos;
 	SInt32  NumNotes;
-
-@public
-
-	BOOL Rit;
 }
 
 -(void)assignNotes:(SInt32)num_notes :(Float64*)notes :(Float64*)durations;

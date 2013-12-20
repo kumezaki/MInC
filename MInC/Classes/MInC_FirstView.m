@@ -86,11 +86,13 @@ MInC_FirstView *gFirstView = nil;
 -(IBAction)set8vbDown:(id)sender
 {
 	[self send8vb:true];
+    gAQP->Sequencer_Pri.TransposeValue = -12.;
 }
 
 -(IBAction)set8vbUp:(id)sender
 {
 	[self send8vb:false];
+    gAQP->Sequencer_Pri.TransposeValue = -0.;
 }
 
 -(void)send8vb:(BOOL)direction
@@ -101,11 +103,13 @@ MInC_FirstView *gFirstView = nil;
 -(IBAction)set8vaDown:(id)sender
 {
 	[self send8va:true];
+    gAQP->Sequencer_Pri.TransposeValue = +12.;
 }
 
 -(IBAction)set8vaUp:(id)sender
 {
 	[self send8va:false];
+    gAQP->Sequencer_Pri.TransposeValue = 0.;
 }
 
 -(void)send8va:(BOOL)direction

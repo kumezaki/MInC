@@ -14,6 +14,7 @@
 @implementation MInC_Sequencer
 
 @synthesize TempoMultiplier;
+@synthesize TransposeValue;
 
 -(id)init
 {
@@ -23,7 +24,6 @@
 	CurTime = 0.;
 	NextEventTime = 0.;
 	TempoMultiplier = 2.;
-	RitMultiplier = 1.;
 	AmpMultiplier = 1.;
 	DurMultiplier = 1.;
 	
@@ -66,36 +66,16 @@
 	NextEventTime = 0.;
 }
 
--(void)moltoRit
-{
-	RitMultiplier = RitMultiplier * 0.95;
-}
-
--(void)resetRit
-{
-	RitMultiplier = 1.;
-}
-
 -(void)update:(Float64)elapsed_time
 {
 	if (!Playing) return;
 	
-	CurTime += (elapsed_time * TempoMultiplier * RitMultiplier);
+	CurTime += elapsed_time * TempoMultiplier;
 	
 	if (Seq_Next != nil)
 	{
 		Seq_Cur = Seq_Next;
-		
-		/*if (Seq_Cur->Rit) {
-			[self moltoRit];
-			NSLog(@"rit");
-		}
-		else {
-			[self resetRit];
-			NSLog(@"resetrit");
-		}*/
-
-		[self rewind];
+        [self rewind];
 		Seq_Next = nil;
 	}
 	
@@ -107,20 +87,12 @@
 		/* get the new note */
 		MInC_Note* note = [Seq_Cur getNote];
 		[note setPercentOn:DurMultiplier];
+        note.TransposeValue = TransposeValue;
 		[note on:WaveTable:Env];
-//        NSLog(@"%f",note.Freq);
 
 		/* recompute the next event time */
 		NextEventTime += note.Duration;
-		
-		if (Seq_Cur != nil)
-		{
-			if (Seq_Cur->Rit)
-				[self moltoRit];
-			else
-				[self resetRit];
-		}
-	}
+    }
 }
 
 -(MInC_Note*)getNote;

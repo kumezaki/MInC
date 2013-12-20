@@ -15,6 +15,7 @@
 
 	MInC_WaveFormTable	*WaveTable;
 	MInC_Envelope		*Env;
+    
 
 @public
 
@@ -23,10 +24,13 @@
 }
 
 @property (readwrite, nonatomic) Float64 Duration;
-@property (readwrite, nonatomic) Float64 Freq;
+@property (readwrite, nonatomic) Float64 MIDINote;
 @property (readwrite, nonatomic) Float64 Amp;
+@property (nonatomic,readwrite) Float64 TransposeValue;
 
 +(Float64) mtof:(Float64)midi_note;
+
+-(Float64) getFreqWithTransposition;
 
 -(void)	on:(MInC_WaveFormTable*)wavetable :(MInC_Envelope*)env;
 -(void) off;

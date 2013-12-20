@@ -21,14 +21,17 @@
 
 -(void)setFreq:(Float64)freq
 {
-    super.Freq = freq;
-    
+    [super setFreq:freq];
+
     a_ = m_ / p_;
     C2_ = 1. / p_;
 }
 
 -(Float64)addSamples:(Float64 *)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta
 {
+    Float64 freq = [self getFreqWithTransposition];
+    [self setFreq:freq];
+
     phase_ = theta;
     
     for (SInt32 i = 0; i < num_frames; i++)
@@ -37,7 +40,7 @@
         
         // quick fix to make sure that the frequency is audible before
         // calculating the sample values
-        if (super.Freq > 20) {
+        if (freq > 20) {
             Float64 denominator = sin( phase_ );
             
             if ( fabs(denominator) <= 1e-12 ) {

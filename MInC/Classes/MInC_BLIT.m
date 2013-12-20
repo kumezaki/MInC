@@ -21,9 +21,7 @@
 
 -(void)setFreq:(Float64)freq
 {
-    super.Freq = freq;
-    
-    p_ = kSR / super.Freq;
+    p_ = kSR / freq;
     rate_ = M_PI / p_;
     UInt32 maxHarmonics = (UInt32) floor( 0.5 * p_ );
     m_ = 2 * maxHarmonics + 1;

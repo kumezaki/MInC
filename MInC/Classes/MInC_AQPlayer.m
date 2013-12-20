@@ -328,7 +328,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 						{
 							if (atoi((char*)xmlGetProp(cur2, (xmlChar*)"moltorit")) == 1)
 							{
-								Sequences[seq_i]->Rit = TRUE;
+//								Sequences[seq_i]->Rit = TRUE;
 								NSLog(@"added rit");
 							}
 						}

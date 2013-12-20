@@ -16,4 +16,6 @@
     Float64 phase_;
 }
 
+-(void)setFreq:(Float64)freq;
+
 @end

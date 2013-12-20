@@ -21,32 +21,29 @@
 	MInC_Sequence		*Seq_Cur;
 	MInC_Sequence		*Seq_Next;
 	
-	Float64         CurTime;
-	Float64         NextEventTime;
+	Float64             CurTime;
+	Float64             NextEventTime;
 
-	Float64         TempoMultiplier;
-	Float64         RitMultiplier;
-	Float64         AmpMultiplier;
-	Float64         DurMultiplier;
+	Float64             TempoMultiplier;
+	Float64             AmpMultiplier;
+	Float64             DurMultiplier;
 	
-	Float64         TempoSensitivity;
+	Float64             TempoSensitivity;
 	
 	MInC_WaveFormTable	*WaveTable;
-	Float64			Theta;
+	Float64             Theta;
 
-	MInC_Envelope		*Env;
+	MInC_Envelope       *Env;
 	
-	NSSet			*NoteSet;
+	NSSet               *NoteSet;
 }
 
 @property (nonatomic,readwrite) Float64 TempoMultiplier;
+@property (nonatomic,readwrite) Float64 TransposeValue;
 
 -(void)start;
 -(void)stop;
 -(void)rewind;
-
--(void)moltoRit;
--(void)resetRit;
 
 -(void)update:(Float64)elapsed_time;
 
