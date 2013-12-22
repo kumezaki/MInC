@@ -26,6 +26,7 @@
 		213C2FA817EDD72A0024A847 /* MInC_NetworkMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C2FA717EDD72A0024A847 /* MInC_NetworkMessages.m */; };
 		214CCDF217EC850400CD9CAA /* MInC_FirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214CCDF117EC850400CD9CAA /* MInC_FirstView.m */; };
 		2162021B11B396E000E93E07 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2162021A11B396E000E93E07 /* AudioToolbox.framework */; };
+		21827A0E186735110025BCFC /* MInC_Biquad.m in Sources */ = {isa = PBXBuildFile; fileRef = 21827A0D186735110025BCFC /* MInC_Biquad.m */; };
 		2195D37511B6B6C3002E46FD /* MInC_SoundFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2195D37411B6B6C3002E46FD /* MInC_SoundFile.m */; };
 		21AB99A717F31D7B00C3B291 /* MInC_NetworkConnections.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB99A617F31D7B00C3B291 /* MInC_NetworkConnections.m */; };
 		21B8AC9711B4208200C88C2D /* MInC_SecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B8AC9611B4208200C88C2D /* MInC_SecondView.m */; };
@@ -197,6 +198,8 @@
 		214CCDF017EC850400CD9CAA /* MInC_FirstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_FirstView.h; sourceTree = "<group>"; };
 		214CCDF117EC850400CD9CAA /* MInC_FirstView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_FirstView.m; sourceTree = "<group>"; };
 		2162021A11B396E000E93E07 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
+		21827A0C186735110025BCFC /* MInC_Biquad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_Biquad.h; sourceTree = "<group>"; };
+		21827A0D186735110025BCFC /* MInC_Biquad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_Biquad.m; sourceTree = "<group>"; };
 		2195D37311B6B6C3002E46FD /* MInC_SoundFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_SoundFile.h; sourceTree = "<group>"; };
 		2195D37411B6B6C3002E46FD /* MInC_SoundFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_SoundFile.m; sourceTree = "<group>"; };
 		2195F21F1807092300CB6BB9 /* MInC_Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_Content.h; sourceTree = "<group>"; };
@@ -371,6 +374,8 @@
 				1D3623250D0F684500981E51 /* MInC_AppDelegate.m */,
 				211AB3C811B8098D00B41C09 /* MInC_AQPlayer.h */,
 				211AB3C911B8098D00B41C09 /* MInC_AQPlayer.m */,
+				21827A0C186735110025BCFC /* MInC_Biquad.h */,
+				21827A0D186735110025BCFC /* MInC_Biquad.m */,
 				21C7FBBD1807097B00057D0B /* MInC_BLIT.h */,
 				21C7FBBE1807097B00057D0B /* MInC_BLIT.m */,
 				272862F317C675C80079A969 /* MInC_BLITSaw.h */,
@@ -800,6 +805,7 @@
 				210F8F1517EF26F7004254E5 /* MInC_Constants.m in Sources */,
 				21AB99A717F31D7B00C3B291 /* MInC_NetworkConnections.m in Sources */,
 				21C7FBBF1807097B00057D0B /* MInC_BLIT.m in Sources */,
+				21827A0E186735110025BCFC /* MInC_Biquad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
