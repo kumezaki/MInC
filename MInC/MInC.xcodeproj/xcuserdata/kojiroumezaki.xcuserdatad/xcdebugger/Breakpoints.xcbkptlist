@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Classes/MInC_AQPlayer.m"
-         timestampString = "405962853.528673"
+         timestampString = "409501910.187755"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "161"
-         endingLineNumber = "161"
+         startingLineNumber = "87"
+         endingLineNumber = "87"
          landmarkName = "-init"
          landmarkType = "5">
       </FileBreakpoint>
@@ -67,19 +67,6 @@
          endingLineNumber = "121"
          landmarkName = "-pulseToggle:"
          landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Classes/MInC_AQPlayer.m"
-         timestampString = "405963147.556345"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
-         landmarkName = "AQBufferCallback()"
-         landmarkType = "7">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"

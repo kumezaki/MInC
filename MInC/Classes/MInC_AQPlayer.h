@@ -31,12 +31,7 @@
 
 	SInt32		SeqNum;
 	
-	SInt32		Piece;
-	SInt32		Part;
 	SInt32		NumSequences;
-
-    // not sure if the following is needed
-	BOOL		Rit;
 }
 
 -(void)	setup;
@@ -48,7 +43,8 @@
 
 -(void) parseFile;
 
-// not sure if the following is needed
--(NSString*) getModString;
+-(void) fillAudioBuffer:(Float64*)buffer :(const SInt32)num_frames;
+
+-(void) reportElapsedTime:(Float64)elapsed_time;
 
 @end
