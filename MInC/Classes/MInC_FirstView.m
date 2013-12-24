@@ -75,12 +75,12 @@ MInC_FirstView *gFirstView = nil;
 	}
     else
 	{
-		[gAQP setSequence:(++gAQP->SeqNum)];
+		[gAQP setSequence:(++gAQP.SeqNum)];
 		NewMod = YES;
 	}
 
     NSLog(@"WithServer %s",WithServer?"ON":"OFF");
-    NSLog(@"gAQP->SeqNum %ld",gAQP->SeqNum);
+    NSLog(@"gAQP->SeqNum %ld",gAQP.SeqNum);
 }
 
 -(IBAction)set8vbDown:(id)sender
@@ -274,8 +274,8 @@ MInC_FirstView *gFirstView = nil;
 	
 	if (NewMod == YES)
 	{
-		if (gAQP->SeqNum >= 0 && gAQP->SeqNum <= gAQP->NumSequences)
-			_NotationView.image = [_ImageArray objectAtIndex:gAQP->SeqNum-1];
+		if (gAQP.SeqNum >= 0 && gAQP.SeqNum <= gAQP.NumSequences)
+			_NotationView.image = [_ImageArray objectAtIndex:gAQP.SeqNum-1];
 		NewMod = NO;
 	}
     

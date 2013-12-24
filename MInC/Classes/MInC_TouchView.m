@@ -125,7 +125,10 @@ extern MInC_FirstView *gFirstView;
 	Float64 z = DIAGONAL(X[1]-X[0],Y[1]-Y[0]) / DIAGONAL(self.bounds.size.width,self.bounds.size.height);
 
 	[gFirstView sendOSC_Filter:x];
+    [gAQP.Biquad biquad_set:LPF :0. :kSR/2.*x :kSR :1.0];
+
 	[gFirstView sendOSC_Waveform:y];
+
 	[gFirstView sendOSC_Volume:z];
 
 	[self setNeedsDisplay];

@@ -58,6 +58,11 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 @implementation MInC_AQPlayer
 
+@synthesize SeqNum;
+@synthesize NumSequences;
+
+@synthesize Biquad;
+
 - (void)dealloc {
 
 	[Sequencer_Pri stop];
@@ -67,6 +72,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		[Sequences[i] release];
 	
 	[Sequencer_Pri release];
+    
+    [Biquad release];
 		
 	[super dealloc];
 }
@@ -92,6 +99,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	SeqNum = 0;
 	
+    Biquad = [[MInC_Biquad alloc] init];
+    [gAQP.Biquad biquad_set:LPF :0. :kSR/2.*0.5 :kSR :1.0]; /* 0.5 in freq setting assumes default position of control in touch view */
+
 	[self start];
 
 	[Sequencer_Pri start];
@@ -262,13 +272,20 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void) fillAudioBuffer:(Float64*)buffer :(const SInt32)num_frames
 {
+    /* primary sequencer */
 	MInC_Note* note_pri = [Sequencer_Pri getNote];
 	if (note_pri != nil)
+    {
 		Sequencer_Pri->Theta = [note_pri addSamples:buffer:num_frames:Sequencer_Pri->AmpMultiplier:Sequencer_Pri->Theta];
+        [Biquad processAudioBuffer:buffer :num_frames];
+    }
     
+    /* secondary sequencer */
 	MInC_Note* note_sec = [Sequencer_Sec getNote];
 	if (note_sec != nil)
+    {
 		Sequencer_Sec->Theta = [note_sec addSamples:buffer:num_frames:Sequencer_Sec->AmpMultiplier:Sequencer_Sec->Theta];
+    }
 }
 
 -(void) reportElapsedTime:(Float64)elapsed_time

@@ -8,6 +8,7 @@
 
 #import <AudioToolbox/AudioToolbox.h>
 #import <Foundation/Foundation.h>
+#import "MInC_Biquad.h"
 #import "MInC_Sequencer.h"
 #import "MInC_SoundFile.h"
 #import "MInC_WaveFormTable.h"
@@ -23,16 +24,17 @@
 	AudioStreamBasicDescription	DataFormat;
 	
 	MInC_Sequence	*Sequences[53];
-
+    
 @public
 
 	MInC_Sequencer	*Sequencer_Pri;
 	MInC_Sequencer	*Sequencer_Sec;
-
-	SInt32		SeqNum;
-	
-	SInt32		NumSequences;
 }
+
+@property (readwrite, nonatomic) SInt32 SeqNum;
+@property (readwrite, nonatomic) SInt32 NumSequences;
+
+@property (readonly, nonatomic, retain) MInC_Biquad *Biquad;
 
 -(void)	setup;
 
