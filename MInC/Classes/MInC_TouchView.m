@@ -130,6 +130,7 @@ extern MInC_FirstView *gFirstView;
 	[gFirstView sendOSC_Waveform:y];
 
 	[gFirstView sendOSC_Volume:z];
+    gAQP->Sequencer_Pri->AmpMultiplier = z;
 
 	[self setNeedsDisplay];
 }
