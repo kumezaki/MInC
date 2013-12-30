@@ -18,14 +18,17 @@ extern MInC_FirstView *gFirstView;
 
 #define DIAGONAL(x,y) sqrt(((x) * (x)) + ((y) * (y)))
 
+#define DEFAULT_RADIUS  0.1
+
 @implementation MInC_TouchView
 
 - (void)awakeFromNib {
 
+    const Float64 rad = DEFAULT_RADIUS;
 	for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++)
 	{
-		X[i] = (0.5 + (i==0?-0.25:+0.25)) * self.bounds.size.width;
-		Y[i] = (0.5 + (i==0?-0.25:+0.25)) * self.bounds.size.height;
+		X[i] = (0.5 + (i==0?-rad:+rad)) * self.bounds.size.width;
+		Y[i] = (0.5 + (i==0?-rad:+rad)) * self.bounds.size.height;
 		Touch[i] = nil;
 	}
 }
@@ -39,30 +42,41 @@ extern MInC_FirstView *gFirstView;
 
 
 - (void)drawRect:(CGRect)draw_rect {
+
     // Drawing code
 	UIColor *rectColor = [UIColor darkGrayColor];
 	[rectColor set];
 
-#if 0
+#if 0 /* one rect per touch */
 	UIRectFill(CGRectMake(X[0]-5., Y[0]-5., 10.0, 10.0));
 	UIRectFill(CGRectMake(X[1]-5., Y[1]-5., 10.0, 10.0));
-#else
-#if 0
+#endif
+    
+#if 0 /* one rect combining touches */
 	Float64 x = X[0] < X[1] ? X[0] : X[1];
 	Float64 y = Y[0] < Y[1] ? Y[0] : Y[1];
 	Float64 w = fabs(X[0] - X[1]);
 	Float64 h = fabs(Y[0] - Y[1]);
 	UIRectFill(CGRectMake(x,y,w,h));
-#else
+#endif
+
+#if 1 /* one circle combining touches */
 	Float64 w = fabs(X[0] - X[1]);
 	Float64 h = fabs(Y[0] - Y[1]);
+
+#if 1
+    /* constant radius */
+    w = h = self.bounds.size.width * DEFAULT_RADIUS;
+#else
+    /* variable radius */
 	w = h = w > h ? w : h;
+#endif
+
 	Float64 x = ((X[0] + X[1]) / 2.) - w / 2;
 	Float64 y = ((Y[0] + Y[1]) / 2.) - h / 2;
 	
 	CGContextRef contextRef = UIGraphicsGetCurrentContext();
 	CGContextFillEllipseInRect(contextRef, CGRectMake(x,y,w,h));
-#endif
 #endif
 }
 
@@ -108,32 +122,53 @@ extern MInC_FirstView *gFirstView;
 
 -(void)processTouch:(NSSet *)touches
 {
-#if 0
-	NSLog(@"UIView size: %f %f\n",self.bounds.size.width,self.bounds.size.height);
-#endif
-	
+    //	NSLog(@"UIView size: %f %f\n",self.bounds.size.width,self.bounds.size.height);
+    
+    if (Touch[0] == nil) return;
+    CGPoint pt = [Touch[0] locationInView:self];
+    
+    //	for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++) NSLog(@"Touch[%d] (%f,%f)\n",i,X[i],Y[i]);
+    
+	Float64 x = pt.x/self.bounds.size.width;
+	Float64 y = 1. - (pt.y/self.bounds.size.height);
+    
+	[gFirstView sendOSC_Filter:x];
+    [gAQP.Biquad biquad_set:LPF :0. :kSR/2.*x :kSR :1.0];
+    
+	[gFirstView sendOSC_Volume:y];
+    gAQP->Sequencer_Pri->AmpMultiplier = y;
+    
+    X[0] = X[1] = pt.x;
+    Y[0] = Y[1] = pt.y;
+    
+	[self setNeedsDisplay];
+}
+
+#if 0 /* for multi-touch, variable radius */
+-(void)processTouch:(NSSet *)touches
+{
+    //	NSLog(@"UIView size: %f %f\n",self.bounds.size.width,self.bounds.size.height);
+    
 	[self updateCoordinates:0:1];
 	[self updateCoordinates:1:0];
-
-#if 0
-	for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++)
-		NSLog(@"Touch[%d] (%f,%f)\n",i,X[i],Y[i]);
-#endif
-
+    
+    //	for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++) NSLog(@"Touch[%d] (%f,%f)\n",i,X[i],Y[i]);
+    
 	Float64 x = X[0]/self.bounds.size.width;
 	Float64 y = 1. - (Y[0]/self.bounds.size.height);
 	Float64 z = DIAGONAL(X[1]-X[0],Y[1]-Y[0]) / DIAGONAL(self.bounds.size.width,self.bounds.size.height);
-
+    
 	[gFirstView sendOSC_Filter:x];
     [gAQP.Biquad biquad_set:LPF :0. :kSR/2.*x :kSR :1.0];
-
+    
 	[gFirstView sendOSC_Waveform:y];
-
+    
 	[gFirstView sendOSC_Volume:z];
     gAQP->Sequencer_Pri->AmpMultiplier = z;
-
+    
 	[self setNeedsDisplay];
 }
+#endif
 
 -(void)updateCoordinates:(SInt32)a_index :(SInt32)b_index
 {
