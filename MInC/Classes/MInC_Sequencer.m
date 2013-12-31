@@ -13,7 +13,8 @@
 
 @implementation MInC_Sequencer
 
-@synthesize TempoMultiplier;
+@synthesize TempoMultiplier_Accel;
+@synthesize TempoMultiplier_Button;
 @synthesize TransposeValue;
 
 -(id)init
@@ -23,7 +24,8 @@
 	Seq_Cur = nil;
 	CurTime = 0.;
 	NextEventTime = 0.;
-	TempoMultiplier = 2.;
+	TempoMultiplier_Accel = 2.;
+	TempoMultiplier_Button = 1.;
 	AmpMultiplier = 1.;
 	DurMultiplier = 1.;
 	
@@ -70,7 +72,7 @@
 {
 	if (!Playing) return;
 	
-	CurTime += elapsed_time * TempoMultiplier;
+	CurTime += elapsed_time * TempoMultiplier_Accel * TempoMultiplier_Button;
 	
 	if (Seq_Next != nil)
 	{

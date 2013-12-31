@@ -103,7 +103,7 @@ extern MInC_AQPlayer *gAQP;
 	x *= gAQP->Sequencer_Pri->TempoSensitivity;
 	x = 1.0 - x;
 	x *= 2.;
-    gAQP->Sequencer_Pri.TempoMultiplier = x;
+    gAQP->Sequencer_Pri.TempoMultiplier_Accel = x;
     
 #if 0
 	NSLog(<#NSString *format, ...#>)(@"%f\n",x);

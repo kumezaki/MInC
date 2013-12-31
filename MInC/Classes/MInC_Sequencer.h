@@ -24,7 +24,6 @@
 	Float64             CurTime;
 	Float64             NextEventTime;
 
-	Float64             TempoMultiplier;
 	Float64             AmpMultiplier;
 	Float64             DurMultiplier;
 	
@@ -38,7 +37,8 @@
 	NSSet               *NoteSet;
 }
 
-@property (nonatomic,readwrite) Float64 TempoMultiplier;
+@property (nonatomic,readwrite) Float64 TempoMultiplier_Accel;
+@property (nonatomic,readwrite) Float64 TempoMultiplier_Button;
 @property (nonatomic,readwrite) Float64 TransposeValue;
 
 -(void)start;
