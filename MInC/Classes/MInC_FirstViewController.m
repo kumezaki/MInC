@@ -97,8 +97,8 @@ extern MInC_AQPlayer *gAQP;
 	
 	// if z is 0 to 0.6 then it is right side up, otherwise it is flipped -> should drop out
 	
-	if (z>0.6) gAQP->Sequencer_Pri->AmpMultiplier = 0.;
-	else gAQP->Sequencer_Pri->AmpMultiplier = 0.5;
+	if (z>0.6) gAQP->Sequencer_Pri.AmpMultiplier_Accel = 0.;
+	else gAQP->Sequencer_Pri.AmpMultiplier_Accel = 0.5;
     
 	x *= gAQP->Sequencer_Pri->TempoSensitivity;
 	x = 1.0 - x;

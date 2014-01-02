@@ -89,7 +89,7 @@ extern MInC_FirstView *gFirstView;
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	NSLog(@"touchesBegan count:%d\n",touches.count);
+//	NSLog(@"touchesBegan count:%d\n",touches.count);
 	for (UITouch* t in touches)
 	{
 		for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++)
@@ -100,13 +100,13 @@ extern MInC_FirstView *gFirstView;
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	NSLog(@"touchesMoved count:%d\n",touches.count);
+//	NSLog(@"touchesMoved count:%d\n",touches.count);
 	[self processTouch:touches];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	NSLog(@"touchesEnded count:%d\n",touches.count);
+//	NSLog(@"touchesEnded count:%d\n",touches.count);
 	for (UITouch* t in touches)
 	{
 		for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++)
@@ -133,10 +133,12 @@ extern MInC_FirstView *gFirstView;
 	Float64 y = 1. - (pt.y/self.bounds.size.height);
     
 	[gFirstView sendOSC_Filter:x];
-    [gAQP.Biquad biquad_set:LPF :0. :kSR/2.*x :kSR :1.0];
+    [gAQP.Biquad biquad_set:LPF :0. :kSR/2.*x :kSR :0.5];
+    NSLog(@"cutoff freq %f",kSR/2.*x);
     
 	[gFirstView sendOSC_Volume:y];
-    gAQP->Sequencer_Pri->AmpMultiplier = y;
+    gAQP->Sequencer_Pri.AmpMultiplier_Control = y;
+    NSLog(@"amplitude %f",y);
     
     X[0] = X[1] = pt.x;
     Y[0] = Y[1] = pt.y;

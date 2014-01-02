@@ -13,8 +13,10 @@
 
 @implementation MInC_Sequencer
 
+@synthesize AmpMultiplier_Accel;
+@synthesize AmpMultiplier_Control;
 @synthesize TempoMultiplier_Accel;
-@synthesize TempoMultiplier_Button;
+@synthesize TempoMultiplier_Control;
 @synthesize TransposeValue;
 
 -(id)init
@@ -25,8 +27,9 @@
 	CurTime = 0.;
 	NextEventTime = 0.;
 	TempoMultiplier_Accel = 2.;
-	TempoMultiplier_Button = 1.;
-	AmpMultiplier = 1.;
+	TempoMultiplier_Control = 1.;
+	AmpMultiplier_Accel = 1.;
+	AmpMultiplier_Control = 1.;
 	DurMultiplier = 1.;
 	
 	TempoSensitivity = 0.5;
@@ -72,7 +75,7 @@
 {
 	if (!Playing) return;
 	
-	CurTime += elapsed_time * TempoMultiplier_Accel * TempoMultiplier_Button;
+	CurTime += elapsed_time * TempoMultiplier_Accel * TempoMultiplier_Control;
 	
 	if (Seq_Next != nil)
 	{

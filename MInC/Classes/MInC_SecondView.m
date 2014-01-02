@@ -77,7 +77,7 @@ MInC_SecondView *gSecondView = nil;
 {
 	Float64 amp = [PulseVolSlider value];
 	NSLog(@"setPulseVolume %f\n",amp);
-	gAQP->Sequencer_Sec->AmpMultiplier = amp * amp;
+	gAQP->Sequencer_Sec.AmpMultiplier_Control = amp * amp;
 }
 
 -(IBAction)iPAddressChanged:(id)sender

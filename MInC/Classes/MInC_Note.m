@@ -89,7 +89,7 @@
 -(void)	setPercentOn:(Float64)percent
 {
 	NumPlaySamples = Duration * kSR * percent;
-    NSLog(@"%ld %f %f",NumPlaySamples,Duration,percent);
+//    NSLog(@"%ld %f %f",NumPlaySamples,Duration,percent);
 }
 
 @end

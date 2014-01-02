@@ -120,13 +120,13 @@ MInC_FirstView *gFirstView = nil;
 -(IBAction)set2xSlowDown:(id)sender
 {
 	[self send2xSlow:true];
-    gAQP->Sequencer_Pri.TempoMultiplier_Button = 0.5;
+    gAQP->Sequencer_Pri.TempoMultiplier_Control = 0.5;
 }
 
 -(IBAction)set2xSlowUp:(id)sender
 {
 	[self send2xSlow:false];
-    gAQP->Sequencer_Pri.TempoMultiplier_Button = 1.;
+    gAQP->Sequencer_Pri.TempoMultiplier_Control = 1.;
 }
 
 -(void)send2xSlow:(BOOL)direction
@@ -137,13 +137,13 @@ MInC_FirstView *gFirstView = nil;
 -(IBAction)set2xFastDown:(id)sender
 {
 	[self send2xFast:true];
-    gAQP->Sequencer_Pri.TempoMultiplier_Button = 2.;
+    gAQP->Sequencer_Pri.TempoMultiplier_Control = 2.;
 }
 
 -(IBAction)set2xFastUp:(id)sender
 {
 	[self send2xFast:false];
-    gAQP->Sequencer_Pri.TempoMultiplier_Button = 1.;
+    gAQP->Sequencer_Pri.TempoMultiplier_Control = 1.;
 }
 
 -(void)send2xFast:(BOOL)direction
