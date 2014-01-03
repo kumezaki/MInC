@@ -133,8 +133,9 @@ extern MInC_FirstView *gFirstView;
 	Float64 y = 1. - (pt.y/self.bounds.size.height);
     
 	[gFirstView sendOSC_Filter:x];
-    [gAQP.Biquad biquad_set:LPF :0. :kSR/2.*x :kSR :0.5];
-    NSLog(@"cutoff freq %f",kSR/2.*x);
+    Float64 cutoff_freq = kSR / 2. * (x > 0.9? 0.9 : x); /* 90% is max */
+    [gAQP.Biquad biquad_set:LPF :0. :cutoff_freq :kSR :0.5];
+    NSLog(@"cutoff freq %f",cutoff_freq);
     
 	[gFirstView sendOSC_Volume:y];
     gAQP->Sequencer_Pri.AmpMultiplier_Control = y;

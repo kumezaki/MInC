@@ -32,7 +32,7 @@
 	AmpMultiplier_Control = 1.;
 	DurMultiplier = 1.;
 	
-	TempoSensitivity = 0.5;
+	TempoSensitivity = 0.0;
 
 	WaveTable = [MInC_WaveFormTable new];
 	Theta = 0.;

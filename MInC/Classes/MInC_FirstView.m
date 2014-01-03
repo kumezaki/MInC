@@ -48,7 +48,7 @@ MInC_FirstView *gFirstView = nil;
     gFirstView = self;
     
 	NewMod = NO;
-	WithServer = YES;
+	WithServer = NO;
     
 	[self createImageArray];
     

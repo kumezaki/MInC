@@ -94,19 +94,24 @@ extern MInC_AQPlayer *gAQP;
 	[self.networking sendOSCMsgWithIntValue:"/minc/accX\0\0":12:FLOAT_TO_MRMR_INT(x)];
 	[self.networking sendOSCMsgWithIntValue:"/minc/accY\0\0":12:FLOAT_TO_MRMR_INT(y)];
 	[self.networking sendOSCMsgWithIntValue:"/minc/accZ\0\0":12:FLOAT_TO_MRMR_INT(z)];
-	
+
+	// AMPLITUDE
 	// if z is 0 to 0.6 then it is right side up, otherwise it is flipped -> should drop out
-	
-	if (z>0.6) gAQP->Sequencer_Pri.AmpMultiplier_Accel = 0.;
+    if (z>0.6) gAQP->Sequencer_Pri.AmpMultiplier_Accel = 0.;
 	else gAQP->Sequencer_Pri.AmpMultiplier_Accel = 0.5;
-    
-	x *= gAQP->Sequencer_Pri->TempoSensitivity;
-	x = 1.0 - x;
-	x *= 2.;
-    gAQP->Sequencer_Pri.TempoMultiplier_Accel = x;
+
+	// TEMPO
+	Float64 tempo_mult = x * gAQP->Sequencer_Pri->TempoSensitivity;
+#if 0 /* tilt left for faster; tilt right for slower */
+	tempo_mult = 1.0 - tempo_mult;
+#else /* tilt left for slower; tilt right for faster */
+    tempo_mult += 1.0;
+#endif
+	tempo_mult *= 2.;
+    gAQP->Sequencer_Pri.TempoMultiplier_Accel = tempo_mult;
     
 #if 0
-	NSLog(<#NSString *format, ...#>)(@"%f\n",x);
+	NSLog(@"%f %f",x,tempo_mult);
 #endif
 }
 
