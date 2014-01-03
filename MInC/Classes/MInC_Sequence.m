@@ -20,8 +20,8 @@
 		Notes[i] = [[MInC_BLITSaw alloc] init];
 	}
 	
-	Pos = 0;
-//	Pos = -1;
+//	Pos = 0;
+	Pos = -1;
 	NumNotes = 0;
 	
 	return self;
