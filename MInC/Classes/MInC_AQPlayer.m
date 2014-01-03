@@ -89,13 +89,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	[self parseFile];
     
 	Sequencer_Pri.AmpMultiplier_Control = 0.5;
-	Sequencer_Pri->DurMultiplier = 0.5;
+	Sequencer_Pri.DurMultiplier = 0.5;
 	
 	Sequencer_Sec = [[MInC_Sequencer alloc] init];
 	Sequencer_Sec->Seq_Cur = [[MInC_Sequence alloc] init];
 	[Sequencer_Sec->Seq_Cur assignNotes:num_notes_pulse:note_sequence_pulse:dur_sequence_pulse];
-	Sequencer_Sec.AmpMultiplier_Control = 0.5;
-	Sequencer_Sec->DurMultiplier = 0.1;
+	Sequencer_Sec.AmpMultiplier_Control = 0.5 * 0.5;
+	Sequencer_Sec.DurMultiplier = 0.1;
 	
 	SeqNum = 0;
 	
@@ -276,7 +276,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	MInC_Note* note_pri = [Sequencer_Pri getNote];
 	if (note_pri != nil)
     {
-		Sequencer_Pri->Theta = [note_pri addSamples:buffer:num_frames:Sequencer_Pri.AmpMultiplier_Control:Sequencer_Pri->Theta];
+		Sequencer_Pri.Theta = [note_pri addSamples:buffer:num_frames:Sequencer_Pri.AmpMultiplier_Control:Sequencer_Pri.Theta];
         [Biquad processAudioBuffer:buffer :num_frames];
     }
     
@@ -284,7 +284,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	MInC_Note* note_sec = [Sequencer_Sec getNote];
 	if (note_sec != nil)
     {
-		Sequencer_Sec->Theta = [note_sec addSamples:buffer:num_frames:Sequencer_Pri.AmpMultiplier_Control:Sequencer_Sec->Theta];
+		Sequencer_Sec.Theta = [note_sec addSamples:buffer:num_frames:Sequencer_Sec.AmpMultiplier_Control:Sequencer_Sec.Theta];
     }
 }
 

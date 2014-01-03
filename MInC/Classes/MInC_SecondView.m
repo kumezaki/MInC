@@ -70,7 +70,7 @@ MInC_SecondView *gSecondView = nil;
 {
 	Float64 sense = [TempoSenseSlider value];
 	NSLog(@"setTempoSensitivity %f\n",sense);
-	gAQP->Sequencer_Pri->TempoSensitivity = sense * sense;
+	gAQP->Sequencer_Pri.TempoSensitivity = sense * sense;
 }
 
 -(IBAction)setPulseVolume:(id)sender

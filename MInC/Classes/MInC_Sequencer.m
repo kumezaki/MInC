@@ -17,7 +17,11 @@
 @synthesize AmpMultiplier_Control;
 @synthesize TempoMultiplier_Accel;
 @synthesize TempoMultiplier_Control;
-@synthesize TransposeValue;
+@synthesize TempoSensitivity;
+@synthesize TransposeValue_Instr;
+@synthesize TransposeValue_Control;
+@synthesize DurMultiplier;
+@synthesize Theta;
 
 -(id)init
 {
@@ -34,7 +38,7 @@
 	
 	TempoSensitivity = 0.0;
 
-	WaveTable = [MInC_WaveFormTable new];
+	WaveTable = [[MInC_WaveFormTable alloc] init];
 	Theta = 0.;
 	
 	Env = [[MInC_ADSR alloc] initWithADSR:kSR a:0.01 d:0.05 s:0.5 r:0.2];
@@ -92,7 +96,8 @@
 		/* get the new note */
 		MInC_Note* note = [Seq_Cur getNote];
 		[note setPercentOn:DurMultiplier];
-        note.TransposeValue = TransposeValue;
+        note.TransposeValue_Instr = TransposeValue_Instr;
+        note.TransposeValue_Control = TransposeValue_Control;
 		[note on:WaveTable:Env];
 
 		/* recompute the next event time */

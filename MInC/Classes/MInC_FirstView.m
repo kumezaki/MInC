@@ -86,13 +86,13 @@ MInC_FirstView *gFirstView = nil;
 -(IBAction)set8vbDown:(id)sender
 {
 	[self send8vb:true];
-    gAQP->Sequencer_Pri.TransposeValue = -12.;
+    gAQP->Sequencer_Pri.TransposeValue_Control = -12.;
 }
 
 -(IBAction)set8vbUp:(id)sender
 {
 	[self send8vb:false];
-    gAQP->Sequencer_Pri.TransposeValue = -0.;
+    gAQP->Sequencer_Pri.TransposeValue_Control = -0.;
 }
 
 -(void)send8vb:(BOOL)direction
@@ -103,13 +103,13 @@ MInC_FirstView *gFirstView = nil;
 -(IBAction)set8vaDown:(id)sender
 {
 	[self send8va:true];
-    gAQP->Sequencer_Pri.TransposeValue = +12.;
+    gAQP->Sequencer_Pri.TransposeValue_Control = +12.;
 }
 
 -(IBAction)set8vaUp:(id)sender
 {
 	[self send8va:false];
-    gAQP->Sequencer_Pri.TransposeValue = 0.;
+    gAQP->Sequencer_Pri.TransposeValue_Control = 0.;
 }
 
 -(void)send8va:(BOOL)direction
@@ -173,13 +173,17 @@ MInC_FirstView *gFirstView = nil;
 	NSLog(@"setInstrument %d\n",InstrSegControl.selectedSegmentIndex);
     
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/instr\0":12:InstrSegControl.selectedSegmentIndex];
+
+    
+    Float64 transpose[4] = { +12., 0., -12., -24. };
+    gAQP->Sequencer_Pri.TransposeValue_Instr = transpose[InstrSegControl.selectedSegmentIndex];
 }
 
 -(IBAction)setNoteDuration:(id)sender
 {
 	MInC_Sequencer* q = gAQP->Sequencer_Pri;
 	if (q != nil)
-		q->DurMultiplier = [NoteDurationSlider value];
+		q.DurMultiplier = [NoteDurationSlider value];
     
     [gViewController.networking sendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([NoteDurationSlider value])];
 }

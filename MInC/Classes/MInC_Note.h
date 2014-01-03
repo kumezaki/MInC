@@ -26,7 +26,8 @@
 @property (readwrite, nonatomic) Float64 Duration;
 @property (readwrite, nonatomic) Float64 MIDINote;
 @property (readwrite, nonatomic) Float64 Amp;
-@property (nonatomic,readwrite) Float64 TransposeValue;
+@property (nonatomic,readwrite) Float64 TransposeValue_Instr;
+@property (nonatomic,readwrite) Float64 TransposeValue_Control;
 
 +(Float64) mtof:(Float64)midi_note;
 

@@ -101,7 +101,7 @@ extern MInC_AQPlayer *gAQP;
 	else gAQP->Sequencer_Pri.AmpMultiplier_Accel = 0.5;
 
 	// TEMPO
-	Float64 tempo_mult = x * gAQP->Sequencer_Pri->TempoSensitivity;
+	Float64 tempo_mult = x * gAQP->Sequencer_Pri.TempoSensitivity;
 #if 0 /* tilt left for faster; tilt right for slower */
 	tempo_mult = 1.0 - tempo_mult;
 #else /* tilt left for slower; tilt right for faster */

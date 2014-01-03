@@ -14,33 +14,33 @@
 
 @interface MInC_Sequencer : NSObject {
 	
-	BOOL	Playing;
+	BOOL                Playing;
 	
+	Float64             CurTime;
+	Float64             NextEventTime;
+    
+	Float64             Theta;
+
+	NSSet               *NoteSet;
+
 @public
 
 	MInC_Sequence		*Seq_Cur;
 	MInC_Sequence		*Seq_Next;
 	
-	Float64             CurTime;
-	Float64             NextEventTime;
-
-	Float64             DurMultiplier;
-	
-	Float64             TempoSensitivity;
-	
 	MInC_WaveFormTable	*WaveTable;
-	Float64             Theta;
-
 	MInC_Envelope       *Env;
-	
-	NSSet               *NoteSet;
 }
 
 @property (nonatomic,readwrite) Float64 AmpMultiplier_Accel;
 @property (nonatomic,readwrite) Float64 AmpMultiplier_Control;
 @property (nonatomic,readwrite) Float64 TempoMultiplier_Accel;
 @property (nonatomic,readwrite) Float64 TempoMultiplier_Control;
-@property (nonatomic,readwrite) Float64 TransposeValue;
+@property (nonatomic,readwrite) Float64 TempoSensitivity;
+@property (nonatomic,readwrite) Float64 TransposeValue_Instr;
+@property (nonatomic,readwrite) Float64 TransposeValue_Control;
+@property (nonatomic,readwrite) Float64 DurMultiplier;
+@property (nonatomic,readwrite) Float64 Theta;
 
 -(void)start;
 -(void)stop;

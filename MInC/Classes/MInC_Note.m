@@ -14,7 +14,8 @@
 @synthesize Duration;
 @synthesize MIDINote;
 @synthesize Amp;
-@synthesize TransposeValue;
+@synthesize TransposeValue_Instr;
+@synthesize TransposeValue_Control;
 
 -(id)init
 {
@@ -27,7 +28,8 @@
 	Env = nil;
 	
 	Amp = 1.0;
-    TransposeValue = 0;
+    TransposeValue_Instr = 0;
+    TransposeValue_Control = 0;
     
 	SamplesPlayed = 0;
 	NumPlaySamples = 0;
@@ -49,7 +51,7 @@
 
 -(Float64) getFreqWithTransposition
 {
-    return MIDINote < 0 ? 0. : [MInC_Note mtof:(MIDINote+TransposeValue)]; // note number of -1 means rest
+    return MIDINote < 0 ? 0. : [MInC_Note mtof:(MIDINote+TransposeValue_Instr+TransposeValue_Control)]; // note number of -1 means rest
 }
 
 -(void)	on:(MInC_WaveFormTable*)wavetable :(MInC_Envelope*)env;
