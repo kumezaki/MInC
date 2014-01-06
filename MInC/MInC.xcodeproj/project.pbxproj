@@ -85,7 +85,7 @@
 		21D9F8D811DA45E600D2C266 /* InC06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21D9F8D111DA45E600D2C266 /* InC06.jpg */; };
 		272862F517C675C90079A969 /* MInC_BLITSaw.m in Sources */ = {isa = PBXBuildFile; fileRef = 272862F117C675C80079A969 /* MInC_BLITSaw.m */; };
 		27B3601A17C66B9E001FABF8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27B3601917C66B9E001FABF8 /* Default-568h@2x.png */; };
-		28216C970DB411BC00E5133A /* MInC_FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28216C960DB411BC00E5133A /* MInC_FirstViewController.m */; };
+		28216C970DB411BC00E5133A /* MInC_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28216C960DB411BC00E5133A /* MInC_ViewController.m */; };
 		282CCBFE0DB6C98000C4EA27 /* MInC_SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 282CCBFD0DB6C98000C4EA27 /* MInC_SecondView.xib */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		28AD73880D9D96C1002E5188 /* MInC_MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MInC_MainWindow.xib */; };
@@ -192,8 +192,8 @@
 		272862F117C675C80079A969 /* MInC_BLITSaw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_BLITSaw.m; sourceTree = "<group>"; };
 		272862F317C675C80079A969 /* MInC_BLITSaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_BLITSaw.h; sourceTree = "<group>"; };
 		27B3601917C66B9E001FABF8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		28216C950DB411BC00E5133A /* MInC_FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_FirstViewController.h; sourceTree = "<group>"; };
-		28216C960DB411BC00E5133A /* MInC_FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_FirstViewController.m; sourceTree = "<group>"; };
+		28216C950DB411BC00E5133A /* MInC_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_ViewController.h; sourceTree = "<group>"; };
+		28216C960DB411BC00E5133A /* MInC_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_ViewController.m; sourceTree = "<group>"; };
 		282CCBFD0DB6C98000C4EA27 /* MInC_SecondView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MInC_SecondView.xib; sourceTree = "<group>"; };
 		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD73870D9D96C1002E5188 /* MInC_MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MInC_MainWindow.xib; sourceTree = "<group>"; };
@@ -241,8 +241,6 @@
 				21C208EB12BBA90B0030FDA0 /* MInC_Envelope.m */,
 				214CCDF017EC850400CD9CAA /* MInC_FirstView.h */,
 				214CCDF117EC850400CD9CAA /* MInC_FirstView.m */,
-				28216C950DB411BC00E5133A /* MInC_FirstViewController.h */,
-				28216C960DB411BC00E5133A /* MInC_FirstViewController.m */,
 				21AB99A517F31D7B00C3B291 /* MInC_NetworkConnections.h */,
 				21AB99A617F31D7B00C3B291 /* MInC_NetworkConnections.m */,
 				213C2FA617EDD72A0024A847 /* MInC_NetworkMessages.h */,
@@ -259,6 +257,8 @@
 				2195D37411B6B6C3002E46FD /* MInC_SoundFile.m */,
 				211AB3D111B8098D00B41C09 /* MInC_TouchView.h */,
 				211AB3D211B8098D00B41C09 /* MInC_TouchView.m */,
+				28216C950DB411BC00E5133A /* MInC_ViewController.h */,
+				28216C960DB411BC00E5133A /* MInC_ViewController.m */,
 				211AB3D311B8098D00B41C09 /* MInC_WaveFormTable.h */,
 				211AB3D411B8098D00B41C09 /* MInC_WaveFormTable.m */,
 				D4DE915C14E291F900A56C8B /* MInC_XMLParser.h */,
@@ -495,7 +495,7 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* MInC_AppDelegate.m in Sources */,
-				28216C970DB411BC00E5133A /* MInC_FirstViewController.m in Sources */,
+				28216C970DB411BC00E5133A /* MInC_ViewController.m in Sources */,
 				21B8AC9711B4208200C88C2D /* MInC_SecondView.m in Sources */,
 				2195D37511B6B6C3002E46FD /* MInC_SoundFile.m in Sources */,
 				211AB3D511B8098D00B41C09 /* MInC_ADSR.m in Sources */,

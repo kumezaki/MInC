@@ -6,14 +6,14 @@
 //  Copyright __MyCompanyName__ 2010. All rights reserved.
 //
 
-#import "MInC_FirstViewController.h"
+#import "MInC_ViewController.h"
 
-MInC_FirstViewController *gViewController = nil;
+MInC_ViewController *gViewController = nil;
 
 #include "MInC_AQPlayer.h"
 extern MInC_AQPlayer *gAQP;
 
-@implementation MInC_FirstViewController
+@implementation MInC_ViewController
 
 /*
 // The designated initializer. Override to perform setup that is required before the view is loaded.

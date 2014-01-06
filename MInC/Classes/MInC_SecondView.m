@@ -16,8 +16,8 @@ extern MInC_AQPlayer *gAQP;
 #import "MInC_FirstView.h"
 extern MInC_FirstView *gFirstView;
 
-#import "MInC_FirstViewController.h"
-extern MInC_FirstViewController *gViewController;
+#import "MInC_ViewController.h"
+extern MInC_ViewController *gViewController;
 
 MInC_SecondView *gSecondView = nil;
 

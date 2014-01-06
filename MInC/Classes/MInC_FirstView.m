@@ -10,8 +10,8 @@
 
 #import "MInC_AppDelegate.h"
 
-#import "MInC_FirstViewController.h"
-extern MInC_FirstViewController *gViewController;
+#import "MInC_ViewController.h"
+extern MInC_ViewController *gViewController;
 
 #import "MInC_SecondView.h"
 extern MInC_SecondView *gSecondView;
