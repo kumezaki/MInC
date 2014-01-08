@@ -11,6 +11,12 @@
 
 #import "MInC_Constants.h"
 
+#import "MInC_FirstView.h"
+extern MInC_FirstView *gFirstView;
+
+#import "MInC_AQPlayer.h"
+extern MInC_AQPlayer *gAQP;
+
 @interface MInC_NetworkMessages ()
 @property (nonatomic, readwrite, retain) NSString       *interstitialMsg;
 @property (nonatomic, readwrite, retain) NSString       *errorMsg;
@@ -181,8 +187,73 @@ union {
 
 #pragma mark- UDP & TCP message parsing
 - (void)udpParse
-{	
-    // printf("UDPInBuffer: %s\n", self->UDPInBuffer);
+{
+#if 1 /********** OLD MINC OSC PARSE CODE **********/
+	printf("self->UDPInBufferLength: %ld\n",self->UDPInBufferLength);
+    
+	ssize_t pos = 0;
+	int msg_type = 0;
+	int add_type = 0;
+	while (pos < self->UDPInBufferLength)
+	{
+		switch (msg_type)
+		{
+			case 0:
+			{
+				NSString* buf_str = [NSString stringWithCString:self->UDPInBuffer+pos encoding:NSASCIIStringEncoding];
+				if ([buf_str isEqualToString:@"/minc/interstitial"]) add_type = 1;
+				else if ([buf_str isEqualToString:@"/minc/mod"]) add_type = 2;
+				else if ([buf_str isEqualToString:@"/minc/hb"]) add_type = 3;
+				[buf_str release];
+				break;
+			}
+			case 2:
+			{
+				switch (add_type)
+				{
+					case 1:
+						gFirstView.InterstitialString = [[NSString alloc] initWithCString:self->UDPInBuffer+pos encoding:NSASCIIStringEncoding];
+						break;
+					case 2:
+					{
+						int int_val;
+						memcpy(&int_val,self->UDPInBuffer+pos,4);
+						int_val = htonl(int_val);
+						printf("mod number %d\n",int_val);
+						[gAQP setSequence:int_val];
+						gFirstView.NewMod = YES;
+						break;
+					}
+					case 3:
+					{
+						gFirstView.ServerIPAddString = [[NSString alloc] initWithCString:self->UDPInBuffer+pos encoding:NSASCIIStringEncoding];
+                        //						char buf[32];
+                        //						strcpy(buf,self->UDPInBuffer+pos);
+                        //						printf("server heartbeat IP address %s\n",buf);
+					}
+				}
+				break;
+			}
+			default:
+				break;
+		}
+		
+		const char* msg_type_str = "";
+		switch (msg_type)
+		{
+			case 0: msg_type_str = "OSC Address Pattern"; msg_type = 1; break;
+			case 1: msg_type_str = "OSC Type Tags"; msg_type = 2; break;
+			default: msg_type_str = "OSC Data"; break;
+		}
+        
+		printf("%s: %s\n",msg_type_str,self->UDPInBuffer+pos);
+        
+		pos += ((strlen(self->UDPInBuffer+pos) / 4) + 1) * 4;
+	}
+
+#else /********** FOR ZERO OSC PARSE CODE **********/
+
+//    NSLog(@"UDPInBuffer: %s",self->UDPInBuffer);
     
     NSAutoreleasePool *udpThreadPool = [[NSAutoreleasePool alloc] init];
 
@@ -346,6 +417,7 @@ union {
         pos += ((strlen(self->UDPInBuffer+pos) / 4) + 1)* 4;            
     }
     [udpThreadPool drain];
+#endif
 }
 
 - (void)tcpParse {

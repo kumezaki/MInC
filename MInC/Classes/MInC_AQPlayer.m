@@ -22,7 +22,6 @@
 #include <libxml/xmlmemory.h>
 #include <libxml/parser.h>
 
-
 MInC_AQPlayer *gAQP = nil;
 
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 

@@ -278,7 +278,7 @@
     TCPThread = nil;
 }
 
-- (void)tcpParse{
+- (void)tcpParse {
     NSLog(@"MInC_NetworkConnections tcpParse called.");
 }
 
