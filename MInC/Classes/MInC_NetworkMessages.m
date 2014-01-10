@@ -188,23 +188,25 @@ union {
 #pragma mark- UDP & TCP message parsing
 - (void)udpParse
 {
-#if 1 /********** OLD MINC OSC PARSE CODE **********/
-	printf("self->UDPInBufferLength: %ld\n",self->UDPInBufferLength);
+	NSLog(@"self->UDPInBufferLength: %ld",self->UDPInBufferLength);
+    NSLog(@"self->UDPInBuffer: %s",self->UDPInBuffer);
     
+//    NSAutoreleasePool *udpThreadPool = [[NSAutoreleasePool alloc] init];
+
 	ssize_t pos = 0;
 	int msg_type = 0;
 	int add_type = 0;
+
 	while (pos < self->UDPInBufferLength)
 	{
 		switch (msg_type)
 		{
 			case 0:
 			{
+                // reference the proper add_type by using the osc message as a key in an NSDictionary
+                // had to use an autorelease method for the string to live long enough for the key lookup.
 				NSString* buf_str = [NSString stringWithCString:self->UDPInBuffer+pos encoding:NSASCIIStringEncoding];
-				if ([buf_str isEqualToString:@"/minc/interstitial"]) add_type = 1;
-				else if ([buf_str isEqualToString:@"/minc/mod"]) add_type = 2;
-				else if ([buf_str isEqualToString:@"/minc/hb"]) add_type = 3;
-				[buf_str release];
+                add_type = [[self.msgDictionary objectForKey:buf_str] intValue];
 				break;
 			}
 			case 2:
@@ -212,8 +214,10 @@ union {
 				switch (add_type)
 				{
 					case 1:
+                    {
 						gFirstView.InterstitialString = [[NSString alloc] initWithCString:self->UDPInBuffer+pos encoding:NSASCIIStringEncoding];
 						break;
+                    }
 					case 2:
 					{
 						int int_val;
@@ -227,9 +231,7 @@ union {
 					case 3:
 					{
 						gFirstView.ServerIPAddString = [[NSString alloc] initWithCString:self->UDPInBuffer+pos encoding:NSASCIIStringEncoding];
-                        //						char buf[32];
-                        //						strcpy(buf,self->UDPInBuffer+pos);
-                        //						printf("server heartbeat IP address %s\n",buf);
+                        break;
 					}
 				}
 				break;
@@ -237,172 +239,6 @@ union {
 			default:
 				break;
 		}
-		
-		const char* msg_type_str = "";
-		switch (msg_type)
-		{
-			case 0: msg_type_str = "OSC Address Pattern"; msg_type = 1; break;
-			case 1: msg_type_str = "OSC Type Tags"; msg_type = 2; break;
-			default: msg_type_str = "OSC Data"; break;
-		}
-        
-		printf("%s: %s\n",msg_type_str,self->UDPInBuffer+pos);
-        
-		pos += ((strlen(self->UDPInBuffer+pos) / 4) + 1) * 4;
-	}
-
-#else /********** FOR ZERO OSC PARSE CODE **********/
-
-//    NSLog(@"UDPInBuffer: %s",self->UDPInBuffer);
-    
-    NSAutoreleasePool *udpThreadPool = [[NSAutoreleasePool alloc] init];
-
-    ssize_t pos = 0;
-    int msg_type = 0;
-    int add_type = 0;
-	
-    while (pos < self->UDPInBufferLength)
-    {
-        switch (msg_type)
-        {
-            case 0:
-            {
-                // reference the proper add_type by using the osc message as a key in an NSDictionary
-                // had to use an autorelease method for the string to live long enough for the key lookup.
-                NSString* buf_str = [NSString stringWithCString:self->UDPInBuffer+pos encoding:NSASCIIStringEncoding];
-                add_type = [[self.msgDictionary objectForKey:buf_str]intValue];
-            }
-				
-            case 1:
-            {
-                switch (add_type)
-                {
-                    case 7:
-					{   // /fz/play
-                        NSLog(@"received /fz/play\n");
-						mOSCMsg_Play = YES;						
-                        break;
-					}
-					case 8:
-					{   // /fz/stop
-                        NSLog(@"received /fz/stop\n");
-						mOSCMsg_Stop = YES;
-						break;
-					}
-                }
-                break;
-            }
-				
-            case 2:
-            {
-                switch (add_type)
-                {
-                    case 1:
-                    {   // /fz/state
-                        OSC_VAL_BYTE_SWAP(self->UDPInBuffer+pos)
-                        NSLog(@"received /fz/state:%d",u.int_val);
-                        mOSCMsg_State = u.int_val;
-                        break;
-                    }
-                    case 2:
-                    {   // /fz/rec_prog
-                        
-                        // OSC_VAL_BYTE_SWAP(self->UDPInBuffer+pos)
-                        // NSNumber *progVal = [[NSNumber alloc]initWithFloat:((float)u.int_val / 1000.)];
-                        
-                        // practice with blocks
-						int newIntVal = oscValByteSwap(self->UDPInBuffer+pos);
-                        float newVal = (float)newIntVal / 1000;
-                        NSNumber *progVal = [[NSNumber alloc]initWithFloat:newVal];
-                        
-                        [self performSelectorOnMainThread:@selector(setProgressValue:)
-                                               withObject:progVal 
-                                            waitUntilDone:NO];
-                        [progVal release];
-                        break;
-                    }
-                    case 3:
-                    {   // /fz/audio_out
-						int newIntVal = oscValByteSwap(self->UDPInBuffer+pos);
-						//NSLog(@"fz/audio_out %d",newIntVal);
-                        //float newVal = (float)newIntVal / 7;
-                        NSNumber *serverMeterVal = [[NSNumber alloc]initWithInt:newIntVal];
-                        
-                        [self performSelectorOnMainThread:@selector(setPlayingMeterValue:)
-                                               withObject:serverMeterVal 
-                                            waitUntilDone:NO];
-                        [serverMeterVal release];
-                        break;
-                    }
-                    case 4:
-                    {   // /fz/audio_in
-						int newIntVal = oscValByteSwap(self->UDPInBuffer+pos);
-						//NSLog(@"fz/audio_in %d",newIntVal);
-                        //float newVal = (float)newIntVal / 7;
-                        NSNumber *serverMeterVal = [[NSNumber alloc]initWithInt:newIntVal];
-                        
-                        [self performSelectorOnMainThread:@selector(setRecordingMeterValue:)
-                                               withObject:serverMeterVal 
-                                            waitUntilDone:NO];
-                        [serverMeterVal release];
-                        break;
-                    }
-                    case 5:
-                    {   // /fz/interstitial
-                        
-                        NSString *interstitialMsg = [[NSString alloc] initWithCString:self->UDPInBuffer+pos encoding:NSASCIIStringEncoding];
-                        
-                        [self performSelectorOnMainThread:@selector(setInterstitialMsg:) 
-                                               withObject:interstitialMsg 
-                                            waitUntilDone:NO];
-                        [interstitialMsg release];
-                        
-                        break;
-                    }
-                    case 6:
-                    {   // /fz/hb
-                        //NSLog(@"received /fz/hb:%s\n",UDPInBuffer+pos);
-                        NSString *serverIP = [[NSString alloc] initWithCString:self->UDPInBuffer+pos encoding:NSASCIIStringEncoding];
-                        [super newServerIPAddress:serverIP];
-//                        [self performSelectorOnMainThread:@selector(respondToServerHeartbeatMessage) withObject:nil waitUntilDone:NO];
-                        [serverIP release];
-                        break;
-                    }
-                    case 9:
-                    {   // /fz/cue
-                        OSC_VAL_BYTE_SWAP(self->UDPInBuffer+pos)
-                        // NSLog(@"received /fz/cue:%d\n",u.int_val);
-                        mOSCMsg_Cue = u.int_val;
-                        break;
-                    }
-					case 10:
-					{   // /fz/loop
-                        /*
-                        //currently disabled in Max patch
-                        //NSLog(@"received /fz/loop:%s\n",self->UDPInBuffer+pos);
-						OSC_VAL_BYTE_SWAP(self->UDPInBuffer+pos)
-						float loop_start = u.int_val;
-						pos += 4;
-						
-						OSC_VAL_BYTE_SWAP(self->UDPInBuffer+pos)
-						float loop_end = u.int_val;
-						pos += 4;
-						
-						if ((loop_start < loop_end)
-							&& (loop_start >= 0 && loop_start <= 5000.)
-							&& (loop_end >= 0 && loop_end <= 5000.))
-						{
-							self.aqPlayer->mLoopStart = loop_start / 5000.;
-							self.aqPlayer->mLoopEnd = loop_end / 5000.;
-						}
-                        */
-					}
-                }
-                break;
-            }
-            default:
-                break;
-        }
         
         //NSLog(@"msg_type %d", msg_type);
         const char* msg_type_str = "";
@@ -412,12 +248,12 @@ union {
             case 1: msg_type_str = "OSC Type Tags"; msg_type = 2; break;
             default: msg_type_str = "OSC Data"; break;
         }
-		
-        //printf("%s: %s\n",msg_type_str,self->UDPInBuffer+pos);
-        pos += ((strlen(self->UDPInBuffer+pos) / 4) + 1)* 4;            
+
+        //NSLog(@"%s: %s",msg_type_str,self->UDPInBuffer+pos);
+        pos += ((strlen(self->UDPInBuffer+pos) / 4) + 1) * 4;
     }
-    [udpThreadPool drain];
-#endif
+
+//    [udpThreadPool drain];
 }
 
 - (void)tcpParse {
