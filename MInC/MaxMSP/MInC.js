@@ -159,13 +159,22 @@ function do_msg(osc_add,pos,val)
                 if (speed_mod != dev.speed_mod)
                 {
                     dev.speed_mod = speed_mod;
-                    send_speed_msg(dev_pos);
+//					send_speed_msg(dev_pos);
                 }
                 break;
             }
+        case gMsgIDArray["accY"]:
+			{
+//				send_tuning_msg(dev_pos,val);
+				break;
+			}
+        case gMsgIDArray["accZ"]:
+			{
+//				send_dropout_msg(dev_pos,val);
+				break;
+			}
 
-        case gMsgIDArray["accY"]: send_tuning_msg(dev_pos,val); break;
-        case gMsgIDArray["accZ"]: send_dropout_msg(dev_pos,val); break;
+        case gMsgIDArray["beat"]: post("beat received\n"); break;
 
         default:
             post(a[1],"not supported\n");
@@ -193,6 +202,7 @@ function init_msg_id_array()
     gMsgIDArray["accX"] = i++;
     gMsgIDArray["accY"] = i++;
     gMsgIDArray["accZ"] = i++;
+    gMsgIDArray["beat"] = i++;
 }
 
 /*----------------------------------------------------------------------------*/

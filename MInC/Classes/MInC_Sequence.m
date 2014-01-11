@@ -11,14 +11,14 @@
 
 @implementation MInC_Sequence
 
+@synthesize Pos;
+
 -(id)init
 {
 	[super init];
 	
 	for (SInt32 i = 0; i < kMaxNumNotes; i++)
-	{
 		Notes[i] = [[MInC_BLITSaw alloc] init];
-	}
 	
 //	Pos = 0;
 	Pos = -1;

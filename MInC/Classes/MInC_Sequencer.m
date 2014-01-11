@@ -11,6 +11,9 @@
 #import "MInC_ADSR.h"
 #import "MInC_AQPlayer.h"
 
+#import "MInC_ViewController.h"
+extern MInC_ViewController *gViewController;
+
 @implementation MInC_Sequencer
 
 @synthesize AmpMultiplier_Accel;
@@ -92,6 +95,9 @@
 	{
 		/* advance the sequencer postion */
 		[Seq_Cur advancePos];
+        
+        if (Seq_Cur.Pos == 0)
+            [gViewController.networking sendOSCMsgWithIntValue:"/minc/beat\0\0":12:1];
 
 		/* get the new note */
 		MInC_Note* note = [Seq_Cur getNote];

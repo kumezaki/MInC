@@ -14,11 +14,11 @@
 
 @interface MInC_Sequence : NSObject {
 
-	MInC_Note    *Notes[kMaxNumNotes];
-	
-	SInt32  Pos;
-	SInt32  NumNotes;
+	MInC_Note   *Notes[kMaxNumNotes];
+	SInt32      NumNotes;
 }
+
+@property (readwrite) SInt32 Pos;
 
 -(void)assignNotes:(SInt32)num_notes :(Float64*)notes :(Float64*)durations;
 
