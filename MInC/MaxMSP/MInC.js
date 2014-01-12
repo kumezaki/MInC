@@ -174,7 +174,7 @@ function do_msg(osc_add,pos,val)
 				break;
 			}
 
-        case gMsgIDArray["beat"]: post("beat received\n"); break;
+        case gMsgIDArray["beat"]: send_sync_msg(dev_pos); break;
 
         default:
             post(a[1],"not supported\n");
@@ -355,6 +355,12 @@ function send_speed_msg(dev_pos)
 
     messnamed("InC_in1_msg","target",dev_pos+1);
     messnamed("InC_in2_msg","phasor","freq",s);
+}
+
+function send_sync_msg(dev_pos)
+{
+    messnamed("InC_in1_msg","target",dev_pos+1);
+    messnamed("InC_in2_msg","phasor","phase",0.);
 }
 
 function send_dac_msg(dev_pos,speaker_num)
