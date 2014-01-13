@@ -87,12 +87,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	[self parseFile];
     
+    Sequencer_Pri.SyncWithServer = YES;
 	Sequencer_Pri.AmpMultiplier_Control = 0.5;
 	Sequencer_Pri.DurMultiplier = 0.5;
 	
 	Sequencer_Sec = [[MInC_Sequencer alloc] init];
-	Sequencer_Sec->Seq_Cur = [[MInC_Sequence alloc] init];
-    [Sequencer_Sec->Seq_Cur assignNotes:num_notes_pulse:note_sequence_pulse:dur_sequence_pulse];
+    MInC_Sequence* seq = [[MInC_Sequence alloc] init];
+    [seq assignNotes:num_notes_pulse:note_sequence_pulse:dur_sequence_pulse];
+    [Sequencer_Sec setNextSequence:seq];
 	Sequencer_Sec.AmpMultiplier_Control = 0.5 * 0.5;
 	Sequencer_Sec.DurMultiplier = 0.1;
 	
@@ -102,8 +104,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     [gAQP.Biquad biquad_set:LPF :0. :kSR/2.*0.5 :kSR :1.0]; /* 0.5 in freq setting assumes default position of control in touch view */
 
 	[self start];
-
-	[Sequencer_Pri start];
 
 	return self;
 }

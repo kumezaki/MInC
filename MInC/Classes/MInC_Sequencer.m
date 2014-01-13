@@ -16,6 +16,8 @@ extern MInC_ViewController *gViewController;
 
 @implementation MInC_Sequencer
 
+@synthesize Playing;
+@synthesize SyncWithServer;
 @synthesize AmpMultiplier_Accel;
 @synthesize AmpMultiplier_Control;
 @synthesize TempoMultiplier_Accel;
@@ -29,6 +31,7 @@ extern MInC_ViewController *gViewController;
 -(id)init
 {
 	Playing = NO;
+    SyncWithServer = NO;
 	
 	Seq_Cur = nil;
 	CurTime = 0.;
@@ -96,7 +99,7 @@ extern MInC_ViewController *gViewController;
 		/* advance the sequencer postion */
 		[Seq_Cur advancePos];
         
-        if (Seq_Cur.Pos == 0)
+        if (Seq_Cur.Pos == 0 && SyncWithServer)
             [gViewController.networking sendOSCMsgWithIntValue:"/minc/beat\0\0":12:1];
 
 		/* get the new note */

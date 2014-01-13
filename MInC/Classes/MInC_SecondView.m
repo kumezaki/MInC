@@ -118,11 +118,7 @@ MInC_SecondView *gSecondView = nil;
 -(IBAction)pulseToggle:(id)sender;
 {
 	if (PulseSwitch.on)
-    {
-        /* eventually turning sequencers on and off should be the same for both primary and secondary sequencers, so that the call to advancePos is not needed */
-        [gAQP->Sequencer_Sec->Seq_Cur advancePos];
 		[gAQP->Sequencer_Sec start];
-    }
 	else
 		[gAQP->Sequencer_Sec stop];
 }

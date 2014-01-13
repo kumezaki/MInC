@@ -14,8 +14,6 @@
 
 @interface MInC_Sequencer : NSObject {
 	
-	BOOL                Playing;
-	
 	Float64             CurTime;
 	Float64             NextEventTime;
     
@@ -31,6 +29,9 @@
 	MInC_WaveFormTable	*WaveTable;
 	MInC_Envelope       *Env;
 }
+
+@property (readonly)    BOOL    Playing;
+@property (readwrite)   BOOL    SyncWithServer;
 
 @property (nonatomic,readwrite) Float64 AmpMultiplier_Accel;
 @property (nonatomic,readwrite) Float64 AmpMultiplier_Control;
