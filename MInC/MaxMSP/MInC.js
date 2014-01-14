@@ -170,7 +170,7 @@ function do_msg(osc_add,pos,val)
 			}
         case gMsgIDArray["accZ"]:
 			{
-//				send_dropout_msg(dev_pos,val);
+				send_dropout_msg(dev_pos,val);
 				break;
 			}
 
