@@ -7,7 +7,7 @@
 			"revision" : 8
 		}
 ,
-		"rect" : [ 240.0, 248.0, 969.0, 627.0 ],
+		"rect" : [ 240.0, 248.0, 1045.0, 689.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -30,12 +30,28 @@
 				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
-					"id" : "obj-64",
+					"id" : "obj-67",
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 610.5, 598.0, 280.0, 18.0 ]
+					"patching_rect" : [ 630.0, 534.0, 41.0, 18.0 ],
+					"text" : "revert"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-64",
+					"linecount" : 3,
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 700.5, 598.0, 280.0, 45.0 ],
+					"text" : "\"Macintosh HD:/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/ForZero/ForZero_MaxMSP\""
 				}
 
 			}
@@ -49,7 +65,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 610.5, 414.0, 175.0, 25.0 ],
+					"patching_rect" : [ 700.5, 414.0, 175.0, 25.0 ],
 					"text" : "report current path name"
 				}
 
@@ -61,7 +77,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 584.5, 416.5, 20.0, 20.0 ]
+					"patching_rect" : [ 674.5, 416.5, 20.0, 20.0 ]
 				}
 
 			}
@@ -75,7 +91,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 725.5, 534.0, 135.0, 25.0 ],
+					"patching_rect" : [ 815.5, 534.0, 135.0, 25.0 ],
 					"text" : "'append' message"
 				}
 
@@ -90,7 +106,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 637.5, 443.5, 119.0, 25.0 ],
+					"patching_rect" : [ 727.5, 443.5, 119.0, 25.0 ],
 					"text" : "add a new path"
 				}
 
@@ -102,7 +118,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 610.5, 446.0, 20.0, 20.0 ]
+					"patching_rect" : [ 700.5, 446.0, 20.0, 20.0 ]
 				}
 
 			}
@@ -115,7 +131,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 610.5, 536.0, 108.0, 21.0 ],
+					"patching_rect" : [ 700.5, 536.0, 108.0, 21.0 ],
 					"text" : "prepend append"
 				}
 
@@ -129,7 +145,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 610.5, 506.0, 80.0, 21.0 ],
+					"patching_rect" : [ 700.5, 506.0, 80.0, 21.0 ],
 					"text" : "relativepath"
 				}
 
@@ -143,7 +159,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
-					"patching_rect" : [ 610.5, 476.0, 101.0, 21.0 ],
+					"patching_rect" : [ 700.5, 476.0, 101.0, 21.0 ],
 					"text" : "opendialog fold"
 				}
 
@@ -157,7 +173,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 610.5, 570.0, 100.0, 20.0 ],
+					"patching_rect" : [ 700.5, 570.0, 100.0, 20.0 ],
 					"text" : "filepath search 3"
 				}
 
@@ -904,6 +920,16 @@
 				}
 
 			}
+, 			{
+				"box" : 				{
+					"id" : "obj-68",
+					"maxclass" : "panel",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 620.0, 404.0, 375.0, 250.0 ]
+				}
+
+			}
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
@@ -1390,8 +1416,17 @@
 					"destination" : [ "obj-17", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"midpoints" : [ 594.0, 563.75, 620.0, 563.75 ],
+					"midpoints" : [ 684.0, 563.75, 710.0, 563.75 ],
 					"source" : [ "obj-62", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-17", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-67", 0 ]
 				}
 
 			}
