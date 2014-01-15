@@ -157,8 +157,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 610.5, 570.0, 89.0, 20.0 ],
-					"text" : "filepath search"
+					"patching_rect" : [ 610.5, 570.0, 100.0, 20.0 ],
+					"text" : "filepath search 3"
 				}
 
 			}
