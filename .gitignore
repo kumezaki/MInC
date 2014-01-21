@@ -11,7 +11,9 @@ MInC/MInC.xcodeproj/project.xcworkspace/xcuserdata/kojiroumezaki.xcuserdatad/Use
 
 *.xcuserstate
 
-# OS generated files #
-######################
+<<<<<<< HEAD
+
 .DS_Store
-.DS_Store?
+=======
+MInC/.DS_Store
+>>>>>>> 3b0f878610acd35e4c7bb46588e8482f6adb1a7d

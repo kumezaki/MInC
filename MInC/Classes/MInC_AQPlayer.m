@@ -9,18 +9,26 @@
 #import "MInC_AQPlayer.h"
 
 #import "MInC_Content.h"
-/*
+
+// set the following to 1 if compiling for XML-style sequence data
+#define WITH_XML_SEQS 0
+
+#if WITH_XML_SEQS
 #import <libxml/tree.h>
 #import <libxml/parser.h>
 #import <libxml/HTMLparser.h>
 #import <libxml/xpath.h>
 #import <libxml/xpathInternals.h>
- */
+#endif
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+
+#if WITH_XML_SEQS
 #include <libxml/xmlmemory.h>
 #include <libxml/parser.h>
+#endif
 
 MInC_AQPlayer *gAQP = nil;
 
@@ -167,6 +175,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	}
 }
 
+#if WITH_XML_SEQS // XML way of loading sequence data
 -(void) parseFile
 {
 	NSString *title;
@@ -268,6 +277,74 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	}
 	xmlFreeDoc(doc);
 }
+#else // pre-XML way of loading sequence data
+-(void) parseFile
+{
+    NumSequences = 53;
+    
+    for (SInt32 i = 0; i < 53; i++)
+    {
+        Sequences[i] = [[MInC_Sequence alloc] init];
+        switch (i)
+        {
+            case 0: [Sequences[i] assignNotes:num_notes_01:note_sequence_01:dur_sequence_01]; break;
+            case 1: [Sequences[i] assignNotes:num_notes_02:note_sequence_02:dur_sequence_02]; break;
+            case 2: [Sequences[i] assignNotes:num_notes_03:note_sequence_03:dur_sequence_03]; break;
+            case 3: [Sequences[i] assignNotes:num_notes_04:note_sequence_04:dur_sequence_04]; break;
+            case 4: [Sequences[i] assignNotes:num_notes_05:note_sequence_05:dur_sequence_05]; break;
+            case 5: [Sequences[i] assignNotes:num_notes_06:note_sequence_06:dur_sequence_06]; break;
+            case 6: [Sequences[i] assignNotes:num_notes_07:note_sequence_07:dur_sequence_07]; break;
+            case 7: [Sequences[i] assignNotes:num_notes_08:note_sequence_08:dur_sequence_08]; break;
+            case 8: [Sequences[i] assignNotes:num_notes_09:note_sequence_09:dur_sequence_09]; break;
+            case 9: [Sequences[i] assignNotes:num_notes_10:note_sequence_10:dur_sequence_10]; break;
+            case 10: [Sequences[i] assignNotes:num_notes_11:note_sequence_11:dur_sequence_11]; break;
+            case 11: [Sequences[i] assignNotes:num_notes_12:note_sequence_12:dur_sequence_12]; break;
+            case 12: [Sequences[i] assignNotes:num_notes_13:note_sequence_13:dur_sequence_13]; break;
+            case 13: [Sequences[i] assignNotes:num_notes_14:note_sequence_14:dur_sequence_14]; break;
+            case 14: [Sequences[i] assignNotes:num_notes_15:note_sequence_15:dur_sequence_15]; break;
+            case 15: [Sequences[i] assignNotes:num_notes_16:note_sequence_16:dur_sequence_16]; break;
+            case 16: [Sequences[i] assignNotes:num_notes_17:note_sequence_17:dur_sequence_17]; break;
+            case 17: [Sequences[i] assignNotes:num_notes_18:note_sequence_18:dur_sequence_18]; break;
+            case 18: [Sequences[i] assignNotes:num_notes_19:note_sequence_19:dur_sequence_19]; break;
+            case 19: [Sequences[i] assignNotes:num_notes_20:note_sequence_20:dur_sequence_20]; break;
+            case 20: [Sequences[i] assignNotes:num_notes_21:note_sequence_21:dur_sequence_21]; break;
+            case 21: [Sequences[i] assignNotes:num_notes_22:note_sequence_22:dur_sequence_22]; break;
+            case 22: [Sequences[i] assignNotes:num_notes_23:note_sequence_23:dur_sequence_23]; break;
+            case 23: [Sequences[i] assignNotes:num_notes_24:note_sequence_24:dur_sequence_24]; break;
+            case 24: [Sequences[i] assignNotes:num_notes_25:note_sequence_25:dur_sequence_25]; break;
+            case 25: [Sequences[i] assignNotes:num_notes_26:note_sequence_26:dur_sequence_26]; break;
+            case 26: [Sequences[i] assignNotes:num_notes_27:note_sequence_27:dur_sequence_27]; break;
+            case 27: [Sequences[i] assignNotes:num_notes_28:note_sequence_28:dur_sequence_28]; break;
+            case 28: [Sequences[i] assignNotes:num_notes_29:note_sequence_29:dur_sequence_29]; break;
+            case 29: [Sequences[i] assignNotes:num_notes_30:note_sequence_30:dur_sequence_30]; break;
+            case 30: [Sequences[i] assignNotes:num_notes_31:note_sequence_31:dur_sequence_31]; break;
+            case 31: [Sequences[i] assignNotes:num_notes_32:note_sequence_32:dur_sequence_32]; break;
+            case 32: [Sequences[i] assignNotes:num_notes_33:note_sequence_33:dur_sequence_33]; break;
+            case 33: [Sequences[i] assignNotes:num_notes_34:note_sequence_34:dur_sequence_34]; break;
+            case 34: [Sequences[i] assignNotes:num_notes_35:note_sequence_35:dur_sequence_35]; break;
+            case 35: [Sequences[i] assignNotes:num_notes_36:note_sequence_36:dur_sequence_36]; break;
+            case 36: [Sequences[i] assignNotes:num_notes_37:note_sequence_37:dur_sequence_37]; break;
+            case 37: [Sequences[i] assignNotes:num_notes_38:note_sequence_38:dur_sequence_38]; break;
+            case 38: [Sequences[i] assignNotes:num_notes_39:note_sequence_39:dur_sequence_39]; break;
+            case 39: [Sequences[i] assignNotes:num_notes_40:note_sequence_40:dur_sequence_40]; break;
+            case 40: [Sequences[i] assignNotes:num_notes_41:note_sequence_41:dur_sequence_41]; break;
+            case 41: [Sequences[i] assignNotes:num_notes_42:note_sequence_42:dur_sequence_42]; break;
+            case 42: [Sequences[i] assignNotes:num_notes_43:note_sequence_43:dur_sequence_43]; break;
+            case 43: [Sequences[i] assignNotes:num_notes_44:note_sequence_44:dur_sequence_44]; break;
+            case 44: [Sequences[i] assignNotes:num_notes_45:note_sequence_45:dur_sequence_45]; break;
+            case 45: [Sequences[i] assignNotes:num_notes_46:note_sequence_46:dur_sequence_46]; break;
+            case 46: [Sequences[i] assignNotes:num_notes_47:note_sequence_47:dur_sequence_47]; break;
+            case 47: [Sequences[i] assignNotes:num_notes_48:note_sequence_48:dur_sequence_48]; break;
+            case 48: [Sequences[i] assignNotes:num_notes_49:note_sequence_49:dur_sequence_49]; break;
+            case 49: [Sequences[i] assignNotes:num_notes_50:note_sequence_50:dur_sequence_50]; break;
+            case 50: [Sequences[i] assignNotes:num_notes_51:note_sequence_51:dur_sequence_51]; break;
+            case 51: [Sequences[i] assignNotes:num_notes_52:note_sequence_52:dur_sequence_52]; break;
+            case 52: [Sequences[i] assignNotes:num_notes_53:note_sequence_53:dur_sequence_53]; break;
+            default: break;
+        }
+    }
+}
+#endif
 
 -(void) fillAudioBuffer:(Float64*)buffer :(const SInt32)num_frames
 {
