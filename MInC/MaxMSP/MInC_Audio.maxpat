@@ -30,6 +30,19 @@
 				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
+					"id" : "obj-17",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 0,
+					"patching_rect" : [ 680.0, 408.0, 127.0, 20.0 ],
+					"text" : "MInC_SetSearchPath"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
 					"frgb" : 0.0,
 					"id" : "obj-47",
 					"linecount" : 4,
@@ -1297,6 +1310,13 @@
 				"bootpath" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/ForZero/ForZero_MaxMSP",
 				"patcherrelativepath" : "../../ForZero/ForZero_MaxMSP",
 				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "MInC_SetSearchPath.maxpat",
+				"bootpath" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/MInC/MaxMSP",
+				"patcherrelativepath" : "",
+				"type" : "JSON",
 				"implicit" : 1
 			}
  ]
