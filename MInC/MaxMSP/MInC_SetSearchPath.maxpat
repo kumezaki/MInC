@@ -141,13 +141,13 @@
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
 					"id" : "obj-63",
-					"linecount" : 3,
+					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 50.0, 183.0, 333.0, 45.0 ],
-					"text" : "set \"Macintosh HD:/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/ForZero/ForZero_MaxMSP/\""
+					"patching_rect" : [ 50.0, 183.0, 366.0, 31.0 ],
+					"text" : "set \"Macintosh HD:/Users/KTL/Documents/dev/MInC/ForZero/ForZero_MaxMSP/\""
 				}
 
 			}

@@ -1,0 +1,1 @@
+open thispatcherfolder "Macintosh HD:/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/MInC/MaxMSP"folder "Macintosh HD:/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/ForZero/ForZero_MaxMSP"include "Macintosh HD:/Applications/Max6/Cycling '74/java/lib/max.jar"folder "Macintosh HD:/Applications/Max6/Cycling '74/java/classes"
