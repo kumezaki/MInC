@@ -7,7 +7,7 @@
 			"revision" : 8
 		}
 ,
-		"rect" : [ 422.0, 370.0, 878.0, 463.0 ],
+		"rect" : [ 412.0, 210.0, 955.0, 604.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -27,6 +27,58 @@
 		"digest" : "",
 		"tags" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-50",
+					"maxclass" : "live.gain~",
+					"numinlets" : 2,
+					"numoutlets" : 5,
+					"outlettype" : [ "signal", "signal", "", "float", "list" ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 333.0, 443.0, 48.0, 136.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_unitstyle" : 4,
+							"parameter_mmax" : 6.0,
+							"parameter_mmin" : -70.0,
+							"parameter_initial" : [ 0.0 ],
+							"parameter_type" : 0,
+							"parameter_shortname" : "live.gain~",
+							"parameter_longname" : "live.gain~[1]"
+						}
+
+					}
+,
+					"varname" : "live.gain~[1]"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-48",
+					"maxclass" : "live.gain~",
+					"numinlets" : 2,
+					"numoutlets" : 5,
+					"outlettype" : [ "signal", "signal", "", "float", "list" ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 230.5, 443.0, 48.0, 136.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_unitstyle" : 4,
+							"parameter_mmax" : 6.0,
+							"parameter_mmin" : -70.0,
+							"parameter_initial" : [ 0.0 ],
+							"parameter_type" : 0,
+							"parameter_shortname" : "live.gain~",
+							"parameter_longname" : "live.gain~"
+						}
+
+					}
+,
+					"varname" : "live.gain~"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
@@ -847,6 +899,24 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-48", 1 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-12", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-48", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-12", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-3", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -1228,6 +1298,24 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-50", 1 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-7", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-50", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-7", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-10", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -1263,6 +1351,11 @@
 
 			}
  ],
+		"parameters" : 		{
+			"obj-48" : [ "live.gain~", "live.gain~", 0 ],
+			"obj-50" : [ "live.gain~[1]", "live.gain~", 0 ]
+		}
+,
 		"dependency_cache" : [ 			{
 				"name" : "MInC.js",
 				"bootpath" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/MInC/MaxMSP",
