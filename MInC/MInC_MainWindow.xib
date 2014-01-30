@@ -48,13 +48,14 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIWindow" id="380026005">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">1316</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 				</object>
 				<object class="NSPSMatrix" key="NSFrameMatrix"/>
 				<string key="NSFrameSize">{320, 480}</string>
+				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor" id="527346040">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -76,7 +77,7 @@
 				<bool key="IBUIHorizontal">NO</bool>
 				<object class="IBUIViewController" key="IBUISelectedViewController" id="1024858337">
 					<object class="IBUIView" key="IBUIView" id="434903890">
-						<nil key="NSNextResponder"/>
+						<reference key="NSNextResponder"/>
 						<int key="NSvFlags">274</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -164,7 +165,7 @@
 							</object>
 							<object class="IBUILabel" id="817522568">
 								<reference key="NSNextResponder" ref="434903890"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">-2147483356</int>
 								<string key="NSFrame">{{222, 132}, {79, 18}}</string>
 								<reference key="NSSuperview" ref="434903890"/>
 								<reference key="NSNextKeyView" ref="429010550"/>
@@ -183,7 +184,7 @@
 							</object>
 							<object class="IBUILabel" id="625192183">
 								<reference key="NSNextResponder" ref="434903890"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">-2147483356</int>
 								<string key="NSFrame">{{19, 132}, {79, 18}}</string>
 								<reference key="NSSuperview" ref="434903890"/>
 								<reference key="NSNextKeyView" ref="849893810"/>
@@ -491,6 +492,7 @@
 							</object>
 						</object>
 						<string key="NSFrameSize">{320, 431}</string>
+						<reference key="NSSuperview"/>
 						<reference key="NSNextKeyView" ref="682192530"/>
 						<reference key="IBUIBackgroundColor" ref="700391584"/>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -527,9 +529,10 @@
 					</object>
 				</object>
 				<object class="IBUITabBar" key="IBUITabBar" id="795333663">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">266</int>
 					<string key="NSFrame">{{0, 431}, {320, 49}}</string>
+					<reference key="NSSuperview"/>
 					<object class="NSColor" key="IBUIBackgroundColor">
 						<int key="NSColorSpace">3</int>
 						<bytes key="NSWhite">MCAwAA</bytes>
