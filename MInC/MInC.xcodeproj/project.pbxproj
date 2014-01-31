@@ -29,6 +29,7 @@
 		21504BE5189B65D000C39B39 /* Help.png in Resources */ = {isa = PBXBuildFile; fileRef = 21504BE4189B65D000C39B39 /* Help.png */; };
 		21504BE7189B667800C39B39 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 21504BE6189B667800C39B39 /* Settings.png */; };
 		21504BE9189B73D300C39B39 /* Hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 21504BE8189B73D300C39B39 /* Hand.png */; };
+		2153611D189C00C9008FD46C /* Note.png in Resources */ = {isa = PBXBuildFile; fileRef = 2153611C189C00C9008FD46C /* Note.png */; };
 		2162021B11B396E000E93E07 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2162021A11B396E000E93E07 /* AudioToolbox.framework */; };
 		21827A0E186735110025BCFC /* MInC_Biquad.m in Sources */ = {isa = PBXBuildFile; fileRef = 21827A0D186735110025BCFC /* MInC_Biquad.m */; };
 		2195D37511B6B6C3002E46FD /* MInC_SoundFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2195D37411B6B6C3002E46FD /* MInC_SoundFile.m */; };
@@ -130,6 +131,7 @@
 		21504BE4189B65D000C39B39 /* Help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help.png; sourceTree = "<group>"; };
 		21504BE6189B667800C39B39 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		21504BE8189B73D300C39B39 /* Hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hand.png; sourceTree = "<group>"; };
+		2153611C189C00C9008FD46C /* Note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Note.png; sourceTree = "<group>"; };
 		2162021A11B396E000E93E07 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
 		21827A0C186735110025BCFC /* MInC_Biquad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_Biquad.h; sourceTree = "<group>"; };
 		21827A0D186735110025BCFC /* MInC_Biquad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_Biquad.m; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2153611C189C00C9008FD46C /* Note.png */,
 				21504BE8189B73D300C39B39 /* Hand.png */,
 				21504BE4189B65D000C39B39 /* Help.png */,
 				21504BE6189B667800C39B39 /* Settings.png */,
@@ -487,6 +490,7 @@
 				21504BE5189B65D000C39B39 /* Help.png in Resources */,
 				21504BE7189B667800C39B39 /* Settings.png in Resources */,
 				21504BE9189B73D300C39B39 /* Hand.png in Resources */,
+				2153611D189C00C9008FD46C /* Note.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
