@@ -287,6 +287,8 @@ MInC_FirstView *gFirstView = nil;
     
 	if (_ServerIPAddString != nil)
 	{
+        gFirstView.WithServer = YES;
+        
 		[gSecondView setServerIPAddress:_ServerIPAddString];
 		
 		if ((gSecondView != nil) && ![gSecondView isEditing])

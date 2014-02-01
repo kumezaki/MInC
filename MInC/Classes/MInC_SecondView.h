@@ -15,10 +15,12 @@
 	IBOutlet UISlider		*PulseVolSlider;
 	IBOutlet UITextField	*IPAddressTextField;
 	IBOutlet UITextField	*PortNumTextField;
-	IBOutlet UISwitch		*WithServerSwitch;
 	IBOutlet UISwitch		*PulseSwitch;
 	
 	BOOL	Editing;
+
+@public
+	IBOutlet UISwitch		*WithServerSwitch;
 }
 
 -(IBAction)setTempoSensitivity:(id)sender;
