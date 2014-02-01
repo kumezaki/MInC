@@ -408,20 +408,6 @@
 				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
-					"id" : "obj-16",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 568.0, 104.0, 77.0, 20.0 ],
-					"text" : "prepend osc"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontname" : "Arial",
-					"fontsize" : 12.0,
 					"id" : "obj-5",
 					"maxclass" : "message",
 					"numinlets" : 2,
@@ -926,15 +912,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-16", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-22", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -1071,10 +1048,10 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-16", 0 ],
+					"destination" : [ "obj-3", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"midpoints" : [ 687.5, 67.0, 577.5, 67.0 ],
+					"midpoints" : [ 687.5, 70.0, 507.5, 70.0 ],
 					"source" : [ "obj-35", 0 ]
 				}
 
@@ -1352,8 +1329,8 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-48" : [ "live.gain~", "live.gain~", 0 ],
-			"obj-50" : [ "live.gain~[1]", "live.gain~", 0 ]
+			"obj-50" : [ "live.gain~[1]", "live.gain~", 0 ],
+			"obj-48" : [ "live.gain~", "live.gain~", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{

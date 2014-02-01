@@ -28,5 +28,7 @@
 	<string>MInC_MainWindow</string>
 	<key>UIStatusBarHidden</key>
 	<true/>
+	<key>UIApplicationExitsOnSuspend</key>
+	<true/>
 </dict>
 </plist>

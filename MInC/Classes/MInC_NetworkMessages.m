@@ -288,7 +288,7 @@ union {
 #pragma mark- NSTimer heartbeat
 -(void)sendHeartBeat
 {
-    [self sendOSCMsg:"/fz/hb\0\0":8];
+    [self sendOSCMsg:"/minc/hb\0\0\0\0":12];
 	[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(sendHeartBeat) userInfo:nil repeats:NO];  
 }
 
@@ -296,7 +296,7 @@ union {
 -(void)sendJoin
 {
     NSLog(@"sendJoin");
-    [self sendOSCMsg:"/fz/join\0\0\0\0":12];
+    [self sendOSCMsg:"/minc/join\0\0":12];
 }
 
 -(void)sendLeave

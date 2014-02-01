@@ -289,7 +289,7 @@ MInC_FirstView *gFirstView = nil;
 	{
         gFirstView.WithServer = YES;
         
-		[gSecondView setServerIPAddress:_ServerIPAddString];
+		[gViewController.networking newServerIPAddress:_ServerIPAddString];
 		
 		if ((gSecondView != nil) && ![gSecondView isEditing])
 			[gSecondView setIPAddress];

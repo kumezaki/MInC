@@ -71,24 +71,28 @@ function wait_leave() {}
 
 var gMsgIDArray = [];
 
-function osc()
+function anything()
 {
-//	post(arguments[0],arguments[1],arguments[2],"\n");
-    
-    var osc_add = arguments[0];
-    var ip_add = arguments[1];
-    var val = arguments[2];
-    
-    if (osc_add.search("/minc/") != 0)
+    if (messagename.search("/minc/") != 0)
     	return;
-    	
-	osc_add = osc_add.slice(5);
 
-    pos = gPlayers.ip_address.indexOf(ip_add);
+    var ip_add = arguments[0];
+
+    var pos = gPlayers.ip_address.indexOf(ip_add);
     
+	/* change the "leave" OSC address as needed */
+	if (messagename == "/minc/leave")
+	{
+		if (pos == -1)
+			messnamed("minc_pm_msg","player_wait_leave",ip_add);
+		else
+			messnamed("minc_pm_msg","player_leave",pos);
+		return;
+	}
+
     if (pos != -1)
     {
-    	do_msg(osc_add,pos,val);
+    	do_msg(messagename.slice(5),pos,arguments[1]);
     }
 }
 

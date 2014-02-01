@@ -117,7 +117,7 @@
 	}
 	else
 	{
-		int i = 0;
+		SInt32 i = 0;
 		UInt32 ip_add = 0;
 		for (NSString* s in ip_add_array)
 		{

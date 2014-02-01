@@ -1,5 +1,5 @@
 //
-//  ADSR.m
+//  MInC_ADSR.m
 //  MInC
 //
 //  Created by Kojiro Umezaki on 5/30/10.

@@ -1,5 +1,5 @@
 //
-//  ADSR.h
+//  MInC_ADSR.h
 //  MInC
 //
 //  Created by Kojiro Umezaki on 5/30/10.

@@ -82,7 +82,7 @@ MInC_SecondView *gSecondView = nil;
 
 -(IBAction)iPAddressChanged:(id)sender
 {
-	[self setServerIPAddress:IPAddressTextField.text];
+	[gViewController.networking newServerIPAddress:IPAddressTextField.text];
 }
 
 -(IBAction)portNumChanged:(id)sender
@@ -150,6 +150,7 @@ MInC_SecondView *gSecondView = nil;
     return 0;
 }
 
+#if 0
 -(void)setServerIPAddress:(NSString *)str
 {
 	NSArray* ip_add_array = [str componentsSeparatedByString:@"."];
@@ -176,6 +177,7 @@ MInC_SecondView *gSecondView = nil;
 	}
 	
 }
+#endif
 
 -(void)setServerPortNum:(NSString *)str
 {

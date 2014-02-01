@@ -37,7 +37,9 @@
 
 -(BOOL)isEditing;
 
+#if 0
 -(void)setServerIPAddress:(NSString *)str;
+#endif
 -(void)setServerPortNum:(NSString *)str;
 
 +(NSString *)dataFilePath;
