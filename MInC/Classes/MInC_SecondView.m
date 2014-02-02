@@ -29,9 +29,8 @@ MInC_SecondView *gSecondView = nil;
 	PortNumTextField.delegate = self;
 	
 	Editing = NO;
-    
-	[self setIPAddress];
-	
+
+	[self setIPAddressAndPortNumTextFields];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -46,16 +45,18 @@ MInC_SecondView *gSecondView = nil;
 }
 
 - (id)init {
+
 	[super init];
-	
+
+#if 0
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *docDirectory = [paths objectAtIndex:0];
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	bool file_exists = [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"MInC.dat"]];
 	NSLog(file_exists?@"exists":@"does not exist");
-    //	[fileManager removeItemAtPath:[docDirectory stringByAppendingPathComponent:@"MInC.dat"] error:NULL];
 	if (file_exists)
-		[self readDataFile];
+		[gViewController.networking readDataFile];
+#endif
     
 	return self;
 }
@@ -87,7 +88,6 @@ MInC_SecondView *gSecondView = nil;
 -(IBAction)iPAddressChanged:(id)sender
 {
 	[self setServerIPAddress:IPAddressTextField.text];
-    
 }
 
 -(IBAction)portNumChanged:(id)sender
@@ -113,14 +113,14 @@ MInC_SecondView *gSecondView = nil;
 	return YES;
 }
 
--(IBAction)withServerToggle:(id)sender;
+-(IBAction)withServerToggle:(id)sender
 {
 //	MInCAppDelegate *appDelegate = (MInCAppDelegate*)[[UIApplication sharedApplication] delegate];
 	gFirstView.WithServer = WithServerSwitch.on;
 	NSLog(@"WithServer %s\n",gFirstView.WithServer?"ON":"OFF");
 }
 
--(IBAction)pulseToggle:(id)sender;
+-(IBAction)pulseToggle:(id)sender
 {
 	if (PulseSwitch.on)
 		[gAQP->Sequencer_Sec start];
@@ -128,8 +128,10 @@ MInC_SecondView *gSecondView = nil;
 		[gAQP->Sequencer_Sec stop];
 }
 
--(void)setIPAddress;
+-(void)setIPAddressAndPortNumTextFields
 {
+	NSLog(@"%lu %d",gViewController.networking.SendIPAddress,gViewController.networking.SendPortNum);
+
 	IPAddressTextField.text = [NSString stringWithFormat:@"%ld.%ld.%ld.%ld",(gViewController.networking.SendIPAddress&0xFF000000)>>24
 								,(gViewController.networking.SendIPAddress&0x00FF0000)>>16
 								,(gViewController.networking.SendIPAddress&0x0000FF00)>>8
@@ -158,46 +160,15 @@ MInC_SecondView *gSecondView = nil;
 -(void)setServerIPAddress:(NSString *)str
 {
 	[gViewController.networking newServerIPAddress:str];
-    [self writeDataFile];
+    [gViewController.networking writeDataFile];
     NSLog(@"iPAddressChanged to %08lx\n",gViewController.networking.SendIPAddress);
 }
 
 -(void)setServerPortNum:(NSString *)str
 {
 	gViewController.networking.SendPortNum = [str intValue];
-	[self writeDataFile];
+	[gViewController.networking writeDataFile];
 	NSLog(@"portNumChanged to %d\n",gViewController.networking.SendPortNum);
-}
-
-#pragma mark - data file
-
-+(NSString *)dataFilePath
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docDirectory = [paths objectAtIndex:0];
-	return [docDirectory stringByAppendingPathComponent:@"MInC.dat"];
-#if 0
-	/* to delete the file */
-	[fileManager removeItemAtPath:[docDirectory stringByAppendingPathComponent:@"MInC.dat"] error:NULL];
-#endif
-}
-
--(void)readDataFile
-{
-	NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithContentsOfFile:[MInC_SecondView dataFilePath]];
-	NSLog(@"%@",[MInC_SecondView dataFilePath]);
-	gViewController.networking.SendIPAddress = [[dict valueForKey:@"server_ip_address"] unsignedIntValue];
-	gViewController.networking.SendPortNum = [[dict valueForKey:@"server_port_num"] unsignedIntValue];
-	NSLog(@"%ld %d",gViewController.networking.SendIPAddress,gViewController.networking.SendPortNum);
-}
-
--(void)writeDataFile
-{
-	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setValue:[NSNumber numberWithUnsignedInt:gViewController.networking.SendIPAddress] forKey:@"server_ip_address"];
-	[dict setValue:[NSNumber numberWithUnsignedInt:gViewController.networking.SendPortNum] forKey:@"server_port_num"];
-	[dict writeToFile:[MInC_SecondView dataFilePath] atomically:YES];
-	[dict release];
 }
 
 @end

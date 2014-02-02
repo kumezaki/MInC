@@ -297,7 +297,7 @@ MInC_FirstView *gFirstView = nil;
 		[gViewController.networking newServerIPAddress:_ServerIPAddString];
 		
 		if ((gSecondView != nil) && ![gSecondView isEditing])
-			[gSecondView setIPAddress];
+			[gSecondView setIPAddressAndPortNumTextFields];
 		
 		[_ServerIPAddString release];
 		_ServerIPAddString = nil;

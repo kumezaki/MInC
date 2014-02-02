@@ -294,10 +294,10 @@
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docDirectory = [paths objectAtIndex:0];
-	return [docDirectory stringByAppendingPathComponent:@"Sagariha.dat"];
+	return [docDirectory stringByAppendingPathComponent:@"MInC.dat"];
 #if 0
 	/* to delete the file */
-	[fileManager removeItemAtPath:[docDirectory stringByAppendingPathComponent:@"Sagariha.dat"] error:NULL];
+	[fileManager removeItemAtPath:[docDirectory stringByAppendingPathComponent:@"MInC.dat"] error:NULL];
 #endif
 }
 
@@ -306,9 +306,14 @@
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *docDirectory = [paths objectAtIndex:0];
 	NSFileManager *fileManager = [NSFileManager defaultManager];
-	bool file_exists = [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"Sagariha.dat"]];
+	bool file_exists = [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"MInC.dat"]];
 	NSLog(file_exists?@"exists":@"does not exist");
-	//	[fileManager removeItemAtPath:[docDirectory stringByAppendingPathComponent:@"Sagariha.dat"] error:NULL];
+#if 0
+	if ([fileManager removeItemAtPath:[docDirectory stringByAppendingPathComponent:@"Sagariha.dat"] error:NULL])
+        NSLog(@"Sagariha.dat removed!!!");
+    else
+        NSLog(@"Sagariha.dat NOT removed!!!");
+#endif
 	return file_exists;
 }
 

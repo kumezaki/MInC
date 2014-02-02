@@ -35,15 +35,17 @@
 
 -(IBAction)pulseToggle:(id)sender;
 
--(void)setIPAddress;
+-(void)setIPAddressAndPortNumTextFields;
 
 -(BOOL)isEditing;
 
 -(void)setServerIPAddress:(NSString *)str;
 -(void)setServerPortNum:(NSString *)str;
 
+#if 0
 +(NSString *)dataFilePath;
 -(void) readDataFile;
 -(void) writeDataFile;
+#endif
 
 @end
