@@ -1,5 +1,5 @@
 //
-//  FirstView.h
+//  MInC_FirstView.h
 //  MInC
 //
 //  Created by Kojiro Umezaki on 9/20/13.
@@ -20,6 +20,7 @@
 	IBOutlet UIButton	*TwoTimesSlowButton;
 	IBOutlet UIButton	*TwoTimesFastButton;
 	IBOutlet UIButton	*HintButton;
+	IBOutlet UIButton	*SettingsButton;
 	IBOutlet UIButton	*StatusButton;
 
 	IBOutlet UISegmentedControl	*SpeakerSegControl;
@@ -36,6 +37,8 @@
 
 @property (nonatomic, retain)   NSString				*InterstitialString;
 @property (nonatomic, retain)   NSString				*ServerIPAddString;
+
+-(IBAction)switchToSettings;
 
 -(IBAction)setSequence;
 

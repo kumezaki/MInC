@@ -15,6 +15,9 @@ extern MInC_AQPlayer *gAQP;
 
 @implementation MInC_ViewController
 
+@synthesize firstView = _firstView;
+@synthesize secondView = _secondView;
+
 /*
 // The designated initializer. Override to perform setup that is required before the view is loaded.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -50,6 +53,11 @@ extern MInC_AQPlayer *gAQP;
 {
     gViewController = self;
 
+    self.firstView = [[[NSBundle mainBundle] loadNibNamed:@"MInC_FirstView" owner:self options:nil] objectAtIndex:0];
+    self.secondView = [[[NSBundle mainBundle] loadNibNamed:@"MInC_SecondView" owner:self options:nil] objectAtIndex:0];
+    
+    [self loadFirstView];
+
     self.networking = [[MInC_NetworkMessages alloc] init];
 
 	[[UIAccelerometer sharedAccelerometer] setDelegate:self];
@@ -75,6 +83,24 @@ extern MInC_AQPlayer *gAQP;
 
 - (void)dealloc {
     [super dealloc];
+}
+
+-(void) removeSubviews
+{
+    NSArray *subViewArray = [[[UIApplication sharedApplication] delegate].window subviews];
+    for (id obj in subViewArray) [obj removeFromSuperview];
+}
+
+-(void) loadFirstView;
+{
+    [self removeSubviews];
+    [[[UIApplication sharedApplication] delegate].window addSubview:self.firstView];
+}
+
+-(void) loadSecondView;
+{
+    [self removeSubviews];
+    [[[UIApplication sharedApplication] delegate].window addSubview:self.secondView];
 }
 
 #pragma mark - accelerometer

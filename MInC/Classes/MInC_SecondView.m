@@ -1,5 +1,5 @@
 //
-//  SecondView.m
+//  MInC_SecondView.m
 //  MInC
 //
 //  Created by Kojiro Umezaki on 5/31/10.
@@ -7,8 +7,6 @@
 //
 
 #import "MInC_SecondView.h"
-
-#import "MInC_AppDelegate.h"
 
 #import "MInC_AQPlayer.h"
 extern MInC_AQPlayer *gAQP;
@@ -66,6 +64,12 @@ MInC_SecondView *gSecondView = nil;
     [super dealloc];
 }
 
+-(IBAction)switchToPlay
+{
+    NSLog(@"switchToPlay");
+    [gViewController loadFirstView];
+}
+
 -(IBAction)setTempoSensitivity:(id)sender
 {
 	Float64 sense = [TempoSenseSlider value];
@@ -82,7 +86,8 @@ MInC_SecondView *gSecondView = nil;
 
 -(IBAction)iPAddressChanged:(id)sender
 {
-	[gViewController.networking newServerIPAddress:IPAddressTextField.text];
+	[self setServerIPAddress:IPAddressTextField.text];
+    
 }
 
 -(IBAction)portNumChanged:(id)sender
@@ -150,42 +155,15 @@ MInC_SecondView *gSecondView = nil;
     return 0;
 }
 
-#if 0
 -(void)setServerIPAddress:(NSString *)str
 {
-	NSArray* ip_add_array = [str componentsSeparatedByString:@"."];
-	
-	if ([ip_add_array count] != 4)
-	{
-		NSLog(@"IP address must have 4 components");
-		return;
-	}
-	else
-	{
-		SInt32 i = 0;
-		UInt32 ip_add = 0;
-		for (NSString* s in ip_add_array)
-		{
-#if 0
-			NSLog([NSString stringWithFormat:@"s=%@", s]);
-#endif
-			ip_add |= [s intValue] << (8 * (4 - ++i));
-		}
-		gViewController.networking.SendIPAddress = ip_add;
-		[self writeDataFile];
-		NSLog(@"iPAddressChanged to %08lx\n",gViewController.networking.SendIPAddress);
-	}
-	
+	[gViewController.networking newServerIPAddress:str];
+    [self writeDataFile];
+    NSLog(@"iPAddressChanged to %08lx\n",gViewController.networking.SendIPAddress);
 }
-#endif
 
 -(void)setServerPortNum:(NSString *)str
 {
-#if 0
-	char buffer[16];
-	[PortNumTextField.text getCString:buffer maxLength:16 encoding:NSASCIIStringEncoding];
-#endif
-	
 	gViewController.networking.SendPortNum = [str intValue];
 	[self writeDataFile];
 	NSLog(@"portNumChanged to %d\n",gViewController.networking.SendPortNum);

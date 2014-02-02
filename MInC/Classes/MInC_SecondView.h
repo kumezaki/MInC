@@ -1,5 +1,5 @@
 //
-//  SecondView.h
+//  MInC_SecondView.h
 //  MInC
 //
 //  Created by Kojiro Umezaki on 5/31/10.
@@ -23,6 +23,8 @@
 	IBOutlet UISwitch		*WithServerSwitch;
 }
 
+-(IBAction)switchToPlay;
+
 -(IBAction)setTempoSensitivity:(id)sender;
 -(IBAction)setPulseVolume:(id)sender;
 
@@ -37,9 +39,7 @@
 
 -(BOOL)isEditing;
 
-#if 0
 -(void)setServerIPAddress:(NSString *)str;
-#endif
 -(void)setServerPortNum:(NSString *)str;
 
 +(NSString *)dataFilePath;

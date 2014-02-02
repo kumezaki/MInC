@@ -1,5 +1,5 @@
 //
-//  TouchView.h
+//  MInC_TouchView.h
 //  MInC
 //
 //  Created by Kojiro Umezaki on 5/19/10.

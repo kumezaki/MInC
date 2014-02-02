@@ -1,5 +1,5 @@
 //
-//  MInCAppDelegate.m
+//  MInC_AppDelegate.m
 //  MInC
 //
 //  Created by Kojiro Umezaki on 5/30/10.
@@ -17,12 +17,16 @@ extern MInC_ViewController *gViewController;
 @implementation MInC_AppDelegate
 
 @synthesize window;
-@synthesize tabBarController;
+@synthesize viewController;
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    // Override point for customization after application launch.
+    // Add the main view controller's view to the window and display.
+    self.window.rootViewController = self.viewController;
+    [self.window makeKeyAndVisible];
     
-    // Add the tab bar controller's current view as a subview of the window
-    [window addSubview:tabBarController.view];
+    return YES;
 }
 
 /*
@@ -91,7 +95,7 @@ extern MInC_ViewController *gViewController;
 
 - (void)dealloc {
 
-    [tabBarController release];
+    [viewController release];
     [window release];
 
     [super dealloc];

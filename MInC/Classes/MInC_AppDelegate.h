@@ -1,5 +1,5 @@
 //
-//  MInCAppDelegate.h
+//  MInC_AppDelegate.h
 //  MInC
 //
 //  Created by Kojiro Umezaki on 5/30/10.
@@ -11,13 +11,13 @@
 #import "MInC_AQPlayer.h"
 #import "MInC_SecondView.h"
 
-@interface MInC_AppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
+@interface MInC_AppDelegate : NSObject <UIApplicationDelegate> {
 
 	UIWindow *window;
-	UITabBarController *tabBarController;
+	UIViewController *viewController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+@property (nonatomic, retain) IBOutlet UIViewController *viewController;
 
 @end

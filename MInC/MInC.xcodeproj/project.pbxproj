@@ -12,6 +12,8 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		210F8F1517EF26F7004254E5 /* MInC_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 210F8F1417EF26F7004254E5 /* MInC_Constants.m */; };
+		21184588189DE04C00A42B25 /* MInC_FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21184587189DE04C00A42B25 /* MInC_FirstView.xib */; };
+		2118458A189DF07700A42B25 /* NoteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 21184589189DF07700A42B25 /* NoteButton.png */; };
 		211AB3D511B8098D00B41C09 /* MInC_ADSR.m in Sources */ = {isa = PBXBuildFile; fileRef = 211AB3C711B8098D00B41C09 /* MInC_ADSR.m */; };
 		211AB3D611B8098D00B41C09 /* MInC_AQPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 211AB3C911B8098D00B41C09 /* MInC_AQPlayer.m */; };
 		211AB3D711B8098D00B41C09 /* MInC_Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 211AB3CC11B8098D00B41C09 /* MInC_Note.m */; };
@@ -87,6 +89,7 @@
 		21D9F8D611DA45E600D2C266 /* InC03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21D9F8CF11DA45E600D2C266 /* InC03.jpg */; };
 		21D9F8D711DA45E600D2C266 /* InC01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21D9F8D011DA45E600D2C266 /* InC01.jpg */; };
 		21D9F8D811DA45E600D2C266 /* InC06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21D9F8D111DA45E600D2C266 /* InC06.jpg */; };
+		21DA34C2189D607F00810030 /* SettingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 21DA34C1189D607F00810030 /* SettingsButton.png */; };
 		272862F517C675C90079A969 /* MInC_BLITSaw.m in Sources */ = {isa = PBXBuildFile; fileRef = 272862F117C675C80079A969 /* MInC_BLITSaw.m */; };
 		27B3601A17C66B9E001FABF8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27B3601917C66B9E001FABF8 /* Default-568h@2x.png */; };
 		28216C970DB411BC00E5133A /* MInC_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28216C960DB411BC00E5133A /* MInC_ViewController.m */; };
@@ -103,6 +106,8 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		210F8F1317EF26F7004254E5 /* MInC_Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_Constants.h; sourceTree = "<group>"; };
 		210F8F1417EF26F7004254E5 /* MInC_Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_Constants.m; sourceTree = "<group>"; };
+		21184587189DE04C00A42B25 /* MInC_FirstView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MInC_FirstView.xib; sourceTree = "<group>"; };
+		21184589189DF07700A42B25 /* NoteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoteButton.png; sourceTree = "<group>"; };
 		211AB3C611B8098D00B41C09 /* MInC_ADSR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_ADSR.h; sourceTree = "<group>"; };
 		211AB3C711B8098D00B41C09 /* MInC_ADSR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_ADSR.m; sourceTree = "<group>"; };
 		211AB3C811B8098D00B41C09 /* MInC_AQPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MInC_AQPlayer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -196,6 +201,7 @@
 		21D9F8CF11DA45E600D2C266 /* InC03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InC03.jpg; path = Images/InC03.jpg; sourceTree = "<group>"; };
 		21D9F8D011DA45E600D2C266 /* InC01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InC01.jpg; path = Images/InC01.jpg; sourceTree = "<group>"; };
 		21D9F8D111DA45E600D2C266 /* InC06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InC06.jpg; path = Images/InC06.jpg; sourceTree = "<group>"; };
+		21DA34C1189D607F00810030 /* SettingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SettingsButton.png; sourceTree = "<group>"; };
 		272862F117C675C80079A969 /* MInC_BLITSaw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_BLITSaw.m; sourceTree = "<group>"; };
 		272862F317C675C80079A969 /* MInC_BLITSaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_BLITSaw.h; sourceTree = "<group>"; };
 		27B3601917C66B9E001FABF8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -303,6 +309,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				21184589189DF07700A42B25 /* NoteButton.png */,
+				21DA34C1189D607F00810030 /* SettingsButton.png */,
 				2153611C189C00C9008FD46C /* Note.png */,
 				21504BE8189B73D300C39B39 /* Hand.png */,
 				21504BE4189B65D000C39B39 /* Help.png */,
@@ -362,6 +370,7 @@
 				21C1B94212C7F00900A87A86 /* InC52.jpg */,
 				21C1B94312C7F00900A87A86 /* InC53.jpg */,
 				28AD73870D9D96C1002E5188 /* MInC_MainWindow.xib */,
+				21184587189DE04C00A42B25 /* MInC_FirstView.xib */,
 				282CCBFD0DB6C98000C4EA27 /* MInC_SecondView.xib */,
 			);
 			name = Resources;
@@ -491,6 +500,9 @@
 				21504BE7189B667800C39B39 /* Settings.png in Resources */,
 				21504BE9189B73D300C39B39 /* Hand.png in Resources */,
 				2153611D189C00C9008FD46C /* Note.png in Resources */,
+				21DA34C2189D607F00810030 /* SettingsButton.png in Resources */,
+				21184588189DE04C00A42B25 /* MInC_FirstView.xib in Resources */,
+				2118458A189DF07700A42B25 /* NoteButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

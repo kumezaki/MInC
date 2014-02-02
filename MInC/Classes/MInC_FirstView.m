@@ -1,5 +1,5 @@
 //
-//  FirstView.m
+//  MInC_FirstView.m
 //  MInC
 //
 //  Created by Kojiro Umezaki on 9/20/13.
@@ -8,15 +8,14 @@
 
 #import "MInC_FirstView.h"
 
-#import "MInC_AppDelegate.h"
-
-#import "MInC_ViewController.h"
-extern MInC_ViewController *gViewController;
+#import "MInC_AQPlayer.h"
+extern MInC_AQPlayer *gAQP;
 
 #import "MInC_SecondView.h"
 extern MInC_SecondView *gSecondView;
 
-extern MInC_AQPlayer *gAQP;
+#import "MInC_ViewController.h"
+extern MInC_ViewController *gViewController;
 
 MInC_FirstView *gFirstView = nil;
 
@@ -65,6 +64,12 @@ MInC_FirstView *gFirstView = nil;
 	[_ImageArray release];
     
     [super dealloc];
+}
+
+-(IBAction)switchToSettings
+{
+    NSLog(@"switchToSettings");
+    [gViewController loadSecondView];
 }
 
 -(IBAction)setSequence

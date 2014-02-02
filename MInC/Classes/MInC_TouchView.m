@@ -1,5 +1,5 @@
 //
-//  TouchView.m
+//  MInC_TouchView.m
 //  MInC
 //
 //  Created by Kojiro Umezaki on 5/19/10.
@@ -9,8 +9,6 @@
 #import "MInC_TouchView.h"
 
 #import "MInC_AQPlayer.h"
-#import "MInC_AppDelegate.h"
-
 extern MInC_AQPlayer *gAQP;
 
 #import "MInC_FirstView.h"
@@ -39,7 +37,6 @@ extern MInC_FirstView *gFirstView;
     }
     return self;
 }
-
 
 - (void)drawRect:(CGRect)draw_rect {
 
