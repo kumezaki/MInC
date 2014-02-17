@@ -28,6 +28,19 @@
 		"tags" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-16",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 0,
+					"patching_rect" : [ 685.0, 522.0, 107.0, 20.0 ],
+					"text" : "ForZeroDownload"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-50",
 					"maxclass" : "live.gain~",
 					"numinlets" : 2,
@@ -37,13 +50,13 @@
 					"patching_rect" : [ 333.0, 443.0, 48.0, 136.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
+							"parameter_longname" : "live.gain~[1]",
 							"parameter_unitstyle" : 4,
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_initial" : [ 0.0 ],
 							"parameter_type" : 0,
-							"parameter_shortname" : "live.gain~",
-							"parameter_longname" : "live.gain~[1]"
+							"parameter_shortname" : "live.gain~"
 						}
 
 					}
@@ -63,13 +76,13 @@
 					"patching_rect" : [ 230.5, 443.0, 48.0, 136.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
+							"parameter_longname" : "live.gain~",
 							"parameter_unitstyle" : 4,
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_initial" : [ 0.0 ],
 							"parameter_type" : 0,
-							"parameter_shortname" : "live.gain~",
-							"parameter_longname" : "live.gain~"
+							"parameter_shortname" : "live.gain~"
 						}
 
 					}
@@ -1329,8 +1342,8 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-50" : [ "live.gain~[1]", "live.gain~", 0 ],
-			"obj-48" : [ "live.gain~", "live.gain~", 0 ]
+			"obj-48" : [ "live.gain~", "live.gain~", 0 ],
+			"obj-50" : [ "live.gain~[1]", "live.gain~", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
@@ -1388,6 +1401,31 @@
 				"patcherrelativepath" : "",
 				"type" : "JSON",
 				"implicit" : 1
+			}
+, 			{
+				"name" : "ForZeroDownload.maxpat",
+				"bootpath" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/MInC/MaxMSP",
+				"patcherrelativepath" : "",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "MInC_ForZero.js",
+				"bootpath" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/MInC/MaxMSP",
+				"patcherrelativepath" : "",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "ForZero_TCPScript.js",
+				"bootpath" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/ForZero/ForZero_MaxMSP",
+				"patcherrelativepath" : "../../ForZero/ForZero_MaxMSP",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "shell.mxo",
+				"type" : "iLaX"
 			}
  ]
 	}

@@ -42,6 +42,7 @@
 -(OSStatus)	stop;
 
 -(void) setSequence:(SInt32)seq_num;
+-(void) setSequence:(SInt32)seq_num :(MInC_Sequence*)seq;
 
 -(void) parseFile;
 

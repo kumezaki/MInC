@@ -90,17 +90,25 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	[super init];
 	
 	gAQP = self;
+    
+    MInC_Sequence* seq;
 	
 	Sequencer_Pri = [[MInC_Sequencer alloc] init];
-	
-	[self parseFile];
-    
+#if 1
+    [self parseFile];
     Sequencer_Pri.SyncWithServer = YES;
 	Sequencer_Pri.AmpMultiplier_Control = 0.5;
 	Sequencer_Pri.DurMultiplier = 0.5;
-	
+#else
+    seq = [[MInC_Sequence alloc] init];
+    [seq assignNotes:num_notes_pulse:note_sequence_pulse:dur_sequence_pulse];
+    [Sequencer_Pri setNextSequence:seq];
+	Sequencer_Pri.AmpMultiplier_Control = 0.5 * 0.5;
+	Sequencer_Pri.DurMultiplier = 0.1;
+#endif
+    
 	Sequencer_Sec = [[MInC_Sequencer alloc] init];
-    MInC_Sequence* seq = [[MInC_Sequence alloc] init];
+    seq = [[MInC_Sequence alloc] init];
     [seq assignNotes:num_notes_pulse:note_sequence_pulse:dur_sequence_pulse];
     [Sequencer_Sec setNextSequence:seq];
 	Sequencer_Sec.AmpMultiplier_Control = 0.5 * 0.5;
@@ -171,7 +179,21 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	if (seq_num >= 0 && seq_num <= NumSequences)
 	{
 		SeqNum = seq_num;
-		[Sequencer_Pri setNextSequence:Sequences[SeqNum-1]];
+		
+        [Sequencer_Pri setNextSequence:Sequences[SeqNum-1]];
+	}
+}
+
+-(void) setSequence:(SInt32)seq_pos :(MInC_Sequence*)seq
+{
+	if (seq_pos >= 0 && seq_pos < NumSequences)
+	{
+        MInC_Sequence* old_seq = Sequences[seq_pos];
+        
+		Sequences[seq_pos] = seq;
+        
+        if (old_seq != nil)
+            [old_seq release];
 	}
 }
 

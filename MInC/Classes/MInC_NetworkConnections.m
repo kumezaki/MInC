@@ -54,9 +54,11 @@
     UDPThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_udp) object:nil];
 	[UDPThread start];
 
-    //TCPThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_tcp) object:nil];
-	//[TCPThread start];
-
+#if 0 // instead of starting TCPThread here call startReceiveTCP
+    TCPThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_tcp) object:nil];
+	[TCPThread start];
+#endif
+    
 	return self;
 }
 
@@ -195,16 +197,10 @@
 - (void)startReceiveTCP
 {
     if (TCPThread == nil) {
-        TCPThread = [[NSThread alloc] initWithTarget:self 
-                                             selector:@selector(receive_tcp) 
-                                               object:nil];
+        TCPThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_tcp) object:nil];
         [TCPThread start];
     }
-    self.TCPTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 
-                                                     target:self 
-                                                   selector:@selector (downloadFailed:) 
-                                                   userInfo:nil 
-                                                    repeats:NO]; 
+    self.TCPTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector (downloadFailed:) userInfo:nil repeats:NO];
 }  
 
 - (void)receive_tcp
@@ -253,7 +249,7 @@
         if (bytesRcvd  > 0) {
             [IncomingDataBuffer appendBytes:buffer length:bytesRcvd];
             ++count;
-            //printf("receive packet count: %d\n",count);
+            NSLog(@"receive packet count: %d",count);
         }
         if (bytesRcvd == 0) {
             [self performSelectorOnMainThread:@selector(tcpParse) withObject:nil waitUntilDone:YES];
@@ -261,6 +257,7 @@
             break;
         }
     }
+    
     NSRange resetRange = {0, [IncomingDataBuffer length]};
     [IncomingDataBuffer replaceBytesInRange:resetRange withBytes:NULL length:0];
     
@@ -309,10 +306,10 @@
 	bool file_exists = [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"MInC.dat"]];
 	NSLog(file_exists?@"exists":@"does not exist");
 #if 0
-	if ([fileManager removeItemAtPath:[docDirectory stringByAppendingPathComponent:@"Sagariha.dat"] error:NULL])
-        NSLog(@"Sagariha.dat removed!!!");
+	if ([fileManager removeItemAtPath:[docDirectory stringByAppendingPathComponent:@"MInC.dat"] error:NULL])
+        NSLog(@"MInC.dat removed!!!");
     else
-        NSLog(@"Sagariha.dat NOT removed!!!");
+        NSLog(@"MInC.dat NOT removed!!!");
 #endif
 	return file_exists;
 }

@@ -93,6 +93,9 @@ extern MInC_FirstView *gFirstView;
 			if (Touch[i] == nil) TOUCH_ASSIGN(Touch[i],t)
 	}
 	[self processTouch:touches];
+    
+    /* temporarily map touchesBegan to advancing sequence here */
+    [gFirstView setSequence];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
