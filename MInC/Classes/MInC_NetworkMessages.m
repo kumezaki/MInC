@@ -17,7 +17,7 @@ extern MInC_FirstView *gFirstView;
 #import "MInC_AQPlayer.h"
 extern MInC_AQPlayer *gAQP;
 
-#import "MInC_Sequence.h"
+#import "MInC_SequenceFile.h"
 
 @interface MInC_NetworkMessages ()
 @property (nonatomic, readwrite, retain) NSString       *interstitialMsg;
@@ -265,47 +265,13 @@ union {
         
     //NSAutoreleasePool *tcpThreadPool = [[NSAutoreleasePool alloc] init];
     
-    NSData* raw = [NSData dataWithBytes:[self->IncomingDataBuffer bytes] length:[self->IncomingDataBuffer length]];
+    MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
     
-    /*** the code block below should be in new class named MInC_SequenceFile ***/
-    {
-        /* write TCP/IP raw data to file */
-        NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *filePath = [documentsPath stringByAppendingPathComponent:@"TCP.dat"];
-        NSLog(@"filePath:%@", filePath);
-        [raw writeToFile:filePath atomically:YES];
-        
-        /* read from file */
-        NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-        NSLog(@"%@",content);
-        NSArray* elems = [content componentsSeparatedByString:@"\n"];
-        NSLog(@"count %d",[elems count]);
-        
-        /* convert text in file to note numbers and durations */
-        Float64 note_nums[kMaxNumNotes];
-        Float64 note_durs[kMaxNumNotes];
-        SInt16 count = 0;
-        for (NSString* i in elems)
-        {
-            NSLog(@"%@",i);
-            NSArray* note = [i componentsSeparatedByString:@" "];
-            NSLog(@"%d",note.count);
-            if (note.count == 2)
-            {
-                note_nums[count] = [[note objectAtIndex:0] intValue];
-                note_durs[count] = [[note objectAtIndex:1] floatValue];
-                count++;
-            }
-        }
-        for (int i = 0; i < count; i++)
-            NSLog(@"%0.3f %0.3f",note_nums[i],note_durs[i]);
-
-        /* create new sequence with note numbers and durations and assign to primary sequencer */
-        MInC_Sequence* seq = [[MInC_Sequence alloc] init];
-        [seq assignNotes:count :note_nums :note_durs];
-        [gAQP setSequence:0 :seq];
-    }
-    /*** the code block above should be in new class named MInC_SequenceFile ***/
+    NSData* data = [NSData dataWithBytes:[self->IncomingDataBuffer bytes] length:[self->IncomingDataBuffer length]];
+    
+    [seqFile writeToFile:@"TCP.dat" withData:data];
+    
+    [seqFile readFromFile:@"TCP.dat"];
     
     [self.delegate downloadEnded:self];
     

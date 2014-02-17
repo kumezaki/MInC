@@ -34,6 +34,7 @@
 		2153611D189C00C9008FD46C /* Note.png in Resources */ = {isa = PBXBuildFile; fileRef = 2153611C189C00C9008FD46C /* Note.png */; };
 		2162021B11B396E000E93E07 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2162021A11B396E000E93E07 /* AudioToolbox.framework */; };
 		21827A0E186735110025BCFC /* MInC_Biquad.m in Sources */ = {isa = PBXBuildFile; fileRef = 21827A0D186735110025BCFC /* MInC_Biquad.m */; };
+		218425B618B2A209001EAD69 /* MInC_SequenceFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 218425B518B2A209001EAD69 /* MInC_SequenceFile.m */; };
 		2195D37511B6B6C3002E46FD /* MInC_SoundFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2195D37411B6B6C3002E46FD /* MInC_SoundFile.m */; };
 		21AB99A717F31D7B00C3B291 /* MInC_NetworkConnections.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB99A617F31D7B00C3B291 /* MInC_NetworkConnections.m */; };
 		21B8AC9711B4208200C88C2D /* MInC_SecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B8AC9611B4208200C88C2D /* MInC_SecondView.m */; };
@@ -140,6 +141,8 @@
 		2162021A11B396E000E93E07 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
 		21827A0C186735110025BCFC /* MInC_Biquad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_Biquad.h; sourceTree = "<group>"; };
 		21827A0D186735110025BCFC /* MInC_Biquad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_Biquad.m; sourceTree = "<group>"; };
+		218425B418B2A209001EAD69 /* MInC_SequenceFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_SequenceFile.h; sourceTree = "<group>"; };
+		218425B518B2A209001EAD69 /* MInC_SequenceFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_SequenceFile.m; sourceTree = "<group>"; };
 		2195D37311B6B6C3002E46FD /* MInC_SoundFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_SoundFile.h; sourceTree = "<group>"; };
 		2195D37411B6B6C3002E46FD /* MInC_SoundFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_SoundFile.m; sourceTree = "<group>"; };
 		2195F21F1807092300CB6BB9 /* MInC_Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_Content.h; sourceTree = "<group>"; };
@@ -262,6 +265,8 @@
 				21B8AC9611B4208200C88C2D /* MInC_SecondView.m */,
 				211AB3CD11B8098D00B41C09 /* MInC_Sequence.h */,
 				211AB3CE11B8098D00B41C09 /* MInC_Sequence.m */,
+				218425B418B2A209001EAD69 /* MInC_SequenceFile.h */,
+				218425B518B2A209001EAD69 /* MInC_SequenceFile.m */,
 				211AB3CF11B8098D00B41C09 /* MInC_Sequencer.h */,
 				211AB3D011B8098D00B41C09 /* MInC_Sequencer.m */,
 				2195D37311B6B6C3002E46FD /* MInC_SoundFile.h */,
@@ -534,6 +539,7 @@
 				21C7FBBF1807097B00057D0B /* MInC_BLIT.m in Sources */,
 				21827A0E186735110025BCFC /* MInC_Biquad.m in Sources */,
 				21272BC8189AEFB9007F9186 /* MInC_ImageView.m in Sources */,
+				218425B618B2A209001EAD69 /* MInC_SequenceFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
