@@ -94,18 +94,10 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     MInC_Sequence* seq;
 	
 	Sequencer_Pri = [[MInC_Sequencer alloc] init];
-#if 1
     [self parseFile];
     Sequencer_Pri.SyncWithServer = YES;
 	Sequencer_Pri.AmpMultiplier_Control = 0.5;
 	Sequencer_Pri.DurMultiplier = 0.5;
-#else
-    seq = [[MInC_Sequence alloc] init];
-    [seq assignNotes:num_notes_pulse:note_sequence_pulse:dur_sequence_pulse];
-    [Sequencer_Pri setNextSequence:seq];
-	Sequencer_Pri.AmpMultiplier_Control = 0.5 * 0.5;
-	Sequencer_Pri.DurMultiplier = 0.1;
-#endif
     
 	Sequencer_Sec = [[MInC_Sequencer alloc] init];
     seq = [[MInC_Sequence alloc] init];
@@ -302,9 +294,21 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 #else // pre-XML way of loading sequence data
 -(void) parseFile
 {
+#if 1
+    NumSequences = 1;
+    for (SInt32 i = 0; i < NumSequences; i++)
+    {
+        Sequences[i] = [[MInC_Sequence alloc] init];
+        switch (i)
+        {
+            case 0: [Sequences[i] assignNotes:num_notes_pulse:note_sequence_pulse:dur_sequence_pulse]; break;
+            default: break;
+        }
+    }
+#else
     NumSequences = 53;
     
-    for (SInt32 i = 0; i < 53; i++)
+    for (SInt32 i = 0; i < NumSequences; i++)
     {
         Sequences[i] = [[MInC_Sequence alloc] init];
         switch (i)
@@ -365,6 +369,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
             default: break;
         }
     }
+#endif
 }
 #endif
 
