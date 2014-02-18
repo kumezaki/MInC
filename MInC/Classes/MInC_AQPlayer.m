@@ -178,7 +178,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void) setSequence:(SInt32)seq_pos :(MInC_Sequence*)seq
 {
-	if (seq_pos >= 0 && seq_pos < NumSequences)
+	if (seq_pos >= 0 && seq_pos < 53)
 	{
         MInC_Sequence* old_seq = Sequences[seq_pos];
         
@@ -186,6 +186,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
         
         if (old_seq != nil)
             [old_seq release];
+        
+        NumSequences = seq_pos + 1;
 	}
 }
 

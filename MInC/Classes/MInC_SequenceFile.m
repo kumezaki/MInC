@@ -37,25 +37,34 @@ extern MInC_AQPlayer *gAQP;
     Float64 note_nums[kMaxNumNotes];
     Float64 note_durs[kMaxNumNotes];
     SInt16 count = 0;
-    for (NSString* i in elems)
+    SInt16 seq_num = 0;
+    for (NSString* s in elems)
     {
-        NSLog(@"%@",i);
-        NSArray* note = [i componentsSeparatedByString:@" "];
+        NSLog(@"%@",s);
+        NSArray* note = [s componentsSeparatedByString:@" "];
         NSLog(@"%d",note.count);
-        if (note.count == 2)
+        if (note.count == 1)
+        {
+            if (seq_num != 0)
+            {
+                /* create new sequence with note numbers and durations and assign to primary sequencer */
+                for (SInt16 i = 0; i < count; i++)
+                    NSLog(@"%0.3f %0.3f",note_nums[i],note_durs[i]);
+                MInC_Sequence* seq = [[MInC_Sequence alloc] init];
+                [seq assignNotes:count :note_nums :note_durs];
+                [gAQP setSequence:(seq_num-1) :seq];
+                count = 0;
+            }
+            
+            seq_num = [[note objectAtIndex:0] intValue];
+        }
+        else if (note.count == 2)
         {
             note_nums[count] = [[note objectAtIndex:0] intValue];
             note_durs[count] = [[note objectAtIndex:1] floatValue];
             count++;
         }
     }
-    for (int i = 0; i < count; i++)
-        NSLog(@"%0.3f %0.3f",note_nums[i],note_durs[i]);
-
-    /* create new sequence with note numbers and durations and assign to primary sequencer */
-    MInC_Sequence* seq = [[MInC_Sequence alloc] init];
-    [seq assignNotes:count :note_nums :note_durs];
-    [gAQP setSequence:0 :seq];
 }
 
 @end

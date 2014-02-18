@@ -40,6 +40,8 @@
 
     BOOL            recMeterValueReceived;
     BOOL            progressValueReceived;
+    
+    BOOL            FirstHeartBeat;
 }
 @property (nonatomic, assign) id<NetworkMessagesDelegate> delegate;
 //@property (nonatomic, retain) SagarihaAudioQueuePlayer *aqPlayer;

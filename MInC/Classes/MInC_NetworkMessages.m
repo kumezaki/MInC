@@ -62,11 +62,13 @@ union {
 
     [super init];
 
+    MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
+    [seqFile readFromFile:@"TCP.dat"];
+
 	[self sendHeartBeat];
     
-    [self sendOSCMsg:"/minc/download\0\0":16];
-    [self startReceiveTCP];
-    
+    FirstHeartBeat = YES;
+        
     recMeterValueReceived = NO;
     progressValueReceived = NO;
     
@@ -236,6 +238,12 @@ union {
 					case 3:
 					{
 						gFirstView.ServerIPAddString = [[NSString alloc] initWithCString:self->UDPInBuffer+pos encoding:NSASCIIStringEncoding];
+                        if (FirstHeartBeat)
+                        {
+                            [self sendOSCMsg:"/minc/download\0\0":16];
+                            [self startReceiveTCP];
+                            FirstHeartBeat = NO;
+                        }
                         break;
 					}
 				}
@@ -281,7 +289,7 @@ union {
 
 - (void)downloadFailed:(NSTimer*)timer
 {
-    //NSLog(@"downloadFailed called");
+    NSLog(@"downloadFailed called");
     close(self->ClntSock);
     close(self->ServSock);
     self.errorMsg = @"Something went wrong. Either you are not connected to a performace server or there was a problem downloading. Please try again";

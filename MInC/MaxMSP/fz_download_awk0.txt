@@ -1,0 +1,28 @@
+BEGIN {
+	FS=", "
+	program_name = "./fz_send_data_tcp"
+}
+
+{
+	if ($1 == "exit") exit 1;
+	
+	ip_address = $1
+	port_num = $2
+	file_path = $3
+
+# lame encoder call
+# use the following for raw file
+#	sys_cmd = "./lame -r -s 44.1 --bitwidth 16 --big-endian -m m \'"$3"\'"
+# use the following for .wav or .aif file
+#	sys_cmd = "./lame -m m \'"$3"\'"
+#	system(sys_cmd)
+	
+#	sys_cmd = program_name" \'"$1"\' \'"$2"\' \'"$3".mp3\' &"
+	sys_cmd = program_name" \'"$1"\' \'"$2"\' \'"$3"\' &"
+	system(sys_cmd)
+	
+	print $1,$2,$3
+}
+
+END {
+}
