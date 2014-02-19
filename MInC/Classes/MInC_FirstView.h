@@ -40,7 +40,7 @@
 
 -(IBAction)switchToSettings;
 
--(IBAction)setSequence;
+-(IBAction)advanceSequence;
 
 -(IBAction)set8vbDown:(id)sender;
 -(IBAction)set8vbUp:(id)sender;

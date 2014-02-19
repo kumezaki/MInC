@@ -72,7 +72,7 @@ MInC_FirstView *gFirstView = nil;
     [gViewController loadSecondView];
 }
 
--(IBAction)setSequence
+-(IBAction)advanceSequence
 {
 	if (WithServer)
     {

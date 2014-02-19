@@ -168,24 +168,20 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void) setSequence:(SInt32)seq_num;
 {
-	if (seq_num >= 0 && seq_num <= NumSequences)
-	{
-		SeqNum = seq_num;
-		
-        [Sequencer_Pri setNextSequence:Sequences[SeqNum-1]];
-	}
+    if (Sequencer_Pri != nil)
+        if (seq_num >= 0 && seq_num <= NumSequences)
+        {
+            SeqNum = seq_num;
+            
+            [Sequencer_Pri setNextSequence:Sequences[SeqNum-1]];
+        }
 }
 
 -(void) setSequence:(SInt32)seq_pos :(MInC_Sequence*)seq
 {
 	if (seq_pos >= 0 && seq_pos < 53)
 	{
-        MInC_Sequence* old_seq = Sequences[seq_pos];
-        
 		Sequences[seq_pos] = seq;
-        
-        if (old_seq != nil)
-            [old_seq release];
         
         NumSequences = seq_pos + 1;
 	}
@@ -378,25 +374,33 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 -(void) fillAudioBuffer:(Float64*)buffer :(const SInt32)num_frames
 {
     /* primary sequencer */
-	MInC_Note* note_pri = [Sequencer_Pri getNote];
-	if (note_pri != nil)
+    if (Sequencer_Pri != nil)
     {
-		Sequencer_Pri.Theta = [note_pri addSamples:buffer:num_frames:Sequencer_Pri.AmpMultiplier_Control*Sequencer_Pri.AmpMultiplier_Accel:Sequencer_Pri.Theta];
-        [Biquad processAudioBuffer:buffer :num_frames];
+        MInC_Note* note_pri = [Sequencer_Pri getNote];
+        if (note_pri != nil)
+        {
+            Sequencer_Pri.Theta = [note_pri addSamples:buffer:num_frames:Sequencer_Pri.AmpMultiplier_Control*Sequencer_Pri.AmpMultiplier_Accel:Sequencer_Pri.Theta];
+            [Biquad processAudioBuffer:buffer :num_frames];
+        }
     }
     
     /* secondary sequencer */
-	MInC_Note* note_sec = [Sequencer_Sec getNote];
-	if (note_sec != nil)
+    if (Sequencer_Sec != nil)
     {
-		Sequencer_Sec.Theta = [note_sec addSamples:buffer:num_frames:Sequencer_Sec.AmpMultiplier_Control:Sequencer_Sec.Theta];
+        MInC_Note* note_sec = [Sequencer_Sec getNote];
+        if (note_sec != nil)
+        {
+            Sequencer_Sec.Theta = [note_sec addSamples:buffer:num_frames:Sequencer_Sec.AmpMultiplier_Control:Sequencer_Sec.Theta];
+        }
     }
 }
 
 -(void) reportElapsedTime:(Float64)elapsed_time
 {
-	[Sequencer_Pri update:elapsed_time];
-	[Sequencer_Sec update:elapsed_time];
+    if (Sequencer_Pri != nil)
+        [Sequencer_Pri update:elapsed_time];
+    if (Sequencer_Sec != nil)
+        [Sequencer_Sec update:elapsed_time];
 }
 
 @end

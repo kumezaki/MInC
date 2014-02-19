@@ -68,7 +68,7 @@ function osc_msg_download(pos)
 
 //		f.writeline(gPlayers.ip_address[pos]+", "+gPortNum_Client_TCP+", ./"+file_name);
 //		f.writeline(gPlayers.ip_address[pos]+", "+gPortNum_Client_TCP+", ../ForZero_MaxMSP/"+file_name);
-		f.writeline("169.234.106.167"+", "+gPortNum_Client_TCP+", ./"+file_name);
+		f.writeline("10.0.1.4"+", "+gPortNum_Client_TCP+", ./"+file_name);
         post("script file written for pos:",pos,"\n");
 
         f.close();

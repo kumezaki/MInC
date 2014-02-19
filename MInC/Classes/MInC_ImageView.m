@@ -34,7 +34,7 @@ extern MInC_FirstView *gFirstView;
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     NSLog(@"touchesBegan count:%d\n",touches.count);
-    [gFirstView setSequence];
+    [gFirstView advanceSequence];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
