@@ -97,6 +97,8 @@
 		282CCBFE0DB6C98000C4EA27 /* MInC_SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 282CCBFD0DB6C98000C4EA27 /* MInC_SecondView.xib */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		28AD73880D9D96C1002E5188 /* MInC_MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MInC_MainWindow.xib */; };
+		44AC1F1418B44AF100BDAC54 /* MInC_Logos.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1F1318B44AF100BDAC54 /* MInC_Logos.png */; };
+		44AC1F1818B44E4700BDAC54 /* MInC_Logos_revise.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1F1718B44E4700BDAC54 /* MInC_Logos_revise.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -214,6 +216,8 @@
 		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD73870D9D96C1002E5188 /* MInC_MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MInC_MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		44AC1F1318B44AF100BDAC54 /* MInC_Logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MInC_Logos.png; path = Images/MInC_Logos.png; sourceTree = "<group>"; };
+		44AC1F1718B44E4700BDAC54 /* MInC_Logos_revise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_Logos_revise.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +296,7 @@
 		29B97314FDCFA39411CA2CEA /* ioo */ = {
 			isa = PBXGroup;
 			children = (
+				44AC1F1718B44E4700BDAC54 /* MInC_Logos_revise.png */,
 				27B3601917C66B9E001FABF8 /* Default-568h@2x.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -376,6 +381,7 @@
 				21C1B94312C7F00900A87A86 /* InC53.jpg */,
 				28AD73870D9D96C1002E5188 /* MInC_MainWindow.xib */,
 				21184587189DE04C00A42B25 /* MInC_FirstView.xib */,
+				44AC1F1318B44AF100BDAC54 /* MInC_Logos.png */,
 				282CCBFD0DB6C98000C4EA27 /* MInC_SecondView.xib */,
 			);
 			name = Resources;
@@ -460,6 +466,7 @@
 				21C1B94412C7F00900A87A86 /* InC15.jpg in Resources */,
 				21C1B94512C7F00900A87A86 /* InC16.jpg in Resources */,
 				21C1B94612C7F00900A87A86 /* InC17.jpg in Resources */,
+				44AC1F1418B44AF100BDAC54 /* MInC_Logos.png in Resources */,
 				21C1B94712C7F00900A87A86 /* InC18.jpg in Resources */,
 				21C1B94812C7F00900A87A86 /* InC19.jpg in Resources */,
 				21C1B94912C7F00900A87A86 /* InC20.jpg in Resources */,
@@ -502,6 +509,7 @@
 				21C1B97212C7F02800A87A86 /* InC08.jpg in Resources */,
 				27B3601A17C66B9E001FABF8 /* Default-568h@2x.png in Resources */,
 				21504BE5189B65D000C39B39 /* Help.png in Resources */,
+				44AC1F1818B44E4700BDAC54 /* MInC_Logos_revise.png in Resources */,
 				21504BE7189B667800C39B39 /* Settings.png in Resources */,
 				21504BE9189B73D300C39B39 /* Hand.png in Resources */,
 				2153611D189C00C9008FD46C /* Note.png in Resources */,
