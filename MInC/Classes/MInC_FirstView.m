@@ -292,7 +292,7 @@ MInC_FirstView *gFirstView = nil;
     
 	if (_ServerIPAddString != nil)
 	{
-        gFirstView.WithServer = YES;
+//        gFirstView.WithServer = YES;
         
 		[gViewController.networking newServerIPAddress:_ServerIPAddString];
 		

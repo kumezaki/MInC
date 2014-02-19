@@ -241,6 +241,9 @@ union {
                         if (FirstHeartBeat)
                         {
                             [self sendOSCMsg:"/minc/download\0\0":16];
+                            gAQP->Sequencer_Pri->Seq_Cur = nil;
+                            gAQP->Sequencer_Pri->Seq_Next = nil;
+                            gAQP.SeqNum = 0;
                             [self startReceiveTCP];
                             FirstHeartBeat = NO;
                         }

@@ -23,7 +23,7 @@ function reset()
 
 function anything()
 {
-	post(messagename,arguments[0],arguments[1],"\n");
+//	post(messagename,arguments[0],arguments[1],"\n");
  
     var ip_add = arguments[0];
     
@@ -43,7 +43,7 @@ function anything()
 
 function do_msg(osc_add,pos,val)
 {
-    post(osc_add+"\n");
+//    post(osc_add+"\n");
 
     if (osc_add == "/download")
         osc_msg_download(pos);
@@ -54,6 +54,7 @@ function osc_msg_download(pos)
     if (pos != -1)
     {
 //        var file_name = "fz_buf_"+(pos+1);
+//        var file_name = "A_seq_TCP_variation.txt";
         var file_name = "A_seq_TCP.txt";
         
         messnamed("fz_poly_in_1_msg","target",pos+1);
@@ -67,7 +68,7 @@ function osc_msg_download(pos)
 
 //		f.writeline(gPlayers.ip_address[pos]+", "+gPortNum_Client_TCP+", ./"+file_name);
 //		f.writeline(gPlayers.ip_address[pos]+", "+gPortNum_Client_TCP+", ../ForZero_MaxMSP/"+file_name);
-		f.writeline("10.0.1.4"+", "+gPortNum_Client_TCP+", ./"+file_name);
+		f.writeline("169.234.106.167"+", "+gPortNum_Client_TCP+", ./"+file_name);
         post("script file written for pos:",pos,"\n");
 
         f.close();
