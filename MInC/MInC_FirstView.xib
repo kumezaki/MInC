@@ -22,7 +22,7 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MInC_Logos.png" id="fZ9-a0-f2D">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MInC_Logos_revise.png" id="fZ9-a0-f2D">
                             <rect key="frame" x="228" y="441" width="93" height="39"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -38,6 +38,6 @@
         </view>
     </objects>
     <resources>
-        <image name="MInC_Logos.png" width="115" height="52"/>
+        <image name="MInC_Logos_revise.png" width="115" height="52"/>
     </resources>
 </document>
