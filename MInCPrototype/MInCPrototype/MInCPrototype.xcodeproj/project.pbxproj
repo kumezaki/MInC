@@ -7,17 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		44AC1EF718B443D600BDAC54 /* MInC_Logos.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1EF618B443D600BDAC54 /* MInC_Logos.png */; };
-		44AC1F0318B4444A00BDAC54 /* In C Riley.psd in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1EF918B4444A00BDAC54 /* In C Riley.psd */; };
-		44AC1F0418B4444A00BDAC54 /* InC.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1EFA18B4444A00BDAC54 /* InC.jpg */; };
-		44AC1F0518B4444A00BDAC54 /* MInC_logo_v6.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1EFB18B4444A00BDAC54 /* MInC_logo_v6.png */; };
-		44AC1F0618B4444A00BDAC54 /* MInC_logo_v7.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1EFC18B4444A00BDAC54 /* MInC_logo_v7.png */; };
-		44AC1F0718B4444A00BDAC54 /* MInC_logo_v8.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1EFD18B4444A00BDAC54 /* MInC_logo_v8.png */; };
-		44AC1F0818B4444A00BDAC54 /* MInC_logo_v9.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1EFE18B4444A00BDAC54 /* MInC_logo_v9.png */; };
-		44AC1F0918B4444A00BDAC54 /* MInC_logo_v9.psd in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1EFF18B4444A00BDAC54 /* MInC_logo_v9.psd */; };
-		44AC1F0A18B4444A00BDAC54 /* MInC_logo_v9_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1F0018B4444A00BDAC54 /* MInC_logo_v9_small.png */; };
-		44AC1F0B18B4444A00BDAC54 /* MInC_Logos.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1F0118B4444A00BDAC54 /* MInC_Logos.png */; };
-		44AC1F0C18B4444A00BDAC54 /* MInC_Logos.psd in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1F0218B4444A00BDAC54 /* MInC_Logos.psd */; };
+		44AC1F1018B445A500BDAC54 /* MInC_logo_v9_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1F0D18B445A500BDAC54 /* MInC_logo_v9_small.png */; };
+		44AC1F1118B445A500BDAC54 /* MInC_logo_v9.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1F0E18B445A500BDAC54 /* MInC_logo_v9.png */; };
+		44AC1F1218B445A500BDAC54 /* MInC_Logos.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1F0F18B445A500BDAC54 /* MInC_Logos.png */; };
 		44C8231A18B3F551009E9491 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C8231918B3F551009E9491 /* Foundation.framework */; };
 		44C8231C18B3F551009E9491 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C8231B18B3F551009E9491 /* CoreGraphics.framework */; };
 		44C8231E18B3F551009E9491 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C8231D18B3F551009E9491 /* UIKit.framework */; };
@@ -32,8 +24,6 @@
 		44C8233F18B3F551009E9491 /* MInCPrototypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C8233E18B3F551009E9491 /* MInCPrototypeTests.m */; };
 		44C8234A18B3F660009E9491 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C8234918B3F660009E9491 /* FirstViewController.m */; };
 		44C8235018B40877009E9491 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44C8234F18B40877009E9491 /* FirstViewController.xib */; };
-		44C8235218B42840009E9491 /* MInC_logo_v9.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C8235118B42840009E9491 /* MInC_logo_v9.png */; };
-		44C8235418B429E6009E9491 /* MInC_logo_v9_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C8235318B429E6009E9491 /* MInC_logo_v9_small.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,17 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		44AC1EF618B443D600BDAC54 /* MInC_Logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MInC_Logos.png; path = "../../../../KTL/UCI/ICS Honors/MInC Documents/MInC Logo/MInC_Logos.png"; sourceTree = "<group>"; };
-		44AC1EF918B4444A00BDAC54 /* In C Riley.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "In C Riley.psd"; sourceTree = "<group>"; };
-		44AC1EFA18B4444A00BDAC54 /* InC.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = InC.jpg; sourceTree = "<group>"; };
-		44AC1EFB18B4444A00BDAC54 /* MInC_logo_v6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_logo_v6.png; sourceTree = "<group>"; };
-		44AC1EFC18B4444A00BDAC54 /* MInC_logo_v7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_logo_v7.png; sourceTree = "<group>"; };
-		44AC1EFD18B4444A00BDAC54 /* MInC_logo_v8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_logo_v8.png; sourceTree = "<group>"; };
-		44AC1EFE18B4444A00BDAC54 /* MInC_logo_v9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_logo_v9.png; sourceTree = "<group>"; };
-		44AC1EFF18B4444A00BDAC54 /* MInC_logo_v9.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = MInC_logo_v9.psd; sourceTree = "<group>"; };
-		44AC1F0018B4444A00BDAC54 /* MInC_logo_v9_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_logo_v9_small.png; sourceTree = "<group>"; };
-		44AC1F0118B4444A00BDAC54 /* MInC_Logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_Logos.png; sourceTree = "<group>"; };
-		44AC1F0218B4444A00BDAC54 /* MInC_Logos.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = MInC_Logos.psd; sourceTree = "<group>"; };
+		44AC1F0D18B445A500BDAC54 /* MInC_logo_v9_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_logo_v9_small.png; sourceTree = "<group>"; };
+		44AC1F0E18B445A500BDAC54 /* MInC_logo_v9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_logo_v9.png; sourceTree = "<group>"; };
+		44AC1F0F18B445A500BDAC54 /* MInC_Logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_Logos.png; sourceTree = "<group>"; };
 		44C8231618B3F551009E9491 /* MInCPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MInCPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44C8231918B3F551009E9491 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		44C8231B18B3F551009E9491 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -78,8 +60,6 @@
 		44C8234918B3F660009E9491 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		44C8234B18B3FBC7009E9491 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		44C8234F18B40877009E9491 /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
-		44C8235118B42840009E9491 /* MInC_logo_v9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MInC_logo_v9.png; path = "../../../../KTL/UCI/ICS Honors/MInC Documents/MInC Logo/MInC_logo_v9.png"; sourceTree = "<group>"; };
-		44C8235318B429E6009E9491 /* MInC_logo_v9_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MInC_logo_v9_small.png; path = "../../../../KTL/UCI/ICS Honors/MInC Documents/MInC Logo/MInC_logo_v9_small.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,24 +86,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		44AC1EF818B4444A00BDAC54 /* MInC Logo */ = {
-			isa = PBXGroup;
-			children = (
-				44AC1EF918B4444A00BDAC54 /* In C Riley.psd */,
-				44AC1EFA18B4444A00BDAC54 /* InC.jpg */,
-				44AC1EFB18B4444A00BDAC54 /* MInC_logo_v6.png */,
-				44AC1EFC18B4444A00BDAC54 /* MInC_logo_v7.png */,
-				44AC1EFD18B4444A00BDAC54 /* MInC_logo_v8.png */,
-				44AC1EFE18B4444A00BDAC54 /* MInC_logo_v9.png */,
-				44AC1EFF18B4444A00BDAC54 /* MInC_logo_v9.psd */,
-				44AC1F0018B4444A00BDAC54 /* MInC_logo_v9_small.png */,
-				44AC1F0118B4444A00BDAC54 /* MInC_Logos.png */,
-				44AC1F0218B4444A00BDAC54 /* MInC_Logos.psd */,
-			);
-			name = "MInC Logo";
-			path = "../../../../KTL/UCI/ICS Honors/MInC Documents/MInC Logo";
-			sourceTree = "<group>";
-		};
 		44C8230D18B3F551009E9491 = {
 			isa = PBXGroup;
 			children = (
@@ -158,15 +120,14 @@
 		44C8231F18B3F551009E9491 /* MInCPrototype */ = {
 			isa = PBXGroup;
 			children = (
+				44AC1F0D18B445A500BDAC54 /* MInC_logo_v9_small.png */,
+				44AC1F0E18B445A500BDAC54 /* MInC_logo_v9.png */,
+				44AC1F0F18B445A500BDAC54 /* MInC_Logos.png */,
 				44C8232818B3F551009E9491 /* AppDelegate.h */,
 				44C8232918B3F551009E9491 /* AppDelegate.m */,
 				44C8234818B3F660009E9491 /* FirstViewController.h */,
 				44C8234918B3F660009E9491 /* FirstViewController.m */,
-				44C8235318B429E6009E9491 /* MInC_logo_v9_small.png */,
-				44C8235118B42840009E9491 /* MInC_logo_v9.png */,
 				44C8234F18B40877009E9491 /* FirstViewController.xib */,
-				44AC1EF818B4444A00BDAC54 /* MInC Logo */,
-				44AC1EF618B443D600BDAC54 /* MInC_Logos.png */,
 				44C8232B18B3F551009E9491 /* Images.xcassets */,
 				44C8232018B3F551009E9491 /* Supporting Files */,
 			);
@@ -277,21 +238,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44AC1F0818B4444A00BDAC54 /* MInC_logo_v9.png in Resources */,
-				44AC1F0418B4444A00BDAC54 /* InC.jpg in Resources */,
-				44C8235218B42840009E9491 /* MInC_logo_v9.png in Resources */,
-				44C8235418B429E6009E9491 /* MInC_logo_v9_small.png in Resources */,
+				44AC1F1018B445A500BDAC54 /* MInC_logo_v9_small.png in Resources */,
 				44C8232418B3F551009E9491 /* InfoPlist.strings in Resources */,
-				44AC1EF718B443D600BDAC54 /* MInC_Logos.png in Resources */,
-				44AC1F0B18B4444A00BDAC54 /* MInC_Logos.png in Resources */,
+				44AC1F1218B445A500BDAC54 /* MInC_Logos.png in Resources */,
+				44AC1F1118B445A500BDAC54 /* MInC_logo_v9.png in Resources */,
 				44C8235018B40877009E9491 /* FirstViewController.xib in Resources */,
-				44AC1F0918B4444A00BDAC54 /* MInC_logo_v9.psd in Resources */,
-				44AC1F0518B4444A00BDAC54 /* MInC_logo_v6.png in Resources */,
-				44AC1F0318B4444A00BDAC54 /* In C Riley.psd in Resources */,
-				44AC1F0A18B4444A00BDAC54 /* MInC_logo_v9_small.png in Resources */,
-				44AC1F0618B4444A00BDAC54 /* MInC_logo_v7.png in Resources */,
-				44AC1F0C18B4444A00BDAC54 /* MInC_Logos.psd in Resources */,
-				44AC1F0718B4444A00BDAC54 /* MInC_logo_v8.png in Resources */,
 				44C8232C18B3F551009E9491 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
