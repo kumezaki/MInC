@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>82663833-0868-437C-9A12-26B9477E123D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MInCPrototype</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0C43FAC3-47A9-4F92-BB9D-E1BF79FDAC94</key>
+		<string>https://github.com/kumezaki/MInC.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MInCPrototype/MInCPrototype/MInCPrototype.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0C43FAC3-47A9-4F92-BB9D-E1BF79FDAC94</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/kumezaki/MInC.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0C43FAC3-47A9-4F92-BB9D-E1BF79FDAC94</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0C43FAC3-47A9-4F92-BB9D-E1BF79FDAC94</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MInC</string>
+		</dict>
+	</array>
+</dict>
+</plist>
