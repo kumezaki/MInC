@@ -1,0 +1,541 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		44AC1EF718B443D600BDAC54 /* MInC_Logos.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1EF618B443D600BDAC54 /* MInC_Logos.png */; };
+		44AC1F0318B4444A00BDAC54 /* In C Riley.psd in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1EF918B4444A00BDAC54 /* In C Riley.psd */; };
+		44AC1F0418B4444A00BDAC54 /* InC.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1EFA18B4444A00BDAC54 /* InC.jpg */; };
+		44AC1F0518B4444A00BDAC54 /* MInC_logo_v6.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1EFB18B4444A00BDAC54 /* MInC_logo_v6.png */; };
+		44AC1F0618B4444A00BDAC54 /* MInC_logo_v7.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1EFC18B4444A00BDAC54 /* MInC_logo_v7.png */; };
+		44AC1F0718B4444A00BDAC54 /* MInC_logo_v8.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1EFD18B4444A00BDAC54 /* MInC_logo_v8.png */; };
+		44AC1F0818B4444A00BDAC54 /* MInC_logo_v9.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1EFE18B4444A00BDAC54 /* MInC_logo_v9.png */; };
+		44AC1F0918B4444A00BDAC54 /* MInC_logo_v9.psd in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1EFF18B4444A00BDAC54 /* MInC_logo_v9.psd */; };
+		44AC1F0A18B4444A00BDAC54 /* MInC_logo_v9_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1F0018B4444A00BDAC54 /* MInC_logo_v9_small.png */; };
+		44AC1F0B18B4444A00BDAC54 /* MInC_Logos.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1F0118B4444A00BDAC54 /* MInC_Logos.png */; };
+		44AC1F0C18B4444A00BDAC54 /* MInC_Logos.psd in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1F0218B4444A00BDAC54 /* MInC_Logos.psd */; };
+		44C8231A18B3F551009E9491 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C8231918B3F551009E9491 /* Foundation.framework */; };
+		44C8231C18B3F551009E9491 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C8231B18B3F551009E9491 /* CoreGraphics.framework */; };
+		44C8231E18B3F551009E9491 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C8231D18B3F551009E9491 /* UIKit.framework */; };
+		44C8232418B3F551009E9491 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44C8232218B3F551009E9491 /* InfoPlist.strings */; };
+		44C8232618B3F551009E9491 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C8232518B3F551009E9491 /* main.m */; };
+		44C8232A18B3F551009E9491 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C8232918B3F551009E9491 /* AppDelegate.m */; };
+		44C8232C18B3F551009E9491 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44C8232B18B3F551009E9491 /* Images.xcassets */; };
+		44C8233318B3F551009E9491 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C8233218B3F551009E9491 /* XCTest.framework */; };
+		44C8233418B3F551009E9491 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C8231918B3F551009E9491 /* Foundation.framework */; };
+		44C8233518B3F551009E9491 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C8231D18B3F551009E9491 /* UIKit.framework */; };
+		44C8233D18B3F551009E9491 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44C8233B18B3F551009E9491 /* InfoPlist.strings */; };
+		44C8233F18B3F551009E9491 /* MInCPrototypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C8233E18B3F551009E9491 /* MInCPrototypeTests.m */; };
+		44C8234A18B3F660009E9491 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C8234918B3F660009E9491 /* FirstViewController.m */; };
+		44C8235018B40877009E9491 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44C8234F18B40877009E9491 /* FirstViewController.xib */; };
+		44C8235218B42840009E9491 /* MInC_logo_v9.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C8235118B42840009E9491 /* MInC_logo_v9.png */; };
+		44C8235418B429E6009E9491 /* MInC_logo_v9_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C8235318B429E6009E9491 /* MInC_logo_v9_small.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		44C8233618B3F551009E9491 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 44C8230E18B3F551009E9491 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 44C8231518B3F551009E9491;
+			remoteInfo = MInCPrototype;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		44AC1EF618B443D600BDAC54 /* MInC_Logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MInC_Logos.png; path = "../../../../KTL/UCI/ICS Honors/MInC Documents/MInC Logo/MInC_Logos.png"; sourceTree = "<group>"; };
+		44AC1EF918B4444A00BDAC54 /* In C Riley.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "In C Riley.psd"; sourceTree = "<group>"; };
+		44AC1EFA18B4444A00BDAC54 /* InC.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = InC.jpg; sourceTree = "<group>"; };
+		44AC1EFB18B4444A00BDAC54 /* MInC_logo_v6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_logo_v6.png; sourceTree = "<group>"; };
+		44AC1EFC18B4444A00BDAC54 /* MInC_logo_v7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_logo_v7.png; sourceTree = "<group>"; };
+		44AC1EFD18B4444A00BDAC54 /* MInC_logo_v8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_logo_v8.png; sourceTree = "<group>"; };
+		44AC1EFE18B4444A00BDAC54 /* MInC_logo_v9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_logo_v9.png; sourceTree = "<group>"; };
+		44AC1EFF18B4444A00BDAC54 /* MInC_logo_v9.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = MInC_logo_v9.psd; sourceTree = "<group>"; };
+		44AC1F0018B4444A00BDAC54 /* MInC_logo_v9_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_logo_v9_small.png; sourceTree = "<group>"; };
+		44AC1F0118B4444A00BDAC54 /* MInC_Logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_Logos.png; sourceTree = "<group>"; };
+		44AC1F0218B4444A00BDAC54 /* MInC_Logos.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = MInC_Logos.psd; sourceTree = "<group>"; };
+		44C8231618B3F551009E9491 /* MInCPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MInCPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		44C8231918B3F551009E9491 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		44C8231B18B3F551009E9491 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		44C8231D18B3F551009E9491 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		44C8232118B3F551009E9491 /* MInCPrototype-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MInCPrototype-Info.plist"; sourceTree = "<group>"; };
+		44C8232318B3F551009E9491 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		44C8232518B3F551009E9491 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		44C8232718B3F551009E9491 /* MInCPrototype-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MInCPrototype-Prefix.pch"; sourceTree = "<group>"; };
+		44C8232818B3F551009E9491 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		44C8232918B3F551009E9491 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		44C8232B18B3F551009E9491 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		44C8233118B3F551009E9491 /* MInCPrototypeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MInCPrototypeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		44C8233218B3F551009E9491 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		44C8233A18B3F551009E9491 /* MInCPrototypeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MInCPrototypeTests-Info.plist"; sourceTree = "<group>"; };
+		44C8233C18B3F551009E9491 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		44C8233E18B3F551009E9491 /* MInCPrototypeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MInCPrototypeTests.m; sourceTree = "<group>"; };
+		44C8234818B3F660009E9491 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		44C8234918B3F660009E9491 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		44C8234B18B3FBC7009E9491 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		44C8234F18B40877009E9491 /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
+		44C8235118B42840009E9491 /* MInC_logo_v9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MInC_logo_v9.png; path = "../../../../KTL/UCI/ICS Honors/MInC Documents/MInC Logo/MInC_logo_v9.png"; sourceTree = "<group>"; };
+		44C8235318B429E6009E9491 /* MInC_logo_v9_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MInC_logo_v9_small.png; path = "../../../../KTL/UCI/ICS Honors/MInC Documents/MInC Logo/MInC_logo_v9_small.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		44C8231318B3F551009E9491 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44C8231C18B3F551009E9491 /* CoreGraphics.framework in Frameworks */,
+				44C8231E18B3F551009E9491 /* UIKit.framework in Frameworks */,
+				44C8231A18B3F551009E9491 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44C8232E18B3F551009E9491 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44C8233318B3F551009E9491 /* XCTest.framework in Frameworks */,
+				44C8233518B3F551009E9491 /* UIKit.framework in Frameworks */,
+				44C8233418B3F551009E9491 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		44AC1EF818B4444A00BDAC54 /* MInC Logo */ = {
+			isa = PBXGroup;
+			children = (
+				44AC1EF918B4444A00BDAC54 /* In C Riley.psd */,
+				44AC1EFA18B4444A00BDAC54 /* InC.jpg */,
+				44AC1EFB18B4444A00BDAC54 /* MInC_logo_v6.png */,
+				44AC1EFC18B4444A00BDAC54 /* MInC_logo_v7.png */,
+				44AC1EFD18B4444A00BDAC54 /* MInC_logo_v8.png */,
+				44AC1EFE18B4444A00BDAC54 /* MInC_logo_v9.png */,
+				44AC1EFF18B4444A00BDAC54 /* MInC_logo_v9.psd */,
+				44AC1F0018B4444A00BDAC54 /* MInC_logo_v9_small.png */,
+				44AC1F0118B4444A00BDAC54 /* MInC_Logos.png */,
+				44AC1F0218B4444A00BDAC54 /* MInC_Logos.psd */,
+			);
+			name = "MInC Logo";
+			path = "../../../../KTL/UCI/ICS Honors/MInC Documents/MInC Logo";
+			sourceTree = "<group>";
+		};
+		44C8230D18B3F551009E9491 = {
+			isa = PBXGroup;
+			children = (
+				44C8231F18B3F551009E9491 /* MInCPrototype */,
+				44C8233818B3F551009E9491 /* MInCPrototypeTests */,
+				44C8231818B3F551009E9491 /* Frameworks */,
+				44C8231718B3F551009E9491 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		44C8231718B3F551009E9491 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				44C8231618B3F551009E9491 /* MInCPrototype.app */,
+				44C8233118B3F551009E9491 /* MInCPrototypeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		44C8231818B3F551009E9491 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44C8234B18B3FBC7009E9491 /* SenTestingKit.framework */,
+				44C8231918B3F551009E9491 /* Foundation.framework */,
+				44C8231B18B3F551009E9491 /* CoreGraphics.framework */,
+				44C8231D18B3F551009E9491 /* UIKit.framework */,
+				44C8233218B3F551009E9491 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44C8231F18B3F551009E9491 /* MInCPrototype */ = {
+			isa = PBXGroup;
+			children = (
+				44C8232818B3F551009E9491 /* AppDelegate.h */,
+				44C8232918B3F551009E9491 /* AppDelegate.m */,
+				44C8234818B3F660009E9491 /* FirstViewController.h */,
+				44C8234918B3F660009E9491 /* FirstViewController.m */,
+				44C8235318B429E6009E9491 /* MInC_logo_v9_small.png */,
+				44C8235118B42840009E9491 /* MInC_logo_v9.png */,
+				44C8234F18B40877009E9491 /* FirstViewController.xib */,
+				44AC1EF818B4444A00BDAC54 /* MInC Logo */,
+				44AC1EF618B443D600BDAC54 /* MInC_Logos.png */,
+				44C8232B18B3F551009E9491 /* Images.xcassets */,
+				44C8232018B3F551009E9491 /* Supporting Files */,
+			);
+			path = MInCPrototype;
+			sourceTree = "<group>";
+		};
+		44C8232018B3F551009E9491 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				44C8232118B3F551009E9491 /* MInCPrototype-Info.plist */,
+				44C8232218B3F551009E9491 /* InfoPlist.strings */,
+				44C8232518B3F551009E9491 /* main.m */,
+				44C8232718B3F551009E9491 /* MInCPrototype-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		44C8233818B3F551009E9491 /* MInCPrototypeTests */ = {
+			isa = PBXGroup;
+			children = (
+				44C8233E18B3F551009E9491 /* MInCPrototypeTests.m */,
+				44C8233918B3F551009E9491 /* Supporting Files */,
+			);
+			path = MInCPrototypeTests;
+			sourceTree = "<group>";
+		};
+		44C8233918B3F551009E9491 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				44C8233A18B3F551009E9491 /* MInCPrototypeTests-Info.plist */,
+				44C8233B18B3F551009E9491 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		44C8231518B3F551009E9491 /* MInCPrototype */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44C8234218B3F551009E9491 /* Build configuration list for PBXNativeTarget "MInCPrototype" */;
+			buildPhases = (
+				44C8231218B3F551009E9491 /* Sources */,
+				44C8231318B3F551009E9491 /* Frameworks */,
+				44C8231418B3F551009E9491 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MInCPrototype;
+			productName = MInCPrototype;
+			productReference = 44C8231618B3F551009E9491 /* MInCPrototype.app */;
+			productType = "com.apple.product-type.application";
+		};
+		44C8233018B3F551009E9491 /* MInCPrototypeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44C8234518B3F551009E9491 /* Build configuration list for PBXNativeTarget "MInCPrototypeTests" */;
+			buildPhases = (
+				44C8232D18B3F551009E9491 /* Sources */,
+				44C8232E18B3F551009E9491 /* Frameworks */,
+				44C8232F18B3F551009E9491 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				44C8233718B3F551009E9491 /* PBXTargetDependency */,
+			);
+			name = MInCPrototypeTests;
+			productName = MInCPrototypeTests;
+			productReference = 44C8233118B3F551009E9491 /* MInCPrototypeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		44C8230E18B3F551009E9491 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "University of California, Irvine (Music)";
+				TargetAttributes = {
+					44C8233018B3F551009E9491 = {
+						TestTargetID = 44C8231518B3F551009E9491;
+					};
+				};
+			};
+			buildConfigurationList = 44C8231118B3F551009E9491 /* Build configuration list for PBXProject "MInCPrototype" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 44C8230D18B3F551009E9491;
+			productRefGroup = 44C8231718B3F551009E9491 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				44C8231518B3F551009E9491 /* MInCPrototype */,
+				44C8233018B3F551009E9491 /* MInCPrototypeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		44C8231418B3F551009E9491 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44AC1F0818B4444A00BDAC54 /* MInC_logo_v9.png in Resources */,
+				44AC1F0418B4444A00BDAC54 /* InC.jpg in Resources */,
+				44C8235218B42840009E9491 /* MInC_logo_v9.png in Resources */,
+				44C8235418B429E6009E9491 /* MInC_logo_v9_small.png in Resources */,
+				44C8232418B3F551009E9491 /* InfoPlist.strings in Resources */,
+				44AC1EF718B443D600BDAC54 /* MInC_Logos.png in Resources */,
+				44AC1F0B18B4444A00BDAC54 /* MInC_Logos.png in Resources */,
+				44C8235018B40877009E9491 /* FirstViewController.xib in Resources */,
+				44AC1F0918B4444A00BDAC54 /* MInC_logo_v9.psd in Resources */,
+				44AC1F0518B4444A00BDAC54 /* MInC_logo_v6.png in Resources */,
+				44AC1F0318B4444A00BDAC54 /* In C Riley.psd in Resources */,
+				44AC1F0A18B4444A00BDAC54 /* MInC_logo_v9_small.png in Resources */,
+				44AC1F0618B4444A00BDAC54 /* MInC_logo_v7.png in Resources */,
+				44AC1F0C18B4444A00BDAC54 /* MInC_Logos.psd in Resources */,
+				44AC1F0718B4444A00BDAC54 /* MInC_logo_v8.png in Resources */,
+				44C8232C18B3F551009E9491 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44C8232F18B3F551009E9491 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44C8233D18B3F551009E9491 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		44C8231218B3F551009E9491 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44C8232A18B3F551009E9491 /* AppDelegate.m in Sources */,
+				44C8234A18B3F660009E9491 /* FirstViewController.m in Sources */,
+				44C8232618B3F551009E9491 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44C8232D18B3F551009E9491 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44C8233F18B3F551009E9491 /* MInCPrototypeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		44C8233718B3F551009E9491 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 44C8231518B3F551009E9491 /* MInCPrototype */;
+			targetProxy = 44C8233618B3F551009E9491 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		44C8232218B3F551009E9491 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44C8232318B3F551009E9491 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		44C8233B18B3F551009E9491 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44C8233C18B3F551009E9491 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		44C8234018B3F551009E9491 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		44C8234118B3F551009E9491 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		44C8234318B3F551009E9491 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MInCPrototype/MInCPrototype-Prefix.pch";
+				INFOPLIST_FILE = "MInCPrototype/MInCPrototype-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		44C8234418B3F551009E9491 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MInCPrototype/MInCPrototype-Prefix.pch";
+				INFOPLIST_FILE = "MInCPrototype/MInCPrototype-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		44C8234618B3F551009E9491 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MInCPrototype.app/MInCPrototype";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MInCPrototype/MInCPrototype-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MInCPrototypeTests/MInCPrototypeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		44C8234718B3F551009E9491 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MInCPrototype.app/MInCPrototype";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MInCPrototype/MInCPrototype-Prefix.pch";
+				INFOPLIST_FILE = "MInCPrototypeTests/MInCPrototypeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		44C8231118B3F551009E9491 /* Build configuration list for PBXProject "MInCPrototype" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44C8234018B3F551009E9491 /* Debug */,
+				44C8234118B3F551009E9491 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44C8234218B3F551009E9491 /* Build configuration list for PBXNativeTarget "MInCPrototype" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44C8234318B3F551009E9491 /* Debug */,
+				44C8234418B3F551009E9491 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44C8234518B3F551009E9491 /* Build configuration list for PBXNativeTarget "MInCPrototypeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44C8234618B3F551009E9491 /* Debug */,
+				44C8234718B3F551009E9491 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 44C8230E18B3F551009E9491 /* Project object */;
+}
