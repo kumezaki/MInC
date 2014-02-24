@@ -17,8 +17,6 @@ extern MInC_FirstView *gFirstView;
 #import "MInC_AQPlayer.h"
 extern MInC_AQPlayer *gAQP;
 
-#import "MInC_SequenceFile.h"
-
 @interface MInC_NetworkMessages ()
 @property (nonatomic, readwrite, retain) NSString       *interstitialMsg;
 @property (nonatomic, readwrite, retain) NSString       *errorMsg;
@@ -61,9 +59,6 @@ union {
 - (id)init {
 
     [super init];
-
-    MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
-    [seqFile readFromFile:@"TCP.dat"];
 
 	[self sendHeartBeat];
     
@@ -240,7 +235,7 @@ union {
 						gFirstView.ServerIPAddString = [[NSString alloc] initWithCString:self->UDPInBuffer+pos encoding:NSASCIIStringEncoding];
                         if (FirstHeartBeat)
                         {
-                            [self sendOSCMsg:"/minc/download\0\0":16];
+                            [self sendOSCMsg:"/minc/content\0\0":16];
                             gAQP->Sequencer_Pri->Seq_Cur = nil;
                             gAQP->Sequencer_Pri->Seq_Next = nil;
                             gAQP.SeqNum = 0;
@@ -275,14 +270,10 @@ union {
 - (void)tcpParse {
         
     //NSAutoreleasePool *tcpThreadPool = [[NSAutoreleasePool alloc] init];
-    
-    MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
-    
+
     NSData* data = [NSData dataWithBytes:[self->IncomingDataBuffer bytes] length:[self->IncomingDataBuffer length]];
     
-    [seqFile writeToFile:@"TCP.dat" withData:data];
-    
-    [seqFile readFromFile:@"TCP.dat"];
+    [gAQP setSeqFileData:data];
     
     [self.delegate downloadEnded:self];
     

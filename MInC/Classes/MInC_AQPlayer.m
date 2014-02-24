@@ -10,6 +10,11 @@
 
 #import "MInC_Content.h"
 
+#import "MInC_SequenceFile.h"
+
+#import "MInC_FirstView.h"
+extern MInC_FirstView *gFirstView;
+
 // set the following to 1 if compiling for XML-style sequence data
 #define WITH_XML_SEQS 0
 
@@ -164,6 +169,26 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     result = AudioQueueStop(Queue, true);
 	
 	return result;
+}
+
+-(void) setSeqFileData:(NSData*) data
+{
+    MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
+    
+    [seqFile writeToFile:@"TCP.dat" withData:data];
+    
+    [seqFile readFromFile:@"TCP.dat"];
+}
+
+-(void) loadSeqFile
+{
+    MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
+    
+    [gFirstView startActivityIndicator];
+
+    [seqFile readFromFile:@"TCP.dat"];
+
+    [gFirstView stopActivityIndicator];
 }
 
 -(void) setSequence:(SInt32)seq_num;

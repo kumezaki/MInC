@@ -8,6 +8,8 @@ var gPlayers = new Global("minc_pm");
 
 var gPortNum_Client_TCP = 41337;
 
+var gSeqFileName = "";
+
 /*----------------------------------------------------------------------------*/
 
 function loadbang()
@@ -19,6 +21,12 @@ function reset()
 {
 }
 
+function set_seq(filename)
+{
+	post("setting sequence file to",filename,"\n");
+	gSeqFileName = filename;
+}
+
 /*** FUNCTIONS FOR HANDING INCOMING OSC MESSAGES ***/
 
 function anything()
@@ -27,8 +35,8 @@ function anything()
  
     var ip_add = arguments[0];
     
-    var pos = 0;
-//    var pos = gPlayers.ip_address.indexOf(ip_add);
+    var pos = gPlayers.ip_address.indexOf(ip_add);
+//	post(pos,gPlayers.ip_address[pos],"\n");
     
     var osc_add = messagename;
     if (osc_add.search("/minc/") != 0)
@@ -45,30 +53,19 @@ function do_msg(osc_add,pos,val)
 {
 //    post(osc_add+"\n");
 
-    if (osc_add == "/download")
-        osc_msg_download(pos);
+    if (osc_add == "/content")
+        osc_msg_content(pos);
 }
 
-function osc_msg_download(pos)
+function osc_msg_content(pos)
 {
     if (pos != -1)
     {
-//        var file_name = "fz_buf_"+(pos+1);
-//        var file_name = "A_seq_TCP_variation.txt";
-        var file_name = "A_seq_TCP.txt";
-        
-        messnamed("fz_poly_in_1_msg","target",pos+1);
-        messnamed("fz_poly_in_2_msg","write","samptype","int16");
-        messnamed("fz_poly_in_2_msg","write","writeraw",file_name);                
-		post("raw audio file created for pos:",pos,"\n");
-
         f = new File("fz_download.txt","write","TEXT");
 		f.open();
 		post("fz_download.txt created for pos:",pos,"\n");
 
-//		f.writeline(gPlayers.ip_address[pos]+", "+gPortNum_Client_TCP+", ./"+file_name);
-//		f.writeline(gPlayers.ip_address[pos]+", "+gPortNum_Client_TCP+", ../ForZero_MaxMSP/"+file_name);
-		f.writeline("10.0.1.4"+", "+gPortNum_Client_TCP+", ./"+file_name);
+		f.writeline(gPlayers.ip_address[pos]+", "+gPortNum_Client_TCP+", ./"+gSeqFileName);
         post("script file written for pos:",pos,"\n");
 
         f.close();

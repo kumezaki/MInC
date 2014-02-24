@@ -80,20 +80,8 @@ function anything()
 
     var pos = gPlayers.ip_address.indexOf(ip_add);
     
-	/* change the "leave" OSC address as needed */
-	if (messagename == "/minc/leave")
-	{
-		if (pos == -1)
-			messnamed("minc_pm_msg","player_wait_leave",ip_add);
-		else
-			messnamed("minc_pm_msg","player_leave",pos);
-		return;
-	}
-
     if (pos != -1)
-    {
     	do_msg(messagename.slice(5),pos,arguments[1]);
-    }
 }
 
 function do_msg(osc_add,pos,val)
@@ -180,6 +168,8 @@ function do_msg(osc_add,pos,val)
 
         case gMsgIDArray["beat"]: send_sync_msg(dev_pos); break;
 
+        case gMsgIDArray["content"]: write_content_file(dev_pos); break;
+
         default:
             post(a[1],"not supported\n");
             break;
@@ -207,6 +197,48 @@ function init_msg_id_array()
     gMsgIDArray["accY"] = i++;
     gMsgIDArray["accZ"] = i++;
     gMsgIDArray["beat"] = i++;
+    gMsgIDArray["content"] = i++;
+}
+
+/*----------------------------------------------------------------------------*/
+/* functions to transmit content */
+
+var gPortNum_Client_TCP = 41337;
+
+var gParentPath = "";
+var gSeqFileName = "";
+var gContentFileName = "fz_download.txt";
+
+function set_parent_path(path)
+{
+	post("setting parent path to "+path+"\n");
+	gParentPath = path;
+}
+
+function set_seq_file(filename)
+{
+	post("setting sequence file to "+filename+"\n");
+	gSeqFileName = filename;
+}
+
+function write_content_file(dev_pos)
+{
+	f = new File(gContentFileName,"write","TEXT");
+	f.open();
+	post(gContentFileName+"created for pos: "+dev_pos+"\n");
+
+	f.writeline(gPlayers.ip_address[dev_pos]+", "+gPortNum_Client_TCP+", ./"+gSeqFileName);
+	post("script file written for pos:",dev_pos,"\n");
+
+	f.close();
+	post("txt file closed for pos:",dev_pos,"\n");
+}
+
+function exit_tcp_script()
+{
+    f = new File(gParentPath+gContentFileName,"w");
+    f.writeline("exit");
+    f.close();
 }
 
 /*----------------------------------------------------------------------------*/

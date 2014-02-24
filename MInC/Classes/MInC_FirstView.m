@@ -55,7 +55,10 @@ MInC_FirstView *gFirstView = nil;
     
 	_InterstitialString = nil;
 	_ServerIPAddString = nil;
-	
+    
+    LoadSeqFileTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:gAQP selector:@selector (loadSeqFile) userInfo:nil repeats:NO];
+    [self startActivityIndicator];
+    
 	[self checkIncomingMessages];
 }
 
@@ -304,6 +307,16 @@ MInC_FirstView *gFirstView = nil;
 	}
 	
 	[NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkIncomingMessages) userInfo:nil repeats:NO];
+}
+
+-(void)startActivityIndicator
+{
+    [ActivityIndicatorView startAnimating];
+}
+
+-(void)stopActivityIndicator
+{
+    [ActivityIndicatorView stopAnimating];
 }
 
 @end
