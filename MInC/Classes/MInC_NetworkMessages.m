@@ -62,8 +62,8 @@ union {
 
 	[self sendHeartBeat];
     
-    FirstHeartBeat = YES;
-        
+    HeartBeat_Server_First = YES;
+    
     recMeterValueReceived = NO;
     progressValueReceived = NO;
     
@@ -233,14 +233,14 @@ union {
 					case 3:
 					{
 						gFirstView.ServerIPAddString = [[NSString alloc] initWithCString:self->UDPInBuffer+pos encoding:NSASCIIStringEncoding];
-                        if (FirstHeartBeat)
+                        if (HeartBeat_Server_First)
                         {
                             [self sendOSCMsg:"/minc/content\0\0":16];
                             gAQP->Sequencer_Pri->Seq_Cur = nil;
                             gAQP->Sequencer_Pri->Seq_Next = nil;
                             gAQP.SeqNum = 0;
                             [self startReceiveTCP];
-                            FirstHeartBeat = NO;
+                            HeartBeat_Server_First = NO;
                         }
                         break;
 					}
@@ -309,6 +309,8 @@ union {
 {
     NSLog(@"sendLeave");
     [self sendOSCMsg:"/minc/leave\0":12];
+
+    BypassSend = YES;
 }
 
 @end

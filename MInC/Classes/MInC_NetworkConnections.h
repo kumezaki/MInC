@@ -23,7 +23,9 @@
     NSThread		*TCPThread;
     NSMutableData	*IncomingDataBuffer;
     
-    int ServSock, ClntSock;// tcp sockets
+    int ServSock, ClntSock; // tcp sockets
+    
+    BOOL BypassSend;
 }
 
 @property (nonatomic, retain)   NSString    *DevIP;

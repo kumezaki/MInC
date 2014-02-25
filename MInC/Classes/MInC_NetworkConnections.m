@@ -62,6 +62,8 @@ extern MInC_FirstView* gFirstView;
 	[TCPThread start];
 #endif
     
+    BypassSend = NO;
+    
 	return self;
 }
 
@@ -138,6 +140,8 @@ extern MInC_FirstView* gFirstView;
 
 -(void)send_udp
 {
+    if (BypassSend) return;
+    
 	int sock;
 	struct sockaddr_in sa;
 	int bytes_sent;
