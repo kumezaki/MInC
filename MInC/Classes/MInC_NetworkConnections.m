@@ -19,6 +19,9 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
+#import "MInC_FirstView.h"
+extern MInC_FirstView* gFirstView;
+
 @implementation MInC_NetworkConnections
 
 @synthesize SendIPAddress;
@@ -58,6 +61,8 @@
     TCPThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_tcp) object:nil];
 	[TCPThread start];
 #endif
+    
+    BypassSend = NO;
     
 	return self;
 }
@@ -135,6 +140,8 @@
 
 -(void)send_udp
 {
+    if (BypassSend) return;
+    
 	int sock;
 	struct sockaddr_in sa;
 	int bytes_sent;
@@ -196,12 +203,22 @@
 
 - (void)startReceiveTCP
 {
-    if (TCPThread == nil) {
+    if (TCPThread == nil)
+    {
         TCPThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_tcp) object:nil];
         [TCPThread start];
+        [gFirstView startActivityIndicator];
     }
     self.TCPTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector (downloadFailed:) userInfo:nil repeats:NO];
 }  
+
+- (void)stopReceiveTCP
+{
+    [TCPThread cancel];
+    [TCPThread release];
+    TCPThread = nil;
+    [gFirstView stopActivityIndicator];
+}
 
 - (void)receive_tcp
 {    
@@ -263,16 +280,14 @@
     
     if (!(ClntSock < 0)) {
         close(ClntSock);
-        printf("close ClntSock\n");
+        NSLog(@"close ClntSock");
     }
     if (!(ServSock < 0)) {
         close(ServSock);
-        printf("close ServSock\n");
+        NSLog(@"close ServSock");
     }
-    
-    [TCPThread cancel];
-    [TCPThread release];
-    TCPThread = nil;
+
+    [self stopReceiveTCP];
 }
 
 - (void)tcpParse {

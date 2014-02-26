@@ -17,8 +17,6 @@ extern MInC_FirstView *gFirstView;
 #import "MInC_AQPlayer.h"
 extern MInC_AQPlayer *gAQP;
 
-#import "MInC_SequenceFile.h"
-
 @interface MInC_NetworkMessages ()
 @property (nonatomic, readwrite, retain) NSString       *interstitialMsg;
 @property (nonatomic, readwrite, retain) NSString       *errorMsg;
@@ -62,13 +60,10 @@ union {
 
     [super init];
 
-    MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
-    [seqFile readFromFile:@"TCP.dat"];
-
 	[self sendHeartBeat];
     
-    FirstHeartBeat = YES;
-        
+    HeartBeat_Server_First = YES;
+    
     recMeterValueReceived = NO;
     progressValueReceived = NO;
     
@@ -238,11 +233,14 @@ union {
 					case 3:
 					{
 						gFirstView.ServerIPAddString = [[NSString alloc] initWithCString:self->UDPInBuffer+pos encoding:NSASCIIStringEncoding];
-                        if (FirstHeartBeat)
+                        if (HeartBeat_Server_First)
                         {
-                            [self sendOSCMsg:"/minc/download\0\0":16];
+                            [self sendOSCMsg:"/minc/content\0\0":16];
+                            gAQP->Sequencer_Pri->Seq_Cur = nil;
+                            gAQP->Sequencer_Pri->Seq_Next = nil;
+                            gAQP.SeqNum = 0;
                             [self startReceiveTCP];
-                            FirstHeartBeat = NO;
+                            HeartBeat_Server_First = NO;
                         }
                         break;
 					}
@@ -272,14 +270,10 @@ union {
 - (void)tcpParse {
         
     //NSAutoreleasePool *tcpThreadPool = [[NSAutoreleasePool alloc] init];
-    
-    MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
-    
+
     NSData* data = [NSData dataWithBytes:[self->IncomingDataBuffer bytes] length:[self->IncomingDataBuffer length]];
     
-    [seqFile writeToFile:@"TCP.dat" withData:data];
-    
-    [seqFile readFromFile:@"TCP.dat"];
+    [gAQP setSeqFileData:data];
     
     [self.delegate downloadEnded:self];
     
@@ -315,6 +309,8 @@ union {
 {
     NSLog(@"sendLeave");
     [self sendOSCMsg:"/minc/leave\0":12];
+
+    BypassSend = YES;
 }
 
 @end
