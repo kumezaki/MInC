@@ -17,8 +17,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+//    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
+//    [imgView setImage:[UIImage imageNamed:@"MInC_Logos.png"]];
+    
 	// Do any additional setup after loading the view, typically from a nib
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(flashScreen)];
     singleTap.numberOfTapsRequired = 1;
     singleTap.numberOfTouchesRequired = 1;
     [self.view addGestureRecognizer:singleTap];
@@ -28,6 +32,18 @@
     doubleTap.numberOfTouchesRequired = 1;
     [self.view addGestureRecognizer:doubleTap];
     [singleTap requireGestureRecognizerToFail:doubleTap];
+}
+
+-(void) flashScreen {
+    NSLog(@"Single Tap");
+    UIWindow* wnd = [UIApplication sharedApplication].keyWindow;
+    UIView* v = [[UIView alloc] initWithFrame: CGRectMake(0, 0, wnd.frame.size.width, wnd.frame.size.height)];
+    [wnd addSubview: v];
+    v.backgroundColor = [UIColor whiteColor];
+    [UIView beginAnimations: nil context: nil];
+    [UIView setAnimationDuration: 1.0];
+    v.alpha = 0.0f;
+    [UIView commitAnimations];
 }
 
 - (void)singleTap
