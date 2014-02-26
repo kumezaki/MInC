@@ -25,10 +25,6 @@
 
 	IBOutlet UISegmentedControl	*SpeakerSegControl;
 	IBOutlet UISegmentedControl	*InstrSegControl;
-    
-    IBOutlet UIActivityIndicatorView *ActivityIndicatorView;
-
-    NSTimer*        LoadSeqFileTimer;
 }
 
 @property (readwrite) BOOL NewMod;
@@ -44,7 +40,7 @@
 
 -(IBAction)switchToSettings;
 
--(IBAction)advanceSequence;
+-(IBAction)setSequence;
 
 -(IBAction)set8vbDown:(id)sender;
 -(IBAction)set8vbUp:(id)sender;
@@ -77,8 +73,5 @@
 -(void) createImageArray;
 
 -(void)checkIncomingMessages;
-
--(void)startActivityIndicator;
--(void)stopActivityIndicator;
 
 @end

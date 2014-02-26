@@ -23,9 +23,7 @@
     NSThread		*TCPThread;
     NSMutableData	*IncomingDataBuffer;
     
-    int ServSock, ClntSock; // tcp sockets
-    
-    BOOL BypassSend;
+    int ServSock, ClntSock;// tcp sockets
 }
 
 @property (nonatomic, retain)   NSString    *DevIP;
@@ -42,7 +40,6 @@
 - (void)        receive_udp;
 
 - (void)        startReceiveTCP;
-- (void)        stopReceiveTCP;
 - (void)        receive_tcp;
 
 - (void)        udpParse;

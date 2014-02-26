@@ -57,7 +57,7 @@ extern MInC_FirstView *gFirstView;
 	UIRectFill(CGRectMake(x,y,w,h));
 #endif
 
-#if 0 /* one circle combining touches */
+#if 1 /* one circle combining touches */
 	Float64 w = fabs(X[0] - X[1]);
 	Float64 h = fabs(Y[0] - Y[1]);
 
@@ -95,7 +95,7 @@ extern MInC_FirstView *gFirstView;
 	[self processTouch:touches];
     
     /* temporarily map touchesBegan to advancing sequence here */
-    [gFirstView advanceSequence];
+    [gFirstView setSequence];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
