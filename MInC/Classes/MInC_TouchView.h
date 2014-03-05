@@ -18,6 +18,8 @@
 	Float64     Y[MAX_NUM_TOUCHES];
 	
 	UITouch*	Touch[MAX_NUM_TOUCHES];
+    
+    UIView*     AnimationView;
 }
 
 -(void)processTouch:(NSSet *)touches;

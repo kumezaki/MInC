@@ -29,6 +29,8 @@ extern MInC_FirstView *gFirstView;
 		Y[i] = (0.5 + (i==0?-rad:+rad)) * self.bounds.size.height;
 		Touch[i] = nil;
 	}
+    
+    AnimationView = nil;
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -83,14 +85,23 @@ extern MInC_FirstView *gFirstView;
 }
 
 -(void) flashScreen {
+
     NSLog(@"Flash Screen executed");
-    UIWindow* wnd = [UIApplication sharedApplication].keyWindow;
-    UIView* v = [[UIView alloc] initWithFrame: CGRectMake(0, 0, wnd.frame.size.width, wnd.frame.size.height)];
-    [wnd addSubview: v];
-    v.backgroundColor = [UIColor whiteColor];
+
+    if (AnimationView == nil)
+    {
+        UIWindow* wnd = [UIApplication sharedApplication].keyWindow;
+        AnimationView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, wnd.frame.size.width, wnd.frame.size.height)];
+        AnimationView.backgroundColor = [UIColor whiteColor];
+        [wnd addSubview: AnimationView];
+    }
+    
+    AnimationView.alpha = 1.;
     [UIView beginAnimations: nil context: nil];
+    
     [UIView setAnimationDuration: 1.0];
-    v.alpha = 0.0f;
+    AnimationView.alpha = 0.;
+    
     [UIView commitAnimations];
 }
 
