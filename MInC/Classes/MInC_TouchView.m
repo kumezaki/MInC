@@ -129,9 +129,10 @@ extern MInC_FirstView *gFirstView;
     
     //	for (SInt32 i = 0; i < MAX_NUM_TOUCHES; i++) NSLog(@"Touch[%d] (%f,%f)\n",i,X[i],Y[i]);
     
+#if 0
 	Float64 x = pt.x/self.bounds.size.width;
 	Float64 y = 1. - (pt.y/self.bounds.size.height);
-    
+
 	[gFirstView sendOSC_Filter:x];
     Float64 cutoff_freq = kSR / 2. * (x > 0.9? 0.9 : x); /* 90% is max */
     [gAQP.Biquad biquad_set:LPF :0. :cutoff_freq :kSR :0.5];
@@ -140,6 +141,7 @@ extern MInC_FirstView *gFirstView;
 	[gFirstView sendOSC_Volume:y];
     gAQP->Sequencer_Pri.AmpMultiplier_Control = y;
     NSLog(@"amplitude %f",y);
+#endif
     
     X[0] = X[1] = pt.x;
     Y[0] = Y[1] = pt.y;

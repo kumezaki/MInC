@@ -13,6 +13,9 @@ MInC_ViewController *gViewController = nil;
 #include "MInC_AQPlayer.h"
 extern MInC_AQPlayer *gAQP;
 
+#import "MInC_FirstView.h"
+extern MInC_FirstView *gFirstView;
+
 @implementation MInC_ViewController
 
 @synthesize firstView = _firstView;
@@ -120,7 +123,23 @@ extern MInC_AQPlayer *gAQP;
 	[self.networking sendOSCMsgWithIntValue:"/minc/accX\0\0":12:FLOAT_TO_MRMR_INT(x)];
 	[self.networking sendOSCMsgWithIntValue:"/minc/accY\0\0":12:FLOAT_TO_MRMR_INT(y)];
 	[self.networking sendOSCMsgWithIntValue:"/minc/accZ\0\0":12:FLOAT_TO_MRMR_INT(z)];
+    
+    x = (x + 1.0) / 2.;
+    y = (y + 1.0) / 2.;
 
+    if (gFirstView != nil)
+    {
+        [gFirstView sendOSC_Filter:x];
+        Float64 cutoff_freq = kSR / 2. * (x > 0.9? 0.9 : x); /* 90% is max */
+        gAQP.Biquad.Freq = cutoff_freq;
+//        NSLog(@"cutoff freq %f",cutoff_freq);
+        
+        [gFirstView sendOSC_Volume:y];
+        gAQP->Sequencer_Pri.AmpMultiplier_Control = y;
+//        NSLog(@"amplitude %f",y);
+    }
+
+#if 0
 	// AMPLITUDE
 	// if z is 0 to 0.6 then it is right side up, otherwise it is flipped -> should drop out
     if (gAQP->Sequencer_Pri != nil)
@@ -138,7 +157,8 @@ extern MInC_AQPlayer *gAQP;
         tempo_mult *= 2.;
         gAQP->Sequencer_Pri.TempoMultiplier_Accel = tempo_mult;
     }
-    
+#endif
+
 #if 0
 	NSLog(@"%f %f",x,tempo_mult);
 #endif

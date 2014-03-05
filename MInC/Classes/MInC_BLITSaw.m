@@ -34,13 +34,17 @@
 
     phase_ = theta;
     
-    for (SInt32 i = 0; i < num_frames; i++)
+    Float64 amp_delta = (scale - PrevScale) / (Float64)num_frames;
+    Float64 amp = PrevScale;
+    
+    for (SInt32 i = 0; i < num_frames; i++, amp += amp_delta)
     {
         Float64 s = 0.;
         
         // quick fix to make sure that the frequency is audible before
         // calculating the sample values
-        if (freq > 20) {
+        if (freq > 20.)
+        {
             Float64 denominator = sin( phase_ );
             
             if ( fabs(denominator) <= 1e-12 ) {
@@ -54,17 +58,22 @@
             s += state_ - C2_;
             state_ = s * 0.995;
             
-            buffer[i] += scale * super.Amp * [Env get] * s;
+            buffer[i] += amp * super.Amp * [Env get] * s;
             
             phase_ += rate_;
             if ( phase_ >= M_PI ) phase_ -= M_PI;
         }
-        else {
+        else
+        {
             buffer[i] = 0;
         }
         
         if (++SamplesPlayed >= NumPlaySamples) [self off];
     }
+
+    PrevScale = scale;
+
+    NSLog(@"PrevScale %f",PrevScale);
     
     return phase_;
 }

@@ -33,6 +33,8 @@
     
 	SamplesPlayed = 0;
 	NumPlaySamples = 0;
+    
+    PrevScale = 0.;
 	
 	return self;
 }

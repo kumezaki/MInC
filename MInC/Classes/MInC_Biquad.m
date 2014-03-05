@@ -31,6 +31,12 @@
 
 @implementation MInC_Biquad
 
+@synthesize Type;
+@synthesize DBGain;
+@synthesize Freq;
+@synthesize SRate;
+@synthesize Bandwidth;
+
 -(id)init
 {
     b = malloc(sizeof(biquad));
@@ -64,6 +70,15 @@
 }
 
 -(void) biquad_set:(int)type :(Float64)dbGain :(Float64)freq :(Float64)srate :(Float64)bandwidth
+{
+    Type = type;
+    DBGain = dbGain;
+    Freq = freq;
+    SRate = srate;
+    Bandwidth = bandwidth;
+}
+
+-(void) updateCoeffs:(int)type :(Float64)dbGain :(Float64)freq :(Float64)srate :(Float64)bandwidth;
 {
     if (freq <= 0.) return;
     
@@ -151,9 +166,16 @@
 
 -(void)processAudioBuffer:(Float64*)buffer :(UInt32)num_samples
 {
+    Float64 freq_delta = (Freq - PrevFreq) / (Float64)num_samples;
+    Float64 freq = PrevFreq;
+
     if (b != NULL)
-        for (UInt32 i = 0; i < num_samples; i++)
+        for (UInt32 i = 0; i < num_samples; i++, freq += freq_delta)
+        {
             buffer[i] = [self biquad:buffer[i]];
+        }
+
+    [self updateCoeffs:Type :DBGain :freq :SRate :Bandwidth];
 }
 
 @end

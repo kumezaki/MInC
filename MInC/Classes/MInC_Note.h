@@ -16,6 +16,7 @@
 	MInC_WaveFormTable	*WaveTable;
 	MInC_Envelope		*Env;
     
+    Float64     PrevScale;
 
 @public
 

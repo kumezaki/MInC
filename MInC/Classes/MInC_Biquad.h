@@ -29,11 +29,19 @@ biquad;
 
 @interface MInC_Biquad : NSObject {
     biquad* b;
+    
+    Float64 PrevFreq;
 }
+
+@property (readwrite) int     Type;
+@property (readwrite) Float64 DBGain;
+@property (readwrite) Float64 Freq;
+@property (readwrite) Float64 SRate;
+@property (readwrite) Float64 Bandwidth;
 
 -(smp_type) biquad:(smp_type)sample;
 
--(void) biquad_set:(int)type :(Float64)dbGain :(Float64)freq :(Float64)srate :(Float64)bandwidth;
+-(void) updateCoeffs:(int)type :(Float64)dbGain :(Float64)freq :(Float64)srate :(Float64)bandwidth;
 
 -(void)processAudioBuffer:(Float64*)buffer :(UInt32)num_samples;
 

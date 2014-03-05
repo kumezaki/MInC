@@ -114,7 +114,11 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	SeqNum = 0;
 	
     Biquad = [[MInC_Biquad alloc] init];
-    [gAQP.Biquad biquad_set:LPF :0. :kSR/2.*0.5 :kSR :1.0]; /* 0.5 in freq setting assumes default position of control in touch view */
+    Biquad.Type = LPF;
+    Biquad.DBGain = 0.;
+    Biquad.Freq = kSR/2.*0.5; /* 0.5 in freq setting assumes default position of control in touch view */
+    Biquad.SRate = kSR;
+    Biquad.Bandwidth = 1.0;
 
 	[self start];
 
@@ -408,7 +412,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
             [Biquad processAudioBuffer:buffer :num_frames];
         }
     }
-    
+
+#if 0
     /* secondary sequencer */
     if (Sequencer_Sec != nil)
     {
@@ -418,6 +423,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
             Sequencer_Sec.Theta = [note_sec addSamples:buffer:num_frames:Sequencer_Sec.AmpMultiplier_Control:Sequencer_Sec.Theta];
         }
     }
+#endif
 }
 
 -(void) reportElapsedTime:(Float64)elapsed_time
