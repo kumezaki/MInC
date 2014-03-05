@@ -157,17 +157,6 @@ function anything()
 
 	var i = gPlayers.ip_address.indexOf(ip_add);
 
-	/* change the "leave" OSC address as needed */
-	/* this is a new addition to (a change from) the minc_pm version for SLEO 2012 */
-	if (messagename == "/minc/leave")
-	{
-		if (i == -1)
-			player_wait_leave(ip_add);
-		else
-			player_leave(i);
-		return;
-	}
-
 	if (i == -1)
 	{
 		i = gPlayers.ip_address.indexOf(undefined);

@@ -82,6 +82,18 @@ extern MInC_FirstView *gFirstView;
     [super dealloc];
 }
 
+-(void) flashScreen {
+    NSLog(@"Flash Screen executed");
+    UIWindow* wnd = [UIApplication sharedApplication].keyWindow;
+    UIView* v = [[UIView alloc] initWithFrame: CGRectMake(0, 0, wnd.frame.size.width, wnd.frame.size.height)];
+    [wnd addSubview: v];
+    v.backgroundColor = [UIColor whiteColor];
+    [UIView beginAnimations: nil context: nil];
+    [UIView setAnimationDuration: 1.0];
+    v.alpha = 0.0f;
+    [UIView commitAnimations];
+}
+
 #define TOUCH_ASSIGN(lval,val) { lval = val; NSLog(@"assigning %s to %s\n",#val,#lval); break; }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -95,7 +107,8 @@ extern MInC_FirstView *gFirstView;
 	[self processTouch:touches];
     
     /* temporarily map touchesBegan to advancing sequence here */
-    [gFirstView advanceSequence];
+    [self flashScreen];
+    [gFirstView setSequence];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event

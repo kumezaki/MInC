@@ -55,10 +55,7 @@ MInC_FirstView *gFirstView = nil;
     
 	_InterstitialString = nil;
 	_ServerIPAddString = nil;
-    
-    LoadSeqFileTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:gAQP selector:@selector (loadSeqFile) userInfo:nil repeats:NO];
-    [self startActivityIndicator];
-    
+	
 	[self checkIncomingMessages];
 }
 
@@ -75,7 +72,7 @@ MInC_FirstView *gFirstView = nil;
     [gViewController loadSecondView];
 }
 
--(IBAction)advanceSequence
+-(IBAction)setSequence
 {
 	if (WithServer)
     {
@@ -295,7 +292,7 @@ MInC_FirstView *gFirstView = nil;
     
 	if (_ServerIPAddString != nil)
 	{
-//        gFirstView.WithServer = YES;
+        gFirstView.WithServer = YES;
         
 		[gViewController.networking newServerIPAddress:_ServerIPAddString];
 		
@@ -307,16 +304,6 @@ MInC_FirstView *gFirstView = nil;
 	}
 	
 	[NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkIncomingMessages) userInfo:nil repeats:NO];
-}
-
--(void)startActivityIndicator
-{
-    [ActivityIndicatorView startAnimating];
-}
-
--(void)stopActivityIndicator
-{
-    [ActivityIndicatorView stopAnimating];
 }
 
 @end
