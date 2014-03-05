@@ -57,7 +57,7 @@ extern MInC_FirstView *gFirstView;
 	UIRectFill(CGRectMake(x,y,w,h));
 #endif
 
-#if 1 /* one circle combining touches */
+#if 0 /* one circle combining touches */
 	Float64 w = fabs(X[0] - X[1]);
 	Float64 h = fabs(Y[0] - Y[1]);
 
@@ -82,6 +82,18 @@ extern MInC_FirstView *gFirstView;
     [super dealloc];
 }
 
+-(void) flashScreen {
+    NSLog(@"Flash Screen executed");
+    UIWindow* wnd = [UIApplication sharedApplication].keyWindow;
+    UIView* v = [[UIView alloc] initWithFrame: CGRectMake(0, 0, wnd.frame.size.width, wnd.frame.size.height)];
+    [wnd addSubview: v];
+    v.backgroundColor = [UIColor whiteColor];
+    [UIView beginAnimations: nil context: nil];
+    [UIView setAnimationDuration: 1.0];
+    v.alpha = 0.0f;
+    [UIView commitAnimations];
+}
+
 #define TOUCH_ASSIGN(lval,val) { lval = val; NSLog(@"assigning %s to %s\n",#val,#lval); break; }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -95,6 +107,7 @@ extern MInC_FirstView *gFirstView;
 	[self processTouch:touches];
     
     /* temporarily map touchesBegan to advancing sequence here */
+    [self flashScreen];
     [gFirstView setSequence];
 }
 
