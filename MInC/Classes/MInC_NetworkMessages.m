@@ -237,6 +237,7 @@ union {
 					}
 					case 3:
 					{
+                        /* this is where the heartbeat is received */
 						gFirstView.ServerIPAddString = [[NSString alloc] initWithCString:self->UDPInBuffer+pos encoding:NSASCIIStringEncoding];
                         if (FirstHeartBeat)
                         {
@@ -244,6 +245,7 @@ union {
                             [self startReceiveTCP];
                             FirstHeartBeat = NO;
                         }
+                        [gFirstView heartBeat];
                         break;
 					}
 				}

@@ -25,6 +25,8 @@
 
 	IBOutlet UISegmentedControl	*SpeakerSegControl;
 	IBOutlet UISegmentedControl	*InstrSegControl;
+    
+    IBOutlet UIImageView    *LogoImageView;
 }
 
 @property (readwrite) BOOL NewMod;
@@ -73,5 +75,7 @@
 -(void) createImageArray;
 
 -(void)checkIncomingMessages;
+
+-(void)heartBeat;
 
 @end

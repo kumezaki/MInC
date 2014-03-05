@@ -306,4 +306,9 @@ MInC_FirstView *gFirstView = nil;
 	[NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkIncomingMessages) userInfo:nil repeats:NO];
 }
 
+-(void)heartBeat
+{
+    
+}
+
 @end

@@ -142,15 +142,17 @@ extern MInC_FirstView *gFirstView;
 #if 0
 	// AMPLITUDE
 	// if z is 0 to 0.6 then it is right side up, otherwise it is flipped -> should drop out
-    if (z>0.6) gAQP->Sequencer_Pri.AmpMultiplier_Accel = 0.;
-	else gAQP->Sequencer_Pri.AmpMultiplier_Accel = 0.5;
+    if (gAQP->Sequencer_Pri != nil)
+        gAQP->Sequencer_Pri.AmpMultiplier_Accel = (z > 0.6)? 0. : 0.5;
 
 	// TEMPO
-	Float64 tempo_mult = x * gAQP->Sequencer_Pri.TempoSensitivity;
+    if (gAQP->Sequencer_Pri != nil)
+    {
+        Float64 tempo_mult = x * gAQP->Sequencer_Pri.TempoSensitivity;
 #if 0 /* tilt left for faster; tilt right for slower */
-	tempo_mult = 1.0 - tempo_mult;
+        tempo_mult = 1.0 - tempo_mult;
 #else /* tilt left for slower; tilt right for faster */
-    tempo_mult += 1.0;
+        tempo_mult += 1.0;
 #endif
         tempo_mult *= 2.;
         gAQP->Sequencer_Pri.TempoMultiplier_Accel = tempo_mult;
