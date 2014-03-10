@@ -52,6 +52,9 @@ extern MInC_ViewController *gViewController;
 	NoteSet = [NSSet new];
 	
 	Seq_Next = nil;
+    
+    Amp = 0.;
+    Amp_Delta = 0.;
 
 	return self;
 }
@@ -126,6 +129,16 @@ extern MInC_ViewController *gViewController;
 -(void)setNextSequence:(MInC_Sequence*)seq
 {
 	Seq_Next = seq;
+}
+
+-(Float64)getAmpMultiplier_Accel
+{
+    return Amp;
+}
+
+-(void)setAmpMultiplier_Accel:(Float64)amp
+{
+    AmpMultiplier_Accel = amp;
 }
 
 @end

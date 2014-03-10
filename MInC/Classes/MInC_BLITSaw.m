@@ -34,10 +34,7 @@
 
     phase_ = theta;
     
-    Float64 amp_delta = (scale - PrevScale) / (Float64)num_frames;
-    Float64 amp = PrevScale;
-    
-    for (SInt32 i = 0; i < num_frames; i++, amp += amp_delta)
+    for (SInt32 i = 0; i < num_frames; i++)
     {
         Float64 s = 0.;
         
@@ -58,7 +55,7 @@
             s += state_ - C2_;
             state_ = s * 0.995;
             
-            buffer[i] += amp * super.Amp * [Env get] * s;
+            buffer[i] += scale * super.Amp * [Env get] * s;
             
             phase_ += rate_;
             if ( phase_ >= M_PI ) phase_ -= M_PI;
@@ -70,10 +67,6 @@
         
         if (++SamplesPlayed >= NumPlaySamples) [self off];
     }
-
-    PrevScale = scale;
-
-    NSLog(@"PrevScale %f",PrevScale);
     
     return phase_;
 }

@@ -20,6 +20,9 @@
 	Float64             Theta;
 
 	NSSet               *NoteSet;
+    
+    Float64             Amp_Delta;
+    Float64             Amp;
 
 @public
 

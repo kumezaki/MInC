@@ -130,12 +130,13 @@ extern MInC_FirstView *gFirstView;
     if (gFirstView != nil)
     {
         [gFirstView sendOSC_Filter:x];
-        Float64 cutoff_freq = kSR / 2. * (x > 0.9? 0.9 : x); /* 90% is max */
+        Float64 cutoff_freq = kSR / 2. * (x > 0.9 ? 0.9 : x); /* 90% is max */
         gAQP.Biquad.Freq = cutoff_freq;
 //        NSLog(@"cutoff freq %f",cutoff_freq);
         
         [gFirstView sendOSC_Volume:y];
-        gAQP->Sequencer_Pri.AmpMultiplier_Control = y;
+        Float64 amp = y < 0.05 ? 0.0 : y; /* anything less than 5% goes to -infinity */
+        gAQP->Sequencer_Pri.AmpMultiplier_Accel = amp;
 //        NSLog(@"amplitude %f",y);
     }
 
