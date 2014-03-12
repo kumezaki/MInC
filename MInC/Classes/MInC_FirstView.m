@@ -308,7 +308,14 @@ MInC_FirstView *gFirstView = nil;
 
 -(void)heartBeat
 {
+    LoadAnimation.alpha=0.;
     
+    [UIImageView beginAnimations:nil context:nil];
+    
+    [UIImageView setAnimationDuration:0.5];
+    LoadAnimation.alpha=1.;
+    
+    [UIImageView commitAnimations];
 }
 
 @end
