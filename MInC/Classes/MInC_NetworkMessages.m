@@ -246,7 +246,7 @@ union {
                             FirstHeartBeat = NO;
                         }
                         [gFirstView heartBeat];
-                        break;
+                        break;  
 					}
 				}
 				break;

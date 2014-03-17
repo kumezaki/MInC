@@ -87,7 +87,7 @@ extern MInC_FirstView *gFirstView;
 -(void) flashScreen {
 
     NSLog(@"Flash Screen executed");
-
+    
     if (AnimationView == nil)
     {
         UIWindow* wnd = [UIApplication sharedApplication].keyWindow;

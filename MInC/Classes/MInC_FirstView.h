@@ -26,7 +26,11 @@
 	IBOutlet UISegmentedControl	*SpeakerSegControl;
 	IBOutlet UISegmentedControl	*InstrSegControl;
     
-    IBOutlet UIImageView    *LogoImageView;
+    IBOutlet UIImageView    *LoadAnimation;
+    IBOutlet UIImageView    *LoadImage;
+    
+    IBOutlet UIImageView    *BackgroundView;
+    //IBOutlet UIImageView    *LogoImageView;
 }
 
 @property (readwrite) BOOL NewMod;
@@ -36,6 +40,7 @@
 @property (nonatomic, retain)   IBOutlet UILabel		*StatusLabel;
 
 @property (nonatomic, retain)   NSArray					*ImageArray;
+@property (nonatomic, retain)   NSArray                 *LoadImageArray;
 
 @property (nonatomic, retain)   NSString				*InterstitialString;
 @property (nonatomic, retain)   NSString				*ServerIPAddString;
