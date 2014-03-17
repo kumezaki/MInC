@@ -136,7 +136,7 @@ extern MInC_FirstView *gFirstView;
         
         [gFirstView sendOSC_Volume:y];
         Float64 amp = y < 0.05 ? 0.0 : y; /* anything less than 5% goes to -infinity */
-        gAQP->Sequencer_Pri.AmpMultiplier_Accel = amp;
+        [gAQP->Sequencer_Pri setAmp_Accel:amp];
 //        NSLog(@"amplitude %f",y);
     }
 

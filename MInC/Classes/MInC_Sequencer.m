@@ -18,7 +18,6 @@ extern MInC_ViewController *gViewController;
 
 @synthesize Playing;
 @synthesize SyncWithServer;
-@synthesize AmpMultiplier_Accel;
 @synthesize AmpMultiplier_Control;
 @synthesize TempoMultiplier_Accel;
 @synthesize TempoMultiplier_Control;
@@ -32,13 +31,16 @@ extern MInC_ViewController *gViewController;
 {
 	Playing = NO;
     SyncWithServer = NO;
+    
+	AmpMultiplier_Accel = 0.;
+    AmpMultiplier_Accel_Target = 1.;
+    AmpMultiplier_Accel_Delta = 0.;
 	
 	Seq_Cur = nil;
 	CurTime = 0.;
 	NextEventTime = 0.;
 	TempoMultiplier_Accel = 2.;
 	TempoMultiplier_Control = 1.;
-	AmpMultiplier_Accel = 1.;
 	AmpMultiplier_Control = 1.;
 	DurMultiplier = 1.;
 	
@@ -53,9 +55,6 @@ extern MInC_ViewController *gViewController;
 	
 	Seq_Next = nil;
     
-    Amp = 0.;
-    Amp_Delta = 0.;
-
 	return self;
 }
 
@@ -115,6 +114,20 @@ extern MInC_ViewController *gViewController;
 		/* recompute the next event time */
 		NextEventTime += note.Duration;
     }
+    
+    /* update accelerometer amplitude */
+    AmpMultiplier_Accel += (AmpMultiplier_Accel_Delta * (kSR * elapsed_time));
+    if ((AmpMultiplier_Accel_Delta < 0. && AmpMultiplier_Accel <= AmpMultiplier_Accel_Target)
+        || (AmpMultiplier_Accel_Delta > 0. && AmpMultiplier_Accel >= AmpMultiplier_Accel_Target))
+    {
+        AmpMultiplier_Accel = AmpMultiplier_Accel_Target;
+        AmpMultiplier_Accel_Delta = 0.;
+    }
+}
+
+-(void)setNextSequence:(MInC_Sequence*)seq
+{
+	Seq_Next = seq;
 }
 
 -(MInC_Note*)getNote;
@@ -126,19 +139,22 @@ extern MInC_ViewController *gViewController;
 	return [Seq_Cur getNote];
 }
 
--(void)setNextSequence:(MInC_Sequence*)seq
+-(Float64)getAmp
 {
-	Seq_Next = seq;
+//    NSLog(@"AmpMultiplier_Accel %f",AmpMultiplier_Accel);
+    return AmpMultiplier_Control* AmpMultiplier_Accel;
 }
 
--(Float64)getAmpMultiplier_Accel
+-(void)setAmp_Accel:(Float64)amp
 {
-    return Amp;
-}
-
--(void)setAmpMultiplier_Accel:(Float64)amp
-{
-    AmpMultiplier_Accel = amp;
+    AmpMultiplier_Accel_Target = amp;
+    
+    const Float64 amp_dif = AmpMultiplier_Accel_Target - AmpMultiplier_Accel;
+    const Float64 dur_seconds = 0.1;
+    const Float64 dur_samples = kSR * dur_seconds;
+    AmpMultiplier_Accel_Delta = amp_dif / dur_samples;
+    
+//    NSLog(@"amp %f, target %f, delta %f",AmpMultiplier_Accel, AmpMultiplier_Accel_Target,AmpMultiplier_Accel_Delta);
 }
 
 @end

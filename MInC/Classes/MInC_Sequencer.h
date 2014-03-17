@@ -21,9 +21,10 @@
 
 	NSSet               *NoteSet;
     
-    Float64             Amp_Delta;
-    Float64             Amp;
-
+    Float64             AmpMultiplier_Accel;
+    Float64             AmpMultiplier_Accel_Target;
+    Float64             AmpMultiplier_Accel_Delta;
+    
 @public
 
 	MInC_Sequence		*Seq_Cur;
@@ -36,7 +37,6 @@
 @property (readonly)    BOOL    Playing;
 @property (readwrite)   BOOL    SyncWithServer;
 
-@property (nonatomic,readwrite) Float64 AmpMultiplier_Accel;
 @property (nonatomic,readwrite) Float64 AmpMultiplier_Control;
 @property (nonatomic,readwrite) Float64 TempoMultiplier_Accel;
 @property (nonatomic,readwrite) Float64 TempoMultiplier_Control;
@@ -52,8 +52,11 @@
 
 -(void)update:(Float64)elapsed_time;
 
+-(void)setNextSequence:(MInC_Sequence*)seq;
+
 -(MInC_Note*)getNote;
 
--(void)setNextSequence:(MInC_Sequence*)seq;
+-(Float64)getAmp;
+-(void)setAmp_Accel:(Float64)amp;
 
 @end

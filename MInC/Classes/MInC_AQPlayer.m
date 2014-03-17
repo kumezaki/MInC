@@ -385,7 +385,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	MInC_Note* note_pri = [Sequencer_Pri getNote];
 	if (note_pri != nil)
     {
-		Sequencer_Pri.Theta = [note_pri addSamples:buffer:num_frames:Sequencer_Pri.AmpMultiplier_Control*Sequencer_Pri.AmpMultiplier_Accel:Sequencer_Pri.Theta];
+		Sequencer_Pri.Theta = [note_pri addSamples:buffer:num_frames:[Sequencer_Pri getAmp]:Sequencer_Pri.Theta];
 //        [Biquad processAudioBuffer:buffer :num_frames];
     }
 
@@ -394,7 +394,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	MInC_Note* note_sec = [Sequencer_Sec getNote];
 	if (note_sec != nil)
     {
-		Sequencer_Sec.Theta = [note_sec addSamples:buffer:num_frames:Sequencer_Sec.AmpMultiplier_Control:Sequencer_Sec.Theta];
+		Sequencer_Sec.Theta = [note_sec addSamples:buffer:num_frames:[Sequencer_Sec getAmp]:Sequencer_Sec.Theta];
     }
 #endif
 }
