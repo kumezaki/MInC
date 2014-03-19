@@ -35,7 +35,11 @@ extern MInC_ViewController *gViewController;
 	AmpMultiplier_Accel = 0.;
     AmpMultiplier_Accel_Target = 1.;
     AmpMultiplier_Accel_Delta = 0.;
-	
+
+    CutoffFreq_Accel = 0.;
+    CutoffFreq_Accel_Target = (kSR/2.)*0.9;
+    CutoffFreq_Accel_Delta = 0.;
+
 	Seq_Cur = nil;
 	CurTime = 0.;
 	NextEventTime = 0.;
@@ -123,6 +127,15 @@ extern MInC_ViewController *gViewController;
         AmpMultiplier_Accel = AmpMultiplier_Accel_Target;
         AmpMultiplier_Accel_Delta = 0.;
     }
+
+    /* update accelerometer cutoff frequency */
+    CutoffFreq_Accel += (CutoffFreq_Accel_Delta * (kSR * elapsed_time));
+    if ((CutoffFreq_Accel_Delta < 0. && CutoffFreq_Accel <= CutoffFreq_Accel_Target)
+        || (CutoffFreq_Accel_Delta > 0. && CutoffFreq_Accel >= CutoffFreq_Accel_Target))
+    {
+        CutoffFreq_Accel = CutoffFreq_Accel_Target;
+        CutoffFreq_Accel_Delta = 0.;
+    }
 }
 
 -(void)setNextSequence:(MInC_Sequence*)seq
@@ -149,12 +162,27 @@ extern MInC_ViewController *gViewController;
 {
     AmpMultiplier_Accel_Target = amp;
     
-    const Float64 amp_dif = AmpMultiplier_Accel_Target - AmpMultiplier_Accel;
+    const Float64 val_dif = AmpMultiplier_Accel_Target - AmpMultiplier_Accel;
     const Float64 dur_seconds = 0.1;
     const Float64 dur_samples = kSR * dur_seconds;
-    AmpMultiplier_Accel_Delta = amp_dif / dur_samples;
+    AmpMultiplier_Accel_Delta = val_dif / dur_samples;
     
 //    NSLog(@"amp %f, target %f, delta %f",AmpMultiplier_Accel, AmpMultiplier_Accel_Target,AmpMultiplier_Accel_Delta);
+}
+
+-(Float64)getCutoffFreq
+{
+    return CutoffFreq_Accel;
+}
+
+-(void)setCutoffFreq_Accel:(Float64)cutoff_freq
+{
+    CutoffFreq_Accel_Target = cutoff_freq;
+    
+    const Float64 val_dif = CutoffFreq_Accel_Target - CutoffFreq_Accel;
+    const Float64 dur_seconds = 0.1;
+    const Float64 dur_samples = kSR * dur_seconds;
+    CutoffFreq_Accel_Delta = val_dif / dur_samples;
 }
 
 @end

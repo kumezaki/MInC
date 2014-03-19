@@ -131,7 +131,7 @@ extern MInC_FirstView *gFirstView;
     {
         [gFirstView sendOSC_Filter:x];
         Float64 cutoff_freq = kSR / 2. * (x > 0.9 ? 0.9 : x); /* 90% is max */
-        gAQP.Biquad.Freq = cutoff_freq;
+        [gAQP->Sequencer_Pri setCutoffFreq_Accel:cutoff_freq];
 //        NSLog(@"cutoff freq %f",cutoff_freq);
         
         [gFirstView sendOSC_Volume:y];

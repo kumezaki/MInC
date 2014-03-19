@@ -24,7 +24,11 @@
     Float64             AmpMultiplier_Accel;
     Float64             AmpMultiplier_Accel_Target;
     Float64             AmpMultiplier_Accel_Delta;
-    
+
+    Float64             CutoffFreq_Accel;
+    Float64             CutoffFreq_Accel_Target;
+    Float64             CutoffFreq_Accel_Delta;
+
 @public
 
 	MInC_Sequence		*Seq_Cur;
@@ -58,5 +62,8 @@
 
 -(Float64)getAmp;
 -(void)setAmp_Accel:(Float64)amp;
+
+-(Float64)getCutoffFreq;
+-(void)setCutoffFreq_Accel:(Float64)cutoff_freq;
 
 @end

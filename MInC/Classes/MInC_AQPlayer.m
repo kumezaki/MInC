@@ -386,7 +386,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	if (note_pri != nil)
     {
 		Sequencer_Pri.Theta = [note_pri addSamples:buffer:num_frames:[Sequencer_Pri getAmp]:Sequencer_Pri.Theta];
-//        [Biquad processAudioBuffer:buffer :num_frames];
+
+        Biquad.Freq = [Sequencer_Pri getCutoffFreq];
+        [Biquad processAudioBuffer:buffer :num_frames];
     }
 
 #if 0
