@@ -14,6 +14,8 @@
 #import "MInC_FirstView.h"
 extern MInC_FirstView *gFirstView;
 
+#import "MInC_TouchView.h"
+
 #import "MInC_AQPlayer.h"
 extern MInC_AQPlayer *gAQP;
 

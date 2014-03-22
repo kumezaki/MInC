@@ -27,12 +27,11 @@
 	IBOutlet UISegmentedControl	*InstrSegControl;
     
     IBOutlet UIImageView    *LoadAnimation;
-    IBOutlet UIImageView    *LoadImage;
     
     IBOutlet UIImageView    *BackgroundView;
+    
     //IBOutlet UIImageView    *LogoImageView;
 }
-
 @property (readwrite) BOOL NewMod;
 @property (readwrite) BOOL WithServer;
 

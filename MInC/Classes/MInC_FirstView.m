@@ -57,6 +57,9 @@ MInC_FirstView *gFirstView = nil;
 	_ServerIPAddString = nil;
 	
 	[self checkIncomingMessages];
+    
+    LoadAnimation = nil;
+    
 }
 
 - (void)dealloc
@@ -306,16 +309,36 @@ MInC_FirstView *gFirstView = nil;
 	[NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkIncomingMessages) userInfo:nil repeats:NO];
 }
 
+
+
 -(void)heartBeat
 {
-    LoadAnimation.alpha=0.;
+    NSLog(@"heartbeat");
+    
+//    if (LoadAnimation == nil)
+//    {
+//        UIWindow* wnd = [UIApplication sharedApplication].keyWindow;
+//        
+//        UIImage *testImg;
+//        testImg = [UIImage imageNamed:@"terry-riley_in-C_01_start.png"];
+//        
+//        LoadAnimation = [[UIImageView alloc] initWithImage:testImg];
+//
+//        [wnd addSubview: LoadAnimation];
+//    }
+    
+    
+    //Working Code for gray to textured logo
+    LoadAnimation.alpha = 1.;
     
     [UIImageView beginAnimations:nil context:nil];
+    [UIImageView setAnimationDuration:3.0];
     
-    [UIImageView setAnimationDuration:0.5];
-    LoadAnimation.alpha=1.;
+    LoadAnimation.alpha=0.;
     
     [UIImageView commitAnimations];
+    
 }
+
 
 @end
