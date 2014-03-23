@@ -34,7 +34,7 @@ MInC_AQPlayer *gAQP = nil;
 
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
 {
-    MInC_AQPlayer *aqp = (MInC_AQPlayer *)inUserData;
+    MInC_AQPlayer *aqp = (__bridge MInC_AQPlayer *)inUserData;
 	
 	const SInt32 numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
 
@@ -75,19 +75,19 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	[Sequencer_Pri stop];
 	[self stop];
 	
-	for (SInt32 i = 0; i < NumSequences; i++)
-		[Sequences[i] release];
+//	for (SInt32 i = 0; i < NumSequences; i++)
+//		[Sequences[i] release];
 	
-	[Sequencer_Pri release];
+//	[Sequencer_Pri release];
     
-    [Biquad release];
+//    [Biquad release];
 		
-	[super dealloc];
+//	[super dealloc];
 }
 
 - (id)init
 {
-	[super init];
+	self = [super init];
 	
 	gAQP = self;
     
@@ -131,7 +131,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	DataFormat.mBytesPerPacket = sizeof(SInt16);
 	DataFormat.mBytesPerFrame = sizeof(SInt16);
 
-    OSStatus result = AudioQueueNewOutput(&DataFormat, AQBufferCallback, self, nil, nil, 0, &Queue);
+    OSStatus result = AudioQueueNewOutput(&DataFormat, AQBufferCallback, (__bridge void *)(self), nil, nil, 0, &Queue);
 	
 	if (result != noErr)
 		NSLog(@"AudioQueueNewOutput %ld\n",result);
@@ -154,7 +154,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     
     /* prime the queue with some data before starting */
     for (SInt32 i = 0; i < kNumberBuffers; ++i)
-        AQBufferCallback(self, Queue, Buffers[i]);            
+        AQBufferCallback((__bridge void *)(self), Queue, Buffers[i]);
 	
     result = AudioQueueStart(Queue, nil);
 		
@@ -184,12 +184,12 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	if (seq_pos >= 0 && seq_pos < 53)
 	{
-        MInC_Sequence* old_seq = Sequences[seq_pos];
+//        MInC_Sequence* old_seq = Sequences[seq_pos];
         
 		Sequences[seq_pos] = seq;
         
-        if (old_seq != nil)
-            [old_seq release];
+//        if (old_seq != nil)
+//            [old_seq release];
         
         NumSequences = seq_pos + 1;
 	}

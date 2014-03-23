@@ -19,7 +19,7 @@
 
 -(id)init
 {
-	[super init];
+	self = [super init];
 
 	self.Duration = 0.;
 	
@@ -39,9 +39,9 @@
 
 -(void)dealloc
 {
-	[Env release];
+//	[Env release];
 
-	[super dealloc];
+//	[super dealloc];
 }
 
 +(Float64) mtof:(Float64)midi_note

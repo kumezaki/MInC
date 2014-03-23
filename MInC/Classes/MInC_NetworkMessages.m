@@ -60,7 +60,7 @@ union {
 
 - (id)init {
 
-    [super init];
+    self = [super init];
 
     MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
     [seqFile readFromFile:@"TCP.dat"];
@@ -78,14 +78,14 @@ union {
 - (void)dealloc {
     
 //    [_aqPlayer              release];
-    [_interstitialMsg       release];
-    [_errorMsg              release];
-    [_recProgress           release];
-    [_msgDictionary         release];
-    [_playingMeterValue     release];
-    [_recordingMeterValue   release];
+//    [_interstitialMsg       release];
+//    [_errorMsg              release];
+//    [_recProgress           release];
+//    [_msgDictionary         release];
+//    [_playingMeterValue     release];
+//    [_recordingMeterValue   release];
     
-    [super dealloc];
+//    [super dealloc];
 }
 
 #pragma mark - getter/setter overrides
@@ -100,8 +100,8 @@ union {
 - (void)setInterstitialMsg:(NSString *)interstitialMsg
 {
     if (![_interstitialMsg isEqualToString:interstitialMsg]) {
-        [_interstitialMsg release];
-        _interstitialMsg = [interstitialMsg retain];
+//        [_interstitialMsg release];
+//        _interstitialMsg = [interstitialMsg retain];
         [self.delegate displayInterstitialMessage:self];
     }
 }
@@ -109,8 +109,8 @@ union {
 - (void)setProgressValue:(NSNumber *)recProgress
 {
     if (![_recProgress isEqualToNumber:recProgress]) {
-        [_recProgress release];
-        _recProgress = [recProgress retain];
+//        [_recProgress release];
+//        _recProgress = [recProgress retain];
         [self.delegate displayServerRecordProgress:self:nil];
 
         /* enable server play/stop/download buttons if we're receiving progress values */
@@ -129,8 +129,8 @@ union {
 - (void)setPlayingMeterValue:(NSNumber *)playingMeterValue{
     
     if (![_playingMeterValue isEqualToNumber:playingMeterValue]) {
-        [_playingMeterValue release];
-        _playingMeterValue = [playingMeterValue retain];
+//        [_playingMeterValue release];
+//        _playingMeterValue = [playingMeterValue retain];
         [self.delegate displayServerPlayingMeterValue:self:nil];
     }
 }
@@ -138,8 +138,8 @@ union {
 - (void)setRecordingMeterValue:(NSNumber *)recordingMeterValue {
     
     if (![_recordingMeterValue isEqualToNumber:recordingMeterValue]) {
-        [_recordingMeterValue release];
-        _recordingMeterValue = [recordingMeterValue retain];
+//        [_recordingMeterValue release];
+//        _recordingMeterValue = [recordingMeterValue retain];
         [self.delegate displayServerRecordingMeterValue:self :nil];
         
         /* enable server record button if we're receiving record meter values */
@@ -168,7 +168,6 @@ union {
 
 -(void)sendOSCMsgWithIntValue:(const char*)osc_str :(int)osc_str_length :(int)val
 {
-    // printf("sendOSCMsgWithIntValue\n");
 	char buf[128]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",si\0",4);
 	val = htonl(val);
 	
@@ -195,8 +194,8 @@ union {
 #pragma mark- UDP & TCP message parsing
 - (void)udpParse
 {
-	NSLog(@"self->UDPInBufferLength: %ld",self->UDPInBufferLength);
-    NSLog(@"self->UDPInBuffer: %s",self->UDPInBuffer);
+//	NSLog(@"self->UDPInBufferLength: %ld",self->UDPInBufferLength);
+//  NSLog(@"self->UDPInBuffer: %s",self->UDPInBuffer);
     
 //    NSAutoreleasePool *udpThreadPool = [[NSAutoreleasePool alloc] init];
 
@@ -230,7 +229,7 @@ union {
 						int int_val;
 						memcpy(&int_val,self->UDPInBuffer+pos,4);
 						int_val = htonl(int_val);
-						printf("mod number %d\n",int_val);
+//						NSLog(@"mod number %d",int_val);
 						[gAQP setSequence:int_val];
 						gFirstView.NewMod = YES;
 						break;
@@ -309,13 +308,13 @@ union {
 #pragma mark- join/leave messages
 -(void)sendJoin
 {
-    NSLog(@"sendJoin");
+//    NSLog(@"sendJoin");
     [self sendOSCMsg:"/minc/join\0\0":12];
 }
 
 -(void)sendLeave
 {
-    NSLog(@"sendLeave");
+//    NSLog(@"sendLeave");
     [self sendOSCMsg:"/minc/leave\0":12];
 }
 

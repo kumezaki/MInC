@@ -23,7 +23,7 @@ function reset()
 
 function anything()
 {
-	post(messagename,arguments[0],arguments[1],"\n");
+//	post(messagename,arguments[0],arguments[1],"\n");
  
     var ip_add = arguments[0];
     
@@ -43,7 +43,7 @@ function anything()
 
 function do_msg(osc_add,pos,val)
 {
-    post(osc_add+"\n");
+//    post(osc_add+"\n");
 
     if (osc_add == "/download")
         osc_msg_download(pos);

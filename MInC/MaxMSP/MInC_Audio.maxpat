@@ -3,11 +3,12 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 6,
-			"minor" : 0,
-			"revision" : 8
+			"minor" : 1,
+			"revision" : 6,
+			"architecture" : "x86"
 		}
 ,
-		"rect" : [ 412.0, 210.0, 955.0, 604.0 ],
+		"rect" : [ 88.0, 183.0, 1016.0, 679.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -53,7 +54,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 456.5, 507.0, 107.0, 66.0 ],
+					"patching_rect" : [ 456.5, 507.0, 109.0, 66.0 ],
 					"text" : "make sure to stop shell script before closing patch",
 					"textcolor" : [ 1.0, 0.0, 0.0, 1.0 ]
 				}
@@ -118,7 +119,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 512.5, 369.0, 60.0, 20.0 ],
+					"patching_rect" : [ 577.5, 355.0, 60.0, 20.0 ],
 					"text" : "loadbang"
 				}
 
@@ -221,7 +222,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 512.5, 431.0, 34.0, 18.0 ],
+					"patching_rect" : [ 511.5, 431.0, 34.0, 18.0 ],
 					"text" : "path"
 				}
 
@@ -261,7 +262,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 0,
 					"numoutlets" : 0,
-					"patching_rect" : [ 685.0, 522.0, 107.0, 20.0 ],
+					"patching_rect" : [ 845.0, 479.0, 107.0, 20.0 ],
 					"text" : "ForZeroDownload"
 				}
 
@@ -277,13 +278,13 @@
 					"patching_rect" : [ 333.0, 443.0, 48.0, 136.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_type" : 0,
-							"parameter_shortname" : "live.gain~",
 							"parameter_longname" : "live.gain~[1]",
-							"parameter_unitstyle" : 4,
-							"parameter_mmax" : 6.0,
+							"parameter_shortname" : "live.gain~",
+							"parameter_type" : 0,
 							"parameter_mmin" : -70.0,
-							"parameter_initial" : [ 0.0 ]
+							"parameter_mmax" : 6.0,
+							"parameter_initial" : [ 0.0 ],
+							"parameter_unitstyle" : 4
 						}
 
 					}
@@ -303,13 +304,13 @@
 					"patching_rect" : [ 230.5, 443.0, 48.0, 136.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_type" : 0,
-							"parameter_shortname" : "live.gain~",
 							"parameter_longname" : "live.gain~",
-							"parameter_unitstyle" : 4,
-							"parameter_mmax" : 6.0,
+							"parameter_shortname" : "live.gain~",
+							"parameter_type" : 0,
 							"parameter_mmin" : -70.0,
-							"parameter_initial" : [ 0.0 ]
+							"parameter_mmax" : 6.0,
+							"parameter_initial" : [ 0.0 ],
+							"parameter_unitstyle" : 4
 						}
 
 					}
@@ -326,7 +327,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 0,
 					"numoutlets" : 0,
-					"patching_rect" : [ 680.0, 408.0, 127.0, 20.0 ],
+					"patching_rect" : [ 845.0, 443.0, 127.0, 20.0 ],
 					"text" : "MInC_SetSearchPath"
 				}
 
@@ -341,7 +342,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 658.0, 321.0, 156.0, 60.0 ],
+					"patching_rect" : [ 657.0, 308.0, 156.0, 60.0 ],
 					"text" : "<- select the device's position number to set the sequence file prefix for the device"
 				}
 
@@ -356,7 +357,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 592.0, 319.0, 50.0, 20.0 ]
+					"patching_rect" : [ 591.0, 306.0, 50.0, 20.0 ]
 				}
 
 			}
@@ -370,7 +371,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 532.0, 319.0, 50.0, 20.0 ]
+					"patching_rect" : [ 531.0, 306.0, 50.0, 20.0 ]
 				}
 
 			}
@@ -383,7 +384,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 592.0, 343.0, 57.0, 18.0 ],
+					"patching_rect" : [ 591.0, 330.0, 57.0, 18.0 ],
 					"text" : "$1 PP2_"
 				}
 
@@ -398,7 +399,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 465.0, 319.0, 50.0, 20.0 ]
+					"patching_rect" : [ 464.0, 306.0, 50.0, 20.0 ]
 				}
 
 			}
@@ -411,7 +412,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 532.0, 343.0, 57.0, 18.0 ],
+					"patching_rect" : [ 531.0, 330.0, 57.0, 18.0 ],
 					"text" : "$1 PP1_"
 				}
 
@@ -425,7 +426,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 465.0, 344.0, 35.0, 18.0 ],
+					"patching_rect" : [ 464.0, 331.0, 35.0, 18.0 ],
 					"text" : "$1 A"
 				}
 
@@ -438,7 +439,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 465.0, 393.0, 68.0, 20.0 ],
+					"patching_rect" : [ 464.0, 380.0, 68.0, 20.0 ],
 					"text" : "s osc_msg"
 				}
 
@@ -452,7 +453,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 465.0, 368.0, 96.0, 18.0 ],
+					"patching_rect" : [ 464.0, 355.0, 96.0, 18.0 ],
 					"text" : "set_prefix $1 $2"
 				}
 
@@ -1576,14 +1577,14 @@
 		"dependency_cache" : [ 			{
 				"name" : "MInC.js",
 				"bootpath" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/MInC/MaxMSP",
-				"patcherrelativepath" : "",
+				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "MInC_Synth_Poly.maxpat",
 				"bootpath" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/MInC/MaxMSP",
-				"patcherrelativepath" : "",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
@@ -1625,21 +1626,21 @@
 , 			{
 				"name" : "MInC_SetSearchPath.maxpat",
 				"bootpath" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/MInC/MaxMSP",
-				"patcherrelativepath" : "",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "ForZeroDownload.maxpat",
 				"bootpath" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/MInC/MaxMSP",
-				"patcherrelativepath" : "",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "MInC_ForZero.js",
 				"bootpath" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/MInC/MaxMSP",
-				"patcherrelativepath" : "",
+				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}

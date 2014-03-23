@@ -15,7 +15,7 @@
 
 -(id)init
 {
-	[super init];
+	self = [super init];
 	
 	for (SInt32 i = 0; i < kMaxNumNotes; i++)
 		Notes[i] = [[MInC_BLITSaw alloc] init];
@@ -29,10 +29,8 @@
 
 -(void)dealloc
 {
-	for (SInt32 i = 0; i < kMaxNumNotes; i++)
-		[Notes[i] release];
-	
-	[super dealloc];
+//	for (SInt32 i = 0; i < kMaxNumNotes; i++)
+//		[Notes[i] release];
 }
 
 -(void)assignNotes:(SInt32)num_notes :(Float64*)notes :(Float64*)durations
@@ -43,7 +41,7 @@
 //		Notes[i].Freq = notes[i] < 0 ? 0. : [MInC_Note mtof:notes[i]]; // note number of -1 means rest
         Notes[i].MIDINote = notes[i]; // note number of -1 means rest
 		Notes[i].Duration = durations[i];
-        NSLog(@"%f %f",Notes[i].MIDINote,Notes[i].Duration);
+//        NSLog(@"%f %f",Notes[i].MIDINote,Notes[i].Duration);
 	}
 }
 

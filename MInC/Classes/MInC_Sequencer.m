@@ -64,10 +64,10 @@ extern MInC_ViewController *gViewController;
 
 - (void) dealloc
 {
- 	[WaveTable release];
-	[NoteSet release];
+// 	[WaveTable release];
+//	[NoteSet release];
 
-	[super dealloc];
+//	[super dealloc];
 }
 
 

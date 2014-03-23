@@ -30,7 +30,7 @@
 
 - (id)init
 {
-	[super init];
+	self = [super init];
 
     if ([self dataFileExists]) {
         [self readDataFile];
@@ -44,10 +44,12 @@
     self.DevIP = [self getIPAddress];//self.DevIP is simply for storing the device IP 4 others to access. 
 	[self.DevIP getCString:IPAddBuf maxLength:32 encoding:NSASCIIStringEncoding];
 	IPAddSize = (strlen(IPAddBuf) / 4 + 1) * 4;
-	NSLog(@"%s\n",IPAddBuf);
+	NSLog(@"DeviceIPAddress %s\n",IPAddBuf);
 
 	UDPReceivePortNum = 31337;
     TCPReceivePortNum = 41337;
+	NSLog(@"UDPReceivePortNum %d\n",UDPReceivePortNum);
+	NSLog(@"TCPReceivePortNum %d\n",TCPReceivePortNum);
 
     IncomingDataBuffer = [[NSMutableData alloc]init];
     
@@ -67,12 +69,12 @@
     if ([self.TCPTimer isValid]) {
         [self.TCPTimer invalidate];
     }
-    [IncomingDataBuffer release];
+//    [IncomingDataBuffer release];
 
     //    [TCPThread release];
-	[UDPThread release];
-    [_devIP release];
-	[super dealloc];
+//	[UDPThread release];
+//    [_devIP release];
+//	[super dealloc];
 }
 	
 - (NSString *)getIPAddress
@@ -160,7 +162,7 @@
 
 -(void)receive_udp
 {
-    printf("receive_udp started\n");
+//  NSLog(@"receive_udp started");
 	int sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	struct sockaddr_in sa; 
 	socklen_t fromlen;
@@ -263,15 +265,15 @@
     
     if (!(ClntSock < 0)) {
         close(ClntSock);
-        printf("close ClntSock\n");
+        NSLog(@"close ClntSock");
     }
     if (!(ServSock < 0)) {
         close(ServSock);
-        printf("close ServSock\n");
+        NSLog(@"close ServSock");
     }
     
     [TCPThread cancel];
-    [TCPThread release];
+//    [TCPThread release];
     TCPThread = nil;
 }
 
@@ -304,7 +306,7 @@
 	NSString *docDirectory = [paths objectAtIndex:0];
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	bool file_exists = [fileManager fileExistsAtPath:[docDirectory stringByAppendingPathComponent:@"MInC.dat"]];
-	NSLog(file_exists?@"exists":@"does not exist");
+//	NSLog(file_exists?@"exists":@"does not exist");
 #if 0
 	if ([fileManager removeItemAtPath:[docDirectory stringByAppendingPathComponent:@"MInC.dat"] error:NULL])
         NSLog(@"MInC.dat removed!!!");
@@ -320,7 +322,8 @@
     // NSLog(@"%@",[self dataFilePath]);
 	self.SendIPAddress = [[dict valueForKey:@"server_ip_address"] unsignedIntValue];
 	self.SendPortNum = [[dict valueForKey:@"server_port_num"] unsignedIntValue];
-	NSLog(@"%lu %d",self.SendIPAddress,self.SendPortNum);
+	NSLog(@"SendIPAddress %lu",self.SendIPAddress);
+	NSLog(@"SendPortNum %d",self.SendPortNum);
 }
 
 -(void)writeDataFile
@@ -329,7 +332,7 @@
 	[dict setValue:[NSNumber numberWithUnsignedInt:self.SendIPAddress] forKey:@"server_ip_address"];
 	[dict setValue:[NSNumber numberWithUnsignedInt:self.SendPortNum] forKey:@"server_port_num"];
 	[dict writeToFile:[MInC_NetworkConnections dataFilePath] atomically:YES];
-	[dict release];
+//	[dict release];
 }
 
 

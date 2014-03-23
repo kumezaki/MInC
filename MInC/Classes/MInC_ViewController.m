@@ -85,7 +85,7 @@ extern MInC_FirstView *gFirstView;
 
 
 - (void)dealloc {
-    [super dealloc];
+//    [super dealloc];
 }
 
 -(void) removeSubviews

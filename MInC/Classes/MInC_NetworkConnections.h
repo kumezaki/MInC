@@ -29,8 +29,8 @@
 @property (nonatomic, retain)   NSString    *DevIP;
 @property (nonatomic)           UInt32      SendIPAddress;
 @property (nonatomic)           SInt16      SendPortNum;
-@property (nonatomic)           SInt16      UDPReceivePortNum;
-@property (nonatomic)           SInt16      TCPReceivePortNum;
+@property (nonatomic)           UInt16      UDPReceivePortNum;
+@property (nonatomic)           UInt16      TCPReceivePortNum;
 @property (nonatomic, retain)   NSTimer     *TCPTimer;
 
 - (NSString *)  getIPAddress;

@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		21339CD718DDFB390048FCFD /* MInC_WaveFormTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 21339CD618DDFB390048FCFD /* MInC_WaveFormTable.m */; };
+		21D2D35318DC96A300E8CAEC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D2D35218DC96A300E8CAEC /* Foundation.framework */; };
+		21D2D35518DC96A300E8CAEC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D2D35418DC96A300E8CAEC /* CoreGraphics.framework */; };
+		21D2D35718DC96A300E8CAEC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D2D35618DC96A300E8CAEC /* UIKit.framework */; };
+		21D2D35D18DC96A300E8CAEC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21D2D35B18DC96A300E8CAEC /* InfoPlist.strings */; };
+		21D2D35F18DC96A300E8CAEC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D2D35E18DC96A300E8CAEC /* main.m */; };
+		21D2D36318DC96A300E8CAEC /* MInC_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D2D36218DC96A300E8CAEC /* MInC_AppDelegate.m */; };
+		21D2D36618DC96A300E8CAEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D2D36418DC96A300E8CAEC /* Main.storyboard */; };
+		21D2D36B18DC96A300E8CAEC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D2D36A18DC96A300E8CAEC /* Images.xcassets */; };
+		21D2D37218DC96A300E8CAEC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D2D37118DC96A300E8CAEC /* XCTest.framework */; };
+		21D2D37318DC96A300E8CAEC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D2D35218DC96A300E8CAEC /* Foundation.framework */; };
+		21D2D37418DC96A300E8CAEC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D2D35618DC96A300E8CAEC /* UIKit.framework */; };
+		21D2D37C18DC96A300E8CAEC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21D2D37A18DC96A300E8CAEC /* InfoPlist.strings */; };
+		21D2D37E18DC96A300E8CAEC /* MInCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D2D37D18DC96A300E8CAEC /* MInCTests.m */; };
+		21DC641F18DDDAB2004C226F /* MInC_ADSR.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC63EE18DDDAB2004C226F /* MInC_ADSR.m */; };
+		21DC642118DDDAB2004C226F /* MInC_AQPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC63F218DDDAB2004C226F /* MInC_AQPlayer.m */; };
+		21DC642218DDDAB2004C226F /* MInC_Biquad.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC63F418DDDAB2004C226F /* MInC_Biquad.m */; };
+		21DC642318DDDAB2004C226F /* MInC_BLIT.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC63F618DDDAB2004C226F /* MInC_BLIT.m */; };
+		21DC642418DDDAB2004C226F /* MInC_BLITSaw.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC63F818DDDAB2004C226F /* MInC_BLITSaw.m */; };
+		21DC642518DDDAB2004C226F /* MInC_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC63FA18DDDAB2004C226F /* MInC_Constants.m */; };
+		21DC642618DDDAB2004C226F /* MInC_Envelope.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC63FD18DDDAB2004C226F /* MInC_Envelope.m */; };
+		21DC642718DDDAB2004C226F /* MInC_FirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC63FF18DDDAB2004C226F /* MInC_FirstView.m */; };
+		21DC642818DDDAB2004C226F /* MInC_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC640118DDDAB2004C226F /* MInC_ImageView.m */; };
+		21DC642918DDDAB2004C226F /* MInC_NetworkConnections.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC640318DDDAB2004C226F /* MInC_NetworkConnections.m */; };
+		21DC642A18DDDAB2004C226F /* MInC_NetworkMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC640518DDDAB2004C226F /* MInC_NetworkMessages.m */; };
+		21DC642B18DDDAB2004C226F /* MInC_Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC640718DDDAB2004C226F /* MInC_Note.m */; };
+		21DC642C18DDDAB2004C226F /* MInC_SecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC640918DDDAB2004C226F /* MInC_SecondView.m */; };
+		21DC642D18DDDAB2004C226F /* MInC_Sequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC640B18DDDAB2004C226F /* MInC_Sequence.m */; };
+		21DC642E18DDDAB2004C226F /* MInC_SequenceFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC640D18DDDAB2004C226F /* MInC_SequenceFile.m */; };
+		21DC642F18DDDAB2004C226F /* MInC_Sequencer.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC640F18DDDAB2004C226F /* MInC_Sequencer.m */; };
+		21DC643118DDDAB2004C226F /* MInC_TouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC641318DDDAB2004C226F /* MInC_TouchView.m */; };
+		21DC643218DDDAB2004C226F /* MInC_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DC641518DDDAB2004C226F /* MInC_ViewController.m */; };
+		21DC643618DDDAB2004C226F /* terry-riley_in-C_01_end.png in Resources */ = {isa = PBXBuildFile; fileRef = 21DC641C18DDDAB2004C226F /* terry-riley_in-C_01_end.png */; };
+		21DC643718DDDAB2004C226F /* terry-riley_in-C_01_start.png in Resources */ = {isa = PBXBuildFile; fileRef = 21DC641D18DDDAB2004C226F /* terry-riley_in-C_01_start.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		21D2D37518DC96A300E8CAEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21D2D34718DC96A300E8CAEC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21D2D34E18DC96A300E8CAEC;
+			remoteInfo = MInC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		21339CD518DDFB390048FCFD /* MInC_WaveFormTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_WaveFormTable.h; path = ../../../Classes/MInC_WaveFormTable.h; sourceTree = "<group>"; };
+		21339CD618DDFB390048FCFD /* MInC_WaveFormTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_WaveFormTable.m; path = ../../../Classes/MInC_WaveFormTable.m; sourceTree = "<group>"; };
+		21D2D34F18DC96A300E8CAEC /* MInC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MInC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21D2D35218DC96A300E8CAEC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		21D2D35418DC96A300E8CAEC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		21D2D35618DC96A300E8CAEC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		21D2D35A18DC96A300E8CAEC /* MInC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MInC-Info.plist"; sourceTree = "<group>"; };
+		21D2D35C18DC96A300E8CAEC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		21D2D35E18DC96A300E8CAEC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		21D2D36018DC96A300E8CAEC /* MInC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MInC-Prefix.pch"; sourceTree = "<group>"; };
+		21D2D36118DC96A300E8CAEC /* MInC_AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MInC_AppDelegate.h; sourceTree = "<group>"; };
+		21D2D36218DC96A300E8CAEC /* MInC_AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MInC_AppDelegate.m; sourceTree = "<group>"; };
+		21D2D36518DC96A300E8CAEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		21D2D36A18DC96A300E8CAEC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		21D2D37018DC96A300E8CAEC /* MInCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MInCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21D2D37118DC96A300E8CAEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		21D2D37918DC96A300E8CAEC /* MInCTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MInCTests-Info.plist"; sourceTree = "<group>"; };
+		21D2D37B18DC96A300E8CAEC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		21D2D37D18DC96A300E8CAEC /* MInCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MInCTests.m; sourceTree = "<group>"; };
+		21DC63ED18DDDAB2004C226F /* MInC_ADSR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_ADSR.h; path = ../../../Classes/MInC_ADSR.h; sourceTree = "<group>"; };
+		21DC63EE18DDDAB2004C226F /* MInC_ADSR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_ADSR.m; path = ../../../Classes/MInC_ADSR.m; sourceTree = "<group>"; };
+		21DC63F118DDDAB2004C226F /* MInC_AQPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_AQPlayer.h; path = ../../../Classes/MInC_AQPlayer.h; sourceTree = "<group>"; };
+		21DC63F218DDDAB2004C226F /* MInC_AQPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_AQPlayer.m; path = ../../../Classes/MInC_AQPlayer.m; sourceTree = "<group>"; };
+		21DC63F318DDDAB2004C226F /* MInC_Biquad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_Biquad.h; path = ../../../Classes/MInC_Biquad.h; sourceTree = "<group>"; };
+		21DC63F418DDDAB2004C226F /* MInC_Biquad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_Biquad.m; path = ../../../Classes/MInC_Biquad.m; sourceTree = "<group>"; };
+		21DC63F518DDDAB2004C226F /* MInC_BLIT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_BLIT.h; path = ../../../Classes/MInC_BLIT.h; sourceTree = "<group>"; };
+		21DC63F618DDDAB2004C226F /* MInC_BLIT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_BLIT.m; path = ../../../Classes/MInC_BLIT.m; sourceTree = "<group>"; };
+		21DC63F718DDDAB2004C226F /* MInC_BLITSaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_BLITSaw.h; path = ../../../Classes/MInC_BLITSaw.h; sourceTree = "<group>"; };
+		21DC63F818DDDAB2004C226F /* MInC_BLITSaw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_BLITSaw.m; path = ../../../Classes/MInC_BLITSaw.m; sourceTree = "<group>"; };
+		21DC63F918DDDAB2004C226F /* MInC_Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_Constants.h; path = ../../../Classes/MInC_Constants.h; sourceTree = "<group>"; };
+		21DC63FA18DDDAB2004C226F /* MInC_Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_Constants.m; path = ../../../Classes/MInC_Constants.m; sourceTree = "<group>"; };
+		21DC63FB18DDDAB2004C226F /* MInC_Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_Content.h; path = ../../../Classes/MInC_Content.h; sourceTree = "<group>"; };
+		21DC63FC18DDDAB2004C226F /* MInC_Envelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_Envelope.h; path = ../../../Classes/MInC_Envelope.h; sourceTree = "<group>"; };
+		21DC63FD18DDDAB2004C226F /* MInC_Envelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_Envelope.m; path = ../../../Classes/MInC_Envelope.m; sourceTree = "<group>"; };
+		21DC63FE18DDDAB2004C226F /* MInC_FirstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_FirstView.h; path = ../../../Classes/MInC_FirstView.h; sourceTree = "<group>"; };
+		21DC63FF18DDDAB2004C226F /* MInC_FirstView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_FirstView.m; path = ../../../Classes/MInC_FirstView.m; sourceTree = "<group>"; };
+		21DC640018DDDAB2004C226F /* MInC_ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_ImageView.h; path = ../../../Classes/MInC_ImageView.h; sourceTree = "<group>"; };
+		21DC640118DDDAB2004C226F /* MInC_ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_ImageView.m; path = ../../../Classes/MInC_ImageView.m; sourceTree = "<group>"; };
+		21DC640218DDDAB2004C226F /* MInC_NetworkConnections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_NetworkConnections.h; path = ../../../Classes/MInC_NetworkConnections.h; sourceTree = "<group>"; };
+		21DC640318DDDAB2004C226F /* MInC_NetworkConnections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_NetworkConnections.m; path = ../../../Classes/MInC_NetworkConnections.m; sourceTree = "<group>"; };
+		21DC640418DDDAB2004C226F /* MInC_NetworkMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_NetworkMessages.h; path = ../../../Classes/MInC_NetworkMessages.h; sourceTree = "<group>"; };
+		21DC640518DDDAB2004C226F /* MInC_NetworkMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_NetworkMessages.m; path = ../../../Classes/MInC_NetworkMessages.m; sourceTree = "<group>"; };
+		21DC640618DDDAB2004C226F /* MInC_Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_Note.h; path = ../../../Classes/MInC_Note.h; sourceTree = "<group>"; };
+		21DC640718DDDAB2004C226F /* MInC_Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_Note.m; path = ../../../Classes/MInC_Note.m; sourceTree = "<group>"; };
+		21DC640818DDDAB2004C226F /* MInC_SecondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_SecondView.h; path = ../../../Classes/MInC_SecondView.h; sourceTree = "<group>"; };
+		21DC640918DDDAB2004C226F /* MInC_SecondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_SecondView.m; path = ../../../Classes/MInC_SecondView.m; sourceTree = "<group>"; };
+		21DC640A18DDDAB2004C226F /* MInC_Sequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_Sequence.h; path = ../../../Classes/MInC_Sequence.h; sourceTree = "<group>"; };
+		21DC640B18DDDAB2004C226F /* MInC_Sequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_Sequence.m; path = ../../../Classes/MInC_Sequence.m; sourceTree = "<group>"; };
+		21DC640C18DDDAB2004C226F /* MInC_SequenceFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_SequenceFile.h; path = ../../../Classes/MInC_SequenceFile.h; sourceTree = "<group>"; };
+		21DC640D18DDDAB2004C226F /* MInC_SequenceFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_SequenceFile.m; path = ../../../Classes/MInC_SequenceFile.m; sourceTree = "<group>"; };
+		21DC640E18DDDAB2004C226F /* MInC_Sequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_Sequencer.h; path = ../../../Classes/MInC_Sequencer.h; sourceTree = "<group>"; };
+		21DC640F18DDDAB2004C226F /* MInC_Sequencer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_Sequencer.m; path = ../../../Classes/MInC_Sequencer.m; sourceTree = "<group>"; };
+		21DC641218DDDAB2004C226F /* MInC_TouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_TouchView.h; path = ../../../Classes/MInC_TouchView.h; sourceTree = "<group>"; };
+		21DC641318DDDAB2004C226F /* MInC_TouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_TouchView.m; path = ../../../Classes/MInC_TouchView.m; sourceTree = "<group>"; };
+		21DC641418DDDAB2004C226F /* MInC_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_ViewController.h; path = ../../../Classes/MInC_ViewController.h; sourceTree = "<group>"; };
+		21DC641518DDDAB2004C226F /* MInC_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_ViewController.m; path = ../../../Classes/MInC_ViewController.m; sourceTree = "<group>"; };
+		21DC641C18DDDAB2004C226F /* terry-riley_in-C_01_end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "terry-riley_in-C_01_end.png"; path = "../../../Classes/terry-riley_in-C_01_end.png"; sourceTree = "<group>"; };
+		21DC641D18DDDAB2004C226F /* terry-riley_in-C_01_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "terry-riley_in-C_01_start.png"; path = "../../../Classes/terry-riley_in-C_01_start.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		21D2D34C18DC96A300E8CAEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21D2D35518DC96A300E8CAEC /* CoreGraphics.framework in Frameworks */,
+				21D2D35718DC96A300E8CAEC /* UIKit.framework in Frameworks */,
+				21D2D35318DC96A300E8CAEC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21D2D36D18DC96A300E8CAEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21D2D37218DC96A300E8CAEC /* XCTest.framework in Frameworks */,
+				21D2D37418DC96A300E8CAEC /* UIKit.framework in Frameworks */,
+				21D2D37318DC96A300E8CAEC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		21D2D34618DC96A300E8CAEC = {
+			isa = PBXGroup;
+			children = (
+				21D2D35818DC96A300E8CAEC /* MInC */,
+				21D2D37718DC96A300E8CAEC /* MInCTests */,
+				21D2D35118DC96A300E8CAEC /* Frameworks */,
+				21D2D35018DC96A300E8CAEC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		21D2D35018DC96A300E8CAEC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21D2D34F18DC96A300E8CAEC /* MInC.app */,
+				21D2D37018DC96A300E8CAEC /* MInCTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		21D2D35118DC96A300E8CAEC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21D2D35218DC96A300E8CAEC /* Foundation.framework */,
+				21D2D35418DC96A300E8CAEC /* CoreGraphics.framework */,
+				21D2D35618DC96A300E8CAEC /* UIKit.framework */,
+				21D2D37118DC96A300E8CAEC /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		21D2D35818DC96A300E8CAEC /* MInC */ = {
+			isa = PBXGroup;
+			children = (
+				21DC63ED18DDDAB2004C226F /* MInC_ADSR.h */,
+				21DC63EE18DDDAB2004C226F /* MInC_ADSR.m */,
+				21D2D36118DC96A300E8CAEC /* MInC_AppDelegate.h */,
+				21D2D36218DC96A300E8CAEC /* MInC_AppDelegate.m */,
+				21DC63F118DDDAB2004C226F /* MInC_AQPlayer.h */,
+				21DC63F218DDDAB2004C226F /* MInC_AQPlayer.m */,
+				21DC63F318DDDAB2004C226F /* MInC_Biquad.h */,
+				21DC63F418DDDAB2004C226F /* MInC_Biquad.m */,
+				21DC63F518DDDAB2004C226F /* MInC_BLIT.h */,
+				21DC63F618DDDAB2004C226F /* MInC_BLIT.m */,
+				21DC63F718DDDAB2004C226F /* MInC_BLITSaw.h */,
+				21DC63F818DDDAB2004C226F /* MInC_BLITSaw.m */,
+				21DC63F918DDDAB2004C226F /* MInC_Constants.h */,
+				21DC63FA18DDDAB2004C226F /* MInC_Constants.m */,
+				21DC63FB18DDDAB2004C226F /* MInC_Content.h */,
+				21DC63FC18DDDAB2004C226F /* MInC_Envelope.h */,
+				21DC63FD18DDDAB2004C226F /* MInC_Envelope.m */,
+				21DC63FE18DDDAB2004C226F /* MInC_FirstView.h */,
+				21DC63FF18DDDAB2004C226F /* MInC_FirstView.m */,
+				21DC640018DDDAB2004C226F /* MInC_ImageView.h */,
+				21DC640118DDDAB2004C226F /* MInC_ImageView.m */,
+				21DC640218DDDAB2004C226F /* MInC_NetworkConnections.h */,
+				21DC640318DDDAB2004C226F /* MInC_NetworkConnections.m */,
+				21DC640418DDDAB2004C226F /* MInC_NetworkMessages.h */,
+				21DC640518DDDAB2004C226F /* MInC_NetworkMessages.m */,
+				21DC640618DDDAB2004C226F /* MInC_Note.h */,
+				21DC640718DDDAB2004C226F /* MInC_Note.m */,
+				21DC640818DDDAB2004C226F /* MInC_SecondView.h */,
+				21DC640918DDDAB2004C226F /* MInC_SecondView.m */,
+				21DC640A18DDDAB2004C226F /* MInC_Sequence.h */,
+				21DC640B18DDDAB2004C226F /* MInC_Sequence.m */,
+				21DC640C18DDDAB2004C226F /* MInC_SequenceFile.h */,
+				21DC640D18DDDAB2004C226F /* MInC_SequenceFile.m */,
+				21DC640E18DDDAB2004C226F /* MInC_Sequencer.h */,
+				21DC640F18DDDAB2004C226F /* MInC_Sequencer.m */,
+				21DC641218DDDAB2004C226F /* MInC_TouchView.h */,
+				21DC641318DDDAB2004C226F /* MInC_TouchView.m */,
+				21DC641418DDDAB2004C226F /* MInC_ViewController.h */,
+				21DC641518DDDAB2004C226F /* MInC_ViewController.m */,
+				21339CD518DDFB390048FCFD /* MInC_WaveFormTable.h */,
+				21339CD618DDFB390048FCFD /* MInC_WaveFormTable.m */,
+				21D2D36418DC96A300E8CAEC /* Main.storyboard */,
+				21D2D36A18DC96A300E8CAEC /* Images.xcassets */,
+				21D2D35918DC96A300E8CAEC /* Supporting Files */,
+			);
+			path = MInC;
+			sourceTree = "<group>";
+		};
+		21D2D35918DC96A300E8CAEC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				21D2D35A18DC96A300E8CAEC /* MInC-Info.plist */,
+				21D2D35B18DC96A300E8CAEC /* InfoPlist.strings */,
+				21D2D35E18DC96A300E8CAEC /* main.m */,
+				21D2D36018DC96A300E8CAEC /* MInC-Prefix.pch */,
+				21DC641C18DDDAB2004C226F /* terry-riley_in-C_01_end.png */,
+				21DC641D18DDDAB2004C226F /* terry-riley_in-C_01_start.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		21D2D37718DC96A300E8CAEC /* MInCTests */ = {
+			isa = PBXGroup;
+			children = (
+				21D2D37D18DC96A300E8CAEC /* MInCTests.m */,
+				21D2D37818DC96A300E8CAEC /* Supporting Files */,
+			);
+			path = MInCTests;
+			sourceTree = "<group>";
+		};
+		21D2D37818DC96A300E8CAEC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				21D2D37918DC96A300E8CAEC /* MInCTests-Info.plist */,
+				21D2D37A18DC96A300E8CAEC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		21D2D34E18DC96A300E8CAEC /* MInC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21D2D38118DC96A300E8CAEC /* Build configuration list for PBXNativeTarget "MInC" */;
+			buildPhases = (
+				21D2D34B18DC96A300E8CAEC /* Sources */,
+				21D2D34C18DC96A300E8CAEC /* Frameworks */,
+				21D2D34D18DC96A300E8CAEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MInC;
+			productName = MInC;
+			productReference = 21D2D34F18DC96A300E8CAEC /* MInC.app */;
+			productType = "com.apple.product-type.application";
+		};
+		21D2D36F18DC96A300E8CAEC /* MInCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21D2D38418DC96A300E8CAEC /* Build configuration list for PBXNativeTarget "MInCTests" */;
+			buildPhases = (
+				21D2D36C18DC96A300E8CAEC /* Sources */,
+				21D2D36D18DC96A300E8CAEC /* Frameworks */,
+				21D2D36E18DC96A300E8CAEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21D2D37618DC96A300E8CAEC /* PBXTargetDependency */,
+			);
+			name = MInCTests;
+			productName = MInCTests;
+			productReference = 21D2D37018DC96A300E8CAEC /* MInCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		21D2D34718DC96A300E8CAEC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MInC_;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Healthy Boys";
+				TargetAttributes = {
+					21D2D34E18DC96A300E8CAEC = {
+						DevelopmentTeam = K73K4Y6HWZ;
+					};
+					21D2D36F18DC96A300E8CAEC = {
+						TestTargetID = 21D2D34E18DC96A300E8CAEC;
+					};
+				};
+			};
+			buildConfigurationList = 21D2D34A18DC96A300E8CAEC /* Build configuration list for PBXProject "MInC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 21D2D34618DC96A300E8CAEC;
+			productRefGroup = 21D2D35018DC96A300E8CAEC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				21D2D34E18DC96A300E8CAEC /* MInC */,
+				21D2D36F18DC96A300E8CAEC /* MInCTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		21D2D34D18DC96A300E8CAEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21D2D36B18DC96A300E8CAEC /* Images.xcassets in Resources */,
+				21DC643718DDDAB2004C226F /* terry-riley_in-C_01_start.png in Resources */,
+				21D2D35D18DC96A300E8CAEC /* InfoPlist.strings in Resources */,
+				21DC643618DDDAB2004C226F /* terry-riley_in-C_01_end.png in Resources */,
+				21D2D36618DC96A300E8CAEC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21D2D36E18DC96A300E8CAEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21D2D37C18DC96A300E8CAEC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		21D2D34B18DC96A300E8CAEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21DC643118DDDAB2004C226F /* MInC_TouchView.m in Sources */,
+				21D2D35F18DC96A300E8CAEC /* main.m in Sources */,
+				21DC642E18DDDAB2004C226F /* MInC_SequenceFile.m in Sources */,
+				21DC641F18DDDAB2004C226F /* MInC_ADSR.m in Sources */,
+				21DC643218DDDAB2004C226F /* MInC_ViewController.m in Sources */,
+				21DC642D18DDDAB2004C226F /* MInC_Sequence.m in Sources */,
+				21DC642B18DDDAB2004C226F /* MInC_Note.m in Sources */,
+				21DC642318DDDAB2004C226F /* MInC_BLIT.m in Sources */,
+				21DC642C18DDDAB2004C226F /* MInC_SecondView.m in Sources */,
+				21339CD718DDFB390048FCFD /* MInC_WaveFormTable.m in Sources */,
+				21DC642218DDDAB2004C226F /* MInC_Biquad.m in Sources */,
+				21DC642918DDDAB2004C226F /* MInC_NetworkConnections.m in Sources */,
+				21DC642118DDDAB2004C226F /* MInC_AQPlayer.m in Sources */,
+				21DC642818DDDAB2004C226F /* MInC_ImageView.m in Sources */,
+				21DC642A18DDDAB2004C226F /* MInC_NetworkMessages.m in Sources */,
+				21DC642718DDDAB2004C226F /* MInC_FirstView.m in Sources */,
+				21DC642518DDDAB2004C226F /* MInC_Constants.m in Sources */,
+				21DC642418DDDAB2004C226F /* MInC_BLITSaw.m in Sources */,
+				21DC642F18DDDAB2004C226F /* MInC_Sequencer.m in Sources */,
+				21D2D36318DC96A300E8CAEC /* MInC_AppDelegate.m in Sources */,
+				21DC642618DDDAB2004C226F /* MInC_Envelope.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21D2D36C18DC96A300E8CAEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21D2D37E18DC96A300E8CAEC /* MInCTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		21D2D37618DC96A300E8CAEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21D2D34E18DC96A300E8CAEC /* MInC */;
+			targetProxy = 21D2D37518DC96A300E8CAEC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		21D2D35B18DC96A300E8CAEC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21D2D35C18DC96A300E8CAEC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		21D2D36418DC96A300E8CAEC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21D2D36518DC96A300E8CAEC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		21D2D37A18DC96A300E8CAEC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21D2D37B18DC96A300E8CAEC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		21D2D37F18DC96A300E8CAEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		21D2D38018DC96A300E8CAEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		21D2D38218DC96A300E8CAEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MInC/MInC-Prefix.pch";
+				INFOPLIST_FILE = "MInC/MInC-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		21D2D38318DC96A300E8CAEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MInC/MInC-Prefix.pch";
+				INFOPLIST_FILE = "MInC/MInC-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		21D2D38518DC96A300E8CAEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MInC.app/MInC";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MInC/MInC-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MInCTests/MInCTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		21D2D38618DC96A300E8CAEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MInC.app/MInC";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MInC/MInC-Prefix.pch";
+				INFOPLIST_FILE = "MInCTests/MInCTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		21D2D34A18DC96A300E8CAEC /* Build configuration list for PBXProject "MInC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21D2D37F18DC96A300E8CAEC /* Debug */,
+				21D2D38018DC96A300E8CAEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21D2D38118DC96A300E8CAEC /* Build configuration list for PBXNativeTarget "MInC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21D2D38218DC96A300E8CAEC /* Debug */,
+				21D2D38318DC96A300E8CAEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21D2D38418DC96A300E8CAEC /* Build configuration list for PBXNativeTarget "MInCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21D2D38518DC96A300E8CAEC /* Debug */,
+				21D2D38618DC96A300E8CAEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 21D2D34718DC96A300E8CAEC /* Project object */;
+}

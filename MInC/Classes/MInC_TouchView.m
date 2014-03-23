@@ -81,12 +81,12 @@ extern MInC_FirstView *gFirstView;
 
 
 - (void)dealloc {
-    [super dealloc];
+//    [super dealloc];
 }
 
 -(void) flashScreen {
 
-    NSLog(@"Flash Screen executed");
+//  NSLog(@"Flash Screen executed");
     
     if (AnimationView == nil)
     {
@@ -105,7 +105,7 @@ extern MInC_FirstView *gFirstView;
     [UIView commitAnimations];
 }
 
-#define TOUCH_ASSIGN(lval,val) { lval = val; NSLog(@"assigning %s to %s\n",#val,#lval); break; }
+#define TOUCH_ASSIGN(lval,val) { lval = val; /* NSLog(@"assigning %s to %s\n",#val,#lval) */; break; }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {

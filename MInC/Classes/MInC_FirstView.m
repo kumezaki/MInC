@@ -61,9 +61,9 @@ MInC_FirstView *gFirstView = nil;
 
 - (void)dealloc
 {
-	[_ImageArray release];
+//	[_ImageArray release];
     
-    [super dealloc];
+//    [super dealloc];
 }
 
 -(IBAction)switchToSettings
@@ -84,8 +84,8 @@ MInC_FirstView *gFirstView = nil;
 		NewMod = YES;
 	}
 
-    NSLog(@"WithServer %s",WithServer?"ON":"OFF");
-    NSLog(@"gAQP->SeqNum %ld",gAQP.SeqNum);
+//    NSLog(@"WithServer %s",WithServer?"ON":"OFF");
+//    NSLog(@"gAQP->SeqNum %ld",gAQP.SeqNum);
 }
 
 -(IBAction)set8vbDown:(id)sender
@@ -277,7 +277,7 @@ MInC_FirstView *gFirstView = nil;
 	if (_InterstitialString != nil)
 	{
 		[_StatusLabel setText:_InterstitialString];
-		[_InterstitialString release];
+//		[_InterstitialString release];
 		_InterstitialString = nil;
 	}
 	
@@ -299,7 +299,7 @@ MInC_FirstView *gFirstView = nil;
 		if ((gSecondView != nil) && ![gSecondView isEditing])
 			[gSecondView setIPAddressAndPortNumTextFields];
 		
-		[_ServerIPAddString release];
+//		[_ServerIPAddString release];
 		_ServerIPAddString = nil;
 	}
 	
