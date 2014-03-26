@@ -31,6 +31,8 @@
 {
 //	for (SInt32 i = 0; i < kMaxNumNotes; i++)
 //		[Notes[i] release];
+
+//    [super dealloc];
 }
 
 -(void)assignNotes:(SInt32)num_notes :(Float64*)notes :(Float64*)durations
