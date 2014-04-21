@@ -3,7 +3,7 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1072</int>
 		<string key="IBDocument.SystemVersion">13C64</string>
-		<string key="IBDocument.InterfaceBuilderVersion">5053</string>
+		<string key="IBDocument.InterfaceBuilderVersion">5056</string>
 		<string key="IBDocument.AppKitVersion">1265.19</string>
 		<string key="IBDocument.HIToolboxVersion">697.40</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
@@ -78,7 +78,7 @@
 							<object class="IBUIImageView" id="502781046">
 								<reference key="NSNextResponder" ref="592213150"/>
 								<int key="NSvFlags">256</int>
-								<string key="NSFrame">{{195, 435}, {135, 45}}</string>
+								<string key="NSFrame">{{180, 425}, {135, 45}}</string>
 								<reference key="NSSuperview" ref="592213150"/>
 								<reference key="NSNextKeyView" ref="23905374"/>
 								<bool key="IBUIOpaque">NO</bool>
@@ -94,7 +94,7 @@
 							<object class="IBUIImageView" id="23905374">
 								<reference key="NSNextResponder" ref="592213150"/>
 								<int key="NSvFlags">256</int>
-								<string key="NSFrame">{{195, 435}, {135, 45}}</string>
+								<string key="NSFrame">{{180, 425}, {135, 45}}</string>
 								<reference key="NSSuperview" ref="592213150"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -198,11 +198,6 @@
 						<reference key="parent" ref="668317976"/>
 					</object>
 					<object class="IBObjectRecord">
-						<string key="id">6</string>
-						<reference key="object" ref="830308750"/>
-						<reference key="parent" ref="592213150"/>
-					</object>
-					<object class="IBObjectRecord">
 						<string key="id">6mG-YF-1JB</string>
 						<reference key="object" ref="502781046"/>
 						<reference key="parent" ref="592213150"/>
@@ -210,6 +205,11 @@
 					<object class="IBObjectRecord">
 						<string key="id">3R8-2v-ob0</string>
 						<reference key="object" ref="23905374"/>
+						<reference key="parent" ref="592213150"/>
+					</object>
+					<object class="IBObjectRecord">
+						<string key="id">6</string>
+						<reference key="object" ref="830308750"/>
 						<reference key="parent" ref="592213150"/>
 					</object>
 				</array>
@@ -241,7 +241,7 @@
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1056" key="NS.object.0"/>
+			<real value="1536" key="NS.object.0"/>
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
