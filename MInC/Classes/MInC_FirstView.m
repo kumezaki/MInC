@@ -283,8 +283,8 @@ MInC_FirstView *gFirstView = nil;
 	
 	if (NewMod == YES)
 	{
-		if (gAQP.SeqNum >= 0 && gAQP.SeqNum <= gAQP.NumSequences)
-			_NotationView.image = [_ImageArray objectAtIndex:gAQP.SeqNum-1];
+//		if (gAQP.SeqNum >= 0 && gAQP.SeqNum <= gAQP.NumSequences)
+//			_NotationView.image = [_ImageArray objectAtIndex:gAQP.SeqNum-1];
 		NewMod = NO;
         if (!gAQP->Sequencer_Pri.Playing)
             [gAQP->Sequencer_Pri start];

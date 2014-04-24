@@ -241,7 +241,7 @@
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1056" key="NS.object.0"/>
+			<real value="1536" key="NS.object.0"/>
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
@@ -250,8 +250,8 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="terry-riley_in-C_01_end.png">{108, 36}</string>
-			<string key="terry-riley_in-C_01_start.png">{108, 36}</string>
+			<string key="terry-riley_in-C_01_end.png">{135, 45}</string>
+			<string key="terry-riley_in-C_01_start.png">{135, 45}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">3733</string>
 	</data>
