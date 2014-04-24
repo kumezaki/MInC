@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		21339CD718DDFB390048FCFD /* MInC_WaveFormTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 21339CD618DDFB390048FCFD /* MInC_WaveFormTable.m */; };
 		215A8B4018E324E500FD11B6 /* MInC_FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 215A8B3E18E324E500FD11B6 /* MInC_FirstView.xib */; };
+		2180D77918EE577A00BF384C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2180D77818EE577A00BF384C /* AudioToolbox.framework */; };
 		21D2D35318DC96A300E8CAEC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D2D35218DC96A300E8CAEC /* Foundation.framework */; };
 		21D2D35518DC96A300E8CAEC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D2D35418DC96A300E8CAEC /* CoreGraphics.framework */; };
 		21D2D35718DC96A300E8CAEC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D2D35618DC96A300E8CAEC /* UIKit.framework */; };
@@ -58,6 +59,7 @@
 		21339CD518DDFB390048FCFD /* MInC_WaveFormTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MInC_WaveFormTable.h; path = ../../../Classes/MInC_WaveFormTable.h; sourceTree = "<group>"; };
 		21339CD618DDFB390048FCFD /* MInC_WaveFormTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MInC_WaveFormTable.m; path = ../../../Classes/MInC_WaveFormTable.m; sourceTree = "<group>"; };
 		215A8B3E18E324E500FD11B6 /* MInC_FirstView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MInC_FirstView.xib; path = ../../../MInC_FirstView.xib; sourceTree = "<group>"; };
+		2180D77818EE577A00BF384C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		21D2D34F18DC96A300E8CAEC /* MInC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MInC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D2D35218DC96A300E8CAEC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		21D2D35418DC96A300E8CAEC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -121,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2180D77918EE577A00BF384C /* AudioToolbox.framework in Frameworks */,
 				21D2D35518DC96A300E8CAEC /* CoreGraphics.framework in Frameworks */,
 				21D2D35718DC96A300E8CAEC /* UIKit.framework in Frameworks */,
 				21D2D35318DC96A300E8CAEC /* Foundation.framework in Frameworks */,
@@ -162,6 +165,7 @@
 		21D2D35118DC96A300E8CAEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2180D77818EE577A00BF384C /* AudioToolbox.framework */,
 				21D2D35218DC96A300E8CAEC /* Foundation.framework */,
 				21D2D35418DC96A300E8CAEC /* CoreGraphics.framework */,
 				21D2D35618DC96A300E8CAEC /* UIKit.framework */,
@@ -173,7 +177,6 @@
 		21D2D35818DC96A300E8CAEC /* MInC */ = {
 			isa = PBXGroup;
 			children = (
-				215A8B3E18E324E500FD11B6 /* MInC_FirstView.xib */,
 				21DC63ED18DDDAB2004C226F /* MInC_ADSR.h */,
 				21DC63EE18DDDAB2004C226F /* MInC_ADSR.m */,
 				21D2D36118DC96A300E8CAEC /* MInC_AppDelegate.h */,
@@ -215,6 +218,7 @@
 				21DC641518DDDAB2004C226F /* MInC_ViewController.m */,
 				21339CD518DDFB390048FCFD /* MInC_WaveFormTable.h */,
 				21339CD618DDFB390048FCFD /* MInC_WaveFormTable.m */,
+				215A8B3E18E324E500FD11B6 /* MInC_FirstView.xib */,
 				21D2D36418DC96A300E8CAEC /* Main.storyboard */,
 				21D2D36A18DC96A300E8CAEC /* Images.xcassets */,
 				21D2D35918DC96A300E8CAEC /* Supporting Files */,

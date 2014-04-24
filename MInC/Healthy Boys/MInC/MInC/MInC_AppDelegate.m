@@ -8,11 +8,16 @@
 
 #import "MInC_AppDelegate.h"
 
+#import "MInC_AQPlayer.h"
+
 @implementation MInC_AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [[MInC_AQPlayer alloc] init];
+
     return YES;
 }
 							

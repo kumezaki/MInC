@@ -114,6 +114,8 @@ extern MInC_ViewController *gViewController;
         note.TransposeValue_Instr = TransposeValue_Instr;
         note.TransposeValue_Control = TransposeValue_Control;
 		[note on:WaveTable:Env];
+        
+        NSLog(@"%f",note.MIDINote);
 
 		/* recompute the next event time */
 		NextEventTime += note.Duration;
