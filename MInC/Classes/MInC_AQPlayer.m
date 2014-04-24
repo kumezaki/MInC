@@ -70,6 +70,11 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 @synthesize Biquad;
 
++(void) construct
+{
+    gAQP = [[MInC_AQPlayer alloc] init];
+}
+
 - (void)dealloc {
 
 	[Sequencer_Pri stop];

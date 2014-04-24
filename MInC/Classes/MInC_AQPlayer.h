@@ -36,6 +36,8 @@
 
 @property (readonly, nonatomic, retain) MInC_Biquad *Biquad;
 
++(void) construct;
+
 -(void)	setup;
 
 -(OSStatus)	start;

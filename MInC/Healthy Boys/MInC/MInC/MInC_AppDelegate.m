@@ -16,7 +16,7 @@
 {
     // Override point for customization after application launch.
     
-    [[MInC_AQPlayer alloc] init];
+    [MInC_AQPlayer construct];
 
     return YES;
 }
