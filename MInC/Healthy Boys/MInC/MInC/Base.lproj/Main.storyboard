@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -29,11 +29,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="terry-riley_in-C_01_start.png" translatesAutoresizingMaskIntoConstraints="NO" id="sdm-fm-8Ig">
-                                        <rect key="frame" x="200" y="386" width="108" height="36"/>
+                                        <rect key="frame" x="226" y="443" width="108" height="36"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="terry-riley_in-C_01_end.png" translatesAutoresizingMaskIntoConstraints="NO" id="kxJ-H7-nRn">
-                                        <rect key="frame" x="200" y="386" width="108" height="36"/>
+                                        <rect key="frame" x="226" y="443" width="108" height="36"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                 </subviews>
@@ -56,8 +56,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="terry-riley_in-C_01_end.png" width="108" height="36"/>
-        <image name="terry-riley_in-C_01_start.png" width="108" height="36"/>
+        <image name="terry-riley_in-C_01_end.png" width="65" height="22"/>
+        <image name="terry-riley_in-C_01_start.png" width="65" height="22"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

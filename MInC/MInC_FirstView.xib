@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1072</int>
-		<string key="IBDocument.SystemVersion">13C64</string>
+		<string key="IBDocument.SystemVersion">13C1021</string>
 		<string key="IBDocument.InterfaceBuilderVersion">5056</string>
 		<string key="IBDocument.AppKitVersion">1265.19</string>
 		<string key="IBDocument.HIToolboxVersion">697.40</string>
@@ -33,7 +33,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIView" id="668317976">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="592213150">
@@ -45,6 +45,7 @@
 								<int key="NSvFlags">-2147483356</int>
 								<string key="NSFrame">{{5, 401}, {310, 39}}</string>
 								<reference key="NSSuperview" ref="592213150"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="502781046"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -78,8 +79,9 @@
 							<object class="IBUIImageView" id="502781046">
 								<reference key="NSNextResponder" ref="592213150"/>
 								<int key="NSvFlags">256</int>
-								<string key="NSFrame">{{180, 425}, {135, 45}}</string>
+								<string key="NSFrame">{{203, 433}, {112, 37}}</string>
 								<reference key="NSSuperview" ref="592213150"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="23905374"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -94,8 +96,10 @@
 							<object class="IBUIImageView" id="23905374">
 								<reference key="NSNextResponder" ref="592213150"/>
 								<int key="NSvFlags">256</int>
-								<string key="NSFrame">{{180, 425}, {135, 45}}</string>
+								<string key="NSFrame">{{204, 433}, {111, 37}}</string>
 								<reference key="NSSuperview" ref="592213150"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">4</int>
@@ -109,6 +113,7 @@
 						</array>
 						<string key="NSFrameSize">{320, 480}</string>
 						<reference key="NSSuperview" ref="668317976"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="830308750"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -119,6 +124,8 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 480}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="592213150"/>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -231,7 +238,194 @@
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">MInC_FirstView</string>
+					<string key="superclassName">UIView</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="requestHint:">id</string>
+						<string key="requestStatus:">id</string>
+						<string key="set2xFastDown:">id</string>
+						<string key="set2xFastUp:">id</string>
+						<string key="set2xSlowDown:">id</string>
+						<string key="set2xSlowUp:">id</string>
+						<string key="set8vaDown:">id</string>
+						<string key="set8vaUp:">id</string>
+						<string key="set8vbDown:">id</string>
+						<string key="set8vbUp:">id</string>
+						<string key="setInstrument:">id</string>
+						<string key="setNoteDuration:">id</string>
+						<string key="setSequence">id</string>
+						<string key="setSpeaker:">id</string>
+						<string key="switchToSettings">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="requestHint:">
+							<string key="name">requestHint:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="requestStatus:">
+							<string key="name">requestStatus:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="set2xFastDown:">
+							<string key="name">set2xFastDown:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="set2xFastUp:">
+							<string key="name">set2xFastUp:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="set2xSlowDown:">
+							<string key="name">set2xSlowDown:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="set2xSlowUp:">
+							<string key="name">set2xSlowUp:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="set8vaDown:">
+							<string key="name">set8vaDown:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="set8vaUp:">
+							<string key="name">set8vaUp:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="set8vbDown:">
+							<string key="name">set8vbDown:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="set8vbUp:">
+							<string key="name">set8vbUp:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="setInstrument:">
+							<string key="name">setInstrument:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="setNoteDuration:">
+							<string key="name">setNoteDuration:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="setSequence">
+							<string key="name">setSequence</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="setSpeaker:">
+							<string key="name">setSpeaker:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="switchToSettings">
+							<string key="name">switchToSettings</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="BackgroundView">UIImageView</string>
+						<string key="EightVaButton">UIButton</string>
+						<string key="EightVbButton">UIButton</string>
+						<string key="HintButton">UIButton</string>
+						<string key="InstrSegControl">UISegmentedControl</string>
+						<string key="LoadAnimation">UIImageView</string>
+						<string key="LoadImage">UIImageView</string>
+						<string key="NextButton">UIButton</string>
+						<string key="NotationView">UIImageView</string>
+						<string key="NoteDurationSlider">UISlider</string>
+						<string key="SettingsButton">UIButton</string>
+						<string key="SpeakerSegControl">UISegmentedControl</string>
+						<string key="StatusButton">UIButton</string>
+						<string key="StatusLabel">UILabel</string>
+						<string key="TouchView">UIView</string>
+						<string key="TwoTimesFastButton">UIButton</string>
+						<string key="TwoTimesSlowButton">UIButton</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="BackgroundView">
+							<string key="name">BackgroundView</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="EightVaButton">
+							<string key="name">EightVaButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="EightVbButton">
+							<string key="name">EightVbButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="HintButton">
+							<string key="name">HintButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="InstrSegControl">
+							<string key="name">InstrSegControl</string>
+							<string key="candidateClassName">UISegmentedControl</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="LoadAnimation">
+							<string key="name">LoadAnimation</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="LoadImage">
+							<string key="name">LoadImage</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="NextButton">
+							<string key="name">NextButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="NotationView">
+							<string key="name">NotationView</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="NoteDurationSlider">
+							<string key="name">NoteDurationSlider</string>
+							<string key="candidateClassName">UISlider</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="SettingsButton">
+							<string key="name">SettingsButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="SpeakerSegControl">
+							<string key="name">SpeakerSegControl</string>
+							<string key="candidateClassName">UISegmentedControl</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="StatusButton">
+							<string key="name">StatusButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="StatusLabel">
+							<string key="name">StatusLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="TouchView">
+							<string key="name">TouchView</string>
+							<string key="candidateClassName">UIView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="TwoTimesFastButton">
+							<string key="name">TwoTimesFastButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="TwoTimesSlowButton">
+							<string key="name">TwoTimesSlowButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/MInC_FirstView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">MInC_TouchView</string>
+					<string key="superclassName">UIView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/MInC_TouchView.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.previouslyAttemptedUpgradeToXcode5">YES</bool>
@@ -250,8 +444,8 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="terry-riley_in-C_01_end.png">{135, 45}</string>
-			<string key="terry-riley_in-C_01_start.png">{135, 45}</string>
+			<string key="terry-riley_in-C_01_end.png">{108, 36}</string>
+			<string key="terry-riley_in-C_01_start.png">{108, 36}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">3733</string>
 	</data>
