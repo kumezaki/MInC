@@ -19,9 +19,9 @@ BEGIN {
 	
 #	sys_cmd = program_name" \'"$1"\' \'"$2"\' \'"$3".mp3\' &"
 	sys_cmd = program_name" \'"$1"\' \'"$2"\' \'"$3"\' &"
-	system(sys_cmd)
-	
-	print $1,$2,$3
+	print sys_cmd
+	result = system(sys_cmd)
+	print result" from call to "sys_cmd
 }
 
 END {

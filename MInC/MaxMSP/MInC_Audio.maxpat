@@ -3,11 +3,12 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 6,
-			"minor" : 0,
-			"revision" : 8
+			"minor" : 1,
+			"revision" : 6,
+			"architecture" : "x86"
 		}
 ,
-		"rect" : [ 412.0, 210.0, 955.0, 604.0 ],
+		"rect" : [ 96.0, 159.0, 1007.0, 704.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -53,7 +54,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 456.5, 507.0, 107.0, 66.0 ],
+					"patching_rect" : [ 456.5, 507.0, 109.0, 66.0 ],
 					"text" : "make sure to stop shell script before closing patch",
 					"textcolor" : [ 1.0, 0.0, 0.0, 1.0 ]
 				}
@@ -118,7 +119,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 512.5, 369.0, 60.0, 20.0 ],
+					"patching_rect" : [ 553.5, 431.0, 60.0, 20.0 ],
 					"text" : "loadbang"
 				}
 
@@ -261,7 +262,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 0,
 					"numoutlets" : 0,
-					"patching_rect" : [ 685.0, 522.0, 107.0, 20.0 ],
+					"patching_rect" : [ 827.0, 408.0, 107.0, 20.0 ],
 					"text" : "ForZeroDownload"
 				}
 
@@ -277,13 +278,13 @@
 					"patching_rect" : [ 333.0, 443.0, 48.0, 136.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_type" : 0,
-							"parameter_shortname" : "live.gain~",
 							"parameter_longname" : "live.gain~[1]",
-							"parameter_unitstyle" : 4,
-							"parameter_mmax" : 6.0,
+							"parameter_shortname" : "live.gain~",
+							"parameter_type" : 0,
 							"parameter_mmin" : -70.0,
-							"parameter_initial" : [ 0.0 ]
+							"parameter_mmax" : 6.0,
+							"parameter_initial" : [ 0.0 ],
+							"parameter_unitstyle" : 4
 						}
 
 					}
@@ -303,13 +304,13 @@
 					"patching_rect" : [ 230.5, 443.0, 48.0, 136.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_type" : 0,
-							"parameter_shortname" : "live.gain~",
 							"parameter_longname" : "live.gain~",
-							"parameter_unitstyle" : 4,
-							"parameter_mmax" : 6.0,
+							"parameter_shortname" : "live.gain~",
+							"parameter_type" : 0,
 							"parameter_mmin" : -70.0,
-							"parameter_initial" : [ 0.0 ]
+							"parameter_mmax" : 6.0,
+							"parameter_initial" : [ 0.0 ],
+							"parameter_unitstyle" : 4
 						}
 
 					}
@@ -1569,21 +1570,21 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-48" : [ "live.gain~", "live.gain~", 0 ],
-			"obj-50" : [ "live.gain~[1]", "live.gain~", 0 ]
+			"obj-50" : [ "live.gain~[1]", "live.gain~", 0 ],
+			"obj-48" : [ "live.gain~", "live.gain~", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
 				"name" : "MInC.js",
 				"bootpath" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/MInC/MaxMSP",
-				"patcherrelativepath" : "",
+				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "MInC_Synth_Poly.maxpat",
 				"bootpath" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/MInC/MaxMSP",
-				"patcherrelativepath" : "",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
@@ -1625,21 +1626,21 @@
 , 			{
 				"name" : "MInC_SetSearchPath.maxpat",
 				"bootpath" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/MInC/MaxMSP",
-				"patcherrelativepath" : "",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "ForZeroDownload.maxpat",
 				"bootpath" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/MInC/MaxMSP",
-				"patcherrelativepath" : "",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "MInC_ForZero.js",
 				"bootpath" : "/Users/kojiroumezaki/Docs/Music/Mobile_In_C/MInC/MInC/MaxMSP",
-				"patcherrelativepath" : "",
+				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}

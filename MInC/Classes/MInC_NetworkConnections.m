@@ -223,11 +223,13 @@
     if (listen(ServSock,5) < 0)
         NSLog(@"listen() failed");
     
+    NSLog(@"accept on %d",TCPReceivePortNum);
     socklen_t clntLen = sizeof(clntAddr);
     ClntSock = accept(ServSock,(struct sockaddr *) &clntAddr, &clntLen);
     /* will get here if a client connects, otherwise this process waits */
     
-    if (ClntSock < 0) NSLog(@"ERROR on TCP accept");
+    if (ClntSock < 0)
+        NSLog(@"ERROR on TCP accept");
 	
     char buffer[256];
     int bytesRcvd;
