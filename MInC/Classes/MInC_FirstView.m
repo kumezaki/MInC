@@ -23,10 +23,6 @@ MInC_FirstView *gFirstView = nil;
 
 @synthesize NewMod;
 @synthesize WithServer;
-//@synthesize BackgroundView;
-//@synthesize LoadAnimation;
-
-
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -71,14 +67,13 @@ MInC_FirstView *gFirstView = nil;
         
     }
     LogoImageView.animationImages = MInCLogo;
-    
+	
     LoadSeqFileTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:gAQP selector:@selector (loadSeqFile) userInfo:nil repeats:NO];
     [self startActivityIndicator];	[self checkIncomingMessages];
-    
-    LoadAnimation = nil;
-    
-    ActivityIndicatorView.hidesWhenStopped = YES;
 
+    ActivityIndicatorView.hidesWhenStopped = YES;
+    
+    
 }
 
 - (void)dealloc
@@ -342,24 +337,24 @@ MInC_FirstView *gFirstView = nil;
 
 -(void)heartBeat
 {
-    NSLog(@"heartbeat");
-    
-    LogoImageView.animationDuration = 1.75;
-    [gFirstView addSubview:LogoImageView];
-    [LogoImageView startAnimating];
-    
-    NSLog(@"Heartbeat Animation");
-    
-    
-//    LoadAnimation.alpha = 1.;
-//    
-//    [UIImageView beginAnimations: nil context: nil];
-//    
-//    [UIImageView setAnimationDuration: 5.0];
-//    LoadAnimation.alpha = 0.;
-//    
-//    [UIImageView commitAnimations];
+        NSLog(@"heartbeat");
+        
+        LogoImageView.animationDuration = 1.75;
+        [gFirstView addSubview:LogoImageView];
+        [LogoImageView startAnimating];
+        
+        
+        //    LoadAnimation.alpha = 1.;
+        //
+        //    [UIImageView beginAnimations: nil context: nil];
+        //
+        //    [UIImageView setAnimationDuration: 5.0];
+        //    LoadAnimation.alpha = 0.;
+        //    
+        //    [UIImageView commitAnimations];
 }
+
+    
 
 
 
