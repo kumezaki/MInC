@@ -71,11 +71,14 @@ MInC_FirstView *gFirstView = nil;
         
     }
     LogoImageView.animationImages = MInCLogo;
-	
-	[self checkIncomingMessages];
     
-    //LoadAnimation = nil;
+    LoadSeqFileTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:gAQP selector:@selector (loadSeqFile) userInfo:nil repeats:NO];
+    [self startActivityIndicator];	[self checkIncomingMessages];
     
+    LoadAnimation = nil;
+    
+    ActivityIndicatorView.hidesWhenStopped = YES;
+
 }
 
 - (void)dealloc
@@ -325,6 +328,16 @@ MInC_FirstView *gFirstView = nil;
 	[NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checkIncomingMessages) userInfo:nil repeats:NO];
 }
 
+-(void)startActivityIndicator
+{
+    [ActivityIndicatorView startAnimating];
+}
+
+-(void)stopActivityIndicator
+{
+    
+    [ActivityIndicatorView stopAnimating];
+}
 
 
 -(void)heartBeat

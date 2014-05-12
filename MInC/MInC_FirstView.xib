@@ -12,6 +12,7 @@
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
+			<string>IBUIActivityIndicatorView</string>
 			<string>IBUIImageView</string>
 			<string>IBUIView</string>
 		</array>
@@ -65,6 +66,19 @@
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
+					<object class="IBUIActivityIndicatorView" id="372783823">
+						<reference key="NSNextResponder" ref="668317976"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{141, 222}, {37, 37}}</string>
+						<reference key="NSSuperview" ref="668317976"/>
+						<reference key="NSWindow"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<string key="NSHuggingPriority">{750, 750}</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<bool key="IBUIHidesWhenStopped">NO</bool>
+						<int key="IBUIStyle">0</int>
+					</object>
 				</array>
 				<string key="NSFrameSize">{320, 480}</string>
 				<reference key="NSSuperview"/>
@@ -93,6 +107,14 @@
 					</object>
 					<string key="id">M9l-wv-kr2</string>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">ActivityIndicatorView</string>
+						<reference key="source" ref="668317976"/>
+						<reference key="destination" ref="372783823"/>
+					</object>
+					<string key="id">aOR-P4-ecT</string>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -118,6 +140,7 @@
 						<reference key="object" ref="668317976"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="592213150"/>
+							<reference ref="372783823"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -134,6 +157,11 @@
 						<reference key="object" ref="21570840"/>
 						<reference key="parent" ref="592213150"/>
 					</object>
+					<object class="IBObjectRecord">
+						<string key="id">GS5-tk-vQW</string>
+						<reference key="object" ref="372783823"/>
+						<reference key="parent" ref="668317976"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -145,6 +173,11 @@
 				<string key="3KE-Q4-YFg.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.CustomClassName">MInC_TouchView</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+<<<<<<< HEAD
+=======
+				<string key="ENy-m7-9vF.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="GS5-tk-vQW.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+>>>>>>> FETCH_HEAD
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
@@ -236,6 +269,11 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+<<<<<<< HEAD
+=======
+						<string key="ActivityIndicatorView">UIActivityIndicatorView</string>
+						<string key="BackgroundView">UIImageView</string>
+>>>>>>> FETCH_HEAD
 						<string key="EightVaButton">UIButton</string>
 						<string key="EightVbButton">UIButton</string>
 						<string key="HintButton">UIButton</string>
@@ -253,6 +291,17 @@
 						<string key="TwoTimesSlowButton">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+<<<<<<< HEAD
+=======
+						<object class="IBToOneOutletInfo" key="ActivityIndicatorView">
+							<string key="name">ActivityIndicatorView</string>
+							<string key="candidateClassName">UIActivityIndicatorView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="BackgroundView">
+							<string key="name">BackgroundView</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+>>>>>>> FETCH_HEAD
 						<object class="IBToOneOutletInfo" key="EightVaButton">
 							<string key="name">EightVaButton</string>
 							<string key="candidateClassName">UIButton</string>

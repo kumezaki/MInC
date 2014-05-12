@@ -26,9 +26,16 @@
 	IBOutlet UISegmentedControl	*SpeakerSegControl;
 	IBOutlet UISegmentedControl	*InstrSegControl;
     
+
 //    IBOutlet UIImageView    *LoadAnimation;
 //    
 //    IBOutlet UIImageView    *BackgroundView;
+
+    IBOutlet UIActivityIndicatorView *ActivityIndicatorView;
+    NSTimer*            LoadSeqFileTimer;
+    
+    IBOutlet UIImageView    *LoadAnimation;
+
     
     IBOutlet UIImageView    *LogoImageView;
 }
@@ -82,6 +89,10 @@
 -(void) createImageArray;
 
 -(void)checkIncomingMessages;
+
+-(void)startActivityIndicator;
+
+-(void)stopActivityIndicator;
 
 -(void)heartBeat;
 
