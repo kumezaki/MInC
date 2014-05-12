@@ -197,9 +197,9 @@ union {
 #pragma mark- UDP & TCP message parsing
 - (void)udpParse
 {
-//	NSLog(@"self->UDPInBufferLength: %ld",self->UDPInBufferLength);
-//    NSLog(@"self->UDPInBuffer: %s",self->UDPInBuffer);
-//    
+	NSLog(@"self->UDPInBufferLength: %ld",self->UDPInBufferLength);
+    NSLog(@"self->UDPInBuffer: %s",self->UDPInBuffer);
+    
 //    NSAutoreleasePool *udpThreadPool = [[NSAutoreleasePool alloc] init];
 
 	ssize_t pos = 0;

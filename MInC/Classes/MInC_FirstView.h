@@ -26,18 +26,11 @@
 	IBOutlet UISegmentedControl	*SpeakerSegControl;
 	IBOutlet UISegmentedControl	*InstrSegControl;
     
-
-//    IBOutlet UIImageView    *LoadAnimation;
-//    
-//    IBOutlet UIImageView    *BackgroundView;
-
-    IBOutlet UIActivityIndicatorView *ActivityIndicatorView;
-    NSTimer*            LoadSeqFileTimer;
-    
     IBOutlet UIImageView    *LoadAnimation;
-
     
-    IBOutlet UIImageView    *LogoImageView;
+    IBOutlet UIImageView    *BackgroundView;
+    
+    //IBOutlet UIImageView    *LogoImageView;
 }
 @property (readwrite) BOOL NewMod;
 @property (readwrite) BOOL WithServer;
@@ -50,9 +43,6 @@
 
 @property (nonatomic, retain)   NSString				*InterstitialString;
 @property (nonatomic, retain)   NSString				*ServerIPAddString;
-
-//@property (nonatomic, retain) IBOutlet UIImageView *LoadAnimation;
-//@property (nonatomic, retain) IBOutlet UIImageView *BackgroundView;
 
 -(IBAction)switchToSettings;
 
@@ -89,10 +79,6 @@
 -(void) createImageArray;
 
 -(void)checkIncomingMessages;
-
--(void)startActivityIndicator;
-
--(void)stopActivityIndicator;
 
 -(void)heartBeat;
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* MInC_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MInC_AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		210F8F1517EF26F7004254E5 /* MInC_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 210F8F1417EF26F7004254E5 /* MInC_Constants.m */; };
 		21184588189DE04C00A42B25 /* MInC_FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21184587189DE04C00A42B25 /* MInC_FirstView.xib */; };
@@ -98,9 +99,8 @@
 		28AD73880D9D96C1002E5188 /* MInC_MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MInC_MainWindow.xib */; };
 		44AC1F1418B44AF100BDAC54 /* MInC_Logos.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1F1318B44AF100BDAC54 /* MInC_Logos.png */; };
 		44AC1F1818B44E4700BDAC54 /* MInC_Logos_revise.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC1F1718B44E4700BDAC54 /* MInC_Logos_revise.png */; };
-		44B3E20118D96CED0065BD22 /* terry-riley_in-C_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B3E1FF18D96CED0065BD22 /* terry-riley_in-C_1.png */; };
-		44B3E20218D96CED0065BD22 /* terry-riley_in-C_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B3E20018D96CED0065BD22 /* terry-riley_in-C_2.png */; };
-		44E458FB191C05BA004B8782 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		44B3E20118D96CED0065BD22 /* terry-riley_in-C_01_end.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B3E1FF18D96CED0065BD22 /* terry-riley_in-C_01_end.png */; };
+		44B3E20218D96CED0065BD22 /* terry-riley_in-C_01_start.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B3E20018D96CED0065BD22 /* terry-riley_in-C_01_start.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -220,10 +220,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		44AC1F1318B44AF100BDAC54 /* MInC_Logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MInC_Logos.png; path = Images/MInC_Logos.png; sourceTree = "<group>"; };
 		44AC1F1718B44E4700BDAC54 /* MInC_Logos_revise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MInC_Logos_revise.png; sourceTree = "<group>"; };
-		44B3E1FF18D96CED0065BD22 /* terry-riley_in-C_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "terry-riley_in-C_1.png"; path = "Logos/terry-riley_in-C_1.png"; sourceTree = "<group>"; };
-		44B3E20018D96CED0065BD22 /* terry-riley_in-C_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "terry-riley_in-C_2.png"; path = "Logos/terry-riley_in-C_2.png"; sourceTree = "<group>"; };
-		44E458F7191C054C004B8782 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		44E458F9191C0571004B8782 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		44B3E1FF18D96CED0065BD22 /* terry-riley_in-C_01_end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "terry-riley_in-C_01_end.png"; path = "Logos/terry-riley_in-C_01_end.png"; sourceTree = "<group>"; };
+		44B3E20018D96CED0065BD22 /* terry-riley_in-C_01_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "terry-riley_in-C_01_start.png"; path = "Logos/terry-riley_in-C_01_start.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,7 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44E458FB191C05BA004B8782 /* Foundation.framework in Frameworks */,
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */,
 				2162021B11B396E000E93E07 /* AudioToolbox.framework in Frameworks */,
@@ -325,8 +323,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				44B3E1FF18D96CED0065BD22 /* terry-riley_in-C_1.png */,
-				44B3E20018D96CED0065BD22 /* terry-riley_in-C_2.png */,
+				44B3E1FF18D96CED0065BD22 /* terry-riley_in-C_01_end.png */,
+				44B3E20018D96CED0065BD22 /* terry-riley_in-C_01_start.png */,
 				21184589189DF07700A42B25 /* NoteButton.png */,
 				21DA34C1189D607F00810030 /* SettingsButton.png */,
 				2153611C189C00C9008FD46C /* Note.png */,
@@ -398,8 +396,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				44E458F9191C0571004B8782 /* AddressBook.framework */,
-				44E458F7191C054C004B8782 /* QuartzCore.framework */,
 				2162021A11B396E000E93E07 /* AudioToolbox.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -437,7 +433,7 @@
 				LastUpgradeCheck = 0500;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = K73K4Y6HWZ;
+						DevelopmentTeam = L5SKRT52S5;
 					};
 				};
 			};
@@ -468,7 +464,7 @@
 				28AD73880D9D96C1002E5188 /* MInC_MainWindow.xib in Resources */,
 				282CCBFE0DB6C98000C4EA27 /* MInC_SecondView.xib in Resources */,
 				21D9F8D211DA45E600D2C266 /* InCCover.jpg in Resources */,
-				44B3E20218D96CED0065BD22 /* terry-riley_in-C_2.png in Resources */,
+				44B3E20218D96CED0065BD22 /* terry-riley_in-C_01_start.png in Resources */,
 				21D9F8D311DA45E600D2C266 /* InC04.jpg in Resources */,
 				21D9F8D411DA45E600D2C266 /* InC05.jpg in Resources */,
 				21D9F8D511DA45E600D2C266 /* InC02.jpg in Resources */,
@@ -513,7 +509,7 @@
 				21C1B96212C7F00900A87A86 /* InC45.jpg in Resources */,
 				21C1B96312C7F00900A87A86 /* InC46.jpg in Resources */,
 				21C1B96412C7F00900A87A86 /* InC47.jpg in Resources */,
-				44B3E20118D96CED0065BD22 /* terry-riley_in-C_1.png in Resources */,
+				44B3E20118D96CED0065BD22 /* terry-riley_in-C_01_end.png in Resources */,
 				21C1B96512C7F00900A87A86 /* InC48.jpg in Resources */,
 				21C1B96612C7F00900A87A86 /* InC49.jpg in Resources */,
 				21C1B96712C7F00900A87A86 /* InC50.jpg in Resources */,

@@ -40,7 +40,6 @@
 - (void)        receive_udp;
 
 - (void)        startReceiveTCP;
-- (void)        stopReceiveTCP;
 - (void)        receive_tcp;
 
 - (void)        udpParse;

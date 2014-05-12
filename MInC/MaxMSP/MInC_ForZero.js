@@ -28,7 +28,7 @@ function anything()
     var ip_add = arguments[0];
     
     var pos = 0;
-    var pos = gPlayers.ip_address.indexOf(ip_add);
+//    var pos = gPlayers.ip_address.indexOf(ip_add);
     
     var osc_add = messagename;
     if (osc_add.search("/minc/") != 0)
@@ -57,10 +57,10 @@ function osc_msg_download(pos)
 //        var file_name = "A_seq_TCP_test.txt";
         var file_name = "A_seq_TCP.txt";
         
-//        messnamed("fz_poly_in_1_msg","target",pos+1);
-//        messnamed("fz_poly_in_2_msg","write","samptype","int16");
-//        messnamed("fz_poly_in_2_msg","write","writeraw",file_name);                
-//		post("raw audio file created for pos:",pos,"\n");
+        messnamed("fz_poly_in_1_msg","target",pos+1);
+        messnamed("fz_poly_in_2_msg","write","samptype","int16");
+        messnamed("fz_poly_in_2_msg","write","writeraw",file_name);                
+		post("raw audio file created for pos:",pos,"\n");
 
         f = new File("fz_download.txt","write","TEXT");
 		f.open();
@@ -68,9 +68,8 @@ function osc_msg_download(pos)
 
 //		f.writeline(gPlayers.ip_address[pos]+", "+gPortNum_Client_TCP+", ./"+file_name);
 //		f.writeline(gPlayers.ip_address[pos]+", "+gPortNum_Client_TCP+", ../ForZero_MaxMSP/"+file_name);
-		f.position = f.eof;
 		f.writeline(gPlayers.ip_address[pos]+", "+gPortNum_Client_TCP+", ./"+file_name);
-        post("script file written for pos:",pos,gPlayers.ip_address[pos],"\n");
+        post("script file written for pos:",pos,"\n");
 
         f.close();
 		post("txt file closed for pos:",pos,"\n");
@@ -89,8 +88,7 @@ function parent_path(v)
 
 function exit_tcp_script()
 {
-    f = new File(gParentPath+"fz_download.txt","write","TEXT");
-	f.position = f.eof;
+    f = new File(gParentPath+"fz_download.txt","w");
     f.writeline("exit");
     f.close();
 }
