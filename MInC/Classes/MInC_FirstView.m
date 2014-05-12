@@ -23,6 +23,10 @@ MInC_FirstView *gFirstView = nil;
 
 @synthesize NewMod;
 @synthesize WithServer;
+//@synthesize BackgroundView;
+//@synthesize LoadAnimation;
+
+
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -55,10 +59,22 @@ MInC_FirstView *gFirstView = nil;
     
 	_InterstitialString = nil;
 	_ServerIPAddString = nil;
+    
+    //Load logo images for Heartbeat Animation
+    NSMutableArray *MInCLogo = [NSMutableArray array];
+    for (int i=1; i <= 2; i++)
+    {
+        NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"terry-riley_in-C_%d", i] ofType:@"png"];
+        
+        UIImage *image = [UIImage imageWithContentsOfFile:path];
+        if (image) [MInCLogo addObject:image];
+        
+    }
+    LogoImageView.animationImages = MInCLogo;
 	
 	[self checkIncomingMessages];
     
-    LoadAnimation = nil;
+    //LoadAnimation = nil;
     
 }
 
@@ -315,30 +331,23 @@ MInC_FirstView *gFirstView = nil;
 {
     NSLog(@"heartbeat");
     
-//    if (LoadAnimation == nil)
-//    {
-//        UIWindow* wnd = [UIApplication sharedApplication].keyWindow;
-//        
-//        UIImage *testImg;
-//        testImg = [UIImage imageNamed:@"terry-riley_in-C_01_start.png"];
-//        
-//        LoadAnimation = [[UIImageView alloc] initWithImage:testImg];
-//
-//        [wnd addSubview: LoadAnimation];
-//    }
+    LogoImageView.animationDuration = 1.75;
+    [gFirstView addSubview:LogoImageView];
+    [LogoImageView startAnimating];
+    
+    NSLog(@"Heartbeat Animation");
     
     
-    //Working Code for gray to textured logo
-    LoadAnimation.alpha = 1.;
-    
-    [UIImageView beginAnimations:nil context:nil];
-    [UIImageView setAnimationDuration:3.0];
-    
-    LoadAnimation.alpha=0.;
-    
-    [UIImageView commitAnimations];
-    
+//    LoadAnimation.alpha = 1.;
+//    
+//    [UIImageView beginAnimations: nil context: nil];
+//    
+//    [UIImageView setAnimationDuration: 5.0];
+//    LoadAnimation.alpha = 0.;
+//    
+//    [UIImageView commitAnimations];
 }
+
 
 
 @end
