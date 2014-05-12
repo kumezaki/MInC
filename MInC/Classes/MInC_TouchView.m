@@ -105,6 +105,7 @@ extern MInC_FirstView *gFirstView;
     [UIView commitAnimations];
 }
 
+
 #define TOUCH_ASSIGN(lval,val) { lval = val; NSLog(@"assigning %s to %s\n",#val,#lval); break; }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

@@ -19,6 +19,9 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
+#import "MInC_FirstView.h"
+extern MInC_FirstView* gFirstView;
+
 @implementation MInC_NetworkConnections
 
 @synthesize SendIPAddress;
@@ -199,9 +202,18 @@
     if (TCPThread == nil) {
         TCPThread = [[NSThread alloc] initWithTarget:self selector:@selector(receive_tcp) object:nil];
         [TCPThread start];
+        [gFirstView startActivityIndicator];
     }
     self.TCPTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector (downloadFailed:) userInfo:nil repeats:NO];
 }  
+
+-(void)stopReceiveTCP
+{
+    [TCPThread cancel];
+    [TCPThread release];
+    TCPThread = nil;
+    [gFirstView stopActivityIndicator];
+}
 
 - (void)receive_tcp
 {    
@@ -272,9 +284,7 @@
         printf("close ServSock\n");
     }
     
-    [TCPThread cancel];
-    [TCPThread release];
-    TCPThread = nil;
+    [self stopReceiveTCP];
 }
 
 - (void)tcpParse {

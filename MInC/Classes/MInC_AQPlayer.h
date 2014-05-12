@@ -41,6 +41,9 @@
 -(OSStatus)	start;
 -(OSStatus)	stop;
 
+-(void) setSeqFileData:(NSData*) data;
+-(void) loadSeqFile;
+
 -(void) setSequence:(SInt32)seq_num;
 -(void) setSequence:(SInt32)seq_num :(MInC_Sequence*)seq;
 
