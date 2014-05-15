@@ -29,14 +29,17 @@
     IBOutlet UIActivityIndicatorView *ActivityIndicatorView;
     NSTimer*            LoadSeqFileTimer;
     
-    IBOutlet UIImageView    *LogoImageView;
+    IBOutlet UIImageView* viewA;
+    IBOutlet UIImageView* viewB;
+
+//    IBOutlet UIImageView    *LogoImageView;
     
 //    IBOutlet UIImageView    *LoadAnimation;
 //    
 //    IBOutlet UIImageView    *BackgroundView;
-    
-    //IBOutlet UIImageView    *LogoImageView;
+
 }
+
 @property (readwrite) BOOL NewMod;
 @property (readwrite) BOOL WithServer;
 

@@ -389,8 +389,8 @@
 				21C1B94312C7F00900A87A86 /* InC53.jpg */,
 				28AD73870D9D96C1002E5188 /* MInC_MainWindow.xib */,
 				21184587189DE04C00A42B25 /* MInC_FirstView.xib */,
-				44AC1F1318B44AF100BDAC54 /* MInC_Logos.png */,
 				282CCBFD0DB6C98000C4EA27 /* MInC_SecondView.xib */,
+				44AC1F1318B44AF100BDAC54 /* MInC_Logos.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

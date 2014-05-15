@@ -58,22 +58,38 @@ MInC_FirstView *gFirstView = nil;
     
     //Load logo images for Heartbeat Animation
     NSMutableArray *MInCLogo = [NSMutableArray array];
-    for (int i=1; i <= 2; i++)
+    for (int i = 1; i <= 2; i++)
     {
         NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"terry-riley_in-C_%d", i] ofType:@"png"];
         
         UIImage *image = [UIImage imageWithContentsOfFile:path];
-        if (image) [MInCLogo addObject:image];
-        
+
+        if (image)
+            [MInCLogo addObject:image];
     }
+
+#if 0
     LogoImageView.animationImages = MInCLogo;
+    LogoImageView.animationDuration =0.9;
+    [LogoImageView setAnimationRepeatCount:HUGE_VALF];
+    [LogoImageView startAnimating];
+#endif
+    
+#if 1
+    [UIView animateWithDuration:10.0 animations:^{
+        
+        viewA.alpha = 0.0;
+        
+        viewB.alpha = 1.0;
+        
+    }];
+#endif
 	
-    LoadSeqFileTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:gAQP selector:@selector (loadSeqFile) userInfo:nil repeats:NO];
-    [self startActivityIndicator];	[self checkIncomingMessages];
+    LoadSeqFileTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:gAQP selector:@selector(loadSeqFile) userInfo:nil repeats:NO];
+    [self startActivityIndicator];
+    [self checkIncomingMessages];
 
     ActivityIndicatorView.hidesWhenStopped = YES;
-    
-    
 }
 
 - (void)dealloc
@@ -338,11 +354,12 @@ MInC_FirstView *gFirstView = nil;
 -(void)heartBeat
 {
         NSLog(@"heartbeat");
-        
+
+#if 0
         LogoImageView.animationDuration = 1.75;
         [gFirstView addSubview:LogoImageView];
         [LogoImageView startAnimating];
-        
+#endif
         
         //    LoadAnimation.alpha = 1.;
         //
@@ -353,9 +370,5 @@ MInC_FirstView *gFirstView = nil;
         //    
         //    [UIImageView commitAnimations];
 }
-
-    
-
-
 
 @end

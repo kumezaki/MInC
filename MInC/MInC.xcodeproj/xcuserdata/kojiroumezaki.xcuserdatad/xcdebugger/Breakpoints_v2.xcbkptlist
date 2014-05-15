@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Classes/MInC_NetworkConnections.m"
-            timestampString = "420929268.671917"
+            filePath = "Classes/MInC_ViewController.m"
+            timestampString = "421865799.531025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
-            landmarkName = "-receive_tcp"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "-setupSelf"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -64,8 +64,8 @@ union {
 
     [super init];
 
-    MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
-    [seqFile readFromFile:@"TCP.dat"];
+//    MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
+//    [seqFile readFromFile:@"TCP.dat"];
 
 	[self sendHeartBeat];
     

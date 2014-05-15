@@ -16,6 +16,9 @@
 #define FLOAT_TO_MRMR_INT(v) (SInt32)(v * 1000. + 0.5)
 
 @interface MInC_ViewController : UIViewController <UIAccelerometerDelegate> {
+    
+    IBOutlet UIImageView* viewA;
+    IBOutlet UIImageView* viewB;
 
 }
 // model objects
