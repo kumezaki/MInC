@@ -247,8 +247,12 @@ union {
                             [self startReceiveTCP];
                             FirstHeartBeat = NO;
                         }
+#if 0
                         [gFirstView heartBeat];
-                        break;  
+#else
+                        [gFirstView performSelectorOnMainThread:@selector(heartBeat) withObject:nil waitUntilDone:NO];
+#endif
+                        break;
 					}
 				}
 				break;

@@ -75,11 +75,9 @@ MInC_FirstView *gFirstView = nil;
     [LogoImageView startAnimating];
 #endif
     
-#if 1
+#if 0
     [UIView animateWithDuration:10.0 animations:^{
-        
         viewA.alpha = 0.0;
-        
         viewB.alpha = 1.0;
         
     }];
@@ -353,22 +351,19 @@ MInC_FirstView *gFirstView = nil;
 
 -(void)heartBeat
 {
-        NSLog(@"heartbeat");
+    NSLog(@"received heartbeat");
 
-#if 0
-        LogoImageView.animationDuration = 1.75;
-        [gFirstView addSubview:LogoImageView];
-        [LogoImageView startAnimating];
-#endif
+    [UIView animateWithDuration:0.1 animations:^{
+        viewA.alpha = 1.0;
+        viewB.alpha = 1.0;
         
-        //    LoadAnimation.alpha = 1.;
-        //
-        //    [UIImageView beginAnimations: nil context: nil];
-        //
-        //    [UIImageView setAnimationDuration: 5.0];
-        //    LoadAnimation.alpha = 0.;
-        //    
-        //    [UIImageView commitAnimations];
+    }];
+
+    [UIView animateWithDuration:0.9 animations:^{
+        viewA.alpha = 0.0;
+        viewB.alpha = 1.0;
+        
+    }];
 }
 
 @end
