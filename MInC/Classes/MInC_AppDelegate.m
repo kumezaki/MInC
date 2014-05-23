@@ -23,8 +23,11 @@ extern MInC_ViewController *gViewController;
 {
     // Override point for customization after application launch.
     // Add the main view controller's view to the window and display.
-    self.window.rootViewController = self.viewController;
+    self.window.rootViewController = gViewController;
     [self.window makeKeyAndVisible];
+    
+    /* not sure why this is needed, but without it the second view is loaded */
+    [gViewController loadFirstView];
     
     return YES;
 }

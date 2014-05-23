@@ -102,7 +102,7 @@ extern MInC_FirstView *gFirstView;
 
 -(void) loadSecondView;
 {
-    [self removeSubviews];
+   [self removeSubviews];
     [[[UIApplication sharedApplication] delegate].window addSubview:self.secondView];
 }
 

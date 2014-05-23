@@ -15,6 +15,7 @@
                                 @"1" , @"/minc/interstitial",
                                 @"2" , @"/minc/mod",
                                 @"3" , @"/minc/hb",
+                                @"4" , @"/minc/avgmod",
                                 nil];
     return messageDict;
 }

@@ -121,6 +121,7 @@ function do_msg(osc_add,pos,val)
             set_module(dev_pos);
             var mod = gDeviceArray[dev_pos].mod;
             send_osc_mod_msg(dev_pos,mod);
+            send_osc_avgmod_msg();
             break;
         }
 
@@ -461,6 +462,11 @@ function send_osc_mod_msg(dev_pos,mod_num)
 	outlet(0,"host",gPlayers.ip_address[dev_pos]);
 	outlet(0,"port",gPortNum);
 	outlet(0,"/minc/mod",mod_num);
+}
+
+function send_osc_avgmod_msg()
+{
+	messnamed("MInC_avgmod_msg",get_avg_mod());
 }
 
 function send_osc_interstitial_msg(dev_pos,message)

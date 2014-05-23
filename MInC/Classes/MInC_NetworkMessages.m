@@ -170,7 +170,7 @@ union {
 
 -(void)sendOSCMsgWithIntValue:(const char*)osc_str :(int)osc_str_length :(int)val
 {
-    // printf("sendOSCMsgWithIntValue\n");
+    // NSLog(@"sendOSCMsgWithIntValue");
 	char buf[128]; memcpy(buf,osc_str,osc_str_length); memcpy(buf+osc_str_length,",si\0",4);
 	val = htonl(val);
 	
@@ -232,7 +232,7 @@ union {
 						int int_val;
 						memcpy(&int_val,self->UDPInBuffer+pos,4);
 						int_val = htonl(int_val);
-						printf("mod number %d\n",int_val);
+						NSLog(@"mod number %d",int_val);
 						[gAQP setSequence:int_val];
 						gFirstView.NewMod = YES;
 						break;
@@ -254,6 +254,14 @@ union {
 #endif
                         break;
 					}
+                    case 4:
+                    {
+						int int_val;
+						memcpy(&int_val,self->UDPInBuffer+pos,4);
+						int_val = htonl(int_val);
+						NSLog(@"avg mod number %d",int_val);
+                        break;
+                    }
 				}
 				break;
 			}
