@@ -40,6 +40,22 @@
 						<reference key="NSNextResponder" ref="668317976"/>
 						<int key="NSvFlags">292</int>
 						<array class="NSMutableArray" key="NSSubviews">
+							<object class="IBUIImageView" id="723923612">
+								<reference key="NSNextResponder" ref="592213150"/>
+								<int key="NSvFlags">-2147483356</int>
+								<string key="NSFrameSize">{320, 480}</string>
+								<reference key="NSSuperview" ref="592213150"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<string key="NSHuggingPriority">{251, 251}</string>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<object class="NSCustomResource" key="IBUIImage" id="1067096263">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">gradient background.png</string>
+								</object>
+							</object>
 							<object class="IBUIImageView" id="250655746">
 								<reference key="NSNextResponder" ref="592213150"/>
 								<int key="NSvFlags">292</int>
@@ -72,11 +88,23 @@
 									<string key="NSResourceName">terry-riley_in-C_2.png</string>
 								</object>
 							</object>
+							<object class="IBUIImageView" id="839381835">
+								<reference key="NSNextResponder" ref="592213150"/>
+								<int key="NSvFlags">-2147483356</int>
+								<string key="NSFrame">{{0, 222}, {320, 37}}</string>
+								<reference key="NSSuperview" ref="592213150"/>
+								<reference key="NSWindow"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<string key="NSHuggingPriority">{251, 251}</string>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<reference key="IBUIImage" ref="1067096263"/>
+							</object>
 						</array>
 						<string key="NSFrameSize">{320, 480}</string>
 						<reference key="NSSuperview" ref="668317976"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="250655746"/>
+						<reference key="NSNextKeyView" ref="723923612"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwIDAAA</bytes>
@@ -141,6 +169,22 @@
 					</object>
 					<string key="id">Ysx-PZ-v5W</string>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">viewGradient</string>
+						<reference key="source" ref="668317976"/>
+						<reference key="destination" ref="723923612"/>
+					</object>
+					<string key="id">RvE-90-ACn</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">viewPos</string>
+						<reference key="source" ref="668317976"/>
+						<reference key="destination" ref="839381835"/>
+					</object>
+					<string key="id">74W-sK-RyK</string>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -176,6 +220,8 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="250655746"/>
 							<reference ref="865988602"/>
+							<reference ref="723923612"/>
+							<reference ref="839381835"/>
 						</array>
 						<reference key="parent" ref="668317976"/>
 					</object>
@@ -194,6 +240,16 @@
 						<reference key="object" ref="865988602"/>
 						<reference key="parent" ref="592213150"/>
 					</object>
+					<object class="IBObjectRecord">
+						<string key="id">gZH-u4-3Rc</string>
+						<reference key="object" ref="723923612"/>
+						<reference key="parent" ref="592213150"/>
+					</object>
+					<object class="IBObjectRecord">
+						<string key="id">lCX-bb-8zO</string>
+						<reference key="object" ref="839381835"/>
+						<reference key="parent" ref="592213150"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -207,6 +263,8 @@
 				<string key="GS5-tk-vQW.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="czW-eR-RUj.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="fP0-0j-R2W.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="gZH-u4-3Rc.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="lCX-bb-8zO.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
@@ -315,6 +373,8 @@
 						<string key="TwoTimesSlowButton">UIButton</string>
 						<string key="viewA">UIImageView</string>
 						<string key="viewB">UIImageView</string>
+						<string key="viewGradient">UIImageView</string>
+						<string key="viewPos">UIImageView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="ActivityIndicatorView">
@@ -385,6 +445,14 @@
 							<string key="name">viewB</string>
 							<string key="candidateClassName">UIImageView</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="viewGradient">
+							<string key="name">viewGradient</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="viewPos">
+							<string key="name">viewPos</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
@@ -419,6 +487,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="gradient background.png">{640, 960}</string>
 			<string key="terry-riley_in-C_1.png">{71, 24}</string>
 			<string key="terry-riley_in-C_2.png">{71, 24}</string>
 		</dictionary>

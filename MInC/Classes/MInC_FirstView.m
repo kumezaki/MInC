@@ -67,27 +67,14 @@ MInC_FirstView *gFirstView = nil;
         if (image)
             [MInCLogo addObject:image];
     }
-
-#if 0
-    LogoImageView.animationImages = MInCLogo;
-    LogoImageView.animationDuration =0.9;
-    [LogoImageView setAnimationRepeatCount:HUGE_VALF];
-    [LogoImageView startAnimating];
-#endif
-    
-#if 0
-    [UIView animateWithDuration:10.0 animations:^{
-        viewA.alpha = 0.0;
-        viewB.alpha = 1.0;
-        
-    }];
-#endif
 	
     LoadSeqFileTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:gAQP selector:@selector(loadSeqFile) userInfo:nil repeats:NO];
     [self startActivityIndicator];
     [self checkIncomingMessages];
 
     ActivityIndicatorView.hidesWhenStopped = YES;
+    
+    [self setRelativePos:0];
 }
 
 - (void)dealloc
@@ -339,15 +326,29 @@ MInC_FirstView *gFirstView = nil;
 
 -(void)startActivityIndicator
 {
+    viewGradient.hidden = YES;
+    viewPos.hidden = YES;
     [ActivityIndicatorView startAnimating];
 }
 
 -(void)stopActivityIndicator
 {
-    
+    viewGradient.hidden = NO;
+    viewPos.hidden = NO;
     [ActivityIndicatorView stopAnimating];
 }
 
+-(void)setRelativePos:(SInt16)pos
+{
+    Float64 h = self.bounds.size.height;
+    Float64 w = self.bounds.size.width;
+    Float64 cell_h = 35.;
+    Float64 y = h / 2. - cell_h * pos - cell_h / 2.;
+    
+    viewPos.frame = CGRectMake(0., y, w, cell_h);
+    
+	[self setNeedsDisplay];
+}
 
 -(void)heartBeat
 {

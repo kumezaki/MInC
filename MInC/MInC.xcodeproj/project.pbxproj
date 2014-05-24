@@ -27,6 +27,7 @@
 		218425B618B2A209001EAD69 /* MInC_SequenceFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 218425B518B2A209001EAD69 /* MInC_SequenceFile.m */; };
 		2195D37511B6B6C3002E46FD /* MInC_SoundFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2195D37411B6B6C3002E46FD /* MInC_SoundFile.m */; };
 		21AB99A717F31D7B00C3B291 /* MInC_NetworkConnections.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB99A617F31D7B00C3B291 /* MInC_NetworkConnections.m */; };
+		21AD0B08192FFFE70077EC91 /* gradient background.png in Resources */ = {isa = PBXBuildFile; fileRef = 21AD0B07192FFFE70077EC91 /* gradient background.png */; };
 		21B8AC9711B4208200C88C2D /* MInC_SecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B8AC9611B4208200C88C2D /* MInC_SecondView.m */; };
 		21C208EC12BBA90B0030FDA0 /* MInC_Envelope.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C208EB12BBA90B0030FDA0 /* MInC_Envelope.m */; };
 		21C7FBBF1807097B00057D0B /* MInC_BLIT.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C7FBBE1807097B00057D0B /* MInC_BLIT.m */; };
@@ -81,6 +82,7 @@
 		2195F21F1807092300CB6BB9 /* MInC_Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_Content.h; sourceTree = "<group>"; };
 		21AB99A517F31D7B00C3B291 /* MInC_NetworkConnections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_NetworkConnections.h; sourceTree = "<group>"; };
 		21AB99A617F31D7B00C3B291 /* MInC_NetworkConnections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_NetworkConnections.m; sourceTree = "<group>"; };
+		21AD0B07192FFFE70077EC91 /* gradient background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gradient background.png"; path = "Images/gradient background.png"; sourceTree = "<group>"; };
 		21B8AC9511B4208200C88C2D /* MInC_SecondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_SecondView.h; sourceTree = "<group>"; };
 		21B8AC9611B4208200C88C2D /* MInC_SecondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_SecondView.m; sourceTree = "<group>"; };
 		21C208EA12BBA90B0030FDA0 /* MInC_Envelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MInC_Envelope.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -200,6 +202,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				21AD0B07192FFFE70077EC91 /* gradient background.png */,
 				44B3E1FF18D96CED0065BD22 /* terry-riley_in-C_1.png */,
 				44B3E20018D96CED0065BD22 /* terry-riley_in-C_2.png */,
 				28AD73870D9D96C1002E5188 /* MInC_MainWindow.xib */,
@@ -279,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21AD0B08192FFFE70077EC91 /* gradient background.png in Resources */,
 				28AD73880D9D96C1002E5188 /* MInC_MainWindow.xib in Resources */,
 				282CCBFE0DB6C98000C4EA27 /* MInC_SecondView.xib in Resources */,
 				44B3E20218D96CED0065BD22 /* terry-riley_in-C_2.png in Resources */,

@@ -192,8 +192,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     
     [seqFile readFromFile:@"TCP.dat"];
     
-    [gFirstView stopActivityIndicator];
-    
+    [gFirstView stopActivityIndicator];    
 }
 
 -(void) setSequence:(SInt32)seq_num;

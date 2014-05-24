@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/MInC_FirstView.m"
-            timestampString = "422511395.407188"
+            timestampString = "422578414.358726"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "-switchToSettings"
             landmarkType = "5">
          </BreakpointContent>

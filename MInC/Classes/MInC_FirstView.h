@@ -29,8 +29,10 @@
     IBOutlet UIActivityIndicatorView *ActivityIndicatorView;
     NSTimer*            LoadSeqFileTimer;
     
+    IBOutlet UIImageView* viewGradient;
     IBOutlet UIImageView* viewA;
     IBOutlet UIImageView* viewB;
+    IBOutlet UIImageView* viewPos;
 
 //    IBOutlet UIImageView    *LogoImageView;
     
@@ -89,8 +91,9 @@
 -(void)checkIncomingMessages;
 
 -(void)startActivityIndicator;
-
 -(void)stopActivityIndicator;
+
+-(void)setRelativePos:(SInt16)pos;
 
 -(void)heartBeat;
 
