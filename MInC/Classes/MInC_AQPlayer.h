@@ -34,6 +34,8 @@
 @property (readwrite, nonatomic) SInt32 SeqNum;
 @property (readwrite, nonatomic) SInt32 NumSequences;
 
+@property (readwrite, nonatomic) SInt32 AvgSeqPos;
+
 @property (readonly, nonatomic, retain) MInC_Biquad *Biquad;
 
 -(void)	setup;

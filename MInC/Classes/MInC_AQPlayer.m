@@ -73,6 +73,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 @synthesize SeqNum;
 @synthesize NumSequences;
 
+@synthesize AvgSeqPos;
+
 @synthesize Biquad;
 
 - (void)dealloc {
@@ -202,7 +204,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		SeqNum = seq_num;
 		
         [Sequencer_Pri setNextSequence:Sequences[SeqNum-1]];
-	}
+
+	    [gFirstView setRelativePos:(SeqNum - AvgSeqPos)];
+    }
 }
 
 -(void) setSequence:(SInt32)seq_pos :(MInC_Sequence*)seq
@@ -218,6 +222,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
         
         NumSequences = seq_pos + 1;
 	}
+}
+
+-(void) setAvgSeqPos:(SInt32)pos
+{
+    AvgSeqPos = pos;
+
+    [gFirstView setRelativePos:(SeqNum - AvgSeqPos)];
 }
 
 #if WITH_XML_SEQS // XML way of loading sequence data

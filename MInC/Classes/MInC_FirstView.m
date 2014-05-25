@@ -340,6 +340,9 @@ MInC_FirstView *gFirstView = nil;
 
 -(void)setRelativePos:(SInt16)pos
 {
+    pos = pos < -3 ? -4 : pos;
+    pos = pos > +3 ? +4 : pos;
+    
     Float64 h = self.bounds.size.height;
     Float64 w = self.bounds.size.width;
     Float64 cell_h = 35.;
