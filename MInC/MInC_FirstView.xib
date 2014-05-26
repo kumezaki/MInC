@@ -46,6 +46,7 @@
 								<string key="NSFrameSize">{320, 480}</string>
 								<reference key="NSSuperview" ref="592213150"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="722867320"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<string key="NSHuggingPriority">{251, 251}</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -93,6 +94,7 @@
 								<string key="NSFrame">{{0, 222}, {320, 37}}</string>
 								<reference key="NSSuperview" ref="592213150"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="839381835"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<string key="NSHuggingPriority">{251, 251}</string>
 								<float key="IBUIAlpha">0.5</float>
@@ -100,7 +102,7 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">MInC Stick Figure_Cell_We.png</string>
+									<string key="NSResourceName">MInC Stick Figure_Cell_Me.png</string>
 								</object>
 							</object>
 							<object class="IBUIImageView" id="839381835">
@@ -109,13 +111,14 @@
 								<string key="NSFrame">{{0, 222}, {320, 37}}</string>
 								<reference key="NSSuperview" ref="592213150"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="250655746"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<string key="NSHuggingPriority">{251, 251}</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">MInC Stick Figure_Cell_Me.png</string>
+									<string key="NSResourceName">MInC Stick Figure_Cell_We.png</string>
 								</object>
 							</object>
 						</array>
@@ -136,6 +139,7 @@
 						<string key="NSFrame">{{142, 221}, {37, 37}}</string>
 						<reference key="NSSuperview" ref="668317976"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="NSHuggingPriority">{750, 750}</string>
 						<bool key="IBUIOpaque">NO</bool>

@@ -342,7 +342,7 @@ MInC_FirstView *gFirstView = nil;
 {
     NSLog(@"setRelativePos pos=%d",pos);
 
-    pos = -pos;
+//    pos = -pos;
     pos = pos < -3 ? -4 : pos;
     pos = pos > +3 ? +4 : pos;
     
