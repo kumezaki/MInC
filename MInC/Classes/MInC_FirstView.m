@@ -340,13 +340,16 @@ MInC_FirstView *gFirstView = nil;
 
 -(void)setRelativePos:(SInt16)pos
 {
+    NSLog(@"setRelativePos pos=%d",pos);
+
+    pos = -pos;
     pos = pos < -3 ? -4 : pos;
     pos = pos > +3 ? +4 : pos;
     
     Float64 h = self.bounds.size.height;
     Float64 w = self.bounds.size.width;
     Float64 cell_h = 35.;
-    Float64 y = h / 2. - cell_h * pos - cell_h / 2.;
+    Float64 y = h / 2. + cell_h * (pos - 0.5);
     
     viewPos.frame = CGRectMake(0., y, w, cell_h);
     

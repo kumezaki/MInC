@@ -25,6 +25,8 @@
 	
 	MInC_Sequence	*Sequences[53];
     
+    SInt32 AvgSeqPos;
+    
 @public
 
 	MInC_Sequencer	*Sequencer_Pri;
@@ -33,8 +35,6 @@
 
 @property (readwrite, nonatomic) SInt32 SeqNum;
 @property (readwrite, nonatomic) SInt32 NumSequences;
-
-@property (readwrite, nonatomic) SInt32 AvgSeqPos;
 
 @property (readonly, nonatomic, retain) MInC_Biquad *Biquad;
 
@@ -48,6 +48,8 @@
 
 -(void) setSequence:(SInt32)seq_num;
 -(void) setSequence:(SInt32)seq_num :(MInC_Sequence*)seq;
+
+-(void) setAvgSeqPos:(NSNumber*)ns_num;
 
 -(void) parseFile;
 

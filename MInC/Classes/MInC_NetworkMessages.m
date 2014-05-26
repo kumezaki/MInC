@@ -260,7 +260,9 @@ union {
 						memcpy(&int_val,self->UDPInBuffer+pos,4);
 						int_val = htonl(int_val);
 						NSLog(@"avg mod number %d",int_val);
-                        gAQP.AvgSeqPos = int_val;
+                        NSNumber *avgPosVal = [[NSNumber alloc]initWithInt:int_val];
+                        [gAQP performSelectorOnMainThread:@selector(setAvgSeqPos:) withObject:avgPosVal waitUntilDone:NO];
+                        [avgPosVal release];
                         break;
                     }
 				}

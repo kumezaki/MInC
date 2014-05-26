@@ -73,8 +73,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 @synthesize SeqNum;
 @synthesize NumSequences;
 
-@synthesize AvgSeqPos;
-
 @synthesize Biquad;
 
 - (void)dealloc {
@@ -224,9 +222,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	}
 }
 
--(void) setAvgSeqPos:(SInt32)pos
+-(void) setAvgSeqPos:(NSNumber*)ns_num
 {
-    AvgSeqPos = pos;
+    AvgSeqPos = [ns_num intValue];
 
     [gFirstView setRelativePos:(SeqNum - AvgSeqPos)];
 }
