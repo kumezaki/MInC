@@ -23,6 +23,8 @@
 		213C2FA817EDD72A0024A847 /* MInC_NetworkMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C2FA717EDD72A0024A847 /* MInC_NetworkMessages.m */; };
 		214CCDF217EC850400CD9CAA /* MInC_FirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214CCDF117EC850400CD9CAA /* MInC_FirstView.m */; };
 		2162021B11B396E000E93E07 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2162021A11B396E000E93E07 /* AudioToolbox.framework */; };
+		2177457F1933A8EA0037826C /* MInC Stick Figure_Cell_Me.png in Resources */ = {isa = PBXBuildFile; fileRef = 2177457E1933A8EA0037826C /* MInC Stick Figure_Cell_Me.png */; };
+		217745811933B1800037826C /* MInC Stick Figure_Cell_We.png in Resources */ = {isa = PBXBuildFile; fileRef = 217745801933B1800037826C /* MInC Stick Figure_Cell_We.png */; };
 		21827A0E186735110025BCFC /* MInC_Biquad.m in Sources */ = {isa = PBXBuildFile; fileRef = 21827A0D186735110025BCFC /* MInC_Biquad.m */; };
 		218425B618B2A209001EAD69 /* MInC_SequenceFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 218425B518B2A209001EAD69 /* MInC_SequenceFile.m */; };
 		2195D37511B6B6C3002E46FD /* MInC_SoundFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2195D37411B6B6C3002E46FD /* MInC_SoundFile.m */; };
@@ -73,6 +75,8 @@
 		214CCDF017EC850400CD9CAA /* MInC_FirstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_FirstView.h; sourceTree = "<group>"; };
 		214CCDF117EC850400CD9CAA /* MInC_FirstView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_FirstView.m; sourceTree = "<group>"; };
 		2162021A11B396E000E93E07 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
+		2177457E1933A8EA0037826C /* MInC Stick Figure_Cell_Me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MInC Stick Figure_Cell_Me.png"; path = "Images/MInC Stick Figure_Cell_Me.png"; sourceTree = "<group>"; };
+		217745801933B1800037826C /* MInC Stick Figure_Cell_We.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MInC Stick Figure_Cell_We.png"; path = "Images/MInC Stick Figure_Cell_We.png"; sourceTree = "<group>"; };
 		21827A0C186735110025BCFC /* MInC_Biquad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_Biquad.h; sourceTree = "<group>"; };
 		21827A0D186735110025BCFC /* MInC_Biquad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_Biquad.m; sourceTree = "<group>"; };
 		218425B418B2A209001EAD69 /* MInC_SequenceFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_SequenceFile.h; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				217745801933B1800037826C /* MInC Stick Figure_Cell_We.png */,
+				2177457E1933A8EA0037826C /* MInC Stick Figure_Cell_Me.png */,
 				21AD0B07192FFFE70077EC91 /* gradient background.png */,
 				44B3E1FF18D96CED0065BD22 /* terry-riley_in-C_1.png */,
 				44B3E20018D96CED0065BD22 /* terry-riley_in-C_2.png */,
@@ -286,9 +292,11 @@
 				28AD73880D9D96C1002E5188 /* MInC_MainWindow.xib in Resources */,
 				282CCBFE0DB6C98000C4EA27 /* MInC_SecondView.xib in Resources */,
 				44B3E20218D96CED0065BD22 /* terry-riley_in-C_2.png in Resources */,
+				217745811933B1800037826C /* MInC Stick Figure_Cell_We.png in Resources */,
 				44B3E20118D96CED0065BD22 /* terry-riley_in-C_1.png in Resources */,
 				27B3601A17C66B9E001FABF8 /* Default-568h@2x.png in Resources */,
 				21184588189DE04C00A42B25 /* MInC_FirstView.xib in Resources */,
+				2177457F1933A8EA0037826C /* MInC Stick Figure_Cell_Me.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

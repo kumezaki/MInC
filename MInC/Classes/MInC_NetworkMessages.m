@@ -233,7 +233,9 @@ union {
 						memcpy(&int_val,self->UDPInBuffer+pos,4);
 						int_val = htonl(int_val);
 						NSLog(@"mod number %d",int_val);
-						[gAQP setSequence:int_val];
+                        NSNumber *num = [[NSNumber alloc]initWithInt:int_val];
+                        [gAQP performSelectorOnMainThread:@selector(setSeqPos:) withObject:num waitUntilDone:NO];
+                        [num release];
 						gFirstView.NewMod = YES;
 						break;
 					}
@@ -260,9 +262,9 @@ union {
 						memcpy(&int_val,self->UDPInBuffer+pos,4);
 						int_val = htonl(int_val);
 						NSLog(@"avg mod number %d",int_val);
-                        NSNumber *avgPosVal = [[NSNumber alloc]initWithInt:int_val];
-                        [gAQP performSelectorOnMainThread:@selector(setAvgSeqPos:) withObject:avgPosVal waitUntilDone:NO];
-                        [avgPosVal release];
+                        NSNumber *num = [[NSNumber alloc]initWithInt:int_val];
+                        [gAQP performSelectorOnMainThread:@selector(setAvgSeqPos:) withObject:num waitUntilDone:NO];
+                        [num release];
                         break;
                     }
 				}

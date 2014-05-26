@@ -222,9 +222,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	}
 }
 
--(void) setAvgSeqPos:(NSNumber*)ns_num
+-(void) setSeqPos:(NSNumber*)num
 {
-    AvgSeqPos = [ns_num intValue];
+    [self setSequence:[num intValue]];
+}
+
+-(void) setAvgSeqPos:(NSNumber*)num
+{
+    AvgSeqPos = [num intValue];
 
     [gFirstView setRelativePos:(SeqNum - AvgSeqPos)];
 }

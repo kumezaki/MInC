@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/MInC_AQPlayer.m"
-            timestampString = "422811246.352495"
+            timestampString = "422816971.820794"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
             landmarkName = "-setAvgSeqPos:"
             landmarkType = "5">
          </BreakpointContent>

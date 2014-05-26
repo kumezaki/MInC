@@ -46,12 +46,11 @@
 								<string key="NSFrameSize">{320, 480}</string>
 								<reference key="NSSuperview" ref="592213150"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<string key="NSHuggingPriority">{251, 251}</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<object class="NSCustomResource" key="IBUIImage" id="1067096263">
+								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">gradient background.png</string>
 								</object>
@@ -88,6 +87,22 @@
 									<string key="NSResourceName">terry-riley_in-C_2.png</string>
 								</object>
 							</object>
+							<object class="IBUIImageView" id="722867320">
+								<reference key="NSNextResponder" ref="592213150"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{0, 222}, {320, 37}}</string>
+								<reference key="NSSuperview" ref="592213150"/>
+								<reference key="NSWindow"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<string key="NSHuggingPriority">{251, 251}</string>
+								<float key="IBUIAlpha">0.5</float>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">MInC Stick Figure_Cell_We.png</string>
+								</object>
+							</object>
 							<object class="IBUIImageView" id="839381835">
 								<reference key="NSNextResponder" ref="592213150"/>
 								<int key="NSvFlags">-2147483356</int>
@@ -98,7 +113,10 @@
 								<string key="NSHuggingPriority">{251, 251}</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<reference key="IBUIImage" ref="1067096263"/>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">MInC Stick Figure_Cell_Me.png</string>
+								</object>
 							</object>
 						</array>
 						<string key="NSFrameSize">{320, 480}</string>
@@ -222,6 +240,7 @@
 							<reference ref="865988602"/>
 							<reference ref="723923612"/>
 							<reference ref="839381835"/>
+							<reference ref="722867320"/>
 						</array>
 						<reference key="parent" ref="668317976"/>
 					</object>
@@ -250,6 +269,11 @@
 						<reference key="object" ref="839381835"/>
 						<reference key="parent" ref="592213150"/>
 					</object>
+					<object class="IBObjectRecord">
+						<string key="id">9dH-1C-5fr</string>
+						<reference key="object" ref="722867320"/>
+						<reference key="parent" ref="592213150"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -260,6 +284,7 @@
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.CustomClassName">MInC_TouchView</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="9dH-1C-5fr.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="GS5-tk-vQW.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="czW-eR-RUj.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="fP0-0j-R2W.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -487,6 +512,8 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="MInC Stick Figure_Cell_Me.png">{640, 72}</string>
+			<string key="MInC Stick Figure_Cell_We.png">{640, 72}</string>
 			<string key="gradient background.png">{640, 960}</string>
 			<string key="terry-riley_in-C_1.png">{71, 24}</string>
 			<string key="terry-riley_in-C_2.png">{71, 24}</string>
