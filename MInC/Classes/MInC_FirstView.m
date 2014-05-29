@@ -79,7 +79,7 @@ MInC_FirstView *gFirstView = nil;
 
 - (void)dealloc
 {
-	[_ImageArray release];
+//	[_ImageArray release];
     
     [super dealloc];
 }
@@ -230,6 +230,7 @@ MInC_FirstView *gFirstView = nil;
 
 -(void) createImageArray
 {
+#if 0
     UIImage *image = [UIImage imageNamed:@"InCCover.jpg"];
     [gFirstView.NotationView setImage:image];
     _ImageArray = [[NSArray alloc] initWithObjects:
@@ -288,6 +289,7 @@ MInC_FirstView *gFirstView = nil;
                   [UIImage imageNamed:@"InC53.jpg"],
                   nil
                   ];
+#endif
 }
 
 -(void)checkIncomingMessages
@@ -301,8 +303,10 @@ MInC_FirstView *gFirstView = nil;
 	
 	if (NewMod == YES)
 	{
+#if 0
 		if (gAQP.SeqNum >= 0 && gAQP.SeqNum <= gAQP.NumSequences)
 			_NotationView.image = [_ImageArray objectAtIndex:gAQP.SeqNum-1];
+#endif
 		NewMod = NO;
         if (!gAQP->Sequencer_Pri.Playing)
             [gAQP->Sequencer_Pri start];

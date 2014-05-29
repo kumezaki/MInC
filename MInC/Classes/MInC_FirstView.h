@@ -49,8 +49,8 @@
 @property (nonatomic, retain)   IBOutlet UIImageView	*NotationView;
 @property (nonatomic, retain)   IBOutlet UILabel		*StatusLabel;
 
-@property (nonatomic, retain)   NSArray					*ImageArray;
-@property (nonatomic, retain)   NSArray                 *LoadImageArray;
+//@property (nonatomic, retain)   NSArray					*ImageArray;
+//@property (nonatomic, retain)   NSArray                 *LoadImageArray;
 
 @property (nonatomic, retain)   NSString				*InterstitialString;
 @property (nonatomic, retain)   NSString				*ServerIPAddString;
