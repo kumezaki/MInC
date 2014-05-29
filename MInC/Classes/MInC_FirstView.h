@@ -33,6 +33,7 @@
     IBOutlet UIImageView* viewA;
     IBOutlet UIImageView* viewB;
     IBOutlet UIImageView* viewPos;
+    IBOutlet UIImageView* viewAvgPos;
 
 //    IBOutlet UIImageView    *LogoImageView;
     

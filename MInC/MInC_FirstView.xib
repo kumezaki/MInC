@@ -90,14 +90,13 @@
 							</object>
 							<object class="IBUIImageView" id="722867320">
 								<reference key="NSNextResponder" ref="592213150"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">-2147483356</int>
 								<string key="NSFrame">{{0, 222}, {320, 37}}</string>
 								<reference key="NSSuperview" ref="592213150"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="839381835"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<string key="NSHuggingPriority">{251, 251}</string>
-								<float key="IBUIAlpha">0.5</float>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
@@ -114,6 +113,7 @@
 								<reference key="NSNextKeyView" ref="250655746"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<string key="NSHuggingPriority">{251, 251}</string>
+								<float key="IBUIAlpha">0.5</float>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
@@ -139,7 +139,6 @@
 						<string key="NSFrame">{{142, 221}, {37, 37}}</string>
 						<reference key="NSSuperview" ref="668317976"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="NSHuggingPriority">{750, 750}</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -203,9 +202,17 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">viewPos</string>
 						<reference key="source" ref="668317976"/>
+						<reference key="destination" ref="722867320"/>
+					</object>
+					<string key="id">53D-6f-n35</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">viewAvgPos</string>
+						<reference key="source" ref="668317976"/>
 						<reference key="destination" ref="839381835"/>
 					</object>
-					<string key="id">74W-sK-RyK</string>
+					<string key="id">bGQ-FT-AMg</string>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -401,6 +408,7 @@
 						<string key="TwoTimesFastButton">UIButton</string>
 						<string key="TwoTimesSlowButton">UIButton</string>
 						<string key="viewA">UIImageView</string>
+						<string key="viewAvgPos">UIImageView</string>
 						<string key="viewB">UIImageView</string>
 						<string key="viewGradient">UIImageView</string>
 						<string key="viewPos">UIImageView</string>
@@ -468,6 +476,10 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="viewA">
 							<string key="name">viewA</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="viewAvgPos">
+							<string key="name">viewAvgPos</string>
 							<string key="candidateClassName">UIImageView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="viewB">

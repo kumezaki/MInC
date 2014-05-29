@@ -160,12 +160,12 @@ function do_msg(osc_add,pos,val)
 
         case gMsgIDArray["accX"]:
             {
-                var speed_mod = val < 400 ? -1 : val > 600 ? +1 : 0;
-                if (speed_mod != dev.speed_mod)
-                {
-                    dev.speed_mod = speed_mod;
+//				var speed_mod = val < 400 ? -1 : val > 600 ? +1 : 0;
+//				if (speed_mod != dev.speed_mod)
+//				{
+//					dev.speed_mod = speed_mod;
 //					send_speed_msg(dev_pos);
-                }
+//				}
                 break;
             }
         case gMsgIDArray["accY"]:
@@ -324,6 +324,11 @@ function set_inst(dev_pos,oct,max_amp,a,d,s,r,freq_delta,q)
 //    post("max_amp",max_amp,"adsr",a,d,s,r,"filt",freq_delta,q,"\n");
 }
 
+function set_inst_generic(dev_pos)
+{
+    set_inst(dev_pos,0,1.0,20,0,1.0,20,0.,2.);
+}
+
 function set_inst_high(dev_pos)
 {
     set_inst(dev_pos,+1,0.8,30,1.0,0.0,0,-1000.,1.);
@@ -434,7 +439,7 @@ function send_filter_q_msg(dev_pos,q)
 
 function send_volume_msg(dev_pos,val)
 {
-    if (val < 100) return;
+//    if (val < 100) return;
     messnamed("InC_in1_msg","target",dev_pos+1);
     messnamed("InC_in2_msg","volume",(val/1000.)*gMaxVolume);
 }
@@ -605,7 +610,8 @@ function update_dev(dev_pos,dev_name)
         else
         {
             gDeviceArray[dev_pos].mod = get_avg_mod();
-            set_inst_mid(dev_pos);
+//            set_inst_mid(dev_pos);
+            set_inst_generic(dev_pos);
             send_volume_msg(dev_pos,500);
         }
     }

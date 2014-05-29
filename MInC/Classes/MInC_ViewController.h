@@ -13,7 +13,7 @@
 #import "MInC_FirstView.h"
 #import "MInC_SecondView.h"
 
-#define FLOAT_TO_MRMR_INT(v) (SInt32)(v * 1000. + 0.5)
+#define FLOAT_TO_MRMR_INT(v) (SInt32)(v * 1000. + (v < 0 ? -0.5 : 0.5))
 
 @interface MInC_ViewController : UIViewController <UIAccelerometerDelegate> {
     

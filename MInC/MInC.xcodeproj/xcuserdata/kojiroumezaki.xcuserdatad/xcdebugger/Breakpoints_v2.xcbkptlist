@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/MInC_FirstView.m"
-            timestampString = "422769073.807349"
+            timestampString = "422911543.061444"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "343"
-            endingLineNumber = "343"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
             landmarkName = "-setRelativePos:"
             landmarkType = "5">
          </BreakpointContent>

@@ -328,6 +328,7 @@ MInC_FirstView *gFirstView = nil;
 {
     viewGradient.hidden = YES;
     viewPos.hidden = YES;
+    viewAvgPos.hidden = YES;
     [ActivityIndicatorView startAnimating];
 }
 
@@ -335,6 +336,7 @@ MInC_FirstView *gFirstView = nil;
 {
     viewGradient.hidden = NO;
     viewPos.hidden = NO;
+    viewAvgPos.hidden = !gViewController.networking.ReceivingHeartBeat;
     [ActivityIndicatorView stopAnimating];
 }
 
@@ -342,9 +344,14 @@ MInC_FirstView *gFirstView = nil;
 {
     NSLog(@"setRelativePos pos=%d",pos);
 
-//    pos = -pos;
-    pos = pos < -3 ? -4 : pos;
-    pos = pos > +3 ? +4 : pos;
+    if (gViewController.networking.ReceivingHeartBeat)
+    {
+        pos = pos < -3 ? -4 : pos;
+        pos = pos > +3 ? +4 : pos;
+        pos = -pos;
+    }
+    else
+        pos = 0;
     
     Float64 h = self.bounds.size.height;
     Float64 w = self.bounds.size.width;

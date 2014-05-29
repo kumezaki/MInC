@@ -49,6 +49,8 @@ int (^oscValByteSwap)(char*) = ^(char* num) {
 @synthesize playingMeterValue   =_playingMeterValue;
 @synthesize recordingMeterValue =_recordingMeterValue;
 
+@synthesize ReceivingHeartBeat;
+
 #define OSC_START self->OutBufferLength = 0;
 #define OSC_END [self send_udp];
 #define OSC_ADD(msg,num_msg_bytes) memcpy(self->OutBuffer+self->OutBufferLength,msg,num_msg_bytes);self->OutBufferLength+=num_msg_bytes;
@@ -70,6 +72,7 @@ union {
 	[self sendHeartBeat];
     
     FirstHeartBeat = YES;
+    ReceivingHeartBeat = NO;
         
     recMeterValueReceived = NO;
     progressValueReceived = NO;
@@ -248,6 +251,7 @@ union {
                             [self sendOSCMsg:"/minc/download\0\0":16];
                             [self startReceiveTCP];
                             FirstHeartBeat = NO;
+                            ReceivingHeartBeat = YES;
                         }
 #if 0
                         [gFirstView heartBeat];
