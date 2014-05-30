@@ -362,7 +362,7 @@ MInC_FirstView *gFirstView = nil;
     Float64 cell_h = 35.;
     Float64 y = h / 2. + cell_h * (pos - 0.5);
     
-    viewPos.frame = CGRectMake(0., y, w, cell_h);
+    viewAvgPos.frame = CGRectMake(0., y, w, cell_h);
     
 	[self setNeedsDisplay];
 }

@@ -612,6 +612,7 @@ function update_dev(dev_pos,dev_name)
             gDeviceArray[dev_pos].mod = get_avg_mod();
 //            set_inst_mid(dev_pos);
             set_inst_generic(dev_pos);
+            send_dac_msg(dev_pos,dev_pos%2+1);
             send_volume_msg(dev_pos,500);
         }
     }

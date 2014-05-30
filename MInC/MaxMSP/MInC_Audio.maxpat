@@ -966,7 +966,7 @@
 					"destination" : [ "obj-15", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"source" : [ "obj-12", 0 ]
+					"source" : [ "obj-12", 1 ]
 				}
 
 			}
@@ -984,7 +984,7 @@
 					"destination" : [ "obj-48", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"source" : [ "obj-12", 0 ]
+					"source" : [ "obj-12", 1 ]
 				}
 
 			}
@@ -1479,8 +1479,8 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-50" : [ "live.gain~[1]", "live.gain~", 0 ],
-			"obj-48" : [ "live.gain~", "live.gain~", 0 ]
+			"obj-48" : [ "live.gain~", "live.gain~", 0 ],
+			"obj-50" : [ "live.gain~[1]", "live.gain~", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{

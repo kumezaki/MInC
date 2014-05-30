@@ -203,7 +203,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 		
         [Sequencer_Pri setNextSequence:Sequences[SeqNum-1]];
 
-	    [gFirstView setRelativePos:(SeqNum - AvgSeqPos)];
+	    [gFirstView setRelativePos:(AvgSeqPos - SeqNum)];
     }
 }
 
@@ -231,7 +231,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
     AvgSeqPos = [num intValue];
 
-    [gFirstView setRelativePos:(SeqNum - AvgSeqPos)];
+    [gFirstView setRelativePos:(AvgSeqPos - SeqNum)];
 }
 
 #if WITH_XML_SEQS // XML way of loading sequence data
