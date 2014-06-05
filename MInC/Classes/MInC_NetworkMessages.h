@@ -52,7 +52,7 @@
 @property (nonatomic, readonly, retain) NSNumber    *playingMeterValue;
 @property (nonatomic, readonly, retain) NSNumber    *recordingMeterValue;
 
-@property (readonly) BOOL ReceivingHeartBeat;
+@property (readwrite) BOOL ReceivingHeartBeat;
 
 -(void)sendOSCMsg:(const char*)osc_str :(int)osc_str_length;
 -(void)sendOSCMsgWithIntValue:(const char*)osc_str :(int)osc_str_length :(int)val;

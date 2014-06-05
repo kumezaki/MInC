@@ -67,14 +67,16 @@ extern MInC_FirstView* gFirstView;
 
 -(void)dealloc
 {    
-    if ([self.TCPTimer isValid]) {
+    if ([self.TCPTimer isValid])
         [self.TCPTimer invalidate];
-    }
+
     [IncomingDataBuffer release];
 
-    //    [TCPThread release];
+//  [TCPThread release];
 	[UDPThread release];
+
     [_devIP release];
+
 	[super dealloc];
 }
 	

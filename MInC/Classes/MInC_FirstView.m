@@ -23,6 +23,7 @@ MInC_FirstView *gFirstView = nil;
 
 @synthesize NewMod;
 @synthesize WithServer;
+@synthesize HeartbeatTimer;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -80,6 +81,9 @@ MInC_FirstView *gFirstView = nil;
 - (void)dealloc
 {
 //	[_ImageArray release];
+    
+    if ([self.HeartbeatTimer isValid])
+        [self.HeartbeatTimer invalidate];
     
     [super dealloc];
 }
@@ -344,6 +348,11 @@ MInC_FirstView *gFirstView = nil;
     [ActivityIndicatorView stopAnimating];
 }
 
+-(void)updateAvgPosView
+{
+    viewAvgPos.hidden = !gViewController.networking.ReceivingHeartBeat;
+}
+
 -(void)setRelativePos:(SInt16)pos
 {
     NSLog(@"setRelativePos pos=%d",pos);
@@ -382,6 +391,21 @@ MInC_FirstView *gFirstView = nil;
         viewB.alpha = 1.0;
         
     }];
+}
+
+-(void)startHeartBeatCheck
+{
+    NSLog(@"startHeartBeatCheck");
+    if ([HeartbeatTimer isValid])
+        [HeartbeatTimer invalidate];
+    HeartbeatTimer = [NSTimer scheduledTimerWithTimeInterval:10. target:self selector:@selector(heartBeatLost) userInfo:nil repeats:NO];
+}
+
+-(void)heartBeatLost
+{
+    NSLog(@"heartBeatLost");
+    gViewController.networking.ReceivingHeartBeat = NO;
+    [self updateAvgPosView];
 }
 
 @end

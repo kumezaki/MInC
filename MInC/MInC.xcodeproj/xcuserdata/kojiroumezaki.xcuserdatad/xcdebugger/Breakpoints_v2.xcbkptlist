@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/MInC_FirstView.m"
-            timestampString = "422578414.358726"
+            timestampString = "423695692.612409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "-switchToSettings"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/MInC_FirstView.m"
-            timestampString = "422911543.061444"
+            timestampString = "423695692.612409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345"
-            landmarkName = "-stopActivityIndicator"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
+            landmarkName = "-updateAvgPosView"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

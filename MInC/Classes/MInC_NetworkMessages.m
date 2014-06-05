@@ -251,13 +251,10 @@ union {
                             [self sendOSCMsg:"/minc/download\0\0":16];
                             [self startReceiveTCP];
                             FirstHeartBeat = NO;
-                            ReceivingHeartBeat = YES;
                         }
-#if 0
-                        [gFirstView heartBeat];
-#else
+                        ReceivingHeartBeat = YES;
                         [gFirstView performSelectorOnMainThread:@selector(heartBeat) withObject:nil waitUntilDone:NO];
-#endif
+                        [gFirstView performSelectorOnMainThread:@selector(startHeartBeatCheck) withObject:nil waitUntilDone:NO];
                         break;
 					}
                     case 4:
@@ -322,7 +319,7 @@ union {
 }
 
 
-#pragma mark- NSTimer heartbeat
+#pragma mark- NSTimer send heartbeat
 -(void)sendHeartBeat
 {
     [self sendOSCMsg:"/minc/hb\0\0\0\0":12];

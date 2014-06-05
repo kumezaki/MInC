@@ -55,6 +55,8 @@
 @property (nonatomic, retain)   NSString				*InterstitialString;
 @property (nonatomic, retain)   NSString				*ServerIPAddString;
 
+@property (nonatomic, retain)   NSTimer     *HeartbeatTimer;
+
 -(IBAction)switchToSettings;
 
 -(IBAction)setSequence;
@@ -87,15 +89,18 @@
 -(void)sendOSC_Volume:(Float64)val;
 -(void)sendOSC_Waveform:(Float64)val;
 
--(void) createImageArray;
+-(void)createImageArray;
 
 -(void)checkIncomingMessages;
 
 -(void)startActivityIndicator;
 -(void)stopActivityIndicator;
 
+-(void)updateAvgPosView;
+
 -(void)setRelativePos:(SInt16)pos;
 
 -(void)heartBeat;
+-(void)startHeartBeatCheck;
 
 @end
