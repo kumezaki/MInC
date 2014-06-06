@@ -237,7 +237,7 @@ extern MInC_FirstView* gFirstView;
     if (listen(ServSock,5) < 0)
         NSLog(@"listen() failed");
     
-    NSLog(@"accept on %d",TCPReceivePortNum);
+    NSLog(@"accept on %u",TCPReceivePortNum);
     socklen_t clntLen = sizeof(clntAddr);
     ClntSock = accept(ServSock,(struct sockaddr *) &clntAddr, &clntLen);
     /* will get here if a client connects, otherwise this process waits */

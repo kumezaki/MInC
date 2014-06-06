@@ -106,8 +106,8 @@ MInC_FirstView *gFirstView = nil;
 		NewMod = YES;
 	}
 
-    NSLog(@"WithServer %s",WithServer?"ON":"OFF");
-    NSLog(@"gAQP->SeqNum %ld",gAQP.SeqNum);
+//    NSLog(@"WithServer %s",WithServer?"ON":"OFF");
+//    NSLog(@"gAQP->SeqNum %ld",gAQP.SeqNum);
 }
 
 -(IBAction)set8vbDown:(id)sender
@@ -386,7 +386,7 @@ MInC_FirstView *gFirstView = nil;
 
 -(void)heartBeat
 {
-    NSLog(@"received heartbeat");
+//    NSLog(@"received heartbeat");
 
     [UIView animateWithDuration:0.1 animations:^{
         viewA.alpha = 1.0;
@@ -403,7 +403,7 @@ MInC_FirstView *gFirstView = nil;
 
 -(void)startHeartBeatCheck
 {
-    NSLog(@"startHeartBeatCheck");
+//    NSLog(@"startHeartBeatCheck");
     if ([HeartbeatTimer isValid])
         [HeartbeatTimer invalidate];
     HeartbeatTimer = [NSTimer scheduledTimerWithTimeInterval:10. target:self selector:@selector(heartBeatLost) userInfo:nil repeats:NO];

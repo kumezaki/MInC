@@ -29,7 +29,7 @@ extern MInC_AQPlayer *gAQP;
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *filePath = [documentsPath stringByAppendingPathComponent:fileName];
     NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"%@",content);
+//    NSLog(@"%@",content);
     NSArray* elems = [content componentsSeparatedByString:@"\n"];
     NSLog(@"count %d",[elems count]);
 

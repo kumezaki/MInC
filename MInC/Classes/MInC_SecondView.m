@@ -130,7 +130,7 @@ MInC_SecondView *gSecondView = nil;
 
 -(void)setIPAddressAndPortNumTextFields
 {
-	NSLog(@"%lu %d",gViewController.networking.SendIPAddress,gViewController.networking.SendPortNum);
+//	NSLog(@"%lu %d",gViewController.networking.SendIPAddress,gViewController.networking.SendPortNum);
 
 	IPAddressTextField.text = [NSString stringWithFormat:@"%ld.%ld.%ld.%ld",(gViewController.networking.SendIPAddress&0xFF000000)>>24
 								,(gViewController.networking.SendIPAddress&0x00FF0000)>>16
