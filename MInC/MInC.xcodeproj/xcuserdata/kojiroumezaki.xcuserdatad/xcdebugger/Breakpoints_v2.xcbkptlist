@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/MInC_FirstView.m"
-            timestampString = "423695692.612409"
+            timestampString = "423763237.302752"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
+            startingLineNumber = "355"
+            endingLineNumber = "355"
             landmarkName = "-updateAvgPosView"
             landmarkType = "5">
          </BreakpointContent>

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define MINC_POS_GRAPHICS 0
+
 @interface MInC_FirstView : UIView {
 
 	IBOutlet UISlider	*NoteDurationSlider;
@@ -29,12 +31,15 @@
     IBOutlet UIActivityIndicatorView *ActivityIndicatorView;
     NSTimer*            LoadSeqFileTimer;
     
-    IBOutlet UIImageView* viewGradient;
     IBOutlet UIImageView* viewA;
     IBOutlet UIImageView* viewB;
+
+#if MINC_POS_GRAPHICS
+    IBOutlet UIImageView* viewGradient;
     IBOutlet UIImageView* viewPos;
     IBOutlet UIImageView* viewAvgPos;
-
+#endif
+    
 //    IBOutlet UIImageView    *LogoImageView;
     
 //    IBOutlet UIImageView    *LoadAnimation;

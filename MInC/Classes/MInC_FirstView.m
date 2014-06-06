@@ -334,27 +334,34 @@ MInC_FirstView *gFirstView = nil;
 
 -(void)startActivityIndicator
 {
+#if MINC_POS_GRAPHICS
     viewGradient.hidden = YES;
     viewPos.hidden = YES;
     viewAvgPos.hidden = YES;
+#endif
     [ActivityIndicatorView startAnimating];
 }
 
 -(void)stopActivityIndicator
 {
+#if MINC_POS_GRAPHICS
     viewGradient.hidden = NO;
     viewPos.hidden = NO;
     viewAvgPos.hidden = !gViewController.networking.ReceivingHeartBeat;
+#endif
     [ActivityIndicatorView stopAnimating];
 }
 
 -(void)updateAvgPosView
 {
+#if MINC_POS_GRAPHICS
     viewAvgPos.hidden = !gViewController.networking.ReceivingHeartBeat;
+#endif
 }
 
 -(void)setRelativePos:(SInt16)pos
 {
+#if MINC_POS_GRAPHICS
     NSLog(@"setRelativePos pos=%d",pos);
 
     if (gViewController.networking.ReceivingHeartBeat)
@@ -374,6 +381,7 @@ MInC_FirstView *gFirstView = nil;
     viewAvgPos.frame = CGRectMake(0., y, w, cell_h);
     
 	[self setNeedsDisplay];
+#endif
 }
 
 -(void)heartBeat

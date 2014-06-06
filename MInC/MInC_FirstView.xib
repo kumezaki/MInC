@@ -190,30 +190,6 @@
 					</object>
 					<string key="id">Ysx-PZ-v5W</string>
 				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">viewGradient</string>
-						<reference key="source" ref="668317976"/>
-						<reference key="destination" ref="723923612"/>
-					</object>
-					<string key="id">RvE-90-ACn</string>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">viewPos</string>
-						<reference key="source" ref="668317976"/>
-						<reference key="destination" ref="722867320"/>
-					</object>
-					<string key="id">53D-6f-n35</string>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">viewAvgPos</string>
-						<reference key="source" ref="668317976"/>
-						<reference key="destination" ref="839381835"/>
-					</object>
-					<string key="id">bGQ-FT-AMg</string>
-				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
