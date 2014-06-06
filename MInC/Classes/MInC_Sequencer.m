@@ -31,14 +31,22 @@ extern MInC_ViewController *gViewController;
 {
 	Playing = NO;
     SyncWithServer = NO;
-    
-	AmpMultiplier_Accel = 0.;
+
     AmpMultiplier_Accel_Target = 1.;
     AmpMultiplier_Accel_Delta = 0.;
+#if MINC_ACCELLEROMETER
+	AmpMultiplier_Accel = 0.;
+#else
+	AmpMultiplier_Accel = AmpMultiplier_Accel_Target;
+#endif
 
-    CutoffFreq_Accel = 0.;
     CutoffFreq_Accel_Target = (kSR/2.)*0.9;
     CutoffFreq_Accel_Delta = 0.;
+#if MINC_ACCELLEROMETER
+    CutoffFreq_Accel = 0.;
+#else
+    CutoffFreq_Accel = CutoffFreq_Accel_Target;
+#endif
 
 	Seq_Cur = nil;
 	CurTime = 0.;

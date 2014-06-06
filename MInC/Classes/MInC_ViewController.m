@@ -108,6 +108,8 @@ extern MInC_FirstView *gFirstView;
 
 #pragma mark - accelerometer
 
+#if MINC_ACCELLEROMETER
+
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
 #if 0
@@ -164,5 +166,7 @@ extern MInC_FirstView *gFirstView;
 	NSLog(@"%f %f",x,tempo_mult);
 #endif
 }
+
+#endif
 
 @end

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define MINC_ACCELLEROMETER 0
+
 #import "MInC_NetworkMessages.h"
 
 #import "MInC_FirstView.h"
