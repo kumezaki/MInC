@@ -118,9 +118,10 @@ extern MInC_FirstView *gFirstView;
 	}
 	[self processTouch:touches];
     
+    [gFirstView setSequence];
+
     /* temporarily map touchesBegan to advancing sequence here */
     [self flashScreen];
-    [gFirstView setSequence];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
