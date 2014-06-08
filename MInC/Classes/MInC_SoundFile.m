@@ -18,7 +18,7 @@
 	
 	OSStatus result = noErr;
 	result = AudioFileOpenURL(mSoundFileURLRef,kAudioFileReadPermission,0,&FileID);
-	NSLog(@"AudioFileOpenURL %ld\n",result);
+	NSLog(@"AudioFileOpenURL %d\n",(int)result);
 	
 	return self;
 }
@@ -27,7 +27,7 @@
 {
 	OSStatus result = noErr;
 	result = AudioFileClose(FileID);
-	NSLog(@"AudioFileClose %ld\n",result);
+	NSLog(@"AudioFileClose %d\n",(int)result);
 	
 	[super dealloc];
 }

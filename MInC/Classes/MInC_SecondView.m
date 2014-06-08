@@ -132,7 +132,7 @@ MInC_SecondView *gSecondView = nil;
 {
 //	NSLog(@"%lu %d",gViewController.networking.SendIPAddress,gViewController.networking.SendPortNum);
 
-	IPAddressTextField.text = [NSString stringWithFormat:@"%ld.%ld.%ld.%ld",(gViewController.networking.SendIPAddress&0xFF000000)>>24
+	IPAddressTextField.text = [NSString stringWithFormat:@"%lu.%lu.%lu.%lu",(gViewController.networking.SendIPAddress&0xFF000000)>>24
 								,(gViewController.networking.SendIPAddress&0x00FF0000)>>16
 								,(gViewController.networking.SendIPAddress&0x0000FF00)>>8
 								,(gViewController.networking.SendIPAddress&0x000000FF)>>0];
@@ -161,7 +161,7 @@ MInC_SecondView *gSecondView = nil;
 {
 	[gViewController.networking newServerIPAddress:str];
     [gViewController.networking writeDataFile];
-    NSLog(@"iPAddressChanged to %08lx\n",gViewController.networking.SendIPAddress);
+    NSLog(@"iPAddressChanged to %08x\n",(unsigned int)gViewController.networking.SendIPAddress);
 }
 
 -(void)setServerPortNum:(NSString *)str

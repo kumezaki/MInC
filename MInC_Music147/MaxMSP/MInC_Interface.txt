@@ -1,0 +1,30 @@
+/mrmrIB mrmr_setKioskMode:1
+/mrmrIB mrmr_setSleepDisabled:1
+/mrmrIB mrmr_setAccelerometerOutputDisabled
+/mrmrIB mrmr_clear_all
+/mrmrIB |+|
+/mrmrIB accelerometer nil 0.1 4 6 6 1 0.1 0.1 dropout
+/mrmrIB pushbutton nil 0.1 4 6 0.8 0.8 1 1 spkr_1 2
+/mrmrIB pushbutton nil 0.1 4 6 1.5 0.8 1 1 spkr_2 2
+/mrmrIB pushbutton nil 0.1 4 6 0.8 1.5 1 1 spkr_3 2
+/mrmrIB pushbutton nil 0.1 4 6 1.5 1.5 1 1 spkr_4 2
+/mrmrIB pushbutton nil 0.1 4 6 2.5 1.2 1 1 NEXT_MODULE 10
+/mrmrIB pushbutton nil 0.1 4 6 3.5 0.8 1 1 high 2
+/mrmrIB pushbutton nil 0.1 4 6 4.2 0.8 1 1 middle 2
+/mrmrIB pushbutton nil 0.1 4 6 3.5 1.5 1 1 low 2
+/mrmrIB pushbutton nil 0.1 4 6 4.2 1.5 1 1 sub 2
+/mrmrIB pushbutton nil 0.1 4 6 1 2.45 1 0.7 oct_down 10
+/mrmrIB pushbutton nil 0.1 4 6 2 2.45 1 0.7 oct_up 10
+/mrmrIB pushbutton nil 0.1 4 6 3 2.45 1 0.7 2x_slow 10
+/mrmrIB pushbutton nil 0.1 4 6 4 2.45 1 0.7 2x_fast 10
+/mrmrIB slider nil 0.1 4 6 1.25 3.1 3.5 1 note_duration_slider
+/mrmrIB tactile3D nil 0.1 4 6 1 3.9 4 2.4 x=filter_y=waveform_z=volume 4
+/mrmrIB pushbutton nil 0.1 4 6 1 6.4 2 0.7 hints 10
+/mrmrIB pushbutton nil 0.1 4 6 3 6.4 2 0.7 status 10
+/mrmrIB textview nil 0.1 4 6 1.6 6.2 1 0.1 HINTS
+/mrmrIB textview nil 0.1 4 6 3.5 6.2 1 0.1 STATUS
+/mrmrIB |-|
+/mrmrIB mrmr_setNumberOfBanksVisible:1
+/mrmrIB mrmr_goPerformanceMode
+/mrmrIB mrmr_setAccelerometerUpdateRate:250
+/mrmrIB mrmr_setAccelerometerOutputEnabled

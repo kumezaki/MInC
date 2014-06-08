@@ -142,7 +142,7 @@ extern MInC_FirstView* gFirstView;
 {
 	int sock;
 	struct sockaddr_in sa;
-	int bytes_sent;
+	ssize_t bytes_sent;
 	
 	sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	if (-1 == sock) /* if socket failed to initialize, exit */
@@ -246,7 +246,7 @@ extern MInC_FirstView* gFirstView;
         NSLog(@"ERROR on TCP accept");
 	
     char buffer[256];
-    int bytesRcvd;
+    ssize_t bytesRcvd;
     int count = 0;
 	BOOL done = NO;
     
@@ -334,7 +334,7 @@ extern MInC_FirstView* gFirstView;
     // NSLog(@"%@",[self dataFilePath]);
 	self.SendIPAddress = [[dict valueForKey:@"server_ip_address"] unsignedIntValue];
 	self.SendPortNum = [[dict valueForKey:@"server_port_num"] unsignedIntValue];
-	NSLog(@"%lu %d",self.SendIPAddress,self.SendPortNum);
+	NSLog(@"%u %d",(unsigned int)self.SendIPAddress,self.SendPortNum);
 }
 
 -(void)writeDataFile

@@ -11,7 +11,7 @@
 @interface MInC_NetworkConnections : NSObject {
 
 	char			IPAddBuf[32];
-	int				IPAddSize;
+	unsigned long	IPAddSize;
 	
 	char			OutBuffer[1024];
 	ssize_t			OutBufferLength;

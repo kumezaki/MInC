@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work title="Comp">
+	<part id="1" name="Part 1" numsequences="8">
+		<sequence id="1" numnote="7" name="Pattern 1">
+			<notes>
+				<note>60</note><note>62</note><note>64</note><note>67</note><note>62</note><note>64</note><note>-1</note>
+			</notes>
+			<durs>
+				<dur>2</dur><dur>.25</dur><dur>.25</dur><dur>1.5</dur><dur>1</dur><dur>2</dur><dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="2" numnote="6" name="Pattern 2">
+			<notes>
+				<note>60</note><note>62</note><note>63</note><note>62</note><note>60</note><note>56</note>
+			</notes>
+			<durs>
+				<dur>1</dur><dur>1</dur><dur>1</dur><dur>1</dur><dur>1</dur><dur>2</dur>
+			</durs>
+		</sequence>
+		<sequence id="3" numnote="11" name="Pattern 3">
+			<notes>
+				<note>60</note><note>62</note><note>63</note><note>65</note><note>67</note><note>69</note><note>70</note><note>69</note><note>70</note><note>69</note><note>-1</note>
+			</notes>
+			<durs>
+				<dur>1.25</dur><dur>.25</dur><dur>.75</dur><dur>.25</dur><dur>.75</dur><dur>.25</dur><dur>.5</dur><dur>.25</dur><dur>.25</dur><dur>1</dur><dur>.5</dur>
+			</durs>
+		</sequence>
+		<sequence id="4" numnote="13" name="Pattern 4">
+			<notes>
+				<note>67</note><note>67</note><note>67</note><note>67</note><note>65</note><note>65</note><note>67</note><note>67</note><note>67</note><note>67</note><note>67</note><note>69</note><note>70</note>
+			</notes>
+			<durs>
+				<dur>.75</dur><dur>.75</dur><dur>.75</dur><dur>.75</dur><dur>.5</dur><dur>.5</dur><dur>.75</dur><dur>.75</dur><dur>.75</dur><dur>.75</dur><dur>.25</dur><dur>.25</dur><dur>.5</dur>
+			</durs>
+		</sequence>
+		<sequence id="5" numnote="10" name="Pattern 5">
+			<notes>
+				<note>72</note><note>64</note><note>65</note><note>67</note><note>69</note><note>70</note><note>69</note><note>67</note><note>65</note><note>67</note>
+			</notes>
+			<durs>
+				<dur>2</dur><dur>.5</dur><dur>.5</dur><dur>1</dur><dur>1</dur><dur>1</dur><dur>.75</dur><dur>.25</dur><dur>2</dur><dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="6" numnote="12" name="Pattern 6">
+			<notes>
+				<note>68</note><note>67</note><note>65</note><note>68</note><note>67</note><note>65</note><note>68</note><note>67</note><note>70</note><note>68</note><note>67</note><note>65</note>
+			</notes>
+			<durs>
+				<dur>.5</dur><dur>.5</dur><dur>.5</dur><dur>.5</dur><dur>.5</dur><dur>.5</dur><dur>.5</dur><dur>.5</dur><dur>.5</dur><dur>.5</dur><dur>.5</dur><dur>.5</dur>
+			</durs>
+		</sequence>
+		<sequence id="7" numnote="11" name="Pattern 7">
+			<notes>
+				<note>60</note><note>62</note><note>63</note><note>65</note><note>67</note><note>69</note><note>70</note><note>68</note><note>70</note><note>71</note><note>-1</note>
+			</notes>
+			<durs>
+				<dur>1.25</dur><dur>.25</dur><dur>.75</dur><dur>.25</dur><dur>.75</dur><dur>.25</dur><dur>.5</dur><dur>.25</dur><dur>.25</dur><dur>1</dur><dur>.5</dur>
+			</durs>
+		</sequence>
+		<sequence id="8" numnote="8" name="Pattern 8">
+			<notes>
+				<note>72</note><note>72</note><note>69</note><note>67</note><note>65</note><note>64</note><note>65</note><note>62</note>
+			</notes>
+			<durs>
+				<dur>2</dur><dur>.5</dur><dur>.5</dur><dur>2</dur><dur>1</dur><dur>1</dur><dur>1</dur><dur>1</dur>
+			</durs>
+		</sequence>
+	</part>
+	<part id="2" name="Part 2" numsequences="8">
+		<sequence id="1" numnote="10" name="Pattern 1">
+			<notes>
+				<note>79</note><note>81</note><note>79</note><note>77</note><note>79</note><note>77</note><note>76</note><note>79</note><note>82</note><note>-1</note>
+			</notes>
+			<durs>
+				<dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.75</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>1</dur><dur>.5</dur>
+			</durs>
+		</sequence>
+		<sequence id="2" numnote="12" name="Pattern 2">
+			<notes>
+				<note>79</note><note>80</note><note>79</note><note>77</note><note>79</note><note>77</note><note>75</note><note>79</note><note>81</note><note>-1</note><note>81</note><note>81</note>
+			</notes>
+			<durs>
+				<dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.75</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.5</dur><dur>.5</dur><dur>.25</dur><dur>.25</dur>
+			</durs>
+		</sequence>
+		<sequence id="3" numnote="16" name="Pattern 3">
+			<notes>
+				<note>79</note><note>-1</note><note>79</note><note>79</note><note>79</note><note>79</note><note>79</note><note>-1</note><note>79</note><note>79</note><note>79</note><note>77</note><note>-1</note><note>77</note><note>77</note><note>79</note>
+			</notes>
+			<durs>
+				<dur>.70</dur><dur>.05</dur><dur>.125</dur><dur>.125</dur><dur>.25</dur><dur>.25</dur><dur>.5</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.20</dur><dur>.05</dur><dur>.125</dur><dur>.125</dur><dur>.5</dur>
+			</durs>
+		</sequence>
+		<sequence id="4" numnote="7" name="Pattern 4">
+			<notes>
+				<note>72</note><note>79</note><note>81</note><note>82</note><note>79</note><note>81</note><note>85</note>
+			</notes>
+			<durs>
+				<dur>2.75</dur><dur>.125</dur><dur>.125</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur>
+			</durs>
+		</sequence>
+		<sequence id="5" numnote="6" name="Pattern 5">
+			<notes>
+				<note>74</note><note>78</note><note>74</note><note>78</note><note>74</note><note>78</note>
+			</notes>
+			<durs>
+				<dur>.25</dur><dur>.5</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.5</dur>
+			</durs>
+		</sequence>
+		<sequence id="6" numnote="13" name="Pattern 6">
+			<notes>
+				<note>84</note><note>84</note><note>84</note><note>84</note><note>-1</note><note>85</note><note>87</note><note>85</note><note>84</note><note>83</note><note>82</note><note>80</note><note>83</note>
+			</notes>
+			<durs>
+				<dur>.25</dur><dur>.125</dur><dur>.125</dur><dur>.5</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>1</dur>
+			</durs>
+		</sequence>
+		<sequence id="7" numnote="18" name="Pattern 7">
+			<notes>
+				<note>79</note><note>79</note><note>79</note><note>-1</note><note>80</note><note>-1</note><note>79</note><note>79</note><note>79</note><note>-1</note><note>82</note><note>-1</note><note>79</note><note>79</note><note>79</note><note>76</note><note>82</note><note>-1</note>
+			</notes>
+			<durs>
+				<dur>.125</dur><dur>.125</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.125</dur><dur>.125</dur><dur>.25</dur><dur>.5</dur><dur>.25</dur><dur>.25</dur><dur>.125</dur><dur>.125</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur>
+			</durs>
+		</sequence>
+		<sequence id="8" numnote="10" name="Pattern 8">
+			<notes>
+				<note>79</note><note>81</note><note>79</note><note>77</note><note>79</note><note>77</note><note>76</note><note>79</note><note>84</note><note>83</note>
+			</notes>
+			<durs>
+				<dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.75</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur><dur>.25</dur>
+			</durs>
+		</sequence>
+	</part>
+</work>

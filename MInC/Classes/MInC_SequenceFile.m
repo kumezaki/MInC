@@ -31,7 +31,7 @@ extern MInC_AQPlayer *gAQP;
     NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
 //    NSLog(@"%@",content);
     NSArray* elems = [content componentsSeparatedByString:@"\n"];
-    NSLog(@"count %d",[elems count]);
+    NSLog(@"count %lu",(unsigned long)[elems count]);
 
     /* convert text in file to note numbers and durations */
     Float64 note_nums[kMaxNumNotes];
@@ -42,7 +42,7 @@ extern MInC_AQPlayer *gAQP;
     {
         NSLog(@"%@",s);
         NSArray* note = [s componentsSeparatedByString:@" "];
-        NSLog(@"%d",note.count);
+        NSLog(@"%lu",(unsigned long)note.count);
         if (note.count == 1)
         {
             if (seq_num != 0)

@@ -139,13 +139,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     OSStatus result = AudioQueueNewOutput(&DataFormat, AQBufferCallback, self, nil, nil, 0, &Queue);
 	
 	if (result != noErr)
-		NSLog(@"AudioQueueNewOutput %ld\n",result);
+		NSLog(@"AudioQueueNewOutput %d\n",(int)result);
 	
     for (SInt32 i = 0; i < kNumberBuffers; ++i)
 	{
 		result = AudioQueueAllocateBuffer(Queue, 512, &Buffers[i]);
 		if (result != noErr)
-			NSLog(@"AudioQueueAllocateBuffer %ld\n",result);
+			NSLog(@"AudioQueueAllocateBuffer %d\n",(int)result);
 	}
 }
 

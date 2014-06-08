@@ -1,0 +1,41 @@
+BEGIN {
+	n = 0;
+	prev_tick = 0;
+	note = 0;
+}
+
+{
+	if (($2 != 144) && ($2 != 128) && ($2 != "end")) next;
+
+	dur = $1 - prev_tick;
+	if (dur > 0)
+	{
+		note_array[n] = note;
+		dur_array[n++] = dur/500;
+	}
+	prev_tick = $1;
+
+	note = $2 == 128 ? 0 : $3;
+}
+
+END {
+	printf("/*** %02d ***/\n",mod);
+
+	printf("#define num_notes_%02d %d\n",mod,n);
+
+	printf("double note_sequence_%02d[num_notes_%02d] = {\n",mod,mod);
+
+	for (i = 0; i < n; i++)
+		printf("%d%s",note_array[i],i<(n-1)?", ":"\n");
+
+	printf("};\n");
+
+	printf("double dur_sequence_%02d[num_notes_%02d] = {\n",mod,mod);
+
+	for (i = 0; i < n; i++)
+		printf("%f%s",dur_array[i],i<(n-1)?", ":"\n");
+
+	printf("};\n");
+	
+	printf("\n");
+}

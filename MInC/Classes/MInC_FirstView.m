@@ -190,14 +190,14 @@ MInC_FirstView *gFirstView = nil;
 
 -(IBAction)setSpeaker:(id)sender
 {
-	NSLog(@"setSpeaker %d\n",SpeakerSegControl.selectedSegmentIndex);
+	NSLog(@"setSpeaker %ld\n",(long)SpeakerSegControl.selectedSegmentIndex);
     
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/speak\0":12:SpeakerSegControl.selectedSegmentIndex];
 }
 
 -(IBAction)setInstrument:(id)sender
 {
-	NSLog(@"setInstrument %d\n",InstrSegControl.selectedSegmentIndex);
+	NSLog(@"setInstrument %ld\n",(long)InstrSegControl.selectedSegmentIndex);
     
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/instr\0":12:InstrSegControl.selectedSegmentIndex];
 
