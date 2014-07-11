@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>704CDB48-C051-47F6-A51E-19D7B3A5E796</string>
+	<string>CF873DA2-2450-4E7D-91CC-9C3A1F1972DD</string>
 	<key>IDESourceControlProjectName</key>
 	<string>MInC</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>CDC6B2E3-CAAB-4050-9E76-012F92CDFF9D</key>
+		<key>3CB8CFA0-6A34-436F-B424-E4F00A43CDC3</key>
 		<string>https://github.com/kumezaki/MInC.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>MInC/MInC.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>CDC6B2E3-CAAB-4050-9E76-012F92CDFF9D</key>
+		<key>3CB8CFA0-6A34-436F-B424-E4F00A43CDC3</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>CDC6B2E3-CAAB-4050-9E76-012F92CDFF9D</string>
+	<string>3CB8CFA0-6A34-436F-B424-E4F00A43CDC3</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>CDC6B2E3-CAAB-4050-9E76-012F92CDFF9D</string>
+			<string>3CB8CFA0-6A34-436F-B424-E4F00A43CDC3</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MInC</string>
 		</dict>

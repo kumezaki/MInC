@@ -98,6 +98,8 @@ extern MInC_FirstView *gFirstView;
 {
     [self removeSubviews];
     [[[UIApplication sharedApplication] delegate].window addSubview:self.firstView];
+    self.firstView.frame=self.view.bounds;
+//    NSLog(@"firstView origin %f %f",self.firstView.frame.origin.x,self.firstView.frame.origin.y);
 }
 
 -(void) loadSecondView;

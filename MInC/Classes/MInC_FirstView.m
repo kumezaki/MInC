@@ -56,7 +56,8 @@ MInC_FirstView *gFirstView = nil;
     
 	_InterstitialString = nil;
 	_ServerIPAddString = nil;
-    
+
+#if 0
     //Load logo images for Heartbeat Animation
     NSMutableArray *MInCLogo = [NSMutableArray array];
     for (int i = 1; i <= 2; i++)
@@ -68,7 +69,8 @@ MInC_FirstView *gFirstView = nil;
         if (image)
             [MInCLogo addObject:image];
     }
-	
+#endif
+    
     LoadSeqFileTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:gAQP selector:@selector(loadSeqFile) userInfo:nil repeats:NO];
     [self startActivityIndicator];
     [self checkIncomingMessages];
