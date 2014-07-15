@@ -41,7 +41,7 @@ extern MInC_FirstView *gFirstView;
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
+ }
 */
 
 /*
@@ -51,6 +51,10 @@ extern MInC_FirstView *gFirstView;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 */
+
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
 
 - (void)setupSelf
 {
