@@ -34,6 +34,7 @@
 		21B8AC9711B4208200C88C2D /* MInC_SecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B8AC9611B4208200C88C2D /* MInC_SecondView.m */; };
 		21C208EC12BBA90B0030FDA0 /* MInC_Envelope.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C208EB12BBA90B0030FDA0 /* MInC_Envelope.m */; };
 		21C7FBBF1807097B00057D0B /* MInC_BLIT.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C7FBBE1807097B00057D0B /* MInC_BLIT.m */; };
+		21DD73E7198028EC007515EE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21DD73E6198028EC007515EE /* Images.xcassets */; };
 		272862F517C675C90079A969 /* MInC_BLITSaw.m in Sources */ = {isa = PBXBuildFile; fileRef = 272862F117C675C80079A969 /* MInC_BLITSaw.m */; };
 		27B3601A17C66B9E001FABF8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27B3601917C66B9E001FABF8 /* Default-568h@2x.png */; };
 		28216C970DB411BC00E5133A /* MInC_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28216C960DB411BC00E5133A /* MInC_ViewController.m */; };
@@ -95,6 +96,7 @@
 		21C208EB12BBA90B0030FDA0 /* MInC_Envelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MInC_Envelope.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		21C7FBBD1807097B00057D0B /* MInC_BLIT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_BLIT.h; sourceTree = "<group>"; };
 		21C7FBBE1807097B00057D0B /* MInC_BLIT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_BLIT.m; sourceTree = "<group>"; };
+		21DD73E6198028EC007515EE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MInC/Images.xcassets; sourceTree = "<group>"; };
 		272862F117C675C80079A969 /* MInC_BLITSaw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_BLITSaw.m; sourceTree = "<group>"; };
 		272862F317C675C80079A969 /* MInC_BLITSaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_BLITSaw.h; sourceTree = "<group>"; };
 		27B3601917C66B9E001FABF8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				21DD73E6198028EC007515EE /* Images.xcassets */,
 				217745801933B1800037826C /* MInC Stick Figure_Cell_We.png */,
 				2177457E1933A8EA0037826C /* MInC Stick Figure_Cell_Me.png */,
 				21AD0B07192FFFE70077EC91 /* gradient background.png */,
@@ -295,6 +298,7 @@
 				28AD73880D9D96C1002E5188 /* MInC_MainWindow.xib in Resources */,
 				282CCBFE0DB6C98000C4EA27 /* MInC_SecondView.xib in Resources */,
 				44B3E20218D96CED0065BD22 /* terry-riley_in-C_2.png in Resources */,
+				21DD73E7198028EC007515EE /* Images.xcassets in Resources */,
 				217745811933B1800037826C /* MInC Stick Figure_Cell_We.png in Resources */,
 				2122BAB1197578FA00C1F9D9 /* MInC-Info.plist in Resources */,
 				44B3E20118D96CED0065BD22 /* terry-riley_in-C_1.png in Resources */,
@@ -343,6 +347,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -363,6 +369,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
