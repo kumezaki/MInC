@@ -19,7 +19,6 @@
 		211AB3D911B8098D00B41C09 /* MInC_Sequencer.m in Sources */ = {isa = PBXBuildFile; fileRef = 211AB3D011B8098D00B41C09 /* MInC_Sequencer.m */; };
 		211AB3DA11B8098D00B41C09 /* MInC_TouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211AB3D211B8098D00B41C09 /* MInC_TouchView.m */; };
 		211AB3DB11B8098D00B41C09 /* MInC_WaveFormTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 211AB3D411B8098D00B41C09 /* MInC_WaveFormTable.m */; };
-		2122BAB1197578FA00C1F9D9 /* MInC-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2122BAB0197578FA00C1F9D9 /* MInC-Info.plist */; };
 		21272BC8189AEFB9007F9186 /* MInC_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21272BC7189AEFB9007F9186 /* MInC_ImageView.m */; };
 		213C2FA817EDD72A0024A847 /* MInC_NetworkMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C2FA717EDD72A0024A847 /* MInC_NetworkMessages.m */; };
 		214CCDF217EC850400CD9CAA /* MInC_FirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214CCDF117EC850400CD9CAA /* MInC_FirstView.m */; };
@@ -263,7 +262,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = K73K4Y6HWZ;
@@ -300,7 +299,6 @@
 				44B3E20218D96CED0065BD22 /* terry-riley_in-C_2.png in Resources */,
 				21DD73E7198028EC007515EE /* Images.xcassets in Resources */,
 				217745811933B1800037826C /* MInC Stick Figure_Cell_We.png in Resources */,
-				2122BAB1197578FA00C1F9D9 /* MInC-Info.plist in Resources */,
 				44B3E20118D96CED0065BD22 /* terry-riley_in-C_1.png in Resources */,
 				27B3601A17C66B9E001FABF8 /* Default-568h@2x.png in Resources */,
 				21184588189DE04C00A42B25 /* MInC_FirstView.xib in Resources */,
