@@ -67,7 +67,9 @@ extern MInC_FirstView *gFirstView;
     
     [self loadFirstView];
 
+#if MINC_ACCELLEROMETER
 	[[UIAccelerometer sharedAccelerometer] setDelegate:self];
+#endif
 }
 
 - (void)awakeFromNib

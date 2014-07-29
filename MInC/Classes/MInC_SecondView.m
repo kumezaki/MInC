@@ -132,10 +132,10 @@ MInC_SecondView *gSecondView = nil;
 {
 //	NSLog(@"%lu %d",gViewController.networking.SendIPAddress,gViewController.networking.SendPortNum);
 
-	IPAddressTextField.text = [NSString stringWithFormat:@"%lu.%lu.%lu.%lu",(gViewController.networking.SendIPAddress&0xFF000000)>>24
-								,(gViewController.networking.SendIPAddress&0x00FF0000)>>16
-								,(gViewController.networking.SendIPAddress&0x0000FF00)>>8
-								,(gViewController.networking.SendIPAddress&0x000000FF)>>0];
+	IPAddressTextField.text = [NSString stringWithFormat:@"%lu.%lu.%lu.%lu",(unsigned long)((gViewController.networking.SendIPAddress&0xFF000000)>>24)
+								,(unsigned long)((gViewController.networking.SendIPAddress&0x00FF0000)>>16)
+								,(unsigned long)((gViewController.networking.SendIPAddress&0x0000FF00)>>8)
+								,(unsigned long)((gViewController.networking.SendIPAddress&0x000000FF)>>0)];
 	PortNumTextField.text = [NSString stringWithFormat:@"%d",gViewController.networking.SendPortNum];
 }
 

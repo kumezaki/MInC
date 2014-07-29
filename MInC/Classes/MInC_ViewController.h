@@ -21,8 +21,9 @@
     
     IBOutlet UIImageView* viewA;
     IBOutlet UIImageView* viewB;
-
+    
 }
+
 // model objects
 @property (nonatomic, retain) MInC_NetworkMessages* networking;
 

@@ -194,14 +194,14 @@ MInC_FirstView *gFirstView = nil;
 {
 	NSLog(@"setSpeaker %ld\n",(long)SpeakerSegControl.selectedSegmentIndex);
     
-	[gViewController.networking sendOSCMsgWithIntValue:"/minc/speak\0":12:SpeakerSegControl.selectedSegmentIndex];
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/speak\0":12:(int)SpeakerSegControl.selectedSegmentIndex];
 }
 
 -(IBAction)setInstrument:(id)sender
 {
 	NSLog(@"setInstrument %ld\n",(long)InstrSegControl.selectedSegmentIndex);
     
-	[gViewController.networking sendOSCMsgWithIntValue:"/minc/instr\0":12:InstrSegControl.selectedSegmentIndex];
+	[gViewController.networking sendOSCMsgWithIntValue:"/minc/instr\0":12:(int)InstrSegControl.selectedSegmentIndex];
 
     
     Float64 transpose[4] = { +12., 0., -12., -24. };
