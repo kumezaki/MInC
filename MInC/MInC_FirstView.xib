@@ -15,12 +15,12 @@
                     <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terry-riley_in-C_1.png" id="czW-eR-RUj">
-                            <rect key="frame" x="249" y="524" width="71" height="24"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MInCAppIcon_WhiteM_01_InApp_0.png" id="czW-eR-RUj">
+                            <rect key="frame" x="260" y="488" width="60" height="60"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terry-riley_in-C_2.png" id="fP0-0j-R2W">
-                            <rect key="frame" x="249" y="524" width="71" height="24"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MInCAppIcon_WhiteM_01_InApp_1.png" id="fP0-0j-R2W">
+                            <rect key="frame" x="260" y="488" width="60" height="60"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         </imageView>
                     </subviews>
@@ -43,7 +43,7 @@
         </view>
     </objects>
     <resources>
-        <image name="terry-riley_in-C_1.png" width="71" height="24"/>
-        <image name="terry-riley_in-C_2.png" width="71" height="24"/>
+        <image name="MInCAppIcon_WhiteM_01_InApp_0.png" width="120" height="120"/>
+        <image name="MInCAppIcon_WhiteM_01_InApp_1.png" width="120" height="120"/>
     </resources>
 </document>

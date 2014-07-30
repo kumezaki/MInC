@@ -67,6 +67,20 @@ extern MInC_FirstView *gFirstView;
     
     [self loadFirstView];
 
+    // Send a synchronous request
+    NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://healthyboys.com/MInC/score.php?score_id=1"]];
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
+    if (error == nil)
+    {
+        // Parse data here
+        NSString *myString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"Score data from healthyboys.com\n%@",myString);
+        
+        // convert NSString in sequences
+    }
+    
 #if MINC_ACCELLEROMETER
 	[[UIAccelerometer sharedAccelerometer] setDelegate:self];
 #endif
