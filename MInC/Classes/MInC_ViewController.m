@@ -8,6 +8,8 @@
 
 #import "MInC_ViewController.h"
 
+#import "MInC_SequenceFile.h"
+
 MInC_ViewController *gViewController = nil;
 
 #include "MInC_AQPlayer.h"
@@ -60,7 +62,9 @@ extern MInC_FirstView *gFirstView;
 {
     gViewController = self;
 
+#if MINC_NETWORK_LOCAL
     self.networking = [[MInC_NetworkMessages alloc] init]; /* needs to go before loading views to set persistent IP address and port number */
+#endif
     
     self.firstView = [[[NSBundle mainBundle] loadNibNamed:@"MInC_FirstView" owner:self options:nil] objectAtIndex:0];
     self.secondView = [[[NSBundle mainBundle] loadNibNamed:@"MInC_SecondView" owner:self options:nil] objectAtIndex:0];
@@ -68,10 +72,13 @@ extern MInC_FirstView *gFirstView;
     [self loadFirstView];
 
     // Send a synchronous request
-    NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://healthyboys.com/MInC/score.php?score_id=1"]];
+    [self.firstView startActivityIndicator];
+
+    NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://healthyboys.com/MInC/score.php?score_id=0"]];
     NSURLResponse * response = nil;
     NSError * error = nil;
     NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
+    MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
     if (error == nil)
     {
         // Parse data here
@@ -79,7 +86,14 @@ extern MInC_FirstView *gFirstView;
         NSLog(@"Score data from healthyboys.com\n%@",myString);
         
         // convert NSString in sequences
+        [seqFile writeToFile:@"TCP.dat" withData:data];
     }
+    else
+    {
+        NSLog(@"Failed to receive score data from healthyboys.com");
+    }
+    [seqFile readFromFile:@"TCP.dat"];
+    [self.firstView stopActivityIndicator];
     
 #if MINC_ACCELLEROMETER
 	[[UIAccelerometer sharedAccelerometer] setDelegate:self];

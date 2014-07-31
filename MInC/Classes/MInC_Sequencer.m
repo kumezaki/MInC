@@ -113,9 +113,11 @@ extern MInC_ViewController *gViewController;
 		/* advance the sequencer postion */
 		[Seq_Cur advancePos];
         
+#if MINC_NETWORK_LOCAL
         if (Seq_Cur.Pos == 0 && SyncWithServer)
             [gViewController.networking sendOSCMsgWithIntValue:"/minc/beat\0\0":12:1];
-
+#endif
+        
 		/* get the new note */
 		MInC_Note* note = [Seq_Cur getNote];
 		[note setPercentOn:DurMultiplier];

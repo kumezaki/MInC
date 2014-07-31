@@ -29,7 +29,6 @@
 	IBOutlet UISegmentedControl	*InstrSegControl;
     
     IBOutlet UIActivityIndicatorView *ActivityIndicatorView;
-    NSTimer*            LoadSeqFileTimer;
     
     IBOutlet UIImageView* viewA;
     IBOutlet UIImageView* viewB;
@@ -54,13 +53,14 @@
 @property (nonatomic, retain)   IBOutlet UIImageView	*NotationView;
 @property (nonatomic, retain)   IBOutlet UILabel		*StatusLabel;
 
-//@property (nonatomic, retain)   NSArray					*ImageArray;
-//@property (nonatomic, retain)   NSArray                 *LoadImageArray;
+//@property (nonatomic, retain)   NSArray               *ImageArray;
+//@property (nonatomic, retain)   NSArray               *LoadImageArray;
 
 @property (nonatomic, retain)   NSString				*InterstitialString;
 @property (nonatomic, retain)   NSString				*ServerIPAddString;
 
-@property (nonatomic, retain)   NSTimer     *HeartbeatTimer;
+@property (nonatomic, retain)   NSTimer                 *HeartbeatTimer;
+@property (nonatomic, retain)   NSTimer                 *LoadSeqFileTimer;
 
 -(IBAction)switchToSettings;
 

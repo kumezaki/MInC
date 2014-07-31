@@ -24,6 +24,7 @@ MInC_FirstView *gFirstView = nil;
 @synthesize NewMod;
 @synthesize WithServer;
 @synthesize HeartbeatTimer;
+@synthesize LoadSeqFileTimer;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -70,11 +71,13 @@ MInC_FirstView *gFirstView = nil;
             [MInCLogo addObject:image];
     }
 #endif
-    
+
+#if MINC_NETWORK_LOCAL
     LoadSeqFileTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:gAQP selector:@selector(loadSeqFile) userInfo:nil repeats:NO];
     [self startActivityIndicator];
     [self checkIncomingMessages];
-
+#endif
+    
     ActivityIndicatorView.hidesWhenStopped = YES;
     
     [self setRelativePos:0];
@@ -100,7 +103,9 @@ MInC_FirstView *gFirstView = nil;
 {
 	if (WithServer)
     {
+#if MINC_NETWORK_LOCAL
 		[gViewController.networking sendOSCMsg:"/minc/mod\0\0\0":12];
+#endif
 	}
     else
 	{
@@ -126,7 +131,9 @@ MInC_FirstView *gFirstView = nil;
 
 -(void)send8vb:(BOOL)direction
 {
+#if MINC_NETWORK_LOCAL
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/8vb\0\0\0":12:direction?1:0];
+#endif
 }
 
 -(IBAction)set8vaDown:(id)sender
@@ -143,7 +150,9 @@ MInC_FirstView *gFirstView = nil;
 
 -(void)send8va:(BOOL)direction
 {
+#if MINC_NETWORK_LOCAL
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/8va\0\0\0":12:direction?1:0];
+#endif
 }
 
 -(IBAction)set2xSlowDown:(id)sender
@@ -160,7 +169,9 @@ MInC_FirstView *gFirstView = nil;
 
 -(void)send2xSlow:(BOOL)direction
 {
+#if MINC_NETWORK_LOCAL
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/2xslow\0\0\0\0":16:direction?1:0];
+#endif
 }
 
 -(IBAction)set2xFastDown:(id)sender
@@ -177,32 +188,41 @@ MInC_FirstView *gFirstView = nil;
 
 -(void)send2xFast:(BOOL)direction
 {
+#if MINC_NETWORK_LOCAL
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/2xfast\0\0\0\0":16:direction?1:0];
+#endif
 }
 
 -(IBAction)requestHint:(id)sender
 {
+#if MINC_NETWORK_LOCAL
 	[gViewController.networking sendOSCMsg:"/minc/hint\0\0":12];
+#endif
 }
 
 -(IBAction)requestStatus:(id)sender
 {
+#if MINC_NETWORK_LOCAL
 	[gViewController.networking sendOSCMsg:"/minc/status\0\0\0\0":16];
+#endif
 }
 
 -(IBAction)setSpeaker:(id)sender
 {
 	NSLog(@"setSpeaker %ld\n",(long)SpeakerSegControl.selectedSegmentIndex);
     
+#if MINC_NETWORK_LOCAL
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/speak\0":12:(int)SpeakerSegControl.selectedSegmentIndex];
+#endif
 }
 
 -(IBAction)setInstrument:(id)sender
 {
 	NSLog(@"setInstrument %ld\n",(long)InstrSegControl.selectedSegmentIndex);
     
+#if MINC_NETWORK_LOCAL
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/instr\0":12:(int)InstrSegControl.selectedSegmentIndex];
-
+#endif
     
     Float64 transpose[4] = { +12., 0., -12., -24. };
     gAQP->Sequencer_Pri.TransposeValue_Instr = transpose[InstrSegControl.selectedSegmentIndex];
@@ -214,22 +234,30 @@ MInC_FirstView *gFirstView = nil;
 	if (q != nil)
 		q.DurMultiplier = [NoteDurationSlider value];
     
+#if MINC_NETWORK_LOCAL
     [gViewController.networking sendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([NoteDurationSlider value])];
+#endif
 }
 
 -(void)sendOSC_Filter:(Float64)val
 {
+#if MINC_NETWORK_LOCAL
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/filt\0\0":12:FLOAT_TO_MRMR_INT(val)];
+#endif
 }
 
 -(void)sendOSC_Volume:(Float64)val
 {
+#if MINC_NETWORK_LOCAL
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/vol\0\0\0":12:FLOAT_TO_MRMR_INT(val)];
+#endif
 }
 
 -(void)sendOSC_Waveform:(Float64)val
 {
+#if MINC_NETWORK_LOCAL
 	[gViewController.networking sendOSCMsgWithIntValue:"/minc/wave\0\0":12:FLOAT_TO_MRMR_INT(val)];
+#endif
 }
 
 #pragma mark - image array
@@ -322,8 +350,10 @@ MInC_FirstView *gFirstView = nil;
 	{
         gFirstView.WithServer = YES;
         
+#if MINC_NETWORK_LOCAL
 		[gViewController.networking newServerIPAddress:_ServerIPAddString];
-		
+#endif
+        
 		if ((gSecondView != nil) && ![gSecondView isEditing])
 			[gSecondView setIPAddressAndPortNumTextFields];
 		
@@ -414,7 +444,9 @@ MInC_FirstView *gFirstView = nil;
 -(void)heartBeatLost
 {
     NSLog(@"heartBeatLost");
+#if MINC_NETWORK_LOCAL
     gViewController.networking.ReceivingHeartBeat = NO;
+#endif
     [self updateAvgPosView];
 }
 

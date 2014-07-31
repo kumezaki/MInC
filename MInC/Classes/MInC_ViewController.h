@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define MINC_ACCELLEROMETER 0
+#define MINC_NETWORK_LOCAL  0
 
 #import "MInC_NetworkMessages.h"
 
@@ -24,8 +25,10 @@
     
 }
 
+#if MINC_NETWORK_LOCAL
 // model objects
 @property (nonatomic, retain) MInC_NetworkMessages* networking;
+#endif
 
 @property (nonatomic, retain) IBOutlet MInC_FirstView*  firstView;
 @property (nonatomic, retain) IBOutlet MInC_SecondView* secondView;

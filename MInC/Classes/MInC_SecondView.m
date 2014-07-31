@@ -132,11 +132,13 @@ MInC_SecondView *gSecondView = nil;
 {
 //	NSLog(@"%lu %d",gViewController.networking.SendIPAddress,gViewController.networking.SendPortNum);
 
+#if MINC_NETWORK_LOCAL
 	IPAddressTextField.text = [NSString stringWithFormat:@"%lu.%lu.%lu.%lu",(unsigned long)((gViewController.networking.SendIPAddress&0xFF000000)>>24)
 								,(unsigned long)((gViewController.networking.SendIPAddress&0x00FF0000)>>16)
 								,(unsigned long)((gViewController.networking.SendIPAddress&0x0000FF00)>>8)
 								,(unsigned long)((gViewController.networking.SendIPAddress&0x000000FF)>>0)];
 	PortNumTextField.text = [NSString stringWithFormat:@"%d",gViewController.networking.SendPortNum];
+#endif
 }
 
 
@@ -159,16 +161,20 @@ MInC_SecondView *gSecondView = nil;
 
 -(void)setServerIPAddress:(NSString *)str
 {
+#if MINC_NETWORK_LOCAL
 	[gViewController.networking newServerIPAddress:str];
     [gViewController.networking writeDataFile];
     NSLog(@"iPAddressChanged to %08x\n",(unsigned int)gViewController.networking.SendIPAddress);
+#endif
 }
 
 -(void)setServerPortNum:(NSString *)str
 {
+#if MINC_NETWORK_LOCAL
 	gViewController.networking.SendPortNum = [str intValue];
 	[gViewController.networking writeDataFile];
 	NSLog(@"portNumChanged to %d\n",gViewController.networking.SendPortNum);
+#endif
 }
 
 @end
