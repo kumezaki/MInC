@@ -74,7 +74,7 @@ extern MInC_FirstView *gFirstView;
     // Send a synchronous request
     [self.firstView startActivityIndicator];
 
-    NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://healthyboys.com/MInC/score.php?score_id=0"]];
+    NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://healthyboys.com/MInC/score.php?score_id=1"]];
     NSURLResponse * response = nil;
     NSError * error = nil;
     NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];

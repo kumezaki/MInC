@@ -75,9 +75,10 @@ MInC_FirstView *gFirstView = nil;
 #if MINC_NETWORK_LOCAL
     LoadSeqFileTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:gAQP selector:@selector(loadSeqFile) userInfo:nil repeats:NO];
     [self startActivityIndicator];
-    [self checkIncomingMessages];
 #endif
-    
+
+    [self checkIncomingMessages];
+
     ActivityIndicatorView.hidesWhenStopped = YES;
     
     [self setRelativePos:0];
