@@ -22,7 +22,6 @@
     
     IBOutlet UIImageView* viewA;
     IBOutlet UIImageView* viewB;
-    
 }
 
 #if MINC_NETWORK_LOCAL

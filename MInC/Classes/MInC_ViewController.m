@@ -58,6 +58,59 @@ extern MInC_FirstView *gFirstView;
     return UIStatusBarStyleLightContent;
 }
 
+- (void)callHTTPServer:(NSString*)url_str withData:(NSData**)data :(NSURLResponse**)response :(NSError**)error
+{
+    *data = [NSURLConnection
+            sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url_str]]
+            returningResponse:response
+            error:error];
+}
+
+- (void)getScoreList
+{
+    NSData* data = nil;
+    NSURLResponse* response = nil;
+    NSError* error = nil;
+
+    /* request score list from HTTP server */
+    [self.firstView startActivityIndicator];
+    [self callHTTPServer:@"http://healthyboys.com/MInC/score_list.php?" withData:&data :&response :&error];
+    if (error == nil)
+    {
+        // Parse data here
+        NSString *myString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"Score list from healthyboys.com\n%@",myString);
+    }
+    else
+        NSLog(@"Failed to receive score list from healthyboys.com");
+    [self.firstView stopActivityIndicator];
+}
+
+- (void)getScoreData
+{
+    NSData* data = nil;
+    NSURLResponse* response = nil;
+    NSError* error = nil;
+    
+    /* request score data from HTTP server */
+    [self.firstView startActivityIndicator];
+    [self callHTTPServer:@"http://healthyboys.com/MInC/score.php?score_id=1" withData:&data :&response :&error];
+    MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
+    if (error == nil)
+    {
+        // Parse data here
+        NSString *myString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"Score data from healthyboys.com\n%@",myString);
+        
+        // convert NSString in sequences
+        [seqFile writeToFile:@"TCP.dat" withData:data];
+    }
+    else
+        NSLog(@"Failed to receive score data from healthyboys.com");
+    [seqFile readFromFile:@"TCP.dat"];
+    [self.firstView stopActivityIndicator];
+}
+
 - (void)setupSelf
 {
     gViewController = self;
@@ -71,29 +124,8 @@ extern MInC_FirstView *gFirstView;
     
     [self loadFirstView];
 
-    // Send a synchronous request
-    [self.firstView startActivityIndicator];
-
-    NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://healthyboys.com/MInC/score.php?score_id=1"]];
-    NSURLResponse * response = nil;
-    NSError * error = nil;
-    NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
-    MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
-    if (error == nil)
-    {
-        // Parse data here
-        NSString *myString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"Score data from healthyboys.com\n%@",myString);
-        
-        // convert NSString in sequences
-        [seqFile writeToFile:@"TCP.dat" withData:data];
-    }
-    else
-    {
-        NSLog(@"Failed to receive score data from healthyboys.com");
-    }
-    [seqFile readFromFile:@"TCP.dat"];
-    [self.firstView stopActivityIndicator];
+    [self getScoreList];
+    [self getScoreData];
     
 #if MINC_ACCELLEROMETER
 	[[UIAccelerometer sharedAccelerometer] setDelegate:self];
