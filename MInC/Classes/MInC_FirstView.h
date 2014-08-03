@@ -13,7 +13,6 @@
 @interface MInC_FirstView : UIView {
 
 	IBOutlet UISlider	*NoteDurationSlider;
-	IBOutlet UIView		*TouchView;
     
     IBOutlet UIButton	*NextButton;
 
@@ -46,6 +45,8 @@
 //    IBOutlet UIImageView    *BackgroundView;
 
 }
+
+@property (nonatomic, retain)   IBOutlet UIView         *TouchView;
 
 @property (readwrite) BOOL NewMod;
 @property (readwrite) BOOL WithServer;

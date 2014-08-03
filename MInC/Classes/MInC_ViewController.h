@@ -18,10 +18,14 @@
 
 #define FLOAT_TO_MRMR_INT(v) (SInt32)(v * 1000. + (v < 0 ? -0.5 : 0.5))
 
-@interface MInC_ViewController : UIViewController <UIAccelerometerDelegate> {
+@interface MInC_ViewController : UIViewController <UIAccelerometerDelegate,UIPickerViewDelegate> {
     
     IBOutlet UIImageView* viewA;
     IBOutlet UIImageView* viewB;
+    
+    NSMutableArray* scoreListArray;
+    UIPickerView*   scoreListPickerView;
+    UIToolbar*      pickerViewToolBar;
 }
 
 #if MINC_NETWORK_LOCAL

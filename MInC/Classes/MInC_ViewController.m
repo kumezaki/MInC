@@ -8,6 +8,7 @@
 
 #import "MInC_ViewController.h"
 
+#import "MInC_Constants.h"
 #import "MInC_SequenceFile.h"
 
 MInC_ViewController *gViewController = nil;
@@ -80,13 +81,29 @@ extern MInC_FirstView *gFirstView;
         // Parse data here
         NSString *myString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"Score list from healthyboys.com\n%@",myString);
+        NSArray *listItems = [myString componentsSeparatedByString:@"\n"];
+        long pos = 0;
+        for (NSString* item in listItems)
+        {
+#if 0
+            NSArray *stringItems = [item componentsSeparatedByString:@" "];
+            if (stringItems.count == 2)
+            {
+                NSLog(@"[%ld] %@",(long)[[stringItems objectAtIndex:0] integerValue],[stringItems objectAtIndex:1]);
+                [scoreListArray addObject:[stringItems objectAtIndex:1]];
+            }
+#else
+            NSLog(@"[%ld] %@",pos++,item);
+            [scoreListArray addObject:item];
+#endif
+        }
     }
     else
         NSLog(@"Failed to receive score list from healthyboys.com");
     [self.firstView stopActivityIndicator];
 }
 
-- (void)getScoreData
+- (void)getScoreData:(NSInteger)score_id
 {
     NSData* data = nil;
     NSURLResponse* response = nil;
@@ -94,7 +111,8 @@ extern MInC_FirstView *gFirstView;
     
     /* request score data from HTTP server */
     [self.firstView startActivityIndicator];
-    [self callHTTPServer:@"http://healthyboys.com/MInC/score.php?score_id=1" withData:&data :&response :&error];
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/score.php?score_id=%ld",(long)score_id];
+    [self callHTTPServer:url_string withData:&data :&response :&error];
     MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
     if (error == nil)
     {
@@ -111,6 +129,33 @@ extern MInC_FirstView *gFirstView;
     [self.firstView stopActivityIndicator];
 }
 
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
+    // Handle the selection
+    NSLog(@"%ld",(long)row);
+}
+
+// tell the picker how many rows are available for a given component
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return scoreListArray.count;
+}
+
+// tell the picker how many components it will have
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+// tell the picker the width of each row for a given component
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+    int sectionWidth = 300;
+    return sectionWidth;
+}
+
+- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    UIColor* color = IS_OS_7_OR_LATER ? [UIColor whiteColor] : [UIColor blackColor];
+    return [[NSAttributedString alloc] initWithString:scoreListArray[row] attributes:@{NSForegroundColorAttributeName:color}];
+}
+
 - (void)setupSelf
 {
     gViewController = self;
@@ -123,13 +168,41 @@ extern MInC_FirstView *gFirstView;
     self.secondView = [[[NSBundle mainBundle] loadNibNamed:@"MInC_SecondView" owner:self options:nil] objectAtIndex:0];
     
     [self loadFirstView];
+    
+    self.firstView.TouchView.userInteractionEnabled = NO;
 
+    scoreListArray = [[NSMutableArray alloc] init];
     [self getScoreList];
-    [self getScoreData];
+
+    NSLog(@"%f %f %f %f",self.firstView.bounds.origin.x,self.firstView.bounds.origin.y,self.firstView.bounds.size.width,self.firstView.bounds.size.height);
+    
+    pickerViewToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 20, 320, 44)];
+    [pickerViewToolBar setBarStyle:UIBarStyleBlackTranslucent];
+    UIBarButtonItem *flexButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIBarButtonItem *doneButton =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneSelectingScore:)];
+    pickerViewToolBar.items = [[NSArray alloc] initWithObjects:flexButton,doneButton,nil];
+
+    scoreListPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 64, 320, 200)];
+    scoreListPickerView.delegate = self;
+    scoreListPickerView.showsSelectionIndicator = YES;
+
+    [self.firstView addSubview:pickerViewToolBar];
+    [self.firstView addSubview:scoreListPickerView];
     
 #if MINC_ACCELLEROMETER
 	[[UIAccelerometer sharedAccelerometer] setDelegate:self];
 #endif
+}
+
+- (void)doneSelectingScore:(id)sender
+{
+    [scoreListPickerView resignFirstResponder];
+    [self getScoreData:[scoreListPickerView selectedRowInComponent:0]];
+
+    pickerViewToolBar.hidden = YES;
+    scoreListPickerView.hidden = YES;
+
+    self.firstView.TouchView.userInteractionEnabled = YES;
 }
 
 - (void)awakeFromNib
@@ -163,11 +236,15 @@ extern MInC_FirstView *gFirstView;
 -(void) loadFirstView;
 {
     [self removeSubviews];
+
     [[[UIApplication sharedApplication] delegate].window addSubview:self.firstView];
 
-// The following seems to be needed when running in simulator, but not on device (for 3.5" only?)
+    // The following seems to be needed when running in simulator, but not on device (for 3.5" only?)
     self.firstView.frame = self.view.bounds;
-//    NSLog(@"firstView origin %f %f",self.firstView.frame.origin.x,self.firstView.frame.origin.y);
+
+#if 0
+    NSLog(@"firstView origin %f %f",self.firstView.frame.origin.x,self.firstView.frame.origin.y);
+#endif
 }
 
 -(void) loadSecondView;

@@ -21,6 +21,7 @@ MInC_FirstView *gFirstView = nil;
 
 @implementation MInC_FirstView
 
+@synthesize TouchView;
 @synthesize NewMod;
 @synthesize WithServer;
 @synthesize HeartbeatTimer;
