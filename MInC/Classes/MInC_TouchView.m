@@ -31,6 +31,8 @@ extern MInC_FirstView *gFirstView;
 	}
     
     AnimationView = nil;
+    
+    PlayerPosArray = [[NSMutableArray alloc] init];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -45,6 +47,17 @@ extern MInC_FirstView *gFirstView;
     // Drawing code
 	UIColor *rectColor = [UIColor darkGrayColor];
 	[rectColor set];
+
+    float x = 0.;
+    float x_delta = self.superview.bounds.size.width / gAQP->PrimarySequencerArray.count;
+    float num_seqs = 53.;
+    NSLog(@"%f %f",self.superview.bounds.size.width,self.superview.bounds.size.height);
+    for (NSNumber* number in gAQP.SeqNumArray)
+    {
+        float h = (float)[number integerValue] / num_seqs * self.superview.bounds.size.height;
+        UIRectFill(CGRectMake(x, 0., x_delta, h));
+        x += x_delta;
+    }
 
 #if 0 /* one rect per touch */
 	UIRectFill(CGRectMake(X[0]-5., Y[0]-5., 10.0, 10.0));

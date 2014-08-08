@@ -10,6 +10,7 @@
 
 #import "MInC_Constants.h"
 #import "MInC_SequenceFile.h"
+#import "MInC_TouchView.h"
 
 MInC_ViewController *gViewController = nil;
 
@@ -129,6 +130,38 @@ extern MInC_FirstView *gFirstView;
     [self.firstView stopActivityIndicator];
 }
 
+- (void)getPlayerList
+{
+    NSData* data = nil;
+    NSURLResponse* response = nil;
+    NSError* error = nil;
+    
+    /* request score data from HTTP server */
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_list.php"];
+    [self callHTTPServer:url_string withData:&data :&response :&error];
+    if (error == nil)
+    {
+        // Parse data here
+        NSString *myString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"Player list from healthyboys.com\n%@",myString);
+        
+        NSArray *playerItems = [myString componentsSeparatedByString:@"\n"];
+        NSMutableArray *playerPosArray = [[NSMutableArray alloc] initWithCapacity:playerItems.count];
+        
+        for (NSString* playerItem in playerItems)
+        {
+            NSArray* playerInfoArray = [playerItem componentsSeparatedByString:@","];
+            if (playerInfoArray.count == 2)
+                [playerPosArray addObject:[[NSNumber alloc] initWithInteger:[playerInfoArray[1] integerValue]]];
+        }
+
+        [gAQP setOtherPlayersSequence:playerPosArray];
+        [gFirstView.TouchView setNeedsDisplay];
+    }
+    else
+        NSLog(@"Failed to receive player list from healthyboys.com");
+}
+
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
     // Handle the selection
     NSLog(@"%ld",(long)row);
@@ -198,6 +231,8 @@ extern MInC_FirstView *gFirstView;
 {
     [scoreListPickerView resignFirstResponder];
     [self getScoreData:[scoreListPickerView selectedRowInComponent:0]];
+    
+    [NSTimer scheduledTimerWithTimeInterval:3. target:self selector:@selector(getPlayerList) userInfo:nil repeats:YES];
 
     pickerViewToolBar.hidden = YES;
     scoreListPickerView.hidden = YES;

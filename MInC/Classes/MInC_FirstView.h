@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "MInC_TouchView.h"
+
 #define MINC_POS_GRAPHICS 0
 
 @interface MInC_FirstView : UIView {
@@ -46,7 +48,7 @@
 
 }
 
-@property (nonatomic, retain)   IBOutlet UIView         *TouchView;
+@property (nonatomic, retain)   IBOutlet MInC_TouchView         *TouchView;
 
 @property (readwrite) BOOL NewMod;
 @property (readwrite) BOOL WithServer;

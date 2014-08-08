@@ -75,14 +75,18 @@ MInC_SecondView *gSecondView = nil;
 {
 	Float64 sense = [TempoSenseSlider value];
 	NSLog(@"setTempoSensitivity %f\n",sense);
-	gAQP->Sequencer_Pri.TempoSensitivity = sense * sense;
+    
+    for (MInC_Sequencer* sequencer in gAQP->PrimarySequencerArray)
+        sequencer.TempoSensitivity = sense * sense;
 }
 
 -(IBAction)setPulseVolume:(id)sender
 {
+#if MINC_SECONDARY_SEQUENCER
 	Float64 amp = [PulseVolSlider value];
 	NSLog(@"setPulseVolume %f\n",amp);
 	gAQP->Sequencer_Sec.AmpMultiplier_Control = amp * amp;
+#endif
 }
 
 -(IBAction)iPAddressChanged:(id)sender
@@ -122,10 +126,12 @@ MInC_SecondView *gSecondView = nil;
 
 -(IBAction)pulseToggle:(id)sender
 {
+#if MINC_SECONDARY_SEQUENCER
 	if (PulseSwitch.on)
 		[gAQP->Sequencer_Sec start];
 	else
 		[gAQP->Sequencer_Sec stop];
+#endif
 }
 
 -(void)setIPAddressAndPortNumTextFields

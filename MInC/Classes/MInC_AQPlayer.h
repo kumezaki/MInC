@@ -13,6 +13,8 @@
 #import "MInC_SoundFile.h"
 #import "MInC_WaveFormTable.h"
 
+#define MINC_SECONDARY_SEQUENCER    0
+
 #define kNumberBuffers	3
 
 #define kSR 22050.
@@ -29,14 +31,18 @@
     
 @public
 
-	MInC_Sequencer	*Sequencer_Pri;
+    NSMutableArray* PrimarySequencerArray;
+
+#if MINC_SECONDARY_SEQUENCER
 	MInC_Sequencer	*Sequencer_Sec;
+#endif
 }
 
-@property (readwrite, nonatomic) SInt32 SeqNum;
 @property (readwrite, nonatomic) SInt32 NumSequences;
 
-@property (readonly, nonatomic, retain) MInC_Biquad *Biquad;
+@property (readwrite, nonatomic, retain) NSMutableArray* SeqNumArray;
+
+@property (readonly, nonatomic, retain) NSMutableArray* BiquadArray;
 
 -(void)	setup;
 
@@ -48,6 +54,8 @@
 
 -(void) setSequence:(SInt32)seq_num;
 -(void) setSequence:(SInt32)seq_num :(MInC_Sequence*)seq;
+
+-(void) setOtherPlayersSequence:(NSMutableArray*)pos_array;
 
 -(void) setSeqPos:(NSNumber*)num;
 -(void) setAvgSeqPos:(NSNumber*)num;

@@ -20,7 +20,8 @@
 	UITouch*	Touch[MAX_NUM_TOUCHES];
     
     UIView*     AnimationView;
-    
+
+    NSMutableArray*    PlayerPosArray;
 }
 
 -(void)processTouch:(NSSet *)touches;
