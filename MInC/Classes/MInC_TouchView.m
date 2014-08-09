@@ -45,18 +45,28 @@ extern MInC_FirstView *gFirstView;
 - (void)drawRect:(CGRect)draw_rect {
 
     // Drawing code
-	UIColor *rectColor = [UIColor darkGrayColor];
-	[rectColor set];
-
-    float x = 0.;
-    float x_delta = self.superview.bounds.size.width / gAQP->PrimarySequencerArray.count;
-    float num_seqs = 53.;
+    const int num_players = gAQP->PrimarySequencerArray.count;
+    const int num_seqs = 53;
+    const Float64 x_delta = self.superview.bounds.size.width / num_players;
+    const Float64 x_start = x_delta * (num_players / 2);
+    const Float64 icon_height= 60.;
+    const Float64 y_bottom = self.superview.bounds.size.height-icon_height;
     NSLog(@"%f %f",self.superview.bounds.size.width,self.superview.bounds.size.height);
+    int i = 0;
     for (NSNumber* number in gAQP.SeqNumArray)
     {
-        float h = (float)[number integerValue] / num_seqs * self.superview.bounds.size.height;
-        UIRectFill(CGRectMake(x, 0., x_delta, h));
-        x += x_delta;
+        int offset = (i + 1) / 2;
+        int sign = i % 2;
+        Float64 x = (sign == 0 ? offset : -offset) * x_delta + x_start;
+        
+        float h = (float)[number integerValue] / num_seqs * y_bottom;
+        
+        UIColor *rectColor = i == 0 ? [UIColor whiteColor] : [UIColor darkGrayColor];
+        [rectColor set];
+        
+        UIRectFill(CGRectMake(x, y_bottom-h, x_delta, h));
+
+        i++;
     }
 
 #if 0 /* one rect per touch */
