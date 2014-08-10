@@ -68,6 +68,27 @@ extern MInC_FirstView *gFirstView;
             error:error];
 }
 
+- (void)getPlayerID
+{
+    NSData* data = nil;
+    NSURLResponse* response = nil;
+    NSError* error = nil;
+
+    /* request score list from HTTP server */
+    [self.firstView startActivityIndicator];
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_id.php?"];
+    [self callHTTPServer:url_string withData:&data :&response :&error];
+    if (error == nil)
+    {
+        // Parse data here
+        PlayerID = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] integerValue];
+        NSLog(@"Player ID from healthyboys.com\n%ld",(long)PlayerID);
+    }
+    else
+        NSLog(@"Failed to receive player ID from healthyboys.com");
+    [self.firstView stopActivityIndicator];
+}
+    
 - (void)getScoreList
 {
     NSData* data = nil;
@@ -76,7 +97,8 @@ extern MInC_FirstView *gFirstView;
 
     /* request score list from HTTP server */
     [self.firstView startActivityIndicator];
-    [self callHTTPServer:@"http://healthyboys.com/MInC/score_list.php?" withData:&data :&response :&error];
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/score_list.php?id=%ld",(long)PlayerID];
+    [self callHTTPServer:url_string withData:&data :&response :&error];
     if (error == nil)
     {
         // Parse data here
@@ -112,7 +134,7 @@ extern MInC_FirstView *gFirstView;
     
     /* request score data from HTTP server */
     [self.firstView startActivityIndicator];
-    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/score.php?score_id=%ld",(long)score_id];
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/score.php?id=%ld&score_id=%ld",(long)PlayerID,(long)score_id];
     [self callHTTPServer:url_string withData:&data :&response :&error];
     MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
     if (error == nil)
@@ -137,7 +159,7 @@ extern MInC_FirstView *gFirstView;
     NSError* error = nil;
     
     /* request score data from HTTP server */
-    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_list.php"];
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_list.php?id=%ld",(long)PlayerID];
     [self callHTTPServer:url_string withData:&data :&response :&error];
     if (error == nil)
     {
@@ -160,6 +182,22 @@ extern MInC_FirstView *gFirstView;
     }
     else
         NSLog(@"Failed to receive player list from healthyboys.com");
+}
+
+- (void)setPlayerPos:(SInt16)pos
+{
+    NSData* data = nil;
+    NSURLResponse* response = nil;
+    NSError* error = nil;
+    
+    /* send player position to HTTP server */
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_pos.php?id=%ld&pos=%d",(long)PlayerID,pos];
+    [gViewController callHTTPServer:url_string withData:&data :&response :&error];
+    if (error == nil)
+    {
+    }
+    else
+        NSLog(@"Failed to send player position to healthyboys.com");
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
@@ -203,6 +241,8 @@ extern MInC_FirstView *gFirstView;
     [self loadFirstView];
     
     self.firstView.TouchView.userInteractionEnabled = NO;
+    
+    [self getPlayerID];
 
     scoreListArray = [[NSMutableArray alloc] init];
     [self getScoreList];
@@ -221,6 +261,8 @@ extern MInC_FirstView *gFirstView;
 
     [self.firstView addSubview:pickerViewToolBar];
     [self.firstView addSubview:scoreListPickerView];
+    
+    PlayerID = 0;
     
 #if MINC_ACCELLEROMETER
 	[[UIAccelerometer sharedAccelerometer] setDelegate:self];

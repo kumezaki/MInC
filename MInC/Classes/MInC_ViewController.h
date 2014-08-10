@@ -26,6 +26,8 @@
     NSMutableArray* scoreListArray;
     UIPickerView*   scoreListPickerView;
     UIToolbar*      pickerViewToolBar;
+    
+    NSInteger       PlayerID;
 }
 
 #if MINC_NETWORK_LOCAL
@@ -38,5 +40,7 @@
 
 -(void) loadFirstView;
 -(void) loadSecondView;
+
+- (void)setPlayerPos:(SInt16)pos;
 
 @end

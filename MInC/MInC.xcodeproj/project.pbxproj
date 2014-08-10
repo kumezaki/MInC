@@ -31,6 +31,7 @@
 		21AB99A717F31D7B00C3B291 /* MInC_NetworkConnections.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB99A617F31D7B00C3B291 /* MInC_NetworkConnections.m */; };
 		21AD0B08192FFFE70077EC91 /* gradient background.png in Resources */ = {isa = PBXBuildFile; fileRef = 21AD0B07192FFFE70077EC91 /* gradient background.png */; };
 		21B8AC9711B4208200C88C2D /* MInC_SecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B8AC9611B4208200C88C2D /* MInC_SecondView.m */; };
+		21BF79A81997934800F46841 /* MInC_Synthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 21BF79A71997934800F46841 /* MInC_Synthesizer.m */; };
 		21C208EC12BBA90B0030FDA0 /* MInC_Envelope.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C208EB12BBA90B0030FDA0 /* MInC_Envelope.m */; };
 		21C7FBBF1807097B00057D0B /* MInC_BLIT.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C7FBBE1807097B00057D0B /* MInC_BLIT.m */; };
 		21D50A271989297F00C3030D /* MInCAppIcon_WhiteM_01_InApp_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 21D50A251989297F00C3030D /* MInCAppIcon_WhiteM_01_InApp_0.png */; };
@@ -92,6 +93,8 @@
 		21AD0B07192FFFE70077EC91 /* gradient background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gradient background.png"; path = "Images/gradient background.png"; sourceTree = "<group>"; };
 		21B8AC9511B4208200C88C2D /* MInC_SecondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_SecondView.h; sourceTree = "<group>"; };
 		21B8AC9611B4208200C88C2D /* MInC_SecondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_SecondView.m; sourceTree = "<group>"; };
+		21BF79A61997934800F46841 /* MInC_Synthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_Synthesizer.h; sourceTree = "<group>"; };
+		21BF79A71997934800F46841 /* MInC_Synthesizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_Synthesizer.m; sourceTree = "<group>"; };
 		21C208EA12BBA90B0030FDA0 /* MInC_Envelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MInC_Envelope.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		21C208EB12BBA90B0030FDA0 /* MInC_Envelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MInC_Envelope.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		21C7FBBD1807097B00057D0B /* MInC_BLIT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_BLIT.h; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 				211AB3D011B8098D00B41C09 /* MInC_Sequencer.m */,
 				2195D37311B6B6C3002E46FD /* MInC_SoundFile.h */,
 				2195D37411B6B6C3002E46FD /* MInC_SoundFile.m */,
+				21BF79A61997934800F46841 /* MInC_Synthesizer.h */,
+				21BF79A71997934800F46841 /* MInC_Synthesizer.m */,
 				211AB3D111B8098D00B41C09 /* MInC_TouchView.h */,
 				211AB3D211B8098D00B41C09 /* MInC_TouchView.m */,
 				28216C950DB411BC00E5133A /* MInC_ViewController.h */,
@@ -338,6 +343,7 @@
 				21C7FBBF1807097B00057D0B /* MInC_BLIT.m in Sources */,
 				21827A0E186735110025BCFC /* MInC_Biquad.m in Sources */,
 				21272BC8189AEFB9007F9186 /* MInC_ImageView.m in Sources */,
+				21BF79A81997934800F46841 /* MInC_Synthesizer.m in Sources */,
 				218425B618B2A209001EAD69 /* MInC_SequenceFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

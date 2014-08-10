@@ -112,9 +112,13 @@ MInC_FirstView *gFirstView = nil;
     else
 	{
         SInt16 next_seq_pos = [gAQP.SeqNumArray[0] integerValue] + 1;
+
         [gAQP.SeqNumArray replaceObjectAtIndex:0 withObject:[[NSNumber alloc] initWithInt:next_seq_pos]];
 		[gAQP setSequence:[gAQP.SeqNumArray[0] integerValue]];
-		NewMod = YES;
+
+        [gViewController setPlayerPos:next_seq_pos];
+
+        NewMod = YES;
 	}
 
 //    NSLog(@"WithServer %s",WithServer?"ON":"OFF");

@@ -10,15 +10,11 @@
 
 @implementation MInC_BLITSaw
 
-@synthesize Theta;
-
 -(id)init
 {
     self = [super init];
     
     state_ = -0.5 * a_;
-
-	Theta = 0.;
 
     return self;
 }

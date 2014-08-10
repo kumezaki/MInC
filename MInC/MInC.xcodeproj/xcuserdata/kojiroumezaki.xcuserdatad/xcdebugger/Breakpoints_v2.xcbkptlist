@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Classes/MInC_BLITSaw.m"
-            timestampString = "429330765.175682"
+            timestampString = "429368167.470749"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "-addSamples:::::"
             landmarkType = "5">
          </BreakpointContent>
