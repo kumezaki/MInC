@@ -45,7 +45,7 @@ extern MInC_FirstView *gFirstView;
 - (void)drawRect:(CGRect)draw_rect {
 
     // Drawing code
-    const int num_players = gAQP->PrimarySequencerArray.count;
+    const int num_players = gAQP->SequencerArray.count;
     const int num_seqs = 53;
     const Float64 x_delta = self.superview.bounds.size.width / num_players;
     const Float64 x_start = x_delta * (num_players / 2);

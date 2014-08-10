@@ -6,9 +6,7 @@
 //  Copyright (c) 2013 Kojiro Umezaki. All rights reserved.
 //
 
-#import "MInC_Note.h"
-
-@interface MInC_BLIT : MInC_Note {
+@interface MInC_BLIT : NSObject {
     Float64 p_;
     Float64 rate_;
     Float64 m_;
@@ -17,5 +15,7 @@
 }
 
 -(void)setFreq:(Float64)freq;
+
+-(Float64)addSamples:(Float64 *)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta :(Float64)freq;
 
 @end

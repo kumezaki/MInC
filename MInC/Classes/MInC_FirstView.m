@@ -124,14 +124,14 @@ MInC_FirstView *gFirstView = nil;
 -(IBAction)set8vbDown:(id)sender
 {
 	[self send8vb:true];
-    for (MInC_Sequencer* sequencer in gAQP->PrimarySequencerArray)
+    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
         sequencer.TransposeValue_Control = -12.;
 }
 
 -(IBAction)set8vbUp:(id)sender
 {
 	[self send8vb:false];
-    for (MInC_Sequencer* sequencer in gAQP->PrimarySequencerArray)
+    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
         sequencer.TransposeValue_Control = -0.;
 }
 
@@ -145,14 +145,14 @@ MInC_FirstView *gFirstView = nil;
 -(IBAction)set8vaDown:(id)sender
 {
 	[self send8va:true];
-    for (MInC_Sequencer* sequencer in gAQP->PrimarySequencerArray)
+    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
         sequencer.TransposeValue_Control = +12.;
 }
 
 -(IBAction)set8vaUp:(id)sender
 {
 	[self send8va:false];
-    for (MInC_Sequencer* sequencer in gAQP->PrimarySequencerArray)
+    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
         sequencer.TransposeValue_Control = 0.;
 }
 
@@ -166,14 +166,14 @@ MInC_FirstView *gFirstView = nil;
 -(IBAction)set2xSlowDown:(id)sender
 {
 	[self send2xSlow:true];
-    for (MInC_Sequencer* sequencer in gAQP->PrimarySequencerArray)
+    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
         sequencer.TempoMultiplier_Control = 0.5;
 }
 
 -(IBAction)set2xSlowUp:(id)sender
 {
 	[self send2xSlow:false];
-    for (MInC_Sequencer* sequencer in gAQP->PrimarySequencerArray)
+    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
         sequencer.TempoMultiplier_Control = 1.;
 }
 
@@ -187,14 +187,14 @@ MInC_FirstView *gFirstView = nil;
 -(IBAction)set2xFastDown:(id)sender
 {
 	[self send2xFast:true];
-    for (MInC_Sequencer* sequencer in gAQP->PrimarySequencerArray)
+    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
         sequencer.TempoMultiplier_Control = 2.;
 }
 
 -(IBAction)set2xFastUp:(id)sender
 {
 	[self send2xFast:false];
-    for (MInC_Sequencer* sequencer in gAQP->PrimarySequencerArray)
+    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
         sequencer.TempoMultiplier_Control = 1.;
 }
 
@@ -237,13 +237,13 @@ MInC_FirstView *gFirstView = nil;
 #endif
     
     Float64 transpose[4] = { +12., 0., -12., -24. };
-    for (MInC_Sequencer* sequencer in gAQP->PrimarySequencerArray)
+    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
         sequencer.TransposeValue_Instr = transpose[InstrSegControl.selectedSegmentIndex];
 }
 
 -(IBAction)setNoteDuration:(id)sender
 {
-    for (MInC_Sequencer* sequencer in gAQP->PrimarySequencerArray)
+    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
         sequencer.DurMultiplier = [NoteDurationSlider value];
     
 #if MINC_NETWORK_LOCAL
@@ -354,9 +354,9 @@ MInC_FirstView *gFirstView = nil;
 			_NotationView.image = [_ImageArray objectAtIndex:gAQP.SeqNum-1];
 #endif
 		NewMod = NO;
-        for (MInC_Sequencer* sequencer in gAQP->PrimarySequencerArray)
-            if (!sequencer.Playing)
-                [sequencer start];
+        MInC_Sequencer* sequencer = gAQP->SequencerArray[0];
+        if (!sequencer.Playing)
+            [sequencer start];
 	}
     
 	if (_ServerIPAddString != nil)

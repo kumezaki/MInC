@@ -8,6 +8,7 @@
 
 #import "MInC_AQPlayer.h"
 
+#import "MInC_BLITSaw.h"
 #import "MInC_SequenceFile.h"
 
 #import "MInC_FirstView.h"
@@ -35,6 +36,8 @@ extern MInC_FirstView *gFirstView;
 #include <libxml/parser.h>
 #endif
 
+#define MINC_AUDIO_BUFFER_BYTES 1024
+
 MInC_AQPlayer *gAQP = nil;
 
 void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inAQBuffer) 
@@ -51,18 +54,19 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     [aqp fillAudioBuffer:buffer:numFrames];
 
 	/* copy/scale audio buffer to output buffer */
-	Float64 max = 0.;
 	for (SInt32 i = 0; i < numFrames; i++)
-	{
-		max = fabs(buffer[i]) > max ? fabs(buffer[i]) : max;
+    {
+        if (buffer[i]>1. || buffer[i]<-1.)
+            NSLog(@"!!!!!");
+
 		((SInt16 *)inAQBuffer->mAudioData)[i] = buffer[i] * (SInt16)0x7FFF;
-	}
+    }
 
 	/* report elapsed time to sequencers */
 	Float64 elapsed_time = (Float64)numFrames / kSR;
     [aqp reportElapsedTime:elapsed_time];
     
-	inAQBuffer->mAudioDataByteSize = 1024;
+	inAQBuffer->mAudioDataByteSize = MINC_AUDIO_BUFFER_BYTES;
 	inAQBuffer->mPacketDescriptionCount = 0;
 	
 	AudioQueueEnqueueBuffer(inAQ, inAQBuffer, 0, nil);
@@ -74,11 +78,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 @synthesize SeqNumArray;
 
-@synthesize BiquadArray;
-
 - (void)dealloc {
 
-    for (MInC_Sequencer* sequencer in PrimarySequencerArray)
+    for (MInC_Sequencer* sequencer in SequencerArray)
         [sequencer stop];
 
 	[self stop];
@@ -86,9 +88,12 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	for (SInt32 i = 0; i < NumSequences; i++)
 		[Sequences[i] release];
 	
-    for (MInC_Sequencer* sequencer in PrimarySequencerArray)
+    for (MInC_Sequencer* sequencer in SequencerArray)
         [sequencer release];
     
+    for (MInC_BLITSaw* synth in SynthArray)
+        [synth release];
+
     for (MInC_Biquad* biquad in BiquadArray)
         [biquad release];
 		
@@ -101,7 +106,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	gAQP = self;
     
-	PrimarySequencerArray = [[NSMutableArray alloc] init];
+	SequencerArray = [[NSMutableArray alloc] init];
+    SynthArray = [[NSMutableArray alloc] init];
+    BiquadArray = [[NSMutableArray alloc] init];
     SeqNumArray = [[NSMutableArray alloc] init];
     
     [self parseFile];
@@ -113,8 +120,19 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
         sequencer.SyncWithServer = YES;
         sequencer.AmpMultiplier_Control = 1./num_sequencers;
         sequencer.DurMultiplier = 0.5;
-        [PrimarySequencerArray addObject:sequencer];
+        [SequencerArray addObject:sequencer];
         [SeqNumArray addObject:[[NSNumber alloc] initWithInt:0]];
+
+        MInC_BLITSaw* blitsaw = [[MInC_BLITSaw alloc] init];
+        [SynthArray addObject:blitsaw];
+
+        MInC_Biquad* biquad = [[MInC_Biquad alloc] init];
+        biquad.Type = LPF;
+        biquad.DBGain = 0.;
+        biquad.Freq = kSR/2.*0.5; /* 0.5 in freq setting assumes default position of control in touch view */
+        biquad.SRate = kSR;
+        biquad.Bandwidth = 1.0;
+        [BiquadArray addObject:biquad];
     }
     
 #if MINC_SECONDARY_SEQUENCER
@@ -126,17 +144,6 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	Sequencer_Sec.DurMultiplier = 0.1;
 #endif
     
-    for (int i = 0; i < num_sequencers; i++)
-    {
-        MInC_Biquad* biquad = [[MInC_Biquad alloc] init];
-        biquad.Type = LPF;
-        biquad.DBGain = 0.;
-        biquad.Freq = kSR/2.*0.5; /* 0.5 in freq setting assumes default position of control in touch view */
-        biquad.SRate = kSR;
-        biquad.Bandwidth = 1.0;
-        [BiquadArray addObject:biquad];
-    }
-
 	[self start];
 
 	return self;
@@ -160,7 +167,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
     for (SInt32 i = 0; i < kNumberBuffers; ++i)
 	{
-		result = AudioQueueAllocateBuffer(Queue, 1024, &Buffers[i]);
+		result = AudioQueueAllocateBuffer(Queue, MINC_AUDIO_BUFFER_BYTES, &Buffers[i]);
 		if (result != noErr)
 			NSLog(@"AudioQueueAllocateBuffer %d\n",(int)result);
 	}
@@ -218,7 +225,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	{
 		[SeqNumArray replaceObjectAtIndex:0 withObject:[[NSNumber alloc] initWithInt:seq_num]];
 
-        [PrimarySequencerArray[0] setNextSequence:Sequences[[SeqNumArray[0] integerValue]-1]];
+        [SequencerArray[0] setNextSequence:Sequences[[SeqNumArray[0] integerValue]-1]];
 
 	    [gFirstView setRelativePos:(AvgSeqPos - [SeqNumArray[0] integerValue])];
     }
@@ -241,14 +248,19 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void) setOtherPlayersSequence:(NSMutableArray*)pos_array
 {
-    for (int i = 0; i < pos_array.count && (i+1) < PrimarySequencerArray.count; i++)
+    for (int i = 0; i < pos_array.count && (i+1) < SequencerArray.count; i++)
     {
         SInt32 next_seq_pos = [pos_array[i] integerValue];
         NSLog(@"[%d] %ld",i,next_seq_pos);
-
+        
         if ([SeqNumArray[i+1] integerValue] != next_seq_pos)
         {
-            [PrimarySequencerArray[i+1] setNextSequence:Sequences[next_seq_pos-1]];
+            MInC_Sequencer* sequencer = SequencerArray[i+1];
+
+            [sequencer setNextSequence:Sequences[next_seq_pos-1]];
+            if (!sequencer.Playing)
+                [sequencer start];
+            
             [SeqNumArray replaceObjectAtIndex:(i+1) withObject:[[NSNumber alloc] initWithInt:next_seq_pos]];
         }
     }
@@ -455,25 +467,26 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     /* primary sequencers */
 	Float64 temp_buffer[num_frames];
 
-    int pos = 0;
-    for (MInC_Sequencer* sequencer in PrimarySequencerArray)
+    for (int pos = 0; pos < SequencerArray.count; pos++)
     {
-        MInC_Note* note_pri = [sequencer getNote];
+        MInC_Sequencer* sequencer = SequencerArray[pos];
 
-        if (note_pri != nil)
-        {
-            memset(temp_buffer,0,sizeof(Float64)*num_frames);
-            sequencer.Theta = [note_pri addSamples:temp_buffer :num_frames :[sequencer getAmp] :sequencer.Theta];
-        }
-        
+        memset(temp_buffer,0,sizeof(Float64)*num_frames);
+
+        MInC_Note* note_pri = [sequencer getNote];
+        Float64 freq = note_pri == nil ? 0. : [note_pri getFreqWithTransposition];
+        MInC_BLITSaw* blit_saw = SynthArray[pos];
+        if (blit_saw != nil)
+            blit_saw.Theta = [blit_saw addSamples:temp_buffer :num_frames :[sequencer getAmp] :blit_saw.Theta :freq];
+
+#if 1
         MInC_Biquad* biquad = BiquadArray[pos];
         biquad.Freq = [sequencer getCutoffFreq];
         [biquad processAudioBuffer:temp_buffer :num_frames];
-
+#endif
+        
         for (int i = 0; i < num_frames; i++)
             buffer[i] += temp_buffer[i];
-        
-        pos++;
     }
     
 #if MINC_SECONDARY_SEQUENCER
@@ -488,7 +501,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void) reportElapsedTime:(Float64)elapsed_time
 {
-    for (MInC_Sequencer* sequencer in PrimarySequencerArray)
+    for (MInC_Sequencer* sequencer in SequencerArray)
         [sequencer update:elapsed_time];
 
 #if MINC_SECONDARY_SEQUENCER

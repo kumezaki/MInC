@@ -35,7 +35,9 @@
 -(void)	on:(MInC_WaveFormTable*)wavetable :(MInC_Envelope*)env;
 -(void) off;
 
+#if 0
 -(Float64) addSamples:(Float64*)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta;
+#endif
 
 -(void) setPercentOn:(Float64)percent;
 

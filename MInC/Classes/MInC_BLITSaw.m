@@ -10,11 +10,15 @@
 
 @implementation MInC_BLITSaw
 
+@synthesize Theta;
+
 -(id)init
 {
     self = [super init];
     
     state_ = -0.5 * a_;
+
+	Theta = 0.;
 
     return self;
 }
@@ -27,9 +31,8 @@
     C2_ = 1. / p_;
 }
 
--(Float64)addSamples:(Float64 *)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta
+-(Float64)addSamples:(Float64 *)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta :(Float64)freq
 {
-    Float64 freq = [self getFreqWithTransposition];
     [self setFreq:freq];
 
     phase_ = theta;
@@ -55,7 +58,7 @@
             s += state_ - C2_;
             state_ = s * 0.995;
             
-            buffer[i] += scale * super.Amp * [Env get] * s;
+            buffer[i] += scale * s;
             
             phase_ += rate_;
             if ( phase_ >= M_PI ) phase_ -= M_PI;
@@ -64,8 +67,6 @@
         {
             buffer[i] = 0;
         }
-        
-        if (++SamplesPlayed >= NumPlaySamples) [self off];
     }
     
     return phase_;

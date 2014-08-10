@@ -15,15 +15,22 @@
 @interface MInC_Sequence : NSObject {
 
 	MInC_Note   *Notes[kMaxNumNotes];
-	SInt32      NumNotes;
 }
 
+#if 0
 @property (readwrite) SInt32 Pos;
+#endif
+
+@property (readwrite) SInt32    NumNotes;
 
 -(void)assignNotes:(SInt32)num_notes :(Float64*)notes :(Float64*)durations;
 
+#if 0
 -(MInC_Note*)getNote;
 
 -(void)advancePos;
+#endif
+
+-(MInC_Note*)getNote:(SInt32)note_pos;
 
 @end

@@ -29,9 +29,12 @@
     
     SInt32 AvgSeqPos;
     
+    NSMutableArray* SynthArray;
+    NSMutableArray* BiquadArray;
+    
 @public
 
-    NSMutableArray* PrimarySequencerArray;
+    NSMutableArray* SequencerArray;
 
 #if MINC_SECONDARY_SEQUENCER
 	MInC_Sequencer	*Sequencer_Sec;
@@ -41,8 +44,6 @@
 @property (readwrite, nonatomic) SInt32 NumSequences;
 
 @property (readwrite, nonatomic, retain) NSMutableArray* SeqNumArray;
-
-@property (readonly, nonatomic, retain) NSMutableArray* BiquadArray;
 
 -(void)	setup;
 

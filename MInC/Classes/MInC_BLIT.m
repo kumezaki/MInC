@@ -27,7 +27,7 @@
     m_ = 2 * maxHarmonics + 1;
 }
 
--(Float64)addSamples:(Float64 *)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta
+-(Float64)addSamples:(Float64 *)buffer :(const SInt32)num_frames :(Float64)scale :(Float64)theta :(Float64)freq
 {
     // was addToAudioBuffer
     // removed old method body

@@ -17,8 +17,6 @@
 	Float64             CurTime;
 	Float64             NextEventTime;
     
-	Float64             Theta;
-
 	NSSet               *NoteSet;
     
     Float64             AmpMultiplier_Accel;
@@ -28,6 +26,8 @@
     Float64             CutoffFreq_Accel;
     Float64             CutoffFreq_Accel_Target;
     Float64             CutoffFreq_Accel_Delta;
+
+    SInt32              NotePos;
 
 @public
 
@@ -48,7 +48,6 @@
 @property (nonatomic,readwrite) Float64 TransposeValue_Instr;
 @property (nonatomic,readwrite) Float64 TransposeValue_Control;
 @property (nonatomic,readwrite) Float64 DurMultiplier;
-@property (nonatomic,readwrite) Float64 Theta;
 
 -(void)start;
 -(void)stop;

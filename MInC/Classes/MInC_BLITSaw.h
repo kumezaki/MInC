@@ -13,4 +13,7 @@
     Float64 state_;
 }
 
+#warning this should be in a super class labeled MInC_Synth
+@property (nonatomic,readwrite) Float64 Theta;
+
 @end

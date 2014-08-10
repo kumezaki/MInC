@@ -11,17 +11,23 @@
 
 @implementation MInC_Sequence
 
+#if 0
 @synthesize Pos;
+#endif
+@synthesize NumNotes;
 
 -(id)init
 {
 	[super init];
 	
 	for (SInt32 i = 0; i < kMaxNumNotes; i++)
-		Notes[i] = [[MInC_BLITSaw alloc] init];
+		Notes[i] = [[MInC_Note alloc] init];
 	
+#if 0
 //	Pos = 0;
 	Pos = -1;
+#endif
+    
 	NumNotes = 0;
 	
 	return self;
@@ -47,6 +53,7 @@
 	}
 }
 
+#if 0
 -(MInC_Note*)getNote
 {
 	if (NumNotes < 0) return nil;
@@ -59,6 +66,14 @@
 	if (NumNotes > 0)
 		Pos = ++Pos % NumNotes;
 //    NSLog(@"%ld",Pos);
+}
+#endif
+
+-(MInC_Note*)getNote:(SInt32)note_pos
+{
+	if (NumNotes < 0) return nil;
+	
+	return Notes[note_pos];
 }
 
 @end

@@ -76,7 +76,7 @@ MInC_SecondView *gSecondView = nil;
 	Float64 sense = [TempoSenseSlider value];
 	NSLog(@"setTempoSensitivity %f\n",sense);
     
-    for (MInC_Sequencer* sequencer in gAQP->PrimarySequencerArray)
+    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
         sequencer.TempoSensitivity = sense * sense;
 }
 

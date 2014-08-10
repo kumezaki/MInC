@@ -25,7 +25,6 @@ extern MInC_ViewController *gViewController;
 @synthesize TransposeValue_Instr;
 @synthesize TransposeValue_Control;
 @synthesize DurMultiplier;
-@synthesize Theta;
 
 -(id)init
 {
@@ -48,6 +47,9 @@ extern MInC_ViewController *gViewController;
     CutoffFreq_Accel = CutoffFreq_Accel_Target;
 #endif
 
+//    NotePos = 0;
+	NotePos = -1;
+
 	Seq_Cur = nil;
 	CurTime = 0.;
 	NextEventTime = 0.;
@@ -59,7 +61,6 @@ extern MInC_ViewController *gViewController;
 	TempoSensitivity = 0.0;
 
 	WaveTable = [[MInC_WaveFormTable alloc] init];
-	Theta = 0.;
 	
 	Env = [[MInC_ADSR alloc] initWithADSR:kSR a:0.01 d:0.05 s:0.5 r:0.2];
 	
@@ -111,7 +112,8 @@ extern MInC_ViewController *gViewController;
 	if (CurTime >= NextEventTime)
 	{
 		/* advance the sequencer postion */
-		[Seq_Cur advancePos];
+        if (Seq_Cur.NumNotes > 0)
+            NotePos = ++NotePos % Seq_Cur.NumNotes;
         
 #if MINC_NETWORK_LOCAL
         if (Seq_Cur.Pos == 0 && SyncWithServer)
@@ -119,7 +121,7 @@ extern MInC_ViewController *gViewController;
 #endif
         
 		/* get the new note */
-		MInC_Note* note = [Seq_Cur getNote];
+		MInC_Note* note = [Seq_Cur getNote:NotePos];
 		[note setPercentOn:DurMultiplier];
         note.TransposeValue_Instr = TransposeValue_Instr;
         note.TransposeValue_Control = TransposeValue_Control;
@@ -159,7 +161,7 @@ extern MInC_ViewController *gViewController;
 
 	if (Seq_Cur == nil) return nil;
 	
-	return [Seq_Cur getNote];
+	return [Seq_Cur getNote:NotePos];
 }
 
 -(Float64)getAmp
