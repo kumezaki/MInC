@@ -97,7 +97,7 @@ extern MInC_FirstView *gFirstView;
 
     /* request score list from HTTP server */
     [self.firstView startActivityIndicator];
-    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/score_list.php?id=%ld",(long)PlayerID];
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/score_list.php?id=%08ld",(long)PlayerID];
     [self callHTTPServer:url_string withData:&data :&response :&error];
     if (error == nil)
     {
@@ -134,7 +134,7 @@ extern MInC_FirstView *gFirstView;
     
     /* request score data from HTTP server */
     [self.firstView startActivityIndicator];
-    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/score.php?id=%ld&score_id=%ld",(long)PlayerID,(long)score_id];
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/score.php?id=%08ld&score_id=%ld",(long)PlayerID,(long)score_id];
     [self callHTTPServer:url_string withData:&data :&response :&error];
     MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
     if (error == nil)
@@ -159,7 +159,9 @@ extern MInC_FirstView *gFirstView;
     NSError* error = nil;
     
     /* request score data from HTTP server */
-    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_list.php?id=%ld",(long)PlayerID];
+    NSLog(@"Player ID: %ld",(long)PlayerID);
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_list.php?id=%08ld",(long)PlayerID];
+    NSLog(@"%@",url_string);
     [self callHTTPServer:url_string withData:&data :&response :&error];
     if (error == nil)
     {
@@ -173,8 +175,15 @@ extern MInC_FirstView *gFirstView;
         for (NSString* playerItem in playerItems)
         {
             NSArray* playerInfoArray = [playerItem componentsSeparatedByString:@","];
-            if (playerInfoArray.count == 2)
-                [playerPosArray addObject:[[NSNumber alloc] initWithInteger:[playerInfoArray[1] integerValue]]];
+            if (playerInfoArray.count > 1)
+            {
+                /* filter out "self" here */
+                if ([playerInfoArray[0] integerValue] != PlayerID)
+                {
+                    NSLog(@"player ID (integer value) %d",[playerInfoArray[0] integerValue]);
+                    [playerPosArray addObject:[[NSNumber alloc] initWithInteger:[playerInfoArray[1] integerValue]]];
+                }
+            }
         }
 
         [gAQP setOtherPlayersSequence:playerPosArray];
@@ -191,7 +200,7 @@ extern MInC_FirstView *gFirstView;
     NSError* error = nil;
     
     /* send player position to HTTP server */
-    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_pos.php?id=%ld&pos=%d",(long)PlayerID,pos];
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_pos.php?id=%08ld&pos=%d",(long)PlayerID,pos];
     [gViewController callHTTPServer:url_string withData:&data :&response :&error];
     if (error == nil)
     {
@@ -242,6 +251,7 @@ extern MInC_FirstView *gFirstView;
     
     self.firstView.TouchView.userInteractionEnabled = NO;
     
+    PlayerID = 0;
     [self getPlayerID];
 
     scoreListArray = [[NSMutableArray alloc] init];
@@ -261,8 +271,6 @@ extern MInC_FirstView *gFirstView;
 
     [self.firstView addSubview:pickerViewToolBar];
     [self.firstView addSubview:scoreListPickerView];
-    
-    PlayerID = 0;
     
 #if MINC_ACCELLEROMETER
 	[[UIAccelerometer sharedAccelerometer] setDelegate:self];
