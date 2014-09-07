@@ -41,6 +41,7 @@
 -(void) loadFirstView;
 -(void) loadSecondView;
 
+- (void)setPlayerEnd;
 - (void)setPlayerPos:(SInt16)pos;
 
 @end

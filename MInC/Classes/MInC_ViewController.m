@@ -193,6 +193,23 @@ extern MInC_FirstView *gFirstView;
         NSLog(@"Failed to receive player list from healthyboys.com");
 }
 
+- (void)setPlayerEnd
+{
+    NSData* data = nil;
+    NSURLResponse* response = nil;
+    NSError* error = nil;
+    
+    /* send player position to HTTP server */
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_end.php?id=%08ld",(long)PlayerID];
+    [gViewController callHTTPServer:url_string withData:&data :&response :&error];
+    if (error == nil)
+    {
+        NSLog(@"%@ sent",url_string);
+    }
+    else
+        NSLog(@"Failed to send player position to healthyboys.com");
+}
+
 - (void)setPlayerPos:(SInt16)pos
 {
     NSData* data = nil;

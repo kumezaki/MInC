@@ -92,6 +92,8 @@ extern MInC_ViewController *gViewController;
      See also applicationDidEnterBackground:.
      */
 
+    [gViewController setPlayerEnd];
+
 #if MINC_NETWORK_LOCAL
     [gViewController.networking sendLeave];
 #endif
