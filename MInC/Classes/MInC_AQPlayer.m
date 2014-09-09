@@ -113,27 +113,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     
     [self parseFile];
 
-    const int num_sequencers = 1 + 4; /* self plus others */
-    for (int i = 0; i < num_sequencers; i++)
-    {
-        MInC_Sequencer* sequencer = [[MInC_Sequencer alloc] init];
-        sequencer.SyncWithServer = YES;
-        sequencer.AmpMultiplier_Control = 1./num_sequencers;
-        sequencer.DurMultiplier = 0.5;
-        [SequencerArray addObject:sequencer];
-        [SeqNumArray addObject:[[NSNumber alloc] initWithInt:0]];
-
-        MInC_BLITSaw* blitsaw = [[MInC_BLITSaw alloc] init];
-        [SynthArray addObject:blitsaw];
-
-        MInC_Biquad* biquad = [[MInC_Biquad alloc] init];
-        biquad.Type = LPF;
-        biquad.DBGain = 0.;
-        biquad.Freq = kSR/2.*0.5; /* 0.5 in freq setting assumes default position of control in touch view */
-        biquad.SRate = kSR;
-        biquad.Bandwidth = 1.0;
-        [BiquadArray addObject:biquad];
-    }
+    [self addPlayer]; /* self */
     
 #if MINC_SECONDARY_SEQUENCER
 	Sequencer_Sec = [[MInC_Sequencer alloc] init];
@@ -248,6 +228,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void) setOtherPlayersSequence:(NSMutableArray*)pos_array
 {
+    /* determine if new players need to be added */
+    SInt32 num_new_players = pos_array.count - (SequencerArray.count - 1);
+    if (num_new_players > 0)
+        for (int i = 0; i < num_new_players; i++)
+            [self addPlayer];
+
+#if 0 /* this block is going obsolete */
     for (int i = 0; i < pos_array.count && (i+1) < SequencerArray.count; i++)
     {
         SInt32 next_seq_pos = [pos_array[i] integerValue];
@@ -264,18 +251,69 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
             [SeqNumArray replaceObjectAtIndex:(i+1) withObject:[[NSNumber alloc] initWithInt:next_seq_pos]];
         }
     }
+#else
+    for (int i = 0; i < pos_array.count; i++)
+    {
+        SInt32 next_seq_pos = [pos_array[i] integerValue];
+        NSLog(@"[%d] %ld",i+1,next_seq_pos);
+        
+        if ([SeqNumArray[i+1] integerValue] != next_seq_pos)
+        {
+            MInC_Sequencer* sequencer = SequencerArray[i+1]; /* sequencer[0] is self, therefore i+1 */
+            
+            [sequencer setNextSequence:Sequences[next_seq_pos-1]];
+
+            if (!sequencer.Playing)
+                [sequencer start];
+            
+            [SeqNumArray replaceObjectAtIndex:(i+1) withObject:[[NSNumber alloc] initWithInt:next_seq_pos]];
+        }
+    }
+#endif
 }
 
--(void) setSeqPos:(NSNumber*)num
+-(void)setSeqPos:(NSNumber*)num
 {
     [self setSequence:[num intValue]];
 }
 
--(void) setAvgSeqPos:(NSNumber*)num
+-(void)setAvgSeqPos:(NSNumber*)num
 {
     AvgSeqPos = [num intValue];
 
     [gFirstView setRelativePos:(AvgSeqPos - [SeqNumArray[0] integerValue])];
+}
+
+-(void)addPlayer
+{
+    MInC_Sequencer* sequencer = [[MInC_Sequencer alloc] init];
+    sequencer.SyncWithServer = YES;
+    sequencer.DurMultiplier = 0.5;
+    [SequencerArray addObject:sequencer];
+    [SeqNumArray addObject:[[NSNumber alloc] initWithInt:0]];
+    
+    MInC_BLITSaw* blitsaw = [[MInC_BLITSaw alloc] init];
+    [SynthArray addObject:blitsaw];
+    
+    MInC_Biquad* biquad = [[MInC_Biquad alloc] init];
+    biquad.Type = LPF;
+    biquad.DBGain = 0.;
+    biquad.Freq = kSR/2.*0.5; /* 0.5 in freq setting assumes default position of control in touch view */
+    biquad.SRate = kSR;
+    biquad.Bandwidth = 1.0;
+    [BiquadArray addObject:biquad];
+    
+    [self setSequencerAmplitudes];
+}
+
+-(void)setSequencerAmplitudes
+{
+    Float64 amp = 1./SequencerArray.count;
+    for (int i = 0; i < SequencerArray.count; i++)
+    {
+        MInC_Sequencer* sequencer = SequencerArray[i];
+        sequencer.AmpMultiplier_Control = amp;
+    }
 }
 
 #if WITH_XML_SEQS // XML way of loading sequence data
