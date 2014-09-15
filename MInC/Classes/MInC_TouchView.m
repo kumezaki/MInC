@@ -49,8 +49,8 @@ extern MInC_FirstView *gFirstView;
     const int num_seqs = 53;
     const Float64 x_delta = self.superview.bounds.size.width / num_players;
     const Float64 x_start = x_delta * (num_players / 2);
-    const Float64 icon_height= 60.;
-    const Float64 y_bottom = self.superview.bounds.size.height-icon_height;
+    const Float64 status_bar_height= 20.; /* for iOS 6 this value should be 0. */
+    const Float64 y_bottom = self.superview.bounds.size.height-status_bar_height;
     NSLog(@"%f %f",self.superview.bounds.size.width,self.superview.bounds.size.height);
     int i = 0;
     for (NSNumber* number in gAQP.SeqNumArray)

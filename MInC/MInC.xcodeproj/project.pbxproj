@@ -20,6 +20,7 @@
 		211AB3DA11B8098D00B41C09 /* MInC_TouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211AB3D211B8098D00B41C09 /* MInC_TouchView.m */; };
 		211AB3DB11B8098D00B41C09 /* MInC_WaveFormTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 211AB3D411B8098D00B41C09 /* MInC_WaveFormTable.m */; };
 		21272BC8189AEFB9007F9186 /* MInC_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21272BC7189AEFB9007F9186 /* MInC_ImageView.m */; };
+		2132859A19C731EA00AD8DE4 /* MInCAppIcon_WhiteM_01_640x640.png in Resources */ = {isa = PBXBuildFile; fileRef = 2132859919C731E900AD8DE4 /* MInCAppIcon_WhiteM_01_640x640.png */; };
 		213C2FA817EDD72A0024A847 /* MInC_NetworkMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C2FA717EDD72A0024A847 /* MInC_NetworkMessages.m */; };
 		214CCDF217EC850400CD9CAA /* MInC_FirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214CCDF117EC850400CD9CAA /* MInC_FirstView.m */; };
 		2162021B11B396E000E93E07 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2162021A11B396E000E93E07 /* AudioToolbox.framework */; };
@@ -74,6 +75,7 @@
 		21272BC6189AEFB9007F9186 /* MInC_ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_ImageView.h; sourceTree = "<group>"; };
 		21272BC7189AEFB9007F9186 /* MInC_ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_ImageView.m; sourceTree = "<group>"; };
 		212888C611D96E5600A2EB6B /* MInC_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_Prefix.pch; sourceTree = "<group>"; };
+		2132859919C731E900AD8DE4 /* MInCAppIcon_WhiteM_01_640x640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MInCAppIcon_WhiteM_01_640x640.png; path = Logos/MInCAppIcon_WhiteM_01_640x640.png; sourceTree = "<group>"; };
 		213C2FA617EDD72A0024A847 /* MInC_NetworkMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_NetworkMessages.h; sourceTree = "<group>"; };
 		213C2FA717EDD72A0024A847 /* MInC_NetworkMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_NetworkMessages.m; sourceTree = "<group>"; };
 		214CCDF017EC850400CD9CAA /* MInC_FirstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_FirstView.h; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				21AD0B07192FFFE70077EC91 /* gradient background.png */,
 				21D50A251989297F00C3030D /* MInCAppIcon_WhiteM_01_InApp_0.png */,
 				21D50A261989297F00C3030D /* MInCAppIcon_WhiteM_01_InApp_1.png */,
+				2132859919C731E900AD8DE4 /* MInCAppIcon_WhiteM_01_640x640.png */,
 				44B3E1FF18D96CED0065BD22 /* terry-riley_in-C_1.png */,
 				44B3E20018D96CED0065BD22 /* terry-riley_in-C_2.png */,
 				28AD73870D9D96C1002E5188 /* MInC_MainWindow.xib */,
@@ -312,6 +315,7 @@
 				21D50A281989297F00C3030D /* MInCAppIcon_WhiteM_01_InApp_1.png in Resources */,
 				21184588189DE04C00A42B25 /* MInC_FirstView.xib in Resources */,
 				2177457F1933A8EA0037826C /* MInC Stick Figure_Cell_Me.png in Resources */,
+				2132859A19C731EA00AD8DE4 /* MInCAppIcon_WhiteM_01_640x640.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
