@@ -19,33 +19,29 @@
 
 #define kSR 22050.
 
+#define EACH_SYNTH_IN_DICTIONARY_METHOD(method) for (NSString* key in gAQP.PlayerDictionary) [((MInC_Player*)gAQP.PlayerDictionary[key]).BLITSaw method];
+#define EACH_FILTER_IN_DICTIONARY_METHOD(method) for (NSString* key in gAQP.PlayerDictionary) [((MInC_Player*)gAQP.PlayerDictionary[key]).BiQuad method];
+#define EACH_SEQUENCER_IN_DICTIONARY_MEMBER(member) for (NSString* key in gAQP.PlayerDictionary) ((MInC_Player*)gAQP.PlayerDictionary[key]).Sequencer.member
+#define EACH_SEQUENCER_IN_DICTIONARY_METHOD(method) for (NSString* key in gAQP.PlayerDictionary) [((MInC_Player*)gAQP.PlayerDictionary[key]).Sequencer method];
+
 @interface MInC_AQPlayer : NSObject {
 
 	AudioQueueRef				Queue;
 	AudioQueueBufferRef			Buffers[kNumberBuffers];
 	AudioStreamBasicDescription	DataFormat;
-	
-	MInC_Sequence	*Sequences[53];
-    
+
     SInt32 AvgSeqPos;
     
-    NSMutableArray* SynthArray;
-    NSMutableArray* BiquadArray;
-
 @public
-
-    NSMutableArray* SequencerArray;
 
 #if MINC_SECONDARY_SEQUENCER
 	MInC_Sequencer	*Sequencer_Sec;
 #endif
 }
 
-@property (readwrite, nonatomic) SInt32 NumSequences;
+@property (readwrite, nonatomic, retain) NSMutableArray* Sequences;
 
 @property (readwrite, nonatomic) NSInteger PlayerID;
-
-//@property (readwrite, nonatomic, retain) NSMutableArray* SeqNumArray;
 
 @property (readwrite, nonatomic, retain) NSMutableDictionary* PlayerDictionary;
 

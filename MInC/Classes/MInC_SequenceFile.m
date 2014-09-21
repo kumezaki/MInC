@@ -41,9 +41,9 @@ extern MInC_AQPlayer *gAQP;
     for (NSString* s in elems)
     {
         NSLog(@"%@",s);
-        NSArray* note = [s componentsSeparatedByString:@" "];
-        NSLog(@"%lu",(unsigned long)note.count);
-        if (note.count == 1)
+        NSArray* line = [s componentsSeparatedByString:@" "];
+        NSLog(@"%lu",(unsigned long)line.count);
+        if (line.count == 1)
         {
             if (seq_num != 0)
             {
@@ -56,12 +56,12 @@ extern MInC_AQPlayer *gAQP;
                 count = 0;
             }
             
-            seq_num = [[note objectAtIndex:0] intValue];
+            seq_num = [[line objectAtIndex:0] intValue];
         }
-        else if (note.count == 2)
+        else if (line.count == 2)
         {
-            note_nums[count] = [[note objectAtIndex:0] intValue];
-            note_durs[count] = [[note objectAtIndex:1] floatValue];
+            note_nums[count] = [[line objectAtIndex:0] intValue];
+            note_durs[count] = [[line objectAtIndex:1] floatValue];
             count++;
         }
     }

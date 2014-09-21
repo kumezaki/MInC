@@ -113,21 +113,13 @@ MInC_FirstView *gFirstView = nil;
 	}
     else
 	{
-#if 1
         MInC_Player* player = gAQP.PlayerDictionary[PLAYER_ID_STR(gAQP.PlayerID)];
-
-		[gAQP setSequence:(player.SeqPos + 1)];
         
-        [gViewController setPlayerPos:(player.SeqPos + 1)];
-#else
-        SInt16 next_seq_pos = [gAQP.SeqNumArray[0] integerValue] + 1;
+        player.SeqPos_Next = player.SeqPos_Cur + 1;
 
-        [gAQP.SeqNumArray replaceObjectAtIndex:0 withObject:[[NSNumber alloc] initWithInt:next_seq_pos]];
-
-		[gAQP setSequence:next_seq_pos];
+		[gAQP setSequence:(SInt32)player.SeqPos_Next];
         
-        [gViewController setPlayerPos:next_seq_pos];
-#endif
+        [gViewController setPlayerPos:(SInt32)player.SeqPos_Next];
         
         NewMod = YES;
 	}
@@ -139,15 +131,13 @@ MInC_FirstView *gFirstView = nil;
 -(IBAction)set8vbDown:(id)sender
 {
 	[self send8vb:true];
-    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
-        sequencer.TransposeValue_Control = -12.;
+    EACH_SEQUENCER_IN_DICTIONARY_MEMBER(TransposeValue_Control) = -12.;
 }
 
 -(IBAction)set8vbUp:(id)sender
 {
 	[self send8vb:false];
-    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
-        sequencer.TransposeValue_Control = -0.;
+    EACH_SEQUENCER_IN_DICTIONARY_MEMBER(TransposeValue_Control) = -0.;
 }
 
 -(void)send8vb:(BOOL)direction
@@ -160,15 +150,13 @@ MInC_FirstView *gFirstView = nil;
 -(IBAction)set8vaDown:(id)sender
 {
 	[self send8va:true];
-    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
-        sequencer.TransposeValue_Control = +12.;
+    EACH_SEQUENCER_IN_DICTIONARY_MEMBER(TransposeValue_Control) = +12.;
 }
 
 -(IBAction)set8vaUp:(id)sender
 {
 	[self send8va:false];
-    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
-        sequencer.TransposeValue_Control = 0.;
+    EACH_SEQUENCER_IN_DICTIONARY_MEMBER(TransposeValue_Control) = 0.;
 }
 
 -(void)send8va:(BOOL)direction
@@ -181,15 +169,13 @@ MInC_FirstView *gFirstView = nil;
 -(IBAction)set2xSlowDown:(id)sender
 {
 	[self send2xSlow:true];
-    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
-        sequencer.TempoMultiplier_Control = 0.5;
+    EACH_SEQUENCER_IN_DICTIONARY_MEMBER(TempoMultiplier_Control) = 0.5;
 }
 
 -(IBAction)set2xSlowUp:(id)sender
 {
 	[self send2xSlow:false];
-    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
-        sequencer.TempoMultiplier_Control = 1.;
+    EACH_SEQUENCER_IN_DICTIONARY_MEMBER(TempoMultiplier_Control) = 1.;
 }
 
 -(void)send2xSlow:(BOOL)direction
@@ -202,15 +188,14 @@ MInC_FirstView *gFirstView = nil;
 -(IBAction)set2xFastDown:(id)sender
 {
 	[self send2xFast:true];
-    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
-        sequencer.TempoMultiplier_Control = 2.;
+    EACH_SEQUENCER_IN_DICTIONARY_MEMBER(TempoMultiplier_Control) = 2.;
 }
 
 -(IBAction)set2xFastUp:(id)sender
 {
 	[self send2xFast:false];
-    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
-        sequencer.TempoMultiplier_Control = 1.;
+    
+    EACH_SEQUENCER_IN_DICTIONARY_MEMBER(TempoMultiplier_Control) = 1.;
 }
 
 -(void)send2xFast:(BOOL)direction
@@ -252,14 +237,12 @@ MInC_FirstView *gFirstView = nil;
 #endif
     
     Float64 transpose[4] = { +12., 0., -12., -24. };
-    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
-        sequencer.TransposeValue_Instr = transpose[InstrSegControl.selectedSegmentIndex];
+    EACH_SEQUENCER_IN_DICTIONARY_MEMBER(TransposeValue_Instr) = transpose[InstrSegControl.selectedSegmentIndex];
 }
 
 -(IBAction)setNoteDuration:(id)sender
 {
-    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
-        sequencer.DurMultiplier = [NoteDurationSlider value];
+    EACH_SEQUENCER_IN_DICTIONARY_MEMBER(DurMultiplier) = [NoteDurationSlider value];
     
 #if MINC_NETWORK_LOCAL
     [gViewController.networking sendOSCMsgWithIntValue:"/minc/dur\0\0\0":12:FLOAT_TO_MRMR_INT([NoteDurationSlider value])];
@@ -369,7 +352,10 @@ MInC_FirstView *gFirstView = nil;
 			_NotationView.image = [_ImageArray objectAtIndex:gAQP.SeqNum-1];
 #endif
 		NewMod = NO;
-        MInC_Sequencer* sequencer = gAQP->SequencerArray[0];
+
+        MInC_Player* player = gAQP.PlayerDictionary[PLAYER_ID_STR(gAQP.PlayerID)];
+
+        MInC_Sequencer* sequencer = player.Sequencer;
         if (!sequencer.Playing)
             [sequencer start];
 	}

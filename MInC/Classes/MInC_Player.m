@@ -11,14 +11,20 @@
 @implementation MInC_Player
 
 @synthesize Missing;
-@synthesize SeqPos;
+@synthesize SeqPos_Cur;
+@synthesize SeqPos_Next;
 @synthesize Sequencer;
+@synthesize BLITSaw;
+@synthesize BiQuad;
 
 -(id)init
 {
     Missing = NO;
-    SeqPos = 0;
+    SeqPos_Cur = 0;
+    SeqPos_Next = 0;
     Sequencer = nil;
+    BLITSaw = nil;
+    BiQuad = nil;
     
     return self;
 }
@@ -26,8 +32,11 @@
 -(id)initWithSequencer:(MInC_Sequencer*)_sequencer
 {
     Missing = NO;
-    SeqPos = 0;
+    SeqPos_Cur = 0;
+    SeqPos_Next = 0;
     Sequencer = _sequencer;
+    BLITSaw = nil;
+    BiQuad = nil;
     
     return self;
 }

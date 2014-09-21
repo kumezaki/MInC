@@ -47,8 +47,8 @@ extern MInC_FirstView *gFirstView;
 - (void)drawRect:(CGRect)draw_rect {
 
     // Drawing code
-    const int num_players = gAQP->SequencerArray.count;
-    const int num_seqs = 53;
+    const unsigned long num_players = gAQP.PlayerDictionary.count;
+    const unsigned long num_seqs = gAQP.Sequences.count;
     const Float64 x_delta = self.superview.bounds.size.width / num_players;
     const Float64 x_start = x_delta * (num_players / 2);
     const Float64 status_bar_height= 20.; /* for iOS 6 this value should be 0. */
@@ -63,7 +63,7 @@ extern MInC_FirstView *gFirstView;
         int sign = i % 2;
         Float64 x = (sign == 0 ? offset : -offset) * x_delta + x_start;
         
-        float h = (float)player.SeqPos / num_seqs * y_bottom;
+        float h = (float)player.SeqPos_Cur / num_seqs * y_bottom;
         
         UIColor *rectColor = i == 0 ? [UIColor whiteColor] : [UIColor darkGrayColor];
         [rectColor set];

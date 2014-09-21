@@ -17,6 +17,8 @@ extern MInC_FirstView *gFirstView;
 #import "MInC_ViewController.h"
 extern MInC_ViewController *gViewController;
 
+#import "MInC_Player.h"
+
 MInC_SecondView *gSecondView = nil;
 
 @implementation MInC_SecondView
@@ -75,9 +77,8 @@ MInC_SecondView *gSecondView = nil;
 {
 	Float64 sense = [TempoSenseSlider value];
 	NSLog(@"setTempoSensitivity %f\n",sense);
-    
-    for (MInC_Sequencer* sequencer in gAQP->SequencerArray)
-        sequencer.TempoSensitivity = sense * sense;
+
+    EACH_SEQUENCER_IN_DICTIONARY_MEMBER(TempoSensitivity) = sense * sense;
 }
 
 -(IBAction)setPulseVolume:(id)sender

@@ -185,7 +185,7 @@ extern MInC_FirstView *gFirstView;
                 /* filter out "self" here */
                 if ([playerInfoArray[0] integerValue] != gAQP.PlayerID)
                 {
-                    NSLog(@"player ID (integer value) %d %d",[playerInfoArray[0] integerValue],[playerInfoArray[1] integerValue]);
+                    NSLog(@"player ID (integer value) %ld %ld",(long)[playerInfoArray[0] integerValue],(long)[playerInfoArray[1] integerValue]);
                     NSArray *playerInfo = [NSArray arrayWithObjects:[[NSNumber alloc] initWithInteger:[playerInfoArray[0] integerValue]], [[NSNumber alloc] initWithInteger:[playerInfoArray[1] integerValue]], nil];
                     [playerPosArray addObject:playerInfo];
                 }
