@@ -31,7 +31,7 @@
     
     NSMutableArray* SynthArray;
     NSMutableArray* BiquadArray;
-    
+
 @public
 
     NSMutableArray* SequencerArray;
@@ -43,7 +43,11 @@
 
 @property (readwrite, nonatomic) SInt32 NumSequences;
 
-@property (readwrite, nonatomic, retain) NSMutableArray* SeqNumArray;
+@property (readwrite, nonatomic) NSInteger PlayerID;
+
+//@property (readwrite, nonatomic, retain) NSMutableArray* SeqNumArray;
+
+@property (readwrite, nonatomic, retain) NSMutableDictionary* PlayerDictionary;
 
 -(void)	setup;
 
@@ -60,6 +64,8 @@
 
 -(void) setSeqPos:(NSNumber*)num;
 -(void) setAvgSeqPos:(NSNumber*)num;
+
+-(void) addPlayerWithID:(NSString*)player_id;
 
 -(void) parseFile;
 

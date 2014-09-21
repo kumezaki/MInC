@@ -20,6 +20,8 @@ extern MInC_AQPlayer *gAQP;
 #import "MInC_FirstView.h"
 extern MInC_FirstView *gFirstView;
 
+#import "MInC_Player.h"
+
 @implementation MInC_ViewController
 
 @synthesize firstView = _firstView;
@@ -81,8 +83,11 @@ extern MInC_FirstView *gFirstView;
     if (error == nil)
     {
         // Parse data here
-        PlayerID = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] integerValue];
-        NSLog(@"Player ID from healthyboys.com\n%ld",(long)PlayerID);
+        NSString* player_id_string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        gAQP.PlayerID = [player_id_string integerValue];
+        NSLog(@"Player ID from healthyboys.com: %ld",(long)gAQP.PlayerID);
+        
+        [gAQP addPlayerWithID:PLAYER_ID_STR(gAQP.PlayerID)];
     }
     else
         NSLog(@"Failed to receive player ID from healthyboys.com");
@@ -97,7 +102,7 @@ extern MInC_FirstView *gFirstView;
 
     /* request score list from HTTP server */
     [self.firstView startActivityIndicator];
-    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/score_list.php?id=%08ld",(long)PlayerID];
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/score_list.php?id=%08ld",(long)gAQP.PlayerID];
     [self callHTTPServer:url_string withData:&data :&response :&error];
     if (error == nil)
     {
@@ -134,7 +139,7 @@ extern MInC_FirstView *gFirstView;
     
     /* request score data from HTTP server */
     [self.firstView startActivityIndicator];
-    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/score.php?id=%08ld&score_id=%ld",(long)PlayerID,(long)score_id];
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/score.php?id=%08ld&score_id=%ld",(long)gAQP.PlayerID,(long)score_id];
     [self callHTTPServer:url_string withData:&data :&response :&error];
     MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
     if (error == nil)
@@ -159,8 +164,8 @@ extern MInC_FirstView *gFirstView;
     NSError* error = nil;
     
     /* request score data from HTTP server */
-    NSLog(@"Player ID: %ld",(long)PlayerID);
-    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_list.php?id=%08ld",(long)PlayerID];
+    NSLog(@"Player ID: %ld",(long)gAQP.PlayerID);
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_list.php?id=%08ld",(long)gAQP.PlayerID];
     NSLog(@"%@",url_string);
     [self callHTTPServer:url_string withData:&data :&response :&error];
     if (error == nil)
@@ -178,10 +183,11 @@ extern MInC_FirstView *gFirstView;
             if (playerInfoArray.count > 1)
             {
                 /* filter out "self" here */
-                if ([playerInfoArray[0] integerValue] != PlayerID)
+                if ([playerInfoArray[0] integerValue] != gAQP.PlayerID)
                 {
-                    NSLog(@"player ID (integer value) %d",[playerInfoArray[0] integerValue]);
-                    [playerPosArray addObject:[[NSNumber alloc] initWithInteger:[playerInfoArray[1] integerValue]]];
+                    NSLog(@"player ID (integer value) %d %d",[playerInfoArray[0] integerValue],[playerInfoArray[1] integerValue]);
+                    NSArray *playerInfo = [NSArray arrayWithObjects:[[NSNumber alloc] initWithInteger:[playerInfoArray[0] integerValue]], [[NSNumber alloc] initWithInteger:[playerInfoArray[1] integerValue]], nil];
+                    [playerPosArray addObject:playerInfo];
                 }
             }
         }
@@ -200,7 +206,7 @@ extern MInC_FirstView *gFirstView;
     NSError* error = nil;
     
     /* send player position to HTTP server */
-    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_end.php?id=%08ld",(long)PlayerID];
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_end.php?id=%08ld",(long)gAQP.PlayerID];
     [gViewController callHTTPServer:url_string withData:&data :&response :&error];
     if (error == nil)
     {
@@ -217,7 +223,7 @@ extern MInC_FirstView *gFirstView;
     NSError* error = nil;
     
     /* send player position to HTTP server */
-    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_pos.php?id=%08ld&pos=%d",(long)PlayerID,pos];
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_pos.php?id=%08ld&pos=%d",(long)gAQP.PlayerID,pos];
     [gViewController callHTTPServer:url_string withData:&data :&response :&error];
     if (error == nil)
     {
@@ -268,7 +274,7 @@ extern MInC_FirstView *gFirstView;
     
     self.firstView.TouchView.userInteractionEnabled = NO;
     
-    PlayerID = 0;
+    gAQP.PlayerID = 0;
     [self getPlayerID];
 
     scoreListArray = [[NSMutableArray alloc] init];

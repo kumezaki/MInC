@@ -26,8 +26,6 @@
     NSMutableArray* scoreListArray;
     UIPickerView*   scoreListPickerView;
     UIToolbar*      pickerViewToolBar;
-    
-    NSInteger       PlayerID;
 }
 
 #if MINC_NETWORK_LOCAL

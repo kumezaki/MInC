@@ -28,6 +28,7 @@
 		217745811933B1800037826C /* MInC Stick Figure_Cell_We.png in Resources */ = {isa = PBXBuildFile; fileRef = 217745801933B1800037826C /* MInC Stick Figure_Cell_We.png */; };
 		21827A0E186735110025BCFC /* MInC_Biquad.m in Sources */ = {isa = PBXBuildFile; fileRef = 21827A0D186735110025BCFC /* MInC_Biquad.m */; };
 		218425B618B2A209001EAD69 /* MInC_SequenceFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 218425B518B2A209001EAD69 /* MInC_SequenceFile.m */; };
+		218F962319CC703A009A9B32 /* MInC_Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 218F962219CC703A009A9B32 /* MInC_Player.m */; };
 		2195D37511B6B6C3002E46FD /* MInC_SoundFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2195D37411B6B6C3002E46FD /* MInC_SoundFile.m */; };
 		21AB99A717F31D7B00C3B291 /* MInC_NetworkConnections.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB99A617F31D7B00C3B291 /* MInC_NetworkConnections.m */; };
 		21AD0B08192FFFE70077EC91 /* gradient background.png in Resources */ = {isa = PBXBuildFile; fileRef = 21AD0B07192FFFE70077EC91 /* gradient background.png */; };
@@ -87,6 +88,8 @@
 		21827A0D186735110025BCFC /* MInC_Biquad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_Biquad.m; sourceTree = "<group>"; };
 		218425B418B2A209001EAD69 /* MInC_SequenceFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_SequenceFile.h; sourceTree = "<group>"; };
 		218425B518B2A209001EAD69 /* MInC_SequenceFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_SequenceFile.m; sourceTree = "<group>"; };
+		218F962119CC703A009A9B32 /* MInC_Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_Player.h; sourceTree = "<group>"; };
+		218F962219CC703A009A9B32 /* MInC_Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_Player.m; sourceTree = "<group>"; };
 		2195D37311B6B6C3002E46FD /* MInC_SoundFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_SoundFile.h; sourceTree = "<group>"; };
 		2195D37411B6B6C3002E46FD /* MInC_SoundFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_SoundFile.m; sourceTree = "<group>"; };
 		2195F21F1807092300CB6BB9 /* MInC_Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_Content.h; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				213C2FA717EDD72A0024A847 /* MInC_NetworkMessages.m */,
 				211AB3CB11B8098D00B41C09 /* MInC_Note.h */,
 				211AB3CC11B8098D00B41C09 /* MInC_Note.m */,
+				218F962119CC703A009A9B32 /* MInC_Player.h */,
+				218F962219CC703A009A9B32 /* MInC_Player.m */,
 				21B8AC9511B4208200C88C2D /* MInC_SecondView.h */,
 				21B8AC9611B4208200C88C2D /* MInC_SecondView.m */,
 				211AB3CD11B8098D00B41C09 /* MInC_Sequence.h */,
@@ -329,6 +334,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* MInC_AppDelegate.m in Sources */,
 				28216C970DB411BC00E5133A /* MInC_ViewController.m in Sources */,
+				218F962319CC703A009A9B32 /* MInC_Player.m in Sources */,
 				21B8AC9711B4208200C88C2D /* MInC_SecondView.m in Sources */,
 				2195D37511B6B6C3002E46FD /* MInC_SoundFile.m in Sources */,
 				211AB3D511B8098D00B41C09 /* MInC_ADSR.m in Sources */,

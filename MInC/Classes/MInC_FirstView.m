@@ -17,6 +17,8 @@ extern MInC_SecondView *gSecondView;
 #import "MInC_ViewController.h"
 extern MInC_ViewController *gViewController;
 
+#import "MInC_Player.h"
+
 MInC_FirstView *gFirstView = nil;
 
 @implementation MInC_FirstView
@@ -111,13 +113,22 @@ MInC_FirstView *gFirstView = nil;
 	}
     else
 	{
+#if 1
+        MInC_Player* player = gAQP.PlayerDictionary[PLAYER_ID_STR(gAQP.PlayerID)];
+
+		[gAQP setSequence:(player.SeqPos + 1)];
+        
+        [gViewController setPlayerPos:(player.SeqPos + 1)];
+#else
         SInt16 next_seq_pos = [gAQP.SeqNumArray[0] integerValue] + 1;
 
         [gAQP.SeqNumArray replaceObjectAtIndex:0 withObject:[[NSNumber alloc] initWithInt:next_seq_pos]];
-		[gAQP setSequence:[gAQP.SeqNumArray[0] integerValue]];
 
+		[gAQP setSequence:next_seq_pos];
+        
         [gViewController setPlayerPos:next_seq_pos];
-
+#endif
+        
         NewMod = YES;
 	}
 

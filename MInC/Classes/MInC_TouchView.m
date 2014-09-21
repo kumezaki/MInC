@@ -14,6 +14,8 @@ extern MInC_AQPlayer *gAQP;
 #import "MInC_FirstView.h"
 extern MInC_FirstView *gFirstView;
 
+#import "MInC_Player.h"
+
 #define DIAGONAL(x,y) sqrt(((x) * (x)) + ((y) * (y)))
 
 #define DEFAULT_RADIUS  0.1
@@ -53,13 +55,15 @@ extern MInC_FirstView *gFirstView;
     const Float64 y_bottom = self.superview.bounds.size.height-status_bar_height;
     NSLog(@"%f %f",self.superview.bounds.size.width,self.superview.bounds.size.height);
     int i = 0;
-    for (NSNumber* number in gAQP.SeqNumArray)
+    for (NSString* key in gAQP.PlayerDictionary)
     {
+        MInC_Player* player = gAQP.PlayerDictionary[key];
+        
         int offset = (i + 1) / 2;
         int sign = i % 2;
         Float64 x = (sign == 0 ? offset : -offset) * x_delta + x_start;
         
-        float h = (float)[number integerValue] / num_seqs * y_bottom;
+        float h = (float)player.SeqPos / num_seqs * y_bottom;
         
         UIColor *rectColor = i == 0 ? [UIColor whiteColor] : [UIColor darkGrayColor];
         [rectColor set];
