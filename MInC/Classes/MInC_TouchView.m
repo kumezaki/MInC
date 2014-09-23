@@ -46,7 +46,6 @@ extern MInC_FirstView *gFirstView;
 
 - (void)drawRect:(CGRect)draw_rect {
 
-    // Drawing code
     const unsigned long num_players = gAQP.PlayerDictionary.count;
     const unsigned long num_seqs = gAQP.Sequences.count;
     const Float64 x_delta = self.superview.bounds.size.width / num_players;
@@ -54,10 +53,32 @@ extern MInC_FirstView *gFirstView;
     const Float64 status_bar_height= 20.; /* for iOS 6 this value should be 0. */
     const Float64 y_bottom = self.superview.bounds.size.height-status_bar_height;
     NSLog(@"%f %f",self.superview.bounds.size.width,self.superview.bounds.size.height);
+
+    NSArray* keys = [gAQP.PlayerDictionary allKeys];
+    for (int i = 0; i < keys.count; i++) NSLog(@"before sort %@",keys[i]);
+    keys = [[gAQP.PlayerDictionary allKeys] sortedArrayUsingComparator:^(id obj1, id obj2)
+        {
+            /* ensure that "this" player is the first element */
+            if ([obj1 intValue] == gAQP.PlayerID)
+                return NSOrderedAscending;
+            if ([obj2 intValue] == gAQP.PlayerID)
+                return NSOrderedDescending;
+            
+            if ([obj1 intValue] > [obj2 intValue])
+                return NSOrderedDescending;
+            if ([obj1 intValue] < [obj2 intValue])
+                return NSOrderedAscending;
+
+            return NSOrderedSame;
+        }
+    ];
+    for (int i = 0; i < keys.count; i++) NSLog(@"after sort %@",keys[i]);
+    
     int i = 0;
-    for (NSString* key in gAQP.PlayerDictionary)
+    while (i < keys.count)
     {
-        MInC_Player* player = gAQP.PlayerDictionary[key];
+        MInC_Player* player = gAQP.PlayerDictionary[keys[i]];
+        BOOL this_player = [keys[i] integerValue] == gAQP.PlayerID;
         
         int offset = (i + 1) / 2;
         int sign = i % 2;
@@ -65,7 +86,7 @@ extern MInC_FirstView *gFirstView;
         
         float h = (float)player.SeqPos_Cur / num_seqs * y_bottom;
         
-        UIColor *rectColor = i == 0 ? [UIColor whiteColor] : [UIColor darkGrayColor];
+        UIColor *rectColor = this_player ? [UIColor whiteColor] : [UIColor darkGrayColor];
         [rectColor set];
         
         UIRectFill(CGRectMake(x, y_bottom-h, x_delta, h));
