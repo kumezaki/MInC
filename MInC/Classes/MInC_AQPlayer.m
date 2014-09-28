@@ -262,6 +262,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
             player.SeqPos_Cur = 0;
             if (sequencer.Playing)
                 [sequencer stop];
+            [PlayerDictionary performSelectorOnMainThread:@selector(removeObjectForKey:) withObject:key waitUntilDone:NO];
         }
         else if (player.SeqPos_Cur != player.SeqPos_Next)
         {

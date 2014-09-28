@@ -275,7 +275,6 @@ extern MInC_FirstView *gFirstView;
     self.firstView.TouchView.userInteractionEnabled = NO;
     
     gAQP.PlayerID = 0;
-    [self getPlayerID];
 
     scoreListArray = [[NSMutableArray alloc] init];
     [self getScoreList];
@@ -303,6 +302,7 @@ extern MInC_FirstView *gFirstView;
 - (void)doneSelectingScore:(id)sender
 {
     [scoreListPickerView resignFirstResponder];
+    [self getPlayerID];
     [self getScoreData:[scoreListPickerView selectedRowInComponent:0]];
     
     [NSTimer scheduledTimerWithTimeInterval:3. target:self selector:@selector(getPlayerList) userInfo:nil repeats:YES];
