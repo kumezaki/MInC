@@ -36,7 +36,7 @@
     // the same
     
     for (SInt32 i = 0; i < num_frames; i++) {
-        buffer[i] = 0;
+        buffer[i<<1] = 0;
     }
     
     return theta;

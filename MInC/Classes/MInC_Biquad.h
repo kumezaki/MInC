@@ -43,6 +43,6 @@ biquad;
 
 -(void) updateCoeffs:(int)type :(Float64)dbGain :(Float64)freq :(Float64)srate :(Float64)bandwidth;
 
--(void)processAudioBuffer:(Float64*)buffer :(UInt32)num_samples;
+-(void)processAudioBuffer:(Float64*)buffer :(UInt32)num_frames;
 
 @end

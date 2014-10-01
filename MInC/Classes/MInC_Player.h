@@ -28,6 +28,11 @@
 @property (nonatomic,retain) MInC_BLITSaw*  BLITSaw;
 @property (nonatomic,retain) MInC_Biquad*   BiQuad;
 
+@property (readwrite) Float64      PanL;
+@property (readwrite) Float64      PanR;
+
 -(id)initWithSequencer:(MInC_Sequencer*)_sequencer;
+
+-(void)setPan:(Float64)pan;
 
 @end

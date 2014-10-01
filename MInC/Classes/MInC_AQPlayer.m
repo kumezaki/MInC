@@ -37,7 +37,7 @@ extern MInC_FirstView *gFirstView;
 #include <libxml/parser.h>
 #endif
 
-#define MINC_AUDIO_BUFFER_BYTES 1024
+#define MINC_AUDIO_BUFFER_BYTES (1024 * MINC_AUDIO_CHANNELS)
 
 MInC_AQPlayer *gAQP = nil;
 
@@ -45,20 +45,21 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
     MInC_AQPlayer *aqp = (MInC_AQPlayer *)inUserData;
 	
-	const SInt32 numFrames = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
-
+	const SInt32 numSamples = (inAQBuffer->mAudioDataBytesCapacity) / sizeof(SInt16);
+	const SInt32 numFrames = numSamples / MINC_AUDIO_CHANNELS;
+    
 	/* initialize temporary audio buffer */
-	Float64 buffer[numFrames];
-	memset(buffer,0,sizeof(Float64)*numFrames);
+	Float64 buffer[numSamples];
+	memset(buffer,0,sizeof(Float64)*numSamples);
     
 	/* fill the audio buffer */
     [aqp fillAudioBuffer:buffer:numFrames];
 
 	/* copy/scale audio buffer to output buffer */
-	for (SInt32 i = 0; i < numFrames; i++)
+	for (SInt32 i = 0; i < numSamples; i++)
     {
         if (buffer[i]>1. || buffer[i]<-1.)
-            NSLog(@"!!!!!");
+            NSLog(@"!!! audio out of range !!!");
 
 		((SInt16 *)inAQBuffer->mAudioData)[i] = buffer[i] * (SInt16)0x7FFF;
     }
@@ -129,12 +130,12 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
 	DataFormat.mFormatID = kAudioFormatLinearPCM;
 	DataFormat.mFormatFlags = kAudioFormatFlagIsSignedInteger;
-	DataFormat.mChannelsPerFrame = 1;
+	DataFormat.mChannelsPerFrame = MINC_AUDIO_CHANNELS;
 	DataFormat.mSampleRate = kSR;
 	DataFormat.mBitsPerChannel = 16;
 	DataFormat.mFramesPerPacket = 1;
-	DataFormat.mBytesPerPacket = sizeof(SInt16);
-	DataFormat.mBytesPerFrame = sizeof(SInt16);
+	DataFormat.mBytesPerPacket = sizeof(SInt16)*MINC_AUDIO_CHANNELS;
+	DataFormat.mBytesPerFrame = sizeof(SInt16)*MINC_AUDIO_CHANNELS;
 
     OSStatus result = AudioQueueNewOutput(&DataFormat, AQBufferCallback, self, nil, nil, 0, &Queue);
 	
@@ -523,7 +524,10 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 #endif
         
         for (int i = 0; i < num_frames; i++)
-            buffer[i] += temp_buffer[i];
+        {
+            buffer[i<<(MINC_AUDIO_CHANNELS-1)] += player.PanL * temp_buffer[i];
+            buffer[(i<<(MINC_AUDIO_CHANNELS-1))+1] += player.PanR * temp_buffer[i];
+        }
     }
     
 #if MINC_SECONDARY_SEQUENCER

@@ -90,6 +90,10 @@ extern MInC_FirstView *gFirstView;
         [rectColor set];
         
         UIRectFill(CGRectMake(x, y_bottom-h, x_delta, h));
+        
+        Float64 pan = (x + (x_delta / 2)) / self.superview.bounds.size.width;
+        NSLog(@"%@ Pan %f",keys[i],pan);
+        [player setPan:pan];
 
         i++;
     }

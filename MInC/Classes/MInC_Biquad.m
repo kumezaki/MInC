@@ -164,13 +164,13 @@
     b->a4 = a2 /a0;
 }
 
--(void)processAudioBuffer:(Float64*)buffer :(UInt32)num_samples
+-(void)processAudioBuffer:(Float64*)buffer :(UInt32)num_frames
 {
-    Float64 freq_delta = (Freq - PrevFreq) / (Float64)num_samples;
+    Float64 freq_delta = (Freq - PrevFreq) / (Float64)num_frames;
     Float64 freq = PrevFreq;
 
     if (b != NULL)
-        for (UInt32 i = 0; i < num_samples; i++, freq += freq_delta)
+        for (UInt32 i = 0; i < num_frames; i++, freq += freq_delta)
         {
             buffer[i] = [self biquad:buffer[i]];
         }

@@ -15,6 +15,8 @@
 
 #define MINC_SECONDARY_SEQUENCER    0
 
+#define MINC_AUDIO_CHANNELS     2
+
 #define kNumberBuffers	3
 
 #define kSR 22050.
