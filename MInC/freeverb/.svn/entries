@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="3"
+   name=""
+   committed-date="2007-07-09T16:59:23.428970Z"
+   url="svn+ssh://svn@64.7.16.106/v16/rms/trunk/rms_sampler/freeverb"
+   last-author="ko"
+   kind="dir"
+   uuid="1ec965ee-ae34-0410-9cd3-ca9e576a855a"
+   repos="svn+ssh://svn@64.7.16.106/v16/rms/trunk"
+   revision="10"/>
+<entry
+   committed-rev="3"
+   name="allpass.c"
+   text-time="2007-07-16T16:40:30.000000Z"
+   committed-date="2007-07-09T16:59:23.428970Z"
+   checksum="7b72176897ffb105b220b02164067810"
+   last-author="ko"
+   kind="file"
+   prop-time="2007-07-16T16:40:30.000000Z"/>
+<entry
+   committed-rev="3"
+   name="comb.c"
+   text-time="2007-07-16T16:40:30.000000Z"
+   committed-date="2007-07-09T16:59:23.428970Z"
+   checksum="9bc253c81a6cb3cc409097ea5950de75"
+   last-author="ko"
+   kind="file"
+   prop-time="2007-07-16T16:40:30.000000Z"/>
+<entry
+   committed-rev="3"
+   name="revmodel.h"
+   text-time="2007-07-16T16:40:30.000000Z"
+   committed-date="2007-07-09T16:59:23.428970Z"
+   checksum="332099017bc0f4431ea70eea09ba43d9"
+   last-author="ko"
+   kind="file"
+   prop-time="2007-07-16T16:40:30.000000Z"/>
+<entry
+   committed-rev="3"
+   name="allpass.h"
+   text-time="2007-07-16T16:40:30.000000Z"
+   committed-date="2007-07-09T16:59:23.428970Z"
+   checksum="61a4cf0888d05cb224f54d93a92c14fa"
+   last-author="ko"
+   kind="file"
+   prop-time="2007-07-16T16:40:30.000000Z"/>
+<entry
+   committed-rev="3"
+   name="comb.h"
+   text-time="2007-07-16T16:40:30.000000Z"
+   committed-date="2007-07-09T16:59:23.428970Z"
+   checksum="5a97ba361fafb2b7afb5f3b201b76923"
+   last-author="ko"
+   kind="file"
+   prop-time="2007-07-16T16:40:30.000000Z"/>
+<entry
+   committed-rev="3"
+   name="denormals.h"
+   text-time="2007-07-16T16:40:30.000000Z"
+   committed-date="2007-07-09T16:59:23.428970Z"
+   checksum="679f692c2d390779110e2ee97abd14c8"
+   last-author="ko"
+   kind="file"
+   prop-time="2007-07-16T16:40:30.000000Z"/>
+<entry
+   committed-rev="3"
+   name="tuning.h"
+   text-time="2007-07-16T16:40:30.000000Z"
+   committed-date="2007-07-09T16:59:23.428970Z"
+   checksum="d595306d8aa588cadfcf87d4170eef58"
+   last-author="ko"
+   kind="file"
+   prop-time="2007-07-16T16:40:30.000000Z"/>
+<entry
+   committed-rev="3"
+   name="revmodel.c"
+   text-time="2007-07-16T16:40:30.000000Z"
+   committed-date="2007-07-09T16:59:23.428970Z"
+   checksum="349dc505af6cbc556001d61604609c9a"
+   last-author="ko"
+   kind="file"
+   prop-time="2007-07-16T16:40:30.000000Z"/>
+</wc-entries>

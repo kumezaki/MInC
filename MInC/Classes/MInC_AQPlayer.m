@@ -9,13 +9,15 @@
 #import "MInC_AQPlayer.h"
 
 #import "MInC_BLITSaw.h"
+#import "MInC_Content.h"
+#import "MInC_Player.h"
 #import "MInC_SequenceFile.h"
 
 #import "MInC_FirstView.h"
 extern MInC_FirstView *gFirstView;
 
-#import "MInC_Content.h"
-#import "MInC_Player.h"
+#import "MInC_Reverb.h"
+extern struct RevModel  gReverb[];
 
 // set the following to 1 if compiling for XML-style sequence data
 #define WITH_XML_SEQS 0
@@ -106,6 +108,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 	
 	gAQP = self;
     
+    Reverb_Init();
+
 	Sequences = [[NSMutableArray alloc] init];
 
     PlayerDictionary = [[NSMutableDictionary alloc] init];
@@ -529,6 +533,9 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
             buffer[(i<<(MINC_AUDIO_CHANNELS-1))+1] += player.PanR * temp_buffer[i];
         }
     }
+    
+    /* reverb */
+    revmodel_process(gReverb,buffer,buffer+1,num_frames,MINC_AUDIO_CHANNELS);
     
 #if MINC_SECONDARY_SEQUENCER
     /* secondary sequencer */
