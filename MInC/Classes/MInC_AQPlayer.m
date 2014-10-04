@@ -227,7 +227,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
         [Sequences insertObject:seq atIndex:seq_pos];
 }
 
--(void) setOtherPlayersSequence:(NSMutableArray*)pos_array
+-(void) setOtherPlayersSequence:(NSMutableArray*)param_array
 {
     for (NSString* key in PlayerDictionary)
     {
@@ -236,14 +236,13 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     }
     ((MInC_Player*)[PlayerDictionary valueForKey:PLAYER_ID_STR(PlayerID)]).Missing = NO;
     
-    for (NSArray* player_info in pos_array)
+    for (NSArray* player_info in param_array)
     {
         NSString* key = player_info[0];
-        NSInteger next_pos = [player_info[1] integerValue];
         MInC_Player* player = PlayerDictionary[key];
         if (player != nil)
         {
-            NSLog(@"player w/ id %@ exists",key);
+//          NSLog(@"player w/ id %@ exists",key);
             player.Missing = NO;
         }
         else
@@ -253,8 +252,10 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
             [self addPlayerWithID:key];
         }
         player = PlayerDictionary[key];
-        player.SeqPos_Next = next_pos;
-        NSLog(@"player %@ SeqPos_Next is %ld == %ld?",key,(long)next_pos,(long)player.SeqPos_Next);
+        player.SeqPos_Next = [player_info[1] integerValue];
+        player.SeqSpeed_Next = [player_info[2] integerValue];
+        player.SeqOctave_Next = [player_info[3] integerValue];
+        player.SeqMute_Next = [player_info[4] integerValue];
     }
     
     for (NSString* key in PlayerDictionary)
@@ -269,14 +270,44 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
                 [sequencer stop];
             [PlayerDictionary performSelectorOnMainThread:@selector(removeObjectForKey:) withObject:key waitUntilDone:NO];
         }
-        else if (player.SeqPos_Cur != player.SeqPos_Next)
+        else
         {
-            player.SeqPos_Cur = player.SeqPos_Next;
-            [sequencer setNextSequence:Sequences[player.SeqPos_Cur-1]];
-            if (!sequencer.Playing)
-                [sequencer start];
+            /* seq position */
+            if (player.SeqPos_Cur != player.SeqPos_Next)
+            {
+                player.SeqPos_Cur = player.SeqPos_Next;
+                [sequencer setNextSequence:Sequences[player.SeqPos_Cur-1]];
+                if (!sequencer.Playing)
+                    [sequencer start];
+            }
+
+            /* seq speed */
+            if (player.SeqSpeed_Cur != player.SeqSpeed_Next)
+            {
+                player.SeqSpeed_Cur = player.SeqSpeed_Next;
+                sequencer.TempoMultiplier_Control = pow(2.0,player.SeqSpeed_Cur);
+            }
+            
+            /* seq octave */
+            if (player.SeqOctave_Cur != player.SeqOctave_Next)
+            {
+                player.SeqOctave_Cur = player.SeqOctave_Next;
+                sequencer.TransposeValue_Control = player.SeqOctave_Cur * 12;
+            }
+
+            /* seq mute */
+            if (player.SeqMute_Cur != player.SeqMute_Next)
+            {
+                player.SeqMute_Cur = player.SeqMute_Next;
+                sequencer.AmpMultiplier_Accel = player.SeqMute_Cur == 1 ? 0. : 1.0;
+            }
         }
-        NSLog(@"player %@ SeqPos_Cur %ld",key,(long)player.SeqPos_Cur);
+        NSLog(@"player %@ pos=%ld speed=%f octave=%f mute=%f",
+              key,
+              (long)player.SeqPos_Cur,
+              sequencer.TempoMultiplier_Control,
+              sequencer.TransposeValue_Control,
+              sequencer.AmpMultiplier_Accel);
     }
 }
 

@@ -19,7 +19,6 @@
     
 	NSSet               *NoteSet;
     
-    Float64             AmpMultiplier_Accel;
     Float64             AmpMultiplier_Accel_Target;
     Float64             AmpMultiplier_Accel_Delta;
 
@@ -41,6 +40,7 @@
 @property (readonly)    BOOL    Playing;
 @property (readwrite)   BOOL    SyncWithServer;
 
+@property (nonatomic,readwrite) Float64 AmpMultiplier_Accel;
 @property (nonatomic,readwrite) Float64 AmpMultiplier_Control;
 @property (nonatomic,readwrite) Float64 TempoMultiplier_Accel;
 @property (nonatomic,readwrite) Float64 TempoMultiplier_Control;

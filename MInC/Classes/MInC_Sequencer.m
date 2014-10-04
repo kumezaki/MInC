@@ -18,6 +18,7 @@ extern MInC_ViewController *gViewController;
 
 @synthesize Playing;
 @synthesize SyncWithServer;
+@synthesize AmpMultiplier_Accel;
 @synthesize AmpMultiplier_Control;
 @synthesize TempoMultiplier_Accel;
 @synthesize TempoMultiplier_Control;
@@ -33,7 +34,7 @@ extern MInC_ViewController *gViewController;
 
     AmpMultiplier_Accel_Target = 1.;
     AmpMultiplier_Accel_Delta = 0.;
-#if MINC_ACCELLEROMETER
+#if MINC_ACCELLEROMETER && 0
 	AmpMultiplier_Accel = 0.;
 #else
 	AmpMultiplier_Accel = AmpMultiplier_Accel_Target;
@@ -41,7 +42,7 @@ extern MInC_ViewController *gViewController;
 
     CutoffFreq_Accel_Target = (kSR/2.)*0.9;
     CutoffFreq_Accel_Delta = 0.;
-#if MINC_ACCELLEROMETER
+#if MINC_ACCELLEROMETER && 0
     CutoffFreq_Accel = 0.;
 #else
     CutoffFreq_Accel = CutoffFreq_Accel_Target;
@@ -167,7 +168,7 @@ extern MInC_ViewController *gViewController;
 -(Float64)getAmp
 {
 //    NSLog(@"AmpMultiplier_Accel %f",AmpMultiplier_Accel);
-    return AmpMultiplier_Control* AmpMultiplier_Accel;
+    return AmpMultiplier_Control * AmpMultiplier_Accel;
 }
 
 -(void)setAmp_Accel:(Float64)amp

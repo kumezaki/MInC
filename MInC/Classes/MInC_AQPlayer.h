@@ -58,7 +58,7 @@
 -(void) setSequence:(SInt32)seq_num;
 -(void) setSequence:(SInt32)seq_num :(MInC_Sequence*)seq;
 
--(void) setOtherPlayersSequence:(NSMutableArray*)pos_array;
+-(void) setOtherPlayersSequence:(NSMutableArray*)param_array;
 
 -(void) setSeqPos:(NSNumber*)num;
 -(void) setAvgSeqPos:(NSNumber*)num;

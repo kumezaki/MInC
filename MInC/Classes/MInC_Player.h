@@ -20,8 +20,18 @@
 }
 
 @property (readwrite) BOOL      Missing;
+
 @property (readwrite) NSInteger SeqPos_Cur;
 @property (readwrite) NSInteger SeqPos_Next;
+
+@property (readwrite) NSInteger SeqSpeed_Cur;
+@property (readwrite) NSInteger SeqSpeed_Next;
+
+@property (readwrite) NSInteger SeqOctave_Cur;
+@property (readwrite) NSInteger SeqOctave_Next;
+
+@property (readwrite) NSInteger SeqMute_Cur;
+@property (readwrite) NSInteger SeqMute_Next;
 
 @property (nonatomic,retain) MInC_Sequencer* Sequencer;
 

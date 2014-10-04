@@ -175,7 +175,7 @@ extern MInC_FirstView *gFirstView;
         NSLog(@"Player list from healthyboys.com\n%@",myString);
         
         NSArray *playerItems = [myString componentsSeparatedByString:@"\n"];
-        NSMutableArray *playerPosArray = [[NSMutableArray alloc] initWithCapacity:playerItems.count];
+        NSMutableArray *playerParamArray = [[NSMutableArray alloc] initWithCapacity:playerItems.count];
         
         for (NSString* playerItem in playerItems)
         {
@@ -185,14 +185,36 @@ extern MInC_FirstView *gFirstView;
                 /* filter out "self" here */
                 if ([playerInfoArray[0] integerValue] != gAQP.PlayerID)
                 {
-                    NSLog(@"player ID (integer value) %ld %ld",(long)[playerInfoArray[0] integerValue],(long)[playerInfoArray[1] integerValue]);
-                    NSArray *playerInfo = [NSArray arrayWithObjects:[[NSNumber alloc] initWithInteger:[playerInfoArray[0] integerValue]], [[NSNumber alloc] initWithInteger:[playerInfoArray[1] integerValue]], nil];
-                    [playerPosArray addObject:playerInfo];
+                    NSInteger player_id = [playerInfoArray[0] integerValue];
+                    NSInteger player_pos = [playerInfoArray[1] integerValue];
+                    NSInteger player_speed = [playerInfoArray[2] integerValue];
+                    NSInteger player_octave = [playerInfoArray[3] integerValue];
+                    NSInteger player_mute = [playerInfoArray[4] integerValue];
+                    NSInteger player_like = [playerInfoArray[5] integerValue];
+                    
+                    NSLog(@"player ID (integer value) %ld %ld %ld %ld %ld %ld",
+                          (long)player_id,
+                          (long)player_pos,
+                          (long)player_speed,
+                          (long)player_octave,
+                          (long)player_mute,
+                          (long)player_like);
+
+                    NSArray *playerInfo = [NSArray arrayWithObjects:
+                                           [[NSNumber alloc] initWithInteger:player_id],
+                                           [[NSNumber alloc] initWithInteger:player_pos],
+                                           [[NSNumber alloc] initWithInteger:player_speed],
+                                           [[NSNumber alloc] initWithInteger:player_octave],
+                                           [[NSNumber alloc] initWithInteger:player_mute],
+                                           [[NSNumber alloc] initWithInteger:player_like],
+                                           nil];
+
+                    [playerParamArray addObject:playerInfo];
                 }
             }
         }
 
-        [gAQP setOtherPlayersSequence:playerPosArray];
+        [gAQP setOtherPlayersSequence:playerParamArray];
         [gFirstView.TouchView setNeedsDisplay];
     }
     else
@@ -213,23 +235,39 @@ extern MInC_FirstView *gFirstView;
         NSLog(@"%@ sent",url_string);
     }
     else
-        NSLog(@"Failed to send player position to healthyboys.com");
+        NSLog(@"Failed to send player end to healthyboys.com");
 }
 
-- (void)setPlayerPos:(SInt16)pos
+#define SET_PLAYER_PARAM(param_name) \
+    if (gAQP.PlayerID <= 0) return; \
+    NSData* data = nil; NSURLResponse* response = nil; NSError* error = nil; \
+    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_%s.php?id=%08ld&val=%d",param_name,(long)gAQP.PlayerID,val]; \
+    [gViewController callHTTPServer:url_string withData:&data :&response :&error]; \
+    if (error == nil) {} else NSLog(@"Failed to send player %s to healthyboys.com",param_name);
+
+- (void)setPlayerPos:(SInt16)val
 {
-    NSData* data = nil;
-    NSURLResponse* response = nil;
-    NSError* error = nil;
-    
-    /* send player position to HTTP server */
-    NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_pos.php?id=%08ld&pos=%d",(long)gAQP.PlayerID,pos];
-    [gViewController callHTTPServer:url_string withData:&data :&response :&error];
-    if (error == nil)
-    {
-    }
-    else
-        NSLog(@"Failed to send player position to healthyboys.com");
+    SET_PLAYER_PARAM("pos")
+}
+
+- (void)setPlayerSpeed:(SInt16)val
+{
+    SET_PLAYER_PARAM("speed")
+}
+
+- (void)setPlayerOctave:(SInt16)val
+{
+    SET_PLAYER_PARAM("octave")
+}
+
+- (void)setPlayerMute:(SInt16)val
+{
+    SET_PLAYER_PARAM("mute")
+}
+
+- (void)setPlayerLike:(SInt16)val
+{
+    SET_PLAYER_PARAM("like")
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
@@ -370,20 +408,50 @@ extern MInC_FirstView *gFirstView;
 #if 0
 	NSLog(@"%f, %f, %f\n", acceleration.x, acceleration.y, acceleration.z);
 #endif
-    
+
+    MInC_Player* player = gAQP.PlayerDictionary[PLAYER_ID_STR(gAQP.PlayerID)];
+
 #define LIMIT_ACC_VAL(n)	n < -1. ? -1. : n > 1. ? 1. : n
     
 	Float64 x = LIMIT_ACC_VAL(acceleration.x);
 	Float64 y = LIMIT_ACC_VAL(acceleration.y);
 	Float64 z = LIMIT_ACC_VAL(acceleration.z);
+
+//    NSLog(@"(%f,%f,%f)",x,y,z);
     
+    bool changed;
+
+    if (IndexMute == 0)
+    {
+        changed = NO;
+        if (x < -0.6) { if (PrevX != -1 && IndexTempo > -2) { NSLog(@"slow triggered"); IndexTempo--; changed = YES; } PrevX = -1; }
+        else if (x > 0.6) { if (PrevX != 1 && IndexTempo < 2) { NSLog(@"fast triggered"); IndexTempo++; changed = YES; } PrevX = 1; }
+        else { PrevX = 0; }
+        if (changed) { player.Sequencer.TempoMultiplier_Control = pow(2.0,IndexTempo); [self setPlayerSpeed:IndexTempo]; }
+        
+        changed = NO;
+        if (y < -0.8) { if (PrevY != -1 && IndexSpeed < 3) { NSLog(@"higher triggered"); IndexSpeed++; changed = YES; } PrevY = -1; }
+        else if (y > 0.1) { if (PrevY != 1 && IndexSpeed > -3) { NSLog(@"lower triggered"); IndexSpeed--; changed = YES; } PrevY = 1; }
+        else { PrevY = 0; }
+        if (changed) { player.Sequencer.TransposeValue_Control = IndexSpeed * 12; [self setPlayerOctave:IndexSpeed]; }
+    }
+    
+    changed = NO;
+    if (z > 0.6) { if (PrevZ != 1) { NSLog(@"mute triggered"); IndexMute = 1; changed = YES; } PrevZ = 1; }
+    else { if (PrevZ != 0) { NSLog(@"unmute triggered"); IndexMute = 0; changed = YES; } PrevZ = 0; }
+    if (changed) { player.Sequencer.AmpMultiplier_Accel = IndexMute == 1 ? 0. : 1.0; [self setPlayerMute:IndexMute]; }
+    
+    
+#if 0
 	[self.networking sendOSCMsgWithIntValue:"/minc/accX\0\0":12:FLOAT_TO_MRMR_INT(x)];
 	[self.networking sendOSCMsgWithIntValue:"/minc/accY\0\0":12:FLOAT_TO_MRMR_INT(y)];
 	[self.networking sendOSCMsgWithIntValue:"/minc/accZ\0\0":12:FLOAT_TO_MRMR_INT(z)];
+#endif
     
+#if 0
     x = (x + 1.0) / 2.;
     y = (y + 1.0) / 2.;
-
+    
     if (gFirstView != nil)
     {
         [gFirstView sendOSC_Filter:x];
@@ -396,13 +464,16 @@ extern MInC_FirstView *gFirstView;
         [gAQP->Sequencer_Pri setAmp_Accel:amp];
 //        NSLog(@"amplitude %f",y);
     }
+#endif
 
 #if 0
 	// AMPLITUDE
 	// if z is 0 to 0.6 then it is right side up, otherwise it is flipped -> should drop out
-    if (gAQP->Sequencer_Pri != nil)
-        gAQP->Sequencer_Pri.AmpMultiplier_Accel = (z > 0.6)? 0. : 0.5;
-
+    if (player != nil)
+        player.Sequencer.AmpMultiplier_Accel = (z > 0.6)? 0. : 1.0;
+#endif
+    
+#if 0
 	// TEMPO
     if (gAQP->Sequencer_Pri != nil)
     {

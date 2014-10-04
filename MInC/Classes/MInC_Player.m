@@ -13,6 +13,12 @@
 @synthesize Missing;
 @synthesize SeqPos_Cur;
 @synthesize SeqPos_Next;
+@synthesize SeqSpeed_Cur;
+@synthesize SeqSpeed_Next;
+@synthesize SeqOctave_Cur;
+@synthesize SeqOctave_Next;
+@synthesize SeqMute_Cur;
+@synthesize SeqMute_Next;
 @synthesize Sequencer;
 @synthesize BLITSaw;
 @synthesize BiQuad;
@@ -24,6 +30,12 @@
     Missing = NO;
     SeqPos_Cur = 0;
     SeqPos_Next = 0;
+    SeqSpeed_Cur = 0;
+    SeqSpeed_Next = 0;
+    SeqOctave_Cur = 0;
+    SeqOctave_Next = 0;
+    SeqMute_Cur = 0;
+    SeqMute_Next = 0;
     Sequencer = nil;
     BLITSaw = nil;
     BiQuad = nil;
@@ -38,6 +50,12 @@
     Missing = NO;
     SeqPos_Cur = 0;
     SeqPos_Next = 0;
+    SeqSpeed_Cur = 0;
+    SeqSpeed_Next = 0;
+    SeqOctave_Cur = 0;
+    SeqOctave_Next = 0;
+    SeqMute_Cur = 0;
+    SeqMute_Next = 0;
     Sequencer = _sequencer;
     BLITSaw = nil;
     BiQuad = nil;
