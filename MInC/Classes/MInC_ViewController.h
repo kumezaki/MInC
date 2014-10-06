@@ -18,7 +18,20 @@
 
 #define FLOAT_TO_MRMR_INT(v) (SInt32)(v * 1000. + (v < 0 ? -0.5 : 0.5))
 
-@interface MInC_ViewController : UIViewController <UIAccelerometerDelegate,UIPickerViewDelegate> {
+@interface MInC_URL : NSObject<NSURLConnectionDelegate> {
+    NSMutableData*      Data;
+    NSURLConnection*    Conn;
+}
+@end
+
+@interface MInC_URL_PlayerList : MInC_URL
+@end
+
+@interface MInC_URL_SetPlayerParam : MInC_URL { const char* ParamName; }
+-(void)setParam:(const char*)param_name withValue:(SInt16)val;
+@end
+
+@interface MInC_ViewController : UIViewController <UIAccelerometerDelegate,UIPickerViewDelegate,NSURLConnectionDelegate> {
     
     IBOutlet UIImageView* viewA;
     IBOutlet UIImageView* viewB;
@@ -31,8 +44,15 @@
     SInt16 PrevY;
     SInt16 PrevZ;
     SInt16 IndexTempo;
-    SInt16 IndexSpeed;
+    SInt16 IndexOctave;
     SInt16 IndexMute;
+
+    MInC_URL_PlayerList*        URL_PlayerList;
+    MInC_URL_SetPlayerParam*    URL_SetPlayerPos;
+    MInC_URL_SetPlayerParam*    URL_SetPlayerSpeed;
+    MInC_URL_SetPlayerParam*    URL_SetPlayerOctave;
+    MInC_URL_SetPlayerParam*    URL_SetPlayerMute;
+    MInC_URL_SetPlayerParam*    URL_SetPlayerLike;
 }
 
 #if MINC_NETWORK_LOCAL

@@ -31,7 +31,7 @@ extern MInC_AQPlayer *gAQP;
     NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
 //    NSLog(@"%@",content);
     NSArray* elems = [content componentsSeparatedByString:@"\n"];
-    NSLog(@"count %lu",(unsigned long)[elems count]);
+//    NSLog(@"count %lu",(unsigned long)[elems count]);
 
     /* convert text in file to note numbers and durations */
     Float64 note_nums[kMaxNumNotes];
@@ -40,16 +40,16 @@ extern MInC_AQPlayer *gAQP;
     SInt16 seq_num = 0;
     for (NSString* s in elems)
     {
-        NSLog(@"%@",s);
+//        NSLog(@"%@",s);
         NSArray* line = [s componentsSeparatedByString:@" "];
-        NSLog(@"%lu",(unsigned long)line.count);
+//        NSLog(@"%lu",(unsigned long)line.count);
         if (line.count == 1)
         {
             if (seq_num != 0)
             {
                 /* create new sequence with note numbers and durations and assign to primary sequencer */
-                for (SInt16 i = 0; i < count; i++)
-                    NSLog(@"%0.3f %0.3f",note_nums[i],note_durs[i]);
+//                for (SInt16 i = 0; i < count; i++)
+//                    NSLog(@"%0.3f %0.3f",note_nums[i],note_durs[i]);
                 MInC_Sequence* seq = [[MInC_Sequence alloc] init];
                 [seq assignNotes:count :note_nums :note_durs];
                 [gAQP setSequence:(seq_num-1) :seq];

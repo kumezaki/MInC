@@ -10,6 +10,8 @@
 		1D3623260D0F684500981E51 /* MInC_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MInC_AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		21044F4119E1AEBC001E36C7 /* very-basic-like-outline-icon_white_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 21044F4019E1AEBC001E36C7 /* very-basic-like-outline-icon_white_40x40.png */; };
+		21044F4319E1B0AA001E36C7 /* very-basic-like-outline-icon_red_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 21044F4219E1B0AA001E36C7 /* very-basic-like-outline-icon_red_40x40.png */; };
 		210F8F1517EF26F7004254E5 /* MInC_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 210F8F1417EF26F7004254E5 /* MInC_Constants.m */; };
 		21184588189DE04C00A42B25 /* MInC_FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21184587189DE04C00A42B25 /* MInC_FirstView.xib */; };
 		211AB3D511B8098D00B41C09 /* MInC_ADSR.m in Sources */ = {isa = PBXBuildFile; fileRef = 211AB3C711B8098D00B41C09 /* MInC_ADSR.m */; };
@@ -59,6 +61,8 @@
 		1D3623250D0F684500981E51 /* MInC_AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MInC_AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1D6058910D05DD3D006BFB54 /* MInC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MInC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		21044F4019E1AEBC001E36C7 /* very-basic-like-outline-icon_white_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "very-basic-like-outline-icon_white_40x40.png"; sourceTree = "<group>"; };
+		21044F4219E1B0AA001E36C7 /* very-basic-like-outline-icon_red_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "very-basic-like-outline-icon_red_40x40.png"; sourceTree = "<group>"; };
 		210F8F1317EF26F7004254E5 /* MInC_Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_Constants.h; sourceTree = "<group>"; };
 		210F8F1417EF26F7004254E5 /* MInC_Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_Constants.m; sourceTree = "<group>"; };
 		21184587189DE04C00A42B25 /* MInC_FirstView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MInC_FirstView.xib; sourceTree = "<group>"; };
@@ -123,8 +127,8 @@
 		21DD73E6198028EC007515EE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MInC/Images.xcassets; sourceTree = "<group>"; };
 		272862F117C675C80079A969 /* MInC_BLITSaw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_BLITSaw.m; sourceTree = "<group>"; };
 		272862F317C675C80079A969 /* MInC_BLITSaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_BLITSaw.h; sourceTree = "<group>"; };
-		28216C950DB411BC00E5133A /* MInC_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_ViewController.h; sourceTree = "<group>"; };
-		28216C960DB411BC00E5133A /* MInC_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_ViewController.m; sourceTree = "<group>"; };
+		28216C950DB411BC00E5133A /* MInC_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MInC_ViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		28216C960DB411BC00E5133A /* MInC_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MInC_ViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		282CCBFD0DB6C98000C4EA27 /* MInC_SecondView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MInC_SecondView.xib; sourceTree = "<group>"; };
 		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD73870D9D96C1002E5188 /* MInC_MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MInC_MainWindow.xib; sourceTree = "<group>"; };
@@ -255,6 +259,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				21044F4019E1AEBC001E36C7 /* very-basic-like-outline-icon_white_40x40.png */,
+				21044F4219E1B0AA001E36C7 /* very-basic-like-outline-icon_red_40x40.png */,
 				21DD73E6198028EC007515EE /* Images.xcassets */,
 				217745801933B1800037826C /* MInC Stick Figure_Cell_We.png */,
 				2177457E1933A8EA0037826C /* MInC Stick Figure_Cell_Me.png */,
@@ -341,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21044F4319E1B0AA001E36C7 /* very-basic-like-outline-icon_red_40x40.png in Resources */,
 				21AD0B08192FFFE70077EC91 /* gradient background.png in Resources */,
 				28AD73880D9D96C1002E5188 /* MInC_MainWindow.xib in Resources */,
 				21D50A271989297F00C3030D /* MInCAppIcon_WhiteM_01_InApp_0.png in Resources */,
@@ -352,6 +359,7 @@
 				21D50A281989297F00C3030D /* MInCAppIcon_WhiteM_01_InApp_1.png in Resources */,
 				21184588189DE04C00A42B25 /* MInC_FirstView.xib in Resources */,
 				2177457F1933A8EA0037826C /* MInC Stick Figure_Cell_Me.png in Resources */,
+				21044F4119E1AEBC001E36C7 /* very-basic-like-outline-icon_white_40x40.png in Resources */,
 				2132859A19C731EA00AD8DE4 /* MInCAppIcon_WhiteM_01_640x640.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

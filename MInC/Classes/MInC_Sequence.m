@@ -49,7 +49,7 @@
 //		Notes[i].Freq = notes[i] < 0 ? 0. : [MInC_Note mtof:notes[i]]; // note number of -1 means rest
         Notes[i].MIDINote = notes[i]; // note number of -1 means rest
 		Notes[i].Duration = durations[i];
-        NSLog(@"%f %f",Notes[i].MIDINote,Notes[i].Duration);
+//        NSLog(@"%f %f",Notes[i].MIDINote,Notes[i].Duration);
 	}
 }
 

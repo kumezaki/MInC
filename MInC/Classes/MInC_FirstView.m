@@ -115,13 +115,16 @@ MInC_FirstView *gFirstView = nil;
 	{
         MInC_Player* player = gAQP.PlayerDictionary[PLAYER_ID_STR(gAQP.PlayerID)];
         
-        player.SeqPos_Next = player.SeqPos_Cur + 1;
+        if (player.SeqPos_Cur < gAQP.Sequences.count)
+        {
+            player.SeqPos_Next = player.SeqPos_Cur + 1;
 
-		[gAQP setSequence:(SInt32)player.SeqPos_Next];
-        
-        [gViewController setPlayerPos:(SInt32)player.SeqPos_Next];
-        
-        NewMod = YES;
+            [gAQP setSequence:(SInt32)player.SeqPos_Next];
+            
+            [gViewController setPlayerPos:(SInt32)player.SeqPos_Next];
+            
+            NewMod = YES;
+        }
 	}
 
 //    NSLog(@"WithServer %s",WithServer?"ON":"OFF");

@@ -112,6 +112,8 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 	Sequences = [[NSMutableArray alloc] init];
 
+    PlayerID = -1;
+    
     PlayerDictionary = [[NSMutableDictionary alloc] init];
     
     [self parseFile];
@@ -202,27 +204,33 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 
 -(void) setSequence:(SInt32)seq_num
 {
-    MInC_Player* player = PlayerDictionary[PLAYER_ID_STR(PlayerID)];
+    if (seq_num < 0 && seq_num > Sequences.count)
+    {
+        NSLog(@"seq_num %d out of range",(int)seq_num);
+        return;
+    }
 
+    MInC_Player* player = PlayerDictionary[PLAYER_ID_STR(PlayerID)];
+    
     if (player.SeqPos_Cur != seq_num)
     {
         MInC_Sequence* seq = Sequences[seq_num - 1];
         
         if (seq != nil)
         {
-            player.SeqPos_Cur = seq_num;
+            player.SeqPos_Cur = player.SeqPos_Next = seq_num;
             
             [player.Sequencer setNextSequence:Sequences[player.SeqPos_Cur-1]];
 
             [gFirstView setRelativePos:(AvgSeqPos - player.SeqPos_Cur)];
         }
-        else
-            NSLog(@"seq_num %d out of range",(int)seq_num);
     }
 }
 
 -(void) setSequence:(SInt32)seq_pos :(MInC_Sequence*)seq
 {
+//    NSLog(@"inserting sequence at pos: %d",(int)seq_pos);
+    
     if (seq_pos >= 0)
         [Sequences insertObject:seq atIndex:seq_pos];
 }
@@ -256,6 +264,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
         player.SeqSpeed_Next = [player_info[2] integerValue];
         player.SeqOctave_Next = [player_info[3] integerValue];
         player.SeqMute_Next = [player_info[4] integerValue];
+        player.Like = [player_info[5] integerValue];
     }
     
     for (NSString* key in PlayerDictionary)
@@ -302,12 +311,14 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
                 sequencer.AmpMultiplier_Accel = player.SeqMute_Cur == 1 ? 0. : 1.0;
             }
         }
-        NSLog(@"player %@ pos=%ld speed=%f octave=%f mute=%f",
+        
+        NSLog(@"player %@ pos=%ld speed=%f octave=%f mute=%f like=%ld",
               key,
               (long)player.SeqPos_Cur,
               sequencer.TempoMultiplier_Control,
               sequencer.TransposeValue_Control,
-              sequencer.AmpMultiplier_Accel);
+              sequencer.AmpMultiplier_Accel,
+              (long)player.Like);
     }
 }
 
@@ -320,7 +331,7 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
 {
     AvgSeqPos = [num intValue];
 
-    MInC_Player* player = gAQP.PlayerDictionary[PLAYER_ID_STR(gAQP.PlayerID)];
+    MInC_Player* player = gAQP.PlayerDictionary[PLAYER_ID_STR(PlayerID)];
 
     [gFirstView setRelativePos:(AvgSeqPos - player.SeqPos_Cur)];
 }

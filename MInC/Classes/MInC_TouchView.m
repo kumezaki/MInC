@@ -14,6 +14,9 @@ extern MInC_AQPlayer *gAQP;
 #import "MInC_FirstView.h"
 extern MInC_FirstView *gFirstView;
 
+#import "MInC_ViewController.h"
+extern MInC_ViewController *gViewController;
+
 #import "MInC_Player.h"
 
 #define DIAGONAL(x,y) sqrt(((x) * (x)) + ((y) * (y)))
@@ -48,14 +51,16 @@ extern MInC_FirstView *gFirstView;
 
     const unsigned long num_players = gAQP.PlayerDictionary.count;
     const unsigned long num_seqs = gAQP.Sequences.count;
-    const Float64 x_delta = self.superview.bounds.size.width / num_players;
+//    NSLog(@"num_seqs: %ld",num_seqs);
+    const Float64 x_delta = ceil(self.superview.bounds.size.width / num_players);
     const Float64 x_start = x_delta * (num_players / 2);
     const Float64 status_bar_height= 20.; /* for iOS 6 this value should be 0. */
-    const Float64 y_bottom = self.superview.bounds.size.height-status_bar_height;
-    NSLog(@"%f %f",self.superview.bounds.size.width,self.superview.bounds.size.height);
+    const Float64 like_bar_height= 40.; /* for iOS 6 this value should be 0. */
+    const Float64 y_bottom = self.superview.bounds.size.height-status_bar_height-like_bar_height;
+//    NSLog(@"%f %f",self.superview.bounds.size.width,self.superview.bounds.size.height);
 
     NSArray* keys = [gAQP.PlayerDictionary allKeys];
-    for (int i = 0; i < keys.count; i++) NSLog(@"before sort %@",keys[i]);
+//    for (int i = 0; i < keys.count; i++) NSLog(@"before sort %@",keys[i]);
     keys = [[gAQP.PlayerDictionary allKeys] sortedArrayUsingComparator:^(id obj1, id obj2)
         {
             /* ensure that "this" player is the first element */
@@ -72,7 +77,12 @@ extern MInC_FirstView *gFirstView;
             return NSOrderedSame;
         }
     ];
-    for (int i = 0; i < keys.count; i++) NSLog(@"after sort %@",keys[i]);
+//    for (int i = 0; i < keys.count; i++) NSLog(@"after sort %@",keys[i]);
+    
+    if (num_players > 0)
+    {
+        LikeButton.hidden = NO;
+    }
     
     int i = 0;
     while (i < keys.count)
@@ -84,20 +94,50 @@ extern MInC_FirstView *gFirstView;
         int sign = i % 2;
         Float64 x = (sign == 0 ? offset : -offset) * x_delta + x_start;
         
+        /* sequence */
         float h = (float)player.SeqPos_Cur / num_seqs * y_bottom;
-        
         UIColor *rectColor = this_player ? [UIColor whiteColor] : [UIColor darkGrayColor];
+        if (player.SeqPos_Cur == num_seqs)
+            rectColor = this_player ? [UIColor colorWithRed:1. green:0. blue:0. alpha:0.5] : [UIColor colorWithRed:0.5 green:0. blue:0. alpha:0.5];
+        rectColor = player.SeqMute_Cur == 0 ? rectColor : [UIColor colorWithRed:0. green:0. blue:0. alpha:0.];
         [rectColor set];
-        
         UIRectFill(CGRectMake(x, y_bottom-h, x_delta, h));
+
+        /* like */
+        rectColor = player.Like ? [UIColor colorWithRed:0.5 green:0. blue:0. alpha:1.] : [UIColor colorWithRed:0.6 green:0.5 blue:0.5 alpha:1.];
+        [rectColor set];
+        UIRectFill(CGRectMake(x, y_bottom, x_delta, like_bar_height));
         
         Float64 pan = (x + (x_delta / 2)) / self.superview.bounds.size.width;
-        NSLog(@"%@ Pan %f",keys[i],pan);
+//        NSLog(@"%@ Pan %f",keys[i],pan);
         [player setPan:pan];
 
         i++;
     }
 
+    if (num_players > 0)
+    {
+        MInC_Player* player = gAQP.PlayerDictionary[PLAYER_ID_STR(gAQP.PlayerID)];
+        SInt16 max_speed = 2;
+        SInt16 num_speed_vals = (max_speed<<1) + 1;
+        SInt16 max_octave = 3;
+        SInt16 num_octave_vals = (max_octave<<1) + 1;
+        Float64 x = ((Float64)player.SeqSpeed_Cur + max_speed) / num_speed_vals * self.superview.bounds.size.width;
+        Float64 y = ((Float64)max_octave - player.SeqOctave_Cur) / num_octave_vals * y_bottom;
+        Float64 w = (Float64)self.superview.bounds.size.width / num_speed_vals;
+        Float64 h = (Float64)y_bottom / num_octave_vals;
+        [[UIColor colorWithRed:1. green:0.2 blue:0.2 alpha:0.3] set];
+//        UIRectFrame(CGRectMake(x, y_bottom-h, x_delta, h));
+        [[UIColor colorWithRed:1. green:0.2 blue:0.2 alpha:0.5] set];
+        UIRectFrame(CGRectMake(x, y, w, h));
+
+        [[UIColor colorWithRed:1. green:0. blue:0. alpha:1.] set];
+        UIRectFill(CGRectMake(0, 0, self.superview.bounds.size.width, 1.));
+        
+        [[UIColor colorWithRed:1. green:0. blue:0. alpha:1.] set];
+        UIRectFill(CGRectMake(0, y_bottom, self.superview.bounds.size.width, 1.));
+    }
+    
 #if 0 /* one rect per touch */
 	UIRectFill(CGRectMake(X[0]-5., Y[0]-5., 10.0, 10.0));
 	UIRectFill(CGRectMake(X[1]-5., Y[1]-5., 10.0, 10.0));
@@ -300,5 +340,15 @@ extern MInC_FirstView *gFirstView;
 		q->DurMultiplier = dur;
 	}
 #endif
+
+-(IBAction)doLike
+{
+    MInC_Player* player = gAQP.PlayerDictionary[PLAYER_ID_STR(gAQP.PlayerID)];
+    player.Like = !player.Like;
+    [gViewController setPlayerLike:player.Like];
+    LikeButton.selected = player.Like;
+    [self setNeedsDisplay];
+    NSLog(@"doLike %s",player.Like?"YES":"NO");
+}
 
 @end

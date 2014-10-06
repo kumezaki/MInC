@@ -27,9 +27,24 @@
                             <rect key="frame" x="260" y="488" width="60" height="60"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         </imageView>
+                        <button hidden="YES" autoresizesSubviews="NO" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JZy-ht-dTm" userLabel="Like Button">
+                            <rect key="frame" x="0.0" y="508" width="320" height="40"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <state key="normal" image="very-basic-like-outline-icon_white_40x40.png">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" image="very-basic-like-outline-icon_white_40x40.png"/>
+                            <connections>
+                                <action selector="doLike" destination="4" eventType="touchUpInside" id="AGA-40-GKH"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="insetFor6xAndEarlier" minX="0.0" minY="0.0" maxX="0.0" maxY="20"/>
+                    <connections>
+                        <outlet property="LikeButton" destination="JZy-ht-dTm" id="Ry3-Yc-nh5"/>
+                    </connections>
                 </view>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="GS5-tk-vQW">
                     <rect key="frame" x="141" y="270" width="37" height="37"/>
@@ -51,5 +66,6 @@
         <image name="MInCAppIcon_WhiteM_01_640x640.png" width="640" height="640"/>
         <image name="MInCAppIcon_WhiteM_01_InApp_0.png" width="120" height="120"/>
         <image name="MInCAppIcon_WhiteM_01_InApp_1.png" width="120" height="120"/>
+        <image name="very-basic-like-outline-icon_white_40x40.png" width="40" height="40"/>
     </resources>
 </document>

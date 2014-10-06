@@ -51,7 +51,7 @@
 
 -(Float64) getFreqWithTransposition
 {
-    return MIDINote < 0 ? 0. : [MInC_Note mtof:(MIDINote+TransposeValue_Instr+TransposeValue_Control)]; // note number of -1 means rest
+    return MIDINote <= 0 ? 0. : [MInC_Note mtof:(MIDINote+TransposeValue_Instr+TransposeValue_Control)]; // note number of 0 or less means rest
 }
 
 -(void)	on:(MInC_WaveFormTable*)wavetable :(MInC_Envelope*)env;

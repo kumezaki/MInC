@@ -22,9 +22,13 @@
     UIView*     AnimationView;
 
     NSMutableArray*    PlayerPosArray;
+    
+    IBOutlet UIButton*  LikeButton;
 }
 
 -(void)processTouch:(NSSet *)touches;
 -(void)updateCoordinates:(SInt32)a_index :(SInt32)b_index;
+
+-(IBAction)doLike;
 
 @end

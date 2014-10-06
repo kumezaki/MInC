@@ -19,6 +19,7 @@
 @synthesize SeqOctave_Next;
 @synthesize SeqMute_Cur;
 @synthesize SeqMute_Next;
+@synthesize Like;
 @synthesize Sequencer;
 @synthesize BLITSaw;
 @synthesize BiQuad;
@@ -36,6 +37,7 @@
     SeqOctave_Next = 0;
     SeqMute_Cur = 0;
     SeqMute_Next = 0;
+    Like = NO;
     Sequencer = nil;
     BLITSaw = nil;
     BiQuad = nil;
@@ -56,6 +58,7 @@
     SeqOctave_Next = 0;
     SeqMute_Cur = 0;
     SeqMute_Next = 0;
+    Like = NO;
     Sequencer = _sequencer;
     BLITSaw = nil;
     BiQuad = nil;
@@ -69,7 +72,7 @@
 {
     PanL = cos(pan * M_PI_2);
     PanR = sin(pan * M_PI_2);
-    NSLog(@"%f-%f",PanL,PanR);
+//    NSLog(@"%f-%f",PanL,PanR);
 }
 
 @end

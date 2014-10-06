@@ -33,6 +33,8 @@
 @property (readwrite) NSInteger SeqMute_Cur;
 @property (readwrite) NSInteger SeqMute_Next;
 
+@property (readwrite) BOOL      Like;
+
 @property (nonatomic,retain) MInC_Sequencer* Sequencer;
 
 @property (nonatomic,retain) MInC_BLITSaw*  BLITSaw;
