@@ -117,6 +117,8 @@ extern MInC_ViewController *gViewController;
 
     if (num_players > 0)
     {
+#if 0
+        // current speed and octave rect frame
         MInC_Player* player = gAQP.PlayerDictionary[PLAYER_ID_STR(gAQP.PlayerID)];
         SInt16 max_speed = 2;
         SInt16 num_speed_vals = (max_speed<<1) + 1;
@@ -130,7 +132,8 @@ extern MInC_ViewController *gViewController;
 //        UIRectFrame(CGRectMake(x, y_bottom-h, x_delta, h));
         [[UIColor colorWithRed:1. green:0.2 blue:0.2 alpha:0.5] set];
         UIRectFrame(CGRectMake(x, y, w, h));
-
+#endif
+        
         [[UIColor colorWithRed:1. green:0. blue:0. alpha:1.] set];
         UIRectFill(CGRectMake(0, 0, self.superview.bounds.size.width, 1.));
         

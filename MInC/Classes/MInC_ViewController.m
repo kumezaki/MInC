@@ -368,6 +368,12 @@ extern MInC_FirstView *gFirstView;
 
 #if MINC_ACCELLEROMETER
 
+#define MINC_ACCELLEROMETER_XY 0
+#define MINC_ACCELLEROMETER_AMPLITUDE 0
+#define MINC_ACCELLEROMETER_TEMPO 0
+#define MINC_ACCELLEROMETER_FREQ_AMP 0
+#define MINC_ACCELLEROMETER_OSC_SEND 0
+
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
 #if 0
@@ -377,9 +383,11 @@ extern MInC_FirstView *gFirstView;
     MInC_Player* player = gAQP.PlayerDictionary[PLAYER_ID_STR(gAQP.PlayerID)];
 
 #define LIMIT_ACC_VAL(n)	n < -1. ? -1. : n > 1. ? 1. : n
-    
+
+#if MINC_ACCELLEROMETER_XY
 	Float64 x = LIMIT_ACC_VAL(acceleration.x);
 	Float64 y = LIMIT_ACC_VAL(acceleration.y);
+#endif
 	Float64 z = LIMIT_ACC_VAL(acceleration.z);
 
 //    NSLog(@"%f",y);
@@ -389,17 +397,21 @@ extern MInC_FirstView *gFirstView;
 
     if (IndexMute == 0)
     {
+#if MINC_ACCELLEROMETER_XY
+        // X
         changed = NO;
         if (x < -0.6) { if (PrevX != -1 && IndexTempo > -2) { NSLog(@"slow triggered"); IndexTempo--; changed = YES; } PrevX = -1; }
         else if (x > 0.6) { if (PrevX != 1 && IndexTempo < 2) { NSLog(@"fast triggered"); IndexTempo++; changed = YES; } PrevX = 1; }
         else { PrevX = 0; }
         if (changed) { player.SeqSpeed_Cur = player.SeqSpeed_Next = IndexTempo; player.Sequencer.TempoMultiplier_Control = pow(2.0,IndexTempo); [self setPlayerSpeed:IndexTempo]; }
-        
+
+        // Y
         changed = NO;
-        if (y < -0.9) { if (PrevY != -1 && IndexOctave > -3) { NSLog(@"lower triggered y=%f",y); IndexOctave--; changed = YES; } PrevY = -1; }
+        if (y < -0.85) { if (PrevY != -1 && IndexOctave > -3) { NSLog(@"lower triggered y=%f",y); IndexOctave--; changed = YES; } PrevY = -1; }
         else if (y > 0.05) { if (PrevY != 1 && IndexOctave < 3) { NSLog(@"higher triggered y=%f",y); IndexOctave++; changed = YES; } PrevY = 1; }
         else { PrevY = 0; }
         if (changed) { player.SeqOctave_Cur = player.SeqOctave_Next = IndexOctave; player.Sequencer.TransposeValue_Control = IndexOctave * 12; [self setPlayerOctave:IndexOctave]; }
+#endif
     }
     
     changed = NO;
@@ -408,13 +420,13 @@ extern MInC_FirstView *gFirstView;
     if (changed) { player.SeqMute_Cur = player.SeqMute_Next = IndexMute; player.Sequencer.AmpMultiplier_Accel = IndexMute == 1 ? 0. : 1.0; [self setPlayerMute:IndexMute]; }
     
     
-#if 0
+#if MINC_ACCELLEROMETER_OSC_SEND
 	[self.networking sendOSCMsgWithIntValue:"/minc/accX\0\0":12:FLOAT_TO_MRMR_INT(x)];
 	[self.networking sendOSCMsgWithIntValue:"/minc/accY\0\0":12:FLOAT_TO_MRMR_INT(y)];
 	[self.networking sendOSCMsgWithIntValue:"/minc/accZ\0\0":12:FLOAT_TO_MRMR_INT(z)];
 #endif
     
-#if 0
+#if MINC_ACCELLEROMETER_FREQ_AMP
     x = (x + 1.0) / 2.;
     y = (y + 1.0) / 2.;
     
@@ -432,14 +444,14 @@ extern MInC_FirstView *gFirstView;
     }
 #endif
 
-#if 0
-	// AMPLITUDE
+#if MINC_ACCELLEROMETER_AMPLITUDE
+	// AMPLITUDE (is this obsolete given the similar code above?
 	// if z is 0 to 0.6 then it is right side up, otherwise it is flipped -> should drop out
     if (player != nil)
         player.Sequencer.AmpMultiplier_Accel = (z > 0.6)? 0. : 1.0;
 #endif
     
-#if 0
+#if MINC_ACCELLEROMETER_TEMPO
 	// TEMPO
     if (gAQP->Sequencer_Pri != nil)
     {
@@ -458,7 +470,9 @@ extern MInC_FirstView *gFirstView;
 	NSLog(@"%f %f",x,tempo_mult);
 #endif
     
+#if 0
     [gFirstView.TouchView setNeedsDisplay];
+#endif
 }
 
 #endif
