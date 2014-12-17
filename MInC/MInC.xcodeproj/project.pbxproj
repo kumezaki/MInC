@@ -22,6 +22,7 @@
 		211AB3DA11B8098D00B41C09 /* MInC_TouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211AB3D211B8098D00B41C09 /* MInC_TouchView.m */; };
 		211AB3DB11B8098D00B41C09 /* MInC_WaveFormTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 211AB3D411B8098D00B41C09 /* MInC_WaveFormTable.m */; };
 		21272BC8189AEFB9007F9186 /* MInC_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21272BC7189AEFB9007F9186 /* MInC_ImageView.m */; };
+		212C393D1A410C13002E3F71 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212C393C1A410C13002E3F71 /* AVFoundation.framework */; };
 		2132859A19C731EA00AD8DE4 /* MInCAppIcon_WhiteM_01_640x640.png in Resources */ = {isa = PBXBuildFile; fileRef = 2132859919C731E900AD8DE4 /* MInCAppIcon_WhiteM_01_640x640.png */; };
 		213C2FA817EDD72A0024A847 /* MInC_NetworkMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C2FA717EDD72A0024A847 /* MInC_NetworkMessages.m */; };
 		214CCDF217EC850400CD9CAA /* MInC_FirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 214CCDF117EC850400CD9CAA /* MInC_FirstView.m */; };
@@ -84,6 +85,7 @@
 		21272BC6189AEFB9007F9186 /* MInC_ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_ImageView.h; sourceTree = "<group>"; };
 		21272BC7189AEFB9007F9186 /* MInC_ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_ImageView.m; sourceTree = "<group>"; };
 		212888C611D96E5600A2EB6B /* MInC_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_Prefix.pch; sourceTree = "<group>"; };
+		212C393C1A410C13002E3F71 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2132859919C731E900AD8DE4 /* MInCAppIcon_WhiteM_01_640x640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MInCAppIcon_WhiteM_01_640x640.png; path = Logos/MInCAppIcon_WhiteM_01_640x640.png; sourceTree = "<group>"; };
 		213C2FA617EDD72A0024A847 /* MInC_NetworkMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInC_NetworkMessages.h; sourceTree = "<group>"; };
 		213C2FA717EDD72A0024A847 /* MInC_NetworkMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInC_NetworkMessages.m; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212C393D1A410C13002E3F71 /* AVFoundation.framework in Frameworks */,
 				44E458FB191C05BA004B8782 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -280,6 +283,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				212C393C1A410C13002E3F71 /* AVFoundation.framework */,
 				44E458F9191C0571004B8782 /* AddressBook.framework */,
 				44E458F7191C054C004B8782 /* QuartzCore.framework */,
 				2162021A11B396E000E93E07 /* AudioToolbox.framework */,
@@ -320,6 +324,11 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = K73K4Y6HWZ;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
