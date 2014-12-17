@@ -64,12 +64,13 @@ extern MInC_FirstView *gFirstView;
 
 #pragma mark Synchronous URL
 
-- (void)callHTTPServer:(NSString*)url_str withData:(NSData**)data :(NSURLResponse**)response :(NSError**)error
+- (BOOL)callHTTPServer:(NSString*)url_str withData:(NSData**)data :(NSURLResponse**)response :(NSError**)error
 {
     *data = [NSURLConnection
             sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url_str]]
             returningResponse:response
             error:error];
+    return *error != nil;
 }
 
 - (void)getPlayerID
@@ -490,6 +491,8 @@ extern MInC_FirstView *gFirstView;
 
 -(id)init
 {
+    self = [super init];
+    
     NSString* url_string = [NSString stringWithFormat:@"http://healthyboys.com/MInC/player_list.php?id=%08ld",(long)gAQP.PlayerID];
 
     // Create the request.

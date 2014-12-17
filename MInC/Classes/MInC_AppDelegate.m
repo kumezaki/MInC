@@ -110,7 +110,7 @@ extern MInC_ViewController *gViewController;
 
 -(id)init {
 
-	[super init];
+	self = [super init];
     
     [[MInC_AQPlayer alloc] init];
     

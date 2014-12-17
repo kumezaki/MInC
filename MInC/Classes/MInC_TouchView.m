@@ -59,9 +59,9 @@ extern MInC_ViewController *gViewController;
     const Float64 y_bottom = self.superview.bounds.size.height-status_bar_height-like_bar_height;
 //    NSLog(@"%f %f",self.superview.bounds.size.width,self.superview.bounds.size.height);
 
-    NSArray* keys = [gAQP.PlayerDictionary allKeys];
+//    NSArray* keys = [gAQP.PlayerDictionary allKeys];
 //    for (int i = 0; i < keys.count; i++) NSLog(@"before sort %@",keys[i]);
-    keys = [[gAQP.PlayerDictionary allKeys] sortedArrayUsingComparator:^(id obj1, id obj2)
+    NSArray* keys = [[gAQP.PlayerDictionary allKeys] sortedArrayUsingComparator:^(id obj1, id obj2)
         {
             /* ensure that "this" player is the first element */
             if ([obj1 intValue] == gAQP.PlayerID)

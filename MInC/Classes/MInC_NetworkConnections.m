@@ -33,7 +33,7 @@ extern MInC_FirstView* gFirstView;
 
 - (id)init
 {
-	[super init];
+	self = [super init];
 
     if ([self dataFileExists]) {
         [self readDataFile];
@@ -267,10 +267,10 @@ extern MInC_FirstView* gFirstView;
             ++count;
             NSLog(@"receive packet count: %d",count);
         }
+        
         if (bytesRcvd == 0) {
             [self performSelectorOnMainThread:@selector(tcpParse) withObject:nil waitUntilDone:YES];
             done = YES;
-            break;
         }
     }
     

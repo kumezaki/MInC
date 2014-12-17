@@ -48,7 +48,7 @@ MInC_SecondView *gSecondView = nil;
 
 - (id)init {
 
-	[super init];
+	self = [super init];
 
 #if 0
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

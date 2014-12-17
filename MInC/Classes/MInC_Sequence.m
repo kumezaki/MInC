@@ -18,7 +18,7 @@
 
 -(id)init
 {
-	[super init];
+	self = [super init];
 	
 	for (SInt32 i = 0; i < kMaxNumNotes; i++)
 		Notes[i] = [[MInC_Note alloc] init];

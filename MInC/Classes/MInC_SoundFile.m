@@ -12,7 +12,7 @@
 
 -(id)init
 {
-	[super init];
+	self = [super init];
 	
 	CFURLRef mSoundFileURLRef = CFBundleCopyResourceURL(CFBundleGetMainBundle(),CFSTR("getout"),CFSTR("aif"),NULL);
 	
@@ -49,6 +49,7 @@
 		UInt32 ioNumPackets = kIOBufferSize;
 		SInt64 inStartingPacket = SamplesPlayed;
 		result = AudioFileReadPackets(FileID,NO,&outNumBytes,NULL,inStartingPacket,&ioNumPackets,OutBuffer);
+        if (result != noErr) { NSLog(@"getSample error"); }
 #if 0
 		NSLog(@"AudioFileReadPackets %d %d\n",result,ioNumPackets);
 #endif

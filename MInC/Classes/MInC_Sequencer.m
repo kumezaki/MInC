@@ -29,6 +29,8 @@ extern MInC_ViewController *gViewController;
 
 -(id)init
 {
+    self = [super init];
+    
 	Playing = NO;
     SyncWithServer = NO;
 

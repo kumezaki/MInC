@@ -39,6 +39,8 @@
 
 -(id)init
 {
+    self = [super init];
+    
     b = malloc(sizeof(biquad));
     
     /* zero initial samples */
@@ -157,11 +159,14 @@
     }
     
     /* precompute the coefficients */
-    b->a0 = b0 /a0;
-    b->a1 = b1 /a0;
-    b->a2 = b2 /a0;
-    b->a3 = a1 /a0;
-    b->a4 = a2 /a0;
+    if (b != NULL)
+    {
+        b->a0 = b0 /a0;
+        b->a1 = b1 /a0;
+        b->a2 = b2 /a0;
+        b->a3 = a1 /a0;
+        b->a4 = a2 /a0;
+    }
 }
 
 -(void)processAudioBuffer:(Float64*)buffer :(UInt32)num_frames

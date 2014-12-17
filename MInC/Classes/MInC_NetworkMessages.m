@@ -64,7 +64,7 @@ union {
 
 - (id)init {
 
-    [super init];
+    self = [super init];
 
 //    MInC_SequenceFile* seqFile = [[MInC_SequenceFile alloc] init];
 //    [seqFile readFromFile:@"TCP.dat"];
@@ -276,12 +276,12 @@ union {
 		}
         
         //NSLog(@"msg_type %d", msg_type);
-        const char* msg_type_str = "";
+        //const char* msg_type_str = "";
         switch (msg_type)
         {
-            case 0: msg_type_str = "OSC Address Pattern"; msg_type = 1; break;
-            case 1: msg_type_str = "OSC Type Tags"; msg_type = 2; break;
-            default: msg_type_str = "OSC Data"; break;
+            case 0: /* msg_type_str = "OSC Address Pattern"; */ msg_type = 1; break;
+            case 1: /* msg_type_str = "OSC Type Tags"; */ msg_type = 2; break;
+            default: /* msg_type_str = "OSC Data"; */ break;
         }
 
         //NSLog(@"%s: %s",msg_type_str,self->UDPInBuffer+pos);

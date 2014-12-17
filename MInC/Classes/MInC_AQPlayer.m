@@ -89,22 +89,26 @@ void AQBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef 
     EACH_SEQUENCER_IN_DICTIONARY_METHOD(stop)
     
 	[self stop];
-	
+
+#if 0
 	for (SInt32 i = 0; i < Sequences.count; i++)
 		[Sequences[i] release];
-
+#endif
+    
+#if 0
     EACH_SEQUENCER_IN_DICTIONARY_METHOD(release)
 
     EACH_SYNTH_IN_DICTIONARY_METHOD(release)
 
     EACH_FILTER_IN_DICTIONARY_METHOD(release)
+#endif
     
 	[super dealloc];
 }
 
 - (id)init
 {
-	[super init];
+	self = [super init];
 	
 	gAQP = self;
     
